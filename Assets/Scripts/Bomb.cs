@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    Cutter _cut;
-    bool _dead;
-    [SerializeField] Rigidbody2D _rigidbody;
-    [SerializeField] GameObject _explosionPrefab;
+    [SerializeField] private Rigidbody2D _rigidbody;
+    [SerializeField] private GameObject _explosionPrefab;
+    [SerializeField] private Explosion _explosion;
+    [SerializeField] private CircleCollider2D _collider2D;
 
-    public void SetVelocity(Vector2 value) {
+    private Cutter _cut;
+    private bool _dead;
+
+    public void SetVelocity(Vector2 value) 
+    {
         _rigidbody.velocity = value;
         _rigidbody.AddTorque(Random.Range(-8f,8f));
     }
@@ -28,10 +32,11 @@ public class Bomb : MonoBehaviour
         _dead = true;
     }
 
-    void DoCut() {
+    private void DoCut() 
+    {
         _cut.DoCut();
-        Destroy(gameObject);
+        _explosion.Explode(_collider2D.radius);
         Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
-
 }
