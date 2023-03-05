@@ -95,8 +95,7 @@ GameObject:
   - component: {fileID: 4377492644949252695}
   - component: {fileID: 2396711604644617545}
   - component: {fileID: 5496761963599677277}
-  - component: {fileID: 4263333208642109105}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,20 +219,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &4263333208642109105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5142959671366643639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae23ee77a5c5df1498724dd670ca5368, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _text: {fileID: 5496761963599677277}
-  _worm: {fileID: 8010253848381206769}
 --- !u!1 &5540236459022103399
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +345,7 @@ GameObject:
   - component: {fileID: 5324110585828678461}
   - component: {fileID: 6453207934549682686}
   - component: {fileID: 1806080000149428662}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: WormSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,8 +451,9 @@ GameObject:
   - component: {fileID: 3276770711960612391}
   - component: {fileID: 2302780783049828129}
   - component: {fileID: 1131610999756569650}
-  m_Layer: 6
-  m_Name: Canvas
+  - component: {fileID: 5670862740911846097}
+  m_Layer: 0
+  m_Name: WormInformationCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -556,6 +542,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5670862740911846097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5923870259892953835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae23ee77a5c5df1498724dd670ca5368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 5496761963599677277}
+  _worm: {fileID: 8010253848381206769}
 --- !u!1 &6302678805972818514
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 2716522887637978340}
   - component: {fileID: 8010253848381206769}
   - component: {fileID: 4789554427486272721}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Worm
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -638,7 +638,7 @@ CapsuleCollider2D:
   m_Material: {fileID: 6200000, guid: 20224d714190e75418ace83e65ba50ea, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -680,7 +680,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -707,6 +707,8 @@ MonoBehaviour:
   _jumpSpeed: 5
   _animator: {fileID: 1806080000149428662}
   _wormSprite: {fileID: 5324110585828678461}
+  _wormInformationView: {fileID: 5670862740911846097}
+  _input: {fileID: 4789554427486272721}
 --- !u!114 &4789554427486272721
 MonoBehaviour:
   m_ObjectHideFlags: 0

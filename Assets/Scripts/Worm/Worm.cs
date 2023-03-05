@@ -13,6 +13,8 @@ public class Worm : MonoBehaviour
     [SerializeField] private float _jumpSpeed = 5f;
     [SerializeField] private Animator _animator;
     [SerializeField] private Transform _wormSprite;
+    [SerializeField] private WormInformationView _wormInformationView;
+    [SerializeField] private WormInput _input;
 
     private int _health;
 
@@ -25,6 +27,11 @@ public class Worm : MonoBehaviour
         _health = _maxHealth;
     }
 
+    public void Init(Color color)
+    {
+        _wormInformationView.Init(color);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         _animator.SetBool("Grounded", true);
@@ -33,6 +40,12 @@ public class Worm : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         _animator.SetBool("Grounded", false);
+    }
+
+    public void EnableInput()
+    {
+        _input.enabled = true;
+        gameObject.layer = 6;
     }
 
     public void TryMove(float horizontal)
