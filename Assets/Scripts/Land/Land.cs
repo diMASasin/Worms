@@ -7,10 +7,11 @@ using UnityEngine;
 [ExecuteAlways]
 public class Land : MonoBehaviour
 {
-
     [SerializeField] PolygonCollider2D _collider;
     [SerializeField] MeshFilter _meshFilter;
     [SerializeField] ColliderRenderer _colliderRenderer;
+
+    public PolygonCollider2D PolygonCollider2D => _collider;
 
     public void SetPath(List<List<Point>> paths) {
         _collider.pathCount = paths.Count;
