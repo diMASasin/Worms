@@ -5080,6 +5080,7 @@ MonoBehaviour:
   - {r: 1, g: 0, b: 0.49331045, a: 1}
   _turnDelay: 2.5
   _endScreen: {fileID: 1722209564}
+  _followingCamera: {fileID: 519420033}
 --- !u!4 &246987972
 Transform:
   m_ObjectHideFlags: 0
@@ -5221,6 +5222,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5314,7 +5316,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 13.243817
+  orthographic size: 4.210787
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5345,6 +5347,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4626411c15a94dc4a86aa3c38e0e1077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 0}
+  _speed: 3
+  _game: {fileID: 246987971}
 --- !u!1 &567280978
 GameObject:
   m_ObjectHideFlags: 0
@@ -6101,7 +6118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _land: {fileID: 872543955}
-  _camera: {fileID: 519420031}
+  _followingCamera: {fileID: 0}
   _teamTemplate: {fileID: 8550424651646907382, guid: 14dae05a205d83c4c9a3a1af23738cef, type: 3}
   _wormTemplate: {fileID: 8010253848381206769, guid: 5d44c577df426014ea42a784ad11b1b1, type: 3}
   _container: {fileID: 260160624}

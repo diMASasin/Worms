@@ -18,6 +18,7 @@ public class Worm : MonoBehaviour
     [SerializeField] private Throwing _throwing;
 
     private int _health;
+    private FollowingCamera _followingCamera;
 
     public CapsuleCollider2D Collider2D => _collider;
     public Throwing Throwing => _throwing;
@@ -25,6 +26,18 @@ public class Worm : MonoBehaviour
 
     public event UnityAction<int> HealthChanged;
     public event UnityAction<Worm> Died;
+    public event UnityAction<Bomb> Shot;
+    public event UnityAction<Worm> DamageTook;
+
+    private void OnEnable()
+    {
+        _throwing.Shot += OnShot;
+    }
+
+    private void OnDisable()
+    {
+        _throwing.Shot -= OnShot;
+    }
 
     private void Start()
     {
@@ -77,6 +90,7 @@ public class Worm : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _health -= damage;
+        DamageTook?.Invoke(this);
         HealthChanged?.Invoke(_health);
 
         if (_health <= 0)
@@ -87,5 +101,10 @@ public class Worm : MonoBehaviour
     {
         Died?.Invoke(this);
         Destroy(gameObject);
+    }
+
+    private void OnShot(Bomb bomb)
+    {
+        Shot?.Invoke(bomb);
     }
 }

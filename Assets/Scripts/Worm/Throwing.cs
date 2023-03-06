@@ -15,7 +15,8 @@ public class Throwing : MonoBehaviour
 
     private Vector3 _mouseStart;
 
-    public event UnityAction<Worm> ProjectileExploded;
+    public event UnityAction<Bomb, Worm> ProjectileExploded;
+    public event UnityAction<Bomb> Shot;
 
     private void Start()
     {
@@ -42,6 +43,7 @@ public class Throwing : MonoBehaviour
 
         _renderer.enabled = false;
         Bomb newBomb = Instantiate(_bombPrefab, _spawnPoint.position, Quaternion.identity);
+        Shot?.Invoke(newBomb);
         newBomb.Exploded += OnProjectileExploded;
         newBomb.SetVelocity(velocity);
     }
@@ -49,6 +51,6 @@ public class Throwing : MonoBehaviour
     private void OnProjectileExploded(Bomb bomb)
     {
         bomb.Exploded -= OnProjectileExploded;
-        ProjectileExploded?.Invoke(_worm);
+        ProjectileExploded?.Invoke(bomb, _worm);
     }
 }

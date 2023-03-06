@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Game : MonoBehaviour
 {
@@ -11,10 +12,13 @@ public class Game : MonoBehaviour
     [SerializeField] private List<Color> _teamColors;
     [SerializeField] private float _turnDelay = 2.5f;
     [SerializeField] private GameObject _endScreen;
+    [SerializeField] private FollowingCamera _followingCamera;
 
     private List<Team> _teams = new List<Team>();
     private List<Team> _currentTeams = new List<Team>();
     private int _currentTeamIndex = 0;
+
+    public event UnityAction<List<Team>> WormsSpawned;
 
     private void OnEnable()
     {
@@ -30,9 +34,12 @@ public class Game : MonoBehaviour
     {
         _wormsSpawner.GetEdgesForSpawn();
         _teams = _wormsSpawner.SpawnTeams(_teamsNumber, _wormsNumber, _teamColors);
+        WormsSpawned?.Invoke(_teams);
 
         foreach (var team in _teams)
+        {
             team.Died += OnTeamDied;
+        }
 
         _currentTeams.AddRange(_teams);
 
@@ -45,7 +52,7 @@ public class Game : MonoBehaviour
         worm.Throwing.ProjectileExploded += OnProjectileExploded;
     }
 
-    private void OnProjectileExploded(Worm worm)
+    private void OnProjectileExploded(Bomb bomb, Worm worm)
     {
         worm.WormInput.DisableInput();
         StartNextTurnWithDelay(_turnDelay);

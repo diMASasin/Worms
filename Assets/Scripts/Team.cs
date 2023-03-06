@@ -9,7 +9,10 @@ public class Team : MonoBehaviour
     private Color _color;
     private int _currentWormIndex = 0;
 
+    public IReadOnlyList<Worm> Worms => _worms;
+
     public event UnityAction<Team> Died;
+    public event UnityAction<Worm, Team> TurnStarted;
 
     public void Init(List<Worm> worms, Color color)
     {
@@ -28,7 +31,9 @@ public class Team : MonoBehaviour
         if(_currentWormIndex >= _worms.Count)
             _currentWormIndex = 0;
 
-        _worms[_currentWormIndex].WormInput.EnableInput();
+        Worm currentWorm = _worms[_currentWormIndex];
+        TurnStarted?.Invoke(currentWorm, this);
+        currentWorm.WormInput.EnableInput();
         _currentWormIndex++;
     }
 

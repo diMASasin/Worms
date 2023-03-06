@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class WormsSpawner : MonoBehaviour
 {
     [SerializeField] private Land _land;
-    [SerializeField] private Camera _camera;
+    [SerializeField] private FollowingCamera _followingCamera;
     [SerializeField] private Team _teamTemplate;
     [SerializeField] private Worm _wormTemplate;
     [SerializeField] private Transform _container;
