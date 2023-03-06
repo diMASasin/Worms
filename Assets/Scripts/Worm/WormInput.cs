@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WormInput : MonoBehaviour
 {
     [SerializeField] private Worm _worm;
     [SerializeField] private Throwing _throwing;
+    [SerializeField] private int _defaultLayer = 0;
+    [SerializeField] private int _currentWormLayer = 6;
+    [SerializeField] private Arrow _arrow;
 
     private void Update()
     {
@@ -34,5 +35,18 @@ public class WormInput : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         _worm.TryMove(horizontal);
+    }
+
+    public void EnableInput()
+    {
+        enabled = true;
+        gameObject.layer = _currentWormLayer;
+        _arrow.StartMove(); 
+    }
+
+    public void DisableInput()
+    {
+        enabled = false;
+        gameObject.layer = _defaultLayer;
     }
 }

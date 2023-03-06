@@ -15,21 +15,26 @@ public class Worm : MonoBehaviour
     [SerializeField] private Transform _wormSprite;
     [SerializeField] private WormInformationView _wormInformationView;
     [SerializeField] private WormInput _input;
+    [SerializeField] private Throwing _throwing;
 
     private int _health;
 
-    public event UnityAction<int> HealthChanged;
-
     public CapsuleCollider2D Collider2D => _collider;
+    public Throwing Throwing => _throwing;
+    public WormInput WormInput => _input;
+
+    public event UnityAction<int> HealthChanged;
+    public event UnityAction<Worm> Died;
 
     private void Start()
     {
         _health = _maxHealth;
     }
 
-    public void Init(Color color)
+    public void Init(Color color, string name)
     {
-        _wormInformationView.Init(color);
+        _wormInformationView.Init(color, name);
+        gameObject.name = name;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -40,12 +45,6 @@ public class Worm : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         _animator.SetBool("Grounded", false);
-    }
-
-    public void EnableInput()
-    {
-        _input.enabled = true;
-        gameObject.layer = 6;
     }
 
     public void TryMove(float horizontal)
@@ -84,8 +83,9 @@ public class Worm : MonoBehaviour
             Die();
     }
 
-    private void Die()
+    public void Die()
     {
+        Died?.Invoke(this);
         Destroy(gameObject);
     }
 }

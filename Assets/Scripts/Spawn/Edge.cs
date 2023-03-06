@@ -20,12 +20,13 @@ public class Edge
             !land.PolygonCollider2D.OverlapPoint(new Vector2(_point2.x, _point2.y + 0.1f));
     }
 
-    public bool IsSuitableSlope()
+    public bool IsSuitableSlope(float maxDegrees)
     {
         float kx, ky;
         kx = _point2.y - _point1.y;
         ky = _point2.x - _point1.x;
         kx /= ky;
-        return Mathf.Abs(kx) < 1; //1 = 45 degrees
+
+        return Mathf.Abs(kx) < Mathf.Tan(maxDegrees);
     }
 }

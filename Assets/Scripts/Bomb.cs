@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Bomb : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Bomb : MonoBehaviour
 
     private Cutter _cut;
     private bool _dead;
+
+    public event UnityAction<Bomb> Exploded;
 
     public void SetVelocity(Vector2 value) 
     {
@@ -37,6 +40,7 @@ public class Bomb : MonoBehaviour
         _cut.DoCut();
         _explosion.Explode(_collider2D.radius);
         Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+        Exploded?.Invoke(this);
         Destroy(gameObject);
     }
 }

@@ -28,8 +28,8 @@ public class Explosion : MonoBehaviour
         if (multiplier >= 0.9f)
             multiplier = 1;
 
-        Debug.Log("1 - Distance: " + (1 - (Vector3.Distance(transform.position, 
-            wormCollider.ClosestPoint(transform.position)) - _bombColliderRadius)) + " " + maxDamage * multiplier);
+        //Debug.Log("1 - Distance: " + (1 - (Vector3.Distance(transform.position, 
+            //wormCollider.ClosestPoint(transform.position)) - _bombColliderRadius)) + " " + maxDamage * multiplier);
         return Convert.ToInt32(maxDamage * multiplier);
     }
 

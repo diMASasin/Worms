@@ -5,12 +5,16 @@ using UnityEngine;
 
 public class WormInformationView : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _text;
+    [SerializeField] private TMP_Text _healthText;
+    [SerializeField] private TMP_Text _nameText;
     [SerializeField] private Worm _worm;
 
-    public void Init(Color color)
+    public void Init(Color color, string name)
     {
-        _text.color = color;
+        _healthText.color = color;
+        _nameText.color = color;
+
+        _nameText.text = name;
     }
 
     private void OnEnable()
@@ -25,6 +29,6 @@ public class WormInformationView : MonoBehaviour
 
     private void OnHealthChanged(int health)
     {
-        _text.text = health.ToString();
+        _healthText.text = health.ToString();
     }
 }
