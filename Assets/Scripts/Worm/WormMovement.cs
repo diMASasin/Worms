@@ -7,10 +7,14 @@ public class WormMovement : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     [SerializeField] private Rigidbody2D _rigidbody;
-    [SerializeField] private Transform _sprite;
+    [SerializeField] private Transform _wormArmature;
+    [SerializeField] private Transform _throwing;
     [SerializeField] private GroundChecker _groundChecker;
     [SerializeField] private float _speed;
-    [SerializeField] private float _jumpSpeed;
+    [SerializeField] private float _longJumpForceX = 2;
+    [SerializeField] private float _longJumpForceY = 2;
+    [SerializeField] private float _highJumpForceX = 2;
+    [SerializeField] private float _highJumpForceY = 2;
     [SerializeField] private float _jumpCooldown = 0.5f;
 
     private bool _canJump = true;
@@ -27,9 +31,9 @@ public class WormMovement : MonoBehaviour
 
     public void TryMove(float horizontal)
     {
-        if (horizontal != 0)
+        if (horizontal != 0 && _groundChecker.IsGrounded)
         {
-            _sprite.localScale = new Vector3(-horizontal, 1f, 1f);
+            _wormArmature.transform.right = new Vector3(-horizontal, 0);
             Vector2 velocity = _rigidbody.velocity;
             velocity.x = horizontal * _speed;
             _rigidbody.velocity = velocity;
@@ -38,15 +42,29 @@ public class WormMovement : MonoBehaviour
         IsWalkingChanged?.Invoke(horizontal != 0);
     }
 
-    public void Jump()
+    private bool TryJump()
     {
         if (!_groundChecker.IsGrounded || !_canJump)
-            return;
-
-        _rigidbody.velocity += new Vector2(0, _jumpSpeed);
+            return false;
 
         _canJump = false;
         StartCoroutine(JumpCooldown(_jumpCooldown));
+
+        return true;
+    }
+
+    public void LongJump()
+    {
+        if (!TryJump())
+            return;
+        _rigidbody.velocity += new Vector2(_longJumpForceX * -_wormArmature.transform.right.x, _longJumpForceY);
+    }
+
+    public void HighJump()
+    {
+        if (!TryJump())
+            return;
+        _rigidbody.velocity += new Vector2(_highJumpForceX * _wormArmature.transform.right.x, _highJumpForceY);
     }
 
     private IEnumerator JumpCooldown(float duration)

@@ -18,7 +18,7 @@ public class Bomb : MonoBehaviour
     public void SetVelocity(Vector2 value) 
     {
         _rigidbody.velocity = value;
-        _rigidbody.AddTorque(Random.Range(-8f,8f));
+        //_rigidbody.AddTorque(Random.Range(-8f,8f));
     }
 
     private void Start()

@@ -499,8 +499,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5540236459022103399}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.49999997, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.04315802, z: 1}
+  m_LocalPosition: {x: 0.7889, y: -0, z: 0}
+  m_LocalScale: {x: 1.5778, y: 0.04315802, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5889973344194411241}
@@ -614,12 +614,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5784457460623721975}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.34, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.3399999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2647752163455952768}
+  m_Father: {fileID: 4803428581954887109}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6453207934549682686
@@ -837,7 +837,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6302678805972818514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.284, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -880,8 +880,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3785670986181821579}
-  - {fileID: 5324110585828678461}
+  - {fileID: 4803428581954887109}
   - {fileID: 3236246981893750298}
   - {fileID: 2275630161333388856}
   m_Father: {fileID: 0}
@@ -1003,10 +1002,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 1806080000149428662}
   _rigidbody: {fileID: 2716522887637978340}
-  _sprite: {fileID: 5324110585828678461}
+  _wormArmature: {fileID: 4803428581954887109}
+  _throwing: {fileID: 3785670986181821579}
   _groundChecker: {fileID: 5832659334154097657}
   _speed: 2
-  _jumpSpeed: 5
+  _longJumpForceX: 2
+  _longJumpForceY: 5
+  _highJumpForceX: 1
+  _highJumpForceY: 8
   _jumpCooldown: 1
 --- !u!114 &5832659334154097657
 MonoBehaviour:
@@ -1060,14 +1063,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7526629913437004522}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: -0.0000004172325}
-  m_LocalPosition: {x: -0.049, y: 0.203, z: 0}
+  m_LocalPosition: {x: -0.048999786, y: 0.20299983, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5889973344194411241}
   - {fileID: 2359045698090774970}
   - {fileID: 6924241765626129403}
-  m_Father: {fileID: 2647752163455952768}
+  m_Father: {fileID: 4803428581954887109}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!114 &2294201278590885112
@@ -1084,8 +1087,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _renderer: {fileID: 2269919163393679867}
   _sencetivity: 0.01
+  _scopeSencetivity: 0.7
   _speedMultiplier: 0.03
   _bombPrefab: {fileID: 3348539931435737144, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
   _pointerLine: {fileID: 5889973344194411241}
   _spawnPoint: {fileID: 6924241765626129403}
   _worm: {fileID: 8010253848381206769}
+  _shotPower: 10
+  _maxShotPower: 15
+--- !u!1 &8622327074500003010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4803428581954887109}
+  m_Layer: 0
+  m_Name: WormArmature
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4803428581954887109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8622327074500003010}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3785670986181821579}
+  - {fileID: 5324110585828678461}
+  m_Father: {fileID: 2647752163455952768}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

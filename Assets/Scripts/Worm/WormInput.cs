@@ -14,24 +14,39 @@ public class WormInput : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if(Input.GetKey(KeyCode.W))
         {
-            _throwing.EnablePointerLine();
+            _throwing.RaiseScope();
         }
 
-        if(Input.GetMouseButton(0))
+        if(Input.GetKey(KeyCode.S))
         {
-            _throwing.SetPointerLinePositionAndScale();
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            _throwing.Shoot();
+            _throwing.LowerScope();
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            _wormMovement.Jump();
+            _throwing.EnablePointerLine();
+        }
+
+        if(Input.GetKey(KeyCode.Space))
+        {
+            _throwing.IncreaseShotPower();
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            _throwing.Shoot();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            _wormMovement.LongJump();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            _wormMovement.HighJump();
         }
     }
 
@@ -46,6 +61,7 @@ public class WormInput : MonoBehaviour
         enabled = true;
         gameObject.layer = _currentWormLayer;
         _arrow.StartMove();
+        _throwing.Reset();
         InputEnabled?.Invoke();
     }
 
