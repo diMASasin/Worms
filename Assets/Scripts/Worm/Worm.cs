@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.Sqlite;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,9 +18,9 @@ public class Worm : MonoBehaviour
     [SerializeField] private WormInformationView _wormInformationView;
     [SerializeField] private WormInput _input;
     [SerializeField] private Throwing _throwing;
+    [SerializeField] private bool _showCanSpawnCheckerBox = false;
 
     private int _health;
-    private FollowingCamera _followingCamera;
 
     public CapsuleCollider2D Collider2D => _collider;
     public Throwing Throwing => _throwing;
@@ -26,17 +28,24 @@ public class Worm : MonoBehaviour
 
     public event UnityAction<int> HealthChanged;
     public event UnityAction<Worm> Died;
-    public event UnityAction<Bomb> Shot;
     public event UnityAction<Worm> DamageTook;
 
     private void OnEnable()
     {
-        _throwing.Shot += OnShot;
+        _input.InputEnabled += SetRigidbodyDynamic;
+        _input.InputDisabled += () => StartCoroutine(SetRigidbodyKinematicWhenGrounded());
     }
 
     private void OnDisable()
     {
-        _throwing.Shot -= OnShot;
+        _input.InputEnabled -= SetRigidbodyDynamic;
+        _input.InputDisabled -= () => StartCoroutine(SetRigidbodyKinematicWhenGrounded());
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (_showCanSpawnCheckerBox)
+            Gizmos.DrawSphere((Vector2)transform.position + Collider2D.offset, Collider2D.size.x / 2);
     }
 
     private void Start()
@@ -50,41 +59,29 @@ public class Worm : MonoBehaviour
         gameObject.name = name;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void SetRigidbodyKinematic()
     {
-        _animator.SetBool("Grounded", true);
+        _rigidbody.bodyType = RigidbodyType2D.Kinematic;
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void SetRigidbodyDynamic()
     {
-        _animator.SetBool("Grounded", false);
+        _rigidbody.bodyType = RigidbodyType2D.Dynamic;
     }
 
-    public void TryMove(float horizontal)
+    private IEnumerator SetRigidbodyKinematicWhenGrounded()
     {
-        if (horizontal != 0)
-        {
-            _wormSprite.localScale = new Vector3(-horizontal, 1f, 1f);
-            Vector2 velocity = _rigidbody.velocity;
-            velocity.x = horizontal * _speed;
-            _rigidbody.velocity = velocity;
-            _animator.SetBool("Walk", true);
-        }
-        else
-        {
-            _animator.SetBool("Walk", false);
-        }
-    }
+        while (_rigidbody.velocity.magnitude != 0)
+            yield return null;
 
-    public void Jump()
-    {
-        _rigidbody.velocity += new Vector2(0, _jumpSpeed);
-        _animator.SetBool("Grounded", false);
+        SetRigidbodyKinematic();
     }
 
     public void AddExplosionForce(float explosionForce, Transform transform, float explosionUpwardsModifier)
     {
+        SetRigidbodyDynamic();
         _rigidbody.AddExplosionForce(explosionForce, transform.position, explosionUpwardsModifier);
+        StartCoroutine(SetRigidbodyKinematicWhenGrounded());
     }
 
     public void TakeDamage(int damage)
@@ -101,10 +98,5 @@ public class Worm : MonoBehaviour
     {
         Died?.Invoke(this);
         Destroy(gameObject);
-    }
-
-    private void OnShot(Bomb bomb)
-    {
-        Shot?.Invoke(bomb);
     }
 }

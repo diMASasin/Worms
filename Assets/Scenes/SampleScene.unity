@@ -5070,8 +5070,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e3a26cb9bbea348acefb500d0e516c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _teamsNumber: 2
-  _wormsNumber: 4
+  _teamsNumber: 4
+  _wormsNumber: 8
   _wormsSpawner: {fileID: 1422226334}
   _teamColors:
   - {r: 0, g: 0.6877341, b: 1, a: 1}
@@ -5120,7 +5120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260160623}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.3030133, y: 2.576148, z: -4.036499}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5774,7 +5774,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 872543956}
-  _meshFilter: {fileID: 1545839197}
   _colliderRenderer: {fileID: 872543958}
 --- !u!60 &872543956
 PolygonCollider2D:
@@ -5931,6 +5930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collider: {fileID: 872543956}
   _meshFilter: {fileID: 1545839197}
+  _showPointsIndex: 0
 --- !u!1 &886655169
 GameObject:
   m_ObjectHideFlags: 0
@@ -6030,7 +6030,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &886655173
 MonoBehaviour:
@@ -6076,6 +6076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collider: {fileID: 886655171}
   _meshFilter: {fileID: 518255293}
+  _showPointsIndex: 0
 --- !u!114 &886655176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6118,7 +6119,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _land: {fileID: 872543955}
-  _followingCamera: {fileID: 0}
   _teamTemplate: {fileID: 8550424651646907382, guid: 14dae05a205d83c4c9a3a1af23738cef, type: 3}
   _wormTemplate: {fileID: 8010253848381206769, guid: 5d44c577df426014ea42a784ad11b1b1, type: 3}
   _container: {fileID: 260160624}
@@ -6511,7 +6511,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1547326405
 GameObject:

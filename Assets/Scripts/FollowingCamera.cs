@@ -48,7 +48,7 @@ public class FollowingCamera : MonoBehaviour
 
         foreach (var worm in _worms)
         {
-            worm.Shot += OnShot;
+            worm.Throwing.Shot += OnShot;
             worm.Died += OnWormDied;
             worm.DamageTook += OnDamageTook;
             worm.Throwing.ProjectileExploded += OnProjectileExploded;
@@ -69,7 +69,7 @@ public class FollowingCamera : MonoBehaviour
     private void OnWormDied(Worm worm)
     {
         worm.Died -= OnWormDied;
-        worm.Shot -= OnShot;
+        worm.Throwing.Shot -= OnShot;
         worm.DamageTook -= OnDamageTook;
     }
 

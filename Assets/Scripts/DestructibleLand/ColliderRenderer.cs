@@ -6,6 +6,7 @@ public class ColliderRenderer : MonoBehaviour
 {
     [SerializeField] PolygonCollider2D _collider;
     [SerializeField] MeshFilter _meshFilter;
+    [SerializeField] bool _showPointsIndex;
 
     private void Update()
     {
@@ -20,11 +21,21 @@ public class ColliderRenderer : MonoBehaviour
     }
     public void CreateMesh()
     {
+        if (_meshFilter == null)
+            return;
+
         Mesh mesh = _collider.CreateMesh(true, true);
         _meshFilter.mesh = mesh;
     }
 
     private void OnDrawGizmos()
+    {
+        if (_showPointsIndex)
+            ShowPointsIndex();
+    }
+
+
+    private void ShowPointsIndex()
     {
         for (int p = 0; p < _collider.pathCount; p++)
         {
@@ -34,5 +45,4 @@ public class ColliderRenderer : MonoBehaviour
             }
         }
     }
-
 }

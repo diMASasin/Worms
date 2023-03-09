@@ -10,5 +10,10 @@ public class MapEdge : MonoBehaviour
         {
             worm.Die();
         }
+
+        if(collision.TryGetComponent(out Bomb bomb))
+        {
+            bomb.Explode();
+        }
     }
 }

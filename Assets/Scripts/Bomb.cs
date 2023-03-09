@@ -28,10 +28,15 @@ public class Bomb : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Explode();
+    }
+
+    public void Explode()
+    {
         if (_dead) return;
         _cut.transform.position = transform.position;
         Invoke(nameof(DoCut), 0.001f);
-        
+
         _dead = true;
     }
 

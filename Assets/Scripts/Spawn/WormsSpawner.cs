@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
@@ -7,14 +8,13 @@ using Random = UnityEngine.Random;
 public class WormsSpawner : MonoBehaviour
 {
     [SerializeField] private Land _land;
-    [SerializeField] private FollowingCamera _followingCamera;
     [SerializeField] private Team _teamTemplate;
     [SerializeField] private Worm _wormTemplate;
     [SerializeField] private Transform _container;
     [SerializeField] private float _maxSlope = 45;
 
     private Vector2[] _points;
-    private List<Edge> edges = new();
+    [SerializeField] private List<Edge> _edges = new();
 
     public event UnityAction<Worm> WormSpawned;
 
@@ -46,6 +46,7 @@ public class WormsSpawner : MonoBehaviour
         for (int i = 0; i < wormsNumber; i++)
         {
             var newWorm = Instantiate(_wormTemplate, GetRandomPointForSpawn(), Quaternion.identity, team.transform);
+            newWorm.SetRigidbodyKinematic();
             WormSpawned?.Invoke(newWorm);
             worms.Add(newWorm);
         }
@@ -68,16 +69,30 @@ public class WormsSpawner : MonoBehaviour
 
             var newEdge = new Edge(_points[i], _points[j]);
             if (newEdge.IsFloor(_land) && newEdge.IsSuitableSlope(_maxSlope))
-                edges.Add(newEdge);
+                _edges.Add(newEdge);
         }
     }
 
     private Vector2 GetRandomPointForSpawn()
     {
-        int random = Random.Range(0, edges.Count);
-        var randomEdge = edges[random];
-        Vector2 randomPoint = Vector2.Lerp(randomEdge.Point1, randomEdge.Point2, Random.value);
-        randomPoint.y += _wormTemplate.Collider2D.size.y;
+        Vector2 randomPoint;
+        do
+        {
+            int random = Random.Range(0, _edges.Count);
+            var randomEdge = _edges[random];
+            randomPoint = Vector2.Lerp(randomEdge.Point1, randomEdge.Point2, Random.value);
+            //randomPoint.y += _wormTemplate.Collider2D.size.y;
+            randomPoint += (Vector2)_land.transform.position;
+        }
+        while (!CanFitWormInPosition(randomPoint));
+
+        Debug.Log(randomPoint);
         return randomPoint;
+    }
+
+    private bool CanFitWormInPosition(Vector2 position)
+    {
+        //return !Physics2D.OverlapBox(position + new Vector2(0, 0.5f), _wormTemplate.Collider2D.size + new Vector2(-0.05f, -0.05f), 0);
+        return !Physics2D.OverlapCapsule(position + new Vector2(0, 0.5f), _wormTemplate.Collider2D.size, CapsuleDirection2D.Vertical, 0);
     }
 }

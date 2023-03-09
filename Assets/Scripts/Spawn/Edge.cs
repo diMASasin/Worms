@@ -1,9 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
+[Serializable]
 public class Edge
 {
-    private Vector2 _point1;
-    private Vector2 _point2;
+    [SerializeField] private Vector2 _point1;
+    [SerializeField] private Vector2 _point2;
+
+    private float _kx;
+    private float _maxKx;
 
     public Vector2 Point1 => _point1;
     public Vector2 Point2 => _point2;
@@ -17,16 +22,21 @@ public class Edge
     public bool IsFloor(Land land)
     {
         return !land.PolygonCollider2D.OverlapPoint(new Vector2(_point1.x, _point1.y + 0.1f)) &&
-            !land.PolygonCollider2D.OverlapPoint(new Vector2(_point2.x, _point2.y + 0.1f));
+            !land.PolygonCollider2D.OverlapPoint(new Vector2(_point2.x, _point2.y + 0.1f)) &&
+            !land.PolygonCollider2D.OverlapPoint(new Vector2(_point1.x, _point1.y + 0.8f)) &&
+            !land.PolygonCollider2D.OverlapPoint(new Vector2(_point2.x, _point2.y + 0.8f));
     }
 
     public bool IsSuitableSlope(float maxDegrees)
     {
-        float kx, ky;
-        kx = _point2.y - _point1.y;
+        float ky;
+        _kx = _point2.y - _point1.y;
         ky = _point2.x - _point1.x;
-        kx /= ky;
+        _kx /= ky;
 
-        return Mathf.Abs(kx) < Mathf.Tan(maxDegrees);
+        maxDegrees = Mathf.Deg2Rad * maxDegrees;
+        _maxKx = Mathf.Tan(maxDegrees);
+
+        return Mathf.Abs(_kx) < _maxKx;
     }
 }

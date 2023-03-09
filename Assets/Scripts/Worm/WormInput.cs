@@ -1,12 +1,16 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WormInput : MonoBehaviour
 {
-    [SerializeField] private Worm _worm;
+    [SerializeField] private WormMovement _wormMovement;
     [SerializeField] private Throwing _throwing;
     [SerializeField] private int _defaultLayer = 0;
     [SerializeField] private int _currentWormLayer = 6;
     [SerializeField] private Arrow _arrow;
+
+    public event UnityAction InputEnabled;
+    public event UnityAction InputDisabled;
 
     private void Update()
     {
@@ -27,26 +31,28 @@ public class WormInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            _worm.Jump();
+            _wormMovement.Jump();
         }
     }
 
     private void FixedUpdate()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
-        _worm.TryMove(horizontal);
+        _wormMovement.TryMove(horizontal);
     }
 
     public void EnableInput()
     {
         enabled = true;
         gameObject.layer = _currentWormLayer;
-        _arrow.StartMove(); 
+        _arrow.StartMove();
+        InputEnabled?.Invoke();
     }
 
     public void DisableInput()
     {
         enabled = false;
         gameObject.layer = _defaultLayer;
+        InputDisabled?.Invoke();
     }
 }

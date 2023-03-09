@@ -8,7 +8,6 @@ using UnityEngine;
 public class Land : MonoBehaviour
 {
     [SerializeField] PolygonCollider2D _collider;
-    [SerializeField] MeshFilter _meshFilter;
     [SerializeField] ColliderRenderer _colliderRenderer;
 
     public PolygonCollider2D PolygonCollider2D => _collider;
@@ -24,7 +23,8 @@ public class Land : MonoBehaviour
             }
             _collider.SetPath(i, path);
         }
-        _colliderRenderer.CreateMesh();
+        if(_colliderRenderer != null )
+            _colliderRenderer.CreateMesh();
     }
 
 }

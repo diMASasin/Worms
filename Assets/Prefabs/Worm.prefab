@@ -338,6 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 8117488247916017597}
+  _lifeTime: 2
 --- !u!1 &5142959671366643639
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,10 +858,13 @@ GameObject:
   - component: {fileID: 2716522887637978340}
   - component: {fileID: 8010253848381206769}
   - component: {fileID: 4789554427486272721}
+  - component: {fileID: 7569168140912451543}
+  - component: {fileID: 5832659334154097657}
+  - component: {fileID: -3861072189713731185}
   m_Layer: 0
   m_Name: Worm
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -895,7 +899,7 @@ CapsuleCollider2D:
   m_Material: {fileID: 6200000, guid: 20224d714190e75418ace83e65ba50ea, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -915,8 +919,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.35802937}
-  m_Size: {x: 0.6171116, y: 0.76328707}
+  m_Offset: {x: 0, y: 0.3693285}
+  m_Size: {x: 0.6171116, y: 0.7406888}
   m_Direction: 0
 --- !u!50 &2716522887637978340
 Rigidbody2D:
@@ -937,7 +941,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -967,6 +971,7 @@ MonoBehaviour:
   _wormInformationView: {fileID: 5670862740911846097}
   _input: {fileID: 4789554427486272721}
   _throwing: {fileID: 2294201278590885112}
+  _showCanSpawnCheckerBox: 0
 --- !u!114 &4789554427486272721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -979,11 +984,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 255979a23152d80449a3c334f4b43559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _worm: {fileID: 8010253848381206769}
+  _wormMovement: {fileID: 7569168140912451543}
   _throwing: {fileID: 2294201278590885112}
   _defaultLayer: 0
   _currentWormLayer: 6
   _arrow: {fileID: 1299327330340215654}
+--- !u!114 &7569168140912451543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6803847674682154094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76f448b53b88fca4d9de678ba8ef112e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1806080000149428662}
+  _rigidbody: {fileID: 2716522887637978340}
+  _sprite: {fileID: 5324110585828678461}
+  _groundChecker: {fileID: 5832659334154097657}
+  _speed: 2
+  _jumpSpeed: 5
+  _jumpCooldown: 1
+--- !u!114 &5832659334154097657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6803847674682154094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d86f3848b290dd409bd21edf9f29b27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3861072189713731185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6803847674682154094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a7e71ac0ec96e4989c6a774900d1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1806080000149428662}
+  _groundChecker: {fileID: 5832659334154097657}
+  _wormMovement: {fileID: 7569168140912451543}
 --- !u!1 &7526629913437004522
 GameObject:
   m_ObjectHideFlags: 0
