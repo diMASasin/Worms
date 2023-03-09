@@ -6,10 +6,7 @@ using UnityEngine.Events;
 
 public class Game : MonoBehaviour
 {
-    [SerializeField] private int _teamsNumber = 2;
-    [SerializeField] private int _wormsNumber = 4;
     [SerializeField] private WormsSpawner _wormsSpawner;
-    [SerializeField] private List<Color> _teamColors;
     [SerializeField] private float _turnDelay = 2.5f;
     [SerializeField] private GameObject _endScreen;
     [SerializeField] private FollowingCamera _followingCamera;
@@ -33,7 +30,7 @@ public class Game : MonoBehaviour
     private void Start()
     {
         _wormsSpawner.GetEdgesForSpawn();
-        _teams = _wormsSpawner.SpawnTeams(_teamsNumber, _wormsNumber, _teamColors);
+        _teams = _wormsSpawner.SpawnTeams();
         WormsSpawned?.Invoke(_teams);
 
         foreach (var team in _teams)

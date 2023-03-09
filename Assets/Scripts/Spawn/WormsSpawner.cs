@@ -7,6 +7,10 @@ using Random = UnityEngine.Random;
 
 public class WormsSpawner : MonoBehaviour
 {
+    [SerializeField] private int _teamsNumber = 2;
+    [SerializeField] private int _wormsNumber = 4;
+    [SerializeField] private List<Color> _teamColors;
+
     [SerializeField] private Land _land;
     [SerializeField] private Team _teamTemplate;
     [SerializeField] private Worm _wormTemplate;
@@ -14,23 +18,23 @@ public class WormsSpawner : MonoBehaviour
     [SerializeField] private float _maxSlope = 45;
 
     private Vector2[] _points;
-    [SerializeField] private List<Edge> _edges = new();
+    private List<Edge> _edges = new();
 
     public event UnityAction<Worm> WormSpawned;
 
-    public List<Team> SpawnTeams(int numberOfTeams, int wormsNumber, List<Color> teamColors)
+    public List<Team> SpawnTeams()
     {
-        if(teamColors.Count < numberOfTeams)
-            throw new ArgumentOutOfRangeException($"{nameof(teamColors)} count cant be less then {nameof(numberOfTeams)}");
+        if(_teamColors.Count < _teamsNumber)
+            throw new ArgumentOutOfRangeException($"{nameof(_teamColors)} count cant be less then {nameof(_teamsNumber)}");
 
         List<Team> teams = new List<Team>();
 
-        for (int i = 0; i < numberOfTeams; i++)
+        for (int i = 0; i < _teamsNumber; i++)
         {
-            var randomColor = teamColors[Random.Range(0, teamColors.Count)];
-            teamColors.Remove(randomColor);
+            var randomColor = _teamColors[Random.Range(0, _teamColors.Count)];
+            _teamColors.Remove(randomColor);
 
-            var newTeam = SpawnTeam(wormsNumber, randomColor);
+            var newTeam = SpawnTeam(_wormsNumber, randomColor);
             newTeam.name = $"Team {i + 1}";
             teams.Add(newTeam);
         }
@@ -81,7 +85,6 @@ public class WormsSpawner : MonoBehaviour
             int random = Random.Range(0, _edges.Count);
             var randomEdge = _edges[random];
             randomPoint = Vector2.Lerp(randomEdge.Point1, randomEdge.Point2, Random.value);
-            //randomPoint.y += _wormTemplate.Collider2D.size.y;
             randomPoint += (Vector2)_land.transform.position;
         }
         while (!CanFitWormInPosition(randomPoint));
@@ -92,7 +95,6 @@ public class WormsSpawner : MonoBehaviour
 
     private bool CanFitWormInPosition(Vector2 position)
     {
-        //return !Physics2D.OverlapBox(position + new Vector2(0, 0.5f), _wormTemplate.Collider2D.size + new Vector2(-0.05f, -0.05f), 0);
         return !Physics2D.OverlapCapsule(position + new Vector2(0, 0.5f), _wormTemplate.Collider2D.size, CapsuleDirection2D.Vertical, 0);
     }
 }

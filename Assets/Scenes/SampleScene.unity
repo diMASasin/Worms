@@ -5070,14 +5070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e3a26cb9bbea348acefb500d0e516c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _teamsNumber: 4
-  _wormsNumber: 8
   _wormsSpawner: {fileID: 1422226334}
-  _teamColors:
-  - {r: 0, g: 0.6877341, b: 1, a: 1}
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0, g: 1, b: 0.27296638, a: 1}
-  - {r: 1, g: 0, b: 0.49331045, a: 1}
   _turnDelay: 2.5
   _endScreen: {fileID: 1722209564}
   _followingCamera: {fileID: 519420033}
@@ -6118,6 +6111,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e0b3ad1f01f1b42909e73be71f2382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _teamsNumber: 2
+  _wormsNumber: 4
+  _teamColors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0.50198245, b: 1, a: 1}
+  - {r: 0.9061289, g: 1, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0.5698867, a: 1}
   _land: {fileID: 872543955}
   _teamTemplate: {fileID: 8550424651646907382, guid: 14dae05a205d83c4c9a3a1af23738cef, type: 3}
   _wormTemplate: {fileID: 8010253848381206769, guid: 5d44c577df426014ea42a784ad11b1b1, type: 3}
