@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +11,7 @@ public class Game : MonoBehaviour
     [SerializeField] private float _turnDelay = 2.5f;
     [SerializeField] private GameObject _endScreen;
     [SerializeField] private FollowingCamera _followingCamera;
+    [SerializeField] private WeaponSelector _weaponSelector;
 
     private List<Team> _teams = new List<Team>();
     private List<Team> _currentTeams = new List<Team>();
@@ -20,6 +22,9 @@ public class Game : MonoBehaviour
     private void OnEnable()
     {
         _wormsSpawner.WormSpawned += OnWormSpawned;
+        foreach (var weapon in _weaponSelector.Weapons)
+            weapon.ProjectileExploded += OnProjectileExploded;
+        
     }
 
     private void OnDisable()
@@ -46,11 +51,12 @@ public class Game : MonoBehaviour
     private void OnWormSpawned(Worm worm)
     {
         worm.Died += OnWormDied;
-        worm.Throwing.ProjectileExploded += OnProjectileExploded;
+        //worm.Weapon.ProjectileExploded += OnProjectileExploded;
     }
 
     private void OnProjectileExploded(Bomb bomb, Worm worm)
     {
+        worm.RemoveWeaponWithDelay(_weaponSelector.Container);
         worm.WormInput.DisableInput();
         StartNextTurnWithDelay(_turnDelay);
     }
@@ -58,7 +64,7 @@ public class Game : MonoBehaviour
     private void OnWormDied(Worm worm)
     {
         worm.Died -= OnWormDied;
-        worm.Throwing.ProjectileExploded -= OnProjectileExploded;
+        worm.Weapon.ProjectileExploded -= OnProjectileExploded;
 
         if (worm.WormInput.enabled == true)
             StartNextTurnWithDelay(_turnDelay);

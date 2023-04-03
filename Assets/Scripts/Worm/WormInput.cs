@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class WormInput : MonoBehaviour
 {
     [SerializeField] private WormMovement _wormMovement;
-    [SerializeField] private Throwing _throwing;
+    [SerializeField] private Weapon _weapon;
     [SerializeField] private int _defaultLayer = 0;
     [SerializeField] private int _currentWormLayer = 6;
     [SerializeField] private Arrow _arrow;
@@ -14,29 +14,29 @@ public class WormInput : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKey(KeyCode.W))
+        if(_weapon && Input.GetKey(KeyCode.W))
         {
-            _throwing.RaiseScope();
+            _weapon.RaiseScope();
         }
 
-        if(Input.GetKey(KeyCode.S))
+        if(_weapon && Input.GetKey(KeyCode.S))
         {
-            _throwing.LowerScope();
+            _weapon.LowerScope();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (_weapon && Input.GetKeyDown(KeyCode.Space))
         {
-            _throwing.EnablePointerLine();
+            _weapon.EnablePointerLine();
         }
 
-        if(Input.GetKey(KeyCode.Space))
+        if(_weapon && Input.GetKey(KeyCode.Space))
         {
-            _throwing.IncreaseShotPower();
+            _weapon.IncreaseShotPower();
         }
 
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (_weapon && Input.GetKeyUp(KeyCode.Space))
         {
-            _throwing.Shoot();
+            _weapon.Shoot();
         }
 
         if (Input.GetKeyDown(KeyCode.Return))
@@ -61,7 +61,6 @@ public class WormInput : MonoBehaviour
         enabled = true;
         gameObject.layer = _currentWormLayer;
         _arrow.StartMove();
-        _throwing.Reset();
         InputEnabled?.Invoke();
     }
 
@@ -70,5 +69,10 @@ public class WormInput : MonoBehaviour
         enabled = false;
         gameObject.layer = _defaultLayer;
         InputDisabled?.Invoke();
+    }
+
+    public void ChangeWeapon(Weapon weapon)
+    {
+        _weapon = weapon;
     }
 }

@@ -17,13 +17,15 @@ public class Worm : MonoBehaviour
     [SerializeField] private Transform _wormSprite;
     [SerializeField] private WormInformationView _wormInformationView;
     [SerializeField] private WormInput _input;
-    [SerializeField] private Throwing _throwing;
+    [SerializeField] private Weapon _weapon;
+    [SerializeField] private Transform _wormWeaponContainer;
+    [SerializeField] private float _removeWeaponDelay = 0.5f;
     [SerializeField] private bool _showCanSpawnCheckerBox = false;
 
     private int _health;
 
     public CapsuleCollider2D Collider2D => _collider;
-    public Throwing Throwing => _throwing;
+    public Weapon Weapon => _weapon;
     public WormInput WormInput => _input;
 
     public event UnityAction<int> HealthChanged;
@@ -98,5 +100,38 @@ public class Worm : MonoBehaviour
     {
         Died?.Invoke(this);
         Destroy(gameObject);
+    }
+
+    public void ChangeWeapon(Weapon weapon, Transform weaponContainer)
+    {
+        if (_weapon)
+            RemoveWeapon(weaponContainer);
+
+        _weapon = weapon;
+        _weapon.transform.parent = _wormWeaponContainer;
+        _weapon.transform.localPosition = Vector3.zero;
+        _weapon.transform.localEulerAngles = new Vector3(0, 0, 180);
+        _weapon.SetWorm(this);
+        _weapon.Reset();
+        _weapon.gameObject.SetActive(true);
+        _input.ChangeWeapon(weapon);
+    }
+
+    public void RemoveWeaponWithDelay(Transform weaponContainer)
+    {
+        StartCoroutine(DelayedRemoveWeapon(weaponContainer, _removeWeaponDelay));
+    }
+
+    public void RemoveWeapon(Transform weaponContainer)
+    {
+        _weapon.transform.parent = weaponContainer;
+        _weapon.gameObject.SetActive(false);
+        _weapon = null;
+    }
+
+    private IEnumerator DelayedRemoveWeapon(Transform weaponContainer, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        RemoveWeapon(weaponContainer);
     }
 }
