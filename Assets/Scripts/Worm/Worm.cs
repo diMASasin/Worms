@@ -105,7 +105,11 @@ public class Worm : MonoBehaviour
     public void ChangeWeapon(Weapon weapon, Transform weaponContainer)
     {
         if (_weapon)
+        {
+            if (_weapon.IsShot)
+                return;
             RemoveWeapon(weaponContainer);
+        }
 
         _weapon = weapon;
         _weapon.transform.parent = _wormWeaponContainer;

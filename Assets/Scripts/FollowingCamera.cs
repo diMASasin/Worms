@@ -86,12 +86,12 @@ public class FollowingCamera : MonoBehaviour
         SetTarget(worm.transform);
     }
 
-    private void OnShot(Bomb bomb)
+    private void OnShot(Projectile bomb)
     {
         SetTarget(bomb.transform);
     }
 
-    private void OnProjectileExploded(Bomb bomb, Worm worm)
+    private void OnProjectileExploded(Projectile bomb, Worm worm)
     {
         worm.Weapon.ProjectileExploded -= OnProjectileExploded;
         SetTarget(worm.transform);

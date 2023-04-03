@@ -9,19 +9,19 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float _sencetivity = 0.01f;
     [SerializeField] private float _scopeSencetivity = 0.7f;
     [SerializeField] private float _speedMultiplier = 0.03f;
-    [SerializeField] private Bomb _bombPrefab;
+    [SerializeField] private Projectile _bombPrefab;
     [SerializeField] private Transform _pointerLine;
     [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private Worm _worm;
     [SerializeField] private float _shotPower = 5;
     [SerializeField] private float _maxShotPower = 5;
     
+    private Worm _worm;
     private Vector3 _mouseStart;
     private float _currentShotPower = 0;
-    private bool _shot = false;
+    public bool IsShot { get; private set; } = false;
 
-    public event UnityAction<Bomb, Worm> ProjectileExploded;
-    public event UnityAction<Bomb> Shot;
+    public event UnityAction<Projectile, Worm> ProjectileExploded;
+    public event UnityAction<Projectile> Shot;
 
     private void Start()
     {
@@ -30,13 +30,13 @@ public class Weapon : MonoBehaviour
 
     public void Reset()
     {
-        _shot = false;
+        IsShot = false;
         _currentShotPower = 0;
     }
 
     public void EnablePointerLine()
     {
-        if (_shot)
+        if (IsShot)
             return;
 
         _pointerRenderer.enabled = true;
@@ -45,17 +45,17 @@ public class Weapon : MonoBehaviour
 
     public void RaiseScope()
     {
-        transform.Rotate(new Vector3(0, 0, -0.7f));
+        transform.Rotate(new Vector3(0, 0, -_scopeSencetivity) * Time.deltaTime);
     }
 
     public void LowerScope()
     {
-        transform.Rotate(new Vector3(0, 0, 0.7f));
+        transform.Rotate(new Vector3(0, 0, _scopeSencetivity) * Time.deltaTime);
     }
 
     public void IncreaseShotPower()
     {
-        if (_currentShotPower >= _maxShotPower || _shot)
+        if (_currentShotPower >= _maxShotPower || IsShot)
             return;
 
         _currentShotPower += _shotPower * Time.deltaTime;
@@ -70,18 +70,18 @@ public class Weapon : MonoBehaviour
 
     public void Shoot()
     {
-        if (_shot)
+        if (IsShot)
             return;
 
         Vector3 delta = Input.mousePosition - _mouseStart;
         Vector3 velocity = _currentShotPower * transform.right;
 
         _pointerRenderer.enabled = false;
-        Bomb newBomb = Instantiate(_bombPrefab, _spawnPoint.position, Quaternion.identity);
+        Projectile newBomb = Instantiate(_bombPrefab, _spawnPoint.position, Quaternion.identity);
         Shot?.Invoke(newBomb);
-        _shot = true;
+        IsShot = true;
         newBomb.Exploded += OnProjectileExploded;
-        newBomb.SetVelocity(velocity);
+        newBomb.Init(velocity);
     }
 
     public void SetWorm(Worm worm)
@@ -89,7 +89,7 @@ public class Weapon : MonoBehaviour
         _worm = worm;
     }
 
-    private void OnProjectileExploded(Bomb bomb)
+    private void OnProjectileExploded(Projectile bomb)
     {
         bomb.Exploded -= OnProjectileExploded;
         ProjectileExploded?.Invoke(bomb, _worm);

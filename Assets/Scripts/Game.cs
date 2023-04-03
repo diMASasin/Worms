@@ -54,7 +54,7 @@ public class Game : MonoBehaviour
         //worm.Weapon.ProjectileExploded += OnProjectileExploded;
     }
 
-    private void OnProjectileExploded(Bomb bomb, Worm worm)
+    private void OnProjectileExploded(Projectile bomb, Worm worm)
     {
         worm.RemoveWeaponWithDelay(_weaponSelector.Container);
         worm.WormInput.DisableInput();
