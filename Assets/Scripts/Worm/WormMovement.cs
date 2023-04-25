@@ -8,7 +8,6 @@ public class WormMovement : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private Transform _wormArmature;
-    [SerializeField] private Transform _throwing;
     [SerializeField] private GroundChecker _groundChecker;
     [SerializeField] private float _speed;
     [SerializeField] private float _longJumpForceX = 2;

@@ -9,13 +9,13 @@ public class Circle : MonoBehaviour
     [SerializeField] ColliderRenderer _colliderRenderer;
     [SerializeField] int _sides;
     [SerializeField] PolygonCollider2D _collider;
-
+    [SerializeField] bool _scrollOn = false;
     private void Update()
     {
         if (Application.isPlaying)
         {
             float scroll = Input.mouseScrollDelta.y;
-            if (scroll != 0)
+            if (scroll != 0 && _scrollOn)
             {
                 _sides += (int)scroll;
                 CreateCircle();

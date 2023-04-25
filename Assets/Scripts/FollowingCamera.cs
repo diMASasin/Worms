@@ -8,17 +8,25 @@ public class FollowingCamera : MonoBehaviour
     [SerializeField] private Transform _target;
     [SerializeField] private float _speed = 1;
     [SerializeField] private Game _game;
+    [SerializeField] private WeaponSelector _weaponSelector;
 
     private List<Worm> _worms = new List<Worm>();
 
     private void OnEnable()
     {
         _game.WormsSpawned += OnWormsSpawned;
+        foreach (var weapon in _weaponSelector.Weapons)
+        {
+            weapon.Shot += OnShot;
+            weapon.ProjectileExploded += OnProjectileExploded;
+        }
     }
 
     private void OnDisable()
     {
         _game.WormsSpawned -= OnWormsSpawned;
+        foreach (var weapon in _weaponSelector.Weapons)
+            weapon.Shot -= OnShot;
     }
 
     private void FixedUpdate()
@@ -48,10 +56,10 @@ public class FollowingCamera : MonoBehaviour
 
         foreach (var worm in _worms)
         {
-            worm.Throwing.Shot += OnShot;
+            //worm.Weapon.Shot += OnShot;
             worm.Died += OnWormDied;
             worm.DamageTook += OnDamageTook;
-            worm.Throwing.ProjectileExploded += OnProjectileExploded;
+            //worm.Weapon.ProjectileExploded += OnProjectileExploded;
         }
     }
 
@@ -69,7 +77,7 @@ public class FollowingCamera : MonoBehaviour
     private void OnWormDied(Worm worm)
     {
         worm.Died -= OnWormDied;
-        worm.Throwing.Shot -= OnShot;
+        //worm.Weapon.Shot -= OnShot;
         worm.DamageTook -= OnDamageTook;
     }
 
@@ -78,14 +86,14 @@ public class FollowingCamera : MonoBehaviour
         SetTarget(worm.transform);
     }
 
-    private void OnShot(Bomb bomb)
+    private void OnShot(Projectile bomb)
     {
         SetTarget(bomb.transform);
     }
 
-    private void OnProjectileExploded(Bomb bomb, Worm worm)
+    private void OnProjectileExploded(Projectile bomb, Worm worm)
     {
-        worm.Throwing.ProjectileExploded -= OnProjectileExploded;
+        worm.Weapon.ProjectileExploded -= OnProjectileExploded;
         SetTarget(worm.transform);
     }
 }

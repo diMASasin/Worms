@@ -3,58 +3,59 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Throwing : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
-    [SerializeField] private Renderer _renderer;
+    [SerializeField] private Renderer _pointerRenderer;
     [SerializeField] private float _sencetivity = 0.01f;
     [SerializeField] private float _scopeSencetivity = 0.7f;
     [SerializeField] private float _speedMultiplier = 0.03f;
-    [SerializeField] private Bomb _bombPrefab;
+    [SerializeField] private Projectile _bombPrefab;
     [SerializeField] private Transform _pointerLine;
     [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private Worm _worm;
     [SerializeField] private float _shotPower = 5;
     [SerializeField] private float _maxShotPower = 5;
-
+    
+    private Worm _worm;
     private Vector3 _mouseStart;
     private float _currentShotPower = 0;
-    private bool _shot = false;
+    public bool IsShot { get; private set; } = false;
 
-    public event UnityAction<Bomb, Worm> ProjectileExploded;
-    public event UnityAction<Bomb> Shot;
+    public event UnityAction<Projectile, Worm> ProjectileExploded;
+    public event UnityAction<Projectile> Shot;
 
     private void Start()
     {
-        _renderer.enabled = false;
+        _pointerRenderer.enabled = false;
     }
 
     public void Reset()
     {
-        _shot = false;
+        IsShot = false;
+        _currentShotPower = 0;
     }
 
     public void EnablePointerLine()
     {
-        if (_shot)
+        if (IsShot)
             return;
 
-        _renderer.enabled = true;
+        _pointerRenderer.enabled = true;
         _mouseStart = Input.mousePosition;
     }
 
     public void RaiseScope()
     {
-        transform.Rotate(new Vector3(0, 0, -0.7f));
+        transform.Rotate(new Vector3(0, 0, -_scopeSencetivity) * Time.deltaTime);
     }
 
     public void LowerScope()
     {
-        transform.Rotate(new Vector3(0, 0, 0.7f));
+        transform.Rotate(new Vector3(0, 0, _scopeSencetivity) * Time.deltaTime);
     }
 
     public void IncreaseShotPower()
     {
-        if (_currentShotPower >= _maxShotPower || _shot)
+        if (_currentShotPower >= _maxShotPower || IsShot)
             return;
 
         _currentShotPower += _shotPower * Time.deltaTime;
@@ -69,21 +70,27 @@ public class Throwing : MonoBehaviour
 
     public void Shoot()
     {
-        if (_shot)
+        if (IsShot)
             return;
 
         Vector3 delta = Input.mousePosition - _mouseStart;
         Vector3 velocity = _currentShotPower * transform.right;
 
-        _renderer.enabled = false;
-        Bomb newBomb = Instantiate(_bombPrefab, _spawnPoint.position, Quaternion.identity);
+        _pointerRenderer.enabled = false;
+        Projectile newBomb = Instantiate(_bombPrefab, _spawnPoint.position, Quaternion.identity);
         Shot?.Invoke(newBomb);
-        _shot = true;
+        IsShot = true;
         newBomb.Exploded += OnProjectileExploded;
-        newBomb.SetVelocity(velocity);
+        newBomb.Init(velocity);
+        gameObject.SetActive(false);
     }
 
-    private void OnProjectileExploded(Bomb bomb)
+    public void SetWorm(Worm worm)
+    {
+        _worm = worm;
+    }
+
+    private void OnProjectileExploded(Projectile bomb)
     {
         bomb.Exploded -= OnProjectileExploded;
         ProjectileExploded?.Invoke(bomb, _worm);

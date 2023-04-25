@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Bomb : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private GameObject _explosionPrefab;
     [SerializeField] private Explosion _explosion;
     [SerializeField] private CircleCollider2D _collider2D;
+    [SerializeField] private GameObject _spriteObject;
 
     private Cutter _cut;
     private bool _dead;
 
-    public event UnityAction<Bomb> Exploded;
+    public Rigidbody2D Rigidbody2D => _rigidbody;
+    public GameObject SpriteRenderer => _spriteObject;
 
-    public void SetVelocity(Vector2 value) 
+    public event UnityAction<Projectile> Exploded;
+
+    public virtual void Init(Vector2 value) 
     {
         _rigidbody.velocity = value;
-        //_rigidbody.AddTorque(Random.Range(-8f,8f));
     }
 
     private void Start()
@@ -26,18 +29,23 @@ public class Bomb : MonoBehaviour
         _cut = FindObjectOfType<Cutter>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        Explode();
+        DelayedExplode();
     }
 
-    public void Explode()
+    public void DelayedExplode(float delay = 0)
     {
         if (_dead) return;
-        _cut.transform.position = transform.position;
-        Invoke(nameof(DoCut), 0.001f);
+        Invoke(nameof(Explode), delay);
 
         _dead = true;
+    }
+
+    private void Explode()
+    {
+        _cut.transform.position = transform.position;
+        Invoke(nameof(DoCut), 0.01f);
     }
 
     private void DoCut() 
