@@ -11,9 +11,9 @@ public class MapEdge : MonoBehaviour
             worm.Die();
         }
 
-        if(collision.TryGetComponent(out Projectile bomb))
+        if(collision.TryGetComponent(out Projectile projectile))
         {
-            bomb.DelayedExplode();
+            projectile.Explode();
         }
     }
 }

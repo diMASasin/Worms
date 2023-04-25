@@ -42,7 +42,7 @@ public class Projectile : MonoBehaviour
         _dead = true;
     }
 
-    private void Explode()
+    public void Explode()
     {
         _cut.transform.position = transform.position;
         Invoke(nameof(DoCut), 0.01f);
