@@ -72,7 +72,7 @@ public class Game : MonoBehaviour
             _endScreen.SetActive(true);
     }
 
-    private void StartNextTurnWithDelay(float delay)
+    public void StartNextTurnWithDelay(float delay)
     {
         StartCoroutine(DelayedStartNextTurn(delay));
     }
