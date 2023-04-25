@@ -82,6 +82,7 @@ public class Weapon : MonoBehaviour
         IsShot = true;
         newBomb.Exploded += OnProjectileExploded;
         newBomb.Init(velocity);
+        gameObject.SetActive(false);
     }
 
     public void SetWorm(Worm worm)

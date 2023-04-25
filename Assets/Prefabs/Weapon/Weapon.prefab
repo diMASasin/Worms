@@ -286,8 +286,8 @@ MonoBehaviour:
   _bombPrefab: {fileID: 3348539931435737144, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
   _pointerLine: {fileID: 6349412835858490107}
   _spawnPoint: {fileID: 7617592387481449449}
-  _shotPower: 20
-  _maxShotPower: 20
+  _shotPower: 15
+  _maxShotPower: 15
 --- !u!1 &8508045372574847125
 GameObject:
   m_ObjectHideFlags: 0

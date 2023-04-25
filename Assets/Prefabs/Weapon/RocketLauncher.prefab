@@ -99,8 +99,8 @@ MonoBehaviour:
   _bombPrefab: {fileID: 5997132811028230352, guid: 296da707f5113a44c987799d77e2005a, type: 3}
   _pointerLine: {fileID: 5700245497715283679}
   _spawnPoint: {fileID: 9129339242546022349}
-  _shotPower: 10
-  _maxShotPower: 10
+  _shotPower: 15
+  _maxShotPower: 15
 --- !u!4 &9129339242546022349 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7617592387481449449, guid: dd94089776caed24d8283b3473cff41b, type: 3}
