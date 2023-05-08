@@ -89,7 +89,6 @@ public class WormsSpawner : MonoBehaviour
         }
         while (!CanFitWormInPosition(randomPoint));
 
-        Debug.Log(randomPoint);
         return randomPoint;
     }
 

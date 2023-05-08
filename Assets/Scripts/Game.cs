@@ -15,7 +15,7 @@ public class Game : MonoBehaviour
 
     private List<Team> _teams = new List<Team>();
     private List<Team> _currentTeams = new List<Team>();
-    private int _currentTeamIndex = 0;
+    private int _currentTeamIndex = -1;
 
     public event UnityAction<List<Team>> WormsSpawned;
 
@@ -24,7 +24,6 @@ public class Game : MonoBehaviour
         _wormsSpawner.WormSpawned += OnWormSpawned;
         foreach (var weapon in _weaponSelector.Weapons)
             weapon.ProjectileExploded += OnProjectileExploded;
-        
     }
 
     private void OnDisable()
@@ -56,9 +55,16 @@ public class Game : MonoBehaviour
 
     private void OnProjectileExploded(Projectile bomb, Worm worm)
     {
-        worm.RemoveWeaponWithDelay(_weaponSelector.Container);
-        worm.WormInput.DisableInput();
-        StartNextTurnWithDelay(_turnDelay);
+        //EndTurn();
+        //StartNextTurnWithDelay(_turnDelay);
+    }
+
+    public void EndTurn()
+    {
+        var currentWorm = _currentTeams[_currentTeamIndex].GetCurrentWorm();
+
+        currentWorm.RemoveWeaponWithDelay(_weaponSelector.Container);
+        currentWorm.WormInput.DisableInput();
     }
 
     private void OnWormDied(Worm worm)
@@ -87,10 +93,10 @@ public class Game : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
+        _currentTeamIndex++;
         if (_currentTeamIndex >= _currentTeams.Count)
             _currentTeamIndex = 0;
 
         _currentTeams[_currentTeamIndex].StartTurn();
-        _currentTeamIndex++;
     }
 }

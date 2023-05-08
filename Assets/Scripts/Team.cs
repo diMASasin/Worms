@@ -7,7 +7,7 @@ public class Team : MonoBehaviour
 {
     private List<Worm> _worms = new List<Worm>();
     private Color _color;
-    private int _currentWormIndex = 0;
+    private int _currentWormIndex = -1;
 
     public IReadOnlyList<Worm> Worms => _worms;
 
@@ -28,13 +28,18 @@ public class Team : MonoBehaviour
 
     public void StartTurn()
     {
+        _currentWormIndex++;
         if(_currentWormIndex >= _worms.Count)
             _currentWormIndex = 0;
 
-        Worm currentWorm = _worms[_currentWormIndex];
+        Worm currentWorm = GetCurrentWorm();
         TurnStarted?.Invoke(currentWorm, this);
         currentWorm.WormInput.EnableInput();
-        _currentWormIndex++;
+    }
+
+    public Worm GetCurrentWorm()
+    {
+        return _worms[_currentWormIndex];
     }
 
     private void OnWormDied(Worm worm)

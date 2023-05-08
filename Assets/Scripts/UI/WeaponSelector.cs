@@ -21,11 +21,15 @@ public class WeaponSelector : MonoBehaviour
     private void OnEnable()
     {
         _game.WormsSpawned += OnWormsSpawned;
+        foreach (var weapon in _weapons)
+            weapon.Shot += OnWeaponShot;
     }
 
     private void OnDisable()
     {
         _game.WormsSpawned -= OnWormsSpawned;
+        foreach (var weapon in _weapons)
+            weapon.Shot -= OnWeaponShot;
     }
 
     private void Update()
@@ -67,12 +71,10 @@ public class WeaponSelector : MonoBehaviour
     {
         _currentWorm.ChangeWeapon(weapon, _container);
         _currentWeapon = weapon;
-        weapon.Shot += OnWeaponShot;
     }
 
     private void OnWeaponShot(Projectile projectile)
     {
-        _currentWeapon.Shot -= OnWeaponShot;
         _currentWeapon = null;
         _canOpen = false;
     }

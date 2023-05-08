@@ -740,6 +740,7 @@ MonoBehaviour:
   _input: {fileID: 4789554427486272721}
   _weapon: {fileID: 0}
   _wormWeaponContainer: {fileID: 7199925339958201532}
+  _removeWeaponDelay: 0.5
   _showCanSpawnCheckerBox: 0
 --- !u!114 &4789554427486272721
 MonoBehaviour:
@@ -773,8 +774,8 @@ MonoBehaviour:
   _animator: {fileID: 1806080000149428662}
   _rigidbody: {fileID: 2716522887637978340}
   _wormArmature: {fileID: 4803428581954887109}
-  _throwing: {fileID: 0}
   _groundChecker: {fileID: 5832659334154097657}
+  _wormInput: {fileID: 4789554427486272721}
   _speed: 2
   _longJumpForceX: 2
   _longJumpForceY: 5

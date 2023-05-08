@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class WormMovement : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class WormMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private Transform _wormArmature;
     [SerializeField] private GroundChecker _groundChecker;
+    [SerializeField] private WormInput _wormInput;
     [SerializeField] private float _speed;
     [SerializeField] private float _longJumpForceX = 2;
     [SerializeField] private float _longJumpForceY = 2;
@@ -20,12 +22,27 @@ public class WormMovement : MonoBehaviour
 
     public event UnityAction<bool> IsWalkingChanged;
 
+    private void OnEnable()
+    {
+        _wormInput.InputDisabled += OnInputDisabled;
+    }
+
+    private void OnDisable()
+    {
+        _wormInput.InputDisabled -= OnInputDisabled;
+    }
+
     private void FixedUpdate()
     {
         if (!_groundChecker.IsGrounded && _rigidbody.bodyType == RigidbodyType2D.Kinematic)
             _rigidbody.velocity += (Vector2)Physics.gravity * Time.deltaTime;
         else if (_groundChecker.IsGrounded && _rigidbody.bodyType == RigidbodyType2D.Kinematic)
             _rigidbody.velocity = Vector2.zero;
+    }
+
+    private void OnInputDisabled()
+    {
+        IsWalkingChanged?.Invoke(false);
     }
 
     public void TryMove(float horizontal)

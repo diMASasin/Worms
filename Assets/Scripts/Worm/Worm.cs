@@ -128,6 +128,9 @@ public class Worm : MonoBehaviour
 
     public void RemoveWeapon(Transform weaponContainer)
     {
+        if (_weapon == null)
+            return;
+
         _weapon.transform.parent = weaponContainer;
         _weapon.gameObject.SetActive(false);
         _weapon = null;

@@ -5863,9 +5863,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 664762924}
-  - component: {fileID: 664762927}
   - component: {fileID: 664762926}
   - component: {fileID: 664762925}
+  - component: {fileID: 664762927}
+  - component: {fileID: 664762928}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -5906,8 +5907,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e926dea880d19984e85dedd7c5f11d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _time: 5
   _game: {fileID: 246987971}
-  _timer: {fileID: 664762927}
+  _timer: {fileID: 664762928}
+  _weaponSelector: {fileID: 273442275}
 --- !u!114 &664762926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5921,8 +5924,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timerText: {fileID: 819765590}
-  _timer: {fileID: 664762927}
+  _timer: {fileID: 664762928}
 --- !u!114 &664762927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664762923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acc0515ba7736764b9b9abf323e9e551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _time: 3
+  _turnTimer: {fileID: 664762925}
+  _timer: {fileID: 664762928}
+  _game: {fileID: 246987971}
+  _weaponSelector: {fileID: 273442275}
+--- !u!114 &664762928
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5934,7 +5954,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1489aeb11185c2b44a56c54f6ab20922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeStart: 60
 --- !u!1 &819765588
 GameObject:
   m_ObjectHideFlags: 0
