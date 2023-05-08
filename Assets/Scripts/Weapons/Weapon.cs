@@ -18,7 +18,10 @@ public class Weapon : MonoBehaviour
     private Worm _worm;
     private Vector3 _mouseStart;
     private float _currentShotPower = 0;
+
     public bool IsShot { get; private set; } = false;
+
+    public float CurrentShotPower => _currentShotPower;
 
     public event UnityAction<Projectile, Worm> ProjectileExploded;
     public event UnityAction<Projectile> Shot;

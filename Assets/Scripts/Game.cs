@@ -29,6 +29,8 @@ public class Game : MonoBehaviour
     private void OnDisable()
     {
         _wormsSpawner.WormSpawned -= OnWormSpawned;
+        foreach (var weapon in _weaponSelector.Weapons)
+            weapon.ProjectileExploded -= OnProjectileExploded;
     }
 
     private void Start()
@@ -59,6 +61,11 @@ public class Game : MonoBehaviour
         //StartNextTurnWithDelay(_turnDelay);
     }
 
+    public Team GetCurrentTeam()
+    {
+        return _currentTeams[_currentTeamIndex];
+    }
+
     public void EndTurn()
     {
         var currentWorm = _currentTeams[_currentTeamIndex].GetCurrentWorm();
@@ -70,7 +77,6 @@ public class Game : MonoBehaviour
     private void OnWormDied(Worm worm)
     {
         worm.Died -= OnWormDied;
-        worm.Weapon.ProjectileExploded -= OnProjectileExploded;
 
         if (worm.WormInput.enabled == true)
             StartNextTurnWithDelay(_turnDelay);
@@ -82,6 +88,14 @@ public class Game : MonoBehaviour
 
         if (_currentTeams.Count <= 1)
             _endScreen.SetActive(true);
+    }
+
+    public IEnumerator WaitUntilProjectilesExplode(Action action)
+    {
+        while (_weaponSelector.ProjectilesCount > 0)
+            yield return null;
+
+        action();
     }
 
     public void StartNextTurnWithDelay(float delay)

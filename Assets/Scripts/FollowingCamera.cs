@@ -9,8 +9,16 @@ public class FollowingCamera : MonoBehaviour
     [SerializeField] private float _speed = 1;
     [SerializeField] private Game _game;
     [SerializeField] private WeaponSelector _weaponSelector;
+    [SerializeField] private Camera _camera;
+    [SerializeField] private int _minSize = 2;
+    [SerializeField] private int _maxSize = 15;
 
     private List<Worm> _worms = new List<Worm>();
+
+    private void OnValidate()
+    {
+        _camera = GetComponent<Camera>();
+    }
 
     private void OnEnable()
     {
@@ -26,7 +34,18 @@ public class FollowingCamera : MonoBehaviour
     {
         _game.WormsSpawned -= OnWormsSpawned;
         foreach (var weapon in _weaponSelector.Weapons)
+        {
             weapon.Shot -= OnShot;
+            weapon.ProjectileExploded -= OnProjectileExploded;
+        }
+    }
+
+    private void Update()
+    {
+        if(Input.mouseScrollDelta.y > 0 && _camera.orthographicSize > _minSize || Input.mouseScrollDelta.y < 0 && _camera.orthographicSize < _maxSize)
+        {
+            _camera.orthographicSize -= Input.mouseScrollDelta.y;
+        }
     }
 
     private void FixedUpdate()
@@ -83,7 +102,8 @@ public class FollowingCamera : MonoBehaviour
 
     private void OnDamageTook(Worm worm)
     {
-        SetTarget(worm.transform);
+        if (_game.GetCurrentTeam().GetCurrentWorm() == worm)
+            SetTarget(worm.transform);
     }
 
     private void OnShot(Projectile bomb)
@@ -93,7 +113,7 @@ public class FollowingCamera : MonoBehaviour
 
     private void OnProjectileExploded(Projectile bomb, Worm worm)
     {
-        worm.Weapon.ProjectileExploded -= OnProjectileExploded;
-        SetTarget(worm.transform);
+        if(_game.GetCurrentTeam().GetCurrentWorm() == worm)
+            SetTarget(worm.transform);
     }
 }

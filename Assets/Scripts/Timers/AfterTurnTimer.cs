@@ -14,24 +14,36 @@ public class AfterTurnTimer : MonoBehaviour
     {
         foreach (var weapon in _weaponSelector.Weapons)
             weapon.Shot += OnShot;
+        _turnTimer.WormShot += OnShot;
     }
 
     private void OnDisable()
     {
         foreach (var weapon in _weaponSelector.Weapons)
             weapon.Shot -= OnShot;
+        _turnTimer.WormShot -= OnShot;
     }
 
     private void OnShot(Projectile projectile)
+    {
+        StartTimer();
+    }
+
+    private void OnShot()
+    {
+        StartTimer();
+    }
+
+    private void StartTimer()
     {
         _timer.StartTimer(_time, OnTimerOut);
     }
 
     private void OnTimerOut()
     {
-        Debug.Log("AfterTurn");
         _timer.StopTimer();
         _game.EndTurn();
-        _game.StartNextTurnWithDelay(0);
+        //_game.StartNextTurnWithDelay(1.5f);
+        StartCoroutine(_game.WaitUntilProjectilesExplode(() => _game.StartNextTurnWithDelay(1.5f)));
     }
 }

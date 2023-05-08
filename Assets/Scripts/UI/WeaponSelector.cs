@@ -15,6 +15,8 @@ public class WeaponSelector : MonoBehaviour
     private bool _canOpen = false;
     private Weapon _currentWeapon;
 
+    public int ProjectilesCount { get; private set; } = 0;
+
     public IReadOnlyCollection<Weapon> Weapons => _weapons;
     public Transform Container => _container;
 
@@ -22,7 +24,10 @@ public class WeaponSelector : MonoBehaviour
     {
         _game.WormsSpawned += OnWormsSpawned;
         foreach (var weapon in _weapons)
+        {
             weapon.Shot += OnWeaponShot;
+            weapon.ProjectileExploded += OnProjectileExploded;
+        }
     }
 
     private void OnDisable()
@@ -77,5 +82,11 @@ public class WeaponSelector : MonoBehaviour
     {
         _currentWeapon = null;
         _canOpen = false;
+        ProjectilesCount++;
+    }
+
+    private void OnProjectileExploded(Projectile projectile, Worm worm)
+    {
+        ProjectilesCount--;
     }
 }

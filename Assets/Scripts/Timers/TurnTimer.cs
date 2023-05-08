@@ -11,6 +11,7 @@ public class TurnTimer : MonoBehaviour
     [SerializeField] private WeaponSelector _weaponSelector;
 
     public event Action TimerOut;
+    public event Action WormShot;
 
     private void OnEnable()
     {
@@ -50,7 +51,14 @@ public class TurnTimer : MonoBehaviour
 
     private void OnTimerOut()
     {
-        Debug.Log("Turn");
+        var currentWorm = _game.GetCurrentTeam().GetCurrentWorm();
+        if (currentWorm.Weapon?.CurrentShotPower > 0)
+        {
+            currentWorm.Weapon.Shoot();
+            WormShot?.Invoke();
+            return;
+        }
+
         _game.EndTurn();
         _game.StartNextTurnWithDelay(0);
         TimerOut?.Invoke();
