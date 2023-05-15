@@ -60,7 +60,7 @@ public class TurnTimer : MonoBehaviour
         }
 
         _game.EndTurn();
-        _game.StartNextTurnWithDelay(0);
+        _game.StartNextTurnWithDelay(1);
         TimerOut?.Invoke();
     }
 

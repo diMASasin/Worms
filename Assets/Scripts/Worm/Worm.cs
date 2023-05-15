@@ -22,11 +22,12 @@ public class Worm : MonoBehaviour
     [SerializeField] private float _removeWeaponDelay = 0.5f;
     [SerializeField] private bool _showCanSpawnCheckerBox = false;
 
-    private int _health;
+    public int Health { get; set; }
 
     public CapsuleCollider2D Collider2D => _collider;
     public Weapon Weapon => _weapon;
     public WormInput WormInput => _input;
+    public int MaxHealth => _maxHealth;
 
     public event UnityAction<int> HealthChanged;
     public event UnityAction<Worm> Died;
@@ -52,7 +53,7 @@ public class Worm : MonoBehaviour
 
     private void Start()
     {
-        _health = _maxHealth;
+        Health = _maxHealth;
     }
 
     public void Init(Color color, string name)
@@ -88,11 +89,11 @@ public class Worm : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        _health -= damage;
+        Health -= damage;
         DamageTook?.Invoke(this);
-        HealthChanged?.Invoke(_health);
+        HealthChanged?.Invoke(Health);
 
-        if (_health <= 0)
+        if (Health <= 0)
             Die();
     }
 

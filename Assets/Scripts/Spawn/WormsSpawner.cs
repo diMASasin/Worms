@@ -34,14 +34,13 @@ public class WormsSpawner : MonoBehaviour
             var randomColor = _teamColors[Random.Range(0, _teamColors.Count)];
             _teamColors.Remove(randomColor);
 
-            var newTeam = SpawnTeam(_wormsNumber, randomColor);
-            newTeam.name = $"Team {i + 1}";
+            var newTeam = SpawnTeam(_wormsNumber, randomColor, $"Team {i + 1}");
             teams.Add(newTeam);
         }
         return teams;
     }
 
-    private Team SpawnTeam(int wormsNumber, Color teamColor)
+    private Team SpawnTeam(int wormsNumber, Color teamColor, string name)
     {
         List<Worm> worms = new List<Worm>();
 
@@ -55,7 +54,8 @@ public class WormsSpawner : MonoBehaviour
             worms.Add(newWorm);
         }
 
-        team.Init(worms, teamColor);
+        team.Init(worms, teamColor, name);
+        team.name = name;
         return team;
     }
 
