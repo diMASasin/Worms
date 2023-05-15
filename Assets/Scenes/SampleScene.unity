@@ -5927,7 +5927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e926dea880d19984e85dedd7c5f11d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _time: 5
+  _time: 30
   _game: {fileID: 246987971}
   _timer: {fileID: 664762928}
   _weaponSelector: {fileID: 273442275}
