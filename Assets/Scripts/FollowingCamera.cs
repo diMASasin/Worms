@@ -12,12 +12,14 @@ public class FollowingCamera : MonoBehaviour
     [SerializeField] private Camera _camera;
     [SerializeField] private int _minSize = 2;
     [SerializeField] private int _maxSize = 15;
+    [SerializeField] private Vector2 _offset;
 
     private List<Worm> _worms = new List<Worm>();
 
     private void OnValidate()
     {
         _camera = GetComponent<Camera>();
+        _weaponSelector = FindObjectOfType<WeaponSelector>();
     }
 
     private void OnEnable()
@@ -53,7 +55,7 @@ public class FollowingCamera : MonoBehaviour
         if (!_target)
             return;
 
-        Vector3 newPosition = _target.position;
+        Vector3 newPosition = _target.position + (Vector3)_offset;
         newPosition.z = transform.position.z;
 
         transform.position = Vector3.Lerp(transform.position, newPosition, _speed * Time.deltaTime);

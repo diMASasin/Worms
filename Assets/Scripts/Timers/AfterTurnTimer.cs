@@ -8,25 +8,22 @@ public class AfterTurnTimer : MonoBehaviour
     [SerializeField] private TurnTimer _turnTimer;
     [SerializeField] private Timer _timer;
     [SerializeField] private Game _game;
-    [SerializeField] private WeaponSelector _weaponSelector;
+
+    private void OnValidate()
+    {
+        _game = FindObjectOfType<Game>();
+    }
 
     private void OnEnable()
     {
-        foreach (var weapon in _weaponSelector.Weapons)
-            weapon.Shot += OnShot;
         _turnTimer.WormShot += OnShot;
+        _turnTimer.TimerStopped += OnShot;
     }
 
     private void OnDisable()
     {
-        foreach (var weapon in _weaponSelector.Weapons)
-            weapon.Shot -= OnShot;
         _turnTimer.WormShot -= OnShot;
-    }
-
-    private void OnShot(Projectile projectile)
-    {
-        StartTimer();
+        _turnTimer.TimerStopped -= OnShot;
     }
 
     private void OnShot()

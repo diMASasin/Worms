@@ -12,6 +12,12 @@ public class TurnTimer : MonoBehaviour
 
     public event Action TimerOut;
     public event Action WormShot;
+    public event Action TimerStopped;
+
+    private void OnValidate()
+    {
+        _game = FindObjectOfType<Game>();
+    }
 
     private void OnEnable()
     {
@@ -67,5 +73,6 @@ public class TurnTimer : MonoBehaviour
     private void OnShot(Projectile projectile)
     {
         _timer.StopTimer();
+        TimerStopped?.Invoke();
     }
 }

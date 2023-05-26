@@ -20,7 +20,16 @@ public class WormsSpawner : MonoBehaviour
     private Vector2[] _points;
     private List<Edge> _edges = new();
 
+    private const string TeamsNumber = nameof(TeamsNumber);
+    private const string WormsNumber = nameof(WormsNumber);
+
     public event UnityAction<Worm> WormSpawned;
+
+    private void Awake()
+    {
+        _teamsNumber = PlayerPrefs.GetInt(TeamsNumber, 2);
+        _wormsNumber = PlayerPrefs.GetInt(WormsNumber, 4);
+    }
 
     public List<Team> SpawnTeams()
     {

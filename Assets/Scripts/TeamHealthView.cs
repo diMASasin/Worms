@@ -8,6 +8,11 @@ public class TeamHealthView : MonoBehaviour
     [SerializeField] private TeamHealth _teamHealthTemplate;
     [SerializeField] private Transform _container;
 
+    private void OnValidate()
+    {
+        _game = FindObjectOfType<Game>();
+    }
+
     private void OnEnable()
     {
         _game.WormsSpawned += OnWormsSpawned;

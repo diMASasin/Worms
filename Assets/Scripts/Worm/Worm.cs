@@ -93,6 +93,9 @@ public class Worm : MonoBehaviour
         DamageTook?.Invoke(this);
         HealthChanged?.Invoke(Health);
 
+        if(_input.enabled)
+            _input.DisableInput();
+
         if (Health <= 0)
             Die();
     }
@@ -109,7 +112,7 @@ public class Worm : MonoBehaviour
         {
             if (_weapon.IsShot)
                 return;
-            RemoveWeapon(weaponContainer);
+            TryRemoveWeapon(weaponContainer);
         }
 
         _weapon = weapon;
@@ -127,7 +130,7 @@ public class Worm : MonoBehaviour
         StartCoroutine(DelayedRemoveWeapon(weaponContainer, _removeWeaponDelay));
     }
 
-    public void RemoveWeapon(Transform weaponContainer)
+    public void TryRemoveWeapon(Transform weaponContainer)
     {
         if (_weapon == null)
             return;
@@ -140,6 +143,6 @@ public class Worm : MonoBehaviour
     private IEnumerator DelayedRemoveWeapon(Transform weaponContainer, float delay)
     {
         yield return new WaitForSeconds(delay);
-        RemoveWeapon(weaponContainer);
+        TryRemoveWeapon(weaponContainer);
     }
 }

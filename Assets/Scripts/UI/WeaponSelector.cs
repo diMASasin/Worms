@@ -20,6 +20,11 @@ public class WeaponSelector : MonoBehaviour
     public IReadOnlyCollection<Weapon> Weapons => _weapons;
     public Transform Container => _container;
 
+    private void OnValidate()
+    {
+        _game = FindObjectOfType<Game>();
+    }
+
     private void OnEnable()
     {
         _game.WormsSpawned += OnWormsSpawned;

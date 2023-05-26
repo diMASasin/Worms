@@ -11,7 +11,8 @@ Material:
   m_Shader: {fileID: 4800000, guid: fe393ace9b354375a9cb14cdbbc28be4, type: 3}
   m_Parent: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_ModifiedSerializedProperties: 2
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - OUTLINE_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
@@ -25,14 +26,15 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _FaceDilate: 0.1
+    - _FaceDilate: 0.477
     - _OutlineSoftness: 0
-    - _OutlineWidth: 0.406
-    - _ScaleRatioA: 0.9
+    - _OutlineWidth: 0.43
+    - _ScaleRatioA: 0.8222932
     - _ScaleRatioB: 1
-    - _ScaleRatioC: 0.64125
+    - _ScaleRatioC: 0.30194998
     m_Colors:
     - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &11400000
 MonoBehaviour:

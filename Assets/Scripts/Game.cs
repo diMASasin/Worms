@@ -9,7 +9,7 @@ public class Game : MonoBehaviour
 {
     [SerializeField] private WormsSpawner _wormsSpawner;
     [SerializeField] private float _turnDelay = 2.5f;
-    [SerializeField] private GameObject _endScreen;
+    [SerializeField] private EndScreen _endScreen;
     [SerializeField] private FollowingCamera _followingCamera;
     [SerializeField] private WeaponSelector _weaponSelector;
 
@@ -18,6 +18,12 @@ public class Game : MonoBehaviour
     private int _currentTeamIndex = -1;
 
     public event UnityAction<List<Team>> WormsSpawned;
+
+    private void OnValidate()
+    {
+        _weaponSelector = FindObjectOfType<WeaponSelector>();
+        _endScreen = FindObjectOfType<EndScreen>();
+    }
 
     private void OnEnable()
     {
@@ -78,6 +84,8 @@ public class Game : MonoBehaviour
     {
         worm.Died -= OnWormDied;
 
+        worm.TryRemoveWeapon(_weaponSelector.Container);
+
         if (worm.WormInput.enabled == true)
             StartNextTurnWithDelay(_turnDelay);
     }
@@ -87,7 +95,7 @@ public class Game : MonoBehaviour
         _currentTeams.Remove(team);
 
         if (_currentTeams.Count <= 1)
-            _endScreen.SetActive(true);
+            _endScreen.gameObject.SetActive(true);
     }
 
     public IEnumerator WaitUntilProjectilesExplode(Action action)
