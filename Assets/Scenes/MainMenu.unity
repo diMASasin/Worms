@@ -1806,6 +1806,8 @@ MonoBehaviour:
       m_Image: {fileID: 21300000, guid: 891d9c81e5dd55042aad724f2df0b86a, type: 3}
     - m_Text: 4
       m_Image: {fileID: 21300000, guid: 945be802b30912f45991c866296c598e, type: 3}
+    - m_Text: 5
+      m_Image: {fileID: 21300000, guid: 6f8b4fb62873f994db2ae784cd21d44c, type: 3}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3157,7 +3159,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 20
+  m_ScrollSensitivity: 25
   m_Viewport: {fileID: 1488059739}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
