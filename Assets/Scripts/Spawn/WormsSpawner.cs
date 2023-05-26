@@ -16,6 +16,10 @@ public class WormsSpawner : MonoBehaviour
     [SerializeField] private Worm _wormTemplate;
     [SerializeField] private Transform _container;
     [SerializeField] private float _maxSlope = 45;
+    [SerializeField] private Transform _leftEdge;
+    [SerializeField] private Transform _topEdge;
+    [SerializeField] private Transform _rightEdge;
+    [SerializeField] private Transform _bottomEdge;
 
     private Vector2[] _points;
     private List<Edge> _edges = new();
@@ -81,7 +85,8 @@ public class WormsSpawner : MonoBehaviour
                 j = 0;
 
             var newEdge = new Edge(_points[i], _points[j]);
-            if (newEdge.IsFloor(_land) && newEdge.IsSuitableSlope(_maxSlope))
+            bool edgeInBounds = newEdge.InBounds(_leftEdge.position, _topEdge.position, _rightEdge.position, _bottomEdge.position);
+            if (newEdge.IsFloor(_land) && newEdge.IsSuitableSlope(_maxSlope) && edgeInBounds)
                 _edges.Add(newEdge);
         }
     }

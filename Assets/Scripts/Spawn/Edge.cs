@@ -39,4 +39,10 @@ public class Edge
 
         return Mathf.Abs(_kx) < _maxKx;
     }
+
+    public bool InBounds(Vector3 left, Vector3 up, Vector3 right, Vector3 bottom)
+    {
+        return _point1.x > left.x && _point1.x < right.x && _point1.y < up.y && _point1.y > bottom.y &&
+            _point2.x > left.x && _point2.x < right.x && _point2.y < up.y && _point2.y > bottom.y;
+    }
 }

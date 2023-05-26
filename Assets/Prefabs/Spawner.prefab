@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3740688013305884355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5876058785494552927}
+  - component: {fileID: 4390388684083834549}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5876058785494552927
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3740688013305884355}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.7370176, y: 2.4376318, z: -3.450799}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4390388684083834549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3740688013305884355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57e0b3ad1f01f1b42909e73be71f2382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _teamsNumber: 2
+  _wormsNumber: 4
+  _teamColors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0.50198245, b: 1, a: 1}
+  - {r: 0.9061289, g: 1, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0.5698867, a: 1}
+  _land: {fileID: 0}
+  _teamTemplate: {fileID: 8550424651646907382, guid: 14dae05a205d83c4c9a3a1af23738cef, type: 3}
+  _wormTemplate: {fileID: 8010253848381206769, guid: 5d44c577df426014ea42a784ad11b1b1, type: 3}
+  _container: {fileID: 0}
+  _maxSlope: 45
+  _leftEdge: {fileID: 0}
+  _topEdge: {fileID: 0}
+  _rightEdge: {fileID: 0}
+  _bottomEdge: {fileID: 0}
