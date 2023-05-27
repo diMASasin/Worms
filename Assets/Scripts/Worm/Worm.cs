@@ -11,8 +11,6 @@ public class Worm : MonoBehaviour
     [SerializeField] private int _maxHealth = 100;
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private CapsuleCollider2D _collider;
-    [SerializeField] private float _speed = 2f;
-    [SerializeField] private float _jumpSpeed = 5f;
     [SerializeField] private Animator _animator;
     [SerializeField] private Transform _wormSprite;
     [SerializeField] private WormInformationView _wormInformationView;

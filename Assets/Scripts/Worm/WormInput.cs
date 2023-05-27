@@ -53,6 +53,8 @@ public class WormInput : MonoBehaviour
     private void FixedUpdate()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
+        if (Input.GetKey(KeyCode.LeftShift))
+            horizontal *= 0.01f;
         _wormMovement.TryMove(horizontal);
     }
 

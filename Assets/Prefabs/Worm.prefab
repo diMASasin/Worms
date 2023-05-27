@@ -706,7 +706,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 20224d714190e75418ace83e65ba50ea, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -732,8 +732,6 @@ MonoBehaviour:
   _maxHealth: 100
   _rigidbody: {fileID: 2716522887637978340}
   _collider: {fileID: 4932577697248884442}
-  _speed: 2
-  _jumpSpeed: 5
   _animator: {fileID: 1806080000149428662}
   _wormSprite: {fileID: 5324110585828678461}
   _wormInformationView: {fileID: 5670862740911846097}
