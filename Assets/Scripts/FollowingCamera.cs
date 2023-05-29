@@ -77,10 +77,8 @@ public class FollowingCamera : MonoBehaviour
 
         foreach (var worm in _worms)
         {
-            //worm.Weapon.Shot += OnShot;
             worm.Died += OnWormDied;
             worm.DamageTook += OnDamageTook;
-            //worm.Weapon.ProjectileExploded += OnProjectileExploded;
         }
     }
 
@@ -98,13 +96,12 @@ public class FollowingCamera : MonoBehaviour
     private void OnWormDied(Worm worm)
     {
         worm.Died -= OnWormDied;
-        //worm.Weapon.Shot -= OnShot;
         worm.DamageTook -= OnDamageTook;
     }
 
     private void OnDamageTook(Worm worm)
     {
-        if (_game.GetCurrentTeam().GetCurrentWorm() == worm)
+        if (_game.GetCurrentTeam().GetCurrentWorm() != worm)
             SetTarget(worm.transform);
     }
 
@@ -115,7 +112,7 @@ public class FollowingCamera : MonoBehaviour
 
     private void OnProjectileExploded(Projectile bomb, Worm worm)
     {
-        if(_game.GetCurrentTeam().GetCurrentWorm() == worm)
+        if(_game.GetCurrentTeam().GetCurrentWorm() != worm)
             SetTarget(worm.transform);
     }
 }

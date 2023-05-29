@@ -249,7 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _wormsSpawner: {fileID: 1422226334}
   _turnDelay: 2.5
-  _endScreen: {fileID: 0}
+  _endScreen: {fileID: 841989436}
   _followingCamera: {fileID: 519420033}
   _weaponSelector: {fileID: 273442275}
 --- !u!4 &246987972
@@ -721,6 +721,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &841989436 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5626898306388467032, guid: eb79a91afcbf75d4fbcc60fdd640582b, type: 3}
+  m_PrefabInstance: {fileID: 6986243765066854676}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203f566a0526a2b4b9a0a129459a7cde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &872543954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,7 +1121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _teamsNumber: 2
-  _wormsNumber: 4
+  _wormsNumber: 1
   _teamColors:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0, g: 0.50198245, b: 1, a: 1}

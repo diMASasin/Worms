@@ -159,6 +159,7 @@ public class Sph : MonoBehaviour
         return nextIndex;
     }
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         for (int i = 0; i < _sphCollider.GetTotalPointCount(); i++)
@@ -171,5 +172,5 @@ public class Sph : MonoBehaviour
         }
 
     }
-
+#endif
 }

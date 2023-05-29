@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -22,21 +21,17 @@ public class Game : MonoBehaviour
     private void OnValidate()
     {
         _weaponSelector = FindObjectOfType<WeaponSelector>();
-        _endScreen = FindObjectOfType<EndScreen>();
+        //_endScreen = FindObjectOfType<EndScreen>();
     }
 
     private void OnEnable()
     {
         _wormsSpawner.WormSpawned += OnWormSpawned;
-        foreach (var weapon in _weaponSelector.Weapons)
-            weapon.ProjectileExploded += OnProjectileExploded;
     }
 
     private void OnDisable()
     {
         _wormsSpawner.WormSpawned -= OnWormSpawned;
-        foreach (var weapon in _weaponSelector.Weapons)
-            weapon.ProjectileExploded -= OnProjectileExploded;
     }
 
     private void Start()
@@ -58,13 +53,6 @@ public class Game : MonoBehaviour
     private void OnWormSpawned(Worm worm)
     {
         worm.Died += OnWormDied;
-        //worm.Weapon.ProjectileExploded += OnProjectileExploded;
-    }
-
-    private void OnProjectileExploded(Projectile bomb, Worm worm)
-    {
-        //EndTurn();
-        //StartNextTurnWithDelay(_turnDelay);
     }
 
     public Team GetCurrentTeam()

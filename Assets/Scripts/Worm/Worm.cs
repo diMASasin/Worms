@@ -1,8 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting.Dependencies.Sqlite;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,8 +7,6 @@ public class Worm : MonoBehaviour
     [SerializeField] private int _maxHealth = 100;
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private CapsuleCollider2D _collider;
-    [SerializeField] private Animator _animator;
-    [SerializeField] private Transform _wormSprite;
     [SerializeField] private WormInformationView _wormInformationView;
     [SerializeField] private WormInput _input;
     [SerializeField] private Weapon _weapon;
@@ -20,7 +14,7 @@ public class Worm : MonoBehaviour
     [SerializeField] private float _removeWeaponDelay = 0.5f;
     [SerializeField] private bool _showCanSpawnCheckerBox = false;
 
-    public int Health { get; set; }
+    public int Health { get; private set; }
 
     public CapsuleCollider2D Collider2D => _collider;
     public Weapon Weapon => _weapon;

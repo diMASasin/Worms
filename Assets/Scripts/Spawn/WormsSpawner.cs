@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
@@ -31,8 +30,8 @@ public class WormsSpawner : MonoBehaviour
 
     private void Awake()
     {
-        _teamsNumber = PlayerPrefs.GetInt(TeamsNumber, 2);
-        _wormsNumber = PlayerPrefs.GetInt(WormsNumber, 4);
+        _teamsNumber = PlayerPrefs.GetInt(TeamsNumber, _teamsNumber);
+        _wormsNumber = PlayerPrefs.GetInt(WormsNumber, _wormsNumber);
     }
 
     public List<Team> SpawnTeams()

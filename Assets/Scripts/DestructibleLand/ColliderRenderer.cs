@@ -28,6 +28,7 @@ public class ColliderRenderer : MonoBehaviour
         _meshFilter.mesh = mesh;
     }
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         if (_showPointsIndex)
@@ -45,4 +46,5 @@ public class ColliderRenderer : MonoBehaviour
             }
         }
     }
+#endif
 }
