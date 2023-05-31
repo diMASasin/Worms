@@ -9,8 +9,10 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float _explosionUpwardsModifier = 2f;
     [SerializeField] private int _damage;
     [SerializeField] private CircleCollider2D _collider;
+    [SerializeField] private ParticleSystem _explosionEffect;
 
     private float _bombColliderRadius;
+    private Action _particleSystemStopped;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -33,17 +35,25 @@ public class Explosion : MonoBehaviour
         return Convert.ToInt32(maxDamage * multiplier);
     }
 
-    public void Explode(float bombColliderRadius)
+    public void Explode(float bombColliderRadius, Action onParticleSystemStopped = null)
     {
         _bombColliderRadius = bombColliderRadius;
+        _collider.enabled = true;
         transform.parent = null;
-        gameObject.SetActive(true);
+        _explosionEffect.Play();
+        _particleSystemStopped = onParticleSystemStopped;
         StartCoroutine(DelayedDisable());
+    }
+
+    private void OnParticleSystemStopped()
+    {
+        Debug.Log("OnParticleSystemStopped");
+        _particleSystemStopped?.Invoke();
     }
 
     private IEnumerator DelayedDisable()
     {
         yield return new WaitForSeconds(0.1f);
-        Destroy(gameObject);
+        _collider.enabled = false;
     }
 }

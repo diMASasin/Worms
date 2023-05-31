@@ -6,22 +6,23 @@ using UnityEngine.Events;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _rigidbody;
-    [SerializeField] private GameObject _explosionPrefab;
     [SerializeField] private Explosion _explosion;
     [SerializeField] private CircleCollider2D _collider2D;
     [SerializeField] private GameObject _spriteObject;
 
     private Cutter _cut;
     private bool _dead;
+    private ExplosionPool _explosionPool;
 
     public Rigidbody2D Rigidbody2D => _rigidbody;
     public GameObject SpriteRenderer => _spriteObject;
 
     public event UnityAction<Projectile> Exploded;
 
-    public virtual void Init(Vector2 value) 
+    public virtual void Init(Vector2 value, ExplosionPool explosionPool) 
     {
         _rigidbody.velocity = value;
+        _explosionPool = explosionPool;
     }
 
     private void Start()
@@ -32,6 +33,11 @@ public class Projectile : MonoBehaviour
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         DelayedExplode();
+    }
+
+    public void Reset()
+    {
+        _dead = false;
     }
 
     public void DelayedExplode(float delay = 0)
@@ -51,9 +57,9 @@ public class Projectile : MonoBehaviour
     private void DoCut() 
     {
         _cut.DoCut();
-        _explosion.Explode(_collider2D.radius);
-        Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+        var explosion = _explosionPool.Get();
+        explosion.transform.position = transform.position;
+        explosion.Explode(_collider2D.radius, () => _explosionPool.Remove(explosion));
         Exploded?.Invoke(this);
-        Destroy(gameObject);
     }
 }

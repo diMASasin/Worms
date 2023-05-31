@@ -14,6 +14,8 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private float _shotPower = 5;
     [SerializeField] private float _maxShotPower = 5;
+    [SerializeField] private ProjectilesPool _projectilesPool;
+    [SerializeField] private ExplosionPool _explosionPool;
     
     private Worm _worm;
     private Vector3 _mouseStart;
@@ -80,11 +82,13 @@ public class Weapon : MonoBehaviour
         Vector3 velocity = _currentShotPower * transform.right;
 
         _pointerRenderer.enabled = false;
-        Projectile newBomb = Instantiate(_bombPrefab, _spawnPoint.position, Quaternion.identity);
-        Shot?.Invoke(newBomb);
+        Projectile projectile = _projectilesPool.Get();
+        projectile.transform.position = _spawnPoint.position;
+        projectile.Reset();
+        Shot?.Invoke(projectile);
         IsShot = true;
-        newBomb.Exploded += OnProjectileExploded;
-        newBomb.Init(velocity);
+        projectile.Exploded += OnProjectileExploded;
+        projectile.Init(velocity, _explosionPool);
         gameObject.SetActive(false);
     }
 
@@ -93,9 +97,10 @@ public class Weapon : MonoBehaviour
         _worm = worm;
     }
 
-    private void OnProjectileExploded(Projectile bomb)
+    private void OnProjectileExploded(Projectile projectile)
     {
-        bomb.Exploded -= OnProjectileExploded;
-        ProjectileExploded?.Invoke(bomb, _worm);
+        projectile.Exploded -= OnProjectileExploded;
+        ProjectileExploded?.Invoke(projectile, _worm);
+        _projectilesPool.Remove(projectile);
     }
 }

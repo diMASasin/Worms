@@ -6,9 +6,9 @@ public class GranadeProjectile : Projectile
 {
     [SerializeField] private float _explodeDelay = 5;
 
-    public override void Init(Vector2 value)
+    public override void Init(Vector2 value, ExplosionPool explosionPool)
     {
-        base.Init(value);
+        base.Init(value, explosionPool);
         var torque = Random.Range(5, 7);
         Rigidbody2D.AddTorque(Random.Range(-torque, torque));
         DelayedExplode(_explodeDelay);
