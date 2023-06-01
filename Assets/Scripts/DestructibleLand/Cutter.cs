@@ -28,10 +28,10 @@ public class Line
 
 public class Cutter : MonoBehaviour
 {
-
     [SerializeField] PolygonCollider2D _landCollider;
     [SerializeField] PolygonCollider2D _circleCollider;
     [SerializeField] int _testIterations = 10;
+    [SerializeField] private Land _land;
 
     public void DoCut()
     {
@@ -73,7 +73,7 @@ public class Cutter : MonoBehaviour
             allSplines.InsertRange(0, result);
         }
 
-        _landCollider.GetComponent<Land>().SetPath(allSplines);
+        _land.SetPath(allSplines);
     }
 
     public List<List<Point>> Substraction(Line landLine, Line circleLine)

@@ -48,6 +48,8 @@ public class Team : MonoBehaviour
 
     public Worm GetCurrentWorm()
     {
+        if (_currentWormIndex >= _worms.Count)
+            _currentWormIndex = 0;
         return _worms[_currentWormIndex];
     }
 
