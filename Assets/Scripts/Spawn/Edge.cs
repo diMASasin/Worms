@@ -22,10 +22,12 @@ public class Edge
 
     public bool IsFloor(Terrain2D terrain)
     {
-        return !terrain.polygonCollider.OverlapPoint(new Vector2(_point1.x, _point1.y + 0.1f)) &&
-            !terrain.polygonCollider.OverlapPoint(new Vector2(_point2.x, _point2.y + 0.1f)) &&
-            !terrain.polygonCollider.OverlapPoint(new Vector2(_point1.x, _point1.y + 0.8f)) &&
-            !terrain.polygonCollider.OverlapPoint(new Vector2(_point2.x, _point2.y + 0.8f));
+        var point1 = _point1 + (Vector2)terrain.transform.position;
+        var point2 = _point2 + (Vector2)terrain.transform.position;
+        return !terrain.polygonCollider.OverlapPoint(new Vector2(point1.x, point1.y + 0.1f)) &&
+            !terrain.polygonCollider.OverlapPoint(new Vector2(point2.x, point2.y + 0.1f)) &&
+            !terrain.polygonCollider.OverlapPoint(new Vector2(point1.x, point1.y + 0.8f)) &&
+            !terrain.polygonCollider.OverlapPoint(new Vector2(point2.x, point2.y + 0.8f));
     }
 
     public bool IsSuitableSlope(float maxDegrees)
@@ -41,9 +43,19 @@ public class Edge
         return Mathf.Abs(_kx) < _maxKx;
     }
 
-    public bool InBounds(Vector3 left, Vector3 up, Vector3 right, Vector3 bottom)
+    public bool InBounds(Vector3 left, Vector3 up, Vector3 right, Vector3 bottom, Terrain2D terrain)
     {
-        return _point1.x > left.x && _point1.x < right.x && _point1.y < up.y && _point1.y > bottom.y &&
-            _point2.x > left.x && _point2.x < right.x && _point2.y < up.y && _point2.y > bottom.y;
+        var point1 = _point1 + (Vector2)terrain.transform.position;
+        var point2 = _point2 + (Vector2)terrain.transform.position;
+        bool inBounds = 
+            point1.x > left.x 
+            && point1.x < right.x 
+            && point1.y < up.y 
+            && point1.y > bottom.y 
+            && point2.x > left.x 
+            && point2.x < right.x 
+            && point2.y < up.y 
+            && point2.y > bottom.y;
+        return inBounds;
     }
 }

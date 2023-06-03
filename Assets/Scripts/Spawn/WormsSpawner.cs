@@ -85,8 +85,13 @@ public class WormsSpawner : MonoBehaviour
                 j = 0;
 
             var newEdge = new Edge(_points[i], _points[j]);
-            bool edgeInBounds = newEdge.InBounds(_leftEdge.position, _topEdge.position, _rightEdge.position, _bottomEdge.position);
-            if (newEdge.IsFloor(_terrain) && newEdge.IsSuitableSlope(_maxSlope) && edgeInBounds)
+            bool edgeInBounds = newEdge.InBounds(_leftEdge.position, _topEdge.position, _rightEdge.position, _bottomEdge.position, _terrain);
+            if (
+                newEdge.IsFloor(_terrain) 
+                && 
+                newEdge.IsSuitableSlope(_maxSlope) 
+                && edgeInBounds
+                )
                 _edges.Add(newEdge);
         }
     }
