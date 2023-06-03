@@ -53,12 +53,11 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMipmapLimit: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -97,7 +96,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 1
-  swizzle: 50462976
   cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
@@ -363,17 +361,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Boy_0: 21300004
-      Boy_1: 21300006
-      Boy_2: 21300008
-      Boy_3: 21300010
       Boy_4: 21300012
-      Boy_5: 21300014
-      Boy_6: 21300016
-      Boy_7: 21300018
+      Boy_2: 21300008
       Boy_8: 21300020
-  mipmapLimitGroupName: 
+      Boy_5: 21300014
+      Boy_7: 21300018
+      Boy_0: 21300004
+      Boy_6: 21300016
+      Boy_3: 21300010
+      Boy_1: 21300006
+  spritePackingTag: 
   pSDRemoveMatte: 1
+  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

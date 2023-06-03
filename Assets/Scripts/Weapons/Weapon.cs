@@ -1,3 +1,4 @@
+using ScriptBoy.Digable2DTerrain;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float _maxShotPower = 5;
     [SerializeField] private ProjectilesPool _projectilesPool;
     [SerializeField] private ExplosionPool _explosionPool;
+    [SerializeField] private Shovel _shovel;
     
     private Worm _worm;
     private Vector3 _mouseStart;
@@ -88,7 +90,7 @@ public class Weapon : MonoBehaviour
         Shot?.Invoke(projectile);
         IsShot = true;
         projectile.Exploded += OnProjectileExploded;
-        projectile.Init(velocity, _explosionPool);
+        projectile.Init(velocity, _explosionPool, _shovel);
         gameObject.SetActive(false);
     }
 

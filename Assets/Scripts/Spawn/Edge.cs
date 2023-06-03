@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScriptBoy.Digable2DTerrain;
+using System;
 using UnityEngine;
 
 [Serializable]
@@ -19,12 +20,12 @@ public class Edge
         _point2 = point2;
     }
 
-    public bool IsFloor(Land land)
+    public bool IsFloor(Terrain2D terrain)
     {
-        return !land.PolygonCollider2D.OverlapPoint(new Vector2(_point1.x, _point1.y + 0.1f)) &&
-            !land.PolygonCollider2D.OverlapPoint(new Vector2(_point2.x, _point2.y + 0.1f)) &&
-            !land.PolygonCollider2D.OverlapPoint(new Vector2(_point1.x, _point1.y + 0.8f)) &&
-            !land.PolygonCollider2D.OverlapPoint(new Vector2(_point2.x, _point2.y + 0.8f));
+        return !terrain.polygonCollider.OverlapPoint(new Vector2(_point1.x, _point1.y + 0.1f)) &&
+            !terrain.polygonCollider.OverlapPoint(new Vector2(_point2.x, _point2.y + 0.1f)) &&
+            !terrain.polygonCollider.OverlapPoint(new Vector2(_point1.x, _point1.y + 0.8f)) &&
+            !terrain.polygonCollider.OverlapPoint(new Vector2(_point2.x, _point2.y + 0.8f));
     }
 
     public bool IsSuitableSlope(float maxDegrees)

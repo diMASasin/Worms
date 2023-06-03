@@ -1,3 +1,4 @@
+using ScriptBoy.Digable2DTerrain;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private CircleCollider2D _collider2D;
     [SerializeField] private GameObject _spriteObject;
 
-    private Cutter _cut;
+    private Shovel _shovel;
     private bool _dead;
     private ExplosionPool _explosionPool;
 
@@ -19,15 +20,11 @@ public class Projectile : MonoBehaviour
 
     public event UnityAction<Projectile> Exploded;
 
-    public virtual void Init(Vector2 value, ExplosionPool explosionPool) 
+    public virtual void Init(Vector2 value, ExplosionPool explosionPool, Shovel shovel) 
     {
         _rigidbody.velocity = value;
         _explosionPool = explosionPool;
-    }
-
-    private void Start()
-    {
-        _cut = FindObjectOfType<Cutter>();
+        _shovel = shovel;
     }
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
@@ -50,13 +47,13 @@ public class Projectile : MonoBehaviour
 
     public void Explode()
     {
-        _cut.transform.position = transform.position;
+        _shovel.transform.position = transform.position;
         Invoke(nameof(DoCut), 0.01f);
     }
 
     private void DoCut() 
     {
-        _cut.DoCut();
+        _shovel.Dig();
         var explosion = _explosionPool.Get();
         explosion.transform.position = transform.position;
         explosion.Explode(_collider2D.radius, () => _explosionPool.Remove(explosion));

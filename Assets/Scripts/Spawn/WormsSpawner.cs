@@ -1,3 +1,4 @@
+using ScriptBoy.Digable2DTerrain;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,7 @@ public class WormsSpawner : MonoBehaviour
     [SerializeField] private int _wormsNumber = 4;
     [SerializeField] private List<Color> _teamColors;
 
-    [SerializeField] private Land _land;
+    [SerializeField] private Terrain2D _terrain;
     [SerializeField] private Team _teamTemplate;
     [SerializeField] private Worm _wormTemplate;
     [SerializeField] private Transform _container;
@@ -73,9 +74,9 @@ public class WormsSpawner : MonoBehaviour
 
     public void GetEdgesForSpawn()
     {
-        int length = _land.PolygonCollider2D.points.Length;
+        int length = _terrain.polygonCollider.points.Length;
         _points = new Vector2[length];
-        Array.Copy(_land.PolygonCollider2D.points, _points, length);
+        Array.Copy(_terrain.polygonCollider.points, _points, length);
 
         for (int i = 0; i < _points.Length; i++)
         {
@@ -85,7 +86,7 @@ public class WormsSpawner : MonoBehaviour
 
             var newEdge = new Edge(_points[i], _points[j]);
             bool edgeInBounds = newEdge.InBounds(_leftEdge.position, _topEdge.position, _rightEdge.position, _bottomEdge.position);
-            if (newEdge.IsFloor(_land) && newEdge.IsSuitableSlope(_maxSlope) && edgeInBounds)
+            if (newEdge.IsFloor(_terrain) && newEdge.IsSuitableSlope(_maxSlope) && edgeInBounds)
                 _edges.Add(newEdge);
         }
     }
@@ -98,7 +99,7 @@ public class WormsSpawner : MonoBehaviour
             int random = Random.Range(0, _edges.Count);
             var randomEdge = _edges[random];
             randomPoint = Vector2.Lerp(randomEdge.Point1, randomEdge.Point2, Random.value);
-            randomPoint += (Vector2)_land.transform.position;
+            randomPoint += (Vector2)_terrain.transform.position;
         }
         while (!CanFitWormInPosition(randomPoint));
 
