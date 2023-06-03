@@ -57,4 +57,4 @@ MonoBehaviour:
   - {x: 0.95105654, y: -0.30901697}
   radius: 1
   segments: 10
-  useMouse: 1
+  useMouse: 0

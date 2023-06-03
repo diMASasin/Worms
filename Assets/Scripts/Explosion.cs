@@ -47,7 +47,6 @@ public class Explosion : MonoBehaviour
 
     private void OnParticleSystemStopped()
     {
-        Debug.Log("OnParticleSystemStopped");
         _particleSystemStopped?.Invoke();
     }
 
