@@ -685,7 +685,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 20224d714190e75418ace83e65ba50ea, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -747,11 +747,15 @@ MonoBehaviour:
   _groundChecker: {fileID: 5832659334154097657}
   _wormInput: {fileID: 4789554427486272721}
   _speed: 2
-  _longJumpForceX: 2
-  _longJumpForceY: 5
-  _highJumpForceX: 1
-  _highJumpForceY: 8
+  _longJumpForce: {x: 3, y: 5}
+  _highJumpForce: {x: 1, y: 8}
   _jumpCooldown: 1
+  _minGroundNormalY: 0.65
+  _gravityModifier: 1
+  _velocity: {x: 0, y: 0}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 641
 --- !u!114 &5832659334154097657
 MonoBehaviour:
   m_ObjectHideFlags: 0

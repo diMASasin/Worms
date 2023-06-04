@@ -11,11 +11,24 @@ public class WormMovement : MonoBehaviour
     [SerializeField] private GroundChecker _groundChecker;
     [SerializeField] private WormInput _wormInput;
     [SerializeField] private float _speed;
-    [SerializeField] private float _longJumpForceX = 2;
-    [SerializeField] private float _longJumpForceY = 2;
-    [SerializeField] private float _highJumpForceX = 2;
-    [SerializeField] private float _highJumpForceY = 2;
+    [SerializeField] private Vector2 _longJumpForce = new Vector2(2, 2);
+    [SerializeField] private Vector2 _highJumpForce = new Vector2(2, 2);
     [SerializeField] private float _jumpCooldown = 0.5f;
+
+    [SerializeField] private float _minGroundNormalY = .65f;
+    [SerializeField] private float _gravityModifier = 1f;
+    [SerializeField] private Vector2 _velocity;
+    [SerializeField] private LayerMask _layerMask;
+
+    protected Vector2 targetVelocity;
+    protected bool grounded;
+    protected Vector2 groundNormal;
+    protected ContactFilter2D contactFilter;
+    protected RaycastHit2D[] hitBuffer = new RaycastHit2D[16];
+    protected List<RaycastHit2D> hitBufferList = new List<RaycastHit2D>(16);
+
+    protected const float minMoveDistance = 0.001f;
+    protected const float shellRadius = 0.01f;
 
     private bool _canJump = true;
 
@@ -29,6 +42,13 @@ public class WormMovement : MonoBehaviour
     private void OnDisable()
     {
         _wormInput.InputDisabled -= OnInputDisabled;
+    }
+
+    void Start()
+    {
+        contactFilter.useTriggers = false;
+        contactFilter.SetLayerMask(_layerMask);
+        contactFilter.useLayerMask = true;
     }
 
     private void FixedUpdate()
@@ -46,15 +66,67 @@ public class WormMovement : MonoBehaviour
 
     public void TryMove(float horizontal)
     {
-        if (horizontal != 0 && _groundChecker.IsGrounded)
-        {
+        if(horizontal != 0)
             _wormArmature.transform.right = new Vector3(-horizontal, 0);
-            Vector2 velocity = _rigidbody.velocity;
-            velocity.x = horizontal * _speed;
-            _rigidbody.velocity = velocity;
-        }
+
+        _velocity += _gravityModifier * Physics2D.gravity * Time.deltaTime;
+        _velocity.x = horizontal * _speed;
+
+        grounded = false;
+
+        Vector2 deltaPosition = _velocity * Time.deltaTime;
+        Vector2 moveAlongGround = new Vector2(groundNormal.y, -groundNormal.x);
+        Vector2 move = moveAlongGround * deltaPosition.x;
+
+        Movement(move, false);
+
+        move = Vector2.up * deltaPosition.y;
+
+        Movement(move, true);
 
         IsWalkingChanged?.Invoke(horizontal != 0);
+    }
+
+    void Movement(Vector2 move, bool yMovement)
+    {
+        float distance = move.magnitude;
+
+        if (distance > minMoveDistance)
+        {
+            int count = _rigidbody.Cast(move, contactFilter, hitBuffer, distance + shellRadius);
+
+            hitBufferList.Clear();
+
+            for (int i = 0; i < count; i++)
+            {
+                hitBufferList.Add(hitBuffer[i]);
+            }
+
+            for (int i = 0; i < hitBufferList.Count; i++)
+            {
+                Vector2 currentNormal = hitBufferList[i].normal;
+                if (currentNormal.y > _minGroundNormalY)
+                {
+                    grounded = true;
+                    if (yMovement)
+                    {
+                        groundNormal = currentNormal;
+                        currentNormal.x = 0;
+                    }
+                }
+
+                float projection = Vector2.Dot(_velocity, currentNormal);
+                if (projection < 0)
+                {
+                    _velocity = _velocity - projection * currentNormal;
+                }
+
+                float modifiedDistance = hitBufferList[i].distance - shellRadius;
+                distance = modifiedDistance < distance ? modifiedDistance : distance;
+            }
+        }
+
+        _rigidbody.position = _rigidbody.position + move.normalized * distance;
     }
 
     private bool TryJump()
@@ -72,14 +144,14 @@ public class WormMovement : MonoBehaviour
     {
         if (!TryJump())
             return;
-        _rigidbody.velocity += new Vector2(_longJumpForceX * -_wormArmature.transform.right.x, _longJumpForceY);
+        _velocity += new Vector2(_longJumpForce.x * -_wormArmature.transform.right.x, _longJumpForce.y);
     }
 
     public void HighJump()
     {
-        if (!TryJump())
+       if (!TryJump())
             return;
-        _rigidbody.velocity += new Vector2(_highJumpForceX * _wormArmature.transform.right.x, _highJumpForceY);
+        _velocity += new Vector2(_highJumpForce.x * _wormArmature.transform.right.x, _highJumpForce.y);
     }
 
     private IEnumerator JumpCooldown(float duration)
