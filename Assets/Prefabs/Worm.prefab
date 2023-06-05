@@ -668,7 +668,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.3075399}
-  m_Size: {x: 0.6171116, y: 0.6171116}
+  m_Size: {x: 0.40999302, y: 0.6171116}
   m_Direction: 0
 --- !u!50 &2716522887637978340
 Rigidbody2D:
@@ -756,7 +756,6 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 641
-  _jumpSpeedModifier: 0
 --- !u!114 &5832659334154097657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -769,7 +768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d86f3848b290dd409bd21edf9f29b27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _size: {x: 0.3, y: 0.01}
+  _size: {x: 0.37, y: 0.01}
   _showGroundCheckerBox: 1
 --- !u!114 &-3861072189713731185
 MonoBehaviour:
