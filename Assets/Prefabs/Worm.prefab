@@ -667,8 +667,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.3075399}
-  m_Size: {x: 0.40999302, y: 0.6171116}
+  m_Offset: {x: 0, y: 0.31462172}
+  m_Size: {x: 0.40999302, y: 0.602948}
   m_Direction: 0
 --- !u!50 &2716522887637978340
 Rigidbody2D:
@@ -712,6 +712,7 @@ MonoBehaviour:
   _wormWeaponContainer: {fileID: 7199925339958201532}
   _removeWeaponDelay: 0.5
   _showCanSpawnCheckerBox: 0
+  _wormMovement: {fileID: 7569168140912451543}
 --- !u!114 &4789554427486272721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -769,7 +770,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _size: {x: 0.37, y: 0.01}
+  _offset: {x: 0, y: -0.05}
   _showGroundCheckerBox: 1
+  _contactFilter2D:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 640
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  _worm: {fileID: 8010253848381206769}
 --- !u!114 &-3861072189713731185
 MonoBehaviour:
   m_ObjectHideFlags: 0

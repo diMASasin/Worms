@@ -18,7 +18,7 @@ public class Explosion : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Worm worm))
         {
-            worm.AddExplosionForce(_explosionForce, transform, _explosionUpwardsModifier);
+            worm.AddExplosionForce(_explosionForce, transform.position, _explosionUpwardsModifier);
             worm.TakeDamage(CalculateDamage(_damage, worm.Collider2D));
         }
     }

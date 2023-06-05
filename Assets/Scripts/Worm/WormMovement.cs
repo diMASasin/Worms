@@ -33,6 +33,7 @@ public class WormMovement : MonoBehaviour
     private float _jumpVelocityX;
     private float _maxVelocityX;
     private bool _inJump = false;
+    private float _horizontal;
 
     public event UnityAction<bool> IsWalkingChanged;
 
@@ -57,31 +58,23 @@ public class WormMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!_groundChecker.IsGrounded && _rigidbody.bodyType == RigidbodyType2D.Kinematic)
-            _rigidbody.velocity += (Vector2)Physics.gravity * Time.deltaTime;
-        else if (_groundChecker.IsGrounded && _rigidbody.bodyType == RigidbodyType2D.Kinematic)
-            _rigidbody.velocity = Vector2.zero;
-    }
+        //if (!_groundChecker.IsGrounded && _rigidbody.bodyType == RigidbodyType2D.Kinematic)
+        //    _rigidbody.velocity += (Vector2)Physics.gravity * Time.deltaTime;
+        //else if (_groundChecker.IsGrounded && _rigidbody.bodyType == RigidbodyType2D.Kinematic)
+        //    _rigidbody.velocity = Vector2.zero;
 
-    private void OnInputDisabled()
-    {
-        IsWalkingChanged?.Invoke(false);
-    }
-
-    public void TryMove(float horizontal)
-    {
-        if(horizontal != 0)
-            _wormArmature.transform.right = new Vector3(-horizontal, 0);
+        if (_horizontal != 0)
+            _wormArmature.transform.right = new Vector3(-_horizontal, 0);
 
         _velocity += _gravityModifier * Physics2D.gravity * Time.deltaTime;
-        if(_inJump)
+        if (_inJump)
         {
-            _jumpVelocityX += horizontal * _maxVelocityX * Time.deltaTime;
+            _jumpVelocityX += _horizontal * _maxVelocityX * Time.deltaTime;
             _velocity.x = _jumpVelocityX;
         }
         else
         {
-            _velocity.x = horizontal * _speed + _jumpVelocityX;
+            _velocity.x = _horizontal * _speed + _jumpVelocityX;
         }
         _velocity.x = Mathf.Clamp(_velocity.x, -_maxVelocityX, _maxVelocityX);
 
@@ -97,7 +90,19 @@ public class WormMovement : MonoBehaviour
 
         Movement(move, true);
 
-        IsWalkingChanged?.Invoke(horizontal != 0);
+        IsWalkingChanged?.Invoke(_horizontal != 0);
+    }
+
+    private void OnInputDisabled()
+    {
+        _velocity = Vector2.zero;
+        _horizontal = 0;
+        IsWalkingChanged?.Invoke(false);
+    }
+
+    public void TryMove(float horizontal)
+    {
+        _horizontal = horizontal;
     }
 
     void Movement(Vector2 move, bool yMovement)
@@ -190,5 +195,29 @@ public class WormMovement : MonoBehaviour
         _jumpVelocityX = 0;
         _maxVelocityX = _speed;
         _inJump = false;
+    }
+
+    public void AddExplosionForce(float explosionForce, Vector2 explosionPosition, float upwardsModifier = 0.0F)
+    {
+        var explosionDir = (Vector2)transform.position - explosionPosition;
+        var explosionDistance = explosionDir.magnitude;
+
+        // Normalize without computing magnitude again
+        if (upwardsModifier == 0)
+        {
+            explosionDir /= explosionDistance;
+        }
+        else
+        {
+            // From Rigidbody.AddExplosionForce doc:
+            // If you pass a non-zero value for the upwardsModifier parameter, the direction
+            // will be modified by subtracting that value from the Y component of the centre point.
+            explosionDir.y += upwardsModifier;
+            explosionDir.Normalize();
+        }
+
+        _velocity += Mathf.Lerp(0, explosionForce, (1 - explosionDistance)) * explosionDir;
+        _jumpVelocityX = _velocity.x;
+        StartCoroutine(StopJump());
     }
 }
