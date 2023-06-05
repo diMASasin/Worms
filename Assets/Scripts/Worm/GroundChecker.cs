@@ -5,7 +5,8 @@ using UnityEngine.Events;
 
 public class GroundChecker : MonoBehaviour
 {
-    private Vector2 _size;
+    [SerializeField] private Vector2 _size;
+    [SerializeField] private bool _showGroundCheckerBox = true;
 
     public bool IsGrounded { get; private set; }
 
@@ -24,7 +25,8 @@ public class GroundChecker : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawCube(GetPoint(), _size);
+        if(_showGroundCheckerBox)
+            Gizmos.DrawCube(GetPoint(), _size);
     }
 
     private Vector2 GetPoint()

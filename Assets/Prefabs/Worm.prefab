@@ -756,6 +756,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 641
+  _jumpSpeedModifier: 0
 --- !u!114 &5832659334154097657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,6 +769,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d86f3848b290dd409bd21edf9f29b27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _size: {x: 0.3, y: 0.01}
+  _showGroundCheckerBox: 1
 --- !u!114 &-3861072189713731185
 MonoBehaviour:
   m_ObjectHideFlags: 0

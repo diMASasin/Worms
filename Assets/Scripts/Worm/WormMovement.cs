@@ -20,17 +20,19 @@ public class WormMovement : MonoBehaviour
     [SerializeField] private Vector2 _velocity;
     [SerializeField] private LayerMask _layerMask;
 
-    protected Vector2 targetVelocity;
-    protected bool grounded;
-    protected Vector2 groundNormal;
-    protected ContactFilter2D contactFilter;
-    protected RaycastHit2D[] hitBuffer = new RaycastHit2D[16];
-    protected List<RaycastHit2D> hitBufferList = new List<RaycastHit2D>(16);
+    //private bool grounded;
+    private Vector2 _groundNormal;
+    private ContactFilter2D _contactFilter;
+    private RaycastHit2D[] _hitBuffer = new RaycastHit2D[16];
+    private List<RaycastHit2D> _hitBufferList = new List<RaycastHit2D>(16);
 
-    protected const float minMoveDistance = 0.001f;
-    protected const float shellRadius = 0.01f;
+    private const float _minMoveDistance = 0.001f;
+    private const float _shellRadius = 0.01f;
 
     private bool _canJump = true;
+    private float _jumpVelocityX;
+    private float _maxVelocityX;
+    private bool _inJump = false;
 
     public event UnityAction<bool> IsWalkingChanged;
 
@@ -46,9 +48,11 @@ public class WormMovement : MonoBehaviour
 
     void Start()
     {
-        contactFilter.useTriggers = false;
-        contactFilter.SetLayerMask(_layerMask);
-        contactFilter.useLayerMask = true;
+        _contactFilter.useTriggers = false;
+        _contactFilter.SetLayerMask(_layerMask);
+        _contactFilter.useLayerMask = true;
+
+        _maxVelocityX = _speed;
     }
 
     private void FixedUpdate()
@@ -70,12 +74,21 @@ public class WormMovement : MonoBehaviour
             _wormArmature.transform.right = new Vector3(-horizontal, 0);
 
         _velocity += _gravityModifier * Physics2D.gravity * Time.deltaTime;
-        _velocity.x = horizontal * _speed;
+        if(_inJump)
+        {
+            _jumpVelocityX += horizontal * _maxVelocityX * Time.deltaTime;
+            _velocity.x = _jumpVelocityX;
+        }
+        else
+        {
+            _velocity.x = horizontal * _speed + _jumpVelocityX;
+        }
+        _velocity.x = Mathf.Clamp(_velocity.x, -_maxVelocityX, _maxVelocityX);
 
-        grounded = false;
+        //grounded = false;
 
         Vector2 deltaPosition = _velocity * Time.deltaTime;
-        Vector2 moveAlongGround = new Vector2(groundNormal.y, -groundNormal.x);
+        Vector2 moveAlongGround = new Vector2(_groundNormal.y, -_groundNormal.x);
         Vector2 move = moveAlongGround * deltaPosition.x;
 
         Movement(move, false);
@@ -91,26 +104,26 @@ public class WormMovement : MonoBehaviour
     {
         float distance = move.magnitude;
 
-        if (distance > minMoveDistance)
+        if (distance > _minMoveDistance)
         {
-            int count = _rigidbody.Cast(move, contactFilter, hitBuffer, distance + shellRadius);
+            int count = _rigidbody.Cast(move, _contactFilter, _hitBuffer, distance + _shellRadius);
 
-            hitBufferList.Clear();
+            _hitBufferList.Clear();
 
             for (int i = 0; i < count; i++)
             {
-                hitBufferList.Add(hitBuffer[i]);
+                _hitBufferList.Add(_hitBuffer[i]);
             }
 
-            for (int i = 0; i < hitBufferList.Count; i++)
+            for (int i = 0; i < _hitBufferList.Count; i++)
             {
-                Vector2 currentNormal = hitBufferList[i].normal;
+                Vector2 currentNormal = _hitBufferList[i].normal;
                 if (currentNormal.y > _minGroundNormalY)
                 {
-                    grounded = true;
+                    //grounded = true;
                     if (yMovement)
                     {
-                        groundNormal = currentNormal;
+                        _groundNormal = currentNormal;
                         currentNormal.x = 0;
                     }
                 }
@@ -121,11 +134,10 @@ public class WormMovement : MonoBehaviour
                     _velocity = _velocity - projection * currentNormal;
                 }
 
-                float modifiedDistance = hitBufferList[i].distance - shellRadius;
+                float modifiedDistance = _hitBufferList[i].distance - _shellRadius;
                 distance = modifiedDistance < distance ? modifiedDistance : distance;
             }
         }
-
         _rigidbody.position = _rigidbody.position + move.normalized * distance;
     }
 
@@ -135,6 +147,7 @@ public class WormMovement : MonoBehaviour
             return false;
 
         _canJump = false;
+        _inJump = true;
         StartCoroutine(JumpCooldown(_jumpCooldown));
 
         return true;
@@ -144,19 +157,38 @@ public class WormMovement : MonoBehaviour
     {
         if (!TryJump())
             return;
-        _velocity += new Vector2(_longJumpForce.x * -_wormArmature.transform.right.x, _longJumpForce.y);
+        _jumpVelocityX += _longJumpForce.x * -_wormArmature.transform.right.x;
+        _velocity.y = _longJumpForce.y;
+        _maxVelocityX = Mathf.Abs(_jumpVelocityX);
+        StartCoroutine(StopJump());
     }
 
     public void HighJump()
     {
        if (!TryJump())
             return;
-        _velocity += new Vector2(_highJumpForce.x * _wormArmature.transform.right.x, _highJumpForce.y);
+        _jumpVelocityX += _highJumpForce.x * _wormArmature.transform.right.x;
+        _velocity.y = _highJumpForce.y;
+        _maxVelocityX = Mathf.Abs(_jumpVelocityX);
+        StartCoroutine(StopJump());
     }
 
     private IEnumerator JumpCooldown(float duration)
     {
         yield return new WaitForSeconds(duration);
         _canJump = true;
+    }
+
+    private IEnumerator StopJump()
+    {
+        while (_groundChecker.IsGrounded == true)
+            yield return null;
+
+        while (_groundChecker.IsGrounded != true)
+            yield return null;
+
+        _jumpVelocityX = 0;
+        _maxVelocityX = _speed;
+        _inJump = false;
     }
 }

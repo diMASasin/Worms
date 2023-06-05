@@ -96,6 +96,9 @@ public class Game : MonoBehaviour
 
     public void StartNextTurnWithDelay(float delay)
     {
+        if (_currentTeams.Count == 0)
+            return;
+
         StartCoroutine(DelayedStartNextTurn(delay));
     }
 
