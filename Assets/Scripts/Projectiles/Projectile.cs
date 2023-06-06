@@ -48,11 +48,6 @@ public class Projectile : MonoBehaviour
     public void Explode()
     {
         _shovel.transform.position = transform.position;
-        Invoke(nameof(DoCut), 0.01f);
-    }
-
-    private void DoCut() 
-    {
         _shovel.Dig();
         var explosion = _explosionPool.Get();
         explosion.transform.position = transform.position;
