@@ -7,9 +7,9 @@ using UnityEngine.Events;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _rigidbody;
-    [SerializeField] private Explosion _explosion;
     [SerializeField] private CircleCollider2D _collider2D;
     [SerializeField] private GameObject _spriteObject;
+    [SerializeField] private int _damage;
 
     private Shovel _shovel;
     private bool _dead;
@@ -51,7 +51,7 @@ public class Projectile : MonoBehaviour
         _shovel.Dig();
         var explosion = _explosionPool.Get();
         explosion.transform.position = transform.position;
-        explosion.Explode(_collider2D.radius, () => _explosionPool.Remove(explosion));
+        explosion.Explode(_damage, _collider2D.radius, () => _explosionPool.Remove(explosion));
         Exploded?.Invoke(this);
     }
 }

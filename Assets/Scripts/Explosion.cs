@@ -7,10 +7,10 @@ public class Explosion : MonoBehaviour
 {
     [SerializeField] private float _explosionForce = 2f;
     [SerializeField] private float _explosionUpwardsModifier = 2f;
-    [SerializeField] private int _damage;
     [SerializeField] private CircleCollider2D _collider;
     [SerializeField] private ParticleSystem _explosionEffect;
 
+    private int _damage;
     private float _bombColliderRadius;
     private Action _particleSystemStopped;
 
@@ -35,10 +35,11 @@ public class Explosion : MonoBehaviour
         return Convert.ToInt32(maxDamage * multiplier);
     }
 
-    public void Explode(float bombColliderRadius, Action onParticleSystemStopped = null)
+    public void Explode(int damage, float bombColliderRadius, Action onParticleSystemStopped = null)
     {
         _bombColliderRadius = bombColliderRadius;
         _collider.enabled = true;
+        _damage = damage;
         transform.parent = null;
         _explosionEffect.Play();
         _particleSystemStopped = onParticleSystemStopped;

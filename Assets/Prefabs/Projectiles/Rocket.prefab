@@ -140,9 +140,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 3687365464359418357}
-  _explosion: {fileID: 0}
   _collider2D: {fileID: 346979239790398882}
   _spriteObject: {fileID: 5511587905891858132}
+  _damage: 30
 --- !u!58 &346979239790398882 stripped
 CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 3348539931435737145, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}

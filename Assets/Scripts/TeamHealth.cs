@@ -23,7 +23,6 @@ public class TeamHealth : MonoBehaviour
 
     private void OnHealthChanged(int health)
     {
-        Debug.Log($"{health} {_maxHealth}");
         _healthSlider.value = (float)health / _maxHealth;
     }
 

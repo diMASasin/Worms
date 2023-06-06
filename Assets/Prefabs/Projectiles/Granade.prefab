@@ -5,7 +5,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3348539931435737142, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
@@ -90,12 +89,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3348539931435737144, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3348539931435737147, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5684369949051167082}
   m_SourcePrefab: {fileID: 100100000, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
 --- !u!1 &2204510361663019337 stripped
 GameObject:
@@ -115,10 +108,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 2984601102430530844}
-  _explosionPrefab: {fileID: 2773333339186338914, guid: 7fb3a78449f66554e8045319fdea62d9, type: 3}
-  _explosion: {fileID: 6448812825593012287}
   _collider2D: {fileID: 2204510361663019339}
   _spriteObject: {fileID: 6213382292291068477}
+  _damage: 40
   _explodeDelay: 5
 --- !u!58 &2204510361663019339 stripped
 CircleCollider2D:
@@ -135,14 +127,3 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7410048026872486735, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
   m_PrefabInstance: {fileID: 3526205456033233266}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6448812825593012287 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7606949434296097101, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
-  m_PrefabInstance: {fileID: 3526205456033233266}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19d72743b491e5542a56091add4badc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
