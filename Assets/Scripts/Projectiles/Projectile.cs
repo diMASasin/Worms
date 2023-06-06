@@ -27,31 +27,24 @@ public class Projectile : MonoBehaviour
         _shovel = shovel;
     }
 
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
-    {
-        DelayedExplode();
-    }
+    protected virtual void OnCollisionEnter2D(Collision2D collision) { }
 
     public void Reset()
     {
         _dead = false;
     }
 
-    public void DelayedExplode(float delay = 0)
-    {
-        if (_dead) return;
-        Invoke(nameof(Explode), delay);
-
-        _dead = true;
-    }
-
     public void Explode()
     {
+        if (_dead) 
+            return;
+
         _shovel.transform.position = transform.position;
         _shovel.Dig();
         var explosion = _explosionPool.Get();
         explosion.transform.position = transform.position;
         explosion.Explode(_damage, _collider2D.radius, () => _explosionPool.Remove(explosion));
+        _dead = true;
         Exploded?.Invoke(this);
     }
 }

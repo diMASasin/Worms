@@ -9,4 +9,9 @@ public class Rocket : Projectile
     {
         SpriteRenderer.transform.rotation = Quaternion.LookRotation(Vector3.forward, Rigidbody2D.velocity);
     }
+
+    protected override void OnCollisionEnter2D(Collision2D collision)
+    {
+        Explode();
+    }
 }
