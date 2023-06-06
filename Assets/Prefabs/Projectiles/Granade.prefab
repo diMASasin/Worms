@@ -396,7 +396,7 @@ MonoBehaviour:
   _damage: 40
   _explodeDelay: 5
   _timer: {fileID: 1412681903445705137}
-  _canvas: {fileID: 1011080893571362942}
+  _canvas: {fileID: 8690412537452771905}
 --- !u!58 &2204510361663019339 stripped
 CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 3348539931435737145, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
