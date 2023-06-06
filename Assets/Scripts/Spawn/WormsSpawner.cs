@@ -86,12 +86,7 @@ public class WormsSpawner : MonoBehaviour
 
             var newEdge = new Edge(_points[i], _points[j]);
             bool edgeInBounds = newEdge.InBounds(_leftEdge.position, _topEdge.position, _rightEdge.position, _bottomEdge.position, _terrain);
-            if (
-                newEdge.IsFloor(_terrain) 
-                && 
-                newEdge.IsSuitableSlope(_maxSlope) 
-                && edgeInBounds
-                )
+            if (newEdge.IsFloor(_terrain) && newEdge.IsSuitableSlope(_maxSlope) && edgeInBounds)
                 _edges.Add(newEdge);
         }
     }
@@ -113,6 +108,7 @@ public class WormsSpawner : MonoBehaviour
 
     private bool CanFitWormInPosition(Vector2 position)
     {
-        return !Physics2D.OverlapCapsule(position + new Vector2(0, 0.5f), _wormTemplate.Collider2D.size, CapsuleDirection2D.Vertical, 0);
+        var size = new Vector2(_wormTemplate.Collider2D.size.x * 2, _wormTemplate.Collider2D.size.y);
+        return !Physics2D.OverlapCapsule(position + new Vector2(0, 0.5f), size, CapsuleDirection2D.Vertical, 0);
     }
 }
