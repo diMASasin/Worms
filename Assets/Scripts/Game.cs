@@ -17,6 +17,7 @@ public class Game : MonoBehaviour
     private int _currentTeamIndex = -1;
 
     public event UnityAction<List<Team>> WormsSpawned;
+    public event UnityAction NextTurnStarted;
 
     private void OnValidate()
     {
@@ -110,6 +111,7 @@ public class Game : MonoBehaviour
         if (_currentTeamIndex >= _currentTeams.Count)
             _currentTeamIndex = 0;
 
+        NextTurnStarted?.Invoke();
         _currentTeams[_currentTeamIndex].StartTurn();
     }
 }

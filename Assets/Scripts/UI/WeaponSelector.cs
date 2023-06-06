@@ -28,6 +28,7 @@ public class WeaponSelector : MonoBehaviour
     private void OnEnable()
     {
         _game.WormsSpawned += OnWormsSpawned;
+        _game.NextTurnStarted += OnNextTurnStarted;
         foreach (var weapon in _weapons)
         {
             weapon.Shot += OnWeaponShot;
@@ -38,6 +39,7 @@ public class WeaponSelector : MonoBehaviour
     private void OnDisable()
     {
         _game.WormsSpawned -= OnWormsSpawned;
+        _game.NextTurnStarted -= OnNextTurnStarted;
         foreach (var weapon in _weapons)
             weapon.Shot -= OnWeaponShot;
     }
@@ -53,6 +55,11 @@ public class WeaponSelector : MonoBehaviour
     public void Toggle()
     {
         _animator.SetBool("Opened", !_animator.GetBool("Opened"));
+    }
+
+    private void Close()
+    {
+        _animator.SetBool("Opened", false);
     }
 
     private void OnWormsSpawned(List<Team> teams)
@@ -93,5 +100,10 @@ public class WeaponSelector : MonoBehaviour
     private void OnProjectileExploded(Projectile projectile, Worm worm)
     {
         ProjectilesCount--;
+    }
+
+    private void OnNextTurnStarted()
+    {
+        Close();
     }
 }
