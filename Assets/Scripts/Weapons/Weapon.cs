@@ -10,12 +10,11 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float _sencetivity = 0.01f;
     [SerializeField] private float _scopeSencetivity = 0.7f;
     [SerializeField] private float _speedMultiplier = 0.03f;
-    [SerializeField] private Projectile _bombPrefab;
     [SerializeField] private Transform _pointerLine;
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private float _shotPower = 5;
     [SerializeField] private float _maxShotPower = 5;
-    [SerializeField] private ProjectilesPool _projectilesPool;
+    [SerializeField] private ProjectilePoolAbstract _projectilesPool;
     [SerializeField] private ExplosionPool _explosionPool;
     [SerializeField] private Shovel _shovel;
     
@@ -29,6 +28,12 @@ public class Weapon : MonoBehaviour
 
     public event UnityAction<Projectile, Worm> ProjectileExploded;
     public event UnityAction<Projectile> Shot;
+
+    private void OnValidate()
+    {
+        _shovel = FindObjectOfType<Shovel>();
+        _explosionPool = FindObjectOfType<ExplosionPool>();
+    }
 
     private void Start()
     {
@@ -90,7 +95,8 @@ public class Weapon : MonoBehaviour
         Shot?.Invoke(projectile);
         IsShot = true;
         projectile.Exploded += OnProjectileExploded;
-        projectile.Init(velocity, _explosionPool, _shovel);
+        projectile.SetVelocity(velocity);
+        projectile.OnShot();
         gameObject.SetActive(false);
     }
 

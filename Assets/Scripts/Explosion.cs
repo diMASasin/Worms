@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-    [SerializeField] private float _explosionForce = 2f;
-    [SerializeField] private float _explosionUpwardsModifier = 2f;
     [SerializeField] private CircleCollider2D _collider;
     [SerializeField] private ParticleSystem _explosionEffect;
 
+    private float _explosionForce;
+    private float _explosionUpwardsModifier;
     private int _damage;
-    private float _bombColliderRadius;
+    private float _projectileColliderRadius;
     private Action _particleSystemStopped;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,7 +25,7 @@ public class Explosion : MonoBehaviour
 
     private int CalculateDamage(int maxDamage, Collider2D wormCollider)
     {
-        float multiplier = 1 - (Vector3.Distance(transform.position, wormCollider.ClosestPoint(transform.position)) - _bombColliderRadius);
+        float multiplier = 1 - (Vector3.Distance(transform.position, wormCollider.ClosestPoint(transform.position)) - _projectileColliderRadius);
         multiplier = Mathf.Clamp01(multiplier);
         if (multiplier >= 0.9f)
             multiplier = 1;
@@ -35,9 +35,13 @@ public class Explosion : MonoBehaviour
         return Convert.ToInt32(maxDamage * multiplier);
     }
 
-    public void Explode(int damage, float bombColliderRadius, Action onParticleSystemStopped = null)
+    public void Explode(int damage, float projectileColliderRadius, float explosionForce, 
+        float explosionUpwardsModifier, float explosionRadius, Action onParticleSystemStopped = null)
     {
-        _bombColliderRadius = bombColliderRadius;
+        _projectileColliderRadius = projectileColliderRadius;
+        _explosionForce = explosionForce;
+        _explosionUpwardsModifier = explosionUpwardsModifier;
+        _collider.radius = explosionRadius;
         _collider.enabled = true;
         _damage = damage;
         transform.parent = null;

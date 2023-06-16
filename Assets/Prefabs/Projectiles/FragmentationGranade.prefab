@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1489aeb11185c2b44a56c54f6ab20922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5684369949051167082
+--- !u!114 &6329366681007544151
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -391,16 +391,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2204510361663019337}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cf0bf721053f4144ba3065d5e285b59, type: 3}
+  m_Script: {fileID: 11500000, guid: da84587a1968d384a84ef4de1e43609d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 2984601102430530844}
   _collider2D: {fileID: 2204510361663019339}
   _spriteObject: {fileID: 6213382292291068477}
-  _damage: 40
+  _damage: 30
   _explodeDelay: 5
   _timer: {fileID: 1412681903445705137}
   _canvas: {fileID: 8690412537452771905}
+  _fragmentsAmount: 5
 --- !u!58 &2204510361663019339 stripped
 CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 3348539931435737145, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
