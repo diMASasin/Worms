@@ -9,9 +9,9 @@ public class FragmentationGranadeProjectile : GranadeProjectile
     
     private ProjectilesPool _fragmentsPool;
 
-    public void Init(ExplosionPool explosionPool, Shovel shovel, ProjectilesPool fragmentsPool)
+    public void Init(ExplosionPool explosionPool, Shovel shovel, ProjectilesPool fragmentsPool, Wind wind)
     {
-        base.Init(explosionPool, shovel);
+        base.Init(explosionPool, shovel, wind);
         _fragmentsPool = fragmentsPool;
     }
 

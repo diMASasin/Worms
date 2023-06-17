@@ -19,7 +19,7 @@ public class FragmentationGranadesPool : ProjectilePoolAbstract
     {
         var obj = Instantiate(_fragmentationGranadeTemplate, transform);
         Projectiles.Add(obj);
-        obj.Init(ExplosionPool, Shovel, _fragmentsPool);
+        obj.Init(ExplosionPool, Shovel, _fragmentsPool, Wind);
         obj.gameObject.SetActive(false);
         return obj;
     }

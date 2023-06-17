@@ -17,16 +17,23 @@ public abstract class Projectile : MonoBehaviour
     private Shovel _shovel;
     private bool _dead;
     private ExplosionPool _explosionPool;
+    private Wind _wind;
 
     public Rigidbody2D Rigidbody2D => _rigidbody;
     public GameObject SpriteRenderer => _spriteObject;
 
     public event UnityAction<Projectile> Exploded;
 
-    public virtual void Init(ExplosionPool explosionPool, Shovel shovel) 
+    public virtual void Init(ExplosionPool explosionPool, Shovel shovel, Wind wind) 
     {
         _explosionPool = explosionPool;
         _shovel = shovel;
+        _wind = wind;
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        _rigidbody.velocity += new Vector2(_wind.Velocity * Time.fixedDeltaTime, 0);
     }
 
     public void SetVelocity(Vector2 velocity)

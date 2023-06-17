@@ -9,6 +9,7 @@ public abstract class ProjectilePoolAbstract : MonoBehaviour
     [SerializeField] protected int Amount;
     [SerializeField] protected ExplosionPool ExplosionPool;
     [SerializeField] protected Shovel Shovel;
+    [SerializeField] protected Wind Wind;
 
     protected List<Projectile> Projectiles = new();
     protected List<Projectile> Used = new();
@@ -16,6 +17,7 @@ public abstract class ProjectilePoolAbstract : MonoBehaviour
     private void OnValidate()
     {
         Shovel = FindObjectOfType<Shovel>();
+        Wind = FindObjectOfType<Wind>();
     }
 
     public Projectile Get()
