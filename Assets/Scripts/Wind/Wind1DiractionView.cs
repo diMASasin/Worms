@@ -7,19 +7,19 @@ public class Wind1DiractionView : MonoBehaviour
     [SerializeField] private Wind _wind;
     [SerializeField] private RectTransform _wind1DirView;
     [SerializeField] private RectTransform _wind1DirViewViewport;
+    [SerializeField] private float _maxRightValue;
 
-    private float _maxRightValue;
     private float _minRightValue = 17;
 
     private void Start()
     {
-        _maxRightValue = _wind1DirView.sizeDelta.x;
-        _minRightValue = _wind1DirViewViewport.sizeDelta.x;
+        _minRightValue = 0;
     }
 
     public void SetSizeDeltaX(float normalizedVelocity)
     {
-        var x = -_maxRightValue * (1 - normalizedVelocity) - _minRightValue;
-        _wind1DirViewViewport.sizeDelta = new Vector2(x, 0);
+        var x = _maxRightValue * normalizedVelocity - _minRightValue;
+        Debug.Log(normalizedVelocity + " " + x);
+        _wind1DirView.sizeDelta = new Vector2(x, 0);
     }
 }
