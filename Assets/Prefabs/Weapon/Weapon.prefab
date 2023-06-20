@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: -1
   m_Sprite: {fileID: 1946422449, guid: 3bb1fadd136a96f42b94902a40eace8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -283,13 +283,13 @@ MonoBehaviour:
   _sencetivity: 0.01
   _scopeSencetivity: 70
   _speedMultiplier: 0.03
-  _bombPrefab: {fileID: 3348539931435737144, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
   _pointerLine: {fileID: 6349412835858490107}
   _spawnPoint: {fileID: 7617592387481449449}
   _shotPower: 15
   _maxShotPower: 15
   _projectilesPool: {fileID: 0}
   _explosionPool: {fileID: 0}
+  _shovel: {fileID: 0}
 --- !u!1 &8508045372574847125
 GameObject:
   m_ObjectHideFlags: 0

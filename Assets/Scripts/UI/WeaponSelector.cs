@@ -13,9 +13,6 @@ public class WeaponSelector : MonoBehaviour
     private List<Team> _teams;
     private Worm _currentWorm;
     private bool _canOpen = false;
-    private Weapon _currentWeapon;
-
-    public int ProjectilesCount { get; private set; } = 0;
 
     public IReadOnlyCollection<Weapon> Weapons => _weapons;
     public Transform Container => _container;
@@ -87,19 +84,16 @@ public class WeaponSelector : MonoBehaviour
     public void SelectWeapon(Weapon weapon)
     {
         _currentWorm.ChangeWeapon(weapon, _container);
-        _currentWeapon = weapon;
     }
 
     private void OnWeaponShot(Projectile projectile)
     {
-        _currentWeapon = null;
         _canOpen = false;
-        ProjectilesCount++;
     }
 
     private void OnProjectileExploded(Projectile projectile, Worm worm)
     {
-        ProjectilesCount--;
+
     }
 
     private void OnNextTurnStarted()

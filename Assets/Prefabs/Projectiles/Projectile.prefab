@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3348539931435737142}
   - component: {fileID: 3348539931435737145}
-  - component: {fileID: 3348539931435737144}
   - component: {fileID: 1838867013107962990}
   m_Layer: 8
   m_Name: Projectile
@@ -51,22 +50,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.13161892
---- !u!114 &3348539931435737144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3348539931435737147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0688a72692db1409cfd4cc377abaf4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 1838867013107962990}
-  _explosion: {fileID: 0}
-  _collider2D: {fileID: 3348539931435737145}
-  _spriteObject: {fileID: 7410048026872486735}
 --- !u!50 &1838867013107962990
 Rigidbody2D:
   serializedVersion: 4
@@ -160,7 +143,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: -2
   m_Sprite: {fileID: 487017394, guid: 3bb1fadd136a96f42b94902a40eace8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

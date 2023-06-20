@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
     private bool _started = false;
 
     public event UnityAction<float> TimerUpdated;
-    private event UnityAction TimerOut;
+    private event UnityAction OnTimerOut;
 
     private void Reset()
     {
@@ -20,12 +20,12 @@ public class Timer : MonoBehaviour
         _started = false;
     } 
 
-    public void StartTimer(float time, UnityAction timerOut)
+    public void StartTimer(float time, UnityAction onTimerOut)
     {
         _timeStart = time;
         Reset();
         TimerUpdated?.Invoke(_timeLeft);
-        TimerOut = timerOut;
+        OnTimerOut = onTimerOut;
         _started = true;
     }
 
@@ -44,7 +44,7 @@ public class Timer : MonoBehaviour
             {
                 _timeLeft = 0;
                 StopTimer();
-                TimerOut();
+                OnTimerOut();
             }
 
             TimerUpdated?.Invoke(_timeLeft);

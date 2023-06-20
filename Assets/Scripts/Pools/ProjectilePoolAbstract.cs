@@ -1,4 +1,5 @@
 using ScriptBoy.Digable2DTerrain;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,9 @@ public abstract class ProjectilePoolAbstract : MonoBehaviour
     protected List<Projectile> Projectiles = new();
     protected List<Projectile> Used = new();
 
+    public event Action Got;
+    public event Action Removed;
+
     private void OnValidate()
     {
         Shovel = FindObjectOfType<Shovel>();
@@ -25,6 +29,7 @@ public abstract class ProjectilePoolAbstract : MonoBehaviour
         if (Used.Count == Projectiles.Count)
             CreateProjectile();
 
+        Got?.Invoke();
         var projectile = Projectiles.First(projectile => !Used.Contains(projectile));
 
         Used.Add(projectile);
@@ -37,6 +42,7 @@ public abstract class ProjectilePoolAbstract : MonoBehaviour
         projectile.Reset();
         projectile.gameObject.SetActive(false);
         Used.Remove(projectile);
+        Removed?.Invoke();
     }
 
     protected abstract Projectile CreateProjectile();

@@ -9,8 +9,8 @@ public class Game : MonoBehaviour
     [SerializeField] private WormsSpawner _wormsSpawner;
     [SerializeField] private float _turnDelay = 2.5f;
     [SerializeField] private EndScreen _endScreen;
-    [SerializeField] private FollowingCamera _followingCamera;
     [SerializeField] private WeaponSelector _weaponSelector;
+    [SerializeField] private ProjectilesCounter _projectilesCounter;
 
     private List<Team> _teams = new List<Team>();
     private List<Team> _currentTeams = new List<Team>();
@@ -18,6 +18,7 @@ public class Game : MonoBehaviour
 
     public event UnityAction<List<Team>> WormsSpawned;
     public event UnityAction NextTurnStarted;
+    public event UnityAction TurnEnd;
 
     private void OnValidate()
     {
@@ -61,9 +62,9 @@ public class Game : MonoBehaviour
         return _currentTeams[_currentTeamIndex];
     }
 
-    public void EndTurn()
+    public void DisableCurrentWorm()
     {
-        var currentWorm = _currentTeams[_currentTeamIndex].GetCurrentWorm();
+        var currentWorm = _currentTeams[_currentTeamIndex].TryGetCurrentWorm();
 
         currentWorm.RemoveWeaponWithDelay(_weaponSelector.Container);
         currentWorm.WormInput.DisableInput();
@@ -89,10 +90,13 @@ public class Game : MonoBehaviour
 
     public IEnumerator WaitUntilProjectilesExplode(Action action)
     {
-        while (_weaponSelector.ProjectilesCount > 0)
+        while (_projectilesCounter.ProjectilesCount > 0)
             yield return null;
 
+        yield return new WaitForSeconds(0.5f);
+
         action();
+        TurnEnd?.Invoke();
     }
 
     public void StartNextTurnWithDelay(float delay)
@@ -111,7 +115,10 @@ public class Game : MonoBehaviour
         if (_currentTeamIndex >= _currentTeams.Count)
             _currentTeamIndex = 0;
 
-        NextTurnStarted?.Invoke();
-        _currentTeams[_currentTeamIndex].StartTurn();
+        if (_currentTeams.Count > 1)
+        {
+            NextTurnStarted?.Invoke();
+            _currentTeams[_currentTeamIndex].StartTurn();
+        }
     }
 }

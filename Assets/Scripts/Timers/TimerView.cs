@@ -21,6 +21,6 @@ public class TimerView : MonoBehaviour
 
     private void OnTimerUpdated(float timeLeft)
     {
-         _timerText.text = Mathf.Round(timeLeft).ToString();
+         _timerText.text = ((int)timeLeft).ToString();
     }
 }

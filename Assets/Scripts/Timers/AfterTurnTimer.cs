@@ -39,8 +39,8 @@ public class AfterTurnTimer : MonoBehaviour
     private void OnTimerOut()
     {
         _timer.StopTimer();
-        _game.EndTurn();
+        _game.DisableCurrentWorm();
         //_game.StartNextTurnWithDelay(1.5f);
-        StartCoroutine(_game.WaitUntilProjectilesExplode(() => _game.StartNextTurnWithDelay(1.5f)));
+        StartCoroutine(_game.WaitUntilProjectilesExplode(() => _game.StartNextTurnWithDelay(1)));
     }
 }

@@ -41,15 +41,19 @@ public class Team : MonoBehaviour
         if(_currentWormIndex >= _worms.Count)
             _currentWormIndex = 0;
 
-        Worm currentWorm = GetCurrentWorm();
+        Worm currentWorm = TryGetCurrentWorm();
         TurnStarted?.Invoke(currentWorm, this);
         currentWorm.WormInput.EnableInput();
     }
 
-    public Worm GetCurrentWorm()
+    public Worm TryGetCurrentWorm()
     {
         if (_currentWormIndex >= _worms.Count)
             _currentWormIndex = 0;
+
+        if (_worms.Count == 0)
+            return null;
+
         return _worms[_currentWormIndex];
     }
 
@@ -57,7 +61,13 @@ public class Team : MonoBehaviour
     {
         worm.DamageTook -= OnDamageTook;
         worm.Died -= OnWormDied;
+
+        if (_currentWormIndex > _worms.IndexOf(worm))
+            _currentWormIndex--;
+
         _worms.Remove(worm);
+
+        OnDamageTook(worm);
 
         if(_worms.Count <= 0)
             Died?.Invoke(this);
@@ -65,6 +75,7 @@ public class Team : MonoBehaviour
 
     private void OnDamageTook(Worm worm)
     {
-        HealthChanged?.Invoke(_worms.Sum(worm => worm.Health));
+        var sum = _worms.Sum(worm => worm.Health);
+        HealthChanged?.Invoke(sum);
     }
 }

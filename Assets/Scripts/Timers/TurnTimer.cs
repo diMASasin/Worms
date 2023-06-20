@@ -57,7 +57,7 @@ public class TurnTimer : MonoBehaviour
 
     private void OnTimerOut()
     {
-        var currentWorm = _game.GetCurrentTeam().GetCurrentWorm();
+        var currentWorm = _game.GetCurrentTeam().TryGetCurrentWorm();
         if (currentWorm.Weapon?.CurrentShotPower > 0)
         {
             currentWorm.Weapon.Shoot();
@@ -65,7 +65,7 @@ public class TurnTimer : MonoBehaviour
             return;
         }
 
-        _game.EndTurn();
+        _game.DisableCurrentWorm();
         _game.StartNextTurnWithDelay(1);
         TimerOut?.Invoke();
     }

@@ -60,7 +60,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &1892019281388944404
 MonoBehaviour:
@@ -398,6 +398,9 @@ MonoBehaviour:
   _collider2D: {fileID: 2204510361663019339}
   _spriteObject: {fileID: 6213382292291068477}
   _damage: 30
+  _explosionForce: 10
+  _explosionUpwardsModifier: 4
+  _explosionRadius: 1
   _explodeDelay: 5
   _timer: {fileID: 1412681903445705137}
   _canvas: {fileID: 8690412537452771905}

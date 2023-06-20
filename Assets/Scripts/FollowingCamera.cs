@@ -5,21 +5,22 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class FollowingCamera : MonoBehaviour
 {
-    [SerializeField] private Transform _target;
     [SerializeField] private float _speed = 1;
     [SerializeField] private Game _game;
     [SerializeField] private WeaponSelector _weaponSelector;
     [SerializeField] private Camera _camera;
-    [SerializeField] private int _minSize = 2;
-    [SerializeField] private int _maxSize = 15;
+    [SerializeField] private int _minPosition = 2;
+    [SerializeField] private int _maxPosition = 15;
     [SerializeField] private Vector2 _offset;
 
+    private Transform _target;
     private List<Worm> _worms = new List<Worm>();
 
     private void OnValidate()
     {
         _camera = GetComponent<Camera>();
         _weaponSelector = FindObjectOfType<WeaponSelector>();
+        _game = FindObjectOfType<Game>();   
     }
 
     private void OnEnable()
@@ -44,11 +45,18 @@ public class FollowingCamera : MonoBehaviour
 
     private void Update()
     {
-        if(Input.mouseScrollDelta.y > 0 && _camera.orthographicSize > _minSize || Input.mouseScrollDelta.y < 0 && _camera.orthographicSize < _maxSize)
-        {
-            _camera.orthographicSize -= Input.mouseScrollDelta.y;
-        }
-    }
+        //if(Input.mouseScrollDelta.y > 0 && _camera.orthographicSize > _minSize || Input.mouseScrollDelta.y < 0 && _camera.orthographicSize < _maxSize)
+        //{
+        //    _camera.orthographicSize -= Input.mouseScrollDelta.y;
+        //}
+        if (Input.mouseScrollDelta.y < 0 && _camera.transform.position.z > _minPosition || Input.mouseScrollDelta.y > 0 && _camera.transform.position.z < _maxPosition)
+            _camera.transform.position += new Vector3(0, 0, Input.mouseScrollDelta.y);
+
+        if (_camera.transform.position.z < _minPosition)
+            _camera.transform.position = new Vector3(_camera.transform.position.x, _camera.transform.position.y, _minPosition);
+        if (_camera.transform.position.z > _maxPosition)
+            _camera.transform.position = new Vector3(_camera.transform.position.x, _camera.transform.position.y, _maxPosition);
+    } 
 
     private void FixedUpdate()
     {
@@ -101,7 +109,7 @@ public class FollowingCamera : MonoBehaviour
 
     private void OnDamageTook(Worm worm)
     {
-        if (_game.GetCurrentTeam().GetCurrentWorm() != worm)
+        if (_game.GetCurrentTeam().TryGetCurrentWorm() != worm)
             SetTarget(worm.transform);
     }
 
@@ -112,7 +120,7 @@ public class FollowingCamera : MonoBehaviour
 
     private void OnProjectileExploded(Projectile bomb, Worm worm)
     {
-        if(_game.GetCurrentTeam().GetCurrentWorm() != worm)
+        if(_game.GetCurrentTeam().TryGetCurrentWorm() != worm)
             SetTarget(worm.transform);
     }
 }
