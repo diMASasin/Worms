@@ -109,7 +109,7 @@ public class FollowingCamera : MonoBehaviour
 
     private void OnDamageTook(Worm worm)
     {
-        if (_game.GetCurrentTeam().TryGetCurrentWorm() != worm)
+        if (_game.TryGetCurrentTeam().TryGetCurrentWorm() != worm)
             SetTarget(worm.transform);
     }
 
@@ -120,7 +120,7 @@ public class FollowingCamera : MonoBehaviour
 
     private void OnProjectileExploded(Projectile bomb, Worm worm)
     {
-        if(_game.GetCurrentTeam().TryGetCurrentWorm() != worm)
+        if(_game.TryGetCurrentTeam().TryGetCurrentWorm() != worm)
             SetTarget(worm.transform);
     }
 }

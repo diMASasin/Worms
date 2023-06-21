@@ -57,8 +57,11 @@ public class Game : MonoBehaviour
         worm.Died += OnWormDied;
     }
 
-    public Team GetCurrentTeam()
+    public Team TryGetCurrentTeam()
     {
+        if (_currentTeamIndex >= _currentTeams.Count)
+            return null;
+
         return _currentTeams[_currentTeamIndex];
     }
 

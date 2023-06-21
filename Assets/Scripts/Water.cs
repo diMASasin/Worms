@@ -36,7 +36,6 @@ public class Water : MonoBehaviour
 
     private void IncreaseLevel()
     {
-        //transform.position += new Vector3(0, _step, 0);
         transform.DOMove(transform.position + new Vector3(0, 0 + _step, 0), 1);
     }
 }
