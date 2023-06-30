@@ -9,11 +9,12 @@ public class Worm : MonoBehaviour
     [SerializeField] private CapsuleCollider2D _collider;
     [SerializeField] private WormInformationView _wormInformationView;
     [SerializeField] private WormInput _input;
-    [SerializeField] private Weapon _weapon;
     [SerializeField] private Transform _wormWeaponContainer;
     [SerializeField] private float _removeWeaponDelay = 0.5f;
     [SerializeField] private bool _showCanSpawnCheckerBox = false;
     [SerializeField] private WormMovement _wormMovement;
+
+    private Weapon _weapon;
 
     public int Health { get; private set; }
 
@@ -76,7 +77,6 @@ public class Worm : MonoBehaviour
     public void AddExplosionForce(float explosionForce, Vector3 explosionPosition, float explosionUpwardsModifier)
     {
         SetRigidbodyDynamic();
-        //_rigidbody.AddExplosionForce(explosionForce, transform.position, explosionUpwardsModifier);
         _wormMovement.AddExplosionForce(explosionForce, explosionPosition, explosionUpwardsModifier);
         StartCoroutine(SetRigidbodyKinematicWhenGrounded());
     }

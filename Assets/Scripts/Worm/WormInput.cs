@@ -4,10 +4,11 @@ using UnityEngine.Events;
 public class WormInput : MonoBehaviour
 {
     [SerializeField] private WormMovement _wormMovement;
-    [SerializeField] private Weapon _weapon;
     [SerializeField] private int _defaultLayer = 0;
     [SerializeField] private int _currentWormLayer = 6;
     [SerializeField] private Arrow _arrow;
+
+    private Weapon _weapon;
 
     public event UnityAction InputEnabled;
     public event UnityAction InputDisabled;

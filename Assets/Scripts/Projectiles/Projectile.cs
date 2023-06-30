@@ -1,6 +1,4 @@
 using ScriptBoy.Digable2DTerrain;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,6 +11,7 @@ public abstract class Projectile : MonoBehaviour
     [SerializeField] private float _explosionForce = 10;
     [SerializeField] private float _explosionUpwardsModifier = 4;
     [SerializeField] private float _explosionRadius = 1;
+    [SerializeField] private bool _windInfluence = true;
 
     private Shovel _shovel;
     private bool _dead;
@@ -24,6 +23,8 @@ public abstract class Projectile : MonoBehaviour
 
     public event UnityAction<Projectile> Exploded;
 
+    protected Vector2 _velocity;
+
     public virtual void Init(ExplosionPool explosionPool, Shovel shovel, Wind wind) 
     {
         _explosionPool = explosionPool;
@@ -33,17 +34,24 @@ public abstract class Projectile : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        _rigidbody.velocity += new Vector2(_wind.Velocity * Time.fixedDeltaTime, 0);
+        if(_windInfluence)
+            _rigidbody.velocity += new Vector2(_wind.Velocity * Time.fixedDeltaTime, 0);
     }
 
     public void SetVelocity(Vector2 velocity)
     {
+        _velocity = velocity;
         _rigidbody.velocity = velocity;
     }
 
     public void Reset()
     {
         _dead = false;
+    }
+
+    public void ResetVelocity()
+    {
+        _velocity = Vector2.zero;
     }
 
     public abstract void OnShot();

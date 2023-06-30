@@ -15,8 +15,6 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float _shotPower = 5;
     [SerializeField] private float _maxShotPower = 5;
     [SerializeField] private ProjectilePoolAbstract _projectilesPool;
-    [SerializeField] private ExplosionPool _explosionPool;
-    [SerializeField] private Shovel _shovel;
     
     private Worm _worm;
     private Vector3 _mouseStart;
@@ -28,12 +26,6 @@ public class Weapon : MonoBehaviour
 
     public event UnityAction<Projectile, Worm> ProjectileExploded;
     public event UnityAction<Projectile> Shot;
-
-    private void OnValidate()
-    {
-        _shovel = FindObjectOfType<Shovel>();
-        _explosionPool = FindObjectOfType<ExplosionPool>();
-    }
 
     private void Start()
     {

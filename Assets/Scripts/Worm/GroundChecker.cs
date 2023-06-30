@@ -5,11 +5,11 @@ using UnityEngine.Events;
 
 public class GroundChecker : MonoBehaviour
 {
-    [SerializeField] private Vector2 _size;
+    [SerializeField] private Vector2 _size = new Vector2(0.3f, 0.01f);
     [SerializeField] private Vector2 _offset = new Vector2(0, -0.05f);
     [SerializeField] private bool _showGroundCheckerBox = true;
     [SerializeField] private ContactFilter2D _contactFilter2D;
-    [SerializeField] private Worm _worm;
+    [SerializeField] private Collider2D _creature;
 
     private List<Collider2D> _contacts = new();
 
@@ -17,17 +17,12 @@ public class GroundChecker : MonoBehaviour
 
     public event UnityAction<bool> IsGroundedChanged;
 
-    private void Start()
-    {
-        _size = new Vector2(0.3f, 0.01f);
-    }
-
     void FixedUpdate()
     {
         Physics2D.OverlapBox(GetPoint(), _size, 0, _contactFilter2D, _contacts);
 
-        if(_contacts.Contains(_worm.Collider2D))
-            _contacts.Remove(_worm.Collider2D);
+        if(_contacts.Contains(_creature))
+            _contacts.Remove(_creature);
         IsGrounded = _contacts.Count > 0;
 
         IsGroundedChanged?.Invoke(IsGrounded);

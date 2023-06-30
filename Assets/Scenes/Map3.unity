@@ -527,6 +527,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7848f9bb7e1fbfe42be6db6076fd9dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &507835573 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4399934481416364216, guid: e18f9dd5df32bbc439f6ce683e7776dc, type: 3}
+  m_PrefabInstance: {fileID: 507835568}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec26826ee1cc9e04b9da883cdb3574ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &586888711 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 129543584249668120, guid: ec50ca7d1385a7b4db77b27dc1827d20, type: 3}
@@ -650,7 +661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48bf9a14a340f4c408cfaf69c42a1d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!43 &1039946445
+--- !u!43 &1274726947
 Mesh:
   m_ObjectHideFlags: 16
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1330,6 +1341,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1767155544}
     - target: {fileID: 4979374645419107134, guid: eb79a91afcbf75d4fbcc60fdd640582b, type: 3}
+      propertyPath: _weapons.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4979374645419107134, guid: eb79a91afcbf75d4fbcc60fdd640582b, type: 3}
       propertyPath: _weapons.Array.data[0]
       value: 
       objectReference: {fileID: 778299455}
@@ -1341,10 +1356,18 @@ PrefabInstance:
       propertyPath: _weapons.Array.data[2]
       value: 
       objectReference: {fileID: 1981523555}
+    - target: {fileID: 4979374645419107134, guid: eb79a91afcbf75d4fbcc60fdd640582b, type: 3}
+      propertyPath: _weapons.Array.data[3]
+      value: 
+      objectReference: {fileID: 1981523556}
     - target: {fileID: 6686593283180513590, guid: eb79a91afcbf75d4fbcc60fdd640582b, type: 3}
       propertyPath: _wind
       value: 
       objectReference: {fileID: 1465377558}
+    - target: {fileID: 6985448096603296713, guid: eb79a91afcbf75d4fbcc60fdd640582b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1981523556}
     - target: {fileID: 7151299474611504054, guid: eb79a91afcbf75d4fbcc60fdd640582b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
@@ -1547,6 +1570,10 @@ PrefabInstance:
       propertyPath: _projectilesPool
       value: 
       objectReference: {fileID: 507835570}
+    - target: {fileID: 4286187175844442616, guid: b77f3183eb8526740a40a5ba511bde32, type: 3}
+      propertyPath: _projectilesPool
+      value: 
+      objectReference: {fileID: 507835573}
     - target: {fileID: 6909734650365494040, guid: b77f3183eb8526740a40a5ba511bde32, type: 3}
       propertyPath: _shovel
       value: 
@@ -1570,6 +1597,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83d2e0bb5d3c2da448a3a97e19b3423a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1981523556 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4286187175844442616, guid: b77f3183eb8526740a40a5ba511bde32, type: 3}
+  m_PrefabInstance: {fileID: 1981523554}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0348aaa32e4e7a418dee72629c7be7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1985208376
@@ -1963,7 +2001,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172764772764920397}
-  m_Mesh: {fileID: 1039946445}
+  m_Mesh: {fileID: 1274726947}
 --- !u!114 &172764772764920386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1977,7 +2015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   digable: 1
-  mesh: {fileID: 1039946445}
+  mesh: {fileID: 1274726947}
   meshRenderer: {fileID: 172764772764920384}
   polygonCollider: {fileID: 172764772764920387}
   positions:

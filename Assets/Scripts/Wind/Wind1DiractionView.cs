@@ -19,7 +19,6 @@ public class Wind1DiractionView : MonoBehaviour
     public void SetSizeDeltaX(float normalizedVelocity)
     {
         var x = _maxRightValue * normalizedVelocity - _minRightValue;
-        Debug.Log(normalizedVelocity + " " + x);
         _wind1DirView.sizeDelta = new Vector2(x, 0);
     }
 }

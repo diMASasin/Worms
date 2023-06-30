@@ -8,6 +8,11 @@ public class ProjectilesCounter : MonoBehaviour
 
     public int ProjectilesCount { get; private set; }
 
+    private void OnValidate()
+    {
+        _projectilePools = FindObjectsOfType<ProjectilePoolAbstract>();
+    }
+
     private void OnEnable()
     {
         foreach (var projectilePool in _projectilePools)

@@ -47,6 +47,7 @@ MonoBehaviour:
   Amount: 1
   ExplosionPool: {fileID: 7156087165688294676}
   Shovel: {fileID: 0}
+  Wind: {fileID: 0}
   _fragmentationGranadeTemplate: {fileID: 6329366681007544151, guid: d857403a6fff56940b40cff6657d3e5c, type: 3}
   _fragmentsPool: {fileID: 1451794354}
 --- !u!1 &1451794352
@@ -96,6 +97,7 @@ MonoBehaviour:
   Amount: 10
   ExplosionPool: {fileID: 7156087165688294676}
   Shovel: {fileID: 0}
+  Wind: {fileID: 0}
   _projectileTemplate: {fileID: 2053213309425881357, guid: 2c945a0f4cabd55469f0fd6c9ab24d82, type: 3}
 --- !u!1 &1826844885155723689
 GameObject:
@@ -144,7 +146,57 @@ MonoBehaviour:
   Amount: 1
   ExplosionPool: {fileID: 7156087165688294676}
   Shovel: {fileID: 0}
+  Wind: {fileID: 0}
   _projectileTemplate: {fileID: 5997132811028230352, guid: 296da707f5113a44c987799d77e2005a, type: 3}
+--- !u!1 &2831620180378427303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6023192560757906859}
+  - component: {fileID: 4399934481416364216}
+  m_Layer: 0
+  m_Name: SheepsPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6023192560757906859
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2831620180378427303}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2241776286606518519}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4399934481416364216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2831620180378427303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec26826ee1cc9e04b9da883cdb3574ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Amount: 1
+  ExplosionPool: {fileID: 7156087165688294676}
+  Shovel: {fileID: 0}
+  Wind: {fileID: 0}
+  _projectileTemplate: {fileID: -8730287372045583300, guid: 5d3660ab14289c94e90515564066e8fc, type: 3}
 --- !u!1 &3209438184203152868
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,6 +244,7 @@ MonoBehaviour:
   Amount: 1
   ExplosionPool: {fileID: 7156087165688294676}
   Shovel: {fileID: 0}
+  Wind: {fileID: 0}
   _projectileTemplate: {fileID: 5684369949051167082, guid: 4f3628c156f77c844bbe0f1ef3703665, type: 3}
 --- !u!1 &7744850148255398006
 GameObject:
@@ -226,6 +279,7 @@ Transform:
   - {fileID: 4754603403072463978}
   - {fileID: 1451794353}
   - {fileID: 662998314}
+  - {fileID: 6023192560757906859}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
