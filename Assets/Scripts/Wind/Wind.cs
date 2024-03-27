@@ -35,7 +35,6 @@ public class Wind : MonoBehaviour
     {
         Velocity = Random.Range(-_maxVelocity, _maxVelocity);
         Velocity = (int)Velocity / _step * _step;
-        Velocity = 1.5f;
         VelocityChanged?.Invoke(Velocity);
     }
 }
