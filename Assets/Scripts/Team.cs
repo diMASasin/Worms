@@ -43,7 +43,7 @@ public class Team : MonoBehaviour
 
         Worm currentWorm = TryGetCurrentWorm();
         TurnStarted?.Invoke(currentWorm, this);
-        currentWorm.WormInput.EnableInput();
+        currentWorm.Input.EnableInput();
     }
 
     public Worm TryGetCurrentWorm()

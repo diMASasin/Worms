@@ -1,20 +1,17 @@
 using ScriptBoy.Digable2DTerrain;
 using System.Collections;
 using System.Collections.Generic;
+using Configs;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private Renderer _pointerRenderer;
-    [SerializeField] private float _sencetivity = 0.01f;
-    [SerializeField] private float _scopeSencetivity = 0.7f;
-    [SerializeField] private float _speedMultiplier = 0.03f;
     [SerializeField] private Transform _pointerLine;
     [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private float _shotPower = 5;
-    [SerializeField] private float _maxShotPower = 5;
     [SerializeField] private ProjectilePoolAbstract _projectilesPool;
+    [SerializeField] private WeaponConfig _config;
     
     private Worm _worm;
     private Vector3 _mouseStart;
@@ -47,27 +44,22 @@ public class Weapon : MonoBehaviour
         _mouseStart = Input.mousePosition;
     }
 
-    public void RaiseScope()
+    public void MoveScope(float direction)
     {
-        transform.Rotate(new Vector3(0, 0, -_scopeSencetivity) * Time.deltaTime);
-    }
-
-    public void LowerScope()
-    {
-        transform.Rotate(new Vector3(0, 0, _scopeSencetivity) * Time.deltaTime);
+        transform.Rotate(new Vector3(0, 0, direction * _config.ScopeSensetivity) * Time.deltaTime);
     }
 
     public void IncreaseShotPower()
     {
-        if (_currentShotPower >= _maxShotPower || IsShot)
+        if (_currentShotPower >= _config.MaxShotPower || IsShot)
             return;
 
-        _currentShotPower += _shotPower * Time.deltaTime;
-        _pointerLine.localScale = new Vector3(_currentShotPower / _maxShotPower, 1, 1);
+        _currentShotPower += _config.ShotPower * Time.deltaTime;
+        _pointerLine.localScale = new Vector3(_currentShotPower / _config.MaxShotPower, 1, 1);
 
-        if (_currentShotPower >= _maxShotPower)
+        if (_currentShotPower >= _config.MaxShotPower)
         {
-            _currentShotPower = _maxShotPower;
+            _currentShotPower = _config.MaxShotPower;
             Shoot();
         }
     }

@@ -53,7 +53,7 @@ public class WormsSpawner : MonoBehaviour
         return teams;
     }
 
-    private Team SpawnTeam(int wormsNumber, Color teamColor, string name)
+    private Team SpawnTeam(int wormsNumber, Color teamColor, string ndaame)
     {
         List<Worm> worms = new List<Worm>();
 

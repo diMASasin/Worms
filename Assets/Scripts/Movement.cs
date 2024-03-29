@@ -135,6 +135,16 @@ public class Movement : MonoBehaviour
         _rigidbody.position = _rigidbody.position + move.normalized * distance;
     }
 
+    public void TurnRight()
+    {
+        _armature.transform.right = new Vector3(-1, 0);
+    }
+
+    public void TurnLeft()
+    {
+        _armature.transform.right = new Vector3(1, 0);
+    }
+
     private bool TryJump()
     {
         if (!_groundChecker.IsGrounded || !_canJump)

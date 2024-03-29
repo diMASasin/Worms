@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2962741051414129064, guid: dd94089776caed24d8283b3473cff41b, type: 3}
@@ -81,6 +82,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5009202547676460287, guid: dd94089776caed24d8283b3473cff41b, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7049031576010717944, guid: dd94089776caed24d8283b3473cff41b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1489022116451735772}
   m_SourcePrefab: {fileID: 100100000, guid: dd94089776caed24d8283b3473cff41b, type: 3}
 --- !u!212 &513733077446146066 stripped
 SpriteRenderer:
@@ -110,17 +117,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointerRenderer: {fileID: 513733077446146066}
-  _sencetivity: 0.01
-  _scopeSencetivity: 70
-  _speedMultiplier: 0.03
   _pointerLine: {fileID: 5268113684908942080}
   _spawnPoint: {fileID: 8698319791841391122}
-  _shotPower: 15
-  _maxShotPower: 15
   _projectilesPool: {fileID: 0}
-  _explosionPool: {fileID: 0}
-  _shovel: {fileID: 0}
-  _fragmentsPool: {fileID: 0}
+  _config: {fileID: 11400000, guid: 4efad51d55462de4e83f8d27f1b172be, type: 2}
 --- !u!4 &8698319791841391122 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7617592387481449449, guid: dd94089776caed24d8283b3473cff41b, type: 3}

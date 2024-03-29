@@ -70,7 +70,7 @@ public class Game : MonoBehaviour
         var currentWorm = _currentTeams[_currentTeamIndex].TryGetCurrentWorm();
 
         currentWorm.RemoveWeaponWithDelay(_weaponSelector.Container);
-        currentWorm.WormInput.DisableInput();
+        currentWorm.Input.DisableInput();
     }
 
     private void OnWormDied(Worm worm)
@@ -79,7 +79,7 @@ public class Game : MonoBehaviour
 
         worm.TryRemoveWeapon(_weaponSelector.Container);
 
-        if (worm.WormInput.enabled == true)
+        if (worm.Input.IsEnabled == true)
             StartNextTurnWithDelay(_turnDelay);
     }
 
