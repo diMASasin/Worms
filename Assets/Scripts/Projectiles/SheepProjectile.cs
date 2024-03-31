@@ -13,7 +13,7 @@ public class SheepProjectile : Projectile
     public override void OnShot()
     {
         _sheepMovement.Reset();
-        _sheepMovement.TryMove(_velocity.x / Mathf.Abs(_velocity.x));
+        _sheepMovement.TryMove(Velocity.x / Mathf.Abs(Velocity.x));
         ResetVelocity();
         _explodeTimer.StartTimer(_explodeDelay, Explode);
         _jumpTimer.StartTimer(_jumpFreaquency, JumpAndDelayedJump);

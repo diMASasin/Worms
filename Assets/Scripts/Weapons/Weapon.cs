@@ -5,29 +5,29 @@ using Configs;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Weapon : MonoBehaviour
+public class Weapon
 {
-    [SerializeField] private Renderer _pointerRenderer;
-    [SerializeField] private Transform _pointerLine;
-    [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private ProjectilePoolAbstract _projectilesPool;
-    [SerializeField] private WeaponConfig _config;
+    private ProjectilePoolAbstract _projectilesPool;
+    private WeaponConfig _config;
     
     private Worm _worm;
-    private Vector3 _mouseStart;
     private float _currentShotPower = 0;
+
+    public Weapon(WeaponConfig config, ProjectilePoolAbstract projectilesPool)
+    {
+        _config = config;
+        _projectilesPool = projectilesPool;
+    }
 
     public bool IsShot { get; private set; } = false;
 
     public float CurrentShotPower => _currentShotPower;
+    public WeaponConfig Config => _config;
 
     public event UnityAction<Projectile, Worm> ProjectileExploded;
     public event UnityAction<Projectile> Shot;
-
-    private void Start()
-    {
-        _pointerRenderer.enabled = false;
-    }
+    public event UnityAction<float> ShotPowerChanged;
+    public event UnityAction PointerLineEnabled;
 
     public void Reset()
     {
@@ -40,13 +40,7 @@ public class Weapon : MonoBehaviour
         if (IsShot)
             return;
 
-        _pointerRenderer.enabled = true;
-        _mouseStart = Input.mousePosition;
-    }
-
-    public void MoveScope(float direction)
-    {
-        transform.Rotate(new Vector3(0, 0, direction * _config.ScopeSensetivity) * Time.deltaTime);
+        PointerLineEnabled?.Invoke();
     }
 
     public void IncreaseShotPower()
@@ -55,7 +49,7 @@ public class Weapon : MonoBehaviour
             return;
 
         _currentShotPower += _config.ShotPower * Time.deltaTime;
-        _pointerLine.localScale = new Vector3(_currentShotPower / _config.MaxShotPower, 1, 1);
+        ShotPowerChanged?.Invoke(_currentShotPower);
 
         if (_currentShotPower >= _config.MaxShotPower)
         {
@@ -69,19 +63,13 @@ public class Weapon : MonoBehaviour
         if (IsShot)
             return;
 
-        Vector3 delta = Input.mousePosition - _mouseStart;
-        Vector3 velocity = _currentShotPower * transform.right;
-
-        _pointerRenderer.enabled = false;
         Projectile projectile = _projectilesPool.Get();
-        projectile.transform.position = _spawnPoint.position;
         projectile.Reset();
         Shot?.Invoke(projectile);
         IsShot = true;
         projectile.Exploded += OnProjectileExploded;
-        projectile.SetVelocity(velocity);
+        projectile.SetVelocity(_currentShotPower);
         projectile.OnShot();
-        gameObject.SetActive(false);
     }
 
     public void SetWorm(Worm worm)

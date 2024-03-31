@@ -13,6 +13,7 @@ public class Worm : MonoBehaviour
     [SerializeField] private float _removeWeaponDelay = 0.5f;
     [SerializeField] private bool _showCanSpawnCheckerBox = false;
     [SerializeField] private WormMovement _wormMovement;
+    [SerializeField] private WeaponView _weaponView;
 
     private Weapon _weapon;
     private PlayerInput _input;
@@ -50,8 +51,7 @@ public class Worm : MonoBehaviour
     private void Awake()
     {
         Health = _maxHealth;
-        _input = new PlayerInput(_wormMovement, this);
-
+        _input = new PlayerInput(_wormMovement, this, _weaponView);
     }
 
     public void Init(Color color, string name)
@@ -111,7 +111,7 @@ public class Worm : MonoBehaviour
 
     public void ChangeWeapon(Weapon weapon, Transform weaponContainer)
     {
-        if (_weapon)
+        if (_weapon != null)
         {
             if (_weapon.IsShot)
                 return;
@@ -119,12 +119,9 @@ public class Worm : MonoBehaviour
         }
 
         _weapon = weapon;
-        _weapon.transform.parent = _wormWeaponContainer;
-        _weapon.transform.localPosition = Vector3.zero;
-        _weapon.transform.localEulerAngles = new Vector3(0, 0, 180);
+        _weaponView.OnGunChanged(_weapon);
         _weapon.SetWorm(this);
         _weapon.Reset();
-        _weapon.gameObject.SetActive(true);
         WeaponChanged?.Invoke(_weapon);
     }
 
@@ -138,8 +135,6 @@ public class Worm : MonoBehaviour
         if (_weapon == null)
             return;
 
-        _weapon.transform.parent = weaponContainer;
-        _weapon.gameObject.SetActive(false);
         _weapon = null;
     }
 

@@ -23,20 +23,20 @@ public class FollowingCamera : MonoBehaviour
         _game = FindObjectOfType<Game>();   
     }
 
-    private void OnEnable()
+    public void Init()
     {
         _game.WormsSpawned += OnWormsSpawned;
-        foreach (var weapon in _weaponSelector.Weapons)
+        foreach (var weapon in _weaponSelector.WeaponArray)
         {
             weapon.Shot += OnShot;
             weapon.ProjectileExploded += OnProjectileExploded;
         }
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         _game.WormsSpawned -= OnWormsSpawned;
-        foreach (var weapon in _weaponSelector.Weapons)
+        foreach (var weapon in _weaponSelector.WeaponArray)
         {
             weapon.Shot -= OnShot;
             weapon.ProjectileExploded -= OnProjectileExploded;

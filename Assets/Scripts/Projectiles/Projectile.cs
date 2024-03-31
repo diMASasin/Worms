@@ -19,11 +19,10 @@ public abstract class Projectile : MonoBehaviour
     private Wind _wind;
 
     public Rigidbody2D Rigidbody2D => _rigidbody;
+    public Vector2 Velocity => _rigidbody.velocity;
     public GameObject SpriteRenderer => _spriteObject;
 
     public event UnityAction<Projectile> Exploded;
-
-    protected Vector2 _velocity;
 
     public virtual void Init(ExplosionPool explosionPool, Shovel shovel, Wind wind) 
     {
@@ -38,10 +37,9 @@ public abstract class Projectile : MonoBehaviour
             _rigidbody.velocity += new Vector2(_wind.Velocity * Time.fixedDeltaTime, 0);
     }
 
-    public void SetVelocity(Vector2 velocity)
+    public void SetVelocity(float currentShotPower)
     {
-        _velocity = velocity;
-        _rigidbody.velocity = velocity;
+        _rigidbody.velocity = currentShotPower * -transform.right;
     }
 
     public void Reset()
@@ -51,7 +49,7 @@ public abstract class Projectile : MonoBehaviour
 
     public void ResetVelocity()
     {
-        _velocity = Vector2.zero;
+        _rigidbody.velocity = Vector2.zero;
     }
 
     public abstract void OnShot();

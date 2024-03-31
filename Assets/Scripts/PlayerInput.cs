@@ -9,16 +9,18 @@ public class PlayerInput : IDisposable
 
     private WormMovement _wormMovement;
     private Worm _worm;
+    private readonly WeaponView _weaponView;
     private MainInput _input;
     private Weapon _weapon;
 
     public event UnityAction InputEnabled;
     public event UnityAction InputDisabled;
 
-    public PlayerInput(WormMovement wormMovement, Worm worm)
+    public PlayerInput(WormMovement wormMovement, Worm worm, WeaponView weaponView)
     {
         _wormMovement = wormMovement;
         _worm = worm;
+        _weaponView = weaponView;
 
         _input = new MainInput();
 
@@ -69,9 +71,6 @@ public class PlayerInput : IDisposable
 
     private void OnShoot(CallbackContext obj)
     {
-        if (_weapon == null)
-            return;
-
         _weapon.Shoot();
     }
 
@@ -114,7 +113,7 @@ public class PlayerInput : IDisposable
             return;
 
         var direction = _input.Main.RaiseScope.ReadValue<float>();
-        _weapon.MoveScope(direction);
+        _weaponView.MoveScope(direction);
     }
 
     private void OnDirectionChanged()

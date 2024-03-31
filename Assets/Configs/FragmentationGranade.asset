@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: FragmentationGranade
   m_EditorClassIdentifier: 
   <Sencetivity>k__BackingField: 0.01
-  <ScopeSencetivity>k__BackingField: 0.7
+  <ScopeSensetivity>k__BackingField: 50
   <SpeedMultiplier>k__BackingField: 0.03
-  <ShotPower>k__BackingField: 5
-  <MaxShotPower>k__BackingField: 5
+  <ShotPower>k__BackingField: 15
+  <MaxShotPower>k__BackingField: 15
+  <Sprite>k__BackingField: {fileID: -1508937927, guid: 3bb1fadd136a96f42b94902a40eace8b, type: 3}

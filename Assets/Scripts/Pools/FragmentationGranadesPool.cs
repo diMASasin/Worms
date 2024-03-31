@@ -17,11 +17,11 @@ public class FragmentationGranadesPool : ProjectilePoolAbstract
 
     private FragmentationGranadeProjectile CreateFragmentationGranade()
     {
-        var obj = Instantiate(_fragmentationGranadeTemplate, transform);
-        Projectiles.Add(obj);
-        obj.Init(ExplosionPool, Shovel, _fragmentsPool, Wind);
-        obj.gameObject.SetActive(false);
-        return obj;
+        var granade = Instantiate(_fragmentationGranadeTemplate, transform);
+        Projectiles.Add(granade);
+        granade.Init(ExplosionPool, Shovel, _fragmentsPool, Wind);
+        granade.gameObject.SetActive(false);
+        return granade;
     }
 
     protected override Projectile CreateProjectile()

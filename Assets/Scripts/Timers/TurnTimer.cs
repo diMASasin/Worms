@@ -19,19 +19,19 @@ public class TurnTimer : MonoBehaviour
         _game = FindObjectOfType<Game>();
     }
 
-    private void OnEnable()
+    public void Init()
     {
         _game.WormsSpawned += OnWormsSpawned;
 
-        foreach (var weapon in _weaponSelector.Weapons)
+        foreach (var weapon in _weaponSelector.WeaponArray)
             weapon.Shot += OnShot;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         _game.WormsSpawned -= OnWormsSpawned;
 
-        foreach (var weapon in _weaponSelector.Weapons)
+        foreach (var weapon in _weaponSelector.WeaponArray)
             weapon.Shot -= OnShot;
     }
 

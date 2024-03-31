@@ -7,14 +7,14 @@ public class WeaponSelector : MonoBehaviour
 {
     [SerializeField] private Game _game;
     [SerializeField] private Transform _container;
-    [SerializeField] Weapon[] _weapons;
+    [SerializeField] List<Weapon> _weaponArray;
     [SerializeField] Animator _animator;
 
     private List<Team> _teams;
     private Worm _currentWorm;
     private bool _canOpen = false;
 
-    public IReadOnlyCollection<Weapon> Weapons => _weapons;
+    public IReadOnlyList<Weapon> WeaponArray => _weaponArray;
     public Transform Container => _container;
 
     private void OnValidate()
@@ -22,22 +22,23 @@ public class WeaponSelector : MonoBehaviour
         _game = FindObjectOfType<Game>();
     }
 
-    private void OnEnable()
+    public void Init(List<Weapon> weaponArray)
     {
+        _weaponArray = weaponArray;
+
         _game.WormsSpawned += OnWormsSpawned;
         _game.NextTurnStarted += OnNextTurnStarted;
-        foreach (var weapon in _weapons)
-        {
+
+        foreach (var weapon in _weaponArray)
             weapon.Shot += OnWeaponShot;
-            weapon.ProjectileExploded += OnProjectileExploded;
-        }
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         _game.WormsSpawned -= OnWormsSpawned;
         _game.NextTurnStarted -= OnNextTurnStarted;
-        foreach (var weapon in _weapons)
+
+        foreach (var weapon in _weaponArray)
             weapon.Shot -= OnWeaponShot;
     }
 
