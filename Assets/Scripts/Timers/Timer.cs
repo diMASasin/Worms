@@ -1,40 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
-using TMPro;
 
-public class Timer : MonoBehaviour
+public class Timer
 {
-    private float _timeStart;
+    private float _interval;
     private float _timeLeft;
     private bool _started = false;
 
     public event UnityAction<float> TimerUpdated;
-    private event UnityAction OnTimerOut;
+    public event UnityAction Elapsed;
 
     private void Reset()
     {
-        _timeLeft = _timeStart;
+        _timeLeft = _interval;
         _started = false;
     } 
 
-    public void StartTimer(float time, UnityAction onTimerOut)
+    public void Start(float interval)
     {
-        _timeStart = time;
+        _interval = interval;
         Reset();
         TimerUpdated?.Invoke(_timeLeft);
-        OnTimerOut = onTimerOut;
         _started = true;
     }
 
-    public void StopTimer()
+    public void Stop()
     {
         _started = false;
     }
 
-    private void Update()
+    public void Tick()
     {
         if (_started) 
         {
@@ -43,8 +38,9 @@ public class Timer : MonoBehaviour
             if(_timeLeft <= 0)
             {
                 _timeLeft = 0;
-                StopTimer();
-                OnTimerOut();
+                Stop();
+
+                Elapsed?.Invoke();
             }
 
             TimerUpdated?.Invoke(_timeLeft);

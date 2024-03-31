@@ -34,7 +34,6 @@ RectTransform:
   m_Children:
   - {fileID: 3180956081761147588}
   m_Father: {fileID: 2204510361663019332}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -58,7 +57,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
@@ -148,7 +149,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4378436383792711185}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -265,12 +265,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timerText: {fileID: 8171510803163334357}
-  _timer: {fileID: 1412681903445705137}
 --- !u!1001 &3526205456033233266
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3348539931435737142, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
@@ -355,6 +355,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3348539931435737144, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3348539931435737142, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4378436383792711185}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3348539931435737147, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5684369949051167082}
   m_SourcePrefab: {fileID: 100100000, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
 --- !u!4 &2204510361663019332 stripped
 Transform:
@@ -366,18 +375,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3348539931435737147, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
   m_PrefabInstance: {fileID: 3526205456033233266}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1412681903445705137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2204510361663019337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1489aeb11185c2b44a56c54f6ab20922, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5684369949051167082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,9 +394,10 @@ MonoBehaviour:
   _explosionForce: 10
   _explosionUpwardsModifier: 4
   _explosionRadius: 1
+  _windInfluence: 1
   _explodeDelay: 5
-  _timer: {fileID: 1412681903445705137}
   _canvas: {fileID: 8690412537452771905}
+  _timerView: {fileID: 4935884132953575557}
 --- !u!58 &2204510361663019339 stripped
 CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 3348539931435737145, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}

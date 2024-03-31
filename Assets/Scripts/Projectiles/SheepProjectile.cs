@@ -1,22 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SheepProjectile : Projectile
 {
     [SerializeField] private SheepMovement _sheepMovement;
-    [SerializeField] private Timer _jumpTimer;
-    [SerializeField] private Timer _explodeTimer;
     [SerializeField] private float _explodeDelay = 10;
-    [SerializeField] private float _jumpFreaquency = 1;
+
+    private readonly Timer _timer = new();
+    
+    private void OnEnable()
+    {
+        _timer.Elapsed += OnTimerElapsed;
+    }
+
+    private void OnDisable()
+    {
+        _timer.Elapsed -= OnTimerElapsed;
+    }
 
     public override void OnShot()
     {
         _sheepMovement.Reset();
         _sheepMovement.TryMove(Velocity.x / Mathf.Abs(Velocity.x));
         ResetVelocity();
-        _explodeTimer.StartTimer(_explodeDelay, Explode);
-        _jumpTimer.StartTimer(_jumpFreaquency, JumpAndDelayedJump);
+
+        _timer.Start(_explodeDelay);
     }
 
     private void Update()
@@ -25,9 +32,8 @@ public class SheepProjectile : Projectile
             Explode();
     }
 
-    private void JumpAndDelayedJump()
+    private void OnTimerElapsed()
     {
-        _sheepMovement.LongJump();
-        _jumpTimer.StartTimer(_jumpFreaquency, JumpAndDelayedJump);
+        Explode();
     }
 }

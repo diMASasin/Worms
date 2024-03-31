@@ -39,7 +39,7 @@ public abstract class Projectile : MonoBehaviour
 
     public void SetVelocity(float currentShotPower)
     {
-        _rigidbody.velocity = currentShotPower * -transform.right;
+        _rigidbody.velocity = currentShotPower * transform.right;
     }
 
     public void Reset()

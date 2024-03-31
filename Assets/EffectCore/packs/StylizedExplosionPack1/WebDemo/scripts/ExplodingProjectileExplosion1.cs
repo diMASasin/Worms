@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 /* THIS CODE IS JUST FOR PREVIEW AND TESTING */
 public class ExplodingProjectileExplosion1 : MonoBehaviour

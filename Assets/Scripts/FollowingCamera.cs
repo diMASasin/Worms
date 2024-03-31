@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,7 +25,7 @@ public class FollowingCamera : MonoBehaviour
     public void Init()
     {
         _game.WormsSpawned += OnWormsSpawned;
-        foreach (var weapon in _weaponSelector.WeaponArray)
+        foreach (var weapon in _weaponSelector.WeaponList)
         {
             weapon.Shot += OnShot;
             weapon.ProjectileExploded += OnProjectileExploded;
@@ -36,7 +35,7 @@ public class FollowingCamera : MonoBehaviour
     private void OnDestroy()
     {
         _game.WormsSpawned -= OnWormsSpawned;
-        foreach (var weapon in _weaponSelector.WeaponArray)
+        foreach (var weapon in _weaponSelector.WeaponList)
         {
             weapon.Shot -= OnShot;
             weapon.ProjectileExploded -= OnProjectileExploded;

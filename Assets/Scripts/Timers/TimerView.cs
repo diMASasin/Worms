@@ -1,20 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class TimerView : MonoBehaviour
 {
     [SerializeField] private TMP_Text  _timerText;  
-    [SerializeField] private Timer _timer;
+    
+    private Timer _timer;
 
-    public void OnEnable()
+    public void Init(Timer timer)
     {
+        _timer = timer;
+
         _timer.TimerUpdated += OnTimerUpdated;
     }
-
-    public void OnDisable()
+    
+    public void OnDestroy()
     {
         _timer.TimerUpdated -= OnTimerUpdated;
     }

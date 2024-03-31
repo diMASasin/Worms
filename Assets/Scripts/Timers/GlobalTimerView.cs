@@ -1,27 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class GlobalTimerView : MonoBehaviour
 {
-    [SerializeField] private GlobalTimer _globalTimer;
     [SerializeField] private TMP_Text _text;
 
-    private void OnEnable()
+    private Timer _globalTimer;
+    
+    public void Init(Timer timer)
     {
+        _globalTimer = timer;
+
         _globalTimer.TimerUpdated += OnTimerUpdated;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         _globalTimer.TimerUpdated -= OnTimerUpdated;
     }
 
     private void OnTimerUpdated(float timeLeft)
     {
-        int minutes = (int)timeLeft / 60;
-        int seconds = (int)timeLeft % 60;
-        _text.text = $"{minutes}:{seconds}";
+        float minutes = timeLeft / 60;
+        float seconds = timeLeft % 60;
+        _text.text = $"{minutes:F0}:{seconds:F0}";
     }
 }

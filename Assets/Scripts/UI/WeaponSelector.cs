@@ -1,35 +1,43 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class WeaponSelector : MonoBehaviour
 {
     [SerializeField] private Game _game;
-    [SerializeField] private Transform _container;
-    [SerializeField] List<Weapon> _weaponArray;
+    [SerializeField] private Transform _weaponSelectorItemParent;
+    [SerializeField] List<Weapon> _weaponList;
     [SerializeField] Animator _animator;
+    [SerializeField] private WeaponSelectorItem _weaponSelectorItemPrefab;
 
     private List<Team> _teams;
     private Worm _currentWorm;
     private bool _canOpen = false;
 
-    public IReadOnlyList<Weapon> WeaponArray => _weaponArray;
-    public Transform Container => _container;
+    public IReadOnlyList<Weapon> WeaponList => _weaponList;
+    public Transform WeaponSelectorItemParent => _weaponSelectorItemParent;
+
+    public Action<Worm> TurnStarted;
 
     private void OnValidate()
     {
         _game = FindObjectOfType<Game>();
     }
 
-    public void Init(List<Weapon> weaponArray)
+    public void Init(List<Weapon> weaponList)
     {
-        _weaponArray = weaponArray;
+        _weaponList = weaponList;
+
+        foreach (var weapon in _weaponList)
+        {
+            WeaponSelectorItem weaponItem = Instantiate(_weaponSelectorItemPrefab, _weaponSelectorItemParent);
+            weaponItem.Init(this, weapon);
+        }
 
         _game.WormsSpawned += OnWormsSpawned;
         _game.NextTurnStarted += OnNextTurnStarted;
 
-        foreach (var weapon in _weaponArray)
+        foreach (var weapon in _weaponList)
             weapon.Shot += OnWeaponShot;
     }
 
@@ -38,7 +46,7 @@ public class WeaponSelector : MonoBehaviour
         _game.WormsSpawned -= OnWormsSpawned;
         _game.NextTurnStarted -= OnNextTurnStarted;
 
-        foreach (var weapon in _weaponArray)
+        foreach (var weapon in _weaponList)
             weapon.Shot -= OnWeaponShot;
     }
 
@@ -79,12 +87,13 @@ public class WeaponSelector : MonoBehaviour
     private void OnTurnStarted(Worm worm, Team team)
     {
         _currentWorm = worm;
+        TurnStarted?.Invoke(_currentWorm);
         _canOpen = true;
     }
 
     public void SelectWeapon(Weapon weapon)
     {
-        _currentWorm.ChangeWeapon(weapon, _container);
+        _currentWorm.ChangeWeapon(weapon);
     }
 
     private void OnWeaponShot(Projectile projectile)

@@ -1,37 +1,36 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class TurnTimer : MonoBehaviour
+public class TurnTimer : Timer, IDisposable
 {
-    [SerializeField] private float _time;
-    [SerializeField] private Game _game;
-    [SerializeField] private Timer _timer;
-    [SerializeField] private WeaponSelector _weaponSelector;
+    private readonly float _afterTurnInterval;
+    private readonly WeaponSelector _weaponSelector;
+    private readonly Game _game;
 
     public event Action TimerOut;
     public event Action WormShot;
     public event Action TimerStopped;
 
-    private void OnValidate()
+    public TurnTimer(Game game, WeaponSelector weaponSelector, float afterTurnInterval)
     {
-        _game = FindObjectOfType<Game>();
-    }
+        _game = game;
+        _weaponSelector = weaponSelector;
+        _afterTurnInterval = afterTurnInterval;
 
-    public void Init()
-    {
         _game.WormsSpawned += OnWormsSpawned;
+        Elapsed += OnElapsed;
 
-        foreach (var weapon in _weaponSelector.WeaponArray)
+        foreach (var weapon in _weaponSelector.WeaponList)
             weapon.Shot += OnShot;
     }
 
-    private void OnDestroy()
+    public void Dispose()
     {
+        Elapsed -= OnElapsed;
+
         _game.WormsSpawned -= OnWormsSpawned;
 
-        foreach (var weapon in _weaponSelector.WeaponArray)
+        foreach (var weapon in _weaponSelector.WeaponList)
             weapon.Shot -= OnShot;
     }
 
@@ -52,10 +51,10 @@ public class TurnTimer : MonoBehaviour
 
     private void OnTurnStarted(Worm worm, Team team)
     {
-        _timer.StartTimer(_time, OnTimerOut);
+        Start(_afterTurnInterval);
     }
 
-    private void OnTimerOut()
+    private void OnElapsed()
     {
         var currentWorm = _game.TryGetCurrentTeam().TryGetCurrentWorm();
         if (currentWorm.Weapon?.CurrentShotPower > 0)
@@ -72,7 +71,7 @@ public class TurnTimer : MonoBehaviour
 
     private void OnShot(Projectile projectile)
     {
-        _timer.StopTimer();
+        Stop();
         TimerStopped?.Invoke();
     }
 }

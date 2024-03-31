@@ -1,22 +1,28 @@
-using ScriptBoy.Digable2DTerrain;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GranadeProjectile : Projectile
 {
     [SerializeField] private float _explodeDelay = 5;
-    [SerializeField] private Timer _timer;
     [SerializeField] private FollowingObject _canvas;
+    [SerializeField] private TimerView _timerView;
+
+    private Timer _timer = new();
+
+    private void Awake()
+    {
+        _timerView.Init(_timer);
+    }
 
     private void OnEnable()
     {
         Exploded += OnExploded;
+        _timer.Elapsed += OnElapsed;
     }
 
     private void OnDisable()
     {
         Exploded -= OnExploded;
+        _timer.Elapsed -= OnElapsed;
     }
 
     public override void OnShot()
@@ -26,10 +32,10 @@ public class GranadeProjectile : Projectile
         _canvas.transform.parent = null;
         _canvas.gameObject.SetActive(true);
 
-        _timer.StartTimer(_explodeDelay, OnTimerOut);
+        _timer.Start(_explodeDelay);
     }
 
-    protected virtual void OnTimerOut()
+    protected virtual void OnElapsed()
     {
         Explode();
     }

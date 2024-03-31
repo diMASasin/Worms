@@ -2,8 +2,33 @@ using UnityEngine;
 
 public class SheepMovement : Movement
 {
+    [SerializeField] private float _jumpInterval = 1;
+    
+    private Timer _jumpTimer = new();
+
     private Vector3 _overlapPoint;
     private Vector3 _overlapBoxSize;
+
+
+    private void Awake()
+    {
+        _jumpTimer.Start(_jumpInterval);
+    }
+
+    private void Update()
+    {
+        _jumpTimer.Tick();
+    }
+
+    private void OnEnable()
+    {
+        _jumpTimer.Elapsed += JumpAndDelayedJump;
+    }
+
+    private void OnDisable()
+    {
+        _jumpTimer.Elapsed -= JumpAndDelayedJump;
+    }
 
     protected override void FixedUpdate()
     {
@@ -26,5 +51,11 @@ public class SheepMovement : Movement
     private void OnDrawGizmos()
     {
         Gizmos.DrawCube(_overlapPoint, _overlapBoxSize);
+    }
+
+    private void JumpAndDelayedJump()
+    {
+        LongJump();
+        _jumpTimer.Start(_jumpInterval);
     }
 }

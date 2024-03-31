@@ -1,6 +1,4 @@
-﻿using Configs;
-using Unity.VisualScripting.FullSerializer;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WeaponView : MonoBehaviour
 {

@@ -1,46 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
-public class AfterTurnTimer : MonoBehaviour
+public class AfterTurnTimer : Timer, IDisposable
 {
-    [SerializeField] private float _time;
-    [SerializeField] private TurnTimer _turnTimer;
-    [SerializeField] private Timer _timer;
-    [SerializeField] private Game _game;
+    private readonly float _interval;
+    private readonly Game _game;
+    private readonly TurnTimer _turnTimer;
+    private readonly ICoroutinePerformer _performer;
 
-    private void OnValidate()
-    {
-        _game = FindObjectOfType<Game>();
-    }
+    private readonly Timer _timer = new();
 
-    private void OnEnable()
+    public AfterTurnTimer(TurnTimer turnTimer, Game game, ICoroutinePerformer performer, float afterTurnInterval)
     {
+        _turnTimer = turnTimer;
+        _game = game;
+        _performer = performer;
+        _interval = afterTurnInterval;
+        
         _turnTimer.WormShot += OnShot;
         _turnTimer.TimerStopped += OnShot;
+        _timer.Elapsed += OnElapsed;
     }
 
-    private void OnDisable()
+    public void Dispose()
     {
         _turnTimer.WormShot -= OnShot;
         _turnTimer.TimerStopped -= OnShot;
+        _timer.Elapsed -= OnElapsed;
     }
 
     private void OnShot()
     {
-        StartTimer();
+        Start(_interval);
     }
 
-    private void StartTimer()
+    private void OnElapsed()
     {
-        _timer.StartTimer(_time, OnTimerOut);
-    }
-
-    private void OnTimerOut()
-    {
-        _timer.StopTimer();
+        _timer.Stop();
         _game.DisableCurrentWorm();
-        //_game.StartNextTurnWithDelay(1.5f);
-        StartCoroutine(_game.WaitUntilProjectilesExplode(() => _game.StartNextTurnWithDelay(1)));
+        _performer.StartRoutine(_game.WaitUntilProjectilesExplode(() => _game.StartNextTurnWithDelay(1)));
     }
 }

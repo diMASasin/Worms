@@ -1,6 +1,3 @@
-using ScriptBoy.Digable2DTerrain;
-using System.Collections;
-using System.Collections.Generic;
 using Configs;
 using UnityEngine;
 using UnityEngine.Events;

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 /* THIS CODE IS JUST FOR PREVIEW AND TESTING */
 // Feel free to use any code and picking on it, I cannot guaratnee it will fit into your project

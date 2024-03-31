@@ -109,13 +109,14 @@ public class Worm : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void ChangeWeapon(Weapon weapon, Transform weaponContainer)
+    public void ChangeWeapon(Weapon weapon)
     {
         if (_weapon != null)
         {
             if (_weapon.IsShot)
                 return;
-            TryRemoveWeapon(weaponContainer);
+
+            TryRemoveWeapon();
         }
 
         _weapon = weapon;
@@ -130,7 +131,7 @@ public class Worm : MonoBehaviour
         StartCoroutine(DelayedRemoveWeapon(weaponContainer, _removeWeaponDelay));
     }
 
-    public void TryRemoveWeapon(Transform weaponContainer)
+    public void TryRemoveWeapon()
     {
         if (_weapon == null)
             return;
@@ -141,6 +142,6 @@ public class Worm : MonoBehaviour
     private IEnumerator DelayedRemoveWeapon(Transform weaponContainer, float delay)
     {
         yield return new WaitForSeconds(delay);
-        TryRemoveWeapon(weaponContainer);
+        TryRemoveWeapon();
     }
 }

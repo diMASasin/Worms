@@ -1,6 +1,4 @@
 using ScriptBoy.Digable2DTerrain;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FragmentationGranadeProjectile : GranadeProjectile
@@ -15,9 +13,9 @@ public class FragmentationGranadeProjectile : GranadeProjectile
         _fragmentsPool = fragmentsPool;
     }
 
-    protected override void OnTimerOut()
+    protected override void OnElapsed()
     {
-        base.OnTimerOut();
+        base.OnElapsed();
         for (int i = 0; i < _fragmentsAmount; i++)
         {
             var fragment = _fragmentsPool.Get();

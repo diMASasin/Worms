@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using ScriptBoy.Digable2DTerrain;// You'll need to include this namespace
 
 public class Demo7Player : MonoBehaviour
