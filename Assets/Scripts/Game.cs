@@ -10,8 +10,8 @@ public class Game : MonoBehaviour
     [SerializeField] private float _turnDelay = 2.5f;
     [SerializeField] private EndScreen _endScreen;
     [SerializeField] private WeaponSelector _weaponSelector;
-    [SerializeField] private ProjectilesCounter _projectilesCounter;
 
+    private ProjectilesCounter _projectilesCounter;
     private List<Team> _teams = new List<Team>();
     private List<Team> _currentTeams = new List<Team>();
     private int _currentTeamIndex = -1;
@@ -19,6 +19,11 @@ public class Game : MonoBehaviour
     public event UnityAction<List<Team>> WormsSpawned;
     public event UnityAction NextTurnStarted;
     public event UnityAction TurnEnd;
+
+    public void Init(ProjectilesCounter projectilesCounter)
+    {
+        _projectilesCounter = projectilesCounter;
+    }
 
     private void OnValidate()
     {

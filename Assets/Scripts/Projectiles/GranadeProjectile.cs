@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class GranadeProjectile : Projectile
 {
-    [SerializeField] private float _explodeDelay = 5;
     [SerializeField] private FollowingObject _canvas;
     [SerializeField] private TimerView _timerView;
 
@@ -32,7 +31,7 @@ public class GranadeProjectile : Projectile
         _canvas.transform.parent = null;
         _canvas.gameObject.SetActive(true);
 
-        _timer.Start(_explodeDelay);
+        _timer.Start(ProjectileConfig.ExplodeDelay);
     }
 
     protected virtual void OnElapsed()

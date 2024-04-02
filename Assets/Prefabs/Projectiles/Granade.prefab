@@ -390,12 +390,7 @@ MonoBehaviour:
   _rigidbody: {fileID: 2984601102430530844}
   _collider2D: {fileID: 2204510361663019339}
   _spriteObject: {fileID: 6213382292291068477}
-  _damage: 40
-  _explosionForce: 10
-  _explosionUpwardsModifier: 4
-  _explosionRadius: 1
-  _windInfluence: 1
-  _explodeDelay: 5
+  <ProjectileConfig>k__BackingField: {fileID: 11400000, guid: 23f58b6c1977084489c0ec33bfaebb19, type: 2}
   _canvas: {fileID: 8690412537452771905}
   _timerView: {fileID: 4935884132953575557}
 --- !u!58 &2204510361663019339 stripped

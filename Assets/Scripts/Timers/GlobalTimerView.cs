@@ -23,6 +23,6 @@ public class GlobalTimerView : MonoBehaviour
     {
         float minutes = timeLeft / 60;
         float seconds = timeLeft % 60;
-        _text.text = $"{minutes:F0}:{seconds:F0}";
+        _text.text = $"{minutes:F0}:{seconds:00}";
     }
 }

@@ -2,17 +2,20 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class ExplosionPool : MonoBehaviour
+public class ExplosionPool
 {
-    [SerializeField] private Explosion _explosionTemplate;
-    [SerializeField] private int _amount;
+    private readonly Explosion _explosionTemplate;
+    private readonly Transform _projectilesParent;
 
-    private List<Explosion> _explosions = new();
-    private List<Explosion> _used = new();
+    private readonly List<Explosion> _explosions = new();
+    private readonly List<Explosion> _used = new();
 
-    private void Start()
+    public ExplosionPool(Explosion explosionTemplate, Transform projectilesParent, int amount)
     {
-        for (int i = 0; i < _amount; i++)
+        _explosionTemplate = explosionTemplate;
+        _projectilesParent = projectilesParent;
+
+        for (int i = 0; i < amount; i++)
             CreateExplosion();
     }
 
@@ -30,14 +33,13 @@ public class ExplosionPool : MonoBehaviour
 
     public void Remove(Explosion explosion)
     {
-        explosion.transform.parent = transform;
+        explosion.transform.parent = _projectilesParent;
         _used.Remove(explosion);
     }
 
-    private Explosion CreateExplosion()
+    private void CreateExplosion()
     {
-        var explosion = Instantiate(_explosionTemplate, transform);
+        var explosion = Object.Instantiate(_explosionTemplate, _projectilesParent);
         _explosions.Add(explosion);
-        return explosion;
     }
 }

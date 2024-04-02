@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public abstract class ProjectilePoolAbstract : MonoBehaviour
+public abstract class ProjectilePoolAbstract
 {
-    [SerializeField] protected int Amount;
-    [SerializeField] protected ExplosionPool ExplosionPool;
-    [SerializeField] protected Shovel Shovel;
-    [SerializeField] protected Wind Wind;
+    protected int Amount;
+    protected ExplosionPool ExplosionPool;
+    protected Shovel Shovel;
+    protected Wind Wind;
 
     protected List<Projectile> Projectiles = new();
     protected List<Projectile> Used = new();
@@ -17,10 +17,12 @@ public abstract class ProjectilePoolAbstract : MonoBehaviour
     public event Action Got;
     public event Action Removed;
 
-    private void OnValidate()
+    public ProjectilePoolAbstract(ExplosionPool explosionPool, Shovel shovel, Wind wind, int amount)
     {
-        Shovel = FindObjectOfType<Shovel>();
-        Wind = FindObjectOfType<Wind>();
+        ExplosionPool = explosionPool;
+        Shovel = shovel;
+        Wind = wind;
+        Amount = amount;
     }
 
     public Projectile Get()

@@ -17,3 +17,5 @@ MonoBehaviour:
   <ExplosionUpwardsModifier>k__BackingField: 4
   <ExplosionRadius>k__BackingField: 1
   <WindInfluence>k__BackingField: 1
+  <ExplodeDelay>k__BackingField: 5
+  <FragmentsAmount>k__BackingField: 0

@@ -3,7 +3,6 @@ using UnityEngine;
 public class SheepProjectile : Projectile
 {
     [SerializeField] private SheepMovement _sheepMovement;
-    [SerializeField] private float _explodeDelay = 10;
 
     private readonly Timer _timer = new();
     
@@ -23,7 +22,7 @@ public class SheepProjectile : Projectile
         _sheepMovement.TryMove(Velocity.x / Mathf.Abs(Velocity.x));
         ResetVelocity();
 
-        _timer.Start(_explodeDelay);
+        _timer.Start(ProjectileConfig.ExplodeDelay);
     }
 
     private void Update()

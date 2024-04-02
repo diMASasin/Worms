@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class FragmentationGranadeProjectile : GranadeProjectile
 {
-    [SerializeField] private int _fragmentsAmount;
-    
     private ProjectilesPool _fragmentsPool;
 
     public void Init(ExplosionPool explosionPool, Shovel shovel, ProjectilesPool fragmentsPool, Wind wind)
@@ -16,7 +14,7 @@ public class FragmentationGranadeProjectile : GranadeProjectile
     protected override void OnElapsed()
     {
         base.OnElapsed();
-        for (int i = 0; i < _fragmentsAmount; i++)
+        for (int i = 0; i < ProjectileConfig.FragmentsAmount; i++)
         {
             var fragment = _fragmentsPool.Get();
             fragment.transform.position = transform.position;

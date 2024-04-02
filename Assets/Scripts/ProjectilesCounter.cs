@@ -1,18 +1,16 @@
+using System;
 using UnityEngine;
 
-public class ProjectilesCounter : MonoBehaviour
+public class ProjectilesCounter : IDisposable
 {
-    [SerializeField] private ProjectilePoolAbstract[] _projectilePools;
+    private readonly ProjectilePoolAbstract[] _projectilePools;
 
     public int ProjectilesCount { get; private set; }
 
-    private void OnValidate()
+    public ProjectilesCounter(params ProjectilePoolAbstract[] projectilePools)
     {
-        _projectilePools = FindObjectsOfType<ProjectilePoolAbstract>();
-    }
-
-    private void OnEnable()
-    {
+        _projectilePools = projectilePools;
+        
         foreach (var projectilePool in _projectilePools)
         {
             projectilePool.Got += OnGot;
@@ -20,7 +18,7 @@ public class ProjectilesCounter : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    public void Dispose()
     {
         foreach (var projectilePool in _projectilePools)
         {

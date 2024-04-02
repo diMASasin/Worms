@@ -143,13 +143,8 @@ MonoBehaviour:
   _rigidbody: {fileID: 1838867013107962990}
   _collider2D: {fileID: 3348539931435737145}
   _spriteObject: {fileID: 7410048026872486735}
-  _damage: 40
-  _explosionForce: 10
-  _explosionUpwardsModifier: 4
-  _explosionRadius: 1
-  _windInfluence: 0
+  <ProjectileConfig>k__BackingField: {fileID: 11400000, guid: 43822e07ea1144f4782473220d8b464b, type: 2}
   _sheepMovement: {fileID: -4215568537623987006}
-  _explodeDelay: 10
 --- !u!114 &5563427465032157669
 MonoBehaviour:
   m_ObjectHideFlags: 0

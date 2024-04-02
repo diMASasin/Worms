@@ -1,21 +1,28 @@
+using ScriptBoy.Digable2DTerrain;
 using UnityEngine;
 
 public class FragmentationGranadesPool : ProjectilePoolAbstract
 {
-    [SerializeField] private FragmentationGranadeProjectile _fragmentationGranadeTemplate;
-    [SerializeField] private ProjectilesPool _fragmentsPool;
+    private readonly Transform _projectilesParent;
+    private readonly FragmentationGranadeProjectile _fragmentationGranadeTemplate;
+    private readonly ProjectilesPool _fragmentsPool;
 
-    private void Start()
+    public FragmentationGranadesPool(ExplosionPool explosionPool, Shovel shovel, Wind wind, int amount,
+        Transform projectilesParent, FragmentationGranadeProjectile fragmentationGranadeTemplate, ProjectilesPool fragmentsPool) : base(explosionPool, shovel, wind, amount)
     {
+        _projectilesParent = projectilesParent;
+        _fragmentationGranadeTemplate = fragmentationGranadeTemplate;
+        _fragmentsPool = fragmentsPool;
+
         for (int i = 0; i < Amount; i++)
             CreateFragmentationGranade();
     }
 
     private FragmentationGranadeProjectile CreateFragmentationGranade()
     {
-        var granade = Instantiate(_fragmentationGranadeTemplate, transform);
-        Projectiles.Add(granade);
+        var granade = Object.Instantiate(_fragmentationGranadeTemplate, _projectilesParent);
         granade.Init(ExplosionPool, Shovel, _fragmentsPool, Wind);
+        Projectiles.Add(granade);
         granade.gameObject.SetActive(false);
         return granade;
     }
@@ -24,4 +31,5 @@ public class FragmentationGranadesPool : ProjectilePoolAbstract
     {
         return CreateFragmentationGranade();
     }
+
 }

@@ -21,6 +21,6 @@ public class TimerView : MonoBehaviour
 
     private void OnTimerUpdated(float timeLeft)
     {
-         _timerText.text = ((int)timeLeft).ToString();
+         _timerText.text = $"{timeLeft:F0}";
     }
 }

@@ -1,3 +1,4 @@
+using Configs;
 using ScriptBoy.Digable2DTerrain;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,11 +8,8 @@ public abstract class Projectile : MonoBehaviour
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private CircleCollider2D _collider2D;
     [SerializeField] private GameObject _spriteObject;
-    [SerializeField] private int _damage;
-    [SerializeField] private float _explosionForce = 10;
-    [SerializeField] private float _explosionUpwardsModifier = 4;
-    [SerializeField] private float _explosionRadius = 1;
-    [SerializeField] private bool _windInfluence = true;
+
+    [field: SerializeField] public ProjectileConfig ProjectileConfig { get; set; }
 
     private Shovel _shovel;
     private bool _dead;
@@ -33,7 +31,7 @@ public abstract class Projectile : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if(_windInfluence)
+        if(ProjectileConfig.WindInfluence)
             _rigidbody.velocity += new Vector2(_wind.Velocity * Time.fixedDeltaTime, 0);
     }
 
@@ -60,13 +58,13 @@ public abstract class Projectile : MonoBehaviour
             return;
 
         _dead = true;
-        _shovel.radius = _explosionRadius;
+        _shovel.radius = ProjectileConfig.ExplosionRadius;
         _shovel.transform.position = transform.position;
         _shovel.Dig();
         var explosion = _explosionPool.Get();
         explosion.transform.position = transform.position;
-        explosion.Explode(_damage, _collider2D.radius, _explosionForce, 
-            _explosionUpwardsModifier, _explosionRadius, () => _explosionPool.Remove(explosion));
+        explosion.Explode(ProjectileConfig.Damage, _collider2D.radius, ProjectileConfig.ExplosionForce, 
+            ProjectileConfig.ExplosionUpwardsModifier, ProjectileConfig.ExplosionRadius, () => _explosionPool.Remove(explosion));
         Exploded?.Invoke(this);
     }
 }

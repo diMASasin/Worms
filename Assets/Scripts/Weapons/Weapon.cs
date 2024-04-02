@@ -4,8 +4,8 @@ using UnityEngine.Events;
 
 public class Weapon
 {
-    private ProjectilePoolAbstract _projectilesPool;
-    private WeaponConfig _config;
+    private readonly ProjectilePoolAbstract _projectilesPool;
+    private readonly WeaponConfig _config;
     
     private Worm _worm;
     private float _currentShotPower = 0;
