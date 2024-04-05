@@ -9,7 +9,6 @@ public class Worm : MonoBehaviour
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private CapsuleCollider2D _collider;
     [SerializeField] private WormInformationView _wormInformationView;
-    [SerializeField] private Transform _wormWeaponContainer;
     [SerializeField] private float _removeWeaponDelay = 0.5f;
     [SerializeField] private bool _showCanSpawnCheckerBox = false;
     [SerializeField] private WormMovement _wormMovement;
@@ -116,7 +115,7 @@ public class Worm : MonoBehaviour
             if (_weapon.IsShot)
                 return;
 
-            TryRemoveWeapon();
+            RemoveWeapon();
         }
 
         _weapon = weapon;
@@ -126,22 +125,19 @@ public class Worm : MonoBehaviour
         WeaponChanged?.Invoke(_weapon);
     }
 
-    public void RemoveWeaponWithDelay(Transform weaponContainer)
+    public void RemoveWeaponWithDelay()
     {
-        StartCoroutine(DelayedRemoveWeapon(weaponContainer, _removeWeaponDelay));
+        StartCoroutine(DelayedRemoveWeapon(_removeWeaponDelay));
     }
 
-    public void TryRemoveWeapon()
+    public void RemoveWeapon()
     {
-        if (_weapon == null)
-            return;
-
         _weapon = null;
     }
 
-    private IEnumerator DelayedRemoveWeapon(Transform weaponContainer, float delay)
+    private IEnumerator DelayedRemoveWeapon(float delay)
     {
         yield return new WaitForSeconds(delay);
-        TryRemoveWeapon();
+        RemoveWeapon();
     }
 }

@@ -4,9 +4,9 @@ using UnityEngine;
 namespace Pools
 {
     [Serializable]
-    public class ObjectPoolData
+    public class ObjectPoolData<T>
     {
-        [SerializeField] private GameObject _prefab;
-        [SerializeField] private int _amount;
+        [field: SerializeField] public T Prefab { get; set; }
+        [field: SerializeField] public int Amount { get; set; } = 1;
     }
 }

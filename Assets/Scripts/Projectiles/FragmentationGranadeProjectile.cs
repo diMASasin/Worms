@@ -3,20 +3,12 @@ using UnityEngine;
 
 public class FragmentationGranadeProjectile : GranadeProjectile
 {
-    private ProjectilesPool _fragmentsPool;
-
-    public void Init(ExplosionPool explosionPool, Shovel shovel, ProjectilesPool fragmentsPool, Wind wind)
-    {
-        base.Init(explosionPool, shovel, wind);
-        _fragmentsPool = fragmentsPool;
-    }
-
-    protected override void OnElapsed()
+  protected override void OnElapsed()
     {
         base.OnElapsed();
         for (int i = 0; i < ProjectileConfig.FragmentsAmount; i++)
         {
-            var fragment = _fragmentsPool.Get();
+            var fragment = FragmentsPool.Pool.Get();
             fragment.transform.position = transform.position;
             fragment.gameObject.SetActive(true);
             fragment.Rigidbody2D.velocity += new Vector2(Random.Range(-2f, 2f), Random.Range(4f, 6f));
@@ -27,6 +19,6 @@ public class FragmentationGranadeProjectile : GranadeProjectile
     private void Remove(Projectile projectile)
     {
         projectile.Exploded -= Remove;
-        _fragmentsPool.Remove(projectile);
+        FragmentsPool.OnRemoved(projectile);
     }
 }

@@ -7,9 +7,7 @@ public class TurnTimer : Timer, IDisposable
     private readonly WeaponSelector _weaponSelector;
     private readonly Game _game;
 
-    public event Action TimerOut;
     public event Action WormShot;
-    public event Action TimerStopped;
 
     public TurnTimer(Game game, WeaponSelector weaponSelector, float afterTurnInterval)
     {
@@ -60,18 +58,15 @@ public class TurnTimer : Timer, IDisposable
         if (currentWorm.Weapon?.CurrentShotPower > 0)
         {
             currentWorm.Weapon.Shoot();
-            WormShot?.Invoke();
             return;
         }
 
         _game.DisableCurrentWorm();
         _game.StartNextTurnWithDelay(1);
-        TimerOut?.Invoke();
     }
 
     private void OnShot(Projectile projectile)
     {
-        Stop();
-        TimerStopped?.Invoke();
+        WormShot?.Invoke();
     }
 }

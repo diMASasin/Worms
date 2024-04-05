@@ -4,17 +4,12 @@ using UnityEngine.Events;
 
 public class Weapon
 {
-    private readonly ProjectilePoolAbstract _projectilesPool;
     private readonly WeaponConfig _config;
     
     private Worm _worm;
     private float _currentShotPower = 0;
 
-    public Weapon(WeaponConfig config, ProjectilePoolAbstract projectilesPool)
-    {
-        _config = config;
-        _projectilesPool = projectilesPool;
-    }
+    private ProjectilePool ProjectilePool => _config.ProjectilePool;
 
     public bool IsShot { get; private set; } = false;
 
@@ -25,6 +20,11 @@ public class Weapon
     public event UnityAction<Projectile> Shot;
     public event UnityAction<float> ShotPowerChanged;
     public event UnityAction PointerLineEnabled;
+
+    public Weapon(WeaponConfig config)
+    {
+        _config = config;
+    }
 
     public void Reset()
     {
@@ -60,7 +60,7 @@ public class Weapon
         if (IsShot)
             return;
 
-        Projectile projectile = _projectilesPool.Get();
+        Projectile projectile = ProjectilePool.Pool.Get();
         projectile.Reset();
         Shot?.Invoke(projectile);
         IsShot = true;
@@ -78,6 +78,5 @@ public class Weapon
     {
         projectile.Exploded -= OnProjectileExploded;
         ProjectileExploded?.Invoke(projectile, _worm);
-        _projectilesPool.Remove(projectile);
     }
 }

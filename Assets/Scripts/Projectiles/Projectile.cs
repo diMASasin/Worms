@@ -1,4 +1,5 @@
 using Configs;
+using Pools;
 using ScriptBoy.Digable2DTerrain;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,20 +14,28 @@ public abstract class Projectile : MonoBehaviour
 
     private Shovel _shovel;
     private bool _dead;
-    private ExplosionPool _explosionPool;
+    private ObjectPool<Explosion> _explosionPool;
     private Wind _wind;
+    
+    protected ProjectilePool FragmentsPool;
 
     public Rigidbody2D Rigidbody2D => _rigidbody;
     public Vector2 Velocity => _rigidbody.velocity;
     public GameObject SpriteRenderer => _spriteObject;
 
+    public int Damage => ProjectileConfig.Damage;
+    public float ExplosionForce => ProjectileConfig.ExplosionForce;
+    public float ExplosionRadius => ProjectileConfig.ExplosionRadius;
+    public float ExplosionUpwardsModifier => ProjectileConfig.ExplosionUpwardsModifier;
+
     public event UnityAction<Projectile> Exploded;
 
-    public virtual void Init(ExplosionPool explosionPool, Shovel shovel, Wind wind) 
+    public virtual void Init(ProjectileData projectileData) 
     {
-        _explosionPool = explosionPool;
-        _shovel = shovel;
-        _wind = wind;
+        _shovel = projectileData.Shovel;
+        _explosionPool = projectileData.ExplosionsPool;
+        _wind = projectileData.Wind;
+        FragmentsPool = projectileData.FragmentsPool;
     }
 
     protected virtual void FixedUpdate()
@@ -58,13 +67,17 @@ public abstract class Projectile : MonoBehaviour
             return;
 
         _dead = true;
+        var position = transform.position;
+
         _shovel.radius = ProjectileConfig.ExplosionRadius;
-        _shovel.transform.position = transform.position;
+        _shovel.transform.position = position;
         _shovel.Dig();
         var explosion = _explosionPool.Get();
-        explosion.transform.position = transform.position;
-        explosion.Explode(ProjectileConfig.Damage, _collider2D.radius, ProjectileConfig.ExplosionForce, 
-            ProjectileConfig.ExplosionUpwardsModifier, ProjectileConfig.ExplosionRadius, () => _explosionPool.Remove(explosion));
+        explosion.transform.position = position;
+
+        explosion.Explode(Damage, _collider2D.radius, ExplosionForce, ExplosionUpwardsModifier, ExplosionRadius,
+            () => _explosionPool.Remove(explosion));
+
         Exploded?.Invoke(this);
     }
 }

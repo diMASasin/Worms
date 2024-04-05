@@ -7,8 +7,6 @@ public class AfterTurnTimer : Timer, IDisposable
     private readonly TurnTimer _turnTimer;
     private readonly ICoroutinePerformer _performer;
 
-    private readonly Timer _timer = new();
-
     public AfterTurnTimer(TurnTimer turnTimer, Game game, ICoroutinePerformer performer, float afterTurnInterval)
     {
         _turnTimer = turnTimer;
@@ -17,15 +15,13 @@ public class AfterTurnTimer : Timer, IDisposable
         _interval = afterTurnInterval;
         
         _turnTimer.WormShot += OnShot;
-        _turnTimer.TimerStopped += OnShot;
-        _timer.Elapsed += OnElapsed;
+        Elapsed += OnElapsed;
     }
 
     public void Dispose()
     {
         _turnTimer.WormShot -= OnShot;
-        _turnTimer.TimerStopped -= OnShot;
-        _timer.Elapsed -= OnElapsed;
+        Elapsed -= OnElapsed;
     }
 
     private void OnShot()
@@ -35,7 +31,7 @@ public class AfterTurnTimer : Timer, IDisposable
 
     private void OnElapsed()
     {
-        _timer.Stop();
+        Stop();
         _game.DisableCurrentWorm();
         _performer.StartRoutine(_game.WaitUntilProjectilesExplode(() => _game.StartNextTurnWithDelay(1)));
     }

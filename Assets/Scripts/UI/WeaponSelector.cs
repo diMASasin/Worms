@@ -19,11 +19,6 @@ public class WeaponSelector : MonoBehaviour
 
     public Action<Worm> TurnStarted;
 
-    private void OnValidate()
-    {
-        _game = FindObjectOfType<Game>();
-    }
-
     public void Init(List<Weapon> weaponList)
     {
         _weaponList = weaponList;

@@ -9,52 +9,37 @@ public class Game : MonoBehaviour
     [SerializeField] private WormsSpawner _wormsSpawner;
     [SerializeField] private float _turnDelay = 2.5f;
     [SerializeField] private EndScreen _endScreen;
-    [SerializeField] private WeaponSelector _weaponSelector;
 
-    private ProjectilesCounter _projectilesCounter;
-    private List<Team> _teams = new List<Team>();
-    private List<Team> _currentTeams = new List<Team>();
+    private List<Team> _teams;
     private int _currentTeamIndex = -1;
+
+    private readonly List<Team> _currentTeams = new();
 
     public event UnityAction<List<Team>> WormsSpawned;
     public event UnityAction NextTurnStarted;
     public event UnityAction TurnEnd;
 
-    public void Init(ProjectilesCounter projectilesCounter)
-    {
-        _projectilesCounter = projectilesCounter;
-    }
-
-    private void OnValidate()
-    {
-        _weaponSelector = FindObjectOfType<WeaponSelector>();
-        //_endScreen = FindObjectOfType<EndScreen>();
-    }
-
-    private void OnEnable()
-    {
-        _wormsSpawner.WormSpawned += OnWormSpawned;
-    }
-
-    private void OnDisable()
-    {
-        _wormsSpawner.WormSpawned -= OnWormSpawned;
-    }
-
     private void Start()
     {
+        _wormsSpawner.WormSpawned += OnWormSpawned;
+
         _wormsSpawner.GetEdgesForSpawn();
         _teams = _wormsSpawner.SpawnTeams();
+        _currentTeams.AddRange(_teams);
+        
+        foreach (var team in _teams)
+            team.Died += OnTeamDied;
+
         WormsSpawned?.Invoke(_teams);
+        StartNextTurnWithDelay(0);
+    }
+
+    private void OnDestroy()
+    {
+        _wormsSpawner.WormSpawned -= OnWormSpawned;
 
         foreach (var team in _teams)
-        {
-            team.Died += OnTeamDied;
-        }
-
-        _currentTeams.AddRange(_teams);
-
-        StartNextTurnWithDelay(0);
+            team.Died -= OnTeamDied;
     }
 
     private void OnWormSpawned(Worm worm)
@@ -74,7 +59,7 @@ public class Game : MonoBehaviour
     {
         var currentWorm = _currentTeams[_currentTeamIndex].TryGetCurrentWorm();
 
-        currentWorm.RemoveWeaponWithDelay(_weaponSelector.WeaponSelectorItemParent);
+        currentWorm.RemoveWeaponWithDelay();
         currentWorm.Input.DisableInput();
     }
 
@@ -82,7 +67,7 @@ public class Game : MonoBehaviour
     {
         worm.Died -= OnWormDied;
 
-        worm.TryRemoveWeapon();
+        worm.RemoveWeapon();
 
         if (worm.Input.IsEnabled == true)
             StartNextTurnWithDelay(_turnDelay);
@@ -98,7 +83,7 @@ public class Game : MonoBehaviour
 
     public IEnumerator WaitUntilProjectilesExplode(Action action)
     {
-        while (_projectilesCounter.ProjectilesCount > 0)
+        while (ProjectilePool.Count > 0)
             yield return null;
 
         yield return new WaitForSeconds(0.5f);
@@ -123,10 +108,9 @@ public class Game : MonoBehaviour
         if (_currentTeamIndex >= _currentTeams.Count)
             _currentTeamIndex = 0;
 
-        if (_currentTeams.Count > 1)
-        {
-            NextTurnStarted?.Invoke();
-            _currentTeams[_currentTeamIndex].StartTurn();
-        }
+        if (_currentTeams.Count <= 1) yield break;
+
+        _currentTeams[_currentTeamIndex].StartTurn();
+        NextTurnStarted?.Invoke();
     }
 }

@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Configs;
+using Pools;
 using ScriptBoy.Digable2DTerrain;
 using UnityEngine;
 
 public class Bootstrap : MonoBehaviour, ICoroutinePerformer
 {
     [SerializeField] private WeaponConfig[] _weaponConfigs;
-    [SerializeField] private ProjectilePoolAbstract[] _pools;
     [SerializeField] private WeaponSelector _weaponSelector;
     [SerializeField] private FollowingCamera _followingCamera;
     [SerializeField] private GlobalTimerView _globalTimerView;
@@ -24,16 +25,12 @@ public class Bootstrap : MonoBehaviour, ICoroutinePerformer
     [SerializeField] private GranadeProjectile _granadePrefab;
     [SerializeField] private Fragment _fragmentPrefab;
     [SerializeField] private SheepProjectile _sheepPrefab;
+    [SerializeField] private ObjectPoolData<Explosion> _explosionPoolData;
+    [SerializeField] private ProjectilePool _fragmentsPool;
     
-    private ProjectilesPool _fragmentsPool;
-    private ProjectilesPool _rocketPool;
-    private ExplosionPool _explosionPool;
-    private FragmentationGranadesPool _fragmentationGranadesPool;
-    private ProjectilesPool _granadesPool;
-    private ProjectilesPool _sheepPool;
-
-    private ProjectilesCounter _projectilesCounter;
-
+    private ProjectileData _projectileData;
+    private ObjectPool<Explosion> _explosionPool;
+    
     private AfterTurnTimer _afterTurnTimer;
     private TurnTimer _turnTimer;
     private Timer _globalTimer;
@@ -43,12 +40,8 @@ public class Bootstrap : MonoBehaviour, ICoroutinePerformer
     private void Awake()
     {
         InitializePools();
-
-        _projectilesCounter = new ProjectilesCounter(_granadesPool, _rocketPool, _sheepPool, _fragmentsPool, _fragmentationGranadesPool);
-
-        _game.Init(_projectilesCounter);
-
         CreateWeapon();
+
         _weaponSelector.Init(_weaponList);
         _followingCamera.Init();
         
@@ -59,13 +52,19 @@ public class Bootstrap : MonoBehaviour, ICoroutinePerformer
 
     private void InitializePools()
     {
-        _explosionPool = new ExplosionPool(_explosionPrefab, _projectilesParent, 10);
-        _rocketPool = new ProjectilesPool(_explosionPool, _shovel, _wind, 1, _rocketPrefab, _projectilesParent);
-        _granadesPool = new ProjectilesPool(_explosionPool, _shovel, _wind, 1, _granadePrefab, _projectilesParent);
-        _sheepPool = new ProjectilesPool(_explosionPool, _shovel, _wind, 1, _sheepPrefab, _projectilesParent);
-        _fragmentsPool = new ProjectilesPool(_explosionPool, _shovel, _wind, 10, _fragmentPrefab, _projectilesParent);
-        _fragmentationGranadesPool = new FragmentationGranadesPool(_explosionPool, _shovel, _wind, 1,
-            _projectilesParent, _fragmentationGranadePrefab, _fragmentsPool);
+        _explosionPool = new ObjectPool<Explosion>(_explosionPoolData.Prefab, _projectilesParent, _explosionPoolData.Amount);
+        _explosionPool.CreateObjects();
+
+        _projectileData = new ProjectileData(_explosionPool, _shovel, _wind, _fragmentsPool);
+        
+        _fragmentsPool.Init(_projectilesParent, _projectileData);
+        _fragmentsPool.Pool.CreateObjects();
+
+        foreach (var weaponConfig in _weaponConfigs)
+        {
+            weaponConfig.ProjectilePool.Init(_projectilesParent, _projectileData);
+            weaponConfig.ProjectilePool.Pool.CreateObjects();
+        }
     }
 
     private void InitializeTimers()
@@ -91,16 +90,12 @@ public class Bootstrap : MonoBehaviour, ICoroutinePerformer
     {
         _turnTimer.Dispose();
         _afterTurnTimer.Dispose();
-        _projectilesCounter.Dispose();
     }
 
     private void CreateWeapon()
     {
-        for (int i = 0; i < _weaponConfigs.Length; i++)
-        {
-            Weapon newWeapon = new(_weaponConfigs[i], _pools[i]);
-            _weaponList.Add(newWeapon);
-        }
+        foreach (var config in _weaponConfigs)
+            _weaponList.Add(new Weapon(config));
     }
 
     public void StartRoutine(IEnumerator enumerator)

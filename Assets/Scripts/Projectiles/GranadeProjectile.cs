@@ -5,7 +5,7 @@ public class GranadeProjectile : Projectile
     [SerializeField] private FollowingObject _canvas;
     [SerializeField] private TimerView _timerView;
 
-    private Timer _timer = new();
+    private readonly Timer _timer = new();
 
     private void Awake()
     {

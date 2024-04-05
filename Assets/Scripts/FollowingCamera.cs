@@ -13,14 +13,8 @@ public class FollowingCamera : MonoBehaviour
     [SerializeField] private Vector2 _offset;
 
     private Transform _target;
-    private List<Worm> _worms = new List<Worm>();
 
-    private void OnValidate()
-    {
-        _camera = GetComponent<Camera>();
-        _weaponSelector = FindObjectOfType<WeaponSelector>();
-        _game = FindObjectOfType<Game>();   
-    }
+    private readonly List<Worm> _worms = new();
 
     public void Init()
     {
@@ -117,7 +111,7 @@ public class FollowingCamera : MonoBehaviour
         SetTarget(bomb.transform);
     }
 
-    private void OnProjectileExploded(Projectile bomb, Worm worm)
+    private void OnProjectileExploded(Projectile projectile, Worm worm)
     {
         if(_game.TryGetCurrentTeam().TryGetCurrentWorm() != worm)
             SetTarget(worm.transform);

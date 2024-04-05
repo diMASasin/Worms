@@ -31,19 +31,18 @@ public class Timer
 
     public void Tick()
     {
-        if (_started) 
+        if (!_started) return;
+        
+        _timeLeft -= Time.deltaTime;
+
+        if(_timeLeft <= 0)
         {
-            _timeLeft -= Time.deltaTime;
+            _timeLeft = 0;
+            Stop();
 
-            if(_timeLeft <= 0)
-            {
-                _timeLeft = 0;
-                Stop();
-
-                Elapsed?.Invoke();
-            }
-
-            TimerUpdated?.Invoke(_timeLeft);
+            Elapsed?.Invoke();
         }
+
+        TimerUpdated?.Invoke(_timeLeft);
     }
 }

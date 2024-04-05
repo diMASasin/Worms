@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90901ac4677d6374a809dab9a6434d2e, type: 3}
+  m_Name: FragGranadePool
+  m_EditorClassIdentifier: 
+  _poolData:
+    <Prefab>k__BackingField: {fileID: 6329366681007544151, guid: d857403a6fff56940b40cff6657d3e5c, type: 3}
+    <Amount>k__BackingField: 1
