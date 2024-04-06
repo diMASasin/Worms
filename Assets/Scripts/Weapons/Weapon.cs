@@ -46,13 +46,14 @@ public class Weapon
             return;
 
         _currentShotPower += _config.ShotPower * Time.deltaTime;
-        ShotPowerChanged?.Invoke(_currentShotPower);
 
         if (_currentShotPower >= _config.MaxShotPower)
         {
             _currentShotPower = _config.MaxShotPower;
             Shoot();
         }
+
+        ShotPowerChanged?.Invoke(_currentShotPower);
     }
 
     public void Shoot()

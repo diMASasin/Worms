@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MapEdge : MonoBehaviour
+public class MapBound : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {

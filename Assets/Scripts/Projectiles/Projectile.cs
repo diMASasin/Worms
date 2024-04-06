@@ -16,6 +16,7 @@ public abstract class Projectile : MonoBehaviour
     private bool _dead;
     private ObjectPool<Explosion> _explosionPool;
     private Wind _wind;
+    private Vector2 _direction;
     
     protected ProjectilePool FragmentsPool;
 
@@ -46,7 +47,12 @@ public abstract class Projectile : MonoBehaviour
 
     public void SetVelocity(float currentShotPower)
     {
-        _rigidbody.velocity = currentShotPower * transform.right;
+        _rigidbody.velocity = currentShotPower * _direction;
+    }
+
+    public void SetDirection(Vector3 direction)
+    {
+        _direction = direction;
     }
 
     public void Reset()

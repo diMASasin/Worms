@@ -45,8 +45,11 @@ public class Edge
 
     public bool InBounds(Vector3 left, Vector3 up, Vector3 right, Vector3 bottom, Terrain2D terrain)
     {
-        var point1 = _point1 + (Vector2)terrain.transform.position;
-        var point2 = _point2 + (Vector2)terrain.transform.position;
+        var position = terrain.transform.position;
+
+        var point1 = _point1 + (Vector2)position;
+        var point2 = _point2 + (Vector2)position;
+
         bool inBounds = 
             point1.x > left.x 
             && point1.x < right.x 
@@ -56,6 +59,7 @@ public class Edge
             && point2.x < right.x 
             && point2.y < up.y 
             && point2.y > bottom.y;
+
         return inBounds;
     }
 }

@@ -396,7 +396,7 @@ Transform:
   m_GameObject: {fileID: 5070406931274206350}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.648, y: 0, z: 0}
+  m_LocalPosition: {x: 0.604, y: 0, z: 0}
   m_LocalScale: {x: 1.0940466, y: 0.04315802, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -715,7 +715,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -2
-  m_Sprite: {fileID: -402192597, guid: 3bb1fadd136a96f42b94902a40eace8b, type: 3}
+  m_Sprite: {fileID: 1946422449, guid: 3bb1fadd136a96f42b94902a40eace8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -877,7 +877,7 @@ GameObject:
   - component: {fileID: 4892832621682658584}
   - component: {fileID: 7199374139302996356}
   m_Layer: 9
-  m_Name: Gun
+  m_Name: WeaponSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -892,8 +892,8 @@ Transform:
   m_GameObject: {fileID: 6167075139606469759}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.131, y: -0.04, z: 0}
-  m_LocalScale: {x: -0.6, y: -0.6, z: -0.6}
+  m_LocalPosition: {x: 0.087, y: 0.008, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2569860095003141991}
@@ -905,7 +905,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6167075139606469759}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -939,10 +939,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 1946422449, guid: 3bb1fadd136a96f42b94902a40eace8b, type: 3}
+  m_Sprite: {fileID: -402192597, guid: 3bb1fadd136a96f42b94902a40eace8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 1
+  m_FlipX: 1
+  m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.04, y: 0.56}
   m_AdaptiveModeThreshold: 0.5
@@ -1068,11 +1068,17 @@ MonoBehaviour:
   _rigidbody: {fileID: 2716522887637978340}
   _collider: {fileID: 4932577697248884442}
   _wormInformationView: {fileID: 5670862740911846097}
-  _wormWeaponContainer: {fileID: 2569860095003141991}
   _removeWeaponDelay: 0.5
   _showCanSpawnCheckerBox: 0
   _wormMovement: {fileID: 7569168140912451543}
   _weaponView: {fileID: 2265446789134456821}
+  _wormLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  _currentWormLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _arrow: {fileID: 1299327330340215654}
 --- !u!114 &7569168140912451543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1145,37 +1151,6 @@ MonoBehaviour:
   _animator: {fileID: 1806080000149428662}
   _groundChecker: {fileID: 5832659334154097657}
   _wormMovement: {fileID: 7569168140912451543}
---- !u!1 &8009000497829716449
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7199925339958201532}
-  m_Layer: 9
-  m_Name: WeaponContainer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7199925339958201532
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8009000497829716449}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.029, y: 0.214, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4803428581954887109}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8622327074500003010
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,7 +1180,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7199925339958201532}
   - {fileID: 5324110585828678461}
   - {fileID: 2569860095003141991}
   m_Father: {fileID: 2647752163455952768}

@@ -16,10 +16,7 @@ public class WormsSpawner : MonoBehaviour
     [SerializeField] private Worm _wormTemplate;
     [SerializeField] private Transform _container;
     [SerializeField] private float _maxSlope = 45;
-    [SerializeField] private Transform _leftEdge;
-    [SerializeField] private Transform _topEdge;
-    [SerializeField] private Transform _rightEdge;
-    [SerializeField] private Transform _bottomEdge;
+    [SerializeField] private MapBounds _mapBounds;
 
     private Vector2[] _points;
     private List<Edge> _edges = new();
@@ -53,7 +50,7 @@ public class WormsSpawner : MonoBehaviour
         return teams;
     }
 
-    private Team SpawnTeam(int wormsNumber, Color teamColor, string ndaame)
+    private Team SpawnTeam(int wormsNumber, Color teamColor, string teamName)
     {
         List<Worm> worms = new List<Worm>();
 
@@ -67,8 +64,8 @@ public class WormsSpawner : MonoBehaviour
             worms.Add(newWorm);
         }
 
-        team.Init(worms, teamColor, name);
-        team.name = name;
+        team.Init(worms, teamColor, teamName);
+        team.name = teamName;
         return team;
     }
 
@@ -85,7 +82,9 @@ public class WormsSpawner : MonoBehaviour
                 j = 0;
 
             var newEdge = new Edge(_points[i], _points[j]);
-            bool edgeInBounds = newEdge.InBounds(_leftEdge.position, _topEdge.position, _rightEdge.position, _bottomEdge.position, _terrain);
+            bool edgeInBounds = newEdge.InBounds(_mapBounds.Left.position, _mapBounds.Top.position, 
+                _mapBounds.Right.position, _mapBounds.Bottom.position, _terrain);
+
             if (newEdge.IsFloor(_terrain) && newEdge.IsSuitableSlope(_maxSlope) && edgeInBounds)
                 _edges.Add(newEdge);
         }

@@ -12,6 +12,11 @@ public class GranadeProjectile : Projectile
         _timerView.Init(_timer);
     }
 
+    private void Update()
+    {
+        _timer.Tick();
+    }
+
     private void OnEnable()
     {
         Exploded += OnExploded;

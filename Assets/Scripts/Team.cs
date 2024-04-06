@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Team : MonoBehaviour
 {
-    private List<Worm> _worms = new List<Worm>();
+    private List<Worm> _worms = new();
     private int _currentWormIndex = -1;
 
     public Color Color { get; set; }
@@ -18,11 +18,11 @@ public class Team : MonoBehaviour
     public event UnityAction<Worm, Team> TurnStarted;
     public event UnityAction<int> HealthChanged;
 
-    public void Init(List<Worm> worms, Color color, string name)
+    public void Init(List<Worm> worms, Color color, string teamName)
     {
         _worms = worms;
         Color = color;
-        Name = name;
+        Name = teamName;
         MaxHealth = 0;
 
         for (int i = 0; i < _worms.Count; i++)
@@ -41,8 +41,8 @@ public class Team : MonoBehaviour
             _currentWormIndex = 0;
 
         Worm currentWorm = TryGetCurrentWorm();
+        currentWorm.OnTurnStarted();
         TurnStarted?.Invoke(currentWorm, this);
-        currentWorm.Input.EnableInput();
     }
 
     public Worm TryGetCurrentWorm()
@@ -50,10 +50,7 @@ public class Team : MonoBehaviour
         if (_currentWormIndex >= _worms.Count)
             _currentWormIndex = 0;
 
-        if (_worms.Count == 0)
-            return null;
-
-        return _worms[_currentWormIndex];
+        return _worms.Count == 0 ? null : _worms[_currentWormIndex];
     }
 
     private void OnWormDied(Worm worm)
@@ -72,7 +69,7 @@ public class Team : MonoBehaviour
             Died?.Invoke(this);
     }
 
-    private void OnDamageTook(Worm worm)
+    private void OnDamageTook(Worm damagedWorm)
     {
         var sum = _worms.Sum(worm => worm.Health);
         HealthChanged?.Invoke(sum);

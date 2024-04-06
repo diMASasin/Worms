@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,32 +14,31 @@ public class Worm : MonoBehaviour
     [SerializeField] private bool _showCanSpawnCheckerBox = false;
     [SerializeField] private WormMovement _wormMovement;
     [SerializeField] private WeaponView _weaponView;
-
-    private Weapon _weapon;
-    private PlayerInput _input;
+    [SerializeField] private LayerMask _wormLayerMask;
+    [SerializeField] private LayerMask _currentWormLayerMask;
+    [SerializeField] private Arrow _arrow;
 
     public int Health { get; private set; }
+    public Weapon Weapon { get; private set; }
+    public PlayerInput Input { get; private set; }
 
     public CapsuleCollider2D Collider2D => _collider;
-    public Weapon Weapon => _weapon;
-    public PlayerInput Input => _input;
     public int MaxHealth => _maxHealth;
 
-    public event UnityAction<int> HealthChanged;
     public event UnityAction<Worm> Died;
     public event UnityAction<Worm> DamageTook;
     public event Action<Weapon> WeaponChanged;
 
     private void OnEnable()
     {
-        _input.InputEnabled += SetRigidbodyDynamic;
-        _input.InputDisabled += () => StartCoroutine(SetRigidbodyKinematicWhenGrounded());
+        Input.InputEnabled += SetRigidbodyDynamic;
+        Input.InputDisabled += () => StartCoroutine(SetRigidbodyKinematicWhenGrounded());
     }
 
     private void OnDisable()
     {
-        _input.InputEnabled -= SetRigidbodyDynamic;
-        _input.InputDisabled -= () => StartCoroutine(SetRigidbodyKinematicWhenGrounded());
+        Input.InputEnabled -= SetRigidbodyDynamic;
+        Input.InputDisabled -= () => StartCoroutine(SetRigidbodyKinematicWhenGrounded());
     }
 
     private void OnDrawGizmos()
@@ -50,18 +50,18 @@ public class Worm : MonoBehaviour
     private void Awake()
     {
         Health = _maxHealth;
-        _input = new PlayerInput(_wormMovement, this, _weaponView);
+        Input = new PlayerInput(_wormMovement, this, _weaponView);
     }
 
-    public void Init(Color color, string name)
+    public void Init(Color color, string wormName)
     {
-        _wormInformationView.Init(color, name);
-        gameObject.name = name;
+        _wormInformationView.Init(color, wormName);
+        gameObject.name = wormName;
     }
 
     private void Update()
     {
-        _input.Tick();
+        Input.Tick();
     }
 
     public void SetRigidbodyKinematic()
@@ -74,12 +74,18 @@ public class Worm : MonoBehaviour
         _rigidbody.bodyType = RigidbodyType2D.Dynamic;
     }
 
-    private IEnumerator SetRigidbodyKinematicWhenGrounded()
+    public void OnTurnStarted()
     {
-        while (_rigidbody.velocity.magnitude != 0)
-            yield return null;
+        Input.EnableInput();
+        gameObject.layer = (int)math.log2(_currentWormLayerMask.value);
+        _arrow.StartMove();
+    }
 
-        SetRigidbodyKinematic();
+    public void OnTurnEnd()
+    {
+        RemoveWeaponWithDelay();
+        Input.DisableInput();
+        gameObject.layer = (int)math.log2(_wormLayerMask.value);
     }
 
     public void AddExplosionForce(float explosionForce, Vector3 explosionPosition, float explosionUpwardsModifier)
@@ -93,10 +99,9 @@ public class Worm : MonoBehaviour
     {
         Health -= damage;
         DamageTook?.Invoke(this);
-        HealthChanged?.Invoke(Health);
 
-        if(_input.IsEnabled)
-            _input.DisableInput();
+        if(Input.IsEnabled)
+            Input.DisableInput();
 
         if (Health <= 0)
             Die();
@@ -104,35 +109,44 @@ public class Worm : MonoBehaviour
 
     public void Die()
     {
+        RemoveWeapon();
         Died?.Invoke(this);
         Destroy(gameObject);
     }
 
     public void ChangeWeapon(Weapon weapon)
     {
-        if (_weapon != null)
+        if (Weapon != null)
         {
-            if (_weapon.IsShot)
+            if (Weapon.IsShot)
                 return;
 
             RemoveWeapon();
         }
 
-        _weapon = weapon;
-        _weaponView.OnGunChanged(_weapon);
-        _weapon.SetWorm(this);
-        _weapon.Reset();
-        WeaponChanged?.Invoke(_weapon);
+        Weapon = weapon;
+        Weapon.SetWorm(this);
+        Weapon.Reset();
+        _weaponView.OnGunChanged(Weapon);
+        WeaponChanged?.Invoke(Weapon);
     }
 
-    public void RemoveWeaponWithDelay()
+    private IEnumerator SetRigidbodyKinematicWhenGrounded()
+    {
+        while (_rigidbody.velocity.magnitude != 0)
+            yield return null;
+
+        SetRigidbodyKinematic();
+    }
+
+    private void RemoveWeaponWithDelay()
     {
         StartCoroutine(DelayedRemoveWeapon(_removeWeaponDelay));
     }
 
-    public void RemoveWeapon()
+    private void RemoveWeapon()
     {
-        _weapon = null;
+        Weapon = null;
     }
 
     private IEnumerator DelayedRemoveWeapon(float delay)

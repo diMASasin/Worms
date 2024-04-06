@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b24a7341fcffd6448f37959cf406c28, type: 3}
-  m_Name: Sheep
+  m_Name: Fragment
   m_EditorClassIdentifier: 
-  <Damage>k__BackingField: 30
-  <ExplosionForce>k__BackingField: 50
-  <ExplosionUpwardsModifier>k__BackingField: 5
-  <ExplosionRadius>k__BackingField: 1.5
-  <WindInfluence>k__BackingField: 0
-  <ExplodeDelay>k__BackingField: 10
+  <Damage>k__BackingField: 10
+  <ExplosionForce>k__BackingField: 5
+  <ExplosionUpwardsModifier>k__BackingField: 2
+  <ExplosionRadius>k__BackingField: 0.5
+  <WindInfluence>k__BackingField: 1
+  <ExplodeDelay>k__BackingField: 0
   <FragmentsAmount>k__BackingField: 0

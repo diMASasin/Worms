@@ -356,7 +356,7 @@ PrefabInstance:
     - target: {fileID: 6387142177158353546, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1508937927, guid: 3bb1fadd136a96f42b94902a40eace8b, type: 3}
+      objectReference: {fileID: -243623698, guid: 3bb1fadd136a96f42b94902a40eace8b, type: 3}
     m_RemovedComponents:
     - {fileID: 3348539931435737144, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
     m_RemovedGameObjects: []
@@ -397,7 +397,6 @@ MonoBehaviour:
   <ProjectileConfig>k__BackingField: {fileID: 11400000, guid: 34b1f7f87a7141d4dab208497c51caf2, type: 2}
   _canvas: {fileID: 8690412537452771905}
   _timerView: {fileID: 4935884132953575557}
-  _fragmentsAmount: 5
 --- !u!58 &2204510361663019339 stripped
 CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 3348539931435737145, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}

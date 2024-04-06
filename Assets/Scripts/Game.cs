@@ -59,15 +59,12 @@ public class Game : MonoBehaviour
     {
         var currentWorm = _currentTeams[_currentTeamIndex].TryGetCurrentWorm();
 
-        currentWorm.RemoveWeaponWithDelay();
-        currentWorm.Input.DisableInput();
+        currentWorm.OnTurnEnd();
     }
 
     private void OnWormDied(Worm worm)
     {
         worm.Died -= OnWormDied;
-
-        worm.RemoveWeapon();
 
         if (worm.Input.IsEnabled == true)
             StartNextTurnWithDelay(_turnDelay);

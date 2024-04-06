@@ -10,6 +10,8 @@ public class WeaponView : MonoBehaviour
 
     private Weapon _weapon;
 
+    public Transform SpawnPoint => _spawnPoint;
+
     private void Start()
     {
         Hide();
@@ -43,6 +45,7 @@ public class WeaponView : MonoBehaviour
     private void OnShot(Projectile projectile)
     {
         projectile.transform.position = _spawnPoint.position;
+        projectile.SetDirection(transform.right);
         Hide();
     }
 

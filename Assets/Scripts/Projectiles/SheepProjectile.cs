@@ -20,7 +20,6 @@ public class SheepProjectile : Projectile
     {
         _sheepMovement.Reset();
         _sheepMovement.TryMove(Velocity.x / Mathf.Abs(Velocity.x));
-        ResetVelocity();
 
         _timer.Start(ProjectileConfig.ExplodeDelay);
     }

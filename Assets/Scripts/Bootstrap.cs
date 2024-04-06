@@ -19,12 +19,6 @@ public class Bootstrap : MonoBehaviour, ICoroutinePerformer
     [SerializeField] private Wind _wind;
     [SerializeField] private Transform _projectilesParent;
 
-    [SerializeField] private Explosion _explosionPrefab;
-    [SerializeField] private Projectile _rocketPrefab;
-    [SerializeField] private FragmentationGranadeProjectile _fragmentationGranadePrefab;
-    [SerializeField] private GranadeProjectile _granadePrefab;
-    [SerializeField] private Fragment _fragmentPrefab;
-    [SerializeField] private SheepProjectile _sheepPrefab;
     [SerializeField] private ObjectPoolData<Explosion> _explosionPoolData;
     [SerializeField] private ProjectilePool _fragmentsPool;
     
