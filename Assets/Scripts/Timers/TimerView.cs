@@ -1,26 +1,45 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class TimerView : MonoBehaviour
 {
-    [SerializeField] private TMP_Text  _timerText;  
+    [SerializeField] private TMP_Text _text;
+
+    TimerFormattingStyle _formattingStyle;
+    private Timer _globalTimer;
     
-    private Timer _timer;
-
-    public void Init(Timer timer)
+    public void Init(Timer timer, TimerFormattingStyle style)
     {
-        _timer = timer;
+        _globalTimer = timer;
+        _formattingStyle = style;
 
-        _timer.TimerUpdated += OnTimerUpdated;
+        _globalTimer.TimerUpdated += OnTimerUpdated;
     }
-    
-    public void OnDestroy()
+
+    private void OnDestroy()
     {
-        _timer.TimerUpdated -= OnTimerUpdated;
+        _globalTimer.TimerUpdated -= OnTimerUpdated;
     }
 
     private void OnTimerUpdated(float timeLeft)
     {
-         _timerText.text = $"{timeLeft:F0}";
+        switch (_formattingStyle)
+        {
+            case TimerFormattingStyle.Seconds:
+                _text.text = $"{timeLeft:F0}";
+                break;
+
+            case TimerFormattingStyle.MinutesAndSeconds:
+                float minutes = timeLeft / 60;
+                float seconds = timeLeft % 60;
+                _text.text = $"{minutes:F0}:{seconds:00}";
+                break;
+        }
     }
+}
+
+public enum TimerFormattingStyle
+{
+    Seconds,
+    MinutesAndSeconds
 }

@@ -1,38 +1,27 @@
 using System;
+using DefaultNamespace.Wind;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Wind : MonoBehaviour
+public class Wind
 {
-    [SerializeField] private Game _game;
-    [SerializeField] private float _maxVelocity = 2;
-    [SerializeField] private float _step = 0.1f;
+    [SerializeField] private WindData _data;
 
     public float Velocity { get; set; }
-
-    public float MaxVelocity => _maxVelocity;
+    public float MaxVelocity => _data.MaxVelocity;
+    public float Step => _data.Step;
 
     public event Action<float> VelocityChanged;
 
-    private void OnValidate()
+    public Wind(WindData data)
     {
-        _game = FindObjectOfType<Game>();
+        _data = data;
     }
 
-    private void OnEnable()
+    public void ChangeVelocity()
     {
-        _game.NextTurnStarted += OnNextTurnStarted;
-    }
-
-    private void OnDisable()
-    {
-        _game.NextTurnStarted -= OnNextTurnStarted;
-    }
-
-    private void OnNextTurnStarted()
-    {
-        Velocity = Random.Range(-_maxVelocity, _maxVelocity);
-        Velocity = (int)Velocity / _step * _step;
+        Velocity = Random.Range(-MaxVelocity, MaxVelocity);
+        Velocity = Velocity - Velocity % Step;
         VelocityChanged?.Invoke(Velocity);
     }
 }

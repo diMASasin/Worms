@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fed88ef8b3891c409138da4735402ae, type: 3}
-  m_Name: PoolsConfig
+  m_Script: {fileID: 11500000, guid: 18df20fb2fe4dad448dc439634fe549f, type: 3}
+  m_Name: TimersConfig
   m_EditorClassIdentifier: 
-  _poolDatas:
-  - _prefab: {fileID: 346979239790398880, guid: 296da707f5113a44c987799d77e2005a, type: 3}
-    _amount: 1
+  <TurnDuration>k__BackingField: 60
+  <AfterShotDuration>k__BackingField: 5
+  <AfterTurnWaitingDuration>k__BackingField: 1.5
+  <GlobalTime>k__BackingField: 900

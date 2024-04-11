@@ -29,39 +29,34 @@ public class Worm : MonoBehaviour
     public event UnityAction<Worm> DamageTook;
     public event Action<Weapon> WeaponChanged;
 
-    private void OnEnable()
-    {
-        Input.InputEnabled += SetRigidbodyDynamic;
-        Input.InputDisabled += () => StartCoroutine(SetRigidbodyKinematicWhenGrounded());
-    }
-
-    private void OnDisable()
-    {
-        Input.InputEnabled -= SetRigidbodyDynamic;
-        Input.InputDisabled -= () => StartCoroutine(SetRigidbodyKinematicWhenGrounded());
-    }
-
     private void OnDrawGizmos()
     {
         if (_showCanSpawnCheckerBox)
             Gizmos.DrawSphere((Vector2)transform.position + Collider2D.offset, Collider2D.size.x / 2);
     }
 
-    private void Awake()
-    {
-        Health = _maxHealth;
-        Input = new PlayerInput(_wormMovement, this, _weaponView);
-    }
-
     public void Init(Color color, string wormName)
     {
-        _wormInformationView.Init(color, wormName);
         gameObject.name = wormName;
+
+        Health = _maxHealth;
+
+        _wormInformationView.Init(color, wormName);
+        Input = new PlayerInput(_wormMovement, this, _weaponView);
+
+        Input.InputEnabled += SetRigidbodyDynamic;
+        Input.InputDisabled += () => StartCoroutine(SetRigidbodyKinematicWhenGrounded());
     }
 
     private void Update()
     {
         Input.Tick();
+    }
+
+    private void OnDestroy()
+    {
+        Input.InputEnabled -= SetRigidbodyDynamic;
+        Input.InputDisabled -= () => StartCoroutine(SetRigidbodyKinematicWhenGrounded());
     }
 
     public void SetRigidbodyKinematic()
@@ -125,8 +120,7 @@ public class Worm : MonoBehaviour
         }
 
         Weapon = weapon;
-        Weapon.SetWorm(this);
-        Weapon.Reset();
+        Weapon.OnAssigned(this, _weaponView.SpawnPoint, _weaponView.transform);
         _weaponView.OnGunChanged(Weapon);
         WeaponChanged?.Invoke(Weapon);
     }

@@ -3,18 +3,16 @@ using UnityEngine;
 public class WindEffect : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _particleSystem;
-    [SerializeField] private Wind _wind;
+    private Wind _wind;
 
-    private void OnValidate()
+    public void Init(Wind wind)
     {
-        _wind = FindObjectOfType<Wind>();
-    }
-    private void OnEnable()
-    {
+        _wind = wind;
+
         _wind.VelocityChanged += OnVelocityChanged;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         _wind.VelocityChanged -= OnVelocityChanged;
     }

@@ -335,15 +335,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3348539933408502300, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.8349
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 3348539933408502300, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.8349
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 3348539933408502300, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.8349
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 3348539933408502300, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -352,6 +352,10 @@ PrefabInstance:
     - target: {fileID: 3348539933408502300, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3348539933408502300, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6387142177158353546, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
       propertyPath: m_Sprite

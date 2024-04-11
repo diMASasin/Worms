@@ -9,7 +9,7 @@ public class GranadeProjectile : Projectile
 
     private void Awake()
     {
-        _timerView.Init(_timer);
+        _timerView.Init(_timer, TimerFormattingStyle.Seconds);
     }
 
     private void Update()
@@ -20,23 +20,23 @@ public class GranadeProjectile : Projectile
     private void OnEnable()
     {
         Exploded += OnExploded;
-        _timer.Elapsed += OnElapsed;
     }
 
     private void OnDisable()
     {
         Exploded -= OnExploded;
-        _timer.Elapsed -= OnElapsed;
     }
 
-    public override void OnShot()
+    public override void Launch(float currentShotPower, Vector3 spawnPoint, Vector3 direction)
     {
+        base.Launch(currentShotPower, spawnPoint, direction);
+    
         var torque = Random.Range(5, 7);
         Rigidbody2D.AddTorque(Random.Range(-torque, torque));
         _canvas.transform.parent = null;
         _canvas.gameObject.SetActive(true);
 
-        _timer.Start(ProjectileConfig.ExplodeDelay);
+        _timer.Start(ProjectileConfig.ExplodeDelay, OnElapsed);
     }
 
     protected virtual void OnElapsed()

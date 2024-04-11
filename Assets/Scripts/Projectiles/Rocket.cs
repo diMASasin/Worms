@@ -2,11 +2,6 @@ using UnityEngine;
 
 public class Rocket : Projectile
 {
-    public override void OnShot()
-    {
-
-    }
-
     protected override void FixedUpdate()
     {
         base.FixedUpdate();

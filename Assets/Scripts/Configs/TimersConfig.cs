@@ -1,0 +1,13 @@
+﻿using UnityEngine;
+
+namespace Configs
+{
+    [CreateAssetMenu(fileName = "TimersConfig", menuName = "TimersConfig", order = 0)]
+    public class TimersConfig : ScriptableObject
+    {
+        [field: SerializeField] public float TurnDuration { get; private set; }
+        [field: SerializeField] public float AfterShotDuration { get; private set; }
+        [field: SerializeField] public float AfterTurnWaitingDuration { get; private set; }
+        [field: SerializeField] public float GlobalTime { get; private set; }
+    }
+}

@@ -4,34 +4,23 @@ public class SheepProjectile : Projectile
 {
     [SerializeField] private SheepMovement _sheepMovement;
 
-    private readonly Timer _timer = new();
-    
-    private void OnEnable()
-    {
-        _timer.Elapsed += OnTimerElapsed;
-    }
+    private Timer _timer = new();
 
-    private void OnDisable()
+    public override void Launch(float currentShotPower, Vector3 spawnPoint, Vector3 direction)
     {
-        _timer.Elapsed -= OnTimerElapsed;
-    }
+        base.Launch(currentShotPower, spawnPoint, direction);
 
-    public override void OnShot()
-    {
         _sheepMovement.Reset();
         _sheepMovement.TryMove(Velocity.x / Mathf.Abs(Velocity.x));
 
-        _timer.Start(ProjectileConfig.ExplodeDelay);
+        _timer.Start(ProjectileConfig.ExplodeDelay, Explode);
     }
 
     private void Update()
     {
+        _timer.Tick();
+
         if (Input.GetKeyDown(KeyCode.Space))
             Explode();
-    }
-
-    private void OnTimerElapsed()
-    {
-        Explode();
     }
 }

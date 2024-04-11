@@ -1,4 +1,5 @@
 using Configs;
+using DefaultNamespace;
 using Pools;
 using ScriptBoy.Digable2DTerrain;
 using UnityEngine;
@@ -12,11 +13,10 @@ public abstract class Projectile : MonoBehaviour
 
     [field: SerializeField] public ProjectileConfig ProjectileConfig { get; set; }
 
-    private Shovel _shovel;
+    private ShovelWrapper _shovel;
     private bool _dead;
     private ObjectPool<Explosion> _explosionPool;
     private Wind _wind;
-    private Vector2 _direction;
     
     protected ProjectilePool FragmentsPool;
 
@@ -45,28 +45,20 @@ public abstract class Projectile : MonoBehaviour
             _rigidbody.velocity += new Vector2(_wind.Velocity * Time.fixedDeltaTime, 0);
     }
 
-    public void SetVelocity(float currentShotPower)
-    {
-        _rigidbody.velocity = currentShotPower * _direction;
-    }
-
-    public void SetDirection(Vector3 direction)
-    {
-        _direction = direction;
-    }
-
     public void Reset()
     {
         _dead = false;
-    }
-
-    public void ResetVelocity()
-    {
         _rigidbody.velocity = Vector2.zero;
     }
 
-    public abstract void OnShot();
+    public virtual void Launch(float currentShotPower, Vector3 spawnPoint, Vector3 direction)
+    {
+        Reset();
 
+        transform.position = spawnPoint;
+        SetVelocity(currentShotPower, direction);
+    }
+    
     public void Explode()
     {
         if (_dead) 
@@ -75,9 +67,8 @@ public abstract class Projectile : MonoBehaviour
         _dead = true;
         var position = transform.position;
 
-        _shovel.radius = ProjectileConfig.ExplosionRadius;
-        _shovel.transform.position = position;
-        _shovel.Dig();
+        _shovel.Dig(position, ProjectileConfig.ExplosionRadius);
+
         var explosion = _explosionPool.Get();
         explosion.transform.position = position;
 
@@ -85,5 +76,11 @@ public abstract class Projectile : MonoBehaviour
             () => _explosionPool.Remove(explosion));
 
         Exploded?.Invoke(this);
+    }
+
+    private void SetVelocity(float currentShotPower, Vector3 direction)
+    {
+        _rigidbody.velocity = currentShotPower * direction;
+        Debug.Log($"{_rigidbody.velocity} {currentShotPower} {direction}");
     }
 }

@@ -4,33 +4,35 @@ using UnityEngine;
 
 public class WeaponSelector : MonoBehaviour
 {
-    [SerializeField] private Game _game;
-    [SerializeField] private Transform _weaponSelectorItemParent;
-    [SerializeField] List<Weapon> _weaponList;
+    [SerializeField] private WeaponSelectorItem _itemPrefab;
+    [SerializeField] private Transform _itemParent;
     [SerializeField] Animator _animator;
-    [SerializeField] private WeaponSelectorItem _weaponSelectorItemPrefab;
 
+    private List<Weapon> _weaponList;
+    private Bootstrap _bootstrap;
+    private Game _game;
     private List<Team> _teams;
     private Worm _currentWorm;
     private bool _canOpen = false;
 
     public IReadOnlyList<Weapon> WeaponList => _weaponList;
-    public Transform WeaponSelectorItemParent => _weaponSelectorItemParent;
 
     public Action<Worm> TurnStarted;
 
-    public void Init(List<Weapon> weaponList)
+    public void Init(List<Weapon> weaponList, Game game, Bootstrap bootstrap)
     {
         _weaponList = weaponList;
+        _game = game;
+        _bootstrap = bootstrap;
 
         foreach (var weapon in _weaponList)
         {
-            WeaponSelectorItem weaponItem = Instantiate(_weaponSelectorItemPrefab, _weaponSelectorItemParent);
+            WeaponSelectorItem weaponItem = Instantiate(_itemPrefab, _itemParent);
             weaponItem.Init(this, weapon);
         }
 
-        _game.WormsSpawned += OnWormsSpawned;
-        _game.NextTurnStarted += OnNextTurnStarted;
+        _bootstrap.WormsSpawned += OnWormsSpawned;
+        _game.TurnStarted += OnTurnStarted;
 
         foreach (var weapon in _weaponList)
             weapon.Shot += OnWeaponShot;
@@ -38,8 +40,8 @@ public class WeaponSelector : MonoBehaviour
 
     private void OnDestroy()
     {
-        _game.WormsSpawned -= OnWormsSpawned;
-        _game.NextTurnStarted -= OnNextTurnStarted;
+        _bootstrap.WormsSpawned -= OnWormsSpawned;
+        _game.TurnStarted -= OnTurnStarted;
 
         foreach (var weapon in _weaponList)
             weapon.Shot -= OnWeaponShot;
@@ -96,12 +98,7 @@ public class WeaponSelector : MonoBehaviour
         _canOpen = false;
     }
 
-    private void OnProjectileExploded(Projectile projectile, Worm worm)
-    {
-
-    }
-
-    private void OnNextTurnStarted()
+    private void OnTurnStarted()
     {
         Close();
     }

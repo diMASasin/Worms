@@ -1,113 +1,142 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Configs;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Game : MonoBehaviour
+public class Game : IDisposable
 {
-    [SerializeField] private WormsSpawner _wormsSpawner;
-    [SerializeField] private float _turnDelay = 2.5f;
-    [SerializeField] private EndScreen _endScreen;
-
-    private List<Team> _teams;
     private int _currentTeamIndex = -1;
+    private readonly List<Team> _currentTeams;
+    private readonly ICoroutinePerformer _performer;
+    private readonly List<Weapon> _weaponsList;
+    private readonly Timer _afterShotTimer;
+    private readonly Timer _turnTimer;
+    private readonly Timer _globalTimer;
+    private readonly TimerView _timerView;
+    private readonly Wind _wind;
+    private readonly TimersConfig _timersConfig;
+    private readonly Water _water;
 
-    private readonly List<Team> _currentTeams = new();
+    private bool _isGlobalTimerElapsed;
 
-    public event UnityAction<List<Team>> WormsSpawned;
-    public event UnityAction NextTurnStarted;
+    public event UnityAction TurnStarted;
     public event UnityAction TurnEnd;
 
-    private void Start()
+    public Game(List<Team> currentTeams, ICoroutinePerformer performer, List<Weapon> weaponsList, TimersConfig timersConfig, 
+        TimerView timerView, Water water, TimerView globalTimerView, Wind wind)
     {
-        _wormsSpawner.WormSpawned += OnWormSpawned;
+        _currentTeams = currentTeams;
+        _performer = performer;
+        _weaponsList = weaponsList;
+        _timersConfig = timersConfig;
+        _water = water;
+        _wind = wind;
 
-        _wormsSpawner.GetEdgesForSpawn();
-        _teams = _wormsSpawner.SpawnTeams();
-        _currentTeams.AddRange(_teams);
+        _afterShotTimer = new Timer();
+        _turnTimer = new Timer();
+        _globalTimer = new Timer();
+
+        timerView.Init(_turnTimer, TimerFormattingStyle.Seconds);
+        globalTimerView.Init(_globalTimer, TimerFormattingStyle.MinutesAndSeconds);
+
+        TurnStarted += OnTurnStarted;
+        TurnEnd += OnTurnEnd;
         
-        foreach (var team in _teams)
-            team.Died += OnTeamDied;
+        foreach (var weapon in _weaponsList)
+            weapon.Shot += OnShot;
 
-        WormsSpawned?.Invoke(_teams);
-        StartNextTurnWithDelay(0);
+        _globalTimer.Start(_timersConfig.GlobalTime, OnGlobalTimerElapsed);
     }
 
-    private void OnDestroy()
+    public void Dispose()
     {
-        _wormsSpawner.WormSpawned -= OnWormSpawned;
-
-        foreach (var team in _teams)
-            team.Died -= OnTeamDied;
+        TurnStarted -= OnTurnStarted;
+        TurnEnd -= OnTurnEnd;
+        
+        foreach (var weapon in _weaponsList)
+            weapon.Shot -= OnShot;
     }
 
-    private void OnWormSpawned(Worm worm)
+    public void Tick()
     {
-        worm.Died += OnWormDied;
+        _afterShotTimer.Tick();
+        _turnTimer.Tick();
+        _globalTimer.Tick();
     }
 
     public Team TryGetCurrentTeam()
     {
-        if (_currentTeamIndex >= _currentTeams.Count)
+        if (_currentTeamIndex >= _currentTeams.Count || _currentTeamIndex < 0)
             return null;
 
         return _currentTeams[_currentTeamIndex];
     }
 
-    public void DisableCurrentWorm()
+    public void NextTurn(float delay = 0)
     {
-        var currentWorm = _currentTeams[_currentTeamIndex].TryGetCurrentWorm();
+        EndTurn();
+        _performer.StartRoutine(WaitUntilProjectilesExplode(() =>
+        {
+            _performer.StartRoutine(DelayedStartNextTurn(delay));
+        }));
+    }
+
+    private void OnGlobalTimerElapsed()
+    {
+        _isGlobalTimerElapsed = true;
+    }
+
+    private void OnTurnStarted()
+    {
+        _turnTimer.Start(_timersConfig.TurnDuration, () => NextTurn(_timersConfig.AfterTurnWaitingDuration));
+        _wind.ChangeVelocity();
+    }
+
+    private void OnTurnEnd()
+    {
+        if (_isGlobalTimerElapsed)
+            _water.IncreaseLevel();
+    }
+
+    private void OnShot(Projectile projectile)
+    {
+        _afterShotTimer.Start(_timersConfig.AfterShotDuration, () => NextTurn(_timersConfig.AfterTurnWaitingDuration));
+    }
+
+    private void EndTurn()
+    {
+        var currentWorm = TryGetCurrentTeam()?.TryGetCurrentWorm();
+
+        if (currentWorm == null) return;
+
+        if (currentWorm.Weapon?.CurrentShotPower > 0)
+            currentWorm.Weapon.Shoot();
 
         currentWorm.OnTurnEnd();
     }
 
-    private void OnWormDied(Worm worm)
-    {
-        worm.Died -= OnWormDied;
-
-        if (worm.Input.IsEnabled == true)
-            StartNextTurnWithDelay(_turnDelay);
-    }
-
-    private void OnTeamDied(Team team)
-    {
-        _currentTeams.Remove(team);
-
-        if (_currentTeams.Count <= 1)
-            _endScreen.gameObject.SetActive(true);
-    }
-
-    public IEnumerator WaitUntilProjectilesExplode(Action action)
+    private IEnumerator WaitUntilProjectilesExplode(Action action)
     {
         while (ProjectilePool.Count > 0)
             yield return null;
-
-        yield return new WaitForSeconds(0.5f);
 
         action();
         TurnEnd?.Invoke();
     }
 
-    public void StartNextTurnWithDelay(float delay)
-    {
-        if (_currentTeams.Count == 0)
-            return;
-
-        StartCoroutine(DelayedStartNextTurn(delay));
-    }
-
     private IEnumerator DelayedStartNextTurn(float delay)
     {
+      if (_currentTeams.Count <= 1) yield break;
+
         yield return new WaitForSeconds(delay);
 
         _currentTeamIndex++;
         if (_currentTeamIndex >= _currentTeams.Count)
             _currentTeamIndex = 0;
 
-        if (_currentTeams.Count <= 1) yield break;
-
-        _currentTeams[_currentTeamIndex].StartTurn();
-        NextTurnStarted?.Invoke();
+        TryGetCurrentTeam().StartTurn();
+        TurnStarted?.Invoke();
     }
 }

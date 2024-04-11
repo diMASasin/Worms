@@ -1,50 +1,53 @@
 using ScriptBoy.Digable2DTerrain;
 using System;
 using System.Collections.Generic;
+using Spawn;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class WormsSpawner : MonoBehaviour
 {
-    [SerializeField] private int _teamsNumber = 2;
-    [SerializeField] private int _wormsNumber = 4;
-    [SerializeField] private List<Color> _teamColors;
+    [SerializeField] private SpawnerData _spawnerData;
 
     [SerializeField] private Terrain2D _terrain;
-    [SerializeField] private Team _teamTemplate;
     [SerializeField] private Worm _wormTemplate;
-    [SerializeField] private Transform _container;
     [SerializeField] private float _maxSlope = 45;
     [SerializeField] private MapBounds _mapBounds;
 
     private Vector2[] _points;
-    private List<Edge> _edges = new();
+    private readonly List<Edge> _edges = new();
+    private readonly List<Worm> _wormsList = new();
 
-    private const string TeamsNumber = nameof(TeamsNumber);
-    private const string WormsNumber = nameof(WormsNumber);
+    public List<Worm> WormsList => _wormsList;
+    public int TeamsNumber => _spawnerData.TeamsNumber;
+    public int WormsNumber=> _spawnerData.WormsNumber;
+    public List<Color> TeamColors => _spawnerData.TeamColors;
+
+    private const string TEAMS_NUMBER = nameof(TEAMS_NUMBER);
+    private const string WORMS_NUMBER = nameof(WORMS_NUMBER);
 
     public event UnityAction<Worm> WormSpawned;
 
     private void Awake()
     {
-        _teamsNumber = PlayerPrefs.GetInt(TeamsNumber, _teamsNumber);
-        _wormsNumber = PlayerPrefs.GetInt(WormsNumber, _wormsNumber);
+        _spawnerData.WormsNumber = PlayerPrefs.GetInt(TEAMS_NUMBER, TeamsNumber);
+        _spawnerData.TeamsNumber = PlayerPrefs.GetInt(WORMS_NUMBER, WormsNumber);
     }
 
     public List<Team> SpawnTeams()
     {
-        if(_teamColors.Count < _teamsNumber)
-            throw new ArgumentOutOfRangeException($"{nameof(_teamColors)} count cant be less then {nameof(_teamsNumber)}");
+        if(TeamColors.Count < TeamsNumber)
+            throw new ArgumentOutOfRangeException($"{nameof(TeamColors)} count cant be less then {nameof(TeamsNumber)}");
 
-        List<Team> teams = new List<Team>();
+        List<Team> teams = new();
 
-        for (int i = 0; i < _teamsNumber; i++)
+        for (int i = 0; i < TeamsNumber; i++)
         {
-            var randomColor = _teamColors[Random.Range(0, _teamColors.Count)];
-            _teamColors.Remove(randomColor);
+            var randomColor = TeamColors[Random.Range(0, TeamColors.Count)];
+            TeamColors.Remove(randomColor);
 
-            var newTeam = SpawnTeam(_wormsNumber, randomColor, $"Team {i + 1}");
+            var newTeam = SpawnTeam(WormsNumber, randomColor, $"Team {i + 1}");
             teams.Add(newTeam);
         }
         return teams;
@@ -52,28 +55,29 @@ public class WormsSpawner : MonoBehaviour
 
     private Team SpawnTeam(int wormsNumber, Color teamColor, string teamName)
     {
-        List<Worm> worms = new List<Worm>();
-
-        var team = Instantiate(_teamTemplate, _container);
+        List<Worm> teamWorms = new List<Worm>();
 
         for (int i = 0; i < wormsNumber; i++)
         {
-            var newWorm = Instantiate(_wormTemplate, GetRandomPointForSpawn(), Quaternion.identity, team.transform);
+            var newWorm = Instantiate(_wormTemplate, GetRandomPointForSpawn(), Quaternion.identity, transform);
             newWorm.SetRigidbodyKinematic();
             WormSpawned?.Invoke(newWorm);
-            worms.Add(newWorm);
+            teamWorms.Add(newWorm);
         }
 
-        team.Init(worms, teamColor, teamName);
-        team.name = teamName;
+        _wormsList.AddRange(teamWorms);
+        var team = new Team(teamWorms, teamColor, teamName);
+
         return team;
     }
 
     public void GetEdgesForSpawn()
     {
-        int length = _terrain.polygonCollider.points.Length;
+        var points = _terrain.polygonCollider.points;
+        int length = points.Length;
         _points = new Vector2[length];
-        Array.Copy(_terrain.polygonCollider.points, _points, length);
+
+        Array.Copy(points, _points, length);
 
         for (int i = 0; i < _points.Length; i++)
         {

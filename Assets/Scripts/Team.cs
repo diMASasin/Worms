@@ -1,16 +1,19 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Team : MonoBehaviour
+[Serializable]
+public class Team
 {
-    private List<Worm> _worms = new();
+    [field: SerializeField] public Color Color { get; private set; }
+    [field: SerializeField] public string Name { get; private set; }
+
+    private readonly List<Worm> _worms;
     private int _currentWormIndex = -1;
 
-    public Color Color { get; set; }
-    public string Name { get; set; }
-    public int MaxHealth { get; set; }
+    public int MaxHealth { get; private set; }
 
     public IReadOnlyList<Worm> Worms => _worms;
 
@@ -18,7 +21,7 @@ public class Team : MonoBehaviour
     public event UnityAction<Worm, Team> TurnStarted;
     public event UnityAction<int> HealthChanged;
 
-    public void Init(List<Worm> worms, Color color, string teamName)
+    public Team(List<Worm> worms, Color color, string teamName)
     {
         _worms = worms;
         Color = color;

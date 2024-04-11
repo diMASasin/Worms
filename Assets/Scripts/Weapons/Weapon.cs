@@ -8,6 +8,8 @@ public class Weapon
     
     private Worm _worm;
     private float _currentShotPower = 0;
+    private Transform _spawnPoint;
+    private Transform _weaponViewTransform;
 
     private ProjectilePool ProjectilePool => _config.ProjectilePool;
 
@@ -62,17 +64,19 @@ public class Weapon
             return;
 
         Projectile projectile = ProjectilePool.Pool.Get();
-        projectile.Reset();
-        Shot?.Invoke(projectile);
-        IsShot = true;
+        projectile.Launch(_currentShotPower, _spawnPoint.position, _weaponViewTransform.right);
         projectile.Exploded += OnProjectileExploded;
-        projectile.SetVelocity(_currentShotPower);
-        projectile.OnShot();
+
+        IsShot = true;
+        Shot?.Invoke(projectile);
     }
 
-    public void SetWorm(Worm worm)
+    public void OnAssigned(Worm worm, Transform spawnPoint, Transform weaponViewTransform)
     {
+        Reset();
         _worm = worm;
+        _spawnPoint = spawnPoint;
+        _weaponViewTransform = weaponViewTransform;
     }
 
     private void OnProjectileExploded(Projectile projectile)

@@ -1,54 +1,74 @@
 using System.Collections.Generic;
+using Unity.Collections.LowLevel.Unsafe;
+using Unity.Mathematics;
+using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
 public class FollowingCamera : MonoBehaviour
 {
     [SerializeField] private float _speed = 1;
-    [SerializeField] private Game _game;
-    [SerializeField] private WeaponSelector _weaponSelector;
     [SerializeField] private Camera _camera;
     [SerializeField] private int _minPosition = 2;
     [SerializeField] private int _maxPosition = 15;
     [SerializeField] private Vector2 _offset;
 
+    private WeaponSelector _weaponSelector;
+    private Game _game;
     private Transform _target;
 
-    private readonly List<Worm> _worms = new();
+    private IReadOnlyList<Team> _teams;
+    private IReadOnlyList<Worm> _worms;
 
-    public void Init()
+    private Vector3 CameraPosition
     {
-        _game.WormsSpawned += OnWormsSpawned;
+        get => _camera.transform.position;
+        set => _camera.transform.position = value;
+    }
+
+    public void Init(Game game, WeaponSelector weaponSelector, IReadOnlyList<Team> teams, IReadOnlyList<Worm> worms)
+    {
+        _game = game;
+        _teams = teams;
+        _worms = worms;
+        _weaponSelector = weaponSelector;
+
         foreach (var weapon in _weaponSelector.WeaponList)
         {
             weapon.Shot += OnShot;
             weapon.ProjectileExploded += OnProjectileExploded;
         }
+
+        foreach (var team in _teams)
+            team.TurnStarted += OnTurnStarted;
+
+        foreach (var worm in _worms)
+            worm.DamageTook += OnDamageTook;
     }
 
     private void OnDestroy()
     {
-        _game.WormsSpawned -= OnWormsSpawned;
         foreach (var weapon in _weaponSelector.WeaponList)
         {
             weapon.Shot -= OnShot;
             weapon.ProjectileExploded -= OnProjectileExploded;
         }
+
+        foreach (var team in _teams)
+            team.TurnStarted += OnTurnStarted;
+
+        foreach (var worm in _worms)
+            worm.DamageTook += OnDamageTook;
     }
 
     private void Update()
     {
-        //if(Input.mouseScrollDelta.y > 0 && _camera.orthographicSize > _minSize || Input.mouseScrollDelta.y < 0 && _camera.orthographicSize < _maxSize)
-        //{
-        //    _camera.orthographicSize -= Input.mouseScrollDelta.y;
-        //}
-        if (Input.mouseScrollDelta.y < 0 && _camera.transform.position.z > _minPosition || Input.mouseScrollDelta.y > 0 && _camera.transform.position.z < _maxPosition)
-            _camera.transform.position += new Vector3(0, 0, Input.mouseScrollDelta.y);
+        if (Input.mouseScrollDelta.y < 0 && CameraPosition.z > _minPosition || Input.mouseScrollDelta.y > 0 && CameraPosition.z < _maxPosition)
+            CameraPosition += new Vector3(0, 0, Input.mouseScrollDelta.y);
 
-        if (_camera.transform.position.z < _minPosition)
-            _camera.transform.position = new Vector3(_camera.transform.position.x, _camera.transform.position.y, _minPosition);
-        if (_camera.transform.position.z > _maxPosition)
-            _camera.transform.position = new Vector3(_camera.transform.position.x, _camera.transform.position.y, _maxPosition);
+        float newPositionZ = Mathf.Clamp(CameraPosition.z, _minPosition, _maxPosition);
+
+        CameraPosition = new Vector3(CameraPosition.x, CameraPosition.y, newPositionZ);
     } 
 
     private void FixedUpdate()
@@ -59,7 +79,7 @@ public class FollowingCamera : MonoBehaviour
         Vector3 newPosition = _target.position + (Vector3)_offset;
         newPosition.z = transform.position.z;
 
-        transform.position = Vector3.Lerp(transform.position, newPosition, _speed * Time.deltaTime);
+        CameraPosition = Vector3.Lerp(CameraPosition, newPosition, _speed * Time.deltaTime);
     }
 
     private void SetTarget(Transform target)
@@ -67,37 +87,9 @@ public class FollowingCamera : MonoBehaviour
         _target = target;
     }
 
-    private void OnWormsSpawned(List<Team> teams)
-    {
-        foreach (var team in teams)
-        {
-            team.TurnStarted += OnTurnStarted;
-            team.Died += OnTeamDied;
-            _worms.AddRange(team.Worms);
-        }
-
-        foreach (var worm in _worms)
-        {
-            worm.Died += OnWormDied;
-            worm.DamageTook += OnDamageTook;
-        }
-    }
-
     private void OnTurnStarted(Worm worm, Team team)
     {
         SetTarget(worm.transform);
-    }
-
-    private void OnTeamDied(Team team)
-    {
-        team.Died -= OnTeamDied;
-        team.TurnStarted -= OnTurnStarted;
-    }
-
-    private void OnWormDied(Worm worm)
-    {
-        worm.Died -= OnWormDied;
-        worm.DamageTook -= OnDamageTook;
     }
 
     private void OnDamageTook(Worm worm)

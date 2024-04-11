@@ -3,23 +3,21 @@ using UnityEngine;
 
 public class TeamHealthView : MonoBehaviour
 {
-    [SerializeField] private Game _game;
     [SerializeField] private TeamHealth _teamHealthTemplate;
     [SerializeField] private Transform _container;
 
-    private void OnValidate()
+    private Bootstrap _bootstrap;
+    
+    public void Init(Bootstrap bootstrap)
     {
-        _game = FindObjectOfType<Game>();
+        _bootstrap = bootstrap;
+
+        _bootstrap.WormsSpawned += OnWormsSpawned;
     }
 
-    private void OnEnable()
+    private void OnDestroy()
     {
-        _game.WormsSpawned += OnWormsSpawned;
-    }
-
-    private void OnDisable()
-    {
-        _game.WormsSpawned -= OnWormsSpawned;
+        _bootstrap.WormsSpawned -= OnWormsSpawned;
     }
 
     private void OnWormsSpawned(List<Team> teams)

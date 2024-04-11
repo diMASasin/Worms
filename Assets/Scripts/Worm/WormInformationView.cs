@@ -11,8 +11,9 @@ public class WormInformationView : MonoBehaviour
     {
         _healthText.color = color;
         _nameText.color = color;
-
         _nameText.text = wormName;
+
+        OnHealthChanged(_worm);
     }
 
     private void OnEnable()

@@ -1,5 +1,5 @@
+using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Timer
 {
@@ -7,26 +7,33 @@ public class Timer
     private float _timeLeft;
     private bool _started = false;
 
-    public event UnityAction<float> TimerUpdated;
-    public event UnityAction Elapsed;
+    private event Action OnElapsedAction;
 
-    private void Reset()
-    {
-        _timeLeft = _interval;
-        _started = false;
-    } 
+    public event Action<float> TimerUpdated;
 
-    public void Start(float interval)
+    public void SetInterval(float interval)
     {
         _interval = interval;
+    }
+
+    public void Start(float interval, Action onElapsed)
+    {
+        SetInterval(interval);
         Reset();
-        TimerUpdated?.Invoke(_timeLeft);
         _started = true;
+
+        TimerUpdated?.Invoke(_timeLeft);
+        OnElapsedAction = onElapsed;
     }
 
     public void Stop()
     {
         _started = false;
+    }
+
+    public void Continue()
+    {
+        _started = true;
     }
 
     public void Tick()
@@ -40,9 +47,15 @@ public class Timer
             _timeLeft = 0;
             Stop();
 
-            Elapsed?.Invoke();
+            OnElapsedAction?.Invoke();
         }
 
         TimerUpdated?.Invoke(_timeLeft);
     }
+
+    private void Reset()
+    {
+        _timeLeft = _interval;
+        _started = false;
+    } 
 }

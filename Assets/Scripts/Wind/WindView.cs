@@ -2,21 +2,19 @@ using UnityEngine;
 
 public class WindView : MonoBehaviour
 {
-    [SerializeField] private Wind _wind;
     [SerializeField] private Wind1DiractionView _windRight;
     [SerializeField] private Wind1DiractionView _windLeft;
 
-    private void OnValidate()
+    private Wind _wind;
+    
+    public void Init(Wind wind)
     {
-        _wind = FindObjectOfType<Wind>();
-    }
+        _wind = wind;
 
-    private void OnEnable()
-    {
         _wind.VelocityChanged += OnVelocityChanged;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         _wind.VelocityChanged -= OnVelocityChanged;
     }
@@ -25,22 +23,18 @@ public class WindView : MonoBehaviour
     {
         var normalizedVelocity = Mathf.Abs(velocity / _wind.MaxVelocity);
 
+        _windLeft.gameObject.SetActive(false);
+        _windRight.gameObject.SetActive(false);
+
         if(velocity > 0)
-        {
-            _windLeft.gameObject.SetActive(false);
-            _windRight.gameObject.SetActive(true);
-            _windRight.SetSizeDeltaX(normalizedVelocity);
-        }
+            ChangeVelocityView(_windRight, normalizedVelocity);
         else if (velocity < 0)
-        {
-            _windLeft.gameObject.SetActive(true);
-            _windRight.gameObject.SetActive(false);
-            _windLeft.SetSizeDeltaX(normalizedVelocity);
-        }
-        else
-        {
-            _windLeft.gameObject.SetActive(false);
-            _windRight.gameObject.SetActive(false);
-        }
+            ChangeVelocityView(_windLeft, normalizedVelocity);
+    }
+
+    private void ChangeVelocityView(Wind1DiractionView view, float normalizedVelocity)
+    {
+        view.gameObject.SetActive(true);
+        view.SetSizeDeltaX(normalizedVelocity);
     }
 }
