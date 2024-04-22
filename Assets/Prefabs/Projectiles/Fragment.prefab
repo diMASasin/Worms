@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3348539931435737142}
   - component: {fileID: 3348539931435737145}
   - component: {fileID: 1838867013107962990}
-  - component: {fileID: 2053213309425881357}
   m_Layer: 8
   m_Name: Fragment
   m_TagString: Untagged
@@ -97,22 +96,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2053213309425881357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3348539931435737147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3c5fe730f803a845b5aff2a867d8111, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 1838867013107962990}
-  _collider2D: {fileID: 3348539931435737145}
-  _spriteObject: {fileID: 7410048026872486735}
-  <ProjectileConfig>k__BackingField: {fileID: 11400000, guid: 53d6a28f3513e2a47beec58bc6601bc0, type: 2}
 --- !u!1 &3348539933408502303
 GameObject:
   m_ObjectHideFlags: 0

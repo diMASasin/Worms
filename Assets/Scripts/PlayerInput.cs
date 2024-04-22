@@ -6,7 +6,7 @@ public class PlayerInput : IDisposable
 {
     public bool IsEnabled { get; private set; } = false;
 
-    private WormMovement _wormMovement;
+    private Movement _movement;
     private Worm _worm;
     private readonly WeaponView _weaponView;
     private MainInput _input;
@@ -15,15 +15,16 @@ public class PlayerInput : IDisposable
     public event UnityAction InputEnabled;
     public event UnityAction InputDisabled;
 
-    public PlayerInput(WormMovement wormMovement, Worm worm, WeaponView weaponView)
+    public PlayerInput(Movement movement, Worm worm, WeaponView weaponView)
     {
-        _wormMovement = wormMovement;
+        _movement = movement;
         _worm = worm;
         _weaponView = weaponView;
 
         _input = new MainInput();
 
         _worm.WeaponChanged += OnWeaponChanged;
+        _worm.DamageTook += OnDamageTook;
         _input.Main.TurnRight.performed += OnTurnRight;
         _input.Main.TurnLeft.performed += OnTurnLeft;
         _input.Main.LongJump.performed += OnLongJump;
@@ -32,9 +33,11 @@ public class PlayerInput : IDisposable
         _input.Main.Shoot.performed += OnShoot;
     }
 
+
     public void Dispose()
     {
         _worm.WeaponChanged -= OnWeaponChanged;
+        _worm.DamageTook -= OnDamageTook;
         _input.Main.TurnRight.performed -= OnTurnRight;
         _input.Main.TurnLeft.performed -= OnTurnLeft;
         _input.Main.LongJump.performed -= OnLongJump;
@@ -45,8 +48,8 @@ public class PlayerInput : IDisposable
 
     public void Tick()
     {
-        var canMove = _input.Main.DontMove.ReadValue<float>();
-        if (canMove == 0)
+        //var canMove = _input.Main.DontMove.ReadValue<float>();
+        //if (canMove == 0)
             OnDirectionChanged();
 
         OnAimDirectionChanged();
@@ -65,7 +68,7 @@ public class PlayerInput : IDisposable
         _input.Disable();
         IsEnabled = false;
         InputDisabled?.Invoke();
-        _wormMovement.Reset();
+        _movement.Reset();
     }
 
     private void OnShoot(CallbackContext obj)
@@ -83,27 +86,33 @@ public class PlayerInput : IDisposable
 
     private void OnHighJump(CallbackContext obj)
     {
-        _wormMovement.HighJump();
+        _movement.HighJump();
     }
 
     private void OnLongJump(CallbackContext obj)
     {
-        _wormMovement.LongJump();
+        _movement.LongJump();
     }
 
     private void OnTurnRight(CallbackContext obj)
     {
-        _wormMovement.TurnRight();
+        _movement.TurnRight();
     }
 
     private void OnTurnLeft(CallbackContext obj)
     {
-        _wormMovement.TurnLeft();
+        _movement.TurnLeft();
     }
 
     private void OnWeaponChanged(Weapon weapon)
     {
         _weapon = weapon;
+    }
+
+    private void OnDamageTook(Worm worm)
+    {
+        if(IsEnabled == true)
+            DisableInput();
     }
 
     private void OnAimDirectionChanged()
@@ -118,7 +127,7 @@ public class PlayerInput : IDisposable
     private void OnDirectionChanged()
     {
         var direction = _input.Main.Move.ReadValue<float>();
-        _wormMovement.TryMove(direction);
+        _movement.TryMove(direction);
     }
 
     private void OnIncreaseShotPower()

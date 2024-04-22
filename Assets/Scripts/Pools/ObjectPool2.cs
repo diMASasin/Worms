@@ -1,11 +1,12 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Pools;
 using UnityEngine;
 using Object = UnityEngine.Object;
+using UnityEngine.Pool;
 
-public class ObjectPool<T> where T : MonoBehaviour
+public class ObjectPool2<T> where T : Object
 {
     private readonly T _prefab;
     private readonly Transform _objectsParent;
@@ -21,8 +22,8 @@ public class ObjectPool<T> where T : MonoBehaviour
     public static int Count { get; private set; }
 
     public IReadOnlyList<T> Objects => _objects;
-   
-    public ObjectPool(T prefab, Transform objectsParent, int amount)
+
+    public ObjectPool2(T prefab, Transform objectsParent, int amount)
     {
         _prefab = prefab;
         _objectsParent = objectsParent;
@@ -44,14 +45,12 @@ public class ObjectPool<T> where T : MonoBehaviour
         Got?.Invoke(freeObject);
 
         _used.Add(freeObject);
-        freeObject.gameObject.SetActive(true);
         Count++;
         return freeObject;
     }
 
     public virtual void Remove(T obj)
     {
-        obj.gameObject.SetActive(false);
         _used.Remove(obj);
         Removed?.Invoke(obj);
         Count--;
@@ -61,7 +60,6 @@ public class ObjectPool<T> where T : MonoBehaviour
     {
         var obj = Object.Instantiate(_prefab, _objectsParent);
         _objects.Add(obj);
-        obj.gameObject.SetActive(false);
         Created?.Invoke(obj);
         return obj;
     }

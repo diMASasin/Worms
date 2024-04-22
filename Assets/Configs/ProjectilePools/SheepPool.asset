@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90901ac4677d6374a809dab9a6434d2e, type: 3}
   m_Name: SheepPool
   m_EditorClassIdentifier: 
-  _poolData:
-    <Prefab>k__BackingField: {fileID: -8730287372045583300, guid: 5d3660ab14289c94e90515564066e8fc, type: 3}
-    <Amount>k__BackingField: 1
+  _config: {fileID: 11400000, guid: 43822e07ea1144f4782473220d8b464b, type: 2}
+  _amount: 1

@@ -1,38 +1,32 @@
 using System;
+using Configs;
+using Factories;
 using Pools;
 using UnityEngine;
+using UnityEngine.Pool;
 
 [CreateAssetMenu(fileName = "ProjectilePool", menuName = "ProjectilePool", order = 0)]
 public class ProjectilePool : ScriptableObject
 {
-    [SerializeField] private ObjectPoolData<Projectile> _poolData = new();
+    [SerializeField] private ProjectileConfig _config;
+    [SerializeField] private int _amount;
 
-    private ProjectileData _projectileData;
+    private ProjectileFactory _factory;
 
     public ObjectPool<Projectile> Pool { get; private set; }
 
     public static int Count { get; private set; }
 
-    public void Init(Transform projectilesParent, ProjectileData projectileData)
+    public void Init(ProjectileFactory factory)
     {
-        _projectileData = projectileData;
-        Pool = new ObjectPool<Projectile>(_poolData.Prefab, projectilesParent, _poolData.Amount);
-        
-        Pool.Removed += OnRemoved;
-        Pool.Created += OnCreated;
-        Pool.Got += OnGot;
+        _factory = factory;
+
+        Pool = new ObjectPool<Projectile>(OnCreated, OnGot, OnRemoved, OnDestroy, true, _amount);
     }
 
     private void OnDestroy()
     {
-        Pool.Removed -= OnRemoved;
-        Pool.Created -= OnCreated;
-        Pool.Got -= OnGot;
-
-        foreach (var projectile in Pool.Objects)
-            projectile.Exploded -= OnExploded;
-
-        Debug.Log("OnDestroy");
+        Pool.Dispose();
     }
 
     private void OnGot(Projectile projectile)
@@ -46,14 +40,20 @@ public class ProjectilePool : ScriptableObject
         Count--;
     }
 
-    protected void OnCreated(Projectile projectile)
+    private Projectile OnCreated()
     {
-        projectile.Init(_projectileData);
+        Projectile projectile = _factory.GetProjectile(_config);
         projectile.Exploded += OnExploded;
+        return projectile;
     }
 
     private void OnExploded(Projectile projectile)
     {
-        Pool.Remove(projectile);
+        Pool.Release(projectile);
+    }
+
+    private void OnDestroy(Projectile projectile)
+    {
+        projectile.Exploded -= OnExploded;
     }
 }

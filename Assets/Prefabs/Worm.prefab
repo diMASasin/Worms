@@ -641,6 +641,7 @@ MonoBehaviour:
   _pointerLine: {fileID: 1118043788225572828}
   _gunSprite: {fileID: 7199374139302996356}
   _aimSprite: {fileID: 1101965099160819332}
+  _projectileView: {fileID: 0}
 --- !u!1 &5784457460623721975
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,8 +963,6 @@ GameObject:
   - component: {fileID: 4932577697248884442}
   - component: {fileID: 2716522887637978340}
   - component: {fileID: 8010253848381206769}
-  - component: {fileID: 7569168140912451543}
-  - component: {fileID: 5832659334154097657}
   - component: {fileID: -3861072189713731185}
   m_Layer: 9
   m_Name: Worm
@@ -1070,7 +1069,7 @@ MonoBehaviour:
   _wormInformationView: {fileID: 5670862740911846097}
   _removeWeaponDelay: 0.5
   _showCanSpawnCheckerBox: 0
-  _wormMovement: {fileID: 7569168140912451543}
+  _movementConfig: {fileID: 11400000, guid: a90e511df48cda34b96dac68484c4523, type: 2}
   _weaponView: {fileID: 2265446789134456821}
   _wormLayerMask:
     serializedVersion: 2
@@ -1079,63 +1078,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _arrow: {fileID: 1299327330340215654}
---- !u!114 &7569168140912451543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6803847674682154094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76f448b53b88fca4d9de678ba8ef112e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 1806080000149428662}
-  _rigidbody: {fileID: 2716522887637978340}
-  _speed: 2
-  _longJumpForce: {x: 3, y: 5}
-  _highJumpForce: {x: 1, y: 8}
-  _jumpCooldown: 1
-  _minGroundNormalY: 0.65
-  _gravityModifier: 1
-  _velocity: {x: 0, y: 0}
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 641
   _armature: {fileID: 4803428581954887109}
-  _collider: {fileID: 4932577697248884442}
-  _groundChecker: {fileID: 5832659334154097657}
---- !u!114 &5832659334154097657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6803847674682154094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d86f3848b290dd409bd21edf9f29b27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _size: {x: 0.37, y: 0.01}
-  _offset: {x: 0, y: -0.05}
-  _showGroundCheckerBox: 1
-  _contactFilter2D:
-    useTriggers: 0
-    useLayerMask: 1
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 640
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
-  _creature: {fileID: 4932577697248884442}
+  _wormAnimations: {fileID: -3861072189713731185}
 --- !u!114 &-3861072189713731185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1149,8 +1093,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 1806080000149428662}
-  _groundChecker: {fileID: 5832659334154097657}
-  _wormMovement: {fileID: 7569168140912451543}
 --- !u!1 &8622327074500003010
 GameObject:
   m_ObjectHideFlags: 0

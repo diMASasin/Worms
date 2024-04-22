@@ -1,24 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Configs;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Movement : MonoBehaviour
+public class Movement
 {
-    [SerializeField] private Animator _animator;
-    [SerializeField] private Rigidbody2D _rigidbody;
-    [SerializeField] private float _speed;
-    [SerializeField] private Vector2 _longJumpForce = new(2, 2);
-    [SerializeField] private Vector2 _highJumpForce = new(2, 2);
-    [SerializeField] private float _jumpCooldown = 0.5f;
-    [SerializeField] private float _minGroundNormalY = .65f;
-    [SerializeField] private float _gravityModifier = 1f;
-    [SerializeField] private Vector2 _velocity;
-    [SerializeField] protected LayerMask _layerMask;
-    [SerializeField] protected Transform _armature;
-    [SerializeField] protected Collider2D _collider;
-    [SerializeField] protected GroundChecker _groundChecker;
+    private float _speed => _config.Speed;
+    private Vector2 _longJumpForce => _config.LongJumpForce;
+    private Vector2 _highJumpForce => _config.HighJumpForce;
+    private float _jumpCooldown => _config.JumpCooldown;
+    private float _minGroundNormalY => _config.MinGroundNormalY;
+    private float _gravityModifier => _config.GravityModifier;
+    public LayerMask LayerMask => _config.LayerMask;
 
+    protected Transform Armature;
+    protected GroundChecker GroundChecker;
+
+    private Vector2 _velocity;
     private Vector2 _groundNormal;
     private ContactFilter2D _contactFilter;
     private RaycastHit2D[] _hitBuffer = new RaycastHit2D[16];
@@ -27,24 +27,36 @@ public class Movement : MonoBehaviour
     private const float _minMoveDistance = 0.001f;
     private const float _shellRadius = 0.01f;
 
+    public Rigidbody2D Rigidbody { get; private set; }
+    public Collider2D Collider { get; private set; }
+
     private bool _canJump = true;
     private float _jumpVelocityX;
     private float _maxVelocityX;
     private bool _inJump = false;
     private Vector2 _moveAlongGround;
     private Vector2 _move;
+    private MovementConfig _config;
 
     protected float Horizontal;
 
     public event UnityAction<bool> IsWalkingChanged;
-
-    void Start()
+    public event Action MoveDircetionChanged;
+    
+    public Movement(Rigidbody2D rigidbody2D, Collider2D collider2D, Transform armature, 
+        GroundChecker groundChecker, MovementConfig config)
     {
-        _contactFilter.useTriggers = false;
-        _contactFilter.SetLayerMask(_layerMask);
-        _contactFilter.useLayerMask = true;
+        Rigidbody = rigidbody2D;
+        Collider = collider2D;
+        Armature = armature;
+        GroundChecker = groundChecker;
+        _config = config;
 
-        _maxVelocityX = _speed;
+        _maxVelocityX = _config.Speed;
+
+        _contactFilter.useTriggers = false;
+        _contactFilter.SetLayerMask(LayerMask);
+        _contactFilter.useLayerMask = true;
     }
 
     public void Reset()
@@ -59,10 +71,10 @@ public class Movement : MonoBehaviour
         _velocity = Vector2.zero;
     }
 
-    protected virtual void FixedUpdate()
+    public virtual void FixedTick()
     {
         if (Horizontal != 0)
-            _armature.transform.right = new Vector3(-Horizontal, 0);
+            Armature.transform.right = new Vector3(-Horizontal, 0);
 
         _velocity += _gravityModifier * Physics2D.gravity * Time.deltaTime;
         if (_inJump)
@@ -92,6 +104,7 @@ public class Movement : MonoBehaviour
     public void TryMove(float horizontal)
     {
         Horizontal = horizontal;
+        MoveDircetionChanged?.Invoke();
     }
 
     void Move(Vector2 move, bool yMovement)
@@ -100,7 +113,7 @@ public class Movement : MonoBehaviour
 
         if (distance > _minMoveDistance)
         {
-            int count = _rigidbody.Cast(move, _contactFilter, _hitBuffer, distance + _shellRadius);
+            int count = Rigidbody.Cast(move, _contactFilter, _hitBuffer, distance + _shellRadius);
 
             _hitBufferList.Clear();
 
@@ -131,27 +144,27 @@ public class Movement : MonoBehaviour
                 distance = modifiedDistance < distance ? modifiedDistance : distance;
             }
         }
-        _rigidbody.position = _rigidbody.position + move.normalized * distance;
+        Rigidbody.position = Rigidbody.position + move.normalized * distance;
     }
 
     public void TurnRight()
     {
-        _armature.transform.right = new Vector3(-1, 0);
+        Armature.transform.right = new Vector3(-1, 0);
     }
 
     public void TurnLeft()
     {
-        _armature.transform.right = new Vector3(1, 0);
+        Armature.transform.right = new Vector3(1, 0);
     }
 
     private bool TryJump()
     {
-        if (!_groundChecker.IsGrounded || !_canJump)
+        if (!GroundChecker.IsGrounded || !_canJump)
             return false;
 
         _canJump = false;
         _inJump = true;
-        StartCoroutine(JumpCooldown(_jumpCooldown));
+        MonoBehaviourPerformer.StartRoutine(JumpCooldown(_jumpCooldown));
 
         return true;
     }
@@ -160,20 +173,20 @@ public class Movement : MonoBehaviour
     {
         if (!TryJump())
             return;
-        _jumpVelocityX += _longJumpForce.x * -_armature.transform.right.x;
+        _jumpVelocityX += _longJumpForce.x * -Armature.transform.right.x;
         _velocity.y = _longJumpForce.y;
         _maxVelocityX = Mathf.Abs(_jumpVelocityX);
-        StartCoroutine(StopJump());
+        MonoBehaviourPerformer.StartRoutine(StopJump());
     }
 
     public void HighJump()
     {
         if (!TryJump())
             return;
-        _jumpVelocityX += _highJumpForce.x * _armature.transform.right.x;
+        _jumpVelocityX += _highJumpForce.x * Armature.transform.right.x;
         _velocity.y = _highJumpForce.y;
         _maxVelocityX = Mathf.Abs(_jumpVelocityX);
-        StartCoroutine(StopJump());
+        MonoBehaviourPerformer.StartRoutine(StopJump());
     }
 
     private IEnumerator JumpCooldown(float duration)
@@ -184,10 +197,10 @@ public class Movement : MonoBehaviour
 
     private IEnumerator StopJump()
     {
-        while (_groundChecker.IsGrounded == true)
+        while (GroundChecker.IsGrounded == true)
             yield return null;
 
-        while (_groundChecker.IsGrounded != true)
+        while (GroundChecker.IsGrounded != true)
             yield return null;
 
         _jumpVelocityX = 0;
@@ -197,7 +210,7 @@ public class Movement : MonoBehaviour
 
     public void AddExplosionForce(float explosionForce, Vector2 explosionPosition, float upwardsModifier = 0.0F)
     {
-        var explosionDir = (Vector2)transform.position - explosionPosition;
+        var explosionDir = (Vector2)Armature.transform.position - explosionPosition;
         var explosionDistance = explosionDir.magnitude;
 
         // Normalize without computing magnitude again
@@ -216,6 +229,6 @@ public class Movement : MonoBehaviour
 
         _velocity += Mathf.Lerp(0, explosionForce, (1 - explosionDistance)) * explosionDir;
         _jumpVelocityX = _velocity.x;
-        StartCoroutine(StopJump());
+        MonoBehaviourPerformer.StartRoutine(StopJump());
     }
 }

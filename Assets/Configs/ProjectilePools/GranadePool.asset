@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90901ac4677d6374a809dab9a6434d2e, type: 3}
   m_Name: GranadePool
   m_EditorClassIdentifier: 
-  _poolData:
-    <Prefab>k__BackingField: {fileID: 5684369949051167082, guid: 4f3628c156f77c844bbe0f1ef3703665, type: 3}
-    <Amount>k__BackingField: 1
+  _config: {fileID: 11400000, guid: 23f58b6c1977084489c0ec33bfaebb19, type: 2}
+  _amount: 1

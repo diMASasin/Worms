@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Projectiles;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.Mathematics;
 using Unity.VisualScripting.Dependencies.Sqlite;
@@ -34,10 +35,10 @@ public class FollowingCamera : MonoBehaviour
         _weaponSelector = weaponSelector;
 
         foreach (var weapon in _weaponSelector.WeaponList)
-        {
-            weapon.Shot += OnShot;
             weapon.ProjectileExploded += OnProjectileExploded;
-        }
+
+        foreach (var worm in _worms)
+            worm.WeaponView.Shot += OnShot;
 
         foreach (var team in _teams)
             team.TurnStarted += OnTurnStarted;
@@ -48,11 +49,12 @@ public class FollowingCamera : MonoBehaviour
 
     private void OnDestroy()
     {
-        foreach (var weapon in _weaponSelector.WeaponList)
-        {
-            weapon.Shot -= OnShot;
-            weapon.ProjectileExploded -= OnProjectileExploded;
-        }
+        if(_weaponSelector  != null)
+            foreach (var weapon in _weaponSelector.WeaponList)
+                weapon.ProjectileExploded -= OnProjectileExploded;
+
+        foreach (var worm in _worms)
+            worm.WeaponView.Shot += OnShot;
 
         foreach (var team in _teams)
             team.TurnStarted += OnTurnStarted;
@@ -98,9 +100,9 @@ public class FollowingCamera : MonoBehaviour
             SetTarget(worm.transform);
     }
 
-    private void OnShot(Projectile bomb)
+    private void OnShot(Projectile projectile, ProjectileView projectileView)
     {
-        SetTarget(bomb.transform);
+        SetTarget(projectileView.transform);
     }
 
     private void OnProjectileExploded(Projectile projectile, Worm worm)

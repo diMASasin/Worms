@@ -1440,7 +1440,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb1b145a5b65d8642ad613adb5c7c49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bootstrap: {fileID: 0}
   _teamHealthTemplate: {fileID: 9099762162616485809, guid: dd99d4230622cf74baa5bec06150583f, type: 3}
   _container: {fileID: 5443273103906108577}
 --- !u!1 &5757619453678985186
@@ -2483,7 +2482,7 @@ GameObject:
   - component: {fileID: 3274590452781633188}
   - component: {fileID: 3168566748854220583}
   - component: {fileID: 484738345078681874}
-  - component: {fileID: 4416270712339411556}
+  - component: {fileID: 3637413816262395200}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -2549,7 +2548,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4416270712339411556
+--- !u!114 &3637413816262395200
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2558,10 +2557,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7208384745570134372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10253cebfe6afe54f8fb31b127cbe4a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 92e990ceb9ee600478881d97aed36c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timerText: {fileID: 7826287529744306150}
+  _text: {fileID: 7826287529744306150}
 --- !u!1 &7693470645757062863
 GameObject:
   m_ObjectHideFlags: 0

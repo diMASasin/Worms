@@ -1,61 +1,64 @@
 using System;
 using UnityEngine;
 
-public class Timer
+namespace Timers
 {
-    private float _interval;
-    private float _timeLeft;
-    private bool _started = false;
-
-    private event Action OnElapsedAction;
-
-    public event Action<float> TimerUpdated;
-
-    public void SetInterval(float interval)
+    public class Timer
     {
-        _interval = interval;
-    }
+        private float _interval;
+        private float _timeLeft;
+        private bool _started = false;
 
-    public void Start(float interval, Action onElapsed)
-    {
-        SetInterval(interval);
-        Reset();
-        _started = true;
+        private event Action OnElapsedAction;
 
-        TimerUpdated?.Invoke(_timeLeft);
-        OnElapsedAction = onElapsed;
-    }
+        public event Action<float> TimerUpdated;
 
-    public void Stop()
-    {
-        _started = false;
-    }
-
-    public void Continue()
-    {
-        _started = true;
-    }
-
-    public void Tick()
-    {
-        if (!_started) return;
-        
-        _timeLeft -= Time.deltaTime;
-
-        if(_timeLeft <= 0)
+        public void SetInterval(float interval)
         {
-            _timeLeft = 0;
-            Stop();
-
-            OnElapsedAction?.Invoke();
+            _interval = interval;
         }
 
-        TimerUpdated?.Invoke(_timeLeft);
-    }
+        public void Start(float interval, Action onElapsed)
+        {
+            SetInterval(interval);
+            Reset();
+            _started = true;
 
-    private void Reset()
-    {
-        _timeLeft = _interval;
-        _started = false;
-    } 
+            TimerUpdated?.Invoke(_timeLeft);
+            OnElapsedAction = onElapsed;
+        }
+
+        public void Stop()
+        {
+            _started = false;
+        }
+
+        public void Continue()
+        {
+            _started = true;
+        }
+
+        public void Tick()
+        {
+            if (!_started) return;
+        
+            _timeLeft -= Time.deltaTime;
+
+            if(_timeLeft <= 0)
+            {
+                _timeLeft = 0;
+                Stop();
+
+                OnElapsedAction?.Invoke();
+            }
+
+            TimerUpdated?.Invoke(_timeLeft);
+        }
+
+        private void Reset()
+        {
+            _timeLeft = _interval;
+            _started = false;
+        } 
+    }
 }

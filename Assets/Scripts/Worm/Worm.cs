@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Configs;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,11 +13,14 @@ public class Worm : MonoBehaviour
     [SerializeField] private WormInformationView _wormInformationView;
     [SerializeField] private float _removeWeaponDelay = 0.5f;
     [SerializeField] private bool _showCanSpawnCheckerBox = false;
-    [SerializeField] private WormMovement _wormMovement;
+    [SerializeField] private MovementConfig _movementConfig;
+    [SerializeField] private Movement _wormMovement;
     [SerializeField] private WeaponView _weaponView;
     [SerializeField] private LayerMask _wormLayerMask;
     [SerializeField] private LayerMask _currentWormLayerMask;
     [SerializeField] private Arrow _arrow;
+    [SerializeField] private Transform _armature;
+    [SerializeField] private WormAnimations _wormAnimations;
 
     public int Health { get; private set; }
     public Weapon Weapon { get; private set; }
@@ -24,6 +28,7 @@ public class Worm : MonoBehaviour
 
     public CapsuleCollider2D Collider2D => _collider;
     public int MaxHealth => _maxHealth;
+    public WeaponView WeaponView => _weaponView;
 
     public event UnityAction<Worm> Died;
     public event UnityAction<Worm> DamageTook;
@@ -41,16 +46,21 @@ public class Worm : MonoBehaviour
 
         Health = _maxHealth;
 
-        _wormInformationView.Init(color, wormName);
-        Input = new PlayerInput(_wormMovement, this, _weaponView);
+        GroundChecker groundChecker = new(transform, Collider2D, _movementConfig.GroundCheckerConfig);
+        _wormMovement = new Movement(_rigidbody, _collider, _armature, groundChecker, _movementConfig);
 
+        Input = new PlayerInput(_wormMovement, this, _weaponView);
+        _wormInformationView.Init(color, wormName);
+        _wormAnimations.Init(groundChecker, _wormMovement);
+        
         Input.InputEnabled += SetRigidbodyDynamic;
         Input.InputDisabled += () => StartCoroutine(SetRigidbodyKinematicWhenGrounded());
     }
 
     private void Update()
     {
-        Input.Tick();
+        if(Input != null)
+            Input.Tick();
     }
 
     private void OnDestroy()
@@ -92,11 +102,11 @@ public class Worm : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (damage < 0)
+            throw ArgumentOutOfRangeException("damage should be greater then 0");
+
         Health -= damage;
         DamageTook?.Invoke(this);
-
-        if(Input.IsEnabled)
-            Input.DisableInput();
 
         if (Health <= 0)
             Die();
@@ -147,5 +157,10 @@ public class Worm : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         RemoveWeapon();
+    }
+
+    public void StartRoutine(IEnumerator enumerator)
+    {
+        StartCoroutine(enumerator);
     }
 }

@@ -1,27 +1,36 @@
+using System;
 using System.Collections.Generic;
+using Configs;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GroundChecker : MonoBehaviour
+[Serializable]
+public class GroundChecker : IFixedTickable
 {
-    [SerializeField] private Vector2 _size = new Vector2(0.3f, 0.01f);
-    [SerializeField] private Vector2 _offset = new Vector2(0, -0.05f);
-    [SerializeField] private bool _showGroundCheckerBox = true;
-    [SerializeField] private ContactFilter2D _contactFilter2D;
-    [SerializeField] private Collider2D _creature;
-
+    private Collider2D _collider;
     private List<Collider2D> _contacts = new();
+    private Transform _transform;
+    private GroundCheckerConfig _config;
 
     public bool IsGrounded { get; private set; }
 
     public event UnityAction<bool> IsGroundedChanged;
 
-    void FixedUpdate()
+    public GroundChecker(Transform transform, Collider2D collider, GroundCheckerConfig config)
     {
-        Physics2D.OverlapBox(GetPoint(), _size, 0, _contactFilter2D, _contacts);
+        _transform = transform;
+        _collider = collider;
+        _config = config;
 
-        if(_contacts.Contains(_creature))
-            _contacts.Remove(_creature);
+        MonoBehaviourPerformer.AddFixedTickable(this);
+    }
+
+    public void FixedTick()
+    {
+        Physics2D.OverlapBox(GetPoint(), _config.Size, 0, _config.ContactFilter2D, _contacts);
+
+        if(_contacts.Contains(_collider))
+            _contacts.Remove(_collider);
         IsGrounded = _contacts.Count > 0;
 
         IsGroundedChanged?.Invoke(IsGrounded);
@@ -29,12 +38,12 @@ public class GroundChecker : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if(_showGroundCheckerBox)
-            Gizmos.DrawCube(GetPoint(), _size);
+        if(_config.ShowGroundCheckerBox)
+            Gizmos.DrawCube(GetPoint(), _config.Size);
     }
 
     private Vector2 GetPoint()
     {
-        return (Vector2)transform.position + _offset;
+        return (Vector2)_transform.position + _config.Offset;
     }
 }

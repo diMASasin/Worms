@@ -11,10 +11,8 @@ GameObject:
   - component: {fileID: 3348539931435737142}
   - component: {fileID: 3348539931435737145}
   - component: {fileID: 1838867013107962990}
-  - component: {fileID: -4215568537623987006}
-  - component: {fileID: -8730287372045583300}
-  - component: {fileID: 5563427465032157669}
   - component: {fileID: -1604935569153123409}
+  - component: {fileID: 6606276600424097173}
   m_Layer: 8
   m_Name: Sheep
   m_TagString: Untagged
@@ -100,81 +98,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-4215568537623987006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3348539931435737147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4932143d5f374d84ca21f7cc2015c42b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: -1604935569153123409}
-  _rigidbody: {fileID: 1838867013107962990}
-  _speed: 2
-  _longJumpForce: {x: 3, y: 5}
-  _highJumpForce: {x: 2, y: 6}
-  _jumpCooldown: 0.5
-  _minGroundNormalY: 0.65
-  _gravityModifier: 1
-  _velocity: {x: 0, y: 0}
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 640
-  _armature: {fileID: 4920859619722031753}
-  _collider: {fileID: 3348539931435737145}
-  _groundChecker: {fileID: 5563427465032157669}
-  _jumpInterval: 1
---- !u!114 &-8730287372045583300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3348539931435737147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6278d6e0bf89e634284786f2752a0c3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rigidbody: {fileID: 1838867013107962990}
-  _collider2D: {fileID: 3348539931435737145}
-  _spriteObject: {fileID: 7410048026872486735}
-  <ProjectileConfig>k__BackingField: {fileID: 11400000, guid: 43822e07ea1144f4782473220d8b464b, type: 2}
-  _sheepMovement: {fileID: -4215568537623987006}
---- !u!114 &5563427465032157669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3348539931435737147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d86f3848b290dd409bd21edf9f29b27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _size: {x: 0.45, y: 0.01}
-  _offset: {x: 0, y: -0.3}
-  _showGroundCheckerBox: 1
-  _contactFilter2D:
-    useTriggers: 0
-    useLayerMask: 0
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 0
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
-  _creature: {fileID: 3348539931435737145}
 --- !u!95 &-1604935569153123409
 Animator:
   serializedVersion: 5
@@ -196,6 +119,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6606276600424097173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3348539931435737147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0688a72692db1409cfd4cc377abaf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collider: {fileID: 0}
+  _rigidbody: {fileID: 0}
 --- !u!1 &3348539933408502303
 GameObject:
   m_ObjectHideFlags: 0

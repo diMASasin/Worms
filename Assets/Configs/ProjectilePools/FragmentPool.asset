@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90901ac4677d6374a809dab9a6434d2e, type: 3}
   m_Name: FragmentPool
   m_EditorClassIdentifier: 
-  _poolData:
-    <Prefab>k__BackingField: {fileID: 2053213309425881357, guid: 2c945a0f4cabd55469f0fd6c9ab24d82, type: 3}
-    <Amount>k__BackingField: 5
+  _config: {fileID: 11400000, guid: 53d6a28f3513e2a47beec58bc6601bc0, type: 2}
+  _amount: 5

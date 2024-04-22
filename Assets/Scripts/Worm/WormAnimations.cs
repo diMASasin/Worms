@@ -3,19 +3,26 @@ using UnityEngine;
 public class WormAnimations : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
-    [SerializeField] private GroundChecker _groundChecker;
-    [SerializeField] private WormMovement _wormMovement;
 
-    private void OnEnable()
+    private GroundChecker _groundChecker;
+    private Movement _movement;
+
+    public void Init(GroundChecker groundChecker, Movement movement)
     {
+        _groundChecker = groundChecker;
+        _movement = movement;
+
         _groundChecker.IsGroundedChanged += OnGroundedChanged;
-        _wormMovement.IsWalkingChanged += OnWalkingChanged;
+        _movement.IsWalkingChanged += OnWalkingChanged;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
-        _groundChecker.IsGroundedChanged -= OnGroundedChanged;
-        _wormMovement.IsWalkingChanged -= OnWalkingChanged;
+        if(_groundChecker  != null)
+            _groundChecker.IsGroundedChanged -= OnGroundedChanged;
+
+        if(_movement != null)
+            _movement.IsWalkingChanged -= OnWalkingChanged;
     }
 
     private void OnGroundedChanged(bool isGrounded)

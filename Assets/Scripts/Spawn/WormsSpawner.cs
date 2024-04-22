@@ -1,6 +1,7 @@
 using ScriptBoy.Digable2DTerrain;
 using System;
 using System.Collections.Generic;
+using Configs;
 using Spawn;
 using UnityEngine;
 using UnityEngine.Events;
@@ -18,6 +19,8 @@ public class WormsSpawner : MonoBehaviour
     private Vector2[] _points;
     private readonly List<Edge> _edges = new();
     private readonly List<Worm> _wormsList = new();
+    private List<Worm> _teamWorms;
+    private GroundCheckerConfig _config;
 
     public List<Worm> WormsList => _wormsList;
     public int TeamsNumber => _spawnerData.TeamsNumber;
@@ -55,18 +58,21 @@ public class WormsSpawner : MonoBehaviour
 
     private Team SpawnTeam(int wormsNumber, Color teamColor, string teamName)
     {
-        List<Worm> teamWorms = new List<Worm>();
+         _teamWorms = new List<Worm>();
 
         for (int i = 0; i < wormsNumber; i++)
         {
             var newWorm = Instantiate(_wormTemplate, GetRandomPointForSpawn(), Quaternion.identity, transform);
+
+            newWorm.Init(teamColor, $"Worm {i + 1}");
             newWorm.SetRigidbodyKinematic();
+
             WormSpawned?.Invoke(newWorm);
-            teamWorms.Add(newWorm);
+            _teamWorms.Add(newWorm);
         }
 
-        _wormsList.AddRange(teamWorms);
-        var team = new Team(teamWorms, teamColor, teamName);
+        _wormsList.AddRange(_teamWorms);
+        var team = new Team(_teamWorms, teamColor, teamName);
 
         return team;
     }

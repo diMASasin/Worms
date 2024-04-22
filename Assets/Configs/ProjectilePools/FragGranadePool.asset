@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90901ac4677d6374a809dab9a6434d2e, type: 3}
   m_Name: FragGranadePool
   m_EditorClassIdentifier: 
-  _poolData:
-    <Prefab>k__BackingField: {fileID: 6329366681007544151, guid: d857403a6fff56940b40cff6657d3e5c, type: 3}
-    <Amount>k__BackingField: 1
+  _config: {fileID: 11400000, guid: 34b1f7f87a7141d4dab208497c51caf2, type: 2}
+  _amount: 1

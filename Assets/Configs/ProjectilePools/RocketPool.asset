@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90901ac4677d6374a809dab9a6434d2e, type: 3}
   m_Name: RocketPool
   m_EditorClassIdentifier: 
-  _poolData:
-    <Prefab>k__BackingField: {fileID: 5997132811028230352, guid: 296da707f5113a44c987799d77e2005a, type: 3}
-    <Amount>k__BackingField: 1
+  _config: {fileID: 11400000, guid: 741d26835fb274640b0d4e5dc8580aba, type: 2}
+  _amount: 1

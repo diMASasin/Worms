@@ -1,26 +1,19 @@
+using Projectiles;
+using Timers;
 using UnityEngine;
 
-public class SheepProjectile : Projectile
+public class SheepProjectile : IProjectileLauchModifier
 {
-    [SerializeField] private SheepMovement _sheepMovement;
+    private SheepMovement _sheepMovement;
 
-    private Timer _timer = new();
-
-    public override void Launch(float currentShotPower, Vector3 spawnPoint, Vector3 direction)
+    public SheepProjectile(SheepMovement sheepMovement)
     {
-        base.Launch(currentShotPower, spawnPoint, direction);
-
-        _sheepMovement.Reset();
-        _sheepMovement.TryMove(Velocity.x / Mathf.Abs(Velocity.x));
-
-        _timer.Start(ProjectileConfig.ExplodeDelay, Explode);
+        _sheepMovement = sheepMovement;
     }
 
-    private void Update()
+    public void OnLaunch(Vector2 velocity)
     {
-        _timer.Tick();
-
-        if (Input.GetKeyDown(KeyCode.Space))
-            Explode();
+        _sheepMovement.Reset();
+        _sheepMovement.TryMove(velocity.x / Mathf.Abs(velocity.x));
     }
 }

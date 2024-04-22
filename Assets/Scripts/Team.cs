@@ -31,7 +31,6 @@ public class Team
         for (int i = 0; i < _worms.Count; i++)
         {
             MaxHealth += _worms[i].MaxHealth;
-            _worms[i].Init(color, $"Worm {i + 1}");
             _worms[i].Died += OnWormDied;
             _worms[i].DamageTook += OnDamageTook;
         }

@@ -40,8 +40,11 @@ public class WeaponSelector : MonoBehaviour
 
     private void OnDestroy()
     {
-        _bootstrap.WormsSpawned -= OnWormsSpawned;
-        _game.TurnStarted -= OnTurnStarted;
+        if(_bootstrap  != null)
+            _bootstrap.WormsSpawned -= OnWormsSpawned;
+
+        if(_game != null)
+            _game.TurnStarted -= OnTurnStarted;
 
         foreach (var weapon in _weaponList)
             weapon.Shot -= OnWeaponShot;

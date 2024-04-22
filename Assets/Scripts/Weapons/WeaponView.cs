@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using Projectiles;
+using UnityEngine;
 
 public class WeaponView : MonoBehaviour
 {
@@ -7,10 +9,13 @@ public class WeaponView : MonoBehaviour
     [SerializeField] private Transform _pointerLine;
     [SerializeField] private SpriteRenderer _gunSprite;
     [SerializeField] private SpriteRenderer _aimSprite;
+    [SerializeField] private ProjectileView _projectileView;
 
     private Weapon _weapon;
 
     public Transform SpawnPoint => _spawnPoint;
+
+    public Action<Projectile, ProjectileView> Shot;
 
     private void Start()
     {
@@ -30,6 +35,9 @@ public class WeaponView : MonoBehaviour
         _gunSprite.enabled = true;
         _gunSprite.sprite = _weapon.Config.Sprite;
 
+        Projectile projectile = _weapon.Config.ProjectilePool.Pool.Get();
+        _projectileView.Init(projectile);
+
         _weapon.ShotPowerChanged += OnShotPowerChanged;
         _weapon.Shot += OnShot;
         _weapon.PointerLineEnabled += OnPointerLineEnabled;
@@ -45,6 +53,7 @@ public class WeaponView : MonoBehaviour
     private void OnShot(Projectile projectile)
     {
         Hide();
+        Shot?.Invoke(projectile, _projectileView);
     }
 
     private void OnShotPowerChanged(float currentShotPower)

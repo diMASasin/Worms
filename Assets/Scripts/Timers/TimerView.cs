@@ -1,3 +1,4 @@
+using Timers;
 using TMPro;
 using UnityEngine;
 
@@ -18,7 +19,8 @@ public class TimerView : MonoBehaviour
 
     private void OnDestroy()
     {
-        _globalTimer.TimerUpdated -= OnTimerUpdated;
+        if(_globalTimer != null)
+            _globalTimer.TimerUpdated -= OnTimerUpdated;
     }
 
     private void OnTimerUpdated(float timeLeft)

@@ -1,62 +1,81 @@
+using System;
 using Configs;
 using DefaultNamespace;
 using Pools;
-using ScriptBoy.Digable2DTerrain;
+using Projectiles;
 using UnityEngine;
-using UnityEngine.Events;
+using Random = UnityEngine.Random;
+using Timer = Timers.Timer;
 
-public abstract class Projectile : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
+    [SerializeField] private CircleCollider2D _collider;
     [SerializeField] private Rigidbody2D _rigidbody;
-    [SerializeField] private CircleCollider2D _collider2D;
-    [SerializeField] private GameObject _spriteObject;
+    [SerializeField] private Animator _animator;
 
-    [field: SerializeField] public ProjectileConfig ProjectileConfig { get; set; }
-
-    private ShovelWrapper _shovel;
     private bool _dead;
-    private ObjectPool<Explosion> _explosionPool;
     private Wind _wind;
-    
-    protected ProjectilePool FragmentsPool;
+    private readonly Timer _timer = new();
+    private IProjectileExplodeModifier _explodeModifier;
+    private ExplosionPool _explosionPool;
+    private IProjectileLauchModifier[] _launchModifiers;
 
+    public ProjectileConfig Config { get; private set; }
+    public Vector2 Velocity { get; private set; }
+
+    public Timer Timer => _timer;
     public Rigidbody2D Rigidbody2D => _rigidbody;
-    public Vector2 Velocity => _rigidbody.velocity;
-    public GameObject SpriteRenderer => _spriteObject;
+    public CircleCollider2D Collider2D => _collider;
 
-    public int Damage => ProjectileConfig.Damage;
-    public float ExplosionForce => ProjectileConfig.ExplosionForce;
-    public float ExplosionRadius => ProjectileConfig.ExplosionRadius;
-    public float ExplosionUpwardsModifier => ProjectileConfig.ExplosionUpwardsModifier;
+    public event Action<Projectile> Exploded;
+    public event Action LaunchedForward;
+    public event Action LaunchedInDirection;
+    public event Action<Quaternion> RotationChanged;
 
-    public event UnityAction<Projectile> Exploded;
-
-    public virtual void Init(ProjectileData projectileData) 
+    public virtual void Init(Wind wind, ProjectileConfig config, ExplosionPool explosionPool,
+        IProjectileExplodeModifier explodeModifier = null, IProjectileLauchModifier[] lauchModifiers = null) 
     {
-        _shovel = projectileData.Shovel;
-        _explosionPool = projectileData.ExplosionsPool;
-        _wind = projectileData.Wind;
-        FragmentsPool = projectileData.FragmentsPool;
-    }
+        _wind = wind;
+        Config = config;
+        _collider.radius = Config.ColliderRadius;
+        _explosionPool = explosionPool;
+        _animator.runtimeAnimatorController = config.AnimatorController;
 
-    protected virtual void FixedUpdate()
-    {
-        if(ProjectileConfig.WindInfluence)
-            _rigidbody.velocity += new Vector2(_wind.Velocity * Time.fixedDeltaTime, 0);
+        _explodeModifier = explodeModifier;
+        _launchModifiers = lauchModifiers;
     }
 
     public void Reset()
     {
-        _dead = false;
         _rigidbody.velocity = Vector2.zero;
+        Velocity = Vector2.zero;
+        _dead = false;
     }
 
-    public virtual void Launch(float currentShotPower, Vector3 spawnPoint, Vector3 direction)
+    private void Update()
     {
-        Reset();
+        if (Input.GetKeyDown(KeyCode.Space) && Config.ExplodeOnKeyDown)
+            Explode();
+    }
 
-        transform.position = spawnPoint;
-        SetVelocity(currentShotPower, direction);
+    protected virtual void FixedUpdate()
+    {
+        if (Config.WindInfluence)
+            InfluenceOnVelocityByWind();
+
+        if (Config.LookInVelocityDirection)
+            RotationChanged?.Invoke(Quaternion.LookRotation(Vector3.forward, _rigidbody.velocity));
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (Config.ExplodeOnCollision)
+            Explode();
+    }
+
+    public void InfluenceOnVelocityByWind()
+    {
+        _rigidbody.velocity += new Vector2(_wind.Velocity * Time.fixedDeltaTime, 0);
     }
     
     public void Explode()
@@ -65,22 +84,37 @@ public abstract class Projectile : MonoBehaviour
             return;
 
         _dead = true;
-        var position = transform.position;
-
-        _shovel.Dig(position, ProjectileConfig.ExplosionRadius);
 
         var explosion = _explosionPool.Get();
-        explosion.transform.position = position;
+        explosion.Explode(Config.ExplosionConfig, _collider.radius, transform.position);
 
-        explosion.Explode(Damage, _collider2D.radius, ExplosionForce, ExplosionUpwardsModifier, ExplosionRadius,
-            () => _explosionPool.Remove(explosion));
-
+        _explodeModifier?.OnExplode();
         Exploded?.Invoke(this);
     }
 
-    private void SetVelocity(float currentShotPower, Vector3 direction)
+    public virtual void LaunchForward(float shotPower, Vector3 spawnPoint)
     {
-        _rigidbody.velocity = currentShotPower * direction;
-        Debug.Log($"{_rigidbody.velocity} {currentShotPower} {direction}");
+        Launch(shotPower * transform.right, spawnPoint);
+        LaunchedForward?.Invoke();
+    }
+
+    public virtual void LaunchInDirection(Vector2 direction, Vector3 spawnPoint)
+    {
+        Launch(direction, spawnPoint);
+        LaunchedInDirection?.Invoke();
+    }
+
+    private void Launch(Vector2 velocity, Vector3 spawnPoint)
+    {
+        Reset();
+
+        if (Config.IsExplodeWithDelay)
+            _timer.Start(Config.ExplodeDelay, Explode);
+
+        transform.position = spawnPoint;
+        _rigidbody.velocity = velocity;
+
+        foreach (var launchModifier in _launchModifiers)
+            launchModifier?.OnLaunch(velocity);
     }
 }

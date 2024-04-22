@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Configs;
+using Timers;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,12 +10,10 @@ public class Game : IDisposable
 {
     private int _currentTeamIndex = -1;
     private readonly List<Team> _currentTeams;
-    private readonly ICoroutinePerformer _performer;
     private readonly List<Weapon> _weaponsList;
     private readonly Timer _afterShotTimer;
     private readonly Timer _turnTimer;
     private readonly Timer _globalTimer;
-    private readonly TimerView _timerView;
     private readonly Wind _wind;
     private readonly TimersConfig _timersConfig;
     private readonly Water _water;
@@ -24,11 +23,10 @@ public class Game : IDisposable
     public event UnityAction TurnStarted;
     public event UnityAction TurnEnd;
 
-    public Game(List<Team> currentTeams, ICoroutinePerformer performer, List<Weapon> weaponsList, TimersConfig timersConfig, 
+    public Game(List<Team> currentTeams, List<Weapon> weaponsList, TimersConfig timersConfig, 
         TimerView timerView, Water water, TimerView globalTimerView, Wind wind)
     {
         _currentTeams = currentTeams;
-        _performer = performer;
         _weaponsList = weaponsList;
         _timersConfig = timersConfig;
         _water = water;
@@ -77,9 +75,9 @@ public class Game : IDisposable
     public void NextTurn(float delay = 0)
     {
         EndTurn();
-        _performer.StartRoutine(WaitUntilProjectilesExplode(() =>
+        MonoBehaviourPerformer.StartRoutine(WaitUntilProjectilesExplode(() =>
         {
-            _performer.StartRoutine(DelayedStartNextTurn(delay));
+            MonoBehaviourPerformer.StartRoutine(DelayedStartNextTurn(delay));
         }));
     }
 

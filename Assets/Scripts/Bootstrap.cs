@@ -4,12 +4,13 @@ using System.Linq;
 using Configs;
 using DefaultNamespace;
 using DefaultNamespace.Wind;
+using Factories;
 using Pools;
 using ScriptBoy.Digable2DTerrain;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Bootstrap : MonoBehaviour, ICoroutinePerformer
+public class Bootstrap : MonoBehaviour
 {
     [SerializeField] private WeaponConfig[] _weaponConfigs;
     [SerializeField] private WeaponSelector _weaponSelector;
@@ -20,7 +21,6 @@ public class Bootstrap : MonoBehaviour, ICoroutinePerformer
     [SerializeField] private Shovel _shovel;
     [SerializeField] private Wind _wind;
     [SerializeField] private Transform _projectilesParent;
-    [SerializeField] private ObjectPoolData<Explosion> _explosionPoolData;
     [SerializeField] private ProjectilePool _fragmentsPool;
     [SerializeField] private WormsSpawner _wormsSpawner;
     [SerializeField] private EndScreen _endScreen;
@@ -30,10 +30,11 @@ public class Bootstrap : MonoBehaviour, ICoroutinePerformer
     [SerializeField] private WindEffect _windEffect;
     [SerializeField] private WindView _windView;
     [SerializeField] private TeamHealthView _teamHealthView;
+    [SerializeField] private Projectile _projectilePrefab;
+    [SerializeField] private ExplosionPool _explosionPool;
 
     private ShovelWrapper _shovelWrapper;
-    private ProjectileData _projectileData;
-    private ObjectPool<Explosion> _explosionPool;
+    private ProjectileFactory _projectileFactory;
     
     private Game _game;
     private List<Team> _teams;
@@ -56,8 +57,10 @@ public class Bootstrap : MonoBehaviour, ICoroutinePerformer
         InitializePools();
         CreateWeapon();
         Spawn();
+
+        _projectileFactory = new ProjectileFactory(_wind, _projectilePrefab, _projectilesParent, _explosionPool);
         
-        _game = new Game(_currentTeams, this, _weaponList, _timersConfig, _timerView, _water, _globalTimerView, _wind);
+        _game = new Game(_currentTeams, _weaponList, _timersConfig, _timerView, _water, _globalTimerView, _wind);
         
         _weaponSelector.Init(_weaponList, _game, this);
 
@@ -94,7 +97,8 @@ public class Bootstrap : MonoBehaviour, ICoroutinePerformer
 
     private void OnDestroy()
     {
-        _game.Dispose();
+        if (_game != null)
+            _game.Dispose();
 
         foreach (var team in _teams)
             team.Died -= OnTeamDied;
@@ -118,29 +122,16 @@ public class Bootstrap : MonoBehaviour, ICoroutinePerformer
 
     private void InitializePools()
     {
-        _explosionPool = new ObjectPool<Explosion>(_explosionPoolData.Prefab, _projectilesParent, _explosionPoolData.Amount);
-        _explosionPool.CreateObjects();
-
-        _projectileData = new ProjectileData(_explosionPool, _shovelWrapper, _wind, _fragmentsPool);
-        
-        _fragmentsPool.Init(_projectilesParent, _projectileData);
-        _fragmentsPool.Pool.CreateObjects();
+        _fragmentsPool.Init(_projectileFactory);
+        _explosionPool.Init(_projectilesParent, _shovelWrapper);
 
         foreach (var weaponConfig in _weaponConfigs)
-        {
-            weaponConfig.ProjectilePool.Init(_projectilesParent, _projectileData);
-            weaponConfig.ProjectilePool.Pool.CreateObjects();
-        }
+            weaponConfig.ProjectilePool.Init(_projectileFactory);
     }
 
     private void CreateWeapon()
     {
         foreach (var config in _weaponConfigs)
             _weaponList.Add(new Weapon(config));
-    }
-
-    public void StartRoutine(IEnumerator enumerator)
-    {
-        StartCoroutine(enumerator);
     }
 }

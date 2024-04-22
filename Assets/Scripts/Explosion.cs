@@ -1,5 +1,9 @@
 using System;
 using System.Collections;
+using Configs;
+using DefaultNamespace;
+using ScriptBoy.Digable2DTerrain;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class Explosion : MonoBehaviour
@@ -11,7 +15,14 @@ public class Explosion : MonoBehaviour
     private float _explosionUpwardsModifier;
     private int _damage;
     private float _projectileColliderRadius;
-    private Action _particleSystemStopped;
+    private ShovelWrapper _shovel;
+
+    public event Action<Explosion> AnimationStopped;
+
+    public void Init(ShovelWrapper shovel)
+    {
+        _shovel = shovel;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,7 +35,8 @@ public class Explosion : MonoBehaviour
 
     private int CalculateDamage(int maxDamage, Collider2D wormCollider)
     {
-        float multiplier = 1 - (Vector3.Distance(transform.position, wormCollider.ClosestPoint(transform.position)) - _projectileColliderRadius);
+        float multiplier = 1 - (Vector3.Distance(transform.position, 
+            wormCollider.ClosestPoint(transform.position)) - _projectileColliderRadius);
         multiplier = Mathf.Clamp01(multiplier);
         if (multiplier >= 0.9f)
             multiplier = 1;
@@ -32,24 +44,27 @@ public class Explosion : MonoBehaviour
         return Convert.ToInt32(maxDamage * multiplier);
     }
 
-    public void Explode(int damage, float projectileColliderRadius, float explosionForce, 
-        float explosionUpwardsModifier, float explosionRadius, Action onParticleSystemStopped = null)
+    public void Explode(ExplosionConfig config, float colliderRadius, Vector3 newPosition)
     {
-        _projectileColliderRadius = projectileColliderRadius;
-        _explosionForce = explosionForce;
-        _explosionUpwardsModifier = explosionUpwardsModifier;
-        _collider.radius = explosionRadius;
+        _projectileColliderRadius = colliderRadius;
+        _explosionForce = config.ExplosionForce;
+        _explosionUpwardsModifier = config.ExplosionUpwardsModifier;
+        _collider.radius = config.ExplosionRadius;
+        _damage = config.Damage;
+
         _collider.enabled = true;
-        _damage = damage;
         transform.parent = null;
+
+        transform.position = newPosition;
         _explosionEffect.Play();
-        _particleSystemStopped = onParticleSystemStopped;
+        _shovel.Dig(transform.position, config.ExplosionRadius);
+
         StartCoroutine(DelayedDisable());
     }
 
     private void OnParticleSystemStopped()
     {
-        _particleSystemStopped?.Invoke();
+        AnimationStopped?.Invoke(this);
     }
 
     private IEnumerator DelayedDisable()
