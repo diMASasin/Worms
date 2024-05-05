@@ -2,7 +2,7 @@ using Projectiles;
 using Timers;
 using UnityEngine;
 
-public class SheepProjectile : IProjectileLauchModifier
+public class SheepProjectile : ILaunchBehaviour
 {
     private SheepMovement _sheepMovement;
 
@@ -14,6 +14,6 @@ public class SheepProjectile : IProjectileLauchModifier
     public void OnLaunch(Vector2 velocity)
     {
         _sheepMovement.Reset();
-        _sheepMovement.TryMove(velocity.x / Mathf.Abs(velocity.x));
+        _sheepMovement.TryMove(Mathf.Sign(velocity.x));
     }
 }

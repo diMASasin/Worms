@@ -1,3 +1,4 @@
+using System;
 using Configs;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,8 +10,9 @@ public class Weapon
     private Worm _worm;
     private float _currentShotPower = 0;
     private Transform _spawnPoint;
+    private float _zRotation;
 
-    private ProjectilePool ProjectilePool => _config.ProjectilePool;
+    public ProjectilePool ProjectilePool => _config.ProjectilePool;
 
     public bool IsShot { get; private set; } = false;
 
@@ -21,6 +23,7 @@ public class Weapon
     public event UnityAction<Projectile> Shot;
     public event UnityAction<float> ShotPowerChanged;
     public event UnityAction PointerLineEnabled;
+    public event Action<float> ScopeMoved;
 
     public Weapon(WeaponConfig config)
     {
@@ -33,7 +36,14 @@ public class Weapon
         _currentShotPower = 0;
     }
 
-    public void EnablePointerLine()
+    public void MoveScope(float direction)
+    {
+        _zRotation = -direction * Config.ScopeSensetivity;
+        //_zRotation = Mathf.Repeat(_zRotation, 720) - 360;
+        ScopeMoved?.Invoke(_zRotation);
+    }
+
+    public void StartIncresePower()
     {
         if (IsShot)
             return;
@@ -62,11 +72,12 @@ public class Weapon
         if (IsShot)
             return;
 
-        Projectile projectile = ProjectilePool.Pool.Get();
-        projectile.LaunchForward(_currentShotPower, _spawnPoint.position);
+        Projectile projectile = ProjectilePool.Get();
+        projectile.Launch(Vector2.one * _currentShotPower);
         projectile.Exploded += OnProjectileExploded;
 
         IsShot = true;
+        _currentShotPower = 0;
         Shot?.Invoke(projectile);
     }
 
@@ -75,7 +86,6 @@ public class Weapon
         Reset();
 
         _worm = worm;
-        _spawnPoint = spawnPoint;
     }
 
     private void OnProjectileExploded(Projectile projectile)

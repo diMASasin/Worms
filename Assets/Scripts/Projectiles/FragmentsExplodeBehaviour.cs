@@ -5,7 +5,7 @@ using ScriptBoy.Digable2DTerrain;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class FragmentsExplodeModifier : IProjectileExplodeModifier
+public class FragmentsExplodeBehaviour : IExplodeBehaviour
 {
     private readonly ProjectilePool _fragmentsPool;
     private readonly int _fragmentsAmount;
@@ -15,7 +15,7 @@ public class FragmentsExplodeModifier : IProjectileExplodeModifier
 
     public event Action<List<Projectile>> FragmentsRecieved;
 
-    public FragmentsExplodeModifier(ProjectilePool fragmentsPool, int fragmentsAmount, Transform spawnPoint)
+    public FragmentsExplodeBehaviour(ProjectilePool fragmentsPool, int fragmentsAmount, Transform spawnPoint)
     {
         _fragmentsPool = fragmentsPool;
         _fragmentsAmount = fragmentsAmount;
@@ -32,20 +32,12 @@ public class FragmentsExplodeModifier : IProjectileExplodeModifier
     {
         for (int i = 0; i < _fragmentsAmount; i++)
         {
-            var fragment = _fragmentsPool.Pool.Get();
-            fragment.LaunchInDirection(new Vector2(Random.Range(-2f, 2f), Random.Range(4f, 6f)), _spawnPoint.position);
+            var fragment = _fragmentsPool.Get();
+            fragment.Launch(new Vector2(Random.Range(-2f, 2f), Random.Range(4f, 6f)));
 
             _fragments.Add(fragment);
-
-            fragment.Exploded += Remove;
         }
 
         return _fragments;
-    }
-
-    private void Remove(Projectile projectile)
-    {
-        projectile.Exploded -= Remove;
-        _fragmentsPool.OnRemoved(projectile);
     }
 }

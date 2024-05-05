@@ -4,6 +4,7 @@ using Configs;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
+using Weapons;
 
 public class Worm : MonoBehaviour
 {
@@ -22,17 +23,20 @@ public class Worm : MonoBehaviour
     [SerializeField] private Transform _armature;
     [SerializeField] private WormAnimations _wormAnimations;
 
+    private GroundChecker _groundChecker;
+
     public int Health { get; private set; }
     public Weapon Weapon { get; private set; }
-    public PlayerInput Input { get; private set; }
 
     public CapsuleCollider2D Collider2D => _collider;
     public int MaxHealth => _maxHealth;
     public WeaponView WeaponView => _weaponView;
+    public Movement Movement => _wormMovement;
 
     public event UnityAction<Worm> Died;
     public event UnityAction<Worm> DamageTook;
     public event Action<Weapon> WeaponChanged;
+    public event Action<Color, string> Initialized;
 
     private void OnDrawGizmos()
     {
@@ -46,27 +50,23 @@ public class Worm : MonoBehaviour
 
         Health = _maxHealth;
 
-        GroundChecker groundChecker = new(transform, Collider2D, _movementConfig.GroundCheckerConfig);
-        _wormMovement = new Movement(_rigidbody, _collider, _armature, groundChecker, _movementConfig);
+        _groundChecker = new GroundChecker(transform, Collider2D, _movementConfig.GroundCheckerConfig);
+        _wormMovement = new Movement(_rigidbody, _collider, _armature, _groundChecker, _movementConfig);
 
-        Input = new PlayerInput(_wormMovement, this, _weaponView);
         _wormInformationView.Init(color, wormName);
-        _wormAnimations.Init(groundChecker, _wormMovement);
-        
-        Input.InputEnabled += SetRigidbodyDynamic;
-        Input.InputDisabled += () => StartCoroutine(SetRigidbodyKinematicWhenGrounded());
+        _wormAnimations.Init(_groundChecker, _wormMovement);
+
+        Initialized?.Invoke(color, wormName);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if(Input != null)
-            Input.Tick();
+        _wormMovement.FixedTick();
+        _groundChecker.FixedTick();
     }
 
     private void OnDestroy()
     {
-        Input.InputEnabled -= SetRigidbodyDynamic;
-        Input.InputDisabled -= () => StartCoroutine(SetRigidbodyKinematicWhenGrounded());
     }
 
     public void SetRigidbodyKinematic()
@@ -74,14 +74,13 @@ public class Worm : MonoBehaviour
         _rigidbody.bodyType = RigidbodyType2D.Kinematic;
     }
 
-    private void SetRigidbodyDynamic()
+    public void SetRigidbodyDynamic()
     {
         _rigidbody.bodyType = RigidbodyType2D.Dynamic;
     }
 
     public void OnTurnStarted()
     {
-        Input.EnableInput();
         gameObject.layer = (int)math.log2(_currentWormLayerMask.value);
         _arrow.StartMove();
     }
@@ -89,7 +88,6 @@ public class Worm : MonoBehaviour
     public void OnTurnEnd()
     {
         RemoveWeaponWithDelay();
-        Input.DisableInput();
         gameObject.layer = (int)math.log2(_wormLayerMask.value);
     }
 
@@ -103,7 +101,7 @@ public class Worm : MonoBehaviour
     public void TakeDamage(int damage)
     {
         if (damage < 0)
-            throw ArgumentOutOfRangeException("damage should be greater then 0");
+            throw new ArgumentOutOfRangeException("damage should be greater then 0. damage = " + damage);
 
         Health -= damage;
         DamageTook?.Invoke(this);
@@ -121,21 +119,19 @@ public class Worm : MonoBehaviour
 
     public void ChangeWeapon(Weapon weapon)
     {
+        Weapon = weapon;
+
         if (Weapon != null)
         {
-            if (Weapon.IsShot)
-                return;
-
-            RemoveWeapon();
+            Weapon.OnAssigned(this, _weaponView.SpawnPoint, _weaponView.transform);
+            _weaponView.OnWeaponChanged(Weapon);
+            WeaponPresenter presenter = new WeaponPresenter(Weapon, _weaponView);
         }
 
-        Weapon = weapon;
-        Weapon.OnAssigned(this, _weaponView.SpawnPoint, _weaponView.transform);
-        _weaponView.OnGunChanged(Weapon);
         WeaponChanged?.Invoke(Weapon);
     }
 
-    private IEnumerator SetRigidbodyKinematicWhenGrounded()
+    public IEnumerator SetRigidbodyKinematicWhenGrounded()
     {
         while (_rigidbody.velocity.magnitude != 0)
             yield return null;
@@ -145,22 +141,17 @@ public class Worm : MonoBehaviour
 
     private void RemoveWeaponWithDelay()
     {
-        StartCoroutine(DelayedRemoveWeapon(_removeWeaponDelay));
+        StartCoroutine(DelayedRemoveWeapon());
     }
 
     private void RemoveWeapon()
     {
-        Weapon = null;
+        ChangeWeapon(null);
     }
 
-    private IEnumerator DelayedRemoveWeapon(float delay)
+    private IEnumerator DelayedRemoveWeapon()
     {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(_removeWeaponDelay);
         RemoveWeapon();
-    }
-
-    public void StartRoutine(IEnumerator enumerator)
-    {
-        StartCoroutine(enumerator);
     }
 }

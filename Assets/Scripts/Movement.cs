@@ -164,7 +164,7 @@ public class Movement
 
         _canJump = false;
         _inJump = true;
-        MonoBehaviourPerformer.StartRoutine(JumpCooldown(_jumpCooldown));
+        CoroutinePerformer.StartRoutine(JumpCooldown(_jumpCooldown));
 
         return true;
     }
@@ -176,7 +176,7 @@ public class Movement
         _jumpVelocityX += _longJumpForce.x * -Armature.transform.right.x;
         _velocity.y = _longJumpForce.y;
         _maxVelocityX = Mathf.Abs(_jumpVelocityX);
-        MonoBehaviourPerformer.StartRoutine(StopJump());
+        CoroutinePerformer.StartRoutine(StopJump());
     }
 
     public void HighJump()
@@ -186,7 +186,7 @@ public class Movement
         _jumpVelocityX += _highJumpForce.x * Armature.transform.right.x;
         _velocity.y = _highJumpForce.y;
         _maxVelocityX = Mathf.Abs(_jumpVelocityX);
-        MonoBehaviourPerformer.StartRoutine(StopJump());
+        CoroutinePerformer.StartRoutine(StopJump());
     }
 
     private IEnumerator JumpCooldown(float duration)
@@ -229,6 +229,6 @@ public class Movement
 
         _velocity += Mathf.Lerp(0, explosionForce, (1 - explosionDistance)) * explosionDir;
         _jumpVelocityX = _velocity.x;
-        MonoBehaviourPerformer.StartRoutine(StopJump());
+        CoroutinePerformer.StartRoutine(StopJump());
     }
 }

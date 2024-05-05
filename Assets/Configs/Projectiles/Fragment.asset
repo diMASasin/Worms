@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b24a7341fcffd6448f37959cf406c28, type: 3}
   m_Name: Fragment
   m_EditorClassIdentifier: 
-  <ColliderRadius>k__BackingField: 1
+  <ColliderRadius>k__BackingField: 0.05
   <Sprite>k__BackingField: {fileID: -303267400, guid: 3bb1fadd136a96f42b94902a40eace8b, type: 3}
   <AnimatorController>k__BackingField: {fileID: 0}
   <WindInfluence>k__BackingField: 1
   <LookInVelocityDirection>k__BackingField: 0
-  <RandomizedTorqueForce>k__BackingField:
+  <TorqueRange>k__BackingField:
     <StartValue>k__BackingField: 0
     <EndValue>k__BackingField: 0
   <ExplosionConfig>k__BackingField: {fileID: 11400000, guid: 04fad1efc13d81148a61794af9134088, type: 2}

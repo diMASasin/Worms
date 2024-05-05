@@ -9,20 +9,20 @@ namespace Projectiles
     {
         [SerializeField] private ProjectileView _projectileViewPrefab;
 
-        private FragmentsExplodeModifier _fragmentsExplodeModifier;
+        private FragmentsExplodeBehaviour _fragmentsExplodeBehaviour;
         private ObjectPool<ProjectileView> _projectileViewPool;
         private Transform _projectileViewPosition;
 
         private List<Projectile> _fragments = new();
 
-        public void Init(FragmentsExplodeModifier fragmentsExplodeModifier, Transform projectileViewPosition)
+        public void Init(FragmentsExplodeBehaviour fragmentsExplodeBehaviour, Transform projectileViewPosition)
         {
-            _fragmentsExplodeModifier = fragmentsExplodeModifier;
+            _fragmentsExplodeBehaviour = fragmentsExplodeBehaviour;
             _projectileViewPosition = projectileViewPosition;
 
             _projectileViewPool = new ObjectPool<ProjectileView>(CreateProjectileView);
 
-            _fragmentsExplodeModifier.FragmentsRecieved += ReleaseFragments;
+            _fragmentsExplodeBehaviour.FragmentsRecieved += ReleaseFragments;
         }
 
         private void OnExploded(ProjectileView projectileView)
@@ -47,7 +47,7 @@ namespace Projectiles
 
         private void ReleaseFragments(List<Projectile> fragments)
         {
-            _fragmentsExplodeModifier.FragmentsRecieved -= ReleaseFragments;
+            _fragmentsExplodeBehaviour.FragmentsRecieved -= ReleaseFragments;
 
             _fragments = fragments;
 

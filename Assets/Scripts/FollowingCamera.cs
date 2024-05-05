@@ -1,8 +1,6 @@
 using System.Collections.Generic;
+using Pools;
 using Projectiles;
-using Unity.Collections.LowLevel.Unsafe;
-using Unity.Mathematics;
-using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
@@ -14,11 +12,10 @@ public class FollowingCamera : MonoBehaviour
     [SerializeField] private int _maxPosition = 15;
     [SerializeField] private Vector2 _offset;
 
-    private WeaponSelector _weaponSelector;
     private Game _game;
     private Transform _target;
+    private ProjectileViewPool _viewPool;
 
-    private IReadOnlyList<Team> _teams;
     private IReadOnlyList<Worm> _worms;
 
     private Vector3 CameraPosition
@@ -27,61 +24,68 @@ public class FollowingCamera : MonoBehaviour
         set => _camera.transform.position = value;
     }
 
-    public void Init(Game game, WeaponSelector weaponSelector, IReadOnlyList<Team> teams, IReadOnlyList<Worm> worms)
+    public void Init(Game game, IReadOnlyList<Worm> worms, ProjectileViewPool viewPool)
     {
         _game = game;
-        _teams = teams;
         _worms = worms;
-        _weaponSelector = weaponSelector;
-
-        foreach (var weapon in _weaponSelector.WeaponList)
-            weapon.ProjectileExploded += OnProjectileExploded;
-
-        foreach (var worm in _worms)
-            worm.WeaponView.Shot += OnShot;
-
-        foreach (var team in _teams)
-            team.TurnStarted += OnTurnStarted;
+        _viewPool = viewPool;
 
         foreach (var worm in _worms)
             worm.DamageTook += OnDamageTook;
+
+        _game.TurnStarted += OnTurnStarted;
+        _viewPool.Got += OnProjectileLaunched;
+        _viewPool.Released += OnProjectileExploded;
     }
 
     private void OnDestroy()
     {
-        if(_weaponSelector  != null)
-            foreach (var weapon in _weaponSelector.WeaponList)
-                weapon.ProjectileExploded -= OnProjectileExploded;
-
         foreach (var worm in _worms)
-            worm.WeaponView.Shot += OnShot;
+            worm.DamageTook -= OnDamageTook;
 
-        foreach (var team in _teams)
-            team.TurnStarted += OnTurnStarted;
-
-        foreach (var worm in _worms)
-            worm.DamageTook += OnDamageTook;
+        _game.TurnStarted -= OnTurnStarted;
+        _viewPool.Got -= OnProjectileLaunched;
+        _viewPool.Released -= OnProjectileExploded;
     }
 
     private void Update()
     {
-        if (Input.mouseScrollDelta.y < 0 && CameraPosition.z > _minPosition || Input.mouseScrollDelta.y > 0 && CameraPosition.z < _maxPosition)
+        TryZoom();
+    }
+
+    private void FixedUpdate()
+    {
+        if (_target != null)
+            FollowTarget();
+    }
+
+    private void TryZoom()
+    {
+        if (Input.mouseScrollDelta.y < 0 && CameraPosition.z > _minPosition ||
+            Input.mouseScrollDelta.y > 0 && CameraPosition.z < _maxPosition)
             CameraPosition += new Vector3(0, 0, Input.mouseScrollDelta.y);
 
         float newPositionZ = Mathf.Clamp(CameraPosition.z, _minPosition, _maxPosition);
 
         CameraPosition = new Vector3(CameraPosition.x, CameraPosition.y, newPositionZ);
-    } 
+    }
 
-    private void FixedUpdate()
+    private void FollowTarget()
     {
-        if (!_target)
-            return;
-
         Vector3 newPosition = _target.position + (Vector3)_offset;
         newPosition.z = transform.position.z;
 
         CameraPosition = Vector3.Lerp(CameraPosition, newPosition, _speed * Time.deltaTime);
+    }
+
+    private void OnProjectileLaunched(ProjectileView projectileView)
+    {
+        SetTarget(projectileView.transform);
+    }
+
+    private void OnProjectileExploded(ProjectileView view)
+    {
+        SetTarget(_game.CurrentWorm.transform);
     }
 
     private void SetTarget(Transform target)
@@ -96,18 +100,7 @@ public class FollowingCamera : MonoBehaviour
 
     private void OnDamageTook(Worm worm)
     {
-        if (_game.TryGetCurrentTeam().TryGetCurrentWorm() != worm)
-            SetTarget(worm.transform);
-    }
-
-    private void OnShot(Projectile projectile, ProjectileView projectileView)
-    {
-        SetTarget(projectileView.transform);
-    }
-
-    private void OnProjectileExploded(Projectile projectile, Worm worm)
-    {
-        if(_game.TryGetCurrentTeam().TryGetCurrentWorm() != worm)
+        if (_game.CurrentWorm != worm)
             SetTarget(worm.transform);
     }
 }

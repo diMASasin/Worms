@@ -1,10 +1,9 @@
 ﻿using Configs;
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 namespace Projectiles
 {
-    public class ProjectileRotator : IProjectileLauchModifier
+    public class ProjectileRotator : ILaunchBehaviour
     {
         private readonly ProjectileConfig _config;
         private readonly Rigidbody2D _rigidbody2D;
@@ -19,8 +18,7 @@ namespace Projectiles
         {
             if (_config.LookInVelocityDirection == false)
             {
-                //5, 7
-                var torque = Random.Range(_config.RandomizedTorqueForce.StartValue, _config.RandomizedTorqueForce.EndValue);
+                var torque = Random.Range(_config.TorqueRange.StartValue, _config.TorqueRange.EndValue);
                 _rigidbody2D.AddTorque(Random.Range(-torque, torque));
             }
         }

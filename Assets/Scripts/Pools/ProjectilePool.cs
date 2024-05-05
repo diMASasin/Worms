@@ -1,7 +1,5 @@
 using System;
 using Configs;
-using Factories;
-using Pools;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -11,45 +9,50 @@ public class ProjectilePool : ScriptableObject
     [SerializeField] private ProjectileConfig _config;
     [SerializeField] private int _amount;
 
-    private ProjectileFactory _factory;
+    private ObjectPool<Projectile> _pool;
 
-    public ObjectPool<Projectile> Pool { get; private set; }
+    public ProjectileConfig Config => _config;
+
+    public event Action<Projectile, ProjectileConfig> Got;
+    public event Action Released;
 
     public static int Count { get; private set; }
 
-    public void Init(ProjectileFactory factory)
+    public void Init()
     {
-        _factory = factory;
-
-        Pool = new ObjectPool<Projectile>(OnCreated, OnGot, OnRemoved, OnDestroy, true, _amount);
+        _pool = new ObjectPool<Projectile>(OnCreated, OnGet, OnRelease, OnDestroy, true, _amount);
     }
 
     private void OnDestroy()
     {
-        Pool.Dispose();
+        _pool.Dispose();
     }
 
-    private void OnGot(Projectile projectile)
-    {
-        Count++;
-    }
+    public Projectile Get() => _pool.Get();
 
-    public void OnRemoved(Projectile projectile)
+    private void OnGet(Projectile projectile)
     {
         projectile.Reset();
+        Count++;
+        Got?.Invoke(projectile, _config);
+    }
+
+    private void OnRelease(Projectile projectile)
+    {
         Count--;
+        Released?.Invoke();
     }
 
     private Projectile OnCreated()
     {
-        Projectile projectile = _factory.GetProjectile(_config);
+        Projectile projectile = new();
         projectile.Exploded += OnExploded;
         return projectile;
     }
 
     private void OnExploded(Projectile projectile)
     {
-        Pool.Release(projectile);
+        _pool.Release(projectile);
     }
 
     private void OnDestroy(Projectile projectile)

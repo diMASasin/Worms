@@ -2,7 +2,7 @@
 
 namespace Projectiles
 {
-    public interface IProjectileLauchModifier
+    public interface ILaunchBehaviour
     {
         void OnLaunch(Vector2 velocity);
     }

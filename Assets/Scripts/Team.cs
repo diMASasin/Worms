@@ -18,7 +18,6 @@ public class Team
     public IReadOnlyList<Worm> Worms => _worms;
 
     public event UnityAction<Team> Died;
-    public event UnityAction<Worm, Team> TurnStarted;
     public event UnityAction<int> HealthChanged;
 
     public Team(List<Worm> worms, Color color, string teamName)
@@ -36,23 +35,26 @@ public class Team
         }
     }
 
-    public void StartTurn()
+    public bool TryGetNextWorm(out Worm worm)
     {
         _currentWormIndex++;
+
         if(_currentWormIndex >= _worms.Count)
             _currentWormIndex = 0;
 
-        Worm currentWorm = TryGetCurrentWorm();
-        currentWorm.OnTurnStarted();
-        TurnStarted?.Invoke(currentWorm, this);
+        TryGetCurrentWorm(out worm);
+
+        return worm != null;
     }
 
-    public Worm TryGetCurrentWorm()
+    public bool TryGetCurrentWorm(out Worm worm)
     {
         if (_currentWormIndex >= _worms.Count)
             _currentWormIndex = 0;
 
-        return _worms.Count == 0 ? null : _worms[_currentWormIndex];
+        worm = _worms.Count == 0 ? null : _worms[_currentWormIndex];
+
+        return worm != null;
     }
 
     private void OnWormDied(Worm worm)

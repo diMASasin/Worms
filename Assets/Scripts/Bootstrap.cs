@@ -1,14 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Configs;
-using DefaultNamespace;
 using DefaultNamespace.Wind;
-using Factories;
 using Pools;
+using Projectiles;
 using ScriptBoy.Digable2DTerrain;
+using Timers;
 using UnityEngine;
 using UnityEngine.Events;
+using Weapons;
 
 public class Bootstrap : MonoBehaviour
 {
@@ -19,7 +19,6 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private TimerView _timerView;
     [SerializeField] private Water _water;
     [SerializeField] private Shovel _shovel;
-    [SerializeField] private Wind _wind;
     [SerializeField] private Transform _projectilesParent;
     [SerializeField] private ProjectilePool _fragmentsPool;
     [SerializeField] private WormsSpawner _wormsSpawner;
@@ -30,11 +29,14 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private WindEffect _windEffect;
     [SerializeField] private WindView _windView;
     [SerializeField] private TeamHealthView _teamHealthView;
-    [SerializeField] private Projectile _projectilePrefab;
     [SerializeField] private ExplosionPool _explosionPool;
+    [SerializeField] private CoroutinePerformer _coroutinePerformer;
+    [SerializeField] private ProjectileViewPool _projectileViewPool;
 
+    private Wind _wind;
     private ShovelWrapper _shovelWrapper;
-    private ProjectileFactory _projectileFactory;
+    private WaterMediator _waterMediator;
+    private WindMediator _windMediator;
     
     private Game _game;
     private List<Team> _teams;
@@ -42,11 +44,17 @@ public class Bootstrap : MonoBehaviour
 
     private readonly List<Team> _currentTeams = new();
     private readonly List<Weapon> _weaponList = new();
+    private TimerMediator _timerMediator;
+    private Timer _globalTimer;
+    private Timer _turnTimer;
+    private PlayerInput _playerInput;
 
     public event UnityAction<List<Team>> WormsSpawned;
 
     private void Awake()
     {
+        _coroutinePerformer.Init();
+
         _shovelWrapper = new ShovelWrapper(_shovel);
         _teamHealthView.Init(this);
         
@@ -57,22 +65,60 @@ public class Bootstrap : MonoBehaviour
         InitializePools();
         CreateWeapon();
         Spawn();
-
-        _projectileFactory = new ProjectileFactory(_wind, _projectilePrefab, _projectilesParent, _explosionPool);
         
-        _game = new Game(_currentTeams, _weaponList, _timersConfig, _timerView, _water, _globalTimerView, _wind);
-        
-        _weaponSelector.Init(_weaponList, _game, this);
+        _game = new Game(_currentTeams);
 
-        _followingCamera.Init(_game, _weaponSelector, _currentTeams, _worms);
+        _globalTimer = new Timer();
+        _turnTimer = new Timer();
+        _globalTimerView.Init(_globalTimer, TimerFormattingStyle.MinutesAndSeconds);
+        _timerView.Init(_turnTimer, TimerFormattingStyle.Seconds);
+
+        _timerMediator = new TimerMediator(_globalTimer, _turnTimer, _timersConfig, _game, _weaponList);
+        _waterMediator = new WaterMediator(_water, _timerMediator, _game);
+        _windMediator = new WindMediator(_wind, _game, _weaponConfigs.Select(config => config.ProjectilePool));
+        _playerInput = new PlayerInput(_game);
+
+        _weaponSelector.Init(_weaponList, _game);
+
+        _followingCamera.Init(_game, _worms, _projectileViewPool);
         
         StartGame();
     }
 
+    private void OnEnable()
+    {
+        _game.GameEnd += OnGameEnd;
+
+        foreach (var team in _teams)
+            team.Died += OnTeamDied;
+
+        foreach (var worm in _worms)
+            worm.Died += OnWormDied;
+    }
+
+    private void OnDisable()
+    {
+        if (_game != null)
+            _game.GameEnd -= OnGameEnd;
+
+        if(_teams  != null)
+            foreach (var team in _teams)
+                team.Died -= OnTeamDied;
+
+        if(_worms != null)
+            foreach (var worm in _worms)
+                worm.Died -= OnWormDied;
+    }
+
+    private void OnGameEnd()
+    {
+        _endScreen.gameObject.SetActive(true);
+    }
+
     private void StartGame()
     {
-        WormsSpawned?.Invoke(_teams);
-        _game.NextTurn();
+        _game.StartGame();
+        _game.StartNextTurn();
     }
 
     private void Spawn()
@@ -80,53 +126,56 @@ public class Bootstrap : MonoBehaviour
         _wormsSpawner.GetEdgesForSpawn();
         _teams = _wormsSpawner.SpawnTeams();
         _worms = _wormsSpawner.WormsList;
+        WormsSpawned?.Invoke(_teams);
         
         _currentTeams.AddRange(_teams);
-
-        foreach (var team in _teams)
-            team.Died += OnTeamDied;
-
-        foreach (var worm in _wormsSpawner.WormsList)
-           worm.Died += OnWormDied;
     }
 
     private void Update()
     {
-        _game.Tick();
+        _globalTimer.Tick();
+        _turnTimer.Tick();
+        _playerInput.Tick();
+    }
+
+    private void FixedUpdate()
+    {
+        _windMediator.FixedTick();
     }
 
     private void OnDestroy()
     {
         if (_game != null)
+        {
             _game.Dispose();
-
-        foreach (var team in _teams)
-            team.Died -= OnTeamDied;
+            _waterMediator.Dispose();
+            _windMediator.Dispose();
+            _timerMediator.Dispose();
+        }
     }
 
     private void OnTeamDied(Team team)
     {
-        _currentTeams.Remove(team);
-
-        if (_currentTeams.Count <= 1)
-            _endScreen.gameObject.SetActive(true);
+        _currentTeams.Remove(team); 
     }
 
     private void OnWormDied(Worm worm)
     {
         worm.Died -= OnWormDied;
 
-        if (worm.Input.IsEnabled == true)
-            _game.NextTurn(_turnDelay);
+        if (_game.CurrentWorm == worm)
+            _game.StartNextTurn(_turnDelay);
     }
 
     private void InitializePools()
     {
-        _fragmentsPool.Init(_projectileFactory);
         _explosionPool.Init(_projectilesParent, _shovelWrapper);
 
+        _fragmentsPool.Init();
+        _projectileViewPool.Init(_projectilesParent, _explosionPool);
+
         foreach (var weaponConfig in _weaponConfigs)
-            weaponConfig.ProjectilePool.Init(_projectileFactory);
+            weaponConfig.ProjectilePool.Init();
     }
 
     private void CreateWeapon()

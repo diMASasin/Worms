@@ -21,8 +21,6 @@ public class GroundChecker : IFixedTickable
         _transform = transform;
         _collider = collider;
         _config = config;
-
-        MonoBehaviourPerformer.AddFixedTickable(this);
     }
 
     public void FixedTick()

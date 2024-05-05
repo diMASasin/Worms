@@ -9,4 +9,16 @@ public class FollowingObject : MonoBehaviour
     {
         transform.position = _followingFor.position + (Vector3)_offset;
     }
+
+    public void Connect()
+    {
+        transform.parent = _followingFor;
+        gameObject.SetActive(false);
+    }
+
+    public void Disonnect()
+    {
+        transform.parent = null;
+        transform.rotation = Quaternion.identity;
+    }
 }

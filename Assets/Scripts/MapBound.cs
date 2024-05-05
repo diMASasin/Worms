@@ -1,3 +1,4 @@
+using Projectiles;
 using UnityEngine;
 
 public class MapBound : MonoBehaviour
@@ -9,9 +10,9 @@ public class MapBound : MonoBehaviour
             worm.Die();
         }
 
-        if(collision.TryGetComponent(out Projectile projectile))
+        if(collision.TryGetComponent(out ProjectileView projectileView))
         {
-            projectile.Explode();
+            projectileView.OnCollidedWithMapBound();
         }
     }
 }

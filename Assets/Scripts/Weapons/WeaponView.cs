@@ -1,5 +1,7 @@
 ﻿using System;
+using Pools;
 using Projectiles;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class WeaponView : MonoBehaviour
@@ -9,13 +11,15 @@ public class WeaponView : MonoBehaviour
     [SerializeField] private Transform _pointerLine;
     [SerializeField] private SpriteRenderer _gunSprite;
     [SerializeField] private SpriteRenderer _aimSprite;
-    [SerializeField] private ProjectileView _projectileView;
+    [SerializeField] private ProjectileViewPool _pool;
 
     private Weapon _weapon;
 
     public Transform SpawnPoint => _spawnPoint;
+    public ProjectileViewPool ProjectileViewPool => _pool;
 
-    public Action<Projectile, ProjectileView> Shot;
+    public Action<Projectile> Shot;
+    public Action<Weapon> WeaponChanged;
 
     private void Start()
     {
@@ -27,7 +31,7 @@ public class WeaponView : MonoBehaviour
         TryUnsubscribeWeapon();
     }
 
-    public void OnGunChanged(Weapon weapon)
+    public void OnWeaponChanged(Weapon weapon)
     {
         TryUnsubscribeWeapon();
 
@@ -35,25 +39,27 @@ public class WeaponView : MonoBehaviour
         _gunSprite.enabled = true;
         _gunSprite.sprite = _weapon.Config.Sprite;
 
-        Projectile projectile = _weapon.Config.ProjectilePool.Pool.Get();
-        _projectileView.Init(projectile);
-
         _weapon.ShotPowerChanged += OnShotPowerChanged;
         _weapon.Shot += OnShot;
         _weapon.PointerLineEnabled += OnPointerLineEnabled;
+        _weapon.ScopeMoved += MoveScope;
 
         _aimSprite.enabled = true;
+
+        WeaponChanged?.Invoke(_weapon);
     }
 
-    public void MoveScope(float direction)
+    private void MoveScope(float zRotation)
     {
-        transform.Rotate(new Vector3(0, 0, -direction * _weapon.Config.ScopeSensetivity) * Time.deltaTime);
+        transform.Rotate(0, 0, zRotation * Time.deltaTime);
     }
 
     private void OnShot(Projectile projectile)
     {
         Hide();
-        Shot?.Invoke(projectile, _projectileView);
+        TryUnsubscribeWeapon();
+
+        Shot?.Invoke(projectile);
     }
 
     private void OnShotPowerChanged(float currentShotPower)
@@ -81,5 +87,6 @@ public class WeaponView : MonoBehaviour
         _weapon.ShotPowerChanged -= OnShotPowerChanged;
         _weapon.Shot -= OnShot;
         _weapon.PointerLineEnabled -= OnPointerLineEnabled;
+        _weapon.ScopeMoved -= MoveScope;
     }
 }

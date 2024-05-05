@@ -3,6 +3,7 @@ using Configs;
 using DefaultNamespace;
 using Pools;
 using TMPro;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,35 +11,82 @@ namespace Projectiles
 {
     public class ProjectileView : MonoBehaviour
     {
+        [SerializeField] private GameObject _spriteObject;
         [SerializeField] private SpriteRenderer _spriteRenderer;
-        [SerializeField] private Canvas _canvas;
         [SerializeField] private TMP_Text _text;
-        
-        private Projectile _projectile;
+        [SerializeField] private CircleCollider2D _collider;
+        [SerializeField] private Rigidbody2D _rigidbody;
+        [SerializeField] private Animator _animator;
+        [SerializeField] private FollowingObject _followingCanvas;
 
-        public void Init(Projectile projectile)
+        private ExplosionPool _explosionPool;
+
+        public CircleCollider2D Collider => _collider;
+        public Rigidbody2D Rigidbody => _rigidbody;
+
+        private ProjectileConfig _config;
+
+        public event Action<ProjectileView> Exploded;
+        public event Action CollidedWithMapBound;
+        public event Action<Collision2D> CollisionEnter;
+
+        public void Init(ProjectileConfig config, ExplosionPool explosionPool)
         {
-            _projectile = projectile;
-            _spriteRenderer.sprite = _projectile.Config.Sprite;
+            _config = config;
+            _spriteRenderer.sprite = _config.Sprite;
+            _explosionPool = explosionPool;
+            _collider.radius = _config.ColliderRadius;
+            _animator.runtimeAnimatorController = _config.AnimatorController;
 
-            _projectile.Exploded += OnExploded;
-            _projectile.Timer.TimerUpdated += OnTimerUpdated;
-            _projectile.RotationChanged += OnRotationChanged;
+            _followingCanvas.gameObject.SetActive(_config.IsExplodeWithDelay);
         }
 
-        private void OnRotationChanged(Quaternion rotation)
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            _spriteRenderer.transform.rotation = rotation;
+            CollisionEnter?.Invoke(collision);
         }
 
-        private void OnTimerUpdated(float timeLeft)
+        public void ResetView()
+        {
+            _rigidbody.velocity = Vector2.zero;
+        }
+
+        public void SetPosition(Transform spawnPoint)
+        {
+            transform.position = spawnPoint.position;
+            transform.right = spawnPoint.transform.right;
+        }
+
+        public void OnCollidedWithMapBound()
+        {
+            CollidedWithMapBound?.Invoke();
+        }
+
+        private void FixedUpdate()
+        {
+            if (_config.LookInVelocityDirection)
+                _spriteObject.transform.rotation = Quaternion.LookRotation(Vector3.forward, _rigidbody.velocity);
+        }
+
+        public void OnLaunched(Vector2 shotPower)
+        {
+            _followingCanvas.Disonnect();
+            _rigidbody.AddForce(shotPower * transform.right, ForceMode2D.Impulse);
+        }
+
+        public void UpdateText(float timeLeft)
         {
             _text.text = timeLeft.ToString();
         }
 
-        private void OnExploded(Projectile projectile)
+        public void Explode(Projectile projectile)
         {
-            _canvas.gameObject.SetActive(false);
+            _followingCanvas.Connect();
+            
+            var explosion = _explosionPool.Get();
+            explosion.Explode(_config.ExplosionConfig, _collider.radius, transform.position);
+
+            Exploded?.Invoke(this);
         }
     }
 }

@@ -1,9 +1,6 @@
 using System;
 using System.Collections;
 using Configs;
-using DefaultNamespace;
-using ScriptBoy.Digable2DTerrain;
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class Explosion : MonoBehaviour

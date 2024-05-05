@@ -13,7 +13,7 @@ namespace Configs
         [field: SerializeField] public AnimatorController AnimatorController { get; private set; }
         [field: SerializeField, Header("Behaviour")] public bool WindInfluence { get; private set; } = true;
         [field: SerializeField] public bool LookInVelocityDirection { get; private set; }
-        [field: SerializeField] public Range RandomizedTorqueForce { get; private set; }
+        [field: SerializeField] public Range TorqueRange { get; private set; }
         [field: SerializeField, Header("Explosion")] public ExplosionConfig ExplosionConfig { get; private set; }
         [field: SerializeField] public bool ExplodeOnCollision { get; private set; }
         [field: SerializeField] public bool ExplodeOnKeyDown { get; private set; }

@@ -6,25 +6,26 @@ public class PlayerInput : IDisposable
 {
     public bool IsEnabled { get; private set; } = false;
 
-    private Movement _movement;
-    private Worm _worm;
-    private readonly WeaponView _weaponView;
     private MainInput _input;
+    private readonly Game _game;
+    private Worm _worm;
     private Weapon _weapon;
+
+    private Movement _movement => _worm.Movement;
+    private WeaponView _weaponView => _worm.WeaponView;
 
     public event UnityAction InputEnabled;
     public event UnityAction InputDisabled;
 
-    public PlayerInput(Movement movement, Worm worm, WeaponView weaponView)
+    public PlayerInput(Game game)
     {
-        _movement = movement;
-        _worm = worm;
-        _weaponView = weaponView;
+        _game = game;
 
         _input = new MainInput();
 
-        _worm.WeaponChanged += OnWeaponChanged;
-        _worm.DamageTook += OnDamageTook;
+        _game.TurnStarted += OnTurnStarted;
+        _game.TurnEnd += OnTurnEnd;
+        
         _input.Main.TurnRight.performed += OnTurnRight;
         _input.Main.TurnLeft.performed += OnTurnLeft;
         _input.Main.LongJump.performed += OnLongJump;
@@ -36,8 +37,12 @@ public class PlayerInput : IDisposable
 
     public void Dispose()
     {
+        _game.TurnStarted -= OnTurnStarted;
+        _game.TurnEnd -= OnTurnEnd;
+
         _worm.WeaponChanged -= OnWeaponChanged;
         _worm.DamageTook -= OnDamageTook;
+        
         _input.Main.TurnRight.performed -= OnTurnRight;
         _input.Main.TurnLeft.performed -= OnTurnLeft;
         _input.Main.LongJump.performed -= OnLongJump;
@@ -48,18 +53,33 @@ public class PlayerInput : IDisposable
 
     public void Tick()
     {
-        //var canMove = _input.Main.DontMove.ReadValue<float>();
-        //if (canMove == 0)
+        bool canMove = _input.Main.DontMove.ReadValue<float>() == 0;
+        if (canMove == true)
             OnDirectionChanged();
 
         OnAimDirectionChanged();
         OnIncreaseShotPower();
     }
 
-    public void EnableInput()
+    private void OnTurnStarted(Worm worm, Team team)
+    {
+        ChangeWorm(worm, team);
+        EnableInput();
+    }
+
+    private void OnTurnEnd()
+    {
+        if(_worm == null)
+            return;
+        CoroutinePerformer.StartRoutine(_worm.SetRigidbodyKinematicWhenGrounded());
+        DisableInput();
+    }
+
+    private void EnableInput()
     {
         _input.Enable();
         IsEnabled = true;
+        _worm.SetRigidbodyDynamic();
         InputEnabled?.Invoke();
     }
 
@@ -69,6 +89,28 @@ public class PlayerInput : IDisposable
         IsEnabled = false;
         InputDisabled?.Invoke();
         _movement.Reset();
+    }
+
+    private void ChangeWorm(Worm newWorm, Team team)
+    {
+        if (_worm != null)
+        {
+            _worm.WeaponChanged -= OnWeaponChanged;
+            _worm.DamageTook -= OnDamageTook;
+        }
+
+        _worm = newWorm;
+
+        if (_worm != null)
+        {
+            _worm.WeaponChanged += OnWeaponChanged;
+            _worm.DamageTook += OnDamageTook;
+        }
+    }
+
+    private void OnWeaponChanged(Weapon weapon)
+    {
+        _weapon = weapon;
     }
 
     private void OnShoot(CallbackContext obj)
@@ -81,7 +123,7 @@ public class PlayerInput : IDisposable
         if (_weapon == null)
             return;
 
-        _weapon.EnablePointerLine();
+        _weapon.StartIncresePower();
     }
 
     private void OnHighJump(CallbackContext obj)
@@ -104,11 +146,6 @@ public class PlayerInput : IDisposable
         _movement.TurnLeft();
     }
 
-    private void OnWeaponChanged(Weapon weapon)
-    {
-        _weapon = weapon;
-    }
-
     private void OnDamageTook(Worm worm)
     {
         if(IsEnabled == true)
@@ -121,11 +158,14 @@ public class PlayerInput : IDisposable
             return;
 
         var direction = _input.Main.RaiseScope.ReadValue<float>();
-        _weaponView.MoveScope(direction);
+        _weapon.MoveScope(direction);
     }
 
     private void OnDirectionChanged()
     {
+        if(_worm == null)
+            return;
+
         var direction = _input.Main.Move.ReadValue<float>();
         _movement.TryMove(direction);
     }

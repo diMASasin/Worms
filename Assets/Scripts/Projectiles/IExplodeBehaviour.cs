@@ -1,6 +1,6 @@
 ﻿namespace Projectiles
 {
-    public interface IProjectileExplodeModifier
+    public interface IExplodeBehaviour
     {
         public void OnExplode();
     }

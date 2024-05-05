@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96854ed6ea505d34f81f1b9f49367683, type: 3}
   m_Name: MovementConfig
   m_EditorClassIdentifier: 
-  <Speed>k__BackingField: 1
-  <LongJumpForce>k__BackingField: {x: 5, y: 2}
-  <HighJumpForce>k__BackingField: {x: 2, y: 5}
+  <Speed>k__BackingField: 2
+  <LongJumpForce>k__BackingField: {x: 4, y: 4}
+  <HighJumpForce>k__BackingField: {x: 2, y: 6}
   <JumpCooldown>k__BackingField: 0.5
   <MinGroundNormalY>k__BackingField: 0.65
   <GravityModifier>k__BackingField: 1
