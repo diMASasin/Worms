@@ -1,53 +1,47 @@
 using System;
 using System.Collections.Generic;
+using EventProviders;
+using Factories;
 using UnityEngine;
 
-public class WeaponSelector : MonoBehaviour
+public class WeaponSelector : MonoBehaviour, IWeaponSelectedEventProvider
 {
-    [SerializeField] private WeaponSelectorItem _itemPrefab;
-    [SerializeField] private Transform _itemParent;
     [SerializeField] Animator _animator;
-
-    private List<Weapon> _weaponList;
-    private Game _game;
+    [SerializeField] private WeaponSelectorItemFactory _itemFactory;
+    [SerializeField] private Transform _itemContainer;
+    
     private bool _canOpen = false;
-    private List<WeaponSelectorItem> _items = new();
+    private IWeaponShotEventProvider _shotEvent;
+    private IGameEventsProvider _gameEvents;
+    private IWeaponSelectedEventProvider _selectedEvent;
+    private List<Weapon> _weaponList;
 
-    public IReadOnlyList<Weapon> WeaponList => _weaponList;
+    public event Action<Weapon> WeaponSelected;
 
-    public Action<Worm> TurnStarted;
-
-    public void Init(List<Weapon> weaponList, Game game)
+    public void Init(List<Weapon> weaponList, IWeaponShotEventProvider shotEvent,
+        IGameEventsProvider gameEvents)
     {
         _weaponList = weaponList;
-        _game = game;
+        _gameEvents = gameEvents;
+        _shotEvent = shotEvent;
+        _selectedEvent = _itemFactory;
+        
+        _itemFactory.Create(weaponList, _itemContainer);
 
-        foreach (var weapon in _weaponList)
-        {
-            WeaponSelectorItem weaponItem = Instantiate(_itemPrefab, _itemParent);
-            weaponItem.Selected += OnSelected;
-            weaponItem.Init(weapon);
-        }
-
-        _game.TurnStarted += OnTurnStarted;
-
-        foreach (var weapon in _weaponList)
-            weapon.Shot += OnWeaponShot;
+        _gameEvents.TurnStarted += OnTurnStarted;
+        _shotEvent.WeaponShot += OnWeaponShot;
+        _selectedEvent.WeaponSelected += OnSelected;
     }
-
-
+    
     private void OnDestroy()
     {
-        if(_game != null)
-            _game.TurnStarted -= OnTurnStarted;
+        if(_gameEvents != null) _gameEvents.TurnStarted -= OnTurnStarted;
 
-        if(_weaponList != null)
-            foreach (var weapon in _weaponList)
-                weapon.Shot -= OnWeaponShot;
+        if (_shotEvent != null) _shotEvent.WeaponShot -= OnWeaponShot;
 
-        if(_items != null)
-            foreach (var item in _items)
-                item.Selected -= OnSelected;
+        if (_selectedEvent != null) _selectedEvent.WeaponSelected -= OnSelected;
+        
+        _itemFactory.Dispose();
     }
 
     private void Update()
@@ -58,17 +52,17 @@ public class WeaponSelector : MonoBehaviour
         }
     }
 
-    public void Toggle()
+    private void OnSelected(Weapon weapon)
+    {
+        Close();
+        WeaponSelected?.Invoke(weapon);
+    }
+
+    private void Toggle()
     {
         _animator.SetBool("Opened", !_animator.GetBool("Opened"));
     }
-
-    private void OnSelected(Weapon weapon)
-    {
-        _game.CurrentWorm.ChangeWeapon(weapon);
-        Close();
-    }
-
+    
     private void Close()
     {
         _animator.SetBool("Opened", false);
@@ -80,7 +74,7 @@ public class WeaponSelector : MonoBehaviour
         _canOpen = true;
     }
 
-    private void OnWeaponShot(Projectile projectile)
+    private void OnWeaponShot(Weapon arg0)
     {
         _canOpen = false;
     }

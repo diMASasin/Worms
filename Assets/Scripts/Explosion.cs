@@ -41,9 +41,9 @@ public class Explosion : MonoBehaviour
         return Convert.ToInt32(maxDamage * multiplier);
     }
 
-    public void Explode(ExplosionConfig config, float colliderRadius, Vector3 newPosition)
+    public void Explode(ExplosionConfig config, float projectileColliderRadius, Vector3 newPosition)
     {
-        _projectileColliderRadius = colliderRadius;
+        _projectileColliderRadius = projectileColliderRadius;
         _explosionForce = config.ExplosionForce;
         _explosionUpwardsModifier = config.ExplosionUpwardsModifier;
         _collider.radius = config.ExplosionRadius;

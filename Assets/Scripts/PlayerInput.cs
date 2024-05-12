@@ -7,24 +7,24 @@ public class PlayerInput : IDisposable
     public bool IsEnabled { get; private set; } = false;
 
     private MainInput _input;
-    private readonly Game _game;
     private Worm _worm;
     private Weapon _weapon;
 
+    private readonly IGameEventsProvider _gameEvents;
+
     private Movement _movement => _worm.Movement;
-    private WeaponView _weaponView => _worm.WeaponView;
 
     public event UnityAction InputEnabled;
     public event UnityAction InputDisabled;
 
-    public PlayerInput(Game game)
+    public PlayerInput(IGameEventsProvider gameEvents)
     {
-        _game = game;
+        _gameEvents = gameEvents;
 
         _input = new MainInput();
 
-        _game.TurnStarted += OnTurnStarted;
-        _game.TurnEnd += OnTurnEnd;
+        _gameEvents.TurnStarted += OnTurnStarted;
+        _gameEvents.TurnEnd += OnTurnEnd;
         
         _input.Main.TurnRight.performed += OnTurnRight;
         _input.Main.TurnLeft.performed += OnTurnLeft;
@@ -37,8 +37,8 @@ public class PlayerInput : IDisposable
 
     public void Dispose()
     {
-        _game.TurnStarted -= OnTurnStarted;
-        _game.TurnEnd -= OnTurnEnd;
+        _gameEvents.TurnStarted -= OnTurnStarted;
+        _gameEvents.TurnEnd -= OnTurnEnd;
 
         _worm.WeaponChanged -= OnWeaponChanged;
         _worm.DamageTook -= OnDamageTook;
@@ -71,7 +71,7 @@ public class PlayerInput : IDisposable
     {
         if(_worm == null)
             return;
-        CoroutinePerformer.StartRoutine(_worm.SetRigidbodyKinematicWhenGrounded());
+        CoroutinePerformer.StartCoroutine(_worm.SetRigidbodyKinematicWhenGrounded());
         DisableInput();
     }
 

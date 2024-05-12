@@ -2,12 +2,11 @@
 using System.Linq;
 using Configs;
 using DefaultNamespace.Wind;
+using Factories;
 using Pools;
-using Projectiles;
 using ScriptBoy.Digable2DTerrain;
 using Timers;
 using UnityEngine;
-using UnityEngine.Events;
 using Weapons;
 
 public class Bootstrap : MonoBehaviour
@@ -28,59 +27,65 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private WindData _windData;
     [SerializeField] private WindEffect _windEffect;
     [SerializeField] private WindView _windView;
-    [SerializeField] private TeamHealthView _teamHealthView;
+    [SerializeField] private TeamHealthFactory _teamHealthFactory;
     [SerializeField] private ExplosionPool _explosionPool;
     [SerializeField] private CoroutinePerformer _coroutinePerformer;
-    [SerializeField] private ProjectileViewPool _projectileViewPool;
+    [SerializeField] private WeaponView _weaponView;
+    [SerializeField] private WeaponFactory _weaponFactory;
+    [SerializeField] private FollowingObject _followingTimerViewPrefab;
+    [SerializeField] private Worm _wormPrefab;
+    [SerializeField] private ProjectileFactory _projectileFactory;
 
+    private TeamFactory _teamFactory;
+    private WormFactory _wormFactory;
     private Wind _wind;
     private ShovelWrapper _shovelWrapper;
     private WaterMediator _waterMediator;
     private WindMediator _windMediator;
+    private WeaponPresenter _weaponPresenter;
     
     private Game _game;
     private List<Team> _teams;
     private List<Worm> _worms;
 
     private readonly List<Team> _currentTeams = new();
-    private readonly List<Weapon> _weaponList = new();
+    private List<Weapon> _weaponList = new();
     private TimerMediator _timerMediator;
     private Timer _globalTimer;
     private Timer _turnTimer;
     private PlayerInput _playerInput;
-
-    public event UnityAction<List<Team>> WormsSpawned;
 
     private void Awake()
     {
         _coroutinePerformer.Init();
 
         _shovelWrapper = new ShovelWrapper(_shovel);
-        _teamHealthView.Init(this);
         
         _wind = new Wind(_windData);
         _windEffect.Init(_wind);
         _windView.Init(_wind);
 
         InitializePools();
-        CreateWeapon();
-        Spawn();
         
-        _game = new Game(_currentTeams);
+        Spawn();
+        _game = new Game(_teams, _teamFactory, _timersConfig);
+        _wormFactory = new WormFactory(_wormPrefab);
+        _teamFactory = new TeamFactory(_wormFactory);
+
+        CreateWeapon();
+        _weaponSelector.Init(_weaponList, _weaponFactory, _game);
 
         _globalTimer = new Timer();
         _turnTimer = new Timer();
         _globalTimerView.Init(_globalTimer, TimerFormattingStyle.MinutesAndSeconds);
         _timerView.Init(_turnTimer, TimerFormattingStyle.Seconds);
 
-        _timerMediator = new TimerMediator(_globalTimer, _turnTimer, _timersConfig, _game, _weaponList);
+        _timerMediator = new TimerMediator(_globalTimer, _turnTimer, _timersConfig, _game, _weaponFactory);
         _waterMediator = new WaterMediator(_water, _timerMediator, _game);
         _windMediator = new WindMediator(_wind, _game, _weaponConfigs.Select(config => config.ProjectilePool));
         _playerInput = new PlayerInput(_game);
-
-        _weaponSelector.Init(_weaponList, _game);
-
-        _followingCamera.Init(_game, _worms, _projectileViewPool);
+        
+        _followingCamera.Init(_game, _projectileFactory, _wormFactory);
         
         StartGame();
     }
@@ -88,12 +93,8 @@ public class Bootstrap : MonoBehaviour
     private void OnEnable()
     {
         _game.GameEnd += OnGameEnd;
-
-        foreach (var team in _teams)
-            team.Died += OnTeamDied;
-
-        foreach (var worm in _worms)
-            worm.Died += OnWormDied;
+        _teamFactory.TeamDied += OnTeamDied;
+        _wormFactory.WormDied += OnWormDied;
     }
 
     private void OnDisable()
@@ -101,13 +102,11 @@ public class Bootstrap : MonoBehaviour
         if (_game != null)
             _game.GameEnd -= OnGameEnd;
 
-        if(_teams  != null)
-            foreach (var team in _teams)
-                team.Died -= OnTeamDied;
+        if (_teamFactory != null) 
+            _teamFactory.TeamDied -= OnTeamDied;
 
-        if(_worms != null)
-            foreach (var worm in _worms)
-                worm.Died -= OnWormDied;
+        if(_wormFactory != null)
+            _wormFactory.WormDied -= OnWormDied;
     }
 
     private void OnGameEnd()
@@ -123,12 +122,14 @@ public class Bootstrap : MonoBehaviour
 
     private void Spawn()
     {
-        _wormsSpawner.GetEdgesForSpawn();
-        _teams = _wormsSpawner.SpawnTeams();
-        _worms = _wormsSpawner.WormsList;
-        WormsSpawned?.Invoke(_teams);
+        _wormsSpawner.Init(_teamFactory);
+        _wormsSpawner.Spawn(out List<Worm> worms, out List<Team> teams);
+        
+        _worms = worms;
+        _teams = teams;
         
         _currentTeams.AddRange(_teams);
+        _teamHealthFactory.Create(_teams);
     }
 
     private void Update()
@@ -136,6 +137,7 @@ public class Bootstrap : MonoBehaviour
         _globalTimer.Tick();
         _turnTimer.Tick();
         _playerInput.Tick();
+        _game.Tick();
     }
 
     private void FixedUpdate()
@@ -161,8 +163,6 @@ public class Bootstrap : MonoBehaviour
 
     private void OnWormDied(Worm worm)
     {
-        worm.Died -= OnWormDied;
-
         if (_game.CurrentWorm == worm)
             _game.StartNextTurn(_turnDelay);
     }
@@ -170,17 +170,16 @@ public class Bootstrap : MonoBehaviour
     private void InitializePools()
     {
         _explosionPool.Init(_projectilesParent, _shovelWrapper);
-
-        _fragmentsPool.Init();
-        _projectileViewPool.Init(_projectilesParent, _explosionPool);
+        _fragmentsPool.Init(_followingTimerViewPrefab);
 
         foreach (var weaponConfig in _weaponConfigs)
-            weaponConfig.ProjectilePool.Init();
+            weaponConfig.ProjectilePool.Init(_followingTimerViewPrefab);
     }
 
     private void CreateWeapon()
     {
-        foreach (var config in _weaponConfigs)
-            _weaponList.Add(new Weapon(config));
+        _weaponList = _weaponFactory.Create(_weaponConfigs, _weaponView.SpawnPoint);
+
+        _weaponPresenter = new WeaponPresenter(_weaponView, _weaponSelector);
     }
 }

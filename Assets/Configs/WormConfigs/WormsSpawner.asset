@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d28b32c699b74516a799c0e6ccdb1a6d, type: 3}
+  m_Name: WormsSpawner
+  m_EditorClassIdentifier: 
+  <MaxSlope>k__BackingField: 45
+  <TeamConfigs>k__BackingField:
+  - {fileID: 11400000, guid: 2708661e3cd50884d9b41e519f3853a8, type: 2}
+  - {fileID: 11400000, guid: 2708661e3cd50884d9b41e519f3853a8, type: 2}
+  - {fileID: 11400000, guid: 2708661e3cd50884d9b41e519f3853a8, type: 2}
+  - {fileID: 11400000, guid: 2708661e3cd50884d9b41e519f3853a8, type: 2}

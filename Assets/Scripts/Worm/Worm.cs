@@ -4,33 +4,24 @@ using Configs;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
-using Weapons;
 
 public class Worm : MonoBehaviour
 {
-    [SerializeField] private int _maxHealth = 100;
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private CapsuleCollider2D _collider;
-    [SerializeField] private WormInformationView _wormInformationView;
-    [SerializeField] private float _removeWeaponDelay = 0.5f;
-    [SerializeField] private bool _showCanSpawnCheckerBox = false;
-    [SerializeField] private MovementConfig _movementConfig;
-    [SerializeField] private Movement _wormMovement;
-    [SerializeField] private WeaponView _weaponView;
-    [SerializeField] private LayerMask _wormLayerMask;
-    [SerializeField] private LayerMask _currentWormLayerMask;
     [SerializeField] private Arrow _arrow;
     [SerializeField] private Transform _armature;
     [SerializeField] private WormAnimations _wormAnimations;
 
+    private WormConfig _wormConfig;
+    private Movement _wormMovement;
     private GroundChecker _groundChecker;
 
     public int Health { get; private set; }
     public Weapon Weapon { get; private set; }
 
     public CapsuleCollider2D Collider2D => _collider;
-    public int MaxHealth => _maxHealth;
-    public WeaponView WeaponView => _weaponView;
+    public int MaxHealth => _wormConfig.MaxHealth;
     public Movement Movement => _wormMovement;
 
     public event UnityAction<Worm> Died;
@@ -40,21 +31,22 @@ public class Worm : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (_showCanSpawnCheckerBox)
+        if (_wormConfig.ShowCanSpawnCheckerBox)
             Gizmos.DrawSphere((Vector2)transform.position + Collider2D.offset, Collider2D.size.x / 2);
     }
 
-    public void Init(Color color, string wormName)
+    public void Init(Color color, string wormName, WormConfig config)
     {
+        _wormConfig = config;
         gameObject.name = wormName;
+        Health = _wormConfig.MaxHealth;
 
-        Health = _maxHealth;
+        _groundChecker = new GroundChecker(transform, Collider2D, _wormConfig.MovementConfig.GroundCheckerConfig);
+        _wormMovement = new Movement(_rigidbody, _collider, _armature, _groundChecker, _wormConfig.MovementConfig);
 
-        _groundChecker = new GroundChecker(transform, Collider2D, _movementConfig.GroundCheckerConfig);
-        _wormMovement = new Movement(_rigidbody, _collider, _armature, _groundChecker, _movementConfig);
-
-        _wormInformationView.Init(color, wormName);
         _wormAnimations.Init(_groundChecker, _wormMovement);
+        
+        SetRigidbodyKinematic();
 
         Initialized?.Invoke(color, wormName);
     }
@@ -81,14 +73,14 @@ public class Worm : MonoBehaviour
 
     public void OnTurnStarted()
     {
-        gameObject.layer = (int)math.log2(_currentWormLayerMask.value);
+        gameObject.layer = (int)math.log2(_wormConfig.CurrentWormLayerMask.value);
         _arrow.StartMove();
     }
 
     public void OnTurnEnd()
     {
         RemoveWeaponWithDelay();
-        gameObject.layer = (int)math.log2(_wormLayerMask.value);
+        gameObject.layer = (int)math.log2(_wormConfig.WormLayerMask.value);
     }
 
     public void AddExplosionForce(float explosionForce, Vector3 explosionPosition, float explosionUpwardsModifier)
@@ -121,12 +113,7 @@ public class Worm : MonoBehaviour
     {
         Weapon = weapon;
 
-        if (Weapon != null)
-        {
-            Weapon.OnAssigned(this, _weaponView.SpawnPoint, _weaponView.transform);
-            _weaponView.OnWeaponChanged(Weapon);
-            WeaponPresenter presenter = new WeaponPresenter(Weapon, _weaponView);
-        }
+        Weapon?.Reset();
 
         WeaponChanged?.Invoke(Weapon);
     }
@@ -151,7 +138,7 @@ public class Worm : MonoBehaviour
 
     private IEnumerator DelayedRemoveWeapon()
     {
-        yield return new WaitForSeconds(_removeWeaponDelay);
+        yield return new WaitForSeconds(_wormConfig.RemoveWeaponDelay);
         RemoveWeapon();
     }
 }

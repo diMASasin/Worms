@@ -1,3 +1,4 @@
+using Timers;
 using UnityEngine;
 
 public class Arrow : MonoBehaviour
@@ -9,7 +10,9 @@ public class Arrow : MonoBehaviour
     {
         gameObject.SetActive(true);
         _animator.SetTrigger("Move");
-        Invoke(nameof(Disable), _lifeTime);
+
+        Timer timer = new Timer();
+        timer.Start(_lifeTime, Disable);
     }
 
     private void Disable()

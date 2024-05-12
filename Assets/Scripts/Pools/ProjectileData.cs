@@ -1,9 +1,4 @@
-﻿using System;
-using DefaultNamespace;
-using ScriptBoy.Digable2DTerrain;
-using UnityEngine;
-
-namespace Pools
+﻿namespace Pools
 {
     public class ProjectileData
     {

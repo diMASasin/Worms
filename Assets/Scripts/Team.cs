@@ -1,30 +1,31 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Configs;
 using UnityEngine;
 using UnityEngine.Events;
 
 [Serializable]
 public class Team
 {
-    [field: SerializeField] public Color Color { get; private set; }
     [field: SerializeField] public string Name { get; private set; }
 
     private readonly List<Worm> _worms;
     private int _currentWormIndex = -1;
 
     public int MaxHealth { get; private set; }
+    public Color Color { get; private set; }
 
-    public IReadOnlyList<Worm> Worms => _worms;
+    public List<Worm> Worms => _worms;
 
     public event UnityAction<Team> Died;
     public event UnityAction<int> HealthChanged;
 
-    public Team(List<Worm> worms, Color color, string teamName)
+    public Team(List<Worm> worms, Color color, TeamConfig config)
     {
         _worms = worms;
         Color = color;
-        Name = teamName;
+        Name = config.Name;
         MaxHealth = 0;
 
         for (int i = 0; i < _worms.Count; i++)

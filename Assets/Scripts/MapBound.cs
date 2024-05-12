@@ -10,9 +10,9 @@ public class MapBound : MonoBehaviour
             worm.Die();
         }
 
-        if(collision.TryGetComponent(out ProjectileView projectileView))
+        if(collision.TryGetComponent(out Projectile projectile))
         {
-            projectileView.OnCollidedWithMapBound();
+            projectile.Explode();
         }
     }
 }

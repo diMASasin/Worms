@@ -1,7 +1,6 @@
 ﻿using System;
 using Pools;
 using Projectiles;
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 public class WeaponView : MonoBehaviour
@@ -11,60 +10,44 @@ public class WeaponView : MonoBehaviour
     [SerializeField] private Transform _pointerLine;
     [SerializeField] private SpriteRenderer _gunSprite;
     [SerializeField] private SpriteRenderer _aimSprite;
-    [SerializeField] private ProjectileViewPool _pool;
-
-    private Weapon _weapon;
+    [SerializeField] private ProjectilePool _pool;
 
     public Transform SpawnPoint => _spawnPoint;
-    public ProjectileViewPool ProjectileViewPool => _pool;
+    public ProjectilePool ProjectileViewPool => _pool;
 
     public Action<Projectile> Shot;
-    public Action<Weapon> WeaponChanged;
 
     private void Start()
     {
         Hide();
     }
 
-    private void OnDestroy()
+    public void EnableAimSprite()
     {
-        TryUnsubscribeWeapon();
-    }
-
-    public void OnWeaponChanged(Weapon weapon)
-    {
-        TryUnsubscribeWeapon();
-
-        _weapon = weapon;
-        _gunSprite.enabled = true;
-        _gunSprite.sprite = _weapon.Config.Sprite;
-
-        _weapon.ShotPowerChanged += OnShotPowerChanged;
-        _weapon.Shot += OnShot;
-        _weapon.PointerLineEnabled += OnPointerLineEnabled;
-        _weapon.ScopeMoved += MoveScope;
-
         _aimSprite.enabled = true;
-
-        WeaponChanged?.Invoke(_weapon);
     }
 
-    private void MoveScope(float zRotation)
+    public void SetGunSprite(Sprite sprite)
+    {
+        _gunSprite.enabled = true;
+        _gunSprite.sprite = sprite;
+    }
+
+    public void MoveScope(float zRotation)
     {
         transform.Rotate(0, 0, zRotation * Time.deltaTime);
     }
 
-    private void OnShot(Projectile projectile)
+    public void OnShot(Projectile projectile)
     {
         Hide();
-        TryUnsubscribeWeapon();
 
         Shot?.Invoke(projectile);
     }
 
-    private void OnShotPowerChanged(float currentShotPower)
+    public void OnShotPowerChanged(float normalizedShotPower)
     {
-        _pointerLine.localScale = new Vector3(currentShotPower / _weapon.Config.MaxShotPower, 1, 1);
+        _pointerLine.localScale = new Vector3(normalizedShotPower, 1, 1);
     }
 
     private void Hide()
@@ -74,19 +57,8 @@ public class WeaponView : MonoBehaviour
         _gunSprite.enabled = false;
     }
 
-    private void OnPointerLineEnabled()
+    public void OnPointerLineEnabled()
     {
         _pointerRenderer.enabled = true;
-    }
-
-    private void TryUnsubscribeWeapon()
-    {
-        if (_weapon == null)
-            return;
-        
-        _weapon.ShotPowerChanged -= OnShotPowerChanged;
-        _weapon.Shot -= OnShot;
-        _weapon.PointerLineEnabled -= OnPointerLineEnabled;
-        _weapon.ScopeMoved -= MoveScope;
     }
 }

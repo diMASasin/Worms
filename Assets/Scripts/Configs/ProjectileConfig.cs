@@ -1,5 +1,4 @@
-﻿using DefaultNamespace;
-using Pools;
+﻿using Pools;
 using UnityEditor.Animations;
 using UnityEngine;
 

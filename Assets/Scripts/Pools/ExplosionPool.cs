@@ -1,5 +1,4 @@
 ﻿using Configs;
-using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.Pool;
 using Object = UnityEngine.Object;
@@ -60,9 +59,9 @@ namespace Pools
             Count++;
         }
 
-        private void OnRelease(Explosion obj)
+        private void OnRelease(Explosion explosion)
         {
-            obj.gameObject.SetActive(false);
+            explosion.gameObject.SetActive(false);
             Count--;
         }
     }

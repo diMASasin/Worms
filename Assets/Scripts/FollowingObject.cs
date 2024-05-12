@@ -10,6 +10,12 @@ public class FollowingObject : MonoBehaviour
         transform.position = _followingFor.position + (Vector3)_offset;
     }
 
+    public void Connect(Transform target)
+    {
+        transform.parent = target;
+        gameObject.SetActive(false);
+    }
+    
     public void Connect()
     {
         transform.parent = _followingFor;

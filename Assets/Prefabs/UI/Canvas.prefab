@@ -3030,9 +3030,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba604a5049634e47a5a3ce0813cb3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemPrefab: {fileID: 1514001738307777156, guid: 7b5afda30d4fa704997d6f069d0ae1a5, type: 3}
-  _itemParent: {fileID: 8100309700855796054}
   _animator: {fileID: 4384166340188744801}
+  _itemFactory: {fileID: 11400000, guid: 1c028d9e372097a4c87a1d041000cd57, type: 2}
+  _itemContainer: {fileID: 0}
 --- !u!95 &4384166340188744801
 Animator:
   serializedVersion: 5

@@ -1,42 +1,98 @@
-using System;
+﻿using System;
 using Configs;
+using Timers;
 using UnityEngine;
 
-public class Projectile
+namespace Projectiles
 {
-    private bool _dead;
-    
-    public Vector2 Velocity { get; private set; }
-
-    public event Action<Projectile> Exploded;
-    public event Action Reseted;
-    public event Action<Vector2> Launched;
-
-    public void Reset()
+    public class WeaponChanger
     {
-        Reseted?.Invoke();
-        Velocity = Vector2.zero;
-        _dead = false;
     }
 
-    public void InfluenceOnVelocity(Vector2 additionalVelocity)
+    public class Projectile : MonoBehaviour
     {
-        Velocity += additionalVelocity;
-    }
-    
-    public void Explode()
-    {
-        if (_dead) 
-            return;
+        [SerializeField] private GameObject _spriteObject;
+        [SerializeField] private SpriteRenderer _spriteRenderer;
+        [SerializeField] private CircleCollider2D _collider;
+        [SerializeField] private Rigidbody2D _rigidbody;
+        [SerializeField] private Animator _animator;
 
-        _dead = true;
+        private ProjectileConfig _config;
+        private bool _dead;
 
-        Exploded?.Invoke(this);
-    }
+        public CircleCollider2D Collider => _collider;
+        public Rigidbody2D Rigidbody => _rigidbody;
+        
+        private event Action Reseted;
+        public event Action<Projectile> Exploded;
+        public event Action<Projectile, Vector2> Launched;
 
-    public void Launch(Vector2 velocity)
-    {
-        Velocity = velocity;
-        Launched?.Invoke(Velocity);
+        public void Init(ProjectileConfig config)
+        {
+            _config = config;
+            _spriteRenderer.sprite = _config.Sprite;
+            _collider.radius = _config.ColliderRadius;
+            _animator.runtimeAnimatorController = _config.AnimatorController;
+        }
+        
+        public void ResetProjectile()
+        {
+            Reseted?.Invoke();
+            _rigidbody.velocity = Vector2.zero;
+            _dead = false;
+        }
+        
+        public void InfluenceOnVelocity(Vector2 additionalVelocity)
+        {
+            _rigidbody.velocity += additionalVelocity;
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if(_config.ExplodeOnCollision)
+                Explode();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && _config.ExplodeOnKeyDown)
+                Explode();
+        }
+
+        private void FixedUpdate()
+        {
+            if (_config.LookInVelocityDirection)
+                _spriteObject.transform.rotation = Quaternion.LookRotation(Vector3.forward, _rigidbody.velocity);
+            // if (_config.LookInVelocityDirection)
+            //  _spriteObject.transform.right = _rigidbody.velocity;
+        }
+
+        public void ResetView()
+        {
+            _rigidbody.velocity = Vector2.zero;
+        }
+
+        public void Launch(Vector2 shotPower, Transform spawnPoint)
+        {
+            _rigidbody.AddForce(shotPower * transform.right, ForceMode2D.Impulse);
+
+            SetPosition(spawnPoint);
+            Launched?.Invoke(this, shotPower);
+        }
+
+        public void Explode()
+        {
+            if (_dead) 
+                return;
+
+            _dead = true;
+            Exploded?.Invoke(this);
+        }
+
+        private void SetPosition(Transform spawnPoint)
+        {
+            transform.position = spawnPoint.position;
+            transform.right = spawnPoint.transform.right;
+        }
     }
 }

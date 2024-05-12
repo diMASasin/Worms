@@ -1,47 +1,63 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Configs;
+using EventProviders;
+using Pools;
 using UnityEngine;
-using UnityEngine.Events;
+using GameBattleStateMachine;
+using GameBattleStateMachine.States;
 
-public class Game : IDisposable
+public class Game : IDisposable, IGameEventsProvider
 {
     private int _currentTeamIndex = -1;
-    private readonly List<Team> _currentTeams;
+    private readonly List<Team> _currentTeams = new();
+    private readonly ITeamDiedEventProvider _teamDiedEvent;
+    private readonly TimersConfig _timersConfig;
+    private BattleStateMachine _battleStateMachine; 
 
     public Worm CurrentWorm { get; private set; }
     public Team CurrentTeam { get; private set; }
 
-    public event UnityAction<Worm, Team> TurnStarted;
-    public event UnityAction TurnEnd;
+    public event Action <Worm, Team> TurnStarted;
+    public event Action TurnEnd;
     public event Action GameStarted;
     public event Action GameEnd;
 
-    public Game(List<Team> currentTeams)
+    public Game(IEnumerable<Team> teams, ITeamDiedEventProvider teamDiedEvent, TimersConfig timersConfig)
     {
-        _currentTeams = currentTeams;
-
-        foreach (var team in _currentTeams)
-            team.Died += OnTeamDied;
+        _currentTeams.AddRange(teams);
+        
+        _teamDiedEvent = teamDiedEvent;
+        _timersConfig = timersConfig;
+        
+        _battleStateMachine = new BattleStateMachine(timersConfig);
+        
+        _teamDiedEvent.TeamDied += OnTeamDied;
     }
 
     public void Dispose()
     {
-        foreach (var team in _currentTeams)
-            team.Died -= OnTeamDied;
+        _teamDiedEvent.TeamDied -= OnTeamDied;
     }
 
+    public void Tick()
+    {
+        _battleStateMachine.Tick();
+    }
+    
     public void StartGame()
     {
+        _battleStateMachine.SwitchState<BetweenTurnsState>();
         GameStarted?.Invoke();
     }
 
     public void StartNextTurn(float delay = 0)
     {
         EndTurn();
-        CoroutinePerformer.StartRoutine(WaitUntilProjectilesExplode(() =>
+        CoroutinePerformer.StartCoroutine(WaitUntilProjectilesExplode(() =>
         {
-            CoroutinePerformer.StartRoutine(DelayedStartNextTurn(delay));
+            CoroutinePerformer.StartCoroutine(DelayedStartNextTurn(delay));
         }));
     }
 

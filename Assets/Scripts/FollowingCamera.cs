@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Configs;
+using EventProviders;
 using Pools;
 using Projectiles;
 using UnityEngine;
@@ -14,9 +16,9 @@ public class FollowingCamera : MonoBehaviour
 
     private Game _game;
     private Transform _target;
-    private ProjectileViewPool _viewPool;
 
-    private IReadOnlyList<Worm> _worms;
+    private IProjectileEvents _projectileEvents;
+    private IWormEventsProvider _wormEvents;
 
     private Vector3 CameraPosition
     {
@@ -24,28 +26,24 @@ public class FollowingCamera : MonoBehaviour
         set => _camera.transform.position = value;
     }
 
-    public void Init(Game game, IReadOnlyList<Worm> worms, ProjectileViewPool viewPool)
+    public void Init(Game game, IProjectileEvents projectileEvents, IWormEventsProvider wormEvents)
     {
+        _wormEvents = wormEvents;
+        _projectileEvents = projectileEvents;
         _game = game;
-        _worms = worms;
-        _viewPool = viewPool;
-
-        foreach (var worm in _worms)
-            worm.DamageTook += OnDamageTook;
-
+        
         _game.TurnStarted += OnTurnStarted;
-        _viewPool.Got += OnProjectileLaunched;
-        _viewPool.Released += OnProjectileExploded;
+        _wormEvents.WormDamageTook += OnDamageTook;
+        _projectileEvents.ProjectileExploded += OnProjectileEvents;
+        _projectileEvents.ProjectileLaunched += OnProjectileLaunched;
     }
 
     private void OnDestroy()
     {
-        foreach (var worm in _worms)
-            worm.DamageTook -= OnDamageTook;
-
         _game.TurnStarted -= OnTurnStarted;
-        _viewPool.Got -= OnProjectileLaunched;
-        _viewPool.Released -= OnProjectileExploded;
+        _wormEvents.WormDamageTook -= OnDamageTook;
+        _projectileEvents.ProjectileExploded -= OnProjectileEvents;
+        _projectileEvents.ProjectileLaunched -= OnProjectileLaunched;
     }
 
     private void Update()
@@ -78,12 +76,12 @@ public class FollowingCamera : MonoBehaviour
         CameraPosition = Vector3.Lerp(CameraPosition, newPosition, _speed * Time.deltaTime);
     }
 
-    private void OnProjectileLaunched(ProjectileView projectileView)
+    private void OnProjectileLaunched(Projectile projectile, Vector2 velocity)
     {
-        SetTarget(projectileView.transform);
+        SetTarget(projectile.transform);
     }
 
-    private void OnProjectileExploded(ProjectileView view)
+    private void OnProjectileEvents(Projectile projectile)
     {
         SetTarget(_game.CurrentWorm.transform);
     }

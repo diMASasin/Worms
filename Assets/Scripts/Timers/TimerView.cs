@@ -7,20 +7,20 @@ public class TimerView : MonoBehaviour
     [SerializeField] private TMP_Text _text;
 
     TimerFormattingStyle _formattingStyle;
-    private Timer _globalTimer;
+    private Timer _timer;
     
     public void Init(Timer timer, TimerFormattingStyle style)
     {
-        _globalTimer = timer;
+        _timer = timer;
         _formattingStyle = style;
 
-        _globalTimer.TimerUpdated += OnTimerUpdated;
+        _timer.TimerUpdated += OnTimerUpdated;
     }
 
     private void OnDestroy()
     {
-        if(_globalTimer != null)
-            _globalTimer.TimerUpdated -= OnTimerUpdated;
+        if(_timer != null)
+            _timer.TimerUpdated -= OnTimerUpdated;
     }
 
     private void OnTimerUpdated(float timeLeft)

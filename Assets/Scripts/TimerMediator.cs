@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using Configs;
+using EventProviders;
+using Projectiles;
 using Timers;
 
 public class TimerMediator
@@ -10,32 +11,29 @@ public class TimerMediator
     private readonly Timer _turnTimer;
     private readonly TimersConfig _config;
     private readonly Game _game;
-    private List<Weapon> _weaponsList;
+    private readonly IWeaponShotEventProvider _weaponShotEvent;
 
     public event Action GlobalTimerElapsed;
 
-    public TimerMediator(Timer globalTimer, Timer turnTimer, TimersConfig config, Game game, List<Weapon> weaponsList)
+    public TimerMediator(Timer globalTimer, Timer turnTimer, TimersConfig config, Game game,
+        IWeaponShotEventProvider weaponShotEvent)
     {
         _globalTimer = globalTimer;
         _turnTimer = turnTimer;
         _config = config;
         _game = game;
-        _weaponsList = weaponsList;
+        _weaponShotEvent = weaponShotEvent;
 
         _game.GameStarted += OnGameStarted;
         _game.TurnStarted += OnTurnStarted;
-
-        foreach (var weapon in _weaponsList)
-            weapon.Shot += OnShot;
+        _weaponShotEvent.WeaponShot += OnShot;
     }
 
     public void Dispose()
     {
         _game.GameStarted -= OnGameStarted;
         _game.TurnStarted -= OnTurnStarted;
-
-        foreach (var weapon in _weaponsList)
-            weapon.Shot -= OnShot;
+        _weaponShotEvent.WeaponShot -= OnShot;
     }
 
     private void OnGameStarted()
@@ -53,7 +51,7 @@ public class TimerMediator
         _turnTimer.Start(_config.TurnDuration, () => _game.StartNextTurn(_config.AfterTurnWaitingDuration));
     }
 
-    private void OnShot(Projectile projectile)
+    private void OnShot(Weapon weapon1)
     {
         _turnTimer.Start(_config.AfterShotDuration, () => _game.StartNextTurn(_config.AfterTurnWaitingDuration));
     }

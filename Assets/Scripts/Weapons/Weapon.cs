@@ -1,16 +1,18 @@
 using System;
 using Configs;
+using Pools;
+using Projectiles;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Weapon
 {
     private readonly WeaponConfig _config;
-    
-    private Worm _worm;
+    private readonly Transform _spawnPosition;
+
     private float _currentShotPower = 0;
-    private Transform _spawnPoint;
     private float _zRotation;
+    private Projectile _projectile;
 
     public ProjectilePool ProjectilePool => _config.ProjectilePool;
 
@@ -19,15 +21,15 @@ public class Weapon
     public float CurrentShotPower => _currentShotPower;
     public WeaponConfig Config => _config;
 
-    public event UnityAction<Projectile, Worm> ProjectileExploded;
-    public event UnityAction<Projectile> Shot;
+    public event UnityAction<Projectile, Weapon> Shot;
     public event UnityAction<float> ShotPowerChanged;
     public event UnityAction PointerLineEnabled;
     public event Action<float> ScopeMoved;
 
-    public Weapon(WeaponConfig config)
+    public Weapon(WeaponConfig config, Transform spawnPosition)
     {
         _config = config;
+        _spawnPosition = spawnPosition;
     }
 
     public void Reset()
@@ -67,30 +69,21 @@ public class Weapon
         ShotPowerChanged?.Invoke(_currentShotPower);
     }
 
+    public void Reload(Projectile projectile)
+    {
+        _projectile = projectile;
+    }
+    
     public void Shoot()
     {
-        if (IsShot)
+        if (IsShot || _projectile == null)
             return;
 
-        Projectile projectile = ProjectilePool.Get();
-        projectile.Launch(Vector2.one * _currentShotPower);
-        projectile.Exploded += OnProjectileExploded;
+        _projectile.Launch(Vector2.one * _currentShotPower, _spawnPosition);
+        _projectile = null;
 
         IsShot = true;
         _currentShotPower = 0;
-        Shot?.Invoke(projectile);
-    }
-
-    public void OnAssigned(Worm worm, Transform spawnPoint, Transform weaponViewTransform)
-    {
-        Reset();
-
-        _worm = worm;
-    }
-
-    private void OnProjectileExploded(Projectile projectile)
-    {
-        projectile.Exploded -= OnProjectileExploded;
-        ProjectileExploded?.Invoke(projectile, _worm);
+        Shot?.Invoke(_projectile, this);
     }
 }
