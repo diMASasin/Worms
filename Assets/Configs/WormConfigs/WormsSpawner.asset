@@ -18,3 +18,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2708661e3cd50884d9b41e519f3853a8, type: 2}
   - {fileID: 11400000, guid: 2708661e3cd50884d9b41e519f3853a8, type: 2}
   - {fileID: 11400000, guid: 2708661e3cd50884d9b41e519f3853a8, type: 2}
+  <TeamColors>k__BackingField:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0.614023, b: 1, a: 1}
+  - {r: 1, g: 0.9696857, b: 0, a: 1}
+  - {r: 1, g: 0, b: 0.58835554, a: 1}

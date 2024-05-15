@@ -6,7 +6,7 @@ namespace Timers
     public class Timer
     {
         private float _interval;
-        private float _timeLeft;
+        private float _timeLeft = 0;
         private bool _started = false;
 
         private event Action OnElapsedAction;

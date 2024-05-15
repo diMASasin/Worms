@@ -1,6 +1,6 @@
 ﻿using System;
 
-public interface IWeaponSelectedEventProvider
+public interface IWeaponSelectedEvent
 {
     public event Action<Weapon> WeaponSelected;
 }

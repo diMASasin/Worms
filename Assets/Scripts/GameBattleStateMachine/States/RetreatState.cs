@@ -8,8 +8,9 @@ namespace GameBattleStateMachine.States
     {
         private readonly IStateSwitcher _stateSwitcher;
         private readonly BattleStateMachineData _data;
-        private readonly Timer _timer = new Timer();
         private bool _timerElapsed;
+
+        private Timer Timer => _data.TurnTimer;
         
         public RetreatState(IStateSwitcher stateSwitcher, BattleStateMachineData data)
         {
@@ -19,24 +20,17 @@ namespace GameBattleStateMachine.States
 
         public void Enter()
         {
-            ProjectilePool.CountChanged += OnCountChanged;
+            Timer.Start(_data.TimersConfig.AfterShotDuration, () => 
+                _stateSwitcher.SwitchState<ProjectilesWaiting>());
         }
 
         public void Exit()
         {
-            ProjectilePool.CountChanged -= OnCountChanged;
+            _data.Input.Disable();
         }
 
         public void Tick()
         {
-        }
-
-        private void OnCountChanged(int count)
-        {
-            if(count <= 0)
-                _timer.Start(_data.TimersConfig.AfterShotDuration, () => 
-                    _stateSwitcher.SwitchState<BetweenTurnsState>());
-
         }
     }
 }

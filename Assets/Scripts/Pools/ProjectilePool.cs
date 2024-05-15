@@ -1,5 +1,6 @@
 using System;
 using Configs;
+using EventProviders;
 using Factories;
 using Projectiles;
 using UnityEngine;
@@ -29,7 +30,7 @@ namespace Pools
         {
             _followingTimerView = followingTimerView;
             
-            _pool = new ObjectPool<Projectile>(OnCreated, OnGet, OnRelease, OnDestroy, true, _amount);
+            _pool = new ObjectPool<Projectile>(OnCreated, OnGet, OnRelease, OnProjectileDestroy, true, _amount);
         }
 
         private void OnDestroy()
@@ -39,9 +40,18 @@ namespace Pools
 
         public Projectile Get() => _pool.Get();
 
+        private Projectile OnCreated()
+        {
+            Projectile projectile = _projectileFactory.Create();
+            projectile.Exploded += OnExploded;
+            
+            return projectile;
+        }
+
         private void OnGet(Projectile projectile)
         {
             projectile.ResetProjectile();
+            projectile.gameObject.SetActive(true);
             Count++;
             CountChanged?.Invoke(Count);
             Got?.Invoke(projectile, Config);
@@ -50,15 +60,9 @@ namespace Pools
         private void OnRelease(Projectile projectile)
         {
             Count--;
+            projectile.gameObject.SetActive(false);
             CountChanged?.Invoke(Count);
             Released?.Invoke();
-        }
-
-        private Projectile OnCreated()
-        {
-            Projectile projectile = _projectileFactory.Create();
-            projectile.Exploded += OnExploded;
-            return projectile;
         }
 
         private void OnExploded(Projectile projectile)
@@ -66,7 +70,7 @@ namespace Pools
             _pool.Release(projectile);
         }
 
-        private void OnDestroy(Projectile projectile)
+        private void OnProjectileDestroy(Projectile projectile)
         {
             projectile.Exploded -= OnExploded;
         }

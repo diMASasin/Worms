@@ -6,7 +6,7 @@ using Object = UnityEngine.Object;
 namespace Factories
 {
     [CreateAssetMenu(fileName = "WeaponSelectorItemFactory", menuName = "Factories/WeaponSelectorItem")]
-    public class WeaponSelectorItemFactory : ScriptableObject, IWeaponSelectedEventProvider
+    public class WeaponSelectorItemFactory : ScriptableObject, IWeaponSelectedEvent
     {
         [SerializeField] private WeaponSelectorItem _itemPrefab;
         

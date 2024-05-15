@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
-using Configs;
 using GameBattleStateMachine.States;
-using GameStateMachine;
+using UnityEngine;
 
 namespace GameBattleStateMachine
 {
@@ -11,16 +10,16 @@ namespace GameBattleStateMachine
         private readonly List<IBattleState> _states;
         private IBattleState _currentState;
 
-        public BattleStateMachine(TimersConfig timersConfig)
+        public BattleStateMachine(BattleStateMachineData data)
         {
-            BattleStateMachineData data = new BattleStateMachineData(timersConfig);
-
             _states = new List<IBattleState>()
             {
-                new NotBattle(this, data),
+                new StartBattle(this, data),
                 new BetweenTurnsState(this, data),
                 new TurnState(this, data),
-                new RetreatState(this, data)
+                new ProjectileLaunchedState(this, data),
+                new RetreatState(this, data),
+                new ProjectilesWaiting(this, data)
             };
 
             _currentState = _states[0];
@@ -30,6 +29,7 @@ namespace GameBattleStateMachine
         public void SwitchState<T>() where T : IBattleState
         {
             IBattleState state = _states.FirstOrDefault(state => state is T);
+            Debug.Log(typeof(T).Name);
 
             _currentState?.Exit();
             _currentState = state;

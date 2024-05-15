@@ -1,36 +1,23 @@
 ﻿using System;
 
-public class WaterMediator : IDisposable
+public class WaterMediator
 {
     private readonly Water _water;
-    private readonly TimerMediator _timerMediator;
-    private readonly Game _game;
 
     private bool _shouldIncreaseLevel;
 
-    public WaterMediator(Water water, TimerMediator timerMediator, Game game)
+    public WaterMediator(Water water)
     {
         _water = water;
-        _timerMediator = timerMediator;
-        _game = game;
-
-        _game.TurnEnd += OnTurnEnd;
-        _timerMediator.GlobalTimerElapsed += OnGlobalTimerElapsed;
     }
 
-    public void Dispose()
-    {
-        _game.TurnEnd -= OnTurnEnd;
-        _timerMediator.GlobalTimerElapsed -= OnGlobalTimerElapsed;
-    }
-
-    private void OnTurnEnd()
+    public void IncreaseLevelIfAllowed()
     {
         if (_shouldIncreaseLevel)
             _water.IncreaseLevel();
     }
 
-    private void OnGlobalTimerElapsed()
+    public void AllowIncreaseWaterLevel()
     {
         _shouldIncreaseLevel = true;
     }

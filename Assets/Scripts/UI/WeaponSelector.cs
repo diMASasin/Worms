@@ -4,41 +4,34 @@ using EventProviders;
 using Factories;
 using UnityEngine;
 
-public class WeaponSelector : MonoBehaviour, IWeaponSelectedEventProvider
+public class WeaponSelector : MonoBehaviour, IWeaponSelectedEvent
 {
     [SerializeField] Animator _animator;
     [SerializeField] private WeaponSelectorItemFactory _itemFactory;
     [SerializeField] private Transform _itemContainer;
     
     private bool _canOpen = false;
-    private IWeaponShotEventProvider _shotEvent;
+    private IWeaponShotEvent _shotEvent;
     private IGameEventsProvider _gameEvents;
-    private IWeaponSelectedEventProvider _selectedEvent;
+    private IWeaponSelectedEvent _selectedEvent;
     private List<Weapon> _weaponList;
+    
+    private static readonly int Opened = Animator.StringToHash("Opened");
 
     public event Action<Weapon> WeaponSelected;
 
-    public void Init(List<Weapon> weaponList, IWeaponShotEventProvider shotEvent,
-        IGameEventsProvider gameEvents)
+    public void Init(List<Weapon> weaponList)
     {
         _weaponList = weaponList;
-        _gameEvents = gameEvents;
-        _shotEvent = shotEvent;
         _selectedEvent = _itemFactory;
         
         _itemFactory.Create(weaponList, _itemContainer);
 
-        _gameEvents.TurnStarted += OnTurnStarted;
-        _shotEvent.WeaponShot += OnWeaponShot;
         _selectedEvent.WeaponSelected += OnSelected;
     }
     
     private void OnDestroy()
     {
-        if(_gameEvents != null) _gameEvents.TurnStarted -= OnTurnStarted;
-
-        if (_shotEvent != null) _shotEvent.WeaponShot -= OnWeaponShot;
-
         if (_selectedEvent != null) _selectedEvent.WeaponSelected -= OnSelected;
         
         _itemFactory.Dispose();
@@ -60,21 +53,21 @@ public class WeaponSelector : MonoBehaviour, IWeaponSelectedEventProvider
 
     private void Toggle()
     {
-        _animator.SetBool("Opened", !_animator.GetBool("Opened"));
+        _animator.SetBool(Opened, !_animator.GetBool(Opened));
     }
     
     private void Close()
     {
-        _animator.SetBool("Opened", false);
+        _animator.SetBool(Opened, false);
     }
 
-    private void OnTurnStarted(Worm worm, Team team)
+    public void Enable()
     {
         Close();
         _canOpen = true;
     }
 
-    private void OnWeaponShot(Weapon arg0)
+    public void Disable()
     {
         _canOpen = false;
     }

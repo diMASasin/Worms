@@ -7,13 +7,13 @@ namespace GameStateMachine
 {
     public class GameStateMachine
     {
-        private List<IState> _states;
-        private IState _currentState;
+        private List<IGameState> _states;
+        private IGameState _currentState;
 
         public GameStateMachine(Game game)
         {
 
-            _states = new List<IState>()
+            _states = new List<IGameState>()
             {
                 new BootstrapState()
             };
@@ -22,9 +22,9 @@ namespace GameStateMachine
             _currentState.Enter();
         }
 
-        public void SwitchState<T>() where T : IState
+        public void SwitchState<T>() where T : IGameState
         {
-            IState state = _states.FirstOrDefault(state => state is T);
+            IGameState state = _states.FirstOrDefault(state => state is T);
 
             _currentState?.Exit();
             _currentState = state;

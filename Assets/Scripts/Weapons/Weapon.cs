@@ -8,28 +8,23 @@ using UnityEngine.Events;
 public class Weapon
 {
     private readonly WeaponConfig _config;
-    private readonly Transform _spawnPosition;
 
     private float _currentShotPower = 0;
     private float _zRotation;
-    private Projectile _projectile;
-
-    public ProjectilePool ProjectilePool => _config.ProjectilePool;
 
     public bool IsShot { get; private set; } = false;
 
     public float CurrentShotPower => _currentShotPower;
     public WeaponConfig Config => _config;
 
-    public event UnityAction<Projectile, Weapon> Shot;
+    public event UnityAction<float> Shot;
     public event UnityAction<float> ShotPowerChanged;
-    public event UnityAction PointerLineEnabled;
+    public event UnityAction IncreasePowerStarted;
     public event Action<float> ScopeMoved;
 
-    public Weapon(WeaponConfig config, Transform spawnPosition)
+    public Weapon(WeaponConfig config)
     {
         _config = config;
-        _spawnPosition = spawnPosition;
     }
 
     public void Reset()
@@ -50,7 +45,7 @@ public class Weapon
         if (IsShot)
             return;
 
-        PointerLineEnabled?.Invoke();
+        IncreasePowerStarted?.Invoke();
     }
 
     public void IncreaseShotPower()
@@ -68,22 +63,14 @@ public class Weapon
 
         ShotPowerChanged?.Invoke(_currentShotPower);
     }
-
-    public void Reload(Projectile projectile)
-    {
-        _projectile = projectile;
-    }
     
     public void Shoot()
     {
-        if (IsShot || _projectile == null)
+        if (IsShot)
             return;
 
-        _projectile.Launch(Vector2.one * _currentShotPower, _spawnPosition);
-        _projectile = null;
-
+        Shot?.Invoke(_currentShotPower);
         IsShot = true;
         _currentShotPower = 0;
-        Shot?.Invoke(_projectile, this);
     }
 }

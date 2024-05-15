@@ -14,7 +14,7 @@ public class WindEffect : MonoBehaviour
 
     private void OnDestroy()
     {
-        _wind.VelocityChanged -= OnVelocityChanged;
+        if (_wind != null) _wind.VelocityChanged -= OnVelocityChanged;
     }
 
     private void OnVelocityChanged(float velocity)

@@ -7,7 +7,7 @@ namespace Configs
     {
         [field: SerializeField] public float TurnDuration { get; private set; }
         [field: SerializeField] public float AfterShotDuration { get; private set; }
-        [field: SerializeField] public float AfterTurnWaitingDuration { get; private set; }
+        [field: SerializeField] public float BetweenTurnsDuration { get; private set; }
         [field: SerializeField] public float GlobalTime { get; private set; }
     }
 }

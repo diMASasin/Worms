@@ -10,11 +10,11 @@ namespace Projectiles
     public class ProjectileConfigurator : IDisposable
     {
         private readonly Projectile _projectile;
-        private ProjectileConfig _config;
+        private readonly ProjectileConfig _config;
         private readonly ObjectPool<FollowingObject> _followingTimerViewPool;
 
-        private List<ILaunchBehaviour> _launchBehaviours = new();
-        private List<IExplodeBehaviour> _explodeBehaviours = new();
+        private readonly List<ILaunchBehaviour> _launchBehaviours = new();
+        private readonly List<IExplodeBehaviour> _explodeBehaviours = new();
         private FollowingObject _followingObject;
 
         public ProjectileConfigurator(Projectile projectile, ProjectileConfig config,
@@ -43,10 +43,10 @@ namespace Projectiles
             _followingTimerViewPool.Release(_followingObject);
         }
 
-        private void OnLaunched(Projectile projectile, Vector2 velocity)
+        private void OnLaunched(Projectile projectile, Vector2 shotPower)
         {
             foreach (var behaviour in _launchBehaviours)
-                behaviour.OnLaunch(velocity);
+                behaviour.OnLaunch(shotPower);
         }
         
         public void Configure(ProjectileConfig config)

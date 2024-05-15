@@ -22,8 +22,10 @@ public class Edge
 
     public bool IsFloor(Terrain2D terrain)
     {
-        var point1 = _point1 + (Vector2)terrain.transform.position;
-        var point2 = _point2 + (Vector2)terrain.transform.position;
+        var terrainPosition = terrain.transform.position;
+        
+        var point1 = _point1 + (Vector2)terrainPosition;
+        var point2 = _point2 + (Vector2)terrainPosition;
         return !terrain.polygonCollider.OverlapPoint(new Vector2(point1.x, point1.y + 0.1f)) &&
             !terrain.polygonCollider.OverlapPoint(new Vector2(point2.x, point2.y + 0.1f)) &&
             !terrain.polygonCollider.OverlapPoint(new Vector2(point1.x, point1.y + 0.8f)) &&

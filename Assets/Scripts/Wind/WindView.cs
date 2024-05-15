@@ -6,7 +6,7 @@ public class WindView : MonoBehaviour
     [SerializeField] private Wind1DiractionView _windLeft;
 
     private Wind _wind;
-    
+
     public void Init(Wind wind)
     {
         _wind = wind;
@@ -16,7 +16,8 @@ public class WindView : MonoBehaviour
 
     private void OnDestroy()
     {
-        _wind.VelocityChanged -= OnVelocityChanged;
+        if (_wind != null)
+            _wind.VelocityChanged -= OnVelocityChanged;
     }
 
     private void OnVelocityChanged(float velocity)
@@ -26,7 +27,7 @@ public class WindView : MonoBehaviour
         _windLeft.gameObject.SetActive(false);
         _windRight.gameObject.SetActive(false);
 
-        if(velocity > 0)
+        if (velocity > 0)
             ChangeVelocityView(_windRight, normalizedVelocity);
         else if (velocity < 0)
             ChangeVelocityView(_windLeft, normalizedVelocity);

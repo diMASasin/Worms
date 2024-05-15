@@ -5,10 +5,6 @@ using UnityEngine;
 
 namespace Projectiles
 {
-    public class WeaponChanger
-    {
-    }
-
     public class Projectile : MonoBehaviour
     {
         [SerializeField] private GameObject _spriteObject;
@@ -57,6 +53,7 @@ namespace Projectiles
         {
             if (Input.GetKeyDown(KeyCode.Space) && _config.ExplodeOnKeyDown)
                 Explode();
+            Debug.Log(_rigidbody.velocity);
         }
 
         private void FixedUpdate()
@@ -74,9 +71,8 @@ namespace Projectiles
 
         public void Launch(Vector2 shotPower, Transform spawnPoint)
         {
-            _rigidbody.AddForce(shotPower * transform.right, ForceMode2D.Impulse);
-
-            SetPosition(spawnPoint);
+            _rigidbody.AddForce(shotPower * (spawnPoint.right), ForceMode2D.Impulse);
+            
             Launched?.Invoke(this, shotPower);
         }
 
@@ -87,12 +83,6 @@ namespace Projectiles
 
             _dead = true;
             Exploded?.Invoke(this);
-        }
-
-        private void SetPosition(Transform spawnPoint)
-        {
-            transform.position = spawnPoint.position;
-            transform.right = spawnPoint.transform.right;
         }
     }
 }

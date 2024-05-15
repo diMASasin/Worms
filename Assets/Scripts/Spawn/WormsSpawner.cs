@@ -16,12 +16,12 @@ public class WormsSpawner : MonoBehaviour
     private TeamFactory _teamFactory;
     private Vector2[] _points;
     private readonly List<Edge> _edges = new();
-
-    private List<Color> TeamColors => _spawnerConfig.TeamColors;
+    private readonly List<Color> _unusedTeamColors = new();
 
     public void Init(TeamFactory teamFactory)
     {
         _teamFactory = teamFactory;
+        _unusedTeamColors.AddRange(_spawnerConfig.TeamColors);
         
         GetEdgesForSpawn();
     }
@@ -33,7 +33,8 @@ public class WormsSpawner : MonoBehaviour
         
         foreach (var teamConfig in _spawnerConfig.TeamConfigs)
         {
-            Color randomColor = TeamColors[Random.Range(0, TeamColors.Count)];
+            Color randomColor = _unusedTeamColors[Random.Range(0, _unusedTeamColors.Count)];
+            _unusedTeamColors.Remove(randomColor);
             Team team = _teamFactory.Create(randomColor, transform, teamConfig);
 
             teams.Add(team);

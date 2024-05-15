@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 public class Wind
 {
-    [SerializeField] private WindData _data;
+    private WindData _data;
 
     public float Velocity { get; set; }
     public float MaxVelocity => _data.MaxVelocity;

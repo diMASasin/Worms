@@ -7,28 +7,28 @@ using UnityEngine.Events;
 
 public class Movement
 {
-    private float _speed => _config.Speed;
-    private Vector2 _longJumpForce => _config.LongJumpForce;
-    private Vector2 _highJumpForce => _config.HighJumpForce;
-    private float _jumpCooldown => _config.JumpCooldown;
-    private float _minGroundNormalY => _config.MinGroundNormalY;
-    private float _gravityModifier => _config.GravityModifier;
-    public LayerMask LayerMask => _config.LayerMask;
+    private float Speed => _config.Speed;
+    private Vector2 LongJumpForce => _config.LongJumpForce;
+    private Vector2 HighJumpForce => _config.HighJumpForce;
+    private float JumpCooldown => _config.JumpCooldown;
+    private float MinGroundNormalY => _config.MinGroundNormalY;
+    private float GravityModifier => _config.GravityModifier;
+    protected LayerMask LayerMask => _config.LayerMask;
 
-    protected Transform Armature;
-    protected GroundChecker GroundChecker;
+    protected readonly Transform Armature;
+    protected readonly GroundChecker GroundChecker;
 
     private Vector2 _velocity;
     private Vector2 _groundNormal;
-    private ContactFilter2D _contactFilter;
-    private RaycastHit2D[] _hitBuffer = new RaycastHit2D[16];
-    private List<RaycastHit2D> _hitBufferList = new List<RaycastHit2D>(16);
+    private readonly ContactFilter2D _contactFilter;
+    private readonly RaycastHit2D[] _hitBuffer = new RaycastHit2D[16];
+    private readonly List<RaycastHit2D> _hitBufferList = new List<RaycastHit2D>(16);
 
-    private const float _minMoveDistance = 0.001f;
-    private const float _shellRadius = 0.01f;
+    private const float MinMoveDistance = 0.001f;
+    private const float ShellRadius = 0.01f;
 
-    public Rigidbody2D Rigidbody { get; private set; }
-    public Collider2D Collider { get; private set; }
+    private Rigidbody2D Rigidbody { get; set; }
+    protected Collider2D Collider { get; private set; }
 
     private bool _canJump = true;
     private float _jumpVelocityX;
@@ -36,7 +36,7 @@ public class Movement
     private bool _inJump = false;
     private Vector2 _moveAlongGround;
     private Vector2 _move;
-    private MovementConfig _config;
+    private readonly MovementConfig _config;
 
     protected float Horizontal;
 
@@ -74,9 +74,9 @@ public class Movement
     public virtual void FixedTick()
     {
         if (Horizontal != 0)
-            Armature.transform.right = new Vector3(-Horizontal, 0);
+            Armature.transform.right = new Vector3(Horizontal, 0);
 
-        _velocity += _gravityModifier * Physics2D.gravity * Time.deltaTime;
+        _velocity += Physics2D.gravity * (GravityModifier * Time.deltaTime);
         if (_inJump)
         {
             _jumpVelocityX += Horizontal * _maxVelocityX * Time.deltaTime;
@@ -84,7 +84,7 @@ public class Movement
         }
         else
         {
-            _velocity.x = Horizontal * _speed + _jumpVelocityX;
+            _velocity.x = Horizontal * Speed + _jumpVelocityX;
         }
         _velocity.x = Mathf.Clamp(_velocity.x, -_maxVelocityX, _maxVelocityX);
 
@@ -111,9 +111,9 @@ public class Movement
     {
         float distance = move.magnitude;
 
-        if (distance > _minMoveDistance)
+        if (distance > MinMoveDistance)
         {
-            int count = Rigidbody.Cast(move, _contactFilter, _hitBuffer, distance + _shellRadius);
+            int count = Rigidbody.Cast(move, _contactFilter, _hitBuffer, distance + ShellRadius);
 
             _hitBufferList.Clear();
 
@@ -125,7 +125,7 @@ public class Movement
             for (int i = 0; i < _hitBufferList.Count; i++)
             {
                 Vector2 currentNormal = _hitBufferList[i].normal;
-                if (currentNormal.y > _minGroundNormalY)
+                if (currentNormal.y > MinGroundNormalY)
                 {
                     if (yMovement)
                     {
@@ -140,7 +140,7 @@ public class Movement
                     _velocity = _velocity - projection * currentNormal;
                 }
 
-                float modifiedDistance = _hitBufferList[i].distance - _shellRadius;
+                float modifiedDistance = _hitBufferList[i].distance - ShellRadius;
                 distance = modifiedDistance < distance ? modifiedDistance : distance;
             }
         }
@@ -164,7 +164,7 @@ public class Movement
 
         _canJump = false;
         _inJump = true;
-        CoroutinePerformer.StartCoroutine(JumpCooldown(_jumpCooldown));
+        CoroutinePerformer.StartCoroutine(ReloadJump(JumpCooldown));
 
         return true;
     }
@@ -173,8 +173,8 @@ public class Movement
     {
         if (!TryJump())
             return;
-        _jumpVelocityX += _longJumpForce.x * -Armature.transform.right.x;
-        _velocity.y = _longJumpForce.y;
+        _jumpVelocityX += LongJumpForce.x * Armature.transform.right.x;
+        _velocity.y = LongJumpForce.y;
         _maxVelocityX = Mathf.Abs(_jumpVelocityX);
         CoroutinePerformer.StartCoroutine(StopJump());
     }
@@ -183,13 +183,13 @@ public class Movement
     {
         if (!TryJump())
             return;
-        _jumpVelocityX += _highJumpForce.x * Armature.transform.right.x;
-        _velocity.y = _highJumpForce.y;
+        _jumpVelocityX += HighJumpForce.x * -Armature.transform.right.x;
+        _velocity.y = HighJumpForce.y;
         _maxVelocityX = Mathf.Abs(_jumpVelocityX);
         CoroutinePerformer.StartCoroutine(StopJump());
     }
 
-    private IEnumerator JumpCooldown(float duration)
+    private IEnumerator ReloadJump(float duration)
     {
         yield return new WaitForSeconds(duration);
         _canJump = true;
@@ -204,7 +204,7 @@ public class Movement
             yield return null;
 
         _jumpVelocityX = 0;
-        _maxVelocityX = _speed;
+        _maxVelocityX = Speed;
         _inJump = false;
     }
 

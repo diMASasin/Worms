@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90901ac4677d6374a809dab9a6434d2e, type: 3}
   m_Name: RocketPool
   m_EditorClassIdentifier: 
-  _config: {fileID: 11400000, guid: 741d26835fb274640b0d4e5dc8580aba, type: 2}
+  _projectileFactory: {fileID: 11400000, guid: fb603d9d9ab15a54da26aba017386ad2, type: 2}
   _amount: 1

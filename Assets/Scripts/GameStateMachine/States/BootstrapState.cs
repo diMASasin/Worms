@@ -1,6 +1,6 @@
 namespace GameStateMachine.States
 {
-    public class BootstrapState : IState
+    public class BootstrapState : IGameState
     {
         public void Enter()
         {

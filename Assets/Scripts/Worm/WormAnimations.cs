@@ -6,6 +6,9 @@ public class WormAnimations : MonoBehaviour
 
     private GroundChecker _groundChecker;
     private Movement _movement;
+    
+    private static readonly int Grounded = Animator.StringToHash("Grounded");
+    private static readonly int Walk = Animator.StringToHash("Walk");
 
     public void Init(GroundChecker groundChecker, Movement movement)
     {
@@ -27,11 +30,11 @@ public class WormAnimations : MonoBehaviour
 
     private void OnGroundedChanged(bool isGrounded)
     {
-        _animator.SetBool("Grounded", isGrounded);
+        _animator.SetBool(Grounded, isGrounded);
     }
 
     private void OnWalkingChanged(bool isWalking)
     {
-        _animator.SetBool("Walk", isWalking);
+        _animator.SetBool(Walk, isWalking);
     }
 }

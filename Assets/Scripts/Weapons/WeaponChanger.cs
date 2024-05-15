@@ -1,29 +1,53 @@
-using Pools;
-using Projectiles;
+using System;
+using EventProviders;
+using UnityEngine;
 
 namespace Weapons
 {
-    public class WeaponChanger
+    public class WeaponChanger: IDisposable
     {
-        private readonly IWeaponSelectedEventProvider _selectEvent;
-        private readonly Game _game;
-        private readonly ProjectilePool _projectilePool;
+        private readonly IWeaponSelectedEvent _weaponSelectedEvent;
+        private readonly IWeaponShotEvent _weaponShotEvent;
+        private readonly WeaponView _weaponView;
+        private Worm _currentWorm;
 
-        public WeaponChanger(IWeaponSelectedEventProvider selectEvent, Game game, ProjectilePool projectilePool)
+        public WeaponChanger(IWeaponSelectedEvent weaponSelectedEvent, IWeaponShotEvent weaponShotEvent,
+            WeaponView weaponView)
         {
-            _selectEvent = selectEvent;
-            _game = game;
-            _projectilePool = projectilePool;
+            _weaponSelectedEvent = weaponSelectedEvent;
+            _weaponShotEvent = weaponShotEvent;
+            _weaponView = weaponView;
 
-
-            _selectEvent.WeaponSelected += OnWeaponSelect;
+            _weaponSelectedEvent.WeaponSelected += OnWeaponSelected;
+            _weaponShotEvent.WeaponShot += OnWeaponShot;
         }
 
-        private void OnWeaponSelect(Weapon weapon)
+        public void Dispose()
         {
-            Projectile projectile = _projectilePool.Get();
-            _game.CurrentWorm.ChangeWeapon(weapon);
-            weapon.Reload(projectile);
+            _weaponSelectedEvent.WeaponSelected -= OnWeaponSelected;
+            _weaponShotEvent.WeaponShot -= OnWeaponShot;
+        }
+
+        public void ChangeWorm(Worm worm)
+        {
+            _currentWorm = worm;
+        }
+
+        private void OnWeaponShot(float shotPower)
+        {
+            _weaponView.transform.parent = null;
+        }
+
+        private void OnWeaponSelected(Weapon weapon)
+        {
+            Transform weaponViewTransform = _weaponView.transform;
+            Transform wormTransform = _currentWorm.WeaponPosition.transform;
+
+            weaponViewTransform.parent = wormTransform;
+            weaponViewTransform.position = wormTransform.position;
+            weaponViewTransform.right = _currentWorm.Armature.right;
+            
+            _currentWorm.ChangeWeapon(weapon);
         }
     }
 }

@@ -5,28 +5,22 @@ public class WormInformationView : MonoBehaviour
 {
     [SerializeField] private TMP_Text _healthText;
     [SerializeField] private TMP_Text _nameText;
-    [SerializeField] private Worm _worm;
+    
+    private Worm _worm;
 
-    private void OnEnable()
+    public void Init(Worm worm, Color color, string wormName)
     {
-        _worm.Initialized += OnInitialized;
+        _worm = worm;
         _worm.DamageTook += OnHealthChanged;
-    }
-
-    private void OnDisable()
-    {
-        _worm.Initialized -= OnInitialized;
-        _worm.DamageTook -= OnHealthChanged;
-    }
-
-    private void OnInitialized(Color color, string wormName)
-    {
+        
         _healthText.color = color;
         _nameText.color = color;
         _nameText.text = wormName;
-
+        
         OnHealthChanged(_worm);
     }
+
+    private void OnDestroy() => _worm.DamageTook -= OnHealthChanged;
 
     private void OnHealthChanged(Worm worm)
     {

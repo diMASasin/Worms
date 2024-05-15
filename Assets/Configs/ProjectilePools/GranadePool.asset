@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90901ac4677d6374a809dab9a6434d2e, type: 3}
   m_Name: GranadePool
   m_EditorClassIdentifier: 
-  _config: {fileID: 11400000, guid: 23f58b6c1977084489c0ec33bfaebb19, type: 2}
+  _projectileFactory: {fileID: 11400000, guid: 7716a1c5ed287ba408c15faeb042243e, type: 2}
   _amount: 1

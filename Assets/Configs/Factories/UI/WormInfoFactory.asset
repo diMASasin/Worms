@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9a5f7aef509469492cdb2aac29632cd, type: 3}
-  m_Name: ProjectileFactory
+  m_Script: {fileID: 11500000, guid: b94a01b885554601b869d727d5bde246, type: 3}
+  m_Name: WormInfoFactory
   m_EditorClassIdentifier: 
-  _projectile: {fileID: 5397199631990211761, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
-  _config: {fileID: 0}
-  _explosionPool: {fileID: 0}
-  _followingTimerView: {fileID: 0}
+  _wormInfoPrefab: {fileID: 8106106455543795105, guid: a883e5f2399ed0f4ebdc24a80c48d0ba, type: 3}
+  _yOffset: 1.4

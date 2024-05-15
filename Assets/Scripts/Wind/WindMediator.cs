@@ -8,21 +8,17 @@ using UnityEngine;
 public class WindMediator : IDisposable
 {
     private readonly Wind _wind;
-    private readonly Game _game;
     private readonly IEnumerable<ProjectilePool> _pools;
 
     private List<Projectile> _projectilesUnderInfluence = new();
 
-    public WindMediator(Wind wind, Game game, IEnumerable<ProjectilePool> pools)
+    public WindMediator(Wind wind, IEnumerable<ProjectilePool> pools)
     {
         _wind = wind;
-        _game = game;
         _pools = pools;
 
         foreach (var pool in _pools)
             pool.Got += OnProjectileLaunched;
-
-        _game.TurnStarted += OnTurnStarted;
     }
 
     public void FixedTick()
@@ -37,15 +33,14 @@ public class WindMediator : IDisposable
     {
         foreach (var pool in _pools)
             pool.Got -= OnProjectileLaunched;
-
-        _game.TurnStarted -= OnTurnStarted;
     }
 
     private void OnProjectileLaunched(Projectile projectile, ProjectileConfig projectileConfig)
     {
-        if (projectileConfig.WindInfluence == true)
-            _projectilesUnderInfluence.Add(projectile);
+        // if (projectileConfig.WindInfluence == true)
+        //     _projectilesUnderInfluence.Add(projectile);
 
+        projectile.InfluenceOnVelocity(Vector2.right * _wind.Velocity);
         projectile.Exploded += OnExploded;
     }
 
@@ -55,10 +50,5 @@ public class WindMediator : IDisposable
 
         if(_projectilesUnderInfluence.Contains(projectile))
             _projectilesUnderInfluence.Remove(projectile);
-    }
-
-    private void OnTurnStarted(Worm worm, Team team)
-    {
-        _wind.ChangeVelocity();
     }
 }

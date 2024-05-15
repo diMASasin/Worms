@@ -7,11 +7,11 @@ using UnityEngine;
 
 namespace Factories
 {
-    public class WeaponFactory : IWeaponShotEventProvider, IDisposable
+    public class WeaponFactory : IWeaponShotEvent, IDisposable
     {
         private readonly List<Weapon> _weaponList = new();
-        
-        public event Action<Weapon> WeaponShot;
+
+        public event Action<float> WeaponShot;
 
         public void Dispose()
         {
@@ -23,18 +23,19 @@ namespace Factories
         {
             foreach (var config in weaponConfigs)
             {
-                var weapon = new Weapon(config, projectileSpawnPoint);
+                var weapon = new Weapon(config);
+                
                 _weaponList.Add(weapon);
 
                 weapon.Shot += OnShot;
             }
-            
+
             return _weaponList;
         }
 
-        private void OnShot(Projectile projectile, Weapon weapon)
+        private void OnShot(float shotPower)
         {
-            WeaponShot?.Invoke(weapon);
+            WeaponShot?.Invoke(shotPower);
         }
     }
 }

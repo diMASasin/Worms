@@ -9,9 +9,10 @@ namespace Factories
 {
     public class WormFactory : IWormEventsProvider, IDisposable
     {
-        private Worm _wormPrefab;
-        private List<Worm> _worms = new();
+        private readonly Worm _wormPrefab;
+        private readonly List<Worm> _worms = new();
 
+        public event Action<Worm, Color, string> WormCreated;
         public event Action<Worm> WormDied;
         public event Action<Worm> WormDamageTook;
 
@@ -24,12 +25,13 @@ namespace Factories
         {
             var newWorm = Object.Instantiate(_wormPrefab, parent);
 
-            newWorm.Init(teamColor, config.Name, config);
+            newWorm.Init(config);
             _worms.Add(newWorm);
             
             newWorm.Died += OnDied;
             newWorm.DamageTook += OnDamageTook;
 
+            WormCreated?.Invoke(newWorm, teamColor, config.Name);
             return newWorm;
         }
 

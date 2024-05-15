@@ -24,18 +24,9 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
     ""name"": ""Main"",
     ""maps"": [
         {
-            ""name"": ""Main"",
+            ""name"": ""Weapon"",
             ""id"": ""3fb7eff6-c1c7-4dea-b7a8-a34f5909b57b"",
             ""actions"": [
-                {
-                    ""name"": ""Move"",
-                    ""type"": ""Value"",
-                    ""id"": ""893c99f1-37e3-421b-a089-a86179152cae"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": ""Hold"",
-                    ""initialStateCheck"": true
-                },
                 {
                     ""name"": ""RaiseScope"",
                     ""type"": ""Value"",
@@ -44,51 +35,6 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Hold"",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""TurnLeft"",
-                    ""type"": ""Button"",
-                    ""id"": ""a34912f9-2df5-44ae-b0f4-f7fb81ce7a9c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""TurnRight"",
-                    ""type"": ""Button"",
-                    ""id"": ""9835e22a-1dd2-4e24-8b01-05414da0d08f"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""DontMove"",
-                    ""type"": ""Button"",
-                    ""id"": ""9b873681-f3c2-4b99-bdb0-04d114fca739"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""LongJump"",
-                    ""type"": ""Button"",
-                    ""id"": ""4a574c5d-d16f-431c-9a6c-9efeb33abc4a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press"",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""HighJump"",
-                    ""type"": ""Button"",
-                    ""id"": ""a8beeea5-0d31-45fe-8a03-f1e901bd242a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press"",
-                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""EnablePointerLine"",
@@ -119,72 +65,6 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""d590c205-7637-4d84-8b6f-76f274604693"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Negative"",
-                    ""id"": ""45ee9d2f-19c9-4580-9436-80d2d657929b"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""Positive"",
-                    ""id"": ""7e5a5d97-08e5-46ff-8899-588a3704cab3"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""1D Axis AD"",
-                    ""id"": ""147caf8b-d427-452c-88af-8c021a961f4c"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""1f32228e-66e0-4a8c-b2f9-3d818b1bb618"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""026a6c79-64fa-4051-8beb-dc51abc2dcc8"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
                 {
                     ""name"": ""1D Axis"",
                     ""id"": ""e307078c-cf86-43f2-ac51-79ec8949ac9c"",
@@ -252,105 +132,6 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""One Modifier"",
-                    ""id"": ""68fdf659-7cc4-4282-8391-6b3fd04be888"",
-                    ""path"": ""OneModifier"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TurnLeft"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""319e7209-1181-4e32-8186-fad64f9faf57"",
-                    ""path"": ""<Keyboard>/shift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TurnLeft"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""binding"",
-                    ""id"": ""0634405f-c077-47dc-94f4-51704448d555"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TurnLeft"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""One Modifier"",
-                    ""id"": ""cd439750-bdc2-49b7-b1f4-346fc553c145"",
-                    ""path"": ""OneModifier"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TurnRight"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""90da8c23-6de6-414f-938c-18fa041d5c4f"",
-                    ""path"": ""<Keyboard>/shift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TurnRight"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""binding"",
-                    ""id"": ""4033f28f-f934-408c-950a-49837f3023e8"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""TurnRight"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c9f70397-d9f4-4a4a-b035-e7a61ab9c19b"",
-                    ""path"": ""<Keyboard>/shift"",
-                    ""interactions"": ""Hold"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""DontMove"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9dd76cb7-c31b-463b-ab6b-9c49d2d25390"",
-                    ""path"": ""<Keyboard>/enter"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""LongJump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""78c4e5bd-b488-4af8-9e29-9b3295e5ad1e"",
-                    ""path"": ""<Keyboard>/backspace"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""HighJump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": """",
                     ""id"": ""57efd260-928c-4834-b583-b45b68f1821c"",
                     ""path"": ""<Keyboard>/space"",
@@ -384,22 +165,251 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Movement"",
+            ""id"": ""e0da62a6-02dd-42db-8990-1c5c2eca847c"",
+            ""actions"": [
+                {
+                    ""name"": ""HighJump"",
+                    ""type"": ""Button"",
+                    ""id"": ""8608867f-3346-432d-bc39-3621e54a611c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LongJump"",
+                    ""type"": ""Button"",
+                    ""id"": ""aa8c7bd4-773f-4445-afaf-2d1a8939c3df"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DontMove"",
+                    ""type"": ""Button"",
+                    ""id"": ""47500124-ab0c-4dc5-ae59-38d84c5be7df"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TurnRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""d04d3ac7-cdfb-4d2c-a884-149fff1cb7a2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TurnLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""cd1e4d8d-9889-409c-ac93-98f5add42f6f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""2058bcde-2eed-4e93-88a7-a489acd338e2"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""7f548e34-3d28-41d9-929f-2ac9f9110f17"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Negative"",
+                    ""id"": ""67563eee-2b0e-46c0-9634-251d23e97be8"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Positive"",
+                    ""id"": ""15add363-4c16-474e-b239-53c5c0536888"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis AD"",
+                    ""id"": ""04127d46-7931-4004-a446-88481116051e"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""00cd238f-87f7-4abb-801e-5fce1a5cb622"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""a1206f35-acc1-476a-b1c4-03172eaa4605"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""b008c50f-0045-4261-a379-d8a5e6505b8b"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TurnLeft"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""54b96dc1-d4a6-4757-b223-6b4d04f15348"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TurnLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""6b3dc109-a465-49b4-90f7-8b1b2ccca098"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TurnLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""One Modifier"",
+                    ""id"": ""7bb80b31-af41-4bac-9f8b-da8ceed316e6"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TurnRight"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""1099c387-6704-4464-80cc-e9c6b89b5808"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TurnRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""c994632c-ffaf-4f77-af36-16df710630ee"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TurnRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bc8eab30-ff41-4e69-9a6a-3b8f15b5f9d1"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DontMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""88a15b33-6daf-4c2c-9c3f-6e05e57cbd11"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LongJump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""05a8e012-1970-4044-b97b-6c29e3ba7599"",
+                    ""path"": ""<Keyboard>/backspace"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HighJump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
 }");
-        // Main
-        m_Main = asset.FindActionMap("Main", throwIfNotFound: true);
-        m_Main_Move = m_Main.FindAction("Move", throwIfNotFound: true);
-        m_Main_RaiseScope = m_Main.FindAction("RaiseScope", throwIfNotFound: true);
-        m_Main_TurnLeft = m_Main.FindAction("TurnLeft", throwIfNotFound: true);
-        m_Main_TurnRight = m_Main.FindAction("TurnRight", throwIfNotFound: true);
-        m_Main_DontMove = m_Main.FindAction("DontMove", throwIfNotFound: true);
-        m_Main_LongJump = m_Main.FindAction("LongJump", throwIfNotFound: true);
-        m_Main_HighJump = m_Main.FindAction("HighJump", throwIfNotFound: true);
-        m_Main_EnablePointerLine = m_Main.FindAction("EnablePointerLine", throwIfNotFound: true);
-        m_Main_IncreaseShotPower = m_Main.FindAction("IncreaseShotPower", throwIfNotFound: true);
-        m_Main_Shoot = m_Main.FindAction("Shoot", throwIfNotFound: true);
+        // Weapon
+        m_Weapon = asset.FindActionMap("Weapon", throwIfNotFound: true);
+        m_Weapon_RaiseScope = m_Weapon.FindAction("RaiseScope", throwIfNotFound: true);
+        m_Weapon_EnablePointerLine = m_Weapon.FindAction("EnablePointerLine", throwIfNotFound: true);
+        m_Weapon_IncreaseShotPower = m_Weapon.FindAction("IncreaseShotPower", throwIfNotFound: true);
+        m_Weapon_Shoot = m_Weapon.FindAction("Shoot", throwIfNotFound: true);
+        // Movement
+        m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
+        m_Movement_HighJump = m_Movement.FindAction("HighJump", throwIfNotFound: true);
+        m_Movement_LongJump = m_Movement.FindAction("LongJump", throwIfNotFound: true);
+        m_Movement_DontMove = m_Movement.FindAction("DontMove", throwIfNotFound: true);
+        m_Movement_TurnRight = m_Movement.FindAction("TurnRight", throwIfNotFound: true);
+        m_Movement_TurnLeft = m_Movement.FindAction("TurnLeft", throwIfNotFound: true);
+        m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -458,63 +468,33 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Main
-    private readonly InputActionMap m_Main;
-    private List<IMainActions> m_MainActionsCallbackInterfaces = new List<IMainActions>();
-    private readonly InputAction m_Main_Move;
-    private readonly InputAction m_Main_RaiseScope;
-    private readonly InputAction m_Main_TurnLeft;
-    private readonly InputAction m_Main_TurnRight;
-    private readonly InputAction m_Main_DontMove;
-    private readonly InputAction m_Main_LongJump;
-    private readonly InputAction m_Main_HighJump;
-    private readonly InputAction m_Main_EnablePointerLine;
-    private readonly InputAction m_Main_IncreaseShotPower;
-    private readonly InputAction m_Main_Shoot;
-    public struct MainActions
+    // Weapon
+    private readonly InputActionMap m_Weapon;
+    private List<IWeaponActions> m_WeaponActionsCallbackInterfaces = new List<IWeaponActions>();
+    private readonly InputAction m_Weapon_RaiseScope;
+    private readonly InputAction m_Weapon_EnablePointerLine;
+    private readonly InputAction m_Weapon_IncreaseShotPower;
+    private readonly InputAction m_Weapon_Shoot;
+    public struct WeaponActions
     {
         private @MainInput m_Wrapper;
-        public MainActions(@MainInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Main_Move;
-        public InputAction @RaiseScope => m_Wrapper.m_Main_RaiseScope;
-        public InputAction @TurnLeft => m_Wrapper.m_Main_TurnLeft;
-        public InputAction @TurnRight => m_Wrapper.m_Main_TurnRight;
-        public InputAction @DontMove => m_Wrapper.m_Main_DontMove;
-        public InputAction @LongJump => m_Wrapper.m_Main_LongJump;
-        public InputAction @HighJump => m_Wrapper.m_Main_HighJump;
-        public InputAction @EnablePointerLine => m_Wrapper.m_Main_EnablePointerLine;
-        public InputAction @IncreaseShotPower => m_Wrapper.m_Main_IncreaseShotPower;
-        public InputAction @Shoot => m_Wrapper.m_Main_Shoot;
-        public InputActionMap Get() { return m_Wrapper.m_Main; }
+        public WeaponActions(@MainInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @RaiseScope => m_Wrapper.m_Weapon_RaiseScope;
+        public InputAction @EnablePointerLine => m_Wrapper.m_Weapon_EnablePointerLine;
+        public InputAction @IncreaseShotPower => m_Wrapper.m_Weapon_IncreaseShotPower;
+        public InputAction @Shoot => m_Wrapper.m_Weapon_Shoot;
+        public InputActionMap Get() { return m_Wrapper.m_Weapon; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(MainActions set) { return set.Get(); }
-        public void AddCallbacks(IMainActions instance)
+        public static implicit operator InputActionMap(WeaponActions set) { return set.Get(); }
+        public void AddCallbacks(IWeaponActions instance)
         {
-            if (instance == null || m_Wrapper.m_MainActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_MainActionsCallbackInterfaces.Add(instance);
-            @Move.started += instance.OnMove;
-            @Move.performed += instance.OnMove;
-            @Move.canceled += instance.OnMove;
+            if (instance == null || m_Wrapper.m_WeaponActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_WeaponActionsCallbackInterfaces.Add(instance);
             @RaiseScope.started += instance.OnRaiseScope;
             @RaiseScope.performed += instance.OnRaiseScope;
             @RaiseScope.canceled += instance.OnRaiseScope;
-            @TurnLeft.started += instance.OnTurnLeft;
-            @TurnLeft.performed += instance.OnTurnLeft;
-            @TurnLeft.canceled += instance.OnTurnLeft;
-            @TurnRight.started += instance.OnTurnRight;
-            @TurnRight.performed += instance.OnTurnRight;
-            @TurnRight.canceled += instance.OnTurnRight;
-            @DontMove.started += instance.OnDontMove;
-            @DontMove.performed += instance.OnDontMove;
-            @DontMove.canceled += instance.OnDontMove;
-            @LongJump.started += instance.OnLongJump;
-            @LongJump.performed += instance.OnLongJump;
-            @LongJump.canceled += instance.OnLongJump;
-            @HighJump.started += instance.OnHighJump;
-            @HighJump.performed += instance.OnHighJump;
-            @HighJump.canceled += instance.OnHighJump;
             @EnablePointerLine.started += instance.OnEnablePointerLine;
             @EnablePointerLine.performed += instance.OnEnablePointerLine;
             @EnablePointerLine.canceled += instance.OnEnablePointerLine;
@@ -526,29 +506,11 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
             @Shoot.canceled += instance.OnShoot;
         }
 
-        private void UnregisterCallbacks(IMainActions instance)
+        private void UnregisterCallbacks(IWeaponActions instance)
         {
-            @Move.started -= instance.OnMove;
-            @Move.performed -= instance.OnMove;
-            @Move.canceled -= instance.OnMove;
             @RaiseScope.started -= instance.OnRaiseScope;
             @RaiseScope.performed -= instance.OnRaiseScope;
             @RaiseScope.canceled -= instance.OnRaiseScope;
-            @TurnLeft.started -= instance.OnTurnLeft;
-            @TurnLeft.performed -= instance.OnTurnLeft;
-            @TurnLeft.canceled -= instance.OnTurnLeft;
-            @TurnRight.started -= instance.OnTurnRight;
-            @TurnRight.performed -= instance.OnTurnRight;
-            @TurnRight.canceled -= instance.OnTurnRight;
-            @DontMove.started -= instance.OnDontMove;
-            @DontMove.performed -= instance.OnDontMove;
-            @DontMove.canceled -= instance.OnDontMove;
-            @LongJump.started -= instance.OnLongJump;
-            @LongJump.performed -= instance.OnLongJump;
-            @LongJump.canceled -= instance.OnLongJump;
-            @HighJump.started -= instance.OnHighJump;
-            @HighJump.performed -= instance.OnHighJump;
-            @HighJump.canceled -= instance.OnHighJump;
             @EnablePointerLine.started -= instance.OnEnablePointerLine;
             @EnablePointerLine.performed -= instance.OnEnablePointerLine;
             @EnablePointerLine.canceled -= instance.OnEnablePointerLine;
@@ -560,32 +522,121 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
             @Shoot.canceled -= instance.OnShoot;
         }
 
-        public void RemoveCallbacks(IMainActions instance)
+        public void RemoveCallbacks(IWeaponActions instance)
         {
-            if (m_Wrapper.m_MainActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_WeaponActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IMainActions instance)
+        public void SetCallbacks(IWeaponActions instance)
         {
-            foreach (var item in m_Wrapper.m_MainActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_WeaponActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_MainActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_WeaponActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public MainActions @Main => new MainActions(this);
-    public interface IMainActions
+    public WeaponActions @Weapon => new WeaponActions(this);
+
+    // Movement
+    private readonly InputActionMap m_Movement;
+    private List<IMovementActions> m_MovementActionsCallbackInterfaces = new List<IMovementActions>();
+    private readonly InputAction m_Movement_HighJump;
+    private readonly InputAction m_Movement_LongJump;
+    private readonly InputAction m_Movement_DontMove;
+    private readonly InputAction m_Movement_TurnRight;
+    private readonly InputAction m_Movement_TurnLeft;
+    private readonly InputAction m_Movement_Move;
+    public struct MovementActions
     {
-        void OnMove(InputAction.CallbackContext context);
+        private @MainInput m_Wrapper;
+        public MovementActions(@MainInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @HighJump => m_Wrapper.m_Movement_HighJump;
+        public InputAction @LongJump => m_Wrapper.m_Movement_LongJump;
+        public InputAction @DontMove => m_Wrapper.m_Movement_DontMove;
+        public InputAction @TurnRight => m_Wrapper.m_Movement_TurnRight;
+        public InputAction @TurnLeft => m_Wrapper.m_Movement_TurnLeft;
+        public InputAction @Move => m_Wrapper.m_Movement_Move;
+        public InputActionMap Get() { return m_Wrapper.m_Movement; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MovementActions set) { return set.Get(); }
+        public void AddCallbacks(IMovementActions instance)
+        {
+            if (instance == null || m_Wrapper.m_MovementActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MovementActionsCallbackInterfaces.Add(instance);
+            @HighJump.started += instance.OnHighJump;
+            @HighJump.performed += instance.OnHighJump;
+            @HighJump.canceled += instance.OnHighJump;
+            @LongJump.started += instance.OnLongJump;
+            @LongJump.performed += instance.OnLongJump;
+            @LongJump.canceled += instance.OnLongJump;
+            @DontMove.started += instance.OnDontMove;
+            @DontMove.performed += instance.OnDontMove;
+            @DontMove.canceled += instance.OnDontMove;
+            @TurnRight.started += instance.OnTurnRight;
+            @TurnRight.performed += instance.OnTurnRight;
+            @TurnRight.canceled += instance.OnTurnRight;
+            @TurnLeft.started += instance.OnTurnLeft;
+            @TurnLeft.performed += instance.OnTurnLeft;
+            @TurnLeft.canceled += instance.OnTurnLeft;
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+        }
+
+        private void UnregisterCallbacks(IMovementActions instance)
+        {
+            @HighJump.started -= instance.OnHighJump;
+            @HighJump.performed -= instance.OnHighJump;
+            @HighJump.canceled -= instance.OnHighJump;
+            @LongJump.started -= instance.OnLongJump;
+            @LongJump.performed -= instance.OnLongJump;
+            @LongJump.canceled -= instance.OnLongJump;
+            @DontMove.started -= instance.OnDontMove;
+            @DontMove.performed -= instance.OnDontMove;
+            @DontMove.canceled -= instance.OnDontMove;
+            @TurnRight.started -= instance.OnTurnRight;
+            @TurnRight.performed -= instance.OnTurnRight;
+            @TurnRight.canceled -= instance.OnTurnRight;
+            @TurnLeft.started -= instance.OnTurnLeft;
+            @TurnLeft.performed -= instance.OnTurnLeft;
+            @TurnLeft.canceled -= instance.OnTurnLeft;
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+        }
+
+        public void RemoveCallbacks(IMovementActions instance)
+        {
+            if (m_Wrapper.m_MovementActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IMovementActions instance)
+        {
+            foreach (var item in m_Wrapper.m_MovementActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_MovementActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public MovementActions @Movement => new MovementActions(this);
+    public interface IWeaponActions
+    {
         void OnRaiseScope(InputAction.CallbackContext context);
-        void OnTurnLeft(InputAction.CallbackContext context);
-        void OnTurnRight(InputAction.CallbackContext context);
-        void OnDontMove(InputAction.CallbackContext context);
-        void OnLongJump(InputAction.CallbackContext context);
-        void OnHighJump(InputAction.CallbackContext context);
         void OnEnablePointerLine(InputAction.CallbackContext context);
         void OnIncreaseShotPower(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+    }
+    public interface IMovementActions
+    {
+        void OnHighJump(InputAction.CallbackContext context);
+        void OnLongJump(InputAction.CallbackContext context);
+        void OnDontMove(InputAction.CallbackContext context);
+        void OnTurnRight(InputAction.CallbackContext context);
+        void OnTurnLeft(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
     }
 }

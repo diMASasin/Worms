@@ -3,11 +3,15 @@ using System.Linq;
 using Configs;
 using DefaultNamespace.Wind;
 using Factories;
+using GameBattleStateMachine;
+using GameStateMachine;
 using Pools;
+using Projectiles;
 using ScriptBoy.Digable2DTerrain;
 using Timers;
 using UnityEngine;
 using Weapons;
+using Input = PlayerInput.Input;
 
 public class Bootstrap : MonoBehaviour
 {
@@ -22,7 +26,6 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private ProjectilePool _fragmentsPool;
     [SerializeField] private WormsSpawner _wormsSpawner;
     [SerializeField] private EndScreen _endScreen;
-    [SerializeField] private float _turnDelay = 2.5f;
     [SerializeField] private TimersConfig _timersConfig;
     [SerializeField] private WindData _windData;
     [SerializeField] private WindEffect _windEffect;
@@ -31,33 +34,40 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private ExplosionPool _explosionPool;
     [SerializeField] private CoroutinePerformer _coroutinePerformer;
     [SerializeField] private WeaponView _weaponView;
-    [SerializeField] private WeaponFactory _weaponFactory;
     [SerializeField] private FollowingObject _followingTimerViewPrefab;
     [SerializeField] private Worm _wormPrefab;
-    [SerializeField] private ProjectileFactory _projectileFactory;
-
+    [SerializeField] private WormInfoFactory _wormInfoFactory;
+    [SerializeField] private Transform _generalView;
+    [SerializeField] private Arrow _arrowPrefab;
+    
+    private readonly WeaponFactory _weaponFactory = new();
+    private readonly List<Team> _aliveTeams = new();
+    private readonly Timer _globalTimer = new Timer();
+    private readonly Timer _turnTimer = new Timer();
+    private MainInput _mainInput;
+    private List<Weapon> _weaponList = new();
+    private Input _input;
+    
     private TeamFactory _teamFactory;
     private WormFactory _wormFactory;
     private Wind _wind;
     private ShovelWrapper _shovelWrapper;
     private WaterMediator _waterMediator;
     private WindMediator _windMediator;
-    private WeaponPresenter _weaponPresenter;
     
     private Game _game;
     private List<Team> _teams;
     private List<Worm> _worms;
-
-    private readonly List<Team> _currentTeams = new();
-    private List<Weapon> _weaponList = new();
-    private TimerMediator _timerMediator;
-    private Timer _globalTimer;
-    private Timer _turnTimer;
-    private PlayerInput _playerInput;
+    private Arrow _arrow;
+    private ProjectileLauncher _projectileLauncher;
+    private WeaponChanger _weaponChanger;
 
     private void Awake()
     {
+        _arrow = Object.Instantiate(_arrowPrefab);
         _coroutinePerformer.Init();
+        _mainInput = new MainInput();
+        _input = new Input(_mainInput);
 
         _shovelWrapper = new ShovelWrapper(_shovel);
         
@@ -66,58 +76,27 @@ public class Bootstrap : MonoBehaviour
         _windView.Init(_wind);
 
         InitializePools();
+        _projectileLauncher = new ProjectileLauncher(_weaponSelector, _weaponFactory, _weaponView);
         
-        Spawn();
-        _game = new Game(_teams, _teamFactory, _timersConfig);
         _wormFactory = new WormFactory(_wormPrefab);
+        _wormInfoFactory.Init(_wormFactory);
         _teamFactory = new TeamFactory(_wormFactory);
-
+        Spawn();
+        
         CreateWeapon();
-        _weaponSelector.Init(_weaponList, _weaponFactory, _game);
-
-        _globalTimer = new Timer();
-        _turnTimer = new Timer();
+        
         _globalTimerView.Init(_globalTimer, TimerFormattingStyle.MinutesAndSeconds);
         _timerView.Init(_turnTimer, TimerFormattingStyle.Seconds);
 
-        _timerMediator = new TimerMediator(_globalTimer, _turnTimer, _timersConfig, _game, _weaponFactory);
-        _waterMediator = new WaterMediator(_water, _timerMediator, _game);
-        _windMediator = new WindMediator(_wind, _game, _weaponConfigs.Select(config => config.ProjectilePool));
-        _playerInput = new PlayerInput(_game);
+        _waterMediator = new WaterMediator(_water);
+        _windMediator = new WindMediator(_wind, _weaponConfigs.Select(config => config.ProjectilePool));
         
-        _followingCamera.Init(_game, _projectileFactory, _wormFactory);
+        BattleStateMachineData battleStateMachineData = new (_timersConfig, _followingCamera, _endScreen, _input, 
+            _generalView, _turnTimer, _globalTimer, _aliveTeams, _arrow, _weaponSelector, _weaponView, _wind,
+            _weaponChanger, _waterMediator, _projectileLauncher);
+        _game = new Game(_aliveTeams, _teamFactory, _endScreen, battleStateMachineData, _weaponFactory);
         
-        StartGame();
-    }
-
-    private void OnEnable()
-    {
-        _game.GameEnd += OnGameEnd;
-        _teamFactory.TeamDied += OnTeamDied;
-        _wormFactory.WormDied += OnWormDied;
-    }
-
-    private void OnDisable()
-    {
-        if (_game != null)
-            _game.GameEnd -= OnGameEnd;
-
-        if (_teamFactory != null) 
-            _teamFactory.TeamDied -= OnTeamDied;
-
-        if(_wormFactory != null)
-            _wormFactory.WormDied -= OnWormDied;
-    }
-
-    private void OnGameEnd()
-    {
-        _endScreen.gameObject.SetActive(true);
-    }
-
-    private void StartGame()
-    {
         _game.StartGame();
-        _game.StartNextTurn();
     }
 
     private void Spawn()
@@ -128,15 +107,15 @@ public class Bootstrap : MonoBehaviour
         _worms = worms;
         _teams = teams;
         
-        _currentTeams.AddRange(_teams);
         _teamHealthFactory.Create(_teams);
+        _aliveTeams.AddRange(_teams);
     }
 
     private void Update()
     {
         _globalTimer.Tick();
         _turnTimer.Tick();
-        _playerInput.Tick();
+        _input.Tick();
         _game.Tick();
     }
 
@@ -147,24 +126,10 @@ public class Bootstrap : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (_game != null)
-        {
-            _game.Dispose();
-            _waterMediator.Dispose();
-            _windMediator.Dispose();
-            _timerMediator.Dispose();
-        }
-    }
-
-    private void OnTeamDied(Team team)
-    {
-        _currentTeams.Remove(team); 
-    }
-
-    private void OnWormDied(Worm worm)
-    {
-        if (_game.CurrentWorm == worm)
-            _game.StartNextTurn(_turnDelay);
+        if (_game != null) _game.Dispose();
+        
+        _windMediator.Dispose();
+        _projectileLauncher.Dispose();
     }
 
     private void InitializePools()
@@ -172,14 +137,15 @@ public class Bootstrap : MonoBehaviour
         _explosionPool.Init(_projectilesParent, _shovelWrapper);
         _fragmentsPool.Init(_followingTimerViewPrefab);
 
-        foreach (var weaponConfig in _weaponConfigs)
+        foreach (var weaponConfig in _weaponConfigs) 
             weaponConfig.ProjectilePool.Init(_followingTimerViewPrefab);
     }
 
     private void CreateWeapon()
     {
         _weaponList = _weaponFactory.Create(_weaponConfigs, _weaponView.SpawnPoint);
-
-        _weaponPresenter = new WeaponPresenter(_weaponView, _weaponSelector);
+        _weaponSelector.Init(_weaponList);
+        _weaponView.Init(_weaponSelector);
+        _weaponChanger = new WeaponChanger(_weaponSelector, _weaponFactory, _weaponView);
     }
 }

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90901ac4677d6374a809dab9a6434d2e, type: 3}
   m_Name: FragmentPool
   m_EditorClassIdentifier: 
-  _config: {fileID: 11400000, guid: 53d6a28f3513e2a47beec58bc6601bc0, type: 2}
+  _projectileFactory: {fileID: 11400000, guid: f745e31fc118b744f8b5a54f508cdc4b, type: 2}
   _amount: 5
