@@ -23,7 +23,7 @@ namespace GameBattleStateMachine.States
                 () => _stateSwitcher.SwitchState<TurnState>());
 
             FollowingCamera.ZoomTarget();
-            FollowingCamera.SetTarget(_data.GeneralView);
+            FollowingCamera.SetTarget(_data.GeneralViewPosition);
             
             _data.Wind.ChangeVelocity();
             _data.WaterMediator.IncreaseLevelIfAllowed();

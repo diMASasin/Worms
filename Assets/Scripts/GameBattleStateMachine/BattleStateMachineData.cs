@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Configs;
 using EventProviders;
@@ -15,7 +16,7 @@ namespace GameBattleStateMachine
         public readonly FollowingCamera FollowingCamera;
         public readonly EndScreen EndScreen;
         public readonly Input Input;
-        public readonly Transform GeneralView;
+        public readonly Vector3 GeneralViewPosition;
         public readonly Timer TurnTimer;
         public readonly Timer GlobalTimer;
         public readonly List<Team> AliveTeams;
@@ -33,7 +34,7 @@ namespace GameBattleStateMachine
         public Team CurrentTeam;
         
         public BattleStateMachineData(TimersConfig timersConfig, FollowingCamera followingCamera, EndScreen endScreen,
-            Input input, Transform generalView, Timer turnTimer, Timer globalTimer, List<Team> aliveTeams, Arrow arrow,
+            Input input, Vector3 generalViewPosition, Timer turnTimer, Timer globalTimer, List<Team> aliveTeams, Arrow arrow,
             WeaponSelector weaponSelector, WeaponView weaponView, Wind wind, WeaponChanger weaponChanger,
             WaterMediator waterMediator, ProjectileLauncher projectileLauncher, WindMediator windMediator)
         {
@@ -41,7 +42,7 @@ namespace GameBattleStateMachine
             FollowingCamera = followingCamera;
             EndScreen = endScreen;
             Input = input;
-            GeneralView = generalView;
+            GeneralViewPosition = generalViewPosition;
             TurnTimer = turnTimer;
             GlobalTimer = globalTimer;
             AliveTeams = aliveTeams;

@@ -33,11 +33,11 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private TeamHealthFactory _teamHealthFactory;
     [SerializeField] private ExplosionPool _explosionPool;
     [SerializeField] private CoroutinePerformer _coroutinePerformer;
-    [SerializeField] private WeaponView _weaponView;
+    [SerializeField] private WeaponView _weaponViewPrefab;
     [SerializeField] private FollowingObject _followingTimerViewPrefab;
     [SerializeField] private Worm _wormPrefab;
     [SerializeField] private WormInfoFactory _wormInfoFactory;
-    [SerializeField] private Transform _generalView;
+    [SerializeField] private Vector3 _generalViewPosition = new(0, 4.7f, -40);
     [SerializeField] private Arrow _arrowPrefab;
     
     private readonly WeaponFactory _weaponFactory = new();
@@ -61,10 +61,13 @@ public class Bootstrap : MonoBehaviour
     private Arrow _arrow;
     private ProjectileLauncher _projectileLauncher;
     private WeaponChanger _weaponChanger;
+    private WeaponView _weaponView;
 
     private void Awake()
     {
-        _arrow = Object.Instantiate(_arrowPrefab);
+        _arrow = Instantiate(_arrowPrefab);
+        _weaponView = Instantiate(_weaponViewPrefab);
+        _weaponView.gameObject.SetActive(false);
         _coroutinePerformer.Init();
         _mainInput = new MainInput();
         _input = new Input(_mainInput);
@@ -92,7 +95,7 @@ public class Bootstrap : MonoBehaviour
         _windMediator = new WindMediator(_wind, _weaponConfigs.Select(config => config.ProjectilePool));
         
         BattleStateMachineData battleStateMachineData = new (_timersConfig, _followingCamera, _endScreen, _input, 
-            _generalView, _turnTimer, _globalTimer, _aliveTeams, _arrow, _weaponSelector, _weaponView, _wind,
+            _generalViewPosition, _turnTimer, _globalTimer, _aliveTeams, _arrow, _weaponSelector, _weaponView, _wind,
             _weaponChanger, _waterMediator, _projectileLauncher, _windMediator);
         _game = new Game(_aliveTeams, _teamFactory, _endScreen, battleStateMachineData, _weaponFactory);
         
@@ -128,7 +131,6 @@ public class Bootstrap : MonoBehaviour
     {
         if (_game != null) _game.Dispose();
         
-        _windMediator.Dispose();
         _projectileLauncher.Dispose();
     }
 
@@ -142,7 +144,7 @@ public class Bootstrap : MonoBehaviour
             ProjectilePool projectilePool = weaponConfig.ProjectilePool;
             
             projectilePool.Init(_followingTimerViewPrefab);
-            projectilePool.ProjectileFactory.Init();
+            projectilePool.ProjectileFactory.Init(_projectilesParent);
         }
     }
 

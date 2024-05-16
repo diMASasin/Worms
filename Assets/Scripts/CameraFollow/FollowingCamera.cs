@@ -17,6 +17,8 @@ public class FollowingCamera : MonoBehaviour
 
     private bool _shouldZoomToTarget;
 
+    private Func<Vector3> _getTargetPosition;
+
     private Vector3 CameraPosition
     {
         get => _camera.transform.position;
@@ -45,6 +47,12 @@ public class FollowingCamera : MonoBehaviour
     public void SetTarget(Transform target)
     {
         _target = target;
+        _getTargetPosition = () => _target.position + _offset;
+    }
+
+    public void SetTarget(Vector3 positionTarget)
+    {
+        _getTargetPosition = () => positionTarget;
     }
 
     private void TryZoom()
@@ -62,7 +70,9 @@ public class FollowingCamera : MonoBehaviour
     {
         float tolerance = 0.2f;
         float positionZ = transform.position.z - _offset.z;
-        if (Math.Abs(positionZ - _target.transform.position.z) < 2 ||
+        float targetPositionZ = _getTargetPosition().z;
+        
+        if (Math.Abs(positionZ - targetPositionZ) < 2 ||
             Math.Abs(positionZ - _maxPosition) < tolerance || 
             Math.Abs(positionZ - MinPosition) < tolerance)
             _shouldZoomToTarget = false;
@@ -70,7 +80,7 @@ public class FollowingCamera : MonoBehaviour
 
     private void FollowTarget()
     {
-        Vector3 newPosition = _target.position + _offset;
+        Vector3 newPosition = _getTargetPosition();
         
         if(_shouldZoomToTarget == false)
             newPosition.z = transform.position.z;

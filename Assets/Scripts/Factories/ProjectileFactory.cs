@@ -20,14 +20,17 @@ namespace Factories
         
         private ObjectPool<FollowingObject> _followingTimerViewPool;
         private readonly List<Projectile> _projectiles = new();
-        
+        private Transform _projectileParent;
+
         public ProjectileConfig Config => _config;
 
         public event Action<Projectile, Vector2> ProjectileLaunched;
         public event Action<Projectile> ProjectileExploded; 
 
-        public void Init()
+        public void Init(Transform projectileParent)
         {
+            _projectileParent = projectileParent;
+            
             _followingTimerViewPool = new ObjectPool<FollowingObject>(() => Instantiate(_followingTimerView));
         }
 
@@ -39,7 +42,7 @@ namespace Factories
 
         public Projectile Create()
         {
-            Projectile projectile = Object.Instantiate(_projectilePrefab);
+            Projectile projectile = Object.Instantiate(_projectilePrefab, _projectileParent);
             Explosion explosion = _explosionPool.Get();
             
             projectile.Init(_config);

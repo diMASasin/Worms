@@ -2300,7 +2300,7 @@ Animator:
   m_GameObject: {fileID: 6627119803157064990}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e6de95acb73ca4c44a82b634da3e8be6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2c8f13c62559e3a449a37b3865b5fd27, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3068,7 +3068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 4384166340188744801}
   _itemFactory: {fileID: 11400000, guid: 1c028d9e372097a4c87a1d041000cd57, type: 2}
-  _itemContainer: {fileID: 0}
+  _itemContainer: {fileID: 8100309700855796054}
 --- !u!95 &4384166340188744801
 Animator:
   serializedVersion: 5

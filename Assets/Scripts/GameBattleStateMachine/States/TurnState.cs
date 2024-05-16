@@ -40,6 +40,7 @@ namespace GameBattleStateMachine.States
             WeaponSelector.Enable();
             
             _data.ProjectileLauncher.ProjectileLaunched += OnProjectileLaunched;
+            _data.ProjectileLauncher.ProjectileExploded += OnProjectileExploded;
             
             Timer.Start(_data.TimersConfig.TurnDuration, OnTimerElapsed);
         }
@@ -54,6 +55,7 @@ namespace GameBattleStateMachine.States
             timer.Start(CurrentWorm.Config.RemoveWeaponDelay, () => CurrentWorm.RemoveWeapon());
             
             _data.ProjectileLauncher.ProjectileLaunched -= OnProjectileLaunched;
+            _data.ProjectileLauncher.ProjectileExploded -= OnProjectileExploded;
         }
 
         public void Tick()
@@ -63,7 +65,12 @@ namespace GameBattleStateMachine.States
 
         private void OnProjectileLaunched(Projectile projectile, Vector2 velocity)
         {
-            
+            _data.WindMediator.InfluenceOnProjectileIfNecessary(projectile, projectile.Config);
+        }
+
+        private void OnProjectileExploded(Projectile projectile)
+        {
+            _data.WindMediator.RemoveProjectileFromInfluence(projectile);
         }
 
         private void OnTimerElapsed()

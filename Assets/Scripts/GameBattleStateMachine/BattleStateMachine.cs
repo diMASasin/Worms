@@ -29,7 +29,6 @@ namespace GameBattleStateMachine
         public void SwitchState<T>() where T : IBattleState
         {
             IBattleState state = _states.FirstOrDefault(state => state is T);
-            Debug.Log(typeof(T).Name);
 
             _currentState?.Exit();
             _currentState = state;

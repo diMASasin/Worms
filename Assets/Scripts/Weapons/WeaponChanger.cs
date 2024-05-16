@@ -31,6 +31,8 @@ namespace Weapons
         public void ChangeWorm(Worm worm)
         {
             _currentWorm = worm;
+            
+            _currentWorm.WeaponRemoved += OnWeaponRemoved;
         }
 
         private void OnWeaponShot(float shotPower)
@@ -43,11 +45,19 @@ namespace Weapons
             Transform weaponViewTransform = _weaponView.transform;
             Transform wormTransform = _currentWorm.WeaponPosition.transform;
 
+            _weaponView.gameObject.SetActive(true);
             weaponViewTransform.parent = wormTransform;
             weaponViewTransform.position = wormTransform.position;
             weaponViewTransform.right = _currentWorm.Armature.right;
             
             _currentWorm.ChangeWeapon(weapon);
+        }
+
+        private void OnWeaponRemoved()
+        {
+            _currentWorm.WeaponRemoved -= OnWeaponRemoved;
+            
+            _weaponView.gameObject.SetActive(false);
         }
     }
 }

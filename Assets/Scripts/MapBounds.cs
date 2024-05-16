@@ -1,8 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-[Serializable]
-public class MapBounds
+public class MapBounds : MonoBehaviour
 {
     [field: SerializeField] public Transform Left { get; private set; }
     [field: SerializeField] public Transform Right { get; private set; }
