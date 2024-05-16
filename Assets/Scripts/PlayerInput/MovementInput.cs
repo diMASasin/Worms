@@ -17,6 +17,8 @@ namespace PlayerInput
         {
             _movement = movement;
         
+            _movementInput.Enable();
+            
             _movementInput.TurnRight.performed += OnTurnRight;
             _movementInput.TurnLeft.performed += OnTurnLeft;
             _movementInput.LongJump.performed += OnLongJump;
@@ -28,6 +30,8 @@ namespace PlayerInput
             if(_movement == null)
                 return;
         
+            _movementInput.Disable();
+            
             _movementInput.TurnRight.performed -= OnTurnRight;
             _movementInput.TurnLeft.performed -= OnTurnLeft;
             _movementInput.LongJump.performed -= OnLongJump;

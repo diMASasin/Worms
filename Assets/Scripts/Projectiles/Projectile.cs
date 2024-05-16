@@ -41,7 +41,7 @@ namespace Projectiles
         public void InfluenceOnVelocity(Vector2 additionalVelocity)
         {
             _rigidbody.velocity += additionalVelocity;
-        }
+         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -53,7 +53,6 @@ namespace Projectiles
         {
             if (Input.GetKeyDown(KeyCode.Space) && _config.ExplodeOnKeyDown)
                 Explode();
-            Debug.Log(_rigidbody.velocity);
         }
 
         private void FixedUpdate()

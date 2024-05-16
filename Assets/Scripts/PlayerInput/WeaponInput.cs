@@ -16,6 +16,8 @@ namespace PlayerInput
         {
             _weapon = weapon;
             
+            _weaponInput.Enable();
+            
             _weaponInput.EnablePointerLine.performed += OnEnablePointerLine;
             _weaponInput.Shoot.performed += OnShoot;
         }
@@ -24,6 +26,8 @@ namespace PlayerInput
         {
             if(_weapon == null)
                 return;
+            
+            _weaponInput.Disable();
             
             _weaponInput.EnablePointerLine.performed -= OnEnablePointerLine;
             _weaponInput.Shoot.performed -= OnShoot;

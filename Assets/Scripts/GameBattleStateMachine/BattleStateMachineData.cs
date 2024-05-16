@@ -26,6 +26,7 @@ namespace GameBattleStateMachine
         public readonly WeaponChanger WeaponChanger;
         public readonly WaterMediator WaterMediator;
         public readonly ProjectileLauncher ProjectileLauncher;
+        public readonly WindMediator WindMediator;
 
         public int CurrentTeamIndex = -1;
         public Worm CurrentWorm;
@@ -34,7 +35,7 @@ namespace GameBattleStateMachine
         public BattleStateMachineData(TimersConfig timersConfig, FollowingCamera followingCamera, EndScreen endScreen,
             Input input, Transform generalView, Timer turnTimer, Timer globalTimer, List<Team> aliveTeams, Arrow arrow,
             WeaponSelector weaponSelector, WeaponView weaponView, Wind wind, WeaponChanger weaponChanger,
-            WaterMediator waterMediator, ProjectileLauncher projectileLauncher)
+            WaterMediator waterMediator, ProjectileLauncher projectileLauncher, WindMediator windMediator)
         {
             TimersConfig = timersConfig;
             FollowingCamera = followingCamera;
@@ -51,6 +52,7 @@ namespace GameBattleStateMachine
             WeaponChanger = weaponChanger;
             WaterMediator = waterMediator;
             ProjectileLauncher = projectileLauncher;
+            WindMediator = windMediator;
         }
         
         public bool TryGetCurrentTeam(out Team team)

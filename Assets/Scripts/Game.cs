@@ -1,13 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Configs;
 using EventProviders;
 using GameBattleStateMachine;
 using GameBattleStateMachine.States;
-using GameStateMachine;
-using Projectiles;
-using UnityEngine;
-using Input = PlayerInput.Input;
 
 public class Game : IDisposable
 {
@@ -29,10 +24,10 @@ public class Game : IDisposable
         _battleStateMachine = new BattleStateMachine(data);
         
         _teamDiedEvent.TeamDied += OnTeamDied;
-        _weaponShotEvent.WeaponShot += OnProjectileExploded;
+        _weaponShotEvent.WeaponShot += OnWeaponShot;
     }
-
-    private void OnProjectileExploded(float f)
+                        
+    private void OnWeaponShot(float f)
     {
         _battleStateMachine.SwitchState<RetreatState>();
     }
@@ -40,7 +35,7 @@ public class Game : IDisposable
     public void Dispose()
     {
         if (_teamDiedEvent != null) _teamDiedEvent.TeamDied -= OnTeamDied;
-        if (_weaponShotEvent != null) _weaponShotEvent.WeaponShot -= OnProjectileExploded;
+        if (_weaponShotEvent != null) _weaponShotEvent.WeaponShot -= OnWeaponShot;
     }
 
     public void Tick() => _battleStateMachine.Tick();

@@ -17,8 +17,8 @@ namespace Pools
         private ObjectPool<Projectile> _pool;
         private FollowingObject _followingTimerView;
 
-        private ProjectileConfig Config => _projectileFactory.Config;
-
+        public ProjectileFactory ProjectileFactory => _projectileFactory;
+        
         public event Action<Projectile, ProjectileConfig> Got;
         public event Action Released;
         
@@ -54,7 +54,7 @@ namespace Pools
             projectile.gameObject.SetActive(true);
             Count++;
             CountChanged?.Invoke(Count);
-            Got?.Invoke(projectile, Config);
+            Got?.Invoke(projectile, _projectileFactory.Config);
         }
 
         private void OnRelease(Projectile projectile)

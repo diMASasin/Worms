@@ -46,7 +46,6 @@ namespace PlayerInput
             _movementInput.Disable();
             _weaponInput.Disable();
             CoroutinePerformer.StartCoroutine(_worm.SetRigidbodyKinematicWhenGrounded());
-            _worm.Movement.Reset();
         }
 
         private void ChangeWorm(Worm newWorm)

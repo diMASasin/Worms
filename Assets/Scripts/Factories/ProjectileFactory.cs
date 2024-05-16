@@ -26,7 +26,7 @@ namespace Factories
         public event Action<Projectile, Vector2> ProjectileLaunched;
         public event Action<Projectile> ProjectileExploded; 
 
-        private void Awake()
+        public void Init()
         {
             _followingTimerViewPool = new ObjectPool<FollowingObject>(() => Instantiate(_followingTimerView));
         }

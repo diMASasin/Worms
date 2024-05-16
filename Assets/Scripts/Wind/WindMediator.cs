@@ -25,7 +25,7 @@ public class WindMediator : IDisposable
     {
         for (int i = 0; i < _projectilesUnderInfluence.Count; i++)
         {
-            _projectilesUnderInfluence[i].InfluenceOnVelocity(Vector2.right * _wind.Velocity);
+            _projectilesUnderInfluence[i].InfluenceOnVelocity(Vector2.right * (_wind.Velocity * Time.fixedDeltaTime));
         }
     }
 
@@ -37,10 +37,9 @@ public class WindMediator : IDisposable
 
     private void OnProjectileLaunched(Projectile projectile, ProjectileConfig projectileConfig)
     {
-        // if (projectileConfig.WindInfluence == true)
-        //     _projectilesUnderInfluence.Add(projectile);
+        if (projectileConfig.WindInfluence == true)
+            _projectilesUnderInfluence.Add(projectile);
 
-        projectile.InfluenceOnVelocity(Vector2.right * _wind.Velocity);
         projectile.Exploded += OnExploded;
     }
 

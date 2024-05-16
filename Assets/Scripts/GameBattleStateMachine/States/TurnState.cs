@@ -38,7 +38,8 @@ namespace GameBattleStateMachine.States
             _data.Input.Enable(worm);
             _data.WeaponChanger.ChangeWorm(CurrentWorm);
             WeaponSelector.Enable();
-            // _data.ProjectileLauncher.ProjectileLaunched += OnProjectileLaunched;
+            
+            _data.ProjectileLauncher.ProjectileLaunched += OnProjectileLaunched;
             
             Timer.Start(_data.TimersConfig.TurnDuration, OnTimerElapsed);
         }
@@ -46,11 +47,13 @@ namespace GameBattleStateMachine.States
         public void Exit()
         {
             WeaponSelector.Disable();
+            _data.Input.Disable();
+            CurrentWorm.Movement.Reset();
             
             Timer timer = new Timer();
             timer.Start(CurrentWorm.Config.RemoveWeaponDelay, () => CurrentWorm.RemoveWeapon());
             
-            // _data.ProjectileLauncher.ProjectileLaunched -= OnProjectileLaunched;
+            _data.ProjectileLauncher.ProjectileLaunched -= OnProjectileLaunched;
         }
 
         public void Tick()
@@ -60,16 +63,14 @@ namespace GameBattleStateMachine.States
 
         private void OnProjectileLaunched(Projectile projectile, Vector2 velocity)
         {
-            _data.FollowingCamera.SetTarget(projectile.transform);
+            
         }
 
         private void OnTimerElapsed()
         {
-            CurrentWorm.SetWormLayer();
-            
             if (TryFinishShot()) return;
             
-            _stateSwitcher.SwitchState<RetreatState>();
+            _stateSwitcher.SwitchState<BetweenTurnsState>();
         }
 
         private bool TryFinishShot()
@@ -77,8 +78,7 @@ namespace GameBattleStateMachine.States
             if (CurrentWorm.Weapon?.CurrentShotPower > 0)
             {
                 CurrentWorm.Weapon.Shoot();
-                _data.Input.Disable();
-                _stateSwitcher.SwitchState<BetweenTurnsState>();
+                _stateSwitcher.SwitchState<ProjectilesWaiting>();
                 return true;
             }
 

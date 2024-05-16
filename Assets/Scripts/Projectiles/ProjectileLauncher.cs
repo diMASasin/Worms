@@ -33,8 +33,11 @@ namespace Projectiles
             _weaponSelectedEvent.WeaponSelected -= OnWeaponSelected;
             _weaponShotEvent.WeaponShot -= OnWeaponShot;
 
-            foreach (var projectile in _projectilesToUnsubscribe) 
+            foreach (var projectile in _projectilesToUnsubscribe)
+            {
                 projectile.Exploded -= OnExploded;
+                projectile.Launched -= OnLaunched;
+            }
         }
 
         private void OnWeaponSelected(Weapon weapon)
@@ -51,15 +54,20 @@ namespace Projectiles
             projectile.transform.position = spawnPoint.position;
             projectile.Launch(velocity, spawnPoint);
             
+            projectile.Launched += OnLaunched;
             projectile.Exploded += OnExploded;
-            _projectilesToUnsubscribe.Add(projectile);
             
-            ProjectileLaunched?.Invoke(projectile, velocity);
+            _projectilesToUnsubscribe.Add(projectile);
         }
 
         private void OnExploded(Projectile projectile)
         {
             ProjectileExploded?.Invoke(projectile);
+        }
+
+        private void OnLaunched(Projectile projectile, Vector2 velocity)
+        {
+            ProjectileLaunched?.Invoke(projectile, velocity);
         }
     }
 }

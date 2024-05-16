@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18df20fb2fe4dad448dc439634fe549f, type: 3}
   m_Name: TimersConfig
   m_EditorClassIdentifier: 
-  <TurnDuration>k__BackingField: 90
+  <TurnDuration>k__BackingField: 6
   <AfterShotDuration>k__BackingField: 5
-  <BetweenTurnsDuration>k__BackingField: 0
+  <BetweenTurnsDuration>k__BackingField: 1
   <GlobalTime>k__BackingField: 900

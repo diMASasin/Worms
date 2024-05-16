@@ -16,7 +16,9 @@ namespace GameBattleStateMachine.States
 
         public void Enter()
         {
+            _data.CurrentWorm.SetWormLayer();
             OnCountChanged(ProjectilePool.Count);
+            
             ProjectilePool.CountChanged += OnCountChanged;
         }
 

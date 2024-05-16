@@ -22,6 +22,7 @@ public class Wind
     {
         Velocity = Random.Range(-MaxVelocity, MaxVelocity);
         Velocity = Velocity - Velocity % Step;
+        Debug.Log(Velocity);
         VelocityChanged?.Invoke(Velocity);
     }
 }

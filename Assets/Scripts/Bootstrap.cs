@@ -93,7 +93,7 @@ public class Bootstrap : MonoBehaviour
         
         BattleStateMachineData battleStateMachineData = new (_timersConfig, _followingCamera, _endScreen, _input, 
             _generalView, _turnTimer, _globalTimer, _aliveTeams, _arrow, _weaponSelector, _weaponView, _wind,
-            _weaponChanger, _waterMediator, _projectileLauncher);
+            _weaponChanger, _waterMediator, _projectileLauncher, _windMediator);
         _game = new Game(_aliveTeams, _teamFactory, _endScreen, battleStateMachineData, _weaponFactory);
         
         _game.StartGame();
@@ -137,8 +137,13 @@ public class Bootstrap : MonoBehaviour
         _explosionPool.Init(_projectilesParent, _shovelWrapper);
         _fragmentsPool.Init(_followingTimerViewPrefab);
 
-        foreach (var weaponConfig in _weaponConfigs) 
-            weaponConfig.ProjectilePool.Init(_followingTimerViewPrefab);
+        foreach (var weaponConfig in _weaponConfigs)
+        {
+            ProjectilePool projectilePool = weaponConfig.ProjectilePool;
+            
+            projectilePool.Init(_followingTimerViewPrefab);
+            projectilePool.ProjectileFactory.Init();
+        }
     }
 
     private void CreateWeapon()

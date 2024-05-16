@@ -27,6 +27,7 @@ namespace GameBattleStateMachine.States
         public void Exit()
         {
             _data.Input.Disable();
+            _data.CurrentWorm.SetWormLayer();
         }
 
         public void Tick()
