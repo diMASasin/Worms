@@ -1,6 +1,6 @@
 using UnityEngine.InputSystem;
 
-namespace PlayerInput
+namespace PlayerInputSystem
 {
     public class WeaponInput
     {

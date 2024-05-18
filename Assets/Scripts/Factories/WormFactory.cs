@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Configs;
 using EventProviders;
 using UnityEngine;
+using WormComponents;
 using Object = UnityEngine.Object;
 
 namespace Factories

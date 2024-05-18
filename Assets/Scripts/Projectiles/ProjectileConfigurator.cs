@@ -4,6 +4,7 @@ using Configs;
 using Projectiles.Behaviours.LaunchBehaviour;
 using UnityEngine;
 using UnityEngine.Pool;
+using WormComponents;
 
 namespace Projectiles
 {

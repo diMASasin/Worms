@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Configs;
 using EventProviders;
 using UnityEngine;
+using WormComponents;
 
 namespace Factories
 {
@@ -19,7 +20,7 @@ namespace Factories
 
         public Team Create(Color color, Transform parent, TeamConfig config)
         {
-            var teamWorms = new List<Worm>();
+            var teamWorms = new CycledList<Worm>();
             List<WormConfig> wormConfigs = config.WormConfigs;
             
             for (int i = 0; i < wormConfigs.Count; i++)

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Configs;
 using Factories;
 using UnityEngine;
+using WormComponents;
 using Random = UnityEngine.Random;
 
 public class WormsSpawner : MonoBehaviour
@@ -26,10 +27,10 @@ public class WormsSpawner : MonoBehaviour
         GetEdgesForSpawn();
     }
 
-    public void Spawn(out List<Worm> worms, out List<Team> teams)
+    public void Spawn(out CycledList<Worm> worms, out CycledList<Team> teams)
     {
-        worms = new List<Worm>();
-        teams = new List<Team>();
+        worms = new CycledList<Worm>();
+        teams = new CycledList<Team>();
         
         foreach (var teamConfig in _spawnerConfig.TeamConfigs)
         {
@@ -44,7 +45,7 @@ public class WormsSpawner : MonoBehaviour
         MoveToSpawnPoint(worms, GetRandomSpawnPoint);
     }
 
-    private void MoveToSpawnPoint(List<Worm> worms, Func<Vector2> getSpawnPoint)
+    private void MoveToSpawnPoint(CycledList<Worm> worms, Func<Vector2> getSpawnPoint)
     {
         foreach (var worm in worms)
             worm.transform.position = getSpawnPoint();

@@ -4,33 +4,30 @@ using Timers;
 
 namespace GameBattleStateMachine.States
 {
-    public class RetreatState : IBattleState
+    public class RetreatState : BattleState
     {
-        private readonly IStateSwitcher _stateSwitcher;
-        private readonly BattleStateMachineData _data;
         private bool _timerElapsed;
 
-        private Timer Timer => _data.TurnTimer;
-        
-        public RetreatState(IStateSwitcher stateSwitcher, BattleStateMachineData data)
+        private Timer Timer => Data.TurnTimer;
+
+        public RetreatState(IStateSwitcher stateSwitcher, BattleStateMachineData data) : base(stateSwitcher, data) { }
+
+        public override void Enter()
         {
-            _stateSwitcher = stateSwitcher;
-            _data = data;
+            Timer.Start(Data.TimersConfig.AfterShotDuration, () => 
+                StateSwitcher.SwitchState<ProjectilesWaiting>());
         }
 
-        public void Enter()
+        public override void Exit()
         {
-            Timer.Start(_data.TimersConfig.AfterShotDuration, () => 
-                _stateSwitcher.SwitchState<ProjectilesWaiting>());
+            Data.PlayerInput.Disable();
         }
 
-        public void Exit()
+        public override void Tick()
         {
-            _data.Input.Disable();
-            _data.CurrentWorm.SetWormLayer();
         }
 
-        public void Tick()
+        public override void HandleInput()
         {
         }
     }

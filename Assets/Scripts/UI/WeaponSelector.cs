@@ -14,7 +14,6 @@ public class WeaponSelector : MonoBehaviour, IWeaponSelectedEvent
     private IWeaponShotEvent _shotEvent;
     private IGameEventsProvider _gameEvents;
     private IWeaponSelectedEvent _selectedEvent;
-    private List<Weapon> _weaponList;
     
     private static readonly int Opened = Animator.StringToHash("Opened");
 
@@ -22,7 +21,6 @@ public class WeaponSelector : MonoBehaviour, IWeaponSelectedEvent
 
     public void Init(List<Weapon> weaponList)
     {
-        _weaponList = weaponList;
         _selectedEvent = _itemFactory;
         
         _itemFactory.Create(weaponList, _itemContainer);
@@ -39,10 +37,8 @@ public class WeaponSelector : MonoBehaviour, IWeaponSelectedEvent
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1) && _canOpen)
-        {
-            Toggle();
-        }
+        if (Input.GetMouseButtonDown(1)) 
+            ToggleIfAllowed();
     }
 
     private void OnSelected(Weapon weapon)
@@ -51,9 +47,10 @@ public class WeaponSelector : MonoBehaviour, IWeaponSelectedEvent
         WeaponSelected?.Invoke(weapon);
     }
 
-    private void Toggle()
+    public void ToggleIfAllowed()
     {
-        _animator.SetBool(Opened, !_animator.GetBool(Opened));
+        if(_canOpen)
+            _animator.SetBool(Opened, !_animator.GetBool(Opened));
     }
     
     private void Close()

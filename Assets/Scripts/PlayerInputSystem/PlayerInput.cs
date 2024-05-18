@@ -1,8 +1,9 @@
 ﻿using System;
+using WormComponents;
 
-namespace PlayerInput
+namespace PlayerInputSystem
 {
-    public class Input : IDisposable
+    public class PlayerInput : IDisposable
     {
         private Worm _worm;
         private Weapon _weapon;
@@ -10,7 +11,7 @@ namespace PlayerInput
         private readonly MovementInput _movementInput;
         private readonly WeaponInput _weaponInput;
         
-        public Input(MainInput input)
+        public PlayerInput(MainInput input)
         {
             input.Enable();
             _movementInput = new MovementInput(input.Movement);

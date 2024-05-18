@@ -1,5 +1,6 @@
 using Projectiles;
 using UnityEngine;
+using WormComponents;
 
 public class MapBound : MonoBehaviour
 {

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using EventProviders;
 using UnityEngine;
+using WormComponents;
 
 namespace Factories
 {

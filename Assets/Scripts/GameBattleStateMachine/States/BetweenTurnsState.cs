@@ -3,37 +3,38 @@ using Timers;
 
 namespace GameBattleStateMachine.States
 {
-    public class BetweenTurnsState : IBattleState
+    public class BetweenTurnsState : BattleState
     {
-        private readonly IStateSwitcher _stateSwitcher;
-        private readonly BattleStateMachineData _data;
+        private Timer TurnTimer => Data.TurnTimer;
+        private FollowingCamera FollowingCamera => Data.FollowingCamera;
 
-        private Timer TurnTimer => _data.TurnTimer;
-        private FollowingCamera FollowingCamera => _data.FollowingCamera;
+        public BetweenTurnsState(IStateSwitcher stateSwitcher, BattleStateMachineData data) : 
+            base(stateSwitcher, data) { }
 
-        public BetweenTurnsState(IStateSwitcher stateSwitcher, BattleStateMachineData data)
+        public override void Enter()
         {
-            _stateSwitcher = stateSwitcher;
-            _data = data;
-        }
-
-        public void Enter()
-        {
-            TurnTimer.Start(_data.TimersConfig.BetweenTurnsDuration, 
-                () => _stateSwitcher.SwitchState<TurnState>());
+            TurnTimer.Start(Data.TimersConfig.BetweenTurnsDuration, 
+                () => StateSwitcher.SwitchState<TurnState>());
 
             FollowingCamera.ZoomTarget();
-            FollowingCamera.SetTarget(_data.GeneralViewPosition);
+            FollowingCamera.SetTarget(Data.GeneralViewPosition);
             
-            _data.Wind.ChangeVelocity();
-            _data.WaterMediator.IncreaseLevelIfAllowed();
+            Data.Wind.ChangeVelocity();
+            Data.WaterMediator.IncreaseLevelIfAllowed();
+            
+            if(Data.CurrentWorm != null)
+                Data.CurrentWorm.SetWormLayer();
         }
 
-        public void Exit()
+        public override void Exit()
         {
         }
 
-        public void Tick()
+        public override void Tick()
+        {
+        }
+
+        public override void HandleInput()
         {
         }
     }

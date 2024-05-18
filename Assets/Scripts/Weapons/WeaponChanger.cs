@@ -1,6 +1,7 @@
 using System;
 using EventProviders;
 using UnityEngine;
+using WormComponents;
 
 namespace Weapons
 {

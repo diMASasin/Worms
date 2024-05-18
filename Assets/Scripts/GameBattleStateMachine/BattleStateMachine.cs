@@ -1,23 +1,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using GameBattleStateMachine.States;
+using PlayerInputSystem;
 using UnityEngine;
 
 namespace GameBattleStateMachine
 {
     public class BattleStateMachine : IStateSwitcher
     {
-        private readonly List<IBattleState> _states;
-        private IBattleState _currentState;
+        private readonly BattleStateMachineData _data;
+        private readonly List<BattleState> _states;
+        private BattleState _currentState;
 
         public BattleStateMachine(BattleStateMachineData data)
         {
-            _states = new List<IBattleState>()
+            _data = data;
+            _states = new List<BattleState>()
             {
-                new StartBattle(this, data),
+                new BootstrapState(this, data),
                 new BetweenTurnsState(this, data),
                 new TurnState(this, data),
-                new ProjectileLaunchedState(this, data),
                 new RetreatState(this, data),
                 new ProjectilesWaiting(this, data)
             };
@@ -26,9 +28,9 @@ namespace GameBattleStateMachine
             _currentState.Enter();
         }
 
-        public void SwitchState<T>() where T : IBattleState
+        public void SwitchState<T>() where T : BattleState
         {
-            IBattleState state = _states.FirstOrDefault(state => state is T);
+            BattleState state = _states.FirstOrDefault(state => state is T);
 
             _currentState?.Exit();
             _currentState = state;
@@ -37,6 +39,20 @@ namespace GameBattleStateMachine
 
         // public void HandleInput() => _currentState.HandleInput();
 
-        public void Tick() => _currentState.Tick();
+        public void Tick()
+        {
+            _currentState.Tick();
+            _data.Tick();
+        }
+
+        public void FixedTick()
+        {
+            _data.WindMediator.FixedTick();
+        }
+
+        public void Dispose()
+        {
+            _data.Dispose();
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Configs;
 using UnityEngine;
 using UnityEngine.Events;
+using WormComponents;
 
 public class Movement
 {

@@ -1,4 +1,5 @@
 ﻿using System;
+using WormComponents;
 
 public interface IGameEventsProvider
 {

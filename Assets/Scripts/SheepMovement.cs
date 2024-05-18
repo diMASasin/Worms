@@ -2,6 +2,7 @@ using Configs;
 using System;
 using Timers;
 using UnityEngine;
+using WormComponents;
 
 public class SheepMovement : Movement, IDisposable
 {

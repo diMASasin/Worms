@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Configs;
 using UnityEngine;
+using WormComponents;
 
 public class Explosion : MonoBehaviour
 {
