@@ -1,25 +1,28 @@
 using UnityEngine;
 
-public class WindEffect : MonoBehaviour
+namespace Wind
 {
-    [SerializeField] private ParticleSystem _particleSystem;
-    private Wind _wind;
-
-    public void Init(Wind wind)
+    public class WindEffect : MonoBehaviour
     {
-        _wind = wind;
+        [SerializeField] private ParticleSystem _particleSystem;
+        private Wind _wind;
 
-        _wind.VelocityChanged += OnVelocityChanged;
-    }
+        public void Init(Wind wind)
+        {
+            _wind = wind;
 
-    private void OnDestroy()
-    {
-        if (_wind != null) _wind.VelocityChanged -= OnVelocityChanged;
-    }
+            _wind.VelocityChanged += OnVelocityChanged;
+        }
 
-    private void OnVelocityChanged(float velocity)
-    {
-        var velocityOverLifetime = _particleSystem.velocityOverLifetime;
-        velocityOverLifetime.x = -velocity;
+        private void OnDestroy()
+        {
+            if (_wind != null) _wind.VelocityChanged -= OnVelocityChanged;
+        }
+
+        private void OnVelocityChanged(float velocity)
+        {
+            var velocityOverLifetime = _particleSystem.velocityOverLifetime;
+            velocityOverLifetime.x = -velocity;
+        }
     }
 }

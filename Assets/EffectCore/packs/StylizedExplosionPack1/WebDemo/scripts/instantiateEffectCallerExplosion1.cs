@@ -1,58 +1,61 @@
 ﻿using UnityEngine;
 
-public class instantiateEffectCallerExplosion1 : MonoBehaviour
+namespace EffectCore.packs.StylizedExplosionPack1.WebDemo.scripts
 {
-    [System.NonSerialized]
-    public bool fired = false;
-    float timer;
-    public float timeLimit;
-    [System.Serializable]
-    public class chainEffect
+    public class instantiateEffectCallerExplosion1 : MonoBehaviour
     {
         [System.NonSerialized]
-        public bool isPlayed = false;
-        public float activateTimer;
-        public GameObject Effect;
-        public Transform effectLocator;
-    }
-    public chainEffect[] chainEffectList;
+        public bool fired = false;
+        float timer;
+        public float timeLimit;
+        [System.Serializable]
+        public class chainEffect
+        {
+            [System.NonSerialized]
+            public bool isPlayed = false;
+            public float activateTimer;
+            public GameObject Effect;
+            public Transform effectLocator;
+        }
+        public chainEffect[] chainEffectList;
 
-    void Start()
-    {
-        //  print(chainEffectList.Length);
-    }
+        void Start()
+        {
+            //  print(chainEffectList.Length);
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
+        // Update is called once per frame
+        void Update()
+        {
             timer += Time.deltaTime;
             CheckTimer();
-    }
-    void CheckTimer()
-    {
-
-        for (int i = 0; i < chainEffectList.Length; i++)
+        }
+        void CheckTimer()
         {
-            if (timer >= chainEffectList[i].activateTimer && chainEffectList[i].isPlayed == false)
+
+            for (int i = 0; i < chainEffectList.Length; i++)
             {
-                Instantiate(chainEffectList[i].Effect, chainEffectList[i].effectLocator.transform.position, chainEffectList[i].effectLocator.transform.rotation);
-                chainEffectList[i].isPlayed = true;
+                if (timer >= chainEffectList[i].activateTimer && chainEffectList[i].isPlayed == false)
+                {
+                    Instantiate(chainEffectList[i].Effect, chainEffectList[i].effectLocator.transform.position, chainEffectList[i].effectLocator.transform.rotation);
+                    chainEffectList[i].isPlayed = true;
+                }
+            }
+            if (timer >= timeLimit)
+            {
+                fired = false;
+                ResetTimers();
             }
         }
-        if (timer >= timeLimit)
-        {
-            fired = false;
-            ResetTimers();
-        }
-    }
 
 
-    public void ResetTimers()
-    {
-        for (int i = 0; i < chainEffectList.Length; i++)
+        public void ResetTimers()
         {
-            chainEffectList[i].isPlayed = false;
+            for (int i = 0; i < chainEffectList.Length; i++)
+            {
+                chainEffectList[i].isPlayed = false;
+            }
+            timer = 0;
         }
-        timer = 0;
     }
 }

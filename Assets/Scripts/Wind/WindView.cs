@@ -1,41 +1,44 @@
 using UnityEngine;
 
-public class WindView : MonoBehaviour
+namespace Wind
 {
-    [SerializeField] private Wind1DiractionView _windRight;
-    [SerializeField] private Wind1DiractionView _windLeft;
-
-    private Wind _wind;
-
-    public void Init(Wind wind)
+    public class WindView : MonoBehaviour
     {
-        _wind = wind;
+        [SerializeField] private Wind1DiractionView _windRight;
+        [SerializeField] private Wind1DiractionView _windLeft;
 
-        _wind.VelocityChanged += OnVelocityChanged;
-    }
+        private Wind _wind;
 
-    private void OnDestroy()
-    {
-        if (_wind != null)
-            _wind.VelocityChanged -= OnVelocityChanged;
-    }
+        public void Init(Wind wind)
+        {
+            _wind = wind;
 
-    private void OnVelocityChanged(float velocity)
-    {
-        var normalizedVelocity = Mathf.Abs(velocity / _wind.MaxVelocity);
+            _wind.VelocityChanged += OnVelocityChanged;
+        }
 
-        _windLeft.gameObject.SetActive(false);
-        _windRight.gameObject.SetActive(false);
+        private void OnDestroy()
+        {
+            if (_wind != null)
+                _wind.VelocityChanged -= OnVelocityChanged;
+        }
 
-        if (velocity > 0)
-            ChangeVelocityView(_windRight, normalizedVelocity);
-        else if (velocity < 0)
-            ChangeVelocityView(_windLeft, normalizedVelocity);
-    }
+        private void OnVelocityChanged(float velocity)
+        {
+            var normalizedVelocity = Mathf.Abs(velocity / _wind.MaxVelocity);
 
-    private void ChangeVelocityView(Wind1DiractionView view, float normalizedVelocity)
-    {
-        view.gameObject.SetActive(true);
-        view.SetSizeDeltaX(normalizedVelocity);
+            _windLeft.gameObject.SetActive(false);
+            _windRight.gameObject.SetActive(false);
+
+            if (velocity > 0)
+                ChangeVelocityView(_windRight, normalizedVelocity);
+            else if (velocity < 0)
+                ChangeVelocityView(_windLeft, normalizedVelocity);
+        }
+
+        private void ChangeVelocityView(Wind1DiractionView view, float normalizedVelocity)
+        {
+            view.gameObject.SetActive(true);
+            view.SetSizeDeltaX(normalizedVelocity);
+        }
     }
 }

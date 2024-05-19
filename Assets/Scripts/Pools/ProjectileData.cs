@@ -2,9 +2,9 @@
 {
     public class ProjectileData
     {
-        public Wind Wind { get; set; }
+        public Wind.Wind Wind { get; set; }
 
-        public ProjectileData(Wind wind)
+        public ProjectileData(Wind.Wind wind)
         {
             Wind = wind;
         }

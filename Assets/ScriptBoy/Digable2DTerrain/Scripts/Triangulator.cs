@@ -1,7 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 using UnityEngine;
 
-namespace ScriptBoy.Digable2DTerrain
+namespace ScriptBoy.Digable2DTerrain.Scripts
 {
     public class Triangulator
     {

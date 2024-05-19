@@ -1,4 +1,5 @@
 ﻿using ScriptBoy.Digable2DTerrain;
+using ScriptBoy.Digable2DTerrain.Scripts;
 using UnityEngine;
 
 public class ShovelWrapper

@@ -2,7 +2,7 @@
 
 namespace Configs
 {
-    [CreateAssetMenu(fileName = "GroundCheckerConfig", menuName = "GroundCheckerConfig", order = 0)]
+    [CreateAssetMenu(fileName = "GroundCheckerConfig", menuName = "Config/GroundChecker", order = 0)]
     public class GroundCheckerConfig : ScriptableObject
     {
         [field: SerializeField] public Vector2 Size { get; private set; } = new (0.3f, 0.01f);

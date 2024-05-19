@@ -1,4 +1,4 @@
-﻿namespace Projectiles
+﻿namespace Projectiles.Behaviours.ExplodeBehaviour
 {
     public interface IExplodeBehaviour
     {

@@ -2,13 +2,11 @@
 // Online documentation can be found at http://staggart.xyz
 // Copyright protected under Unity Asset Store EULA
 
-using UnityEngine;
 using System.IO;
-#if UNITY_EDITOR
 using UnityEditor;
-#endif
+using UnityEngine;
 
-namespace StylizedWaterShader
+namespace StylizedWater.Scripts
 {
     public static class StylizedWaterUtilities
     {

@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using System.IO;
 using System;
+using ScriptBoy.Digable2DTerrain.Scripts;
 
 namespace ScriptBoy.Digable2DTerrain
 {

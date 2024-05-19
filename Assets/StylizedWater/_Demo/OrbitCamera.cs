@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace StylizedWaterShader
+namespace StylizedWater._Demo
 {
     public class OrbitCamera : MonoBehaviour
     {

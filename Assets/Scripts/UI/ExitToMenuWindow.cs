@@ -1,28 +1,31 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ExitToMenuWindow : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private Animator _animator;
-
-    public void ExitToMenu()
+    public class ExitToMenuWindow : MonoBehaviour
     {
-        SceneManager.LoadScene(0);
-    }
+        [SerializeField] private Animator _animator;
 
-    public void Show()
-    {
-        gameObject.SetActive(true);
-        _animator.SetTrigger("Show");
-    }
+        public void ExitToMenu()
+        {
+            SceneManager.LoadScene(0);
+        }
 
-    public void Hide() 
-    { 
-        _animator.SetTrigger("Hide");
-    }
+        public void Show()
+        {
+            gameObject.SetActive(true);
+            _animator.SetTrigger("Show");
+        }
 
-    public void Close()
-    {
-        gameObject.SetActive(false);
+        public void Hide() 
+        { 
+            _animator.SetTrigger("Hide");
+        }
+
+        public void Close()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

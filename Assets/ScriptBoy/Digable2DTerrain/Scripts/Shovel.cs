@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ScriptBoy.Digable2DTerrain
+namespace ScriptBoy.Digable2DTerrain.Scripts
 {
     public class Shovel : Dll.D2DT.Shovel
     {

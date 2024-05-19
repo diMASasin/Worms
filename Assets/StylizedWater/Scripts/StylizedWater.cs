@@ -2,14 +2,12 @@
 // Online documentation can be found at http://staggart.xyz
 // Copyright protected under Unity Asset Store EULA
 
-using UnityEngine;
-using System.Collections.Generic;
 using System;
-#if UNITY_EDITOR
+using System.Collections.Generic;
 using UnityEditor;
-#endif
+using UnityEngine;
 
-namespace StylizedWaterShader
+namespace StylizedWater.Scripts
 {
     [ExecuteInEditMode]
     [RequireComponent(typeof(MeshRenderer))]

@@ -1,11 +1,11 @@
 ﻿// Stylized Water Shader by Staggart Creations http://u3d.as/A2R
 // Online documentation can be found at http://staggart.xyz
 
-using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
+using UnityEngine;
 
-namespace StylizedWaterShader
+namespace StylizedWater.Scripts
 {
     public class StylizedWaterResources : ScriptableObject
     {

@@ -2,7 +2,7 @@
 
 namespace Configs
 {
-    [CreateAssetMenu(fileName = "ExplosionConfig", menuName = "ExplosionConfig", order = 0)]
+    [CreateAssetMenu(fileName = "ExplosionConfig", menuName = "Config/Explosion", order = 0)]
     public class ExplosionConfig : ScriptableObject
     {
         [field: SerializeField] public float ExplosionForce { get; private set; } = 10;

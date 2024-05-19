@@ -1,36 +1,41 @@
-﻿using UnityEngine;
-using ScriptBoy.Digable2DTerrain; // You'll need to include this namespace
+﻿using ScriptBoy.Digable2DTerrain.Scripts;
+using UnityEngine;
 
-public class Demo4Player : MonoBehaviour
+// You'll need to include this namespace
+
+namespace ScriptBoy.Digable2DTerrain.Demos.Demo_4
 {
-    // This needs to be assigned to in the inspector
-    public Shovel shovel;
-
-    //Dig ground by pressing this key
-    public KeyCode DigKey;
-
-    //Move speed of the character
-    public float moveSpeed;
-
-    private Rigidbody2D m_Rigidbody2D;
-
-    void Start()
+    public class Demo4Player : MonoBehaviour
     {
-        //Get the Rigidbody2D attached to the GameObject
-        m_Rigidbody2D = GetComponent<Rigidbody2D>();
-    }
+        // This needs to be assigned to in the inspector
+        public Shovel shovel;
 
-    void Update()
-    {
-        //Detect when the DigKey is pressed down
-        if (Input.GetKeyDown(DigKey))
+        //Dig ground by pressing this key
+        public KeyCode DigKey;
+
+        //Move speed of the character
+        public float moveSpeed;
+
+        private Rigidbody2D m_Rigidbody2D;
+
+        void Start()
         {
-            //Dig all terrains inside the shovel circle
-            shovel.Dig();
+            //Get the Rigidbody2D attached to the GameObject
+            m_Rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
-        //Move the character based on the horizontal axis
-        float move = Input.GetAxis("Horizontal") * moveSpeed;
-        m_Rigidbody2D.velocity = new Vector2(move , m_Rigidbody2D.velocity.y);
+        void Update()
+        {
+            //Detect when the DigKey is pressed down
+            if (Input.GetKeyDown(DigKey))
+            {
+                //Dig all terrains inside the shovel circle
+                shovel.Dig();
+            }
+
+            //Move the character based on the horizontal axis
+            float move = Input.GetAxis("Horizontal") * moveSpeed;
+            m_Rigidbody2D.velocity = new Vector2(move , m_Rigidbody2D.velocity.y);
+        }
     }
 }

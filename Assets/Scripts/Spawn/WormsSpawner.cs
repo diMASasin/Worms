@@ -1,99 +1,102 @@
-using ScriptBoy.Digable2DTerrain;
 using System;
 using System.Collections.Generic;
 using Configs;
 using Factories;
+using ScriptBoy.Digable2DTerrain.Scripts;
 using UnityEngine;
 using WormComponents;
 using Random = UnityEngine.Random;
 
-public class WormsSpawner : MonoBehaviour
+namespace Spawn
 {
-    [SerializeField] private WormsSpawnerConfig _spawnerConfig;
-    [SerializeField] private Terrain2D _terrain;
-    [SerializeField] private Worm _wormTemplate;
-    [SerializeField] private MapBounds _mapBounds;
-
-    private TeamFactory _teamFactory;
-    private Vector2[] _points;
-    private readonly List<Edge> _edges = new();
-    private readonly List<Color> _unusedTeamColors = new();
-
-    public void Init(TeamFactory teamFactory)
+    public class WormsSpawner : MonoBehaviour
     {
-        _teamFactory = teamFactory;
-        _unusedTeamColors.AddRange(_spawnerConfig.TeamColors);
-        
-        GetEdgesForSpawn();
-    }
+        [SerializeField] private WormsSpawnerConfig _spawnerConfig;
+        [SerializeField] private Terrain2D _terrain;
+        [SerializeField] private Worm _wormTemplate;
+        [SerializeField] private MapBounds _mapBounds;
 
-    public void Spawn(out CycledList<Worm> worms, out CycledList<Team> teams)
-    {
-        worms = new CycledList<Worm>();
-        teams = new CycledList<Team>();
-        
-        foreach (var teamConfig in _spawnerConfig.TeamConfigs)
+        private TeamFactory _teamFactory;
+        private Vector2[] _points;
+        private readonly List<Edge> _edges = new();
+        private readonly List<Color> _unusedTeamColors = new();
+
+        public void Init(TeamFactory teamFactory)
         {
-            Color randomColor = _unusedTeamColors[Random.Range(0, _unusedTeamColors.Count)];
-            _unusedTeamColors.Remove(randomColor);
-            Team team = _teamFactory.Create(randomColor, transform, teamConfig);
-
-            teams.Add(team);
-            worms.AddRange(team.Worms);
-        }
+            _teamFactory = teamFactory;
+            _unusedTeamColors.AddRange(_spawnerConfig.TeamColors);
         
-        MoveToSpawnPoint(worms, GetRandomSpawnPoint);
-    }
-
-    private void MoveToSpawnPoint(CycledList<Worm> worms, Func<Vector2> getSpawnPoint)
-    {
-        foreach (var worm in worms)
-            worm.transform.position = getSpawnPoint();
-    }
-
-    private void GetEdgesForSpawn()
-    {
-        var points = _terrain.polygonCollider.points;
-        int length = points.Length;
-        _points = new Vector2[length];
-
-        Array.Copy(points, _points, length);
-
-        for (int i = 0; i < _points.Length; i++)
-        {
-            int j = i + 1;
-            if (j >= _points.Length)
-                j = 0;
-
-            var newEdge = new Edge(_points[i], _points[j]);
-            bool edgeInBounds = newEdge.InBounds(_mapBounds.Left.position, _mapBounds.Top.position, 
-                _mapBounds.Right.position, _mapBounds.Bottom.position, _terrain);
-
-            if (newEdge.IsFloor(_terrain) && newEdge.IsSuitableSlope(_spawnerConfig.MaxSlope) && edgeInBounds)
-                _edges.Add(newEdge);
+            GetEdgesForSpawn();
         }
-    }
 
-    private Vector2 GetRandomSpawnPoint()
-    {
-        Vector2 randomPoint;
-        do
+        public void Spawn(out CycledList<Worm> worms, out CycledList<Team> teams)
         {
-            int random = Random.Range(0, _edges.Count);
-            var randomEdge = _edges[random];
-            randomPoint = Vector2.Lerp(randomEdge.Point1, randomEdge.Point2, Random.value);
-            randomPoint += (Vector2)_terrain.transform.position;
-        }
-        while (!CanFitWormInPosition(randomPoint));
-
-        return randomPoint;
-    }
-
-    private bool CanFitWormInPosition(Vector2 position)
-    {
-        var colliderSize = _wormTemplate.Collider2D.size;
-        var size = new Vector2(colliderSize.x * 2, colliderSize.y);
+            worms = new CycledList<Worm>();
+            teams = new CycledList<Team>();
         
-        return !Physics2D.OverlapCapsule(position + new Vector2(0, 0.5f), size, CapsuleDirection2D.Vertical, 0);
+            foreach (var teamConfig in _spawnerConfig.TeamConfigs)
+            {
+                Color randomColor = _unusedTeamColors[Random.Range(0, _unusedTeamColors.Count)];
+                _unusedTeamColors.Remove(randomColor);
+                Team team = _teamFactory.Create(randomColor, transform, teamConfig);
+
+                teams.Add(team);
+                worms.AddRange(team.Worms);
+            }
+        
+            MoveToSpawnPoint(worms, GetRandomSpawnPoint);
+        }
+
+        private void MoveToSpawnPoint(CycledList<Worm> worms, Func<Vector2> getSpawnPoint)
+        {
+            foreach (var worm in worms)
+                worm.transform.position = getSpawnPoint();
+        }
+
+        private void GetEdgesForSpawn()
+        {
+            var points = _terrain.polygonCollider.points;
+            int length = points.Length;
+            _points = new Vector2[length];
+
+            Array.Copy(points, _points, length);
+
+            for (int i = 0; i < _points.Length; i++)
+            {
+                int j = i + 1;
+                if (j >= _points.Length)
+                    j = 0;
+
+                var newEdge = new Edge(_points[i], _points[j]);
+                bool edgeInBounds = newEdge.InBounds(_mapBounds.Left.position, _mapBounds.Top.position, 
+                    _mapBounds.Right.position, _mapBounds.Bottom.position, _terrain);
+
+                if (newEdge.IsFloor(_terrain) && newEdge.IsSuitableSlope(_spawnerConfig.MaxSlope) && edgeInBounds)
+                    _edges.Add(newEdge);
+            }
+        }
+
+        private Vector2 GetRandomSpawnPoint()
+        {
+            Vector2 randomPoint;
+            do
+            {
+                int random = Random.Range(0, _edges.Count);
+                var randomEdge = _edges[random];
+                randomPoint = Vector2.Lerp(randomEdge.Point1, randomEdge.Point2, Random.value);
+                randomPoint += (Vector2)_terrain.transform.position;
+            }
+            while (!CanFitWormInPosition(randomPoint));
+
+            return randomPoint;
+        }
+
+        private bool CanFitWormInPosition(Vector2 position)
+        {
+            var colliderSize = _wormTemplate.Collider2D.size;
+            var size = new Vector2(colliderSize.x * 2, colliderSize.y);
+        
+            return !Physics2D.OverlapCapsule(position + new Vector2(0, 0.5f), size, CapsuleDirection2D.Vertical, 0);
+        }
     }
 }

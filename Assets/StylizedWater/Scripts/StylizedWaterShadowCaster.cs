@@ -1,13 +1,11 @@
 ﻿// Stylized Water Shader by Staggart Creations http://u3d.as/A2R
 // Online documentation can be found at http://staggart.xyz
 
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
-namespace StylizedWaterShader
+namespace StylizedWater.Scripts
 {
     [RequireComponent(typeof(Light))]
     [ExecuteInEditMode]

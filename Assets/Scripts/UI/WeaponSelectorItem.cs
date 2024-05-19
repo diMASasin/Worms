@@ -1,35 +1,39 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Weapons;
 
-public class WeaponSelectorItem : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private Button _button;
-    [SerializeField] private Image _image;
-
-    private Weapon _weapon;
-
-    public event Action<Weapon> Selected;
-
-    public void Init(Weapon weapon)
+    public class WeaponSelectorItem : MonoBehaviour
     {
-        _weapon = weapon;
+        [SerializeField] private Button _button;
+        [SerializeField] private Image _image;
 
-        _image.sprite = _weapon.Config.Sprite;
-    }
+        private Weapon _weapon;
 
-    private void OnEnable()
-    {
-        _button.onClick.AddListener(OnWeaponItemButtonClicked);
-    }
+        public event Action<Weapon> Selected;
 
-    private void OnDisable()
-    {
-        _button.onClick.RemoveListener(OnWeaponItemButtonClicked);
-    }
+        public void Init(Weapon weapon)
+        {
+            _weapon = weapon;
 
-    private void OnWeaponItemButtonClicked()
-    {
-        Selected?.Invoke(_weapon);
+            _image.sprite = _weapon.Config.Sprite;
+        }
+
+        private void OnEnable()
+        {
+            _button.onClick.AddListener(OnWeaponItemButtonClicked);
+        }
+
+        private void OnDisable()
+        {
+            _button.onClick.RemoveListener(OnWeaponItemButtonClicked);
+        }
+
+        private void OnWeaponItemButtonClicked()
+        {
+            Selected?.Invoke(_weapon);
+        }
     }
 }

@@ -1,25 +1,28 @@
 ﻿using UnityEngine;
 
-public class ECdestroyMe : MonoBehaviour{
+namespace EffectCore.scripts
+{
+	public class ECdestroyMe : MonoBehaviour{
 
-    float timer;
-    public float deathtimer = 10;
+		float timer;
+		public float deathtimer = 10;
 
 
-	// Use this for initialization
-	void Start () {
+		// Use this for initialization
+		void Start () {
 	
-	}
+		}
 	
-	// Update is called once per frame
-	void Update ()
-    {
-        timer += Time.deltaTime;
+		// Update is called once per frame
+		void Update ()
+		{
+			timer += Time.deltaTime;
 
-        if(timer >= deathtimer)
-        {
-            Destroy(gameObject);
-        }
+			if(timer >= deathtimer)
+			{
+				Destroy(gameObject);
+			}
 	
+		}
 	}
 }

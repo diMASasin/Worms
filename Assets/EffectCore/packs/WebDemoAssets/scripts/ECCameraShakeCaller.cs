@@ -1,20 +1,23 @@
 ﻿using UnityEngine;
 
-public class ECCameraShakeCaller : MonoBehaviour {
+namespace EffectCore.packs.WebDemoAssets.scripts
+{
+	public class ECCameraShakeCaller : MonoBehaviour {
 
-    public float ProjectileShakeDuration = 0.08f;
-    public float ProjectileShakeAmount = 0.1f;
+		public float ProjectileShakeDuration = 0.08f;
+		public float ProjectileShakeAmount = 0.1f;
 
 
-    // Use this for initialization
-    void Start ()
-    {
-        ECCameraShake.shakeDuration = ProjectileShakeDuration;
-        ECCameraShake.shakeAmount = ProjectileShakeAmount;
-    }
+		// Use this for initialization
+		void Start ()
+		{
+			ECCameraShake.shakeDuration = ProjectileShakeDuration;
+			ECCameraShake.shakeAmount = ProjectileShakeAmount;
+		}
 	
-	// Update is called once per frame
-	void Update () {
+		// Update is called once per frame
+		void Update () {
 		
+		}
 	}
 }

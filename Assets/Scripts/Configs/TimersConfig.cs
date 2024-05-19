@@ -2,7 +2,7 @@
 
 namespace Configs
 {
-    [CreateAssetMenu(fileName = "TimersConfig", menuName = "TimersConfig", order = 0)]
+    [CreateAssetMenu(fileName = "TimersConfig", menuName = "Config/Timers", order = 0)]
     public class TimersConfig : ScriptableObject
     {
         [field: SerializeField] public float TurnDuration { get; private set; }

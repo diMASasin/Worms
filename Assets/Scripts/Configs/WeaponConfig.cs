@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Configs
 {
-    [CreateAssetMenu(fileName = "WeaponConfig", menuName = "WeaponConfig", order = 0)]
+    [CreateAssetMenu(fileName = "WeaponConfig", menuName = "Config/Weapon", order = 0)]
     public class WeaponConfig : ScriptableObject
     {
         [field: SerializeField] public float Sencetivity { get; private set; } = 0.01f;

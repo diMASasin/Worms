@@ -1,18 +1,20 @@
-using Projectiles;
 using UnityEngine;
 
-public class SheepProjectile : ILaunchBehaviour
+namespace Projectiles.Behaviours.LaunchBehaviour
 {
-    private SheepMovement _sheepMovement;
-
-    public SheepProjectile(SheepMovement sheepMovement)
+    public class SheepProjectile : ILaunchBehaviour
     {
-        _sheepMovement = sheepMovement;
-    }
+        private SheepMovement _sheepMovement;
 
-    public void OnLaunch(Vector2 velocity)
-    {
-        _sheepMovement.Reset();
-        _sheepMovement.TryMove(Mathf.Sign(velocity.x));
+        public SheepProjectile(SheepMovement sheepMovement)
+        {
+            _sheepMovement = sheepMovement;
+        }
+
+        public void OnLaunch(Vector2 velocity)
+        {
+            _sheepMovement.Reset();
+            _sheepMovement.TryMove(Mathf.Sign(velocity.x));
+        }
     }
 }

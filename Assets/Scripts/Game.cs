@@ -1,32 +1,12 @@
-using System;
-using System.Collections.Generic;
-using EventProviders;
-using GameBattleStateMachine;
-using GameBattleStateMachine.States;
-using PlayerInputSystem;
+using GameStateMachineComponents;
+using InputService;
 
-public class Game : IDisposable
+public class Game
 {
-    private readonly List<Team> _aliveTeams;
-    private readonly BattleStateMachine _battleStateMachine; 
-    
-    public Game(BattleStateMachineData data)
-    {
-        _battleStateMachine = new BattleStateMachine(data);
-    }
-                        
-    private void OnWeaponShot(float f)
-    {
-        _battleStateMachine.SwitchState<RetreatState>();
-    }
+    public PlayerInput InputService;
+    public GameStateMachine StateMachine;
 
-    public void Dispose()
+    public Game()
     {
-        _battleStateMachine.Dispose();
     }
-
-    public void Tick() => _battleStateMachine.Tick();
-    public void FixedTick() => _battleStateMachine.FixedTick();
-
-    public void Start() => _battleStateMachine.SwitchState<BetweenTurnsState>();
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Configs
 {
-    [CreateAssetMenu(fileName = "ProjectileConfig", menuName = "ProjectileConfig", order = 0)]
+    [CreateAssetMenu(fileName = "ProjectileConfig", menuName = "Config/Projectile", order = 0)]
     public class ProjectileConfig : ScriptableObject
     {
         [field: SerializeField] public float ColliderRadius { get; private set; } = 1;

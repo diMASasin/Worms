@@ -1,76 +1,77 @@
 using System;
 using Configs;
-using Pools;
-using Projectiles;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Weapon
+namespace Weapons
 {
-    private readonly WeaponConfig _config;
-
-    private float _currentShotPower = 0;
-    private float _zRotation;
-
-    public bool IsShot { get; private set; } = false;
-
-    public float CurrentShotPower => _currentShotPower;
-    public WeaponConfig Config => _config;
-
-    public event UnityAction<float> Shot;
-    public event UnityAction<float> ShotPowerChanged;
-    public event UnityAction IncreasePowerStarted;
-    public event Action<float> ScopeMoved;
-
-    public Weapon(WeaponConfig config)
+    public class Weapon
     {
-        _config = config;
-    }
+        private readonly WeaponConfig _config;
 
-    public void Reset()
-    {
-        IsShot = false;
-        _currentShotPower = 0;
-    }
+        private float _currentShotPower = 0;
+        private float _zRotation;
 
-    public void MoveScope(float direction)
-    {
-        _zRotation = -direction * Config.ScopeSensetivity;
-        //_zRotation = Mathf.Repeat(_zRotation, 720) - 360;
-        ScopeMoved?.Invoke(_zRotation);
-    }
+        public bool IsShot { get; private set; } = false;
 
-    public void StartIncresePower()
-    {
-        if (IsShot)
-            return;
+        public float CurrentShotPower => _currentShotPower;
+        public WeaponConfig Config => _config;
 
-        IncreasePowerStarted?.Invoke();
-    }
+        public event UnityAction<float> Shot;
+        public event UnityAction<float> ShotPowerChanged;
+        public event UnityAction IncreasePowerStarted;
+        public event Action<float> ScopeMoved;
 
-    public void IncreaseShotPower()
-    {
-        if (_currentShotPower >= _config.MaxShotPower || IsShot)
-            return;
-
-        _currentShotPower += _config.ShotPower * Time.deltaTime;
-
-        if (_currentShotPower >= _config.MaxShotPower)
+        public Weapon(WeaponConfig config)
         {
-            _currentShotPower = _config.MaxShotPower;
-            Shoot();
+            _config = config;
         }
 
-        ShotPowerChanged?.Invoke(_currentShotPower);
-    }
-    
-    public void Shoot()
-    {
-        if (IsShot)
-            return;
+        public void Reset()
+        {
+            IsShot = false;
+            _currentShotPower = 0;
+        }
 
-        Shot?.Invoke(_currentShotPower);
-        IsShot = true;
-        _currentShotPower = 0;
+        public void MoveScope(float direction)
+        {
+            _zRotation = -direction * Config.ScopeSensetivity;
+            //_zRotation = Mathf.Repeat(_zRotation, 720) - 360;
+            ScopeMoved?.Invoke(_zRotation);
+        }
+
+        public void StartIncresePower()
+        {
+            if (IsShot)
+                return;
+
+            IncreasePowerStarted?.Invoke();
+        }
+
+        public void IncreaseShotPower()
+        {
+            if (_currentShotPower >= _config.MaxShotPower || IsShot)
+                return;
+
+            _currentShotPower += _config.ShotPower * Time.deltaTime;
+
+            if (_currentShotPower >= _config.MaxShotPower)
+            {
+                _currentShotPower = _config.MaxShotPower;
+                Shoot();
+            }
+
+            ShotPowerChanged?.Invoke(_currentShotPower);
+        }
+    
+        public void Shoot()
+        {
+            if (IsShot)
+                return;
+
+            Shot?.Invoke(_currentShotPower);
+            IsShot = true;
+            _currentShotPower = 0;
+        }
     }
 }

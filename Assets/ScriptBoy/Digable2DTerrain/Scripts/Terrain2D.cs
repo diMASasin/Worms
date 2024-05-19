@@ -1,5 +1,6 @@
 using UnityEngine;
-namespace ScriptBoy.Digable2DTerrain
+
+namespace ScriptBoy.Digable2DTerrain.Scripts
 {
     public class Terrain2D : Dll.D2DT.Terrain2D
     {

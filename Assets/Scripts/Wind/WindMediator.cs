@@ -1,38 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Configs;
 using Pools;
 using Projectiles;
 using UnityEngine;
 
-public class WindMediator
+namespace Wind
 {
-    private readonly Wind _wind;
-    private readonly IEnumerable<ProjectilePool> _pools;
-
-    private List<Projectile> _projectilesUnderInfluence = new();
-
-    public WindMediator(Wind wind, IEnumerable<ProjectilePool> pools)
+    public class WindMediator
     {
-        _wind = wind;
-        _pools = pools;
-    }
+        private readonly Wind _wind;
+        private readonly IEnumerable<ProjectilePool> _pools;
 
-    public void FixedTick()
-    {
-        for (int i = 0; i < _projectilesUnderInfluence.Count; i++)
-            _projectilesUnderInfluence[i].InfluenceOnVelocity(Vector2.right * (_wind.Velocity * Time.fixedDeltaTime));
-    }
+        private List<Projectile> _projectilesUnderInfluence = new();
 
-    public void InfluenceOnProjectileIfNecessary(Projectile projectile, ProjectileConfig projectileConfig)
-    {
-        if (projectileConfig.WindInfluence == true)
-            _projectilesUnderInfluence.Add(projectile);
-    }
+        public WindMediator(Wind wind, IEnumerable<ProjectilePool> pools)
+        {
+            _wind = wind;
+            _pools = pools;
+        }
 
-    public void RemoveProjectileFromInfluence(Projectile projectile)
-    {
-        if(_projectilesUnderInfluence.Contains(projectile))
-            _projectilesUnderInfluence.Remove(projectile);
+        public void FixedTick()
+        {
+            for (int i = 0; i < _projectilesUnderInfluence.Count; i++)
+                _projectilesUnderInfluence[i].InfluenceOnVelocity(Vector2.right * (_wind.Velocity * Time.fixedDeltaTime));
+        }
+
+        public void InfluenceOnProjectileIfNecessary(Projectile projectile, ProjectileConfig projectileConfig)
+        {
+            if (projectileConfig.WindInfluence == true)
+                _projectilesUnderInfluence.Add(projectile);
+        }
+
+        public void RemoveProjectileFromInfluence(Projectile projectile)
+        {
+            if(_projectilesUnderInfluence.Contains(projectile))
+                _projectilesUnderInfluence.Remove(projectile);
+        }
     }
 }

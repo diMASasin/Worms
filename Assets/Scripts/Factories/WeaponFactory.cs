@@ -4,6 +4,7 @@ using Configs;
 using EventProviders;
 using Projectiles;
 using UnityEngine;
+using Weapons;
 
 namespace Factories
 {

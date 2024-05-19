@@ -1,6 +1,10 @@
 ﻿using System;
+using Weapons;
 
-public interface IWeaponSelectedEvent
+namespace EventProviders
 {
-    public event Action<Weapon> WeaponSelected;
+    public interface IWeaponSelectedEvent
+    {
+        public event Action<Weapon> WeaponSelected;
+    }
 }

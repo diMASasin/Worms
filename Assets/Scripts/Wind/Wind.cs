@@ -1,27 +1,28 @@
 using System;
-using DefaultNamespace.Wind;
-using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Wind
+namespace Wind
 {
-    private WindData _data;
-
-    public float Velocity { get; set; }
-    public float MaxVelocity => _data.MaxVelocity;
-    public float Step => _data.Step;
-
-    public event Action<float> VelocityChanged;
-
-    public Wind(WindData data)
+    public class Wind
     {
-        _data = data;
-    }
+        private WindData _data;
 
-    public void ChangeVelocity()
-    {
-        Velocity = Random.Range(-MaxVelocity, MaxVelocity);
-        Velocity = Velocity - Velocity % Step;
-        VelocityChanged?.Invoke(Velocity);
+        public float Velocity { get; set; }
+        public float MaxVelocity => _data.MaxVelocity;
+        public float Step => _data.Step;
+
+        public event Action<float> VelocityChanged;
+
+        public Wind(WindData data)
+        {
+            _data = data;
+        }
+
+        public void ChangeVelocity()
+        {
+            Velocity = Random.Range(-MaxVelocity, MaxVelocity);
+            Velocity = Velocity - Velocity % Step;
+            VelocityChanged?.Invoke(Velocity);
+        }
     }
 }

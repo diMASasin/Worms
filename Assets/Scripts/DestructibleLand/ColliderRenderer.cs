@@ -1,50 +1,53 @@
 using UnityEditor;
 using UnityEngine;
 
-[ExecuteAlways]
-public class ColliderRenderer : MonoBehaviour
+namespace DestructibleLand
 {
-    [SerializeField] PolygonCollider2D _collider;
-    [SerializeField] MeshFilter _meshFilter;
-    [SerializeField] bool _showPointsIndex;
-
-    private void Update()
+    [ExecuteAlways]
+    public class ColliderRenderer : MonoBehaviour
     {
-        if (transform.hasChanged)
+        [SerializeField] PolygonCollider2D _collider;
+        [SerializeField] MeshFilter _meshFilter;
+        [SerializeField] bool _showPointsIndex;
+
+        private void Update()
+        {
+            if (transform.hasChanged)
+            {
+                CreateMesh();
+            }
+        }
+        private void OnValidate()
         {
             CreateMesh();
         }
-    }
-    private void OnValidate()
-    {
-        CreateMesh();
-    }
-    public void CreateMesh()
-    {
-        if (_meshFilter == null)
-            return;
+        public void CreateMesh()
+        {
+            if (_meshFilter == null)
+                return;
 
-        Mesh mesh = _collider.CreateMesh(true, true);
-        _meshFilter.mesh = mesh;
-    }
+            Mesh mesh = _collider.CreateMesh(true, true);
+            _meshFilter.mesh = mesh;
+        }
 
 #if UNITY_EDITOR
-    private void OnDrawGizmos()
-    {
-        if (_showPointsIndex)
-            ShowPointsIndex();
-    }
-
-
-    private void ShowPointsIndex()
-    {
-        for (int p = 0; p < _collider.pathCount; p++)
+        private void OnDrawGizmos()
         {
-            for (int i = 0; i < _collider.GetPath(p).Length; i++)
+            if (_showPointsIndex)
+                ShowPointsIndex();
+        }
+
+
+        private void ShowPointsIndex()
+        {
+            for (int p = 0; p < _collider.pathCount; p++)
             {
-                Handles.Label(_collider.transform.TransformPoint(_collider.GetPath(p)[i]), i.ToString());
+                for (int i = 0; i < _collider.GetPath(p).Length; i++)
+                {
+                    Handles.Label(_collider.transform.TransformPoint(_collider.GetPath(p)[i]), i.ToString());
+                }
             }
         }
-    }
 #endif
+    }
 }

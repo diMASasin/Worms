@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using EventProviders;
 using Pools;
 using UnityEngine;
+using Weapons;
 
 namespace Projectiles
 {

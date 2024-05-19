@@ -1,100 +1,103 @@
 ﻿using System;
-using Pools;
+using EventProviders;
 using Projectiles;
 using UnityEngine;
 
-public class WeaponView : MonoBehaviour
+namespace Weapons
 {
-    [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private Renderer _pointerRenderer;
-    [SerializeField] private Transform _pointerLine;
-    [SerializeField] private SpriteRenderer _gunSprite;
-    [SerializeField] private SpriteRenderer _aimSprite;
-
-    private Weapon _weapon;
-
-    public Transform SpawnPoint => _spawnPoint;
-
-    public Action<Projectile> Shot;
-    private IWeaponSelectedEvent _weaponSelectedEvent;
-
-    public void Init(IWeaponSelectedEvent weaponSelectedEvent)
+    public class WeaponView : MonoBehaviour
     {
-        _weaponSelectedEvent = weaponSelectedEvent;
+        [SerializeField] private Transform _spawnPoint;
+        [SerializeField] private Renderer _pointerRenderer;
+        [SerializeField] private Transform _pointerLine;
+        [SerializeField] private SpriteRenderer _gunSprite;
+        [SerializeField] private SpriteRenderer _aimSprite;
 
-        _weaponSelectedEvent.WeaponSelected += OnWeaponChanged;
+        private Weapon _weapon;
 
-        Hide();
-    }
+        public Transform SpawnPoint => _spawnPoint;
 
-    private void OnDestroy()
-    {
-        if (_weaponSelectedEvent != null)
-            _weaponSelectedEvent.WeaponSelected -= OnWeaponChanged;
-    }
+        public Action<Projectile> Shot;
+        private IWeaponSelectedEvent _weaponSelectedEvent;
 
-    private void EnableAimSprite()
-    {
-        _aimSprite.enabled = true;
-    }
+        public void Init(IWeaponSelectedEvent weaponSelectedEvent)
+        {
+            _weaponSelectedEvent = weaponSelectedEvent;
 
-    private void SetGunSprite(Sprite sprite)
-    {
-        _gunSprite.enabled = true;
-        _gunSprite.sprite = sprite;
-    }
+            _weaponSelectedEvent.WeaponSelected += OnWeaponChanged;
 
-    private void MoveScope(float zRotation)
-    {
-        transform.Rotate(0, 0, zRotation * Time.deltaTime);
-    }
+            Hide();
+        }
 
-    private void OnShot(float arg0)
-    {
-        Hide();
-        TryUnsubscribeWeapon();
-    }
+        private void OnDestroy()
+        {
+            if (_weaponSelectedEvent != null)
+                _weaponSelectedEvent.WeaponSelected -= OnWeaponChanged;
+        }
 
-    private void OnWeaponChanged(Weapon weapon)
-    {
-        TryUnsubscribeWeapon();
+        private void EnableAimSprite()
+        {
+            _aimSprite.enabled = true;
+        }
 
-        _weapon = weapon;
+        private void SetGunSprite(Sprite sprite)
+        {
+            _gunSprite.enabled = true;
+            _gunSprite.sprite = sprite;
+        }
 
-        _weapon.ShotPowerChanged += OnShotPowerChanged;
-        _weapon.Shot += OnShot;
-        _weapon.IncreasePowerStarted += OnIncreasePowerStarted;
-        _weapon.ScopeMoved += MoveScope;
+        private void MoveScope(float zRotation)
+        {
+            transform.Rotate(0, 0, zRotation * Time.deltaTime);
+        }
 
-        SetGunSprite(weapon.Config.Sprite);
-        EnableAimSprite();
-    }
+        private void OnShot(float arg0)
+        {
+            Hide();
+            TryUnsubscribeWeapon();
+        }
 
-    private void TryUnsubscribeWeapon()
-    {
-        if (_weapon == null)
-            return;
+        private void OnWeaponChanged(Weapon weapon)
+        {
+            TryUnsubscribeWeapon();
 
-        _weapon.ShotPowerChanged -= OnShotPowerChanged;
-        _weapon.Shot -= OnShot;
-        _weapon.IncreasePowerStarted -= OnIncreasePowerStarted;
-        _weapon.ScopeMoved -= MoveScope;
-    }
+            _weapon = weapon;
 
-    private void OnShotPowerChanged(float currentShotPower)
-    {
-        _pointerLine.localScale = new Vector3(currentShotPower / _weapon.Config.MaxShotPower, 1, 1);
-    }
+            _weapon.ShotPowerChanged += OnShotPowerChanged;
+            _weapon.Shot += OnShot;
+            _weapon.IncreasePowerStarted += OnIncreasePowerStarted;
+            _weapon.ScopeMoved += MoveScope;
 
-    private void Hide()
-    {
-        _pointerRenderer.enabled = false;
-        _aimSprite.enabled = false;
-        _gunSprite.enabled = false;
-    }
+            SetGunSprite(weapon.Config.Sprite);
+            EnableAimSprite();
+        }
 
-    private void OnIncreasePowerStarted()
-    {
-        _pointerRenderer.enabled = true;
+        private void TryUnsubscribeWeapon()
+        {
+            if (_weapon == null)
+                return;
+
+            _weapon.ShotPowerChanged -= OnShotPowerChanged;
+            _weapon.Shot -= OnShot;
+            _weapon.IncreasePowerStarted -= OnIncreasePowerStarted;
+            _weapon.ScopeMoved -= MoveScope;
+        }
+
+        private void OnShotPowerChanged(float currentShotPower)
+        {
+            _pointerLine.localScale = new Vector3(currentShotPower / _weapon.Config.MaxShotPower, 1, 1);
+        }
+
+        private void Hide()
+        {
+            _pointerRenderer.enabled = false;
+            _aimSprite.enabled = false;
+            _gunSprite.enabled = false;
+        }
+
+        private void OnIncreasePowerStarted()
+        {
+            _pointerRenderer.enabled = true;
+        }
     }
 }

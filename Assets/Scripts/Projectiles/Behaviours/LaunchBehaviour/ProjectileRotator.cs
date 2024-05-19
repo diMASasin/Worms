@@ -1,7 +1,7 @@
 ﻿using Configs;
 using UnityEngine;
 
-namespace Projectiles
+namespace Projectiles.Behaviours.LaunchBehaviour
 {
     public class ProjectileRotator : ILaunchBehaviour
     {

@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using EventProviders;
+using UI;
 using UnityEngine;
+using Weapons;
 using Object = UnityEngine.Object;
 
 namespace Factories

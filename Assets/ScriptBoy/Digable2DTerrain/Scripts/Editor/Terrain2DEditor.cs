@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using ScriptBoy.Digable2DTerrain.Scripts;
+using UnityEditor;
 
 namespace ScriptBoy.Digable2DTerrain
 {

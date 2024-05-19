@@ -2,7 +2,7 @@
 
 namespace Configs
 {
-    [CreateAssetMenu(fileName = "MovementConfig", menuName = "MovementConfig", order = 0)]
+    [CreateAssetMenu(fileName = "MovementConfig", menuName = "Config/Movement", order = 0)]
     public class MovementConfig : ScriptableObject
     {
         [field: SerializeField] public float Speed { get; private set; }

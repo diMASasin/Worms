@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Projectiles
+namespace Projectiles.Behaviours.LaunchBehaviour
 {
     public interface ILaunchBehaviour
     {

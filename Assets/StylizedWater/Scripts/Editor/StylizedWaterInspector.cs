@@ -5,14 +5,15 @@ using UnityEngine;
 using UnityEditor.AnimatedValues;
 using UnityEditor;
 using System.Collections.Generic;
+using StylizedWater.Scripts;
 
 namespace StylizedWaterShader
 {
-    [CustomEditor(typeof(StylizedWater))]
+    [CustomEditor(typeof(StylizedWater.Scripts.StylizedWater))]
     public class StylizedWaterInspector : Editor
     {
         //Non serialized, local
-        StylizedWater stylizedWater;
+        StylizedWater.Scripts.StylizedWater stylizedWater;
         public static StylizedWaterInspector Instance;
 
         new SerializedObject serializedObject;
@@ -208,7 +209,7 @@ namespace StylizedWaterShader
 
             if (!selected) return;
 
-            if (!stylizedWater) stylizedWater = selected.GetComponent<StylizedWater>();
+            if (!stylizedWater) stylizedWater = selected.GetComponent<StylizedWater.Scripts.StylizedWater>();
 
             serializedObject = new SerializedObject(stylizedWater);
 

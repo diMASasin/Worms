@@ -4,6 +4,7 @@ using Configs;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
+using Weapons;
 
 namespace WormComponents
 {

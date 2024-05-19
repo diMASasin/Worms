@@ -1,13 +1,14 @@
-﻿using GameBattleStateMachine;
+﻿using BattleStateMachineComponents;
+using Infrastructure;
 using UnityEngine;
-using PlayerInput = PlayerInputSystem.PlayerInput;
+using PlayerInput = InputService.PlayerInput;
 
 public class Bootstrap : MonoBehaviour
 {
     [SerializeField] private CoroutinePerformer _coroutinePerformer;
     [SerializeField] private BattleStateMachineData _data;
     
-    private Game _game;
+    private Battle _battle;
     private MainInput _mainInput;
     private PlayerInput _input;
     
@@ -18,23 +19,23 @@ public class Bootstrap : MonoBehaviour
         _input = new PlayerInput(_mainInput);
         
         _data.Init(_input);
-        _game = new Game(_data);
+        _battle = new Battle(_data);
         
-        _game.Start();
+        _battle.Start();
     }
     
     private void Update()
     {
-        _game.Tick();
+        _battle.Tick();
     }
 
     private void FixedUpdate()
     {
-        _game.FixedTick();
+        _battle.FixedTick();
     }
 
     private void OnDestroy()
     {
-        if (_game != null) _game.Dispose();
+        if (_battle != null) _battle.Dispose();
     }
 }
