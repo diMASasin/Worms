@@ -23,6 +23,7 @@ namespace BattleStateMachineComponents.States
         {
             Data.CurrentTeam = Data.TeamsList.Next();
             Data.CurrentWorm = Data.WormsList.Next();
+            // Debug.Log(Data.CurrentWorm.name + " " + Data.CurrentWorm.transform.position);
             
             CurrentWorm.SetCurrentWormLayer();
             CurrentWorm.SetRigidbodyDynamic();

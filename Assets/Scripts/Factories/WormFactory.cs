@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Configs;
 using EventProviders;
+using Unity.Mathematics;
 using UnityEngine;
 using WormComponents;
 using Object = UnityEngine.Object;
@@ -22,9 +23,9 @@ namespace Factories
             _wormPrefab = wormPrefab;
         }
 
-        public Worm Create(Transform parent, Color teamColor, WormConfig config)
+        public Worm Create(Transform parent, Color teamColor, WormConfig config, Func<Vector2> getSpawnPoint)
         {
-            var newWorm = Object.Instantiate(_wormPrefab, parent);
+            var newWorm = Object.Instantiate(_wormPrefab, getSpawnPoint(), quaternion.identity, parent);
 
             newWorm.Init(config);
             _worms.Add(newWorm);
@@ -32,7 +33,7 @@ namespace Factories
             newWorm.Died += OnDied;
             newWorm.DamageTook += OnDamageTook;
 
-            WormCreated?.Invoke(newWorm, teamColor, config.Name);
+            WormCreated?.Invoke(newWorm, teamColor, config.Name + " " + Worm.WormsNumber);
             return newWorm;
         }
 

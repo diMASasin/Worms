@@ -12,7 +12,7 @@ public class Bootstrap : MonoBehaviour
     private MainInput _mainInput;
     private PlayerInput _input;
     
-    private void Awake()
+    private void Start()
     {
         _coroutinePerformer.Init();
         _mainInput = new MainInput();

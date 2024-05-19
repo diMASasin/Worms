@@ -169,7 +169,10 @@ namespace BattleStateMachineComponents
             
             WormsList.AddRange(worms);
             TeamsList.AddRange(teams);
-        
+
+            foreach (var worm in WormsList) 
+                worm.SetRigidbodyKinematic();
+
             _teamHealthFactory.Create(TeamsList);
             AliveTeams.AddRange(TeamsList);
         }

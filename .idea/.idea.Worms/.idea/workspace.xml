@@ -5,161 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="200a9c5f-335a-44bb-b8dc-d5d4d6152652" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Configs/GameConfig.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Configs/GameConfig.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Bootstrapper.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Bootstrapper.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Battle.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Battle.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Configs/GameConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Configs/GameConfig.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/GameLoopState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/GameLoopState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/GameStateMachineData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/GameStateMachineData.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/IGameStateSwitcher.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/IGameStateSwitcher.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/GameState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/GameState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/LevelLoadState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/LevelLoadState.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/GameBootstrapper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/GameBootstrapper.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneLoader.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneLoader.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/CameraInput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/CameraInput.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LoadingScreen.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LoadingScreen.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EffectCore/packs/StylizedExplosionPack1/WebDemo/scripts/ExplodingProjectileExplosion1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EffectCore/packs/StylizedExplosionPack1/WebDemo/scripts/ExplodingProjectileExplosion1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EffectCore/packs/StylizedExplosionPack1/WebDemo/scripts/instantiateEffectCallerExplosion1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EffectCore/packs/StylizedExplosionPack1/WebDemo/scripts/instantiateEffectCallerExplosion1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EffectCore/packs/StylizedExplosionPack1/WebDemo/scripts/projectileActorExplosion1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EffectCore/packs/StylizedExplosionPack1/WebDemo/scripts/projectileActorExplosion1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EffectCore/packs/WebDemoAssets/scripts/ECCameraShake.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EffectCore/packs/WebDemoAssets/scripts/ECCameraShake.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EffectCore/packs/WebDemoAssets/scripts/ECCameraShakeCaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EffectCore/packs/WebDemoAssets/scripts/ECCameraShakeCaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EffectCore/packs/WebDemoAssets/scripts/ECCameraShakeProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EffectCore/packs/WebDemoAssets/scripts/ECCameraShakeProjectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EffectCore/packs/WebDemoAssets/scripts/ECEffectActor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EffectCore/packs/WebDemoAssets/scripts/ECEffectActor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EffectCore/packs/WebDemoAssets/scripts/ECExplodingProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EffectCore/packs/WebDemoAssets/scripts/ECExplodingProjectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EffectCore/packs/WebDemoAssets/scripts/ECProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EffectCore/packs/WebDemoAssets/scripts/ECProjectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EffectCore/packs/WebDemoAssets/scripts/ECprojectileActor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EffectCore/packs/WebDemoAssets/scripts/ECprojectileActor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EffectCore/scripts/ECdestroyMe.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EffectCore/scripts/ECdestroyMe.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/EffectCore/scripts/ECparticleColorChangerMaster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EffectCore/scripts/ECparticleColorChangerMaster.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/WormConfigs/WormConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/WormConfigs/WormConfig.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Demos/Demo 4/Demo4Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Demos/Demo 4/Demo4Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Demos/Demo 5/CharacterController2D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Demos/Demo 5/CharacterController2D.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Demos/Demo 5/Demo5Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Demos/Demo 5/Demo5Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Demos/Demo 7/Demo7Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Demos/Demo 7/Demo7Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Scripts/Editor/Digable2DTerrainMenus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Scripts/Editor/Digable2DTerrainMenus.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Scripts/Editor/Digable2DTerrainUpdateManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Scripts/Editor/Digable2DTerrainUpdateManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Scripts/Editor/RoundCornerEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Scripts/Editor/RoundCornerEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Scripts/Editor/ShovelEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Scripts/Editor/ShovelEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Scripts/Editor/Terrain2DEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Scripts/Editor/Terrain2DEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Scripts/RoundCorner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Scripts/RoundCorner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Scripts/Shovel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Scripts/Shovel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Scripts/Terrain2D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Scripts/Terrain2D.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Scripts/Triangulator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Scripts/Triangulator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachineData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachineData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bootstrap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCamera.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Circle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Circle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Configs/ExplosionConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Configs/ExplosionConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Configs/GroundCheckerConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Configs/GroundCheckerConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Configs/MovementConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Configs/MovementConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Configs/ProjectileConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Configs/ProjectileConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Configs/TimersConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Configs/TimersConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Configs/WeaponConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Configs/WeaponConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CoroutinePerformer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/CoroutinePerformer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CoroutinePerformer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/CoroutinePerformer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DestructibleLand/ColliderRenderer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DestructibleLand/ColliderRenderer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DestructibleLand/Cutter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DestructibleLand/Cutter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DestructibleLand/Intersection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DestructibleLand/Intersection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DestructibleLand/Land.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DestructibleLand/Land.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EventProviders/IWeaponSelectedEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EventProviders/IWeaponSelectedEvent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/TeamHealthFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/TeamHealthFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/WeaponFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/WeaponFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/WeaponSelectorItemFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/WeaponSelectorItemFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameBattleStateMachine.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameBattleStateMachine/BattleStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameBattleStateMachine/BattleStateMachine.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachine.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameBattleStateMachine/BattleStateMachineData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachineData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameBattleStateMachine/BattleStateMachineData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachineData.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameBattleStateMachine/IStateSwitcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/IStateSwitcher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameBattleStateMachine/IStateSwitcher.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/IStateSwitcher.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameBattleStateMachine/States.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameBattleStateMachine/States/BattleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BattleState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameBattleStateMachine/States/BattleState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BattleState.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameBattleStateMachine/States/BetweenTurnsState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BetweenTurnsState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameBattleStateMachine/States/BetweenTurnsState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BetweenTurnsState.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameBattleStateMachine/States/BootstrapState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BootstrapState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameBattleStateMachine/States/BootstrapState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BootstrapState.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameBattleStateMachine/States/ProjectilesWaiting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/ProjectilesWaiting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameBattleStateMachine/States/ProjectilesWaiting.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/ProjectilesWaiting.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameBattleStateMachine/States/RetreatState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/RetreatState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameBattleStateMachine/States/RetreatState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/RetreatState.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameBattleStateMachine/States/TurnState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameBattleStateMachine/States/TurnState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachine.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachine/GameStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/GameStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachine/GameStateMachine.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/GameStateMachine.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachine/IGameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/IGameState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachine/IGameState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/IGameState.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachine/IState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/IState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachine/IState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/IState.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachine/States.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachine/States/BootstrapState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/BootstrapState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachine/States/BootstrapState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/BootstrapState.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Movement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerInputSystem.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputService.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerInputSystem/MovementInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/MovementInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerInputSystem/MovementInput.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/MovementInput.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerInputSystem/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/PlayerInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerInputSystem/PlayerInput.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/PlayerInput.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerInputSystem/WeaponInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/WeaponInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerInputSystem/WeaponInput.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/WeaponInput.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/MonoObjectPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/MonoObjectPool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/ObjectPool2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/ObjectPool2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/ProjectileData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/ProjectileData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/ExplodeBehaviour/FragmentsExplodeBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/ExplodeBehaviour/FragmentsExplodeBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/ExplodeBehaviour/IExplodeBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/ExplodeBehaviour/IExplodeBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/LaunchBehaviour/ExplodeOnKeyDown.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/LaunchBehaviour/ExplodeOnKeyDown.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/LaunchBehaviour/ILaunchBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/LaunchBehaviour/ILaunchBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/LaunchBehaviour/ProjectileRotator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/LaunchBehaviour/ProjectileRotator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/LaunchBehaviour/SheepProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/LaunchBehaviour/SheepProjectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/ProjectileConfigurator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/ProjectileConfigurator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/ProjectileLauncher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/ProjectileLauncher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ShovelWrapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ShovelWrapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spawn/Edge.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spawn/Edge.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/TeamFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/TeamFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/WormFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/WormFactory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spawn/WormsSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spawn/WormsSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Sph.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Sph.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Test.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Test.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Timers/TimerView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Timers/TimerView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/EndScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/EndScreen.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/ExitToMenuWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ExitToMenuWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/SettingsWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/SettingsWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/WeaponSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/WeaponSelector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/WeaponSelectorItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/WeaponSelectorItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Wind/Wind.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Wind/Wind.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Wind/Wind1DiractionView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Wind/Wind1DiractionView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Wind/WindData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Wind/WindData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Wind/WindEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Wind/WindEffect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Wind/WindMediator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Wind/WindMediator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Wind/WindView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Wind/WindView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StylizedWater/Scripts/Editor/StylizedWaterInspector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StylizedWater/Scripts/Editor/StylizedWaterInspector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StylizedWater/Scripts/EnableDepthBuffer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StylizedWater/Scripts/EnableDepthBuffer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StylizedWater/Scripts/StylizedWater.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StylizedWater/Scripts/StylizedWater.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StylizedWater/Scripts/StylizedWaterBlur.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StylizedWater/Scripts/StylizedWaterBlur.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StylizedWater/Scripts/StylizedWaterResources.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StylizedWater/Scripts/StylizedWaterResources.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StylizedWater/Scripts/StylizedWaterShadowCaster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StylizedWater/Scripts/StylizedWaterShadowCaster.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StylizedWater/Scripts/StylizedWaterUtilities.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StylizedWater/Scripts/StylizedWaterUtilities.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StylizedWater/_Demo/OrbitCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StylizedWater/_Demo/OrbitCamera.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,29 +64,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "XThreadsFramesViewSplitterKey": "0.42629483",
-    "git-widget-placeholder": "Refactoring",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "RiderCSharpLiveTemplatesSettingsId",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.42629483&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Refactoring&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;RiderCSharpLiveTemplatesSettingsId&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\Dmitriy\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Dmitriy\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
-      "C:\\Users\\Dmitriy\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\Dmitriy\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Dmitriy\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Dmitriy\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.22f1\Editor\Unity.exe" />
@@ -249,20 +104,20 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="8416">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="8416" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="19728">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="19908">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="19728" />
+      <option name="pid" value="19908" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -297,6 +152,7 @@
       <workItem from="1715860054584" duration="11896000" />
       <workItem from="1715942051474" duration="18460000" />
       <workItem from="1716032490651" duration="20381000" />
+      <workItem from="1716101001440" duration="12040000" />
     </task>
     <servers />
   </component>
@@ -327,43 +183,17 @@
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs</url>
-          <line>60</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\GameBattleStateMachine\States\TurnState.cs" initialLine="59" containingFunctionPresentation="Method 'HandleInput'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Spawn/WormsSpawner.cs</url>
+          <line>118</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\Spawn\WormsSpawner.cs" initialLine="115" containingFunctionPresentation="Method 'CanFitWormInPosition'">
             <startOffsets>
-              <option value="2065" />
+              <option value="4091" />
             </startOffsets>
             <endOffsets>
-              <option value="2089" />
+              <option value="4111" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/BootstrapState.cs</url>
-          <line>18</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\GameStateMachineComponents\States\BootstrapState.cs" initialLine="18" containingFunctionPresentation="Method 'Enter'">
-            <startOffsets>
-              <option value="511" />
-            </startOffsets>
-            <endOffsets>
-              <option value="560" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="69" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/UI/LoadingScreen.cs</url>
-          <line>23</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\UI\LoadingScreen.cs" initialLine="23" containingFunctionPresentation="Method 'OnProgressChanged'">
-            <startOffsets>
-              <option value="564" />
-            </startOffsets>
-            <endOffsets>
-              <option value="586" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="76" />
+          <option name="timeStamp" value="87" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

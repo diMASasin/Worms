@@ -15,7 +15,8 @@ namespace Spawn
         [SerializeField] private Terrain2D _terrain;
         [SerializeField] private Worm _wormTemplate;
         [SerializeField] private MapBounds _mapBounds;
-
+        [SerializeField] private ContactFilter2D _contactFilter2D;
+        
         private TeamFactory _teamFactory;
         private Vector2[] _points;
         private readonly List<Edge> _edges = new();
@@ -38,19 +39,11 @@ namespace Spawn
             {
                 Color randomColor = _unusedTeamColors[Random.Range(0, _unusedTeamColors.Count)];
                 _unusedTeamColors.Remove(randomColor);
-                Team team = _teamFactory.Create(randomColor, transform, teamConfig);
+                Team team = _teamFactory.Create(randomColor, transform, teamConfig, GetRandomSpawnPoint);
 
                 teams.Add(team);
                 worms.AddRange(team.Worms);
             }
-        
-            MoveToSpawnPoint(worms, GetRandomSpawnPoint);
-        }
-
-        private void MoveToSpawnPoint(CycledList<Worm> worms, Func<Vector2> getSpawnPoint)
-        {
-            foreach (var worm in worms)
-                worm.transform.position = getSpawnPoint();
         }
 
         private void GetEdgesForSpawn()
@@ -79,12 +72,20 @@ namespace Spawn
         private Vector2 GetRandomSpawnPoint()
         {
             Vector2 randomPoint;
+            int i = 0;
             do
             {
                 int random = Random.Range(0, _edges.Count);
                 var randomEdge = _edges[random];
                 randomPoint = Vector2.Lerp(randomEdge.Point1, randomEdge.Point2, Random.value);
                 randomPoint += (Vector2)_terrain.transform.position;
+                
+                i++;
+                if (i >= 100)
+                {
+                    Debug.LogWarning("!!!!!!!!!!");
+                    break;
+                }
             }
             while (!CanFitWormInPosition(randomPoint));
 
@@ -94,9 +95,16 @@ namespace Spawn
         private bool CanFitWormInPosition(Vector2 position)
         {
             var colliderSize = _wormTemplate.Collider2D.size;
-            var size = new Vector2(colliderSize.x * 2, colliderSize.y);
-        
-            return !Physics2D.OverlapCapsule(position + new Vector2(0, 0.5f), size, CapsuleDirection2D.Vertical, 0);
+            var size = new Vector2(colliderSize.x, colliderSize.y) * 2;
+            List<Collider2D> results = new();
+            
+            var overlap =
+                Physics2D.OverlapCapsule(position, size, 
+                    CapsuleDirection2D.Vertical, 0, _contactFilter2D, results);
+
+            if(overlap > 0)
+                Debug.Log(overlap);
+            return overlap == 0;
         }
     }
 }

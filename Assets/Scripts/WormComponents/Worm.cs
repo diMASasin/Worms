@@ -28,6 +28,8 @@ namespace WormComponents
         public Movement Movement => _wormMovement;
         public WormConfig Config => _wormConfig;
 
+        public static int WormsNumber;
+
         public event UnityAction<Worm> Died;
         public event UnityAction<Worm> DamageTook;
         public event Action<Weapon> WeaponChanged;
@@ -35,22 +37,25 @@ namespace WormComponents
 
         private void OnDrawGizmos()
         {
+            var colliderSize = Collider2D.size;
+            var size = new Vector2(colliderSize.x * 4, colliderSize.y);
+            
             if (_wormConfig.ShowCanSpawnCheckerBox)
-                Gizmos.DrawSphere(transform.position + (Vector3)Collider2D.offset, Collider2D.size.x / 2);
+                Gizmos.DrawSphere(transform.position + new Vector3(0, 0.5f), size.x);
+                // Gizmos.DrawSphere(transform.position + (Vector3)Collider2D.offset, Collider2D.size.x / 2);
         }
 
         public void Init(WormConfig config)
         {
             _wormConfig = config;
-            gameObject.name = config.Name;
+            WormsNumber++;
+            gameObject.name = config.Name + " " + WormsNumber;
             Health = _wormConfig.MaxHealth;
 
             _groundChecker = new GroundChecker(transform, Collider2D, _wormConfig.MovementConfig.GroundCheckerConfig);
             _wormMovement = new Movement(_rigidbody, _collider, Armature, _groundChecker, _wormConfig.MovementConfig);
 
             _wormAnimations.Init(_groundChecker, _wormMovement);
-
-            SetRigidbodyKinematic();
         }
 
         private void FixedUpdate()
