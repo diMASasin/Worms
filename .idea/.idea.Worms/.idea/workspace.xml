@@ -5,16 +5,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="200a9c5f-335a-44bb-b8dc-d5d4d6152652" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Battle.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/Scroll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/Scroll/IScrollable.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/Scroll/IScrollable.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/Scroll/MouseScroll.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/Scroll/MouseScroll.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/WormConfigs/WormConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/WormConfigs/WormConfig.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/WindEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/WindEffect.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/Battle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/Battle.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachine.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachineData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachineData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BetweenTurnsState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BetweenTurnsState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BootstrapState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/StartBattleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BootstrapState.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/StartBattleState.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Bootstrap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/TeamFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/TeamFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/WormFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/WormFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/Bootstrap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Bootstrap.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/Bootstrap.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCamera.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Circle.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Circle.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CircleMove.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CircleMove.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EventProviders/ITeamDiedEventProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EventProviders/ITeamDiedEventProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/BootstrapState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/BootstrapState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IFixedTickable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/IFixedTickable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IFixedTickable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/IFixedTickable.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IGameEventsProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EventProviders/IGameEventsProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IGameEventsProvider.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EventProviders/IGameEventsProvider.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ITickable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/ITickable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ITickable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/ITickable.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputService/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/PlayerInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapBound.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/MapBound.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapBound.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/MapBound.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapBounds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/MapBounds.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MapBounds.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle/MapBounds.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spawn/WormsSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spawn/WormsSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Sph.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Sph.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Team.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Team.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Team.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Team.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TeamHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/TeamHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TeamHealth.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/TeamHealth.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Test.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Test.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,10 +150,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="19908">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="19908" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -152,7 +188,8 @@
       <workItem from="1715860054584" duration="11896000" />
       <workItem from="1715942051474" duration="18460000" />
       <workItem from="1716032490651" duration="20381000" />
-      <workItem from="1716101001440" duration="12040000" />
+      <workItem from="1716101001440" duration="17145000" />
+      <workItem from="1716208862143" duration="745000" />
     </task>
     <servers />
   </component>
@@ -184,13 +221,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Spawn/WormsSpawner.cs</url>
-          <line>118</line>
+          <line>104</line>
           <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\Spawn\WormsSpawner.cs" initialLine="115" containingFunctionPresentation="Method 'CanFitWormInPosition'">
             <startOffsets>
-              <option value="4091" />
+              <option value="3628" />
             </startOffsets>
             <endOffsets>
-              <option value="4111" />
+              <option value="3648" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="87" />

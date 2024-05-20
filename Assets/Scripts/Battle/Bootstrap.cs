@@ -16,9 +16,8 @@ public class Bootstrap : MonoBehaviour
     {
         _coroutinePerformer.Init();
         _mainInput = new MainInput();
-        _input = new PlayerInput(_mainInput);
         
-        _data.Init(_input);
+        _data.Init(_mainInput);
         _battle = new Battle(_data);
         
         _battle.Start();

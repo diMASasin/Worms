@@ -15,7 +15,7 @@ namespace BattleStateMachineComponents
             _data = data;
             _states = new List<BattleState>()
             {
-                new BootstrapState(this, data),
+                new StartBattleState(this, data),
                 new BetweenTurnsState(this, data),
                 new TurnState(this, data),
                 new RetreatState(this, data),
@@ -38,13 +38,13 @@ namespace BattleStateMachineComponents
         public void HandleInput()
         {
             _currentState.HandleInput();
-            _data.CameraInput.Tick();
         }
 
         public void Tick()
         {
             _currentState.Tick();
             _data.Tick();
+            _data.PlayerInput.CameraInput.Tick();
         }
 
         public void FixedTick()

@@ -23,18 +23,11 @@ namespace BattleStateMachineComponents
     public class BattleStateMachineData
     {
         [field: SerializeField] public FollowingCamera FollowingCamera { get; private set; }
-        [field: SerializeField] public Vector3 GeneralViewPosition { get; private set; }
-        [field: SerializeField] public EndScreen EndScreen { get; private set; }
-        [SerializeField] private Shovel _shovelPrefab;
         [SerializeField] private WormsSpawner _wormsSpawner;
         [SerializeField] private Water _water;
-        [field: Header("TimerViews")]
-        [field: SerializeField] public TimerView TurnTimerView { get; private set; }
-        [field: SerializeField] public TimerView GlobalTimerView { get; private set; }
         [field: Header("Wind")]
         [field: SerializeField] public WindData WindData { get; private set; }
         [field: SerializeField] public WindEffect WindEffect { get; private set; }
-        [field: SerializeField] public WindView WindView { get; private set; }
         [field: Header("Projectiles")]
         [SerializeField] private Transform _projectilesParent;
         
@@ -46,8 +39,12 @@ namespace BattleStateMachineComponents
         [SerializeField] private ExplosionPool _explosionPool;
         [SerializeField] private ProjectilePool _fragmentsPool;
         
-        [field: Header("Weapons")]
+        [field: Header("UI")]
         [field: SerializeField] public WeaponSelector WeaponSelector { get; private set; }
+        [field: SerializeField] public TimerView TurnTimerView { get; private set; }
+        [field: SerializeField] public TimerView GlobalTimerView { get; private set; }
+        [field: SerializeField] public EndScreen EndScreen { get; private set; }
+        [field: SerializeField] public WindView WindView { get; private set; }
         
         [field: Header("Configs"), SerializeField]
         public WeaponConfig[] WeaponConfigs { get; private set; }
@@ -58,6 +55,7 @@ namespace BattleStateMachineComponents
         [SerializeField] private FollowingObject _followingTimerViewPrefab;
         [SerializeField] private Worm _wormPrefab;
         [SerializeField] private Arrow _arrowPrefab;
+        [SerializeField] private Shovel _shovelPrefab;
 
         [NonSerialized] public Worm CurrentWorm;
         [NonSerialized] public Team CurrentTeam;
@@ -78,42 +76,41 @@ namespace BattleStateMachineComponents
 
         public Wind.Wind Wind;
         public PlayerInput PlayerInput;
-        public CameraInput CameraInput;
         private WormFactory _wormFactory;
         private TeamFactory _teamFactory;
         private List<Weapon> _weaponList;
         private ShovelWrapper _shovelWrapper;
         
-        public void Init(PlayerInput playerInput)
+        public void Init(MainInput mainInput)
         {
-            PlayerInput = playerInput;
+            PlayerInput = new PlayerInput(mainInput, FollowingCamera);
             
-            WeaponView = Object.Instantiate(WeaponViewPrefab);
             Arrow = Object.Instantiate(_arrowPrefab);
+            
             Shovel shovel = Object.Instantiate(_shovelPrefab);
-            
-            WeaponView.gameObject.SetActive(false);
-            
             _shovelWrapper = new ShovelWrapper(shovel);
             
             InitializeWind();
 
             InitializePools();
-            ProjectileLauncher = new ProjectileLauncher(WeaponSelector, _weaponFactory, WeaponView);
             
+            CreateWeapon();
+
+            InitializeWorms();
+            SpawnWorms();
+            
+            WaterMediator = new WaterMediator(_water);
+            
+            GlobalTimerView.Init(GlobalTimer, TimerFormattingStyle.MinutesAndSeconds);
+            TurnTimerView.Init(TurnTimer, TimerFormattingStyle.Seconds);
+        }
+
+        private void InitializeWorms()
+        {
             _wormFactory = new WormFactory(_wormPrefab);
             _wormInfoFactory.Init(_wormFactory);
             _teamFactory = new TeamFactory(_wormFactory);
             _teamFactory.TeamDied += OnTeamDied;
-            
-            CreateWeapon();
-            Spawn();
-            
-            WaterMediator = new WaterMediator(_water);
-            CameraInput = new CameraInput(FollowingCamera);
-            
-            GlobalTimerView.Init(GlobalTimer, TimerFormattingStyle.MinutesAndSeconds);
-            TurnTimerView.Init(TurnTimer, TimerFormattingStyle.Seconds);
         }
 
         private void InitializeWind()
@@ -162,7 +159,7 @@ namespace BattleStateMachineComponents
             }
         }
         
-        private void Spawn()
+        private void SpawnWorms()
         {
             _wormsSpawner.Init(_teamFactory);
             _wormsSpawner.Spawn(out var worms, out var teams);
@@ -179,10 +176,15 @@ namespace BattleStateMachineComponents
         
         private void CreateWeapon()
         {
+            WeaponView = Object.Instantiate(WeaponViewPrefab);
+            WeaponView.gameObject.SetActive(false);
+            
             _weaponList = _weaponFactory.Create(WeaponConfigs, WeaponView.SpawnPoint);
             WeaponSelector.Init(_weaponList);
             WeaponView.Init(WeaponSelector);
+            
             WeaponChanger = new WeaponChanger(WeaponSelector, _weaponFactory, WeaponView);
+            ProjectileLauncher = new ProjectileLauncher(WeaponSelector, _weaponFactory, WeaponView);
         }
     }
 }

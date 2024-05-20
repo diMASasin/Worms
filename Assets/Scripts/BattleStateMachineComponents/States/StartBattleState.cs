@@ -2,12 +2,12 @@ using Configs;
 
 namespace BattleStateMachineComponents.States
 {
-    public class BootstrapState : BattleState
+    public class StartBattleState : BattleState
     {
         private TimersConfig TimersConfig => Data.TimersConfig;
         private WaterMediator WaterMediator => Data.WaterMediator;
 
-        public BootstrapState(IStateSwitcher stateSwitcher, BattleStateMachineData data) : base(stateSwitcher, data) { }
+        public StartBattleState(IStateSwitcher stateSwitcher, BattleStateMachineData data) : base(stateSwitcher, data) { }
 
         public override void Enter()
         {

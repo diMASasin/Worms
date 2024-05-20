@@ -31,7 +31,7 @@ namespace BattleStateMachineComponents.States
             Arrow.StartMove(CurrentWorm.transform);
             Data.FollowingCamera.ZoomTarget();
             Data.FollowingCamera.SetTarget(CurrentWorm.transform);
-            Data.PlayerInput.Enable(CurrentWorm);
+            Data.PlayerInput.OnWormChanged(CurrentWorm);
             Data.WeaponChanger.ChangeWorm(CurrentWorm);
             
             Data.ProjectileLauncher.ProjectileLaunched += OnProjectileLaunched;
@@ -58,7 +58,8 @@ namespace BattleStateMachineComponents.States
 
         public override void HandleInput()
         {
-            Data.PlayerInput.Tick();
+            Data.PlayerInput.MovementInput.Tick();
+            Data.PlayerInput.WeaponInput.Tick();
             
             if (Input.GetMouseButtonDown(RightButton)) 
                 WeaponSelector.Toggle();

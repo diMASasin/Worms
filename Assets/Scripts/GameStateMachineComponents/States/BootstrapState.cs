@@ -7,8 +7,6 @@ namespace GameStateMachineComponents.States
 {
     public class BootstrapState : GameState
     {
-        private readonly MainInput _input = new();
-        
         private SceneLoader SceneLoader => Data.SceneLoader;
 
         public BootstrapState(GameStateMachineData data, IGameStateSwitcher stateSwitcher) : 
@@ -17,7 +15,6 @@ namespace GameStateMachineComponents.States
         public override void Enter()
         {
             SceneLoader.Load(SceneLoader.MainMenu, OnLoaded);
-            Data.Game.InputService = new PlayerInput(_input);
         }
 
         private void OnLoaded()

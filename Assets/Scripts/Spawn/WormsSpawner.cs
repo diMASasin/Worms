@@ -101,9 +101,7 @@ namespace Spawn
             var overlap =
                 Physics2D.OverlapCapsule(position, size, 
                     CapsuleDirection2D.Vertical, 0, _contactFilter2D, results);
-
-            if(overlap > 0)
-                Debug.Log(overlap);
+            
             return overlap == 0;
         }
     }

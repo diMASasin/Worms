@@ -17,7 +17,7 @@ namespace BattleStateMachineComponents.States
                 () => StateSwitcher.SwitchState<TurnState>());
 
             FollowingCamera.ZoomTarget();
-            FollowingCamera.SetTarget(Data.GeneralViewPosition);
+            FollowingCamera.SetTarget(Data.FollowingCamera.GeneralViewPosition);
             
             Data.Wind.ChangeVelocity();
             Data.WaterMediator.IncreaseLevelIfAllowed();

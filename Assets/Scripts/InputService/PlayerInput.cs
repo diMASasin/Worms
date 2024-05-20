@@ -1,4 +1,5 @@
 ﻿using System;
+using CameraFollow;
 using EventProviders;
 using Weapons;
 using WormComponents;
@@ -11,34 +12,30 @@ namespace InputService
         private Worm _worm;
         private Weapon _weapon;
 
-        private readonly MovementInput _movementInput;
-        private readonly WeaponInput _weaponInput;
+        public readonly MovementInput MovementInput;
+        public readonly WeaponInput WeaponInput;
+        public readonly CameraInput CameraInput;
         
-        public PlayerInput(MainInput input)
+        public PlayerInput(MainInput input, FollowingCamera camera)
         {
             input.Enable();
-            _movementInput = new MovementInput(input.Movement);
-            _weaponInput = new WeaponInput(input.Weapon);
+            MovementInput = new MovementInput(input.Movement);
+            WeaponInput = new WeaponInput(input.Weapon);
+            CameraInput = new CameraInput(camera);
         }
         
         public void Dispose()
         {
             UnsubscribeWormIfExists();
 
-            _movementInput.Disable();
-            _weaponInput.Disable();
+            MovementInput.Disable();
+            WeaponInput.Disable();
         }
 
-        public void Tick()
-        {
-            _movementInput.Tick();
-            _weaponInput.Tick();
-        }
-
-        public void Enable(Worm worm)
+        public void OnWormChanged(Worm worm)
         {
             ChangeWorm(worm);
-            _movementInput.Enable(worm.Movement);
+            MovementInput.Enable(worm.Movement);
         }
 
         private void ChangeWorm(Worm newWorm)
@@ -67,18 +64,18 @@ namespace InputService
 
         private void OnWeaponChanged(Weapon weapon)
         {
-            _weaponInput.Enable(weapon);
+            WeaponInput.Enable(weapon);
         }
 
         private void OnWeaponRemoved()
         {
-            _weaponInput.Disable();
+            WeaponInput.Disable();
         }
 
         private void OnDamageTook(Worm worm)
         {
-            _weaponInput.Disable();
-            _movementInput.Disable();
+            WeaponInput.Disable();
+            MovementInput.Disable();
         }
     }
 }

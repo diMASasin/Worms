@@ -1,4 +1,5 @@
 using System;
+using InputService;
 using UnityEngine;
 
 namespace CameraFollow
@@ -6,12 +7,13 @@ namespace CameraFollow
     [RequireComponent(typeof(Camera))]
     public class FollowingCamera : MonoBehaviour
     {
-        [SerializeField] private float _speed = 1;
         [SerializeField] private Camera _camera;
+        [SerializeField] private float _speed = 1;
         [SerializeField] private Vector3 _offset;
         [SerializeField] private int _maxPosition = 60;
-    
         [field: SerializeField] public int MinPosition { get; private set; } = 10;
+        [field: SerializeField] public Vector3 GeneralViewPosition { get; private set; } 
+    
 
         private Transform _target;
 
