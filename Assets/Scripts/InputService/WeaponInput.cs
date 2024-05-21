@@ -6,14 +6,14 @@ namespace InputService
     public class WeaponInput
     {
         private readonly MainInput.WeaponActions _weaponInput;
-        private Weapon _weapon;
+        private IWeapon _weapon;
 
         public WeaponInput(MainInput.WeaponActions weaponInput)
         {
             _weaponInput = weaponInput;
         }
         
-        public void Enable(Weapon weapon)
+        public void Enable(IWeapon weapon)
         {
             _weapon = weapon;
             

@@ -12,7 +12,6 @@ namespace WormComponents
         [field: SerializeField] public string Name { get; private set; }
 
         private readonly CycledList<Worm> _worms;
-        private int _currentWormIndex = -1;
 
         public int MaxHealth { get; private set; }
         public Color Color { get; private set; }

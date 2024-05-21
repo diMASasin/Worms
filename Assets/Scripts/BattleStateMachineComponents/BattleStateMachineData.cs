@@ -83,7 +83,7 @@ namespace BattleStateMachineComponents
         
         public void Init(MainInput mainInput)
         {
-            PlayerInput = new PlayerInput(mainInput, FollowingCamera);
+            PlayerInput = new PlayerInput(mainInput, FollowingCamera, WeaponSelector);
             
             Arrow = Object.Instantiate(_arrowPrefab);
             
@@ -132,12 +132,6 @@ namespace BattleStateMachineComponents
             
             if (AliveTeams.Count <= 1) 
                 EndScreen.Show();
-        }
-
-        public void Tick()
-        {
-            GlobalTimer.Tick();
-            TurnTimer.Tick();
         }
 
         public void FixedTick()

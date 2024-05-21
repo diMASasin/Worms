@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Configs;
+using MovementComponents;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;

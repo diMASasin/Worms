@@ -1,3 +1,4 @@
+using MovementComponents;
 using UnityEngine.InputSystem;
 
 namespace InputService
@@ -6,14 +7,14 @@ namespace InputService
     {
         private readonly MainInput.MovementActions _movementInput;
 
-        private Movement _movement;
+        private IMovement _movement;
 
         public MovementInput(MainInput.MovementActions movementInput)
         {
             _movementInput = movementInput;
         }
         
-        public void Enable(Movement movement)
+        public void Enable(IMovement movement)
         {
             _movement = movement;
             

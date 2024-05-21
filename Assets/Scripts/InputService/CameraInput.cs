@@ -5,9 +5,9 @@ namespace InputService
 {
     public class CameraInput
     {
-        private readonly FollowingCamera _camera;
+        private readonly IControllableCamera _camera;
 
-        public CameraInput(FollowingCamera camera)
+        public CameraInput(IControllableCamera camera)
         {
             _camera = camera;
         }

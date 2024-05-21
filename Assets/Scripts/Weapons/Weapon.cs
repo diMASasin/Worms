@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace Weapons
 {
-    public class Weapon
+    public class Weapon : IWeapon
     {
         private readonly WeaponConfig _config;
 

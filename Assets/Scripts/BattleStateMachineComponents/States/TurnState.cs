@@ -9,8 +9,6 @@ namespace BattleStateMachineComponents.States
 {
     public class TurnState : BattleState
     {
-        private const int RightButton = 1;
-        
         private readonly Timer _timer = new();
         private Timer Timer => Data.TurnTimer;
         private Worm CurrentWorm => Data.CurrentWorm;
@@ -42,6 +40,7 @@ namespace BattleStateMachineComponents.States
 
         public override void Exit()
         {
+            WeaponSelector.Close();
             CurrentWorm.Movement.Reset();
             CoroutinePerformer.StartCoroutine(CurrentWorm.SetRigidbodyKinematicWhenGrounded());
             
@@ -53,16 +52,13 @@ namespace BattleStateMachineComponents.States
 
         public override void Tick()
         {
-            Arrow.Tick();
         }
 
         public override void HandleInput()
         {
             Data.PlayerInput.MovementInput.Tick();
             Data.PlayerInput.WeaponInput.Tick();
-            
-            if (Input.GetMouseButtonDown(RightButton)) 
-                WeaponSelector.Toggle();
+            Data.PlayerInput.UIInput.Tick();
         }
 
         private void OnProjectileLaunched(Projectile projectile, Vector2 velocity)

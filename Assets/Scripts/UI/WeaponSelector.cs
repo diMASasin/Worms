@@ -48,7 +48,7 @@ namespace UI
             _animator.SetBool(Opened, !_animator.GetBool(Opened));
         }
     
-        private void Close()
+        public void Close()
         {
             _animator.SetBool(Opened, false);
         }

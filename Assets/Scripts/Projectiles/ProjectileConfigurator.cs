@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Configs;
+using MovementComponents;
 using Projectiles.Behaviours.ExplodeBehaviour;
 using Projectiles.Behaviours.LaunchBehaviour;
 using UnityEngine;

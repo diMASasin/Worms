@@ -59,7 +59,7 @@ namespace WormComponents
             Movement(move, true);
         }
 
-        void Movement(Vector2 move, bool yMovement)
+        private void Movement(Vector2 move, bool yMovement)
         {
             float distance = move.magnitude;
 

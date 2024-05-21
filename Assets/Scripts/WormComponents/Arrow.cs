@@ -10,9 +10,7 @@ namespace WormComponents
     
         private static readonly int Move = Animator.StringToHash("Move");
         private readonly Timer _timer = new();
-
-        public void Tick() => _timer.Tick();
-    
+        
         public void StartMove(Transform parentTransform)
         {
             transform.parent = parentTransform; 

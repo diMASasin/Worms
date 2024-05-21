@@ -5,7 +5,7 @@ using UnityEngine;
 namespace CameraFollow
 {
     [RequireComponent(typeof(Camera))]
-    public class FollowingCamera : MonoBehaviour
+    public class FollowingCamera : MonoBehaviour, IControllableCamera
     {
         [SerializeField] private Camera _camera;
         [SerializeField] private float _speed = 1;

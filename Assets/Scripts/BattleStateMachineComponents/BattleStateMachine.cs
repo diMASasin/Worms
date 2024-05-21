@@ -43,7 +43,6 @@ namespace BattleStateMachineComponents
         public void Tick()
         {
             _currentState.Tick();
-            _data.Tick();
             _data.PlayerInput.CameraInput.Tick();
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using CameraFollow;
 using EventProviders;
+using UI;
 using Weapons;
 using WormComponents;
 
@@ -15,13 +16,15 @@ namespace InputService
         public readonly MovementInput MovementInput;
         public readonly WeaponInput WeaponInput;
         public readonly CameraInput CameraInput;
+        public readonly UIInput UIInput;
         
-        public PlayerInput(MainInput input, FollowingCamera camera)
+        public PlayerInput(MainInput input, IControllableCamera camera, WeaponSelector weaponSelector)
         {
             input.Enable();
             MovementInput = new MovementInput(input.Movement);
             WeaponInput = new WeaponInput(input.Weapon);
             CameraInput = new CameraInput(camera);
+            UIInput = new UIInput(weaponSelector);
         }
         
         public void Dispose()
