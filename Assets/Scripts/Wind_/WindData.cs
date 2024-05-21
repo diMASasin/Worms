@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Wind
+namespace Wind_
 {
     [Serializable]
     public class WindData

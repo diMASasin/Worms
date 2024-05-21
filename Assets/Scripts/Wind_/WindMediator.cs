@@ -4,7 +4,7 @@ using Pools;
 using Projectiles;
 using UnityEngine;
 
-namespace Wind
+namespace Wind_
 {
     public class WindMediator
     {

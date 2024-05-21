@@ -1,3 +1,4 @@
+using Battle_;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,18 +12,20 @@ namespace UI
         [SerializeField] private TMP_Dropdown _dropdownWorms;
         [SerializeField] private TMP_Dropdown _dropdownMaps;
 
-        private const string TeamsNumber = nameof(TeamsNumber);
-        private const string WormsNumber = nameof(WormsNumber);
+        private readonly BattleSettings _battleSettings = new();
+        
+        private static readonly int ShowAnimation = Animator.StringToHash("Show");
+        private static readonly int HideAnimation = Animator.StringToHash("Hide");
 
         public void Show()
         {
             gameObject.SetActive(true);
-            _animator.SetTrigger("Show");
+            _animator.SetTrigger(ShowAnimation);
         }
 
         public void Hide() 
         {
-            _animator.SetTrigger("Hide");
+            _animator.SetTrigger(HideAnimation);
         }
 
         public void Close()
@@ -32,11 +35,13 @@ namespace UI
 
         public void Play()
         {
-            Debug.Log("Teams: " + (_dropdownTeams.value + 2));
-            Debug.Log("Worms: " + (_dropdownWorms.value + 1));
-            PlayerPrefs.SetInt(TeamsNumber, _dropdownTeams.value + 2);
-            PlayerPrefs.SetInt(WormsNumber, _dropdownWorms.value + 1);
-            SceneManager.LoadScene(_dropdownMaps.value + 1);
+            int teamsCount = _dropdownTeams.value + 2;
+            int wormsCount = _dropdownWorms.value + 1;
+            int sceneNumber = _dropdownMaps.value + 1;
+            
+            _battleSettings.Save(wormsCount, teamsCount);
+            
+            SceneManager.LoadScene(sceneNumber);
         }
     }
 }

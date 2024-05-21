@@ -1,10 +1,12 @@
-﻿namespace Pools
+﻿using Wind_;
+
+namespace Pools
 {
     public class ProjectileData
     {
-        public Wind.Wind Wind { get; set; }
+        public Wind Wind { get; set; }
 
-        public ProjectileData(Wind.Wind wind)
+        public ProjectileData(Wind wind)
         {
             Wind = wind;
         }

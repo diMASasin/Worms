@@ -1,6 +1,4 @@
-using GameStateMachineComponents.States;
-
-namespace GameStateMachineComponents
+namespace GameStateMachineComponents.States
 {
     public class GameLoopState : GameState
     {

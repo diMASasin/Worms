@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Battle_;
 using CameraFollow;
 using Configs;
 using Factories;
@@ -13,7 +14,7 @@ using Timers;
 using UI;
 using UnityEngine;
 using Weapons;
-using Wind;
+using Wind_;
 using WormComponents;
 using Object = UnityEngine.Object;
 
@@ -74,15 +75,18 @@ namespace BattleStateMachineComponents
         public readonly CycledList<Team> TeamsList = new();
         private readonly WeaponFactory _weaponFactory = new();
 
-        public Wind.Wind Wind;
+        public Wind Wind;
         public PlayerInput PlayerInput;
         private WormFactory _wormFactory;
         private TeamFactory _teamFactory;
         private List<Weapon> _weaponList;
         private ShovelWrapper _shovelWrapper;
+        private BattleSettings _battleSettings = new();
         
         public void Init(MainInput mainInput)
         {
+            _battleSettings.GetSettings(out int teamsNumber, out int wormsNumber);
+            
             PlayerInput = new PlayerInput(mainInput, FollowingCamera, WeaponSelector);
             
             Arrow = Object.Instantiate(_arrowPrefab);
@@ -97,7 +101,7 @@ namespace BattleStateMachineComponents
             CreateWeapon();
 
             InitializeWorms();
-            SpawnWorms();
+            SpawnWorms(teamsNumber, wormsNumber);
             
             WaterMediator = new WaterMediator(_water);
             
@@ -115,7 +119,7 @@ namespace BattleStateMachineComponents
 
         private void InitializeWind()
         {
-            Wind = new Wind.Wind(WindData);
+            Wind = new Wind(WindData);
             WindEffect.Init(Wind);
             WindView.Init(Wind);
             WindMediator = new WindMediator(Wind, WeaponConfigs.Select(config => config.ProjectilePool));
@@ -153,10 +157,10 @@ namespace BattleStateMachineComponents
             }
         }
         
-        private void SpawnWorms()
+        private void SpawnWorms(int teamsNumber, int wormsNumber)
         {
             _wormsSpawner.Init(_teamFactory);
-            _wormsSpawner.Spawn(out var worms, out var teams);
+            _wormsSpawner.Spawn(teamsNumber, wormsNumber, out var worms, out var teams);
             
             WormsList.AddRange(worms);
             TeamsList.AddRange(teams);

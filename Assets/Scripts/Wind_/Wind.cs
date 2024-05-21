@@ -1,7 +1,7 @@
 using System;
 using Random = UnityEngine.Random;
 
-namespace Wind
+namespace Wind_
 {
     public class Wind
     {

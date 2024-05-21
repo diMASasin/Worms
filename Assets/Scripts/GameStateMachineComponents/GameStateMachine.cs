@@ -18,6 +18,7 @@ namespace GameStateMachineComponents
             _states = new List<GameState>()
             {
                 new BootstrapState(_data, this),
+                new MainMenuState(_data, this),
                 new LevelLoadState(_data, this),
                 new GameLoopState(_data, this)
             };

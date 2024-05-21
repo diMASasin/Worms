@@ -19,8 +19,9 @@ namespace GameStateMachineComponents.States
 
         private void OnLoaded()
         {
-            if(SceneManager.GetActiveScene().name == SceneLoader.MainMenu)
-                StateSwitcher.SwitchState<LevelLoadState>();
+            StateSwitcher.SwitchState<MainMenuState>();
+            // if(SceneManager.GetActiveScene().name == SceneLoader.MainMenu)
+            //     StateSwitcher.SwitchState<LevelLoadState>();
         }
 
         public override void Exit()

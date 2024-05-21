@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Battle_;
 using Configs;
 using Factories;
 using ScriptBoy.Digable2DTerrain.Scripts;
@@ -30,16 +31,17 @@ namespace Spawn
             GetEdgesForSpawn();
         }
 
-        public void Spawn(out CycledList<Worm> worms, out CycledList<Team> teams)
+        public void Spawn(int teamsNumber, int wormsNumber, out CycledList<Worm> worms, out CycledList<Team> teams)
         {
             worms = new CycledList<Worm>();
             teams = new CycledList<Team>();
-        
-            foreach (var teamConfig in _spawnerConfig.TeamConfigs)
+
+            for (var i = 0; i < teamsNumber; i++)
             {
+                var teamConfig = _spawnerConfig.TeamConfigs[i];
                 Color randomColor = _unusedTeamColors[Random.Range(0, _unusedTeamColors.Count)];
                 _unusedTeamColors.Remove(randomColor);
-                Team team = _teamFactory.Create(randomColor, transform, teamConfig, GetRandomSpawnPoint);
+                Team team = _teamFactory.Create(randomColor, transform, teamConfig, wormsNumber, GetRandomSpawnPoint);
 
                 teams.Add(team);
                 worms.AddRange(team.Worms);
