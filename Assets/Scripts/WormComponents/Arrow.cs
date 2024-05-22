@@ -7,14 +7,20 @@ namespace WormComponents
     {
         [SerializeField] private Animator _animator;
         [SerializeField] private int _lifeTime = 2;
+        [SerializeField] private FollowingObject _followingObject;
     
         private static readonly int Move = Animator.StringToHash("Move");
         private readonly Timer _timer = new();
-        
-        public void StartMove(Transform parentTransform)
+
+        private void Awake()
         {
-            transform.parent = parentTransform; 
-            transform.position = parentTransform.position;
+            gameObject.SetActive(false);
+        }
+
+        public void StartMove(Transform target)
+        {
+            transform.position = target.position;
+            _followingObject.Connect(target);
         
             gameObject.SetActive(true);
             _animator.SetTrigger(Move);
@@ -24,7 +30,6 @@ namespace WormComponents
 
         private void Disable()
         {
-            gameObject.transform.parent = null;
             gameObject.SetActive(false);
         }
     }

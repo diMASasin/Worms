@@ -20,7 +20,7 @@ MonoBehaviour:
   <TorqueRange>k__BackingField:
     <StartValue>k__BackingField: 0
     <EndValue>k__BackingField: 0
-  <ExplosionConfig>k__BackingField: {fileID: 11400000, guid: 04fad1efc13d81148a61794af9134088, type: 2}
+  <ExplosionConfig>k__BackingField: {fileID: 11400000, guid: cac35c375a53f6e42a54a5a59d51898e, type: 2}
   <ExplodeOnCollision>k__BackingField: 1
   <ExplodeOnKeyDown>k__BackingField: 0
   <IsExplodeWithDelay>k__BackingField: 0

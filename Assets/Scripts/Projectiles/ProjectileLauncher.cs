@@ -51,12 +51,14 @@ namespace Projectiles
             Projectile projectile = _pool.Get();
             Transform spawnPoint = _weaponView.SpawnPoint;
             Vector3 velocity = _weaponView.transform.right * shotPower;
-            
-            projectile.transform.position = spawnPoint.position;
-            projectile.Launch(velocity, spawnPoint);
+
+            var transform = projectile.transform;
+            transform.position = spawnPoint.position;
             
             projectile.Launched += OnLaunched;
             projectile.Exploded += OnExploded;
+            
+            projectile.Launch(velocity);
             
             _projectilesToUnsubscribe.Add(projectile);
         }

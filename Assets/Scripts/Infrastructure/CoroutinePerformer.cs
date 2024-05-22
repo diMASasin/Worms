@@ -27,9 +27,9 @@ namespace Infrastructure
             return _instanceMono.StartCoroutine(enumerator);
         }
     
-        public new static void StopCoroutine(IEnumerator enumerator)
+        public new static void StopCoroutine(Coroutine coroutine)
         {
-            _instanceMono.StopCoroutine(enumerator);
+            _instanceMono.StopCoroutine(coroutine);
         }
     }
 }

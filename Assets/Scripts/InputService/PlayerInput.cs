@@ -24,7 +24,7 @@ namespace InputService
             MovementInput = new MovementInput(input.Movement);
             WeaponInput = new WeaponInput(input.Weapon);
             CameraInput = new CameraInput(camera);
-            UIInput = new UIInput(weaponSelector);
+            UIInput = new UIInput(input.UI, weaponSelector);
         }
         
         public void Dispose()
@@ -33,15 +33,10 @@ namespace InputService
 
             MovementInput.Disable();
             WeaponInput.Disable();
+            UIInput.Disable();
         }
 
-        public void OnWormChanged(Worm worm)
-        {
-            ChangeWorm(worm);
-            MovementInput.Enable(worm.Movement);
-        }
-
-        private void ChangeWorm(Worm newWorm)
+        public void ChangeWorm(Worm newWorm)
         {
             UnsubscribeWormIfExists();
 

@@ -44,6 +44,8 @@ namespace WormComponents
             if (_wormConfig.ShowCanSpawnCheckerBox)
                 Gizmos.DrawSphere(transform.position + new Vector3(0, 0.5f), size.x);
                 // Gizmos.DrawSphere(transform.position + (Vector3)Collider2D.offset, Collider2D.size.x / 2);
+                
+            _groundChecker.OnDrawGizmos();
         }
 
         public void Init(WormConfig config)

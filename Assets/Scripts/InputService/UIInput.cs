@@ -1,23 +1,34 @@
 using UI;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace InputService
 {
     public class UIInput
     {
-        private const int RightButton = 1;
-        
+        private readonly MainInput.UIActions _uiActions;
         private readonly WeaponSelector _weaponSelector;
 
-        public UIInput(WeaponSelector weaponSelector)
+        public UIInput(MainInput.UIActions uiActions, WeaponSelector weaponSelector)
         {
+            _uiActions = uiActions;
             _weaponSelector = weaponSelector;
+            
+        }
+
+        public void Enable()
+        {
+            _uiActions.OpenWeaponSelector.performed += OpenWeaponSelector;
+        }
+
+        public void Disable()
+        {
+            _uiActions.OpenWeaponSelector.performed -= OpenWeaponSelector;
         }
         
-        public void Tick()
+        private void OpenWeaponSelector(InputAction.CallbackContext obj)
         {
-            if (Input.GetMouseButtonDown(RightButton)) 
-                _weaponSelector.Toggle();
+            _weaponSelector.Toggle();
         }
     }
 }

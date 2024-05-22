@@ -392,6 +392,34 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""980db144-1858-40c2-99b0-311143c7348c"",
+            ""actions"": [
+                {
+                    ""name"": ""OpenWeaponSelector"",
+                    ""type"": ""Button"",
+                    ""id"": ""f1a59f0c-f1ec-4fe7-9369-565dee90a4ea"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""04647c88-9c86-46fb-8985-0c477442d60d"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenWeaponSelector"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -410,6 +438,9 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
         m_Movement_TurnRight = m_Movement.FindAction("TurnRight", throwIfNotFound: true);
         m_Movement_TurnLeft = m_Movement.FindAction("TurnLeft", throwIfNotFound: true);
         m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_OpenWeaponSelector = m_UI.FindAction("OpenWeaponSelector", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -623,6 +654,52 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
         }
     }
     public MovementActions @Movement => new MovementActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
+    private readonly InputAction m_UI_OpenWeaponSelector;
+    public struct UIActions
+    {
+        private @MainInput m_Wrapper;
+        public UIActions(@MainInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @OpenWeaponSelector => m_Wrapper.m_UI_OpenWeaponSelector;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void AddCallbacks(IUIActions instance)
+        {
+            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
+            @OpenWeaponSelector.started += instance.OnOpenWeaponSelector;
+            @OpenWeaponSelector.performed += instance.OnOpenWeaponSelector;
+            @OpenWeaponSelector.canceled += instance.OnOpenWeaponSelector;
+        }
+
+        private void UnregisterCallbacks(IUIActions instance)
+        {
+            @OpenWeaponSelector.started -= instance.OnOpenWeaponSelector;
+            @OpenWeaponSelector.performed -= instance.OnOpenWeaponSelector;
+            @OpenWeaponSelector.canceled -= instance.OnOpenWeaponSelector;
+        }
+
+        public void RemoveCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IUIActions instance)
+        {
+            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     public interface IWeaponActions
     {
         void OnRaiseScope(InputAction.CallbackContext context);
@@ -638,5 +715,9 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
         void OnTurnRight(InputAction.CallbackContext context);
         void OnTurnLeft(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnOpenWeaponSelector(InputAction.CallbackContext context);
     }
 }

@@ -4,6 +4,8 @@ using Configs;
 using MovementComponents;
 using Projectiles.Behaviours.ExplodeBehaviour;
 using Projectiles.Behaviours.LaunchBehaviour;
+using Timers;
+using UI;
 using UnityEngine;
 using UnityEngine.Pool;
 using WormComponents;
@@ -14,14 +16,16 @@ namespace Projectiles
     {
         private readonly Projectile _projectile;
         private readonly ProjectileConfig _config;
-        private readonly ObjectPool<FollowingObject> _followingTimerViewPool;
+        private readonly ObjectPool<FollowingTimerView> _followingTimerViewPool;
 
         private readonly List<ILaunchBehaviour> _launchBehaviours = new();
         private readonly List<IExplodeBehaviour> _explodeBehaviours = new();
-        private FollowingObject _followingObject;
+        private FollowingTimerView _followingTimerView;
+        private SheepMovement _sheepMovement;
+        private GroundChecker _groundChecker;
 
         public ProjectileConfigurator(Projectile projectile, ProjectileConfig config,
-            ObjectPool<FollowingObject> followingTimerViewPool)
+            ObjectPool<FollowingTimerView> followingTimerViewPool)
         {
             _config = config;
             _followingTimerViewPool = followingTimerViewPool;
@@ -37,13 +41,24 @@ namespace Projectiles
             _projectile.Launched -= OnLaunched;
         }
 
+        public void FixedTick()
+        {
+            _sheepMovement?.FixedTick();
+            _groundChecker?.FixedTick();
+        }
+
+        public void OnDrawGizmos()
+        {
+            _sheepMovement?.OnDrawGizmos();
+            _groundChecker?.OnDrawGizmos();
+        }
+
         private void OnExploded(Projectile projectile)
         {
             foreach (var behaviour in _explodeBehaviours)
                 behaviour.OnExplode();
-            
-            _followingObject.Disonnect();
-            _followingTimerViewPool.Release(_followingObject);
+
+            _sheepMovement?.JumpTimer.Stop();
         }
 
         private void OnLaunched(Projectile projectile, Vector2 shotPower)
@@ -68,9 +83,9 @@ namespace Projectiles
             
             if (config.IsExplodeWithDelay)
             {
-                _launchBehaviours.Add(new OnLaunchTimer(config.ExplodeDelay, () => _projectile.Explode()));
-                _followingObject = _followingTimerViewPool.Get();
-                _followingObject.Connect(_projectile.transform);
+                var onLaunchTimer = new OnLaunchTimer(_followingTimerViewPool, _projectile,
+                    config.ExplodeDelay, () => _projectile.Explode());
+                _launchBehaviours.Add(onLaunchTimer);
             }
         }
 
@@ -78,12 +93,13 @@ namespace Projectiles
         {
             MovementConfig movementConfig = _config.MovementConfig;
 
-            var groundChecker = new GroundChecker(_projectile.transform, _projectile.Collider, 
+            _groundChecker = new GroundChecker(_projectile.transform, _projectile.Collider, 
                 movementConfig.GroundCheckerConfig);
-            var sheepMovement = new SheepMovement(_projectile.Rigidbody, _projectile.Collider,
-                _projectile.transform, groundChecker, movementConfig);
+            _sheepMovement = new SheepMovement(_projectile.Rigidbody, _projectile.Collider,
+                _projectile.transform, _groundChecker, movementConfig);
 
-            SheepProjectile sheepProjectile = new SheepProjectile(sheepMovement);
+            _projectile.Rigidbody.freezeRotation = true;
+            SheepProjectile sheepProjectile = new SheepProjectile(_sheepMovement);
 
             return sheepProjectile;
         }

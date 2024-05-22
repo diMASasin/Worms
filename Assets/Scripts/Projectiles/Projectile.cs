@@ -69,7 +69,7 @@ namespace Projectiles
             _rigidbody.velocity = Vector2.zero;
         }
 
-        public void Launch(Vector2 velocity, Transform spawnPoint)
+        public void Launch(Vector2 velocity)
         {
             _rigidbody.AddForce(velocity, ForceMode2D.Impulse);
             
@@ -83,6 +83,7 @@ namespace Projectiles
 
             _dead = true;
             Exploded?.Invoke(this);
+            gameObject.SetActive(false);
         }
     }
 }

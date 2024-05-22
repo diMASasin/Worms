@@ -48,7 +48,12 @@ namespace BattleStateMachineComponents
 
         public void FixedTick()
         {
-            _data.WindMediator.FixedTick();
+            _data.FixedTick();
+        }
+
+        public void OnDrawGizmos()
+        {
+            _data.OnDrawGizmos();
         }
 
         public void Dispose()

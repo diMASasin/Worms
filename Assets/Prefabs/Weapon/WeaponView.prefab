@@ -169,7 +169,6 @@ MonoBehaviour:
   _pointerLine: {fileID: 7948222189002402856}
   _gunSprite: {fileID: 153271629685729904}
   _aimSprite: {fileID: 7963244255714088304}
-  _pool: {fileID: 11400000, guid: b6eeee3e52b44ca42a82a16d1a7c8220, type: 2}
 --- !u!1 &3772905108119691147
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,7 +244,7 @@ SpriteRenderer:
   m_SortingOrder: -1
   m_Sprite: {fileID: -402192597, guid: 3bb1fadd136a96f42b94902a40eace8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.04, y: 0.56}

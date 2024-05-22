@@ -16,8 +16,8 @@ namespace Projectiles.Behaviours.LaunchBehaviour
 
         public void OnLaunch(Vector2 velocity)
         {
-            var torque = Random.Range(_config.TorqueRange.StartValue, _config.TorqueRange.EndValue);
-            _rigidbody2D.AddTorque(Random.Range(-torque, torque));
+            var torque = Random.Range(_config.TorqueRange.StartValue, -_config.TorqueRange.StartValue);
+            _rigidbody2D.AddTorque(torque);
         }
     }
 }

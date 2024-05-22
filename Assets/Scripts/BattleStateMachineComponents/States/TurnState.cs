@@ -20,7 +20,7 @@ namespace BattleStateMachineComponents.States
         public override void Enter()
         {
             Data.CurrentTeam = Data.TeamsList.Next();
-            Data.CurrentWorm = Data.WormsList.Next();
+            Data.CurrentWorm = Data.CurrentTeam.Worms.Next();
             // Debug.Log(Data.CurrentWorm.name + " " + Data.CurrentWorm.transform.position);
             
             CurrentWorm.SetCurrentWormLayer();
@@ -29,8 +29,11 @@ namespace BattleStateMachineComponents.States
             Arrow.StartMove(CurrentWorm.transform);
             Data.FollowingCamera.ZoomTarget();
             Data.FollowingCamera.SetTarget(CurrentWorm.transform);
-            Data.PlayerInput.OnWormChanged(CurrentWorm);
             Data.WeaponChanger.ChangeWorm(CurrentWorm);
+            
+            Data.PlayerInput.ChangeWorm(CurrentWorm);
+            Data.PlayerInput.MovementInput.Enable(CurrentWorm.Movement);
+            Data.PlayerInput.UIInput.Enable();
             
             Data.ProjectileLauncher.ProjectileLaunched += OnProjectileLaunched;
             Data.ProjectileLauncher.ProjectileExploded += OnProjectileExploded;
@@ -40,11 +43,15 @@ namespace BattleStateMachineComponents.States
 
         public override void Exit()
         {
+            Data.TurnTimer.Stop();
             WeaponSelector.Close();
             CurrentWorm.Movement.Reset();
+            
+            Data.PlayerInput.UIInput.Disable();
+            Data.PlayerInput.WeaponInput.Disable();
             CoroutinePerformer.StartCoroutine(CurrentWorm.SetRigidbodyKinematicWhenGrounded());
             
-            _timer.Start(CurrentWorm.Config.RemoveWeaponDelay, () => CurrentWorm.RemoveWeapon());
+            // _timer.Start(CurrentWorm.Config.RemoveWeaponDelay, () => CurrentWorm.RemoveWeapon());
             
             Data.ProjectileLauncher.ProjectileLaunched -= OnProjectileLaunched;
             Data.ProjectileLauncher.ProjectileExploded -= OnProjectileExploded;
@@ -58,12 +65,13 @@ namespace BattleStateMachineComponents.States
         {
             Data.PlayerInput.MovementInput.Tick();
             Data.PlayerInput.WeaponInput.Tick();
-            Data.PlayerInput.UIInput.Tick();
         }
 
         private void OnProjectileLaunched(Projectile projectile, Vector2 velocity)
         {
             Data.WindMediator.InfluenceOnProjectileIfNecessary(projectile, projectile.Config);
+            Data.FollowingCamera.SetTarget(projectile.transform);
+            
             StateSwitcher.SwitchState<RetreatState>();
         }
 

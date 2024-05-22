@@ -1,25 +1,51 @@
 ﻿using System;
 using Timers;
+using UI;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace Projectiles.Behaviours.LaunchBehaviour
 {
     public class OnLaunchTimer : ILaunchBehaviour
     {
+        private readonly ObjectPool<FollowingTimerView> _followingTimerViewPool;
+        private readonly Projectile _projectile;
         private readonly float _interval;
         private readonly Action _onElapsed;
+        private FollowingTimerView _followingTimerView;
 
-        private Timer _timer;
+        public readonly Timer Timer = new();
 
-        public OnLaunchTimer(float interval, Action onElapsed)
+        public OnLaunchTimer(ObjectPool<FollowingTimerView> followingTimerViewPool, Projectile projectile, 
+            float interval, Action onElapsed)
         {
+            _followingTimerViewPool = followingTimerViewPool;
+            _projectile = projectile;
             _interval = interval;
             _onElapsed = onElapsed;
+            
         }
 
         public void OnLaunch(Vector2 velocity)
         {
-            _timer.Start(_interval, OnTimerElapsed);
+            Timer.Start(_interval, OnTimerElapsed);
+            _followingTimerView = _followingTimerViewPool.Get();
+            _followingTimerView.TimerView.Init(Timer, TimerFormattingStyle.Seconds);
+            _followingTimerView.FollowingObject.Connect(_projectile.transform);
+            
+            _projectile.Exploded += OnExploded;
+        }
+
+        private void OnExploded(Projectile projectile)
+        {
+            _projectile.Exploded -= OnExploded;
+            
+            if (_followingTimerView != null)
+            {
+                _followingTimerView.FollowingObject.Disonnect();
+                _followingTimerViewPool.Release(_followingTimerView);
+                _followingTimerView = null;
+            }
         }
 
         private void OnTimerElapsed()

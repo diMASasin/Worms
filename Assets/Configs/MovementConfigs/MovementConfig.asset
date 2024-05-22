@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MovementConfig
   m_EditorClassIdentifier: 
   <Speed>k__BackingField: 2
-  <LongJumpForce>k__BackingField: {x: 4, y: 4}
+  <LongJumpForce>k__BackingField: {x: 4, y: 10}
   <HighJumpForce>k__BackingField: {x: 2, y: 6}
   <JumpCooldown>k__BackingField: 0.5
   <MinGroundNormalY>k__BackingField: 0.65

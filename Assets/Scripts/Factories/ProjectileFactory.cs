@@ -4,6 +4,7 @@ using Configs;
 using EventProviders;
 using Pools;
 using Projectiles;
+using UI;
 using UnityEngine;
 using UnityEngine.Pool;
 using Object = UnityEngine.Object;
@@ -16,22 +17,27 @@ namespace Factories
         [SerializeField] private Projectile _projectilePrefab;
         [SerializeField] private ProjectileConfig _config;
         [SerializeField] private ExplosionPool _explosionPool;
-        [SerializeField] private FollowingObject _followingTimerView;
         
-        private ObjectPool<FollowingObject> _followingTimerViewPool;
+        private FollowingTimerView _followingTimerViewPrefab;
+        private ObjectPool<FollowingTimerView> _followingTimerViewPool;
         private readonly List<Projectile> _projectiles = new();
         private Transform _projectileParent;
+        private ProjectileConfigurator _configurator;
 
         public ProjectileConfig Config => _config;
 
         public event Action<Projectile, Vector2> ProjectileLaunched;
         public event Action<Projectile> ProjectileExploded; 
 
-        public void Init(Transform projectileParent)
+        public void Init(Transform projectileParent, FollowingTimerView followingTimerViewPrefab)
         {
             _projectileParent = projectileParent;
+            _followingTimerViewPrefab = followingTimerViewPrefab;
             
-            _followingTimerViewPool = new ObjectPool<FollowingObject>(() => Instantiate(_followingTimerView));
+            _followingTimerViewPool = new ObjectPool<FollowingTimerView>(
+                () => Instantiate(_followingTimerViewPrefab),
+                timer => timer.gameObject.SetActive(true),
+                timer => timer.gameObject.SetActive(false));
         }
 
         private void OnDestroy()
@@ -40,10 +46,16 @@ namespace Factories
                 projectile.Exploded -= OnExploded;
         }
 
+        public void FixedTick()
+        {
+            _configurator?.FixedTick();
+        }
+
+        public void OnDrawGizmos() => _configurator?.OnDrawGizmos();
+
         public Projectile Create()
         {
             Projectile projectile = Object.Instantiate(_projectilePrefab, _projectileParent);
-            Explosion explosion = _explosionPool.Get();
             
             projectile.Init(_config);
             _projectiles.Add(projectile);
@@ -51,7 +63,8 @@ namespace Factories
             projectile.Launched += OnLaunched;
             projectile.Exploded += OnExploded;
             
-            new ProjectileConfigurator(_projectilePrefab, _config, _followingTimerViewPool).Configure(_config);
+            _configurator = new ProjectileConfigurator(projectile, _config, _followingTimerViewPool);
+            _configurator.Configure(_config);
             
             return projectile;
         }

@@ -9,13 +9,13 @@ namespace MovementComponents
     public class SheepMovement : Movement, IDisposable
     {
         private readonly float _jumpInterval;
-        private readonly Timer _jumpTimer = new();
+        public readonly Timer JumpTimer = new();
 
         private Vector3 _overlapPoint;
         private Vector3 _overlapBoxSize;
 
         public SheepMovement(Rigidbody2D rigidbody2D, Collider2D collider2D, Transform armature,
-            GroundChecker groundChecker, MovementConfig config, float jumpInterval = 1) : 
+            GroundChecker groundChecker, MovementConfig config, float jumpInterval = 2) : 
             base(rigidbody2D, collider2D, armature, groundChecker, config)
         {
             _jumpInterval = jumpInterval;
@@ -32,7 +32,7 @@ namespace MovementComponents
         {
             base.FixedTick();
 
-            var right = Armature.transform.right;
+            var right = -Armature.transform.right;
 
             _overlapPoint = Armature.transform.position +
                             new Vector3(-Collider.bounds.size.x / 1.9f * right.x, 0, 0) -
@@ -50,10 +50,10 @@ namespace MovementComponents
 
         private void OnMoveDircetionChanged()
         {
-            _jumpTimer.Start(_jumpInterval, RepeatLongJump);
+            JumpTimer.Start(_jumpInterval, RepeatLongJump);
         }
 
-        private void OnDrawGizmos()
+        public void OnDrawGizmos()
         {
             Gizmos.DrawCube(_overlapPoint, _overlapBoxSize);
         }
@@ -61,7 +61,7 @@ namespace MovementComponents
         private void RepeatLongJump()
         {
             LongJump();
-            _jumpTimer.Start(_jumpInterval, RepeatLongJump);
+            JumpTimer.Start(_jumpInterval, RepeatLongJump);
         }
     }
 }

@@ -26,5 +26,7 @@ namespace Battle_
         public void FixedTick() => _battleStateMachine.FixedTick();
 
         public void Start() => _battleStateMachine.SwitchState<BetweenTurnsState>();
+
+        public void OnDrawGizmos() => _battleStateMachine.OnDrawGizmos();
     }
 }

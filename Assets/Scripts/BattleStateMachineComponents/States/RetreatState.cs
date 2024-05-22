@@ -18,7 +18,7 @@ namespace BattleStateMachineComponents.States
 
         public override void Exit()
         {
-            
+            Data.PlayerInput.MovementInput.Disable();
         }
 
         public override void Tick()
@@ -27,6 +27,7 @@ namespace BattleStateMachineComponents.States
 
         public override void HandleInput()
         {
+            Data.PlayerInput.MovementInput.Tick();
         }
     }
 }

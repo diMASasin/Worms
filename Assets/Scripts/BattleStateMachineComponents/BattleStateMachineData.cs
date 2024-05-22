@@ -53,7 +53,7 @@ namespace BattleStateMachineComponents
 
         [field: Header("Prefabs"), SerializeField]
         public WeaponView WeaponViewPrefab { get; private set; }
-        [SerializeField] private FollowingObject _followingTimerViewPrefab;
+        [SerializeField] private FollowingTimerView _followingTimerViewPrefab;
         [SerializeField] private Worm _wormPrefab;
         [SerializeField] private Arrow _arrowPrefab;
         [SerializeField] private Shovel _shovelPrefab;
@@ -82,6 +82,7 @@ namespace BattleStateMachineComponents
         private List<Weapon> _weaponList;
         private ShovelWrapper _shovelWrapper;
         private BattleSettings _battleSettings = new();
+        private IEnumerable<ProjectileFactory> _projectileFactories;
         
         public void Init(MainInput mainInput)
         {
@@ -114,6 +115,7 @@ namespace BattleStateMachineComponents
             _wormFactory = new WormFactory(_wormPrefab);
             _wormInfoFactory.Init(_wormFactory);
             _teamFactory = new TeamFactory(_wormFactory);
+            
             _teamFactory.TeamDied += OnTeamDied;
         }
 
@@ -141,20 +143,25 @@ namespace BattleStateMachineComponents
         public void FixedTick()
         {
             WindMediator.FixedTick();
+
+            foreach (var projectileFactory in _projectileFactories) 
+                projectileFactory.FixedTick();
+        }
+
+        public void OnDrawGizmos()
+        {
+            foreach (var factory in _projectileFactories) 
+                factory.OnDrawGizmos();
         }
         
         private void InitializePools()
         {
             _explosionPool.Init(_projectilesParent, _shovelWrapper);
-            _fragmentsPool.Init(_followingTimerViewPrefab);
 
-            foreach (var weaponConfig in WeaponConfigs)
-            {
-                ProjectilePool projectilePool = weaponConfig.ProjectilePool;
+            _projectileFactories = WeaponConfigs.Select(config => config.ProjectilePool.ProjectileFactory);
             
-                projectilePool.Init(_followingTimerViewPrefab);
-                projectilePool.ProjectileFactory.Init(_projectilesParent);
-            }
+            foreach (var projectileFactory in _projectileFactories)
+                projectileFactory.Init(_projectilesParent, _followingTimerViewPrefab);
         }
         
         private void SpawnWorms(int teamsNumber, int wormsNumber)
@@ -169,6 +176,7 @@ namespace BattleStateMachineComponents
                 worm.SetRigidbodyKinematic();
 
             _teamHealthFactory.Create(TeamsList);
+            
             AliveTeams.AddRange(TeamsList);
         }
         

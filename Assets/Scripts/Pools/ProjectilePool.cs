@@ -15,7 +15,6 @@ namespace Pools
         [SerializeField] private int _amount;
 
         private ObjectPool<Projectile> _pool;
-        private FollowingObject _followingTimerView;
 
         public ProjectileFactory ProjectileFactory => _projectileFactory;
         
@@ -25,11 +24,9 @@ namespace Pools
         public static int Count { get; private set; }
 
         public static event Action<int> CountChanged;
-        
-        public void Init(FollowingObject followingTimerView)
+
+        private void Awake()
         {
-            _followingTimerView = followingTimerView;
-            
             _pool = new ObjectPool<Projectile>(OnCreated, OnGet, OnRelease, OnProjectileDestroy, true, _amount);
         }
 
@@ -50,8 +47,8 @@ namespace Pools
 
         private void OnGet(Projectile projectile)
         {
-            projectile.ResetProjectile();
             projectile.gameObject.SetActive(true);
+            projectile.ResetProjectile();
             Count++;
             CountChanged?.Invoke(Count);
             Got?.Invoke(projectile, _projectileFactory.Config);
@@ -60,7 +57,6 @@ namespace Pools
         private void OnRelease(Projectile projectile)
         {
             Count--;
-            projectile.gameObject.SetActive(false);
             CountChanged?.Invoke(Count);
             Released?.Invoke();
         }

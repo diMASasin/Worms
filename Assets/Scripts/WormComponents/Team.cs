@@ -36,13 +36,6 @@ namespace WormComponents
             }
         }
 
-        public bool TryGetNextWorm(out Worm worm)
-        {
-            worm = _worms.Next();
-        
-            return worm != null;
-        }
-
         private void OnWormDied(Worm worm)
         {
             worm.DamageTook -= OnDamageTook;

@@ -19,6 +19,7 @@ namespace UI
             _weapon = weapon;
 
             _image.sprite = _weapon.Config.Sprite;
+            _image.gameObject.transform.localScale *= _weapon.Config.SpriteScale;
         }
 
         private void OnEnable()

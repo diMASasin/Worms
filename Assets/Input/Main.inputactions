@@ -370,6 +370,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "UI",
+            "id": "980db144-1858-40c2-99b0-311143c7348c",
+            "actions": [
+                {
+                    "name": "OpenWeaponSelector",
+                    "type": "Button",
+                    "id": "f1a59f0c-f1ec-4fe7-9369-565dee90a4ea",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "04647c88-9c86-46fb-8985-0c477442d60d",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenWeaponSelector",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

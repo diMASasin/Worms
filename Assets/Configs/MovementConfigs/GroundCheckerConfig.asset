@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: GroundCheckerConfig
   m_EditorClassIdentifier: 
   <Size>k__BackingField: {x: 0.3, y: 0.01}
-  <Offset>k__BackingField: {x: 0, y: -0.05}
+  <Offset>k__BackingField: {x: 0, y: -0.35}
   <ShowGroundCheckerBox>k__BackingField: 1
   <ContactFilter2D>k__BackingField:
     useTriggers: 0
     useLayerMask: 1
-    useDepth: 0
+    useDepth: 1
     useOutsideDepth: 0
     useNormalAngle: 0
     useOutsideNormalAngle: 0

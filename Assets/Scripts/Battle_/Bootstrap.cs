@@ -35,6 +35,11 @@ namespace Battle_
             _battle.FixedTick();
         }
 
+        private void OnDrawGizmos()
+        {
+            _battle?.OnDrawGizmos();
+        }
+
         private void OnDestroy()
         {
             if (_battle != null) _battle.Dispose();

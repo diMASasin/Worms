@@ -7,24 +7,17 @@ public class FollowingObject : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = _followingFor.position + (Vector3)_offset;
+        if(_followingFor != null)
+            transform.position = _followingFor.position + (Vector3)_offset;
     }
 
     public void Connect(Transform target)
     {
-        transform.parent = target;
-        gameObject.SetActive(false);
-    }
-    
-    public void Connect()
-    {
-        transform.parent = _followingFor;
-        gameObject.SetActive(false);
+        _followingFor = target;
     }
 
     public void Disonnect()
     {
-        transform.parent = null;
-        transform.rotation = Quaternion.identity;
+        _followingFor = null;
     }
 }

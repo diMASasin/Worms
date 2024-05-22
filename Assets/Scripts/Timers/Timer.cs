@@ -9,7 +9,8 @@ namespace Timers
     {
         private float _interval;
         private float _timeLeft = 0;
-
+        private Coroutine _coroutine;
+        
         public event Action<float> TimerUpdated;
 
         public void Start(float interval, Action onElapsed)
@@ -17,7 +18,13 @@ namespace Timers
             _interval = interval;
             Reset();
             TimerUpdated?.Invoke(_timeLeft);
-            CoroutinePerformer.StartCoroutine(StartTimer(onElapsed));
+            _coroutine = CoroutinePerformer.StartCoroutine(StartTimer(onElapsed));
+        }
+
+        public void Stop()
+        {
+            CoroutinePerformer.StopCoroutine(_coroutine);
+            Reset();
         }
 
         private IEnumerator StartTimer(Action onElapsed)
@@ -29,13 +36,13 @@ namespace Timers
                 TimerUpdated?.Invoke(_timeLeft);
             }
 
-            _timeLeft = 0;
             Reset();
             onElapsed?.Invoke();
         }
 
         private void Reset()
         {
+            _timeLeft = 0;
             _timeLeft = _interval;
         }
     }

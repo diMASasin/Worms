@@ -34,7 +34,8 @@ namespace Projectiles.Behaviours.ExplodeBehaviour
             for (int i = 0; i < _fragmentsAmount; i++)
             {
                 var fragment = _fragmentsPool.Get();
-                fragment.Launch(new Vector2(Random.Range(-2f, 2f), Random.Range(4f, 6f)), _spawnPoint);
+                fragment.transform.position = _spawnPoint.position;
+                fragment.Launch(new Vector2(Random.Range(-2f, 2f), Random.Range(4f, 6f)));
 
                 _fragments.Add(fragment);
             }

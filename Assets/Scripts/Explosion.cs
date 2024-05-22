@@ -31,10 +31,21 @@ public class Explosion : MonoBehaviour
         }
     }
 
+    // private int CalculateDamage(int maxDamage, Collider2D wormCollider)
+    // {
+    //     float multiplier = 1 - (Vector3.Distance(transform.position, 
+    //         wormCollider.ClosestPoint(transform.position)) - _projectileColliderRadius);
+    //     multiplier = Mathf.Clamp01(multiplier);
+    //     if (multiplier >= 0.9f)
+    //         multiplier = 1;
+    //
+    //     return Convert.ToInt32(maxDamage * multiplier);
+    // }
+    
     private int CalculateDamage(int maxDamage, Collider2D wormCollider)
     {
         float multiplier = 1 - (Vector3.Distance(transform.position, 
-            wormCollider.ClosestPoint(transform.position)) - _projectileColliderRadius);
+            wormCollider.ClosestPoint(transform.position)));
         multiplier = Mathf.Clamp01(multiplier);
         if (multiplier >= 0.9f)
             multiplier = 1;

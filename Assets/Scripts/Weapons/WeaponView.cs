@@ -1,4 +1,5 @@
 ﻿using System;
+using Configs;
 using EventProviders;
 using Projectiles;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace Weapons
         [SerializeField] private SpriteRenderer _aimSprite;
 
         private Weapon _weapon;
+        private float _initialScaleX;
 
         public Transform SpawnPoint => _spawnPoint;
 
@@ -23,7 +25,8 @@ namespace Weapons
         public void Init(IWeaponSelectedEvent weaponSelectedEvent)
         {
             _weaponSelectedEvent = weaponSelectedEvent;
-
+            _initialScaleX = _gunSprite.gameObject.transform.localScale.x;
+            
             _weaponSelectedEvent.WeaponSelected += OnWeaponChanged;
 
             Hide();
@@ -40,10 +43,11 @@ namespace Weapons
             _aimSprite.enabled = true;
         }
 
-        private void SetGunSprite(Sprite sprite)
+        private void SetGunSprite(WeaponConfig config)
         {
             _gunSprite.enabled = true;
-            _gunSprite.sprite = sprite;
+            _gunSprite.gameObject.transform.localScale = Vector3.one * _initialScaleX * config.SpriteScale;
+            _gunSprite.sprite = config.Sprite;
         }
 
         private void MoveScope(float zRotation)
@@ -68,7 +72,7 @@ namespace Weapons
             _weapon.IncreasePowerStarted += OnIncreasePowerStarted;
             _weapon.ScopeMoved += MoveScope;
 
-            SetGunSprite(weapon.Config.Sprite);
+            SetGunSprite(weapon.Config);
             EnableAimSprite();
         }
 

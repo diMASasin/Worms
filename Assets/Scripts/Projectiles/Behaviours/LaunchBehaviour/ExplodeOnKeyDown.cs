@@ -7,7 +7,7 @@ namespace Projectiles.Behaviours.LaunchBehaviour
     public class ExplodeOnKeyDown : ILaunchBehaviour
     {
         private readonly Projectile _projectile;
-        private IEnumerator _coroutine;
+        private Coroutine _coroutine;
 
         public ExplodeOnKeyDown(Projectile projectile)
         {
@@ -17,8 +17,7 @@ namespace Projectiles.Behaviours.LaunchBehaviour
 
         public void OnLaunch(Vector2 velocity)
         {
-            _coroutine = WaitKeyDown();
-            CoroutinePerformer.StartCoroutine(_coroutine);
+            _coroutine = CoroutinePerformer.StartCoroutine(WaitKeyDown());
         }
 
         private void OnExploded(Projectile projectile)
