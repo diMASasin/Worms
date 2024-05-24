@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_game_state_machine_components_1_1_game_state_machine_data" kind="class" language="C#" prot="public">
+    <compoundname>GameStateMachineComponents::GameStateMachineData</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_game_state_machine_components_1_1_game_state_machine_data_1a76170bdd29e088fdd2a1623177fb2b59" prot="public" static="no" mutable="no">
+        <type>readonly <ref refid="class_infrastructure_1_1_coroutine_performer" kindref="compound">CoroutinePerformer</ref></type>
+        <definition>readonly CoroutinePerformer GameStateMachineComponents.GameStateMachineData.CoroutinePerformer</definition>
+        <argsstring></argsstring>
+        <name>CoroutinePerformer</name>
+        <qualifiedname>GameStateMachineComponents.GameStateMachineData.CoroutinePerformer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameStateMachineComponents/GameStateMachineData.cs" line="9" column="44" bodyfile="GameStateMachineComponents/GameStateMachineData.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_state_machine_components_1_1_game_state_machine_data_1ab0d66d237107915cf3092e22fde43765" prot="public" static="no" mutable="no">
+        <type>readonly <ref refid="class_game" kindref="compound">Game</ref></type>
+        <definition>readonly Game GameStateMachineComponents.GameStateMachineData.Game</definition>
+        <argsstring></argsstring>
+        <name>Game</name>
+        <qualifiedname>GameStateMachineComponents.GameStateMachineData.Game</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameStateMachineComponents/GameStateMachineData.cs" line="10" column="30" bodyfile="GameStateMachineComponents/GameStateMachineData.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_state_machine_components_1_1_game_state_machine_data_1af7be194c409a35eb3306709b5859984a" prot="public" static="no" mutable="no">
+        <type>readonly <ref refid="class_infrastructure_1_1_scene_loader" kindref="compound">SceneLoader</ref></type>
+        <definition>readonly SceneLoader GameStateMachineComponents.GameStateMachineData.SceneLoader</definition>
+        <argsstring></argsstring>
+        <name>SceneLoader</name>
+        <qualifiedname>GameStateMachineComponents.GameStateMachineData.SceneLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameStateMachineComponents/GameStateMachineData.cs" line="11" column="37" bodyfile="GameStateMachineComponents/GameStateMachineData.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_state_machine_components_1_1_game_state_machine_data_1adac487402e94d1b0ddae0ceebaee2a86" prot="public" static="no" mutable="no">
+        <type>readonly <ref refid="class_u_i_1_1_loading_screen" kindref="compound">LoadingScreen</ref></type>
+        <definition>readonly LoadingScreen GameStateMachineComponents.GameStateMachineData.LoadingScreen</definition>
+        <argsstring></argsstring>
+        <name>LoadingScreen</name>
+        <qualifiedname>GameStateMachineComponents.GameStateMachineData.LoadingScreen</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameStateMachineComponents/GameStateMachineData.cs" line="12" column="39" bodyfile="GameStateMachineComponents/GameStateMachineData.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_game_state_machine_components_1_1_game_state_machine_data_1a3252ab7aae63630a3df32c8b946407f3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GameStateMachineComponents.GameStateMachineData.GameStateMachineData</definition>
+        <argsstring>(CoroutinePerformer coroutinePerformer, Game game, SceneLoader sceneLoader, LoadingScreen loadingScreen)</argsstring>
+        <name>GameStateMachineData</name>
+        <qualifiedname>GameStateMachineComponents.GameStateMachineData.GameStateMachineData</qualifiedname>
+        <param>
+          <type><ref refid="class_infrastructure_1_1_coroutine_performer" kindref="compound">CoroutinePerformer</ref></type>
+          <declname>coroutinePerformer</declname>
+        </param>
+        <param>
+          <type><ref refid="class_game" kindref="compound">Game</ref></type>
+          <declname>game</declname>
+        </param>
+        <param>
+          <type><ref refid="class_infrastructure_1_1_scene_loader" kindref="compound">SceneLoader</ref></type>
+          <declname>sceneLoader</declname>
+        </param>
+        <param>
+          <type><ref refid="class_u_i_1_1_loading_screen" kindref="compound">LoadingScreen</ref></type>
+          <declname>loadingScreen</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameStateMachineComponents/GameStateMachineData.cs" line="14" column="16" bodyfile="GameStateMachineComponents/GameStateMachineData.cs" bodystart="14" bodyend="21"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>Game</label>
+        <link refid="class_game"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>InputService</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>StateMachine</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>GameStateMachineComponents.GameStateMachineData</label>
+        <link refid="class_game_state_machine_components_1_1_game_state_machine_data"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>CoroutinePerformer</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>Game</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>SceneLoader</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>LoadingScreen</edgelabel>
+        </childnode>
+      </node>
+      <node id="6">
+        <label>GameStateMachineComponents.GameStateMachine</label>
+        <link refid="class_game_state_machine_components_1_1_game_state_machine"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>IGameStateSwitcher</label>
+        <link refid="interface_game_state_machine_components_1_1_i_game_state_switcher"/>
+      </node>
+      <node id="2">
+        <label>Infrastructure.CoroutinePerformer</label>
+        <link refid="class_infrastructure_1_1_coroutine_performer"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Infrastructure.SceneLoader</label>
+        <link refid="class_infrastructure_1_1_scene_loader"/>
+      </node>
+      <node id="5">
+        <label>InputService</label>
+      </node>
+      <node id="3">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="9">
+        <label>UI.LoadingScreen</label>
+        <link refid="class_u_i_1_1_loading_screen"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="GameStateMachineComponents/GameStateMachineData.cs" line="7" column="11" bodyfile="GameStateMachineComponents/GameStateMachineData.cs" bodystart="8" bodyend="22"/>
+    <listofallmembers>
+      <member refid="class_game_state_machine_components_1_1_game_state_machine_data_1a76170bdd29e088fdd2a1623177fb2b59" prot="public" virt="non-virtual"><scope>GameStateMachineComponents::GameStateMachineData</scope><name>CoroutinePerformer</name></member>
+      <member refid="class_game_state_machine_components_1_1_game_state_machine_data_1ab0d66d237107915cf3092e22fde43765" prot="public" virt="non-virtual"><scope>GameStateMachineComponents::GameStateMachineData</scope><name>Game</name></member>
+      <member refid="class_game_state_machine_components_1_1_game_state_machine_data_1a3252ab7aae63630a3df32c8b946407f3" prot="public" virt="non-virtual"><scope>GameStateMachineComponents::GameStateMachineData</scope><name>GameStateMachineData</name></member>
+      <member refid="class_game_state_machine_components_1_1_game_state_machine_data_1adac487402e94d1b0ddae0ceebaee2a86" prot="public" virt="non-virtual"><scope>GameStateMachineComponents::GameStateMachineData</scope><name>LoadingScreen</name></member>
+      <member refid="class_game_state_machine_components_1_1_game_state_machine_data_1af7be194c409a35eb3306709b5859984a" prot="public" virt="non-virtual"><scope>GameStateMachineComponents::GameStateMachineData</scope><name>SceneLoader</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

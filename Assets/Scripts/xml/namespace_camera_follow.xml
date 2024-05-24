@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="namespace_camera_follow" kind="namespace" language="C#">
+    <compoundname>CameraFollow</compoundname>
+    <innerclass refid="class_camera_follow_1_1_following_camera" prot="public">CameraFollow::FollowingCamera</innerclass>
+    <innerclass refid="interface_camera_follow_1_1_i_controllable_camera" prot="public">CameraFollow::IControllableCamera</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="CameraFollow/FollowingCamera.cs" line="5" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="_team_factory_8cs" kind="file" language="C#">
+    <compoundname>TeamFactory.cs</compoundname>
+    <innerclass refid="class_factories_1_1_team_factory" prot="public">Factories::TeamFactory</innerclass>
+    <innernamespace refid="namespace_factories">Factories</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/></highlight><highlight class="normal">System;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">System.Collections.Generic;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_configs" kindref="compound">Configs</ref>;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_event_providers" kindref="compound">EventProviders</ref>;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">UnityEngine;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_worm_components" kindref="compound">WormComponents</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_factories" kindref="compound">Factories</ref></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="10" refid="class_factories_1_1_team_factory" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_factories_1_1_team_factory" kindref="compound">TeamFactory</ref><sp/>:<sp/><ref refid="interface_event_providers_1_1_i_team_died_event_provider" kindref="compound">ITeamDiedEventProvider</ref></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/><ref refid="class_factories_1_1_worm_factory" kindref="compound">WormFactory</ref><sp/>_wormFactory;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">event</highlight><highlight class="normal"><sp/>Action&lt;Team&gt;<sp/><ref refid="class_factories_1_1_team_factory_1a1c49e937f45e5df0208987f99f0d09aa" kindref="member">TeamDied</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_factories_1_1_team_factory_1a9cd5ff0ca629c54bdcb996b26c83a230" kindref="member">TeamFactory</ref>(<ref refid="class_factories_1_1_worm_factory" kindref="compound">WormFactory</ref><sp/>wormFactory)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_wormFactory<sp/>=<sp/>wormFactory;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_worm_components_1_1_team" kindref="compound">Team</ref><sp/><ref refid="class_factories_1_1_team_factory_1adfacd2d2309d7fb158127b1dba82d631" kindref="member">Create</ref>(Color<sp/>color,<sp/>Transform<sp/>parent,<sp/><ref refid="class_configs_1_1_team_config" kindref="compound">TeamConfig</ref><sp/>config,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>wormsNumber,<sp/>Func&lt;Vector2&gt;<sp/>getSpawnPoint)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>teamWorms<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_worm_components_1_1_cycled_list" kindref="compound">CycledList&lt;IWorm&gt;</ref>();</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;WormConfig&gt;<sp/>wormConfigs<sp/>=<sp/>config.<ref refid="class_configs_1_1_team_config_1a4e97792018f06e5a79541e78e7ee4a45" kindref="member">WormConfigs</ref>;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>wormsNumber;<sp/>i++)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_worm_components_1_1_worm" kindref="compound">Worm</ref><sp/>newWorm<sp/>=<sp/>_wormFactory.Create(parent,<sp/>color,<sp/>wormConfigs[i],<sp/>getSpawnPoint);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>teamWorms.Add(newWorm);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>team<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_worm_components_1_1_team" kindref="compound">Team</ref>(teamWorms,<sp/>color,<sp/>config);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>team.Died<sp/>+=<sp/>OnDied;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>team;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnDied(<ref refid="class_worm_components_1_1_team" kindref="compound">Team</ref><sp/>team)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>team.Died<sp/>-=<sp/>OnDied;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_factories_1_1_team_factory_1a1c49e937f45e5df0208987f99f0d09aa" kindref="member">TeamDied</ref>?.Invoke(team);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="Factories/TeamFactory.cs"/>
+  </compounddef>
+</doxygen>

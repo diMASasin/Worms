@@ -11,9 +11,8 @@ namespace BattleStateMachineComponents.States
 
         public override void Enter()
         {
-            
-            
             Data.GlobalTimer.Start(TimersConfig.GlobalTime, () => WaterMediator.AllowIncreaseWaterLevel());
+            StateSwitcher.SwitchState<BetweenTurnsState>();
         }
 
         public override void Exit()

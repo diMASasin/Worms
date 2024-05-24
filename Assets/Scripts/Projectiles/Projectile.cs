@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Projectiles
 {
-    public class Projectile : MonoBehaviour
+    public class Projectile : MonoBehaviour, IProjectile
     {
         [SerializeField] private GameObject _spriteObject;
         [SerializeField] private SpriteRenderer _spriteRenderer;

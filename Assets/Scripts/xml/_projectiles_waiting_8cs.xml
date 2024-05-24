@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="_projectiles_waiting_8cs" kind="file" language="C#">
+    <compoundname>ProjectilesWaiting.cs</compoundname>
+    <innerclass refid="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting" prot="public">BattleStateMachineComponents::States::ProjectilesWaiting</innerclass>
+    <innernamespace refid="namespace_battle_state_machine_components">BattleStateMachineComponents</innernamespace>
+    <innernamespace refid="namespace_battle_state_machine_components_1_1_states">BattleStateMachineComponents::States</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_pools" kindref="compound">Pools</ref>;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_timers" kindref="compound">Timers</ref>;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_battle_state_machine_components_1_1_states" kindref="compound">BattleStateMachineComponents.States</ref></highlight></codeline>
+<codeline lineno="5"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="6" refid="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting" kindref="compound">ProjectilesWaiting</ref><sp/>:<sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_battle_state" kindref="compound">BattleState</ref></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting_1a70c11d1d4d8450b483e1c0071ac6eb66" kindref="member">ProjectilesWaiting</ref>(<ref refid="interface_battle_state_machine_components_1_1_i_state_switcher" kindref="compound">IStateSwitcher</ref><sp/>stateSwitcher,<sp/><ref refid="class_battle_state_machine_components_1_1_battle_state_machine_data" kindref="compound">BattleStateMachineData</ref><sp/>data)<sp/>:<sp/>base(stateSwitcher,<sp/>data)</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>}</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting_1ab1547ae6a8aaac701a0359d9f55ab8f8" kindref="member">Enter</ref>()</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>OnCountChanged(<ref refid="class_pools_1_1_projectile_pool" kindref="compound">ProjectilePool</ref>.<ref refid="class_pools_1_1_projectile_pool_1a23fa47fe262f1563e4bce858dd38c256" kindref="member">Count</ref>);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ProjectilePool.CountChanged<sp/>+=<sp/>OnCountChanged;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting_1ab08a0c0a6f33db0bb4e3ecfe65e95208" kindref="member">Exit</ref>()</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ProjectilePool.CountChanged<sp/>-=<sp/>OnCountChanged;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting_1ac4c29ba2df455755b7b760a3f226694b" kindref="member">Tick</ref>()</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting_1a300bf4bfceaeb45c391196c4e6d292cf" kindref="member">HandleInput</ref>()</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnCountChanged(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(count<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_battle_state_1af3dbdf7d55bef50357def006a7ac38df" kindref="member">StateSwitcher</ref>.SwitchState&lt;<ref refid="class_battle_state_machine_components_1_1_states_1_1_between_turns_state" kindref="compound">BetweenTurnsState</ref>&gt;();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="BattleStateMachineComponents/States/ProjectilesWaiting.cs"/>
+  </compounddef>
+</doxygen>

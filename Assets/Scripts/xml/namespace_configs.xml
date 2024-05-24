@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="namespace_configs" kind="namespace" language="C#">
+    <compoundname>Configs</compoundname>
+    <innerclass refid="class_configs_1_1_explosion_config" prot="public">Configs::ExplosionConfig</innerclass>
+    <innerclass refid="class_configs_1_1_game_config" prot="public">Configs::GameConfig</innerclass>
+    <innerclass refid="class_configs_1_1_ground_checker_config" prot="public">Configs::GroundCheckerConfig</innerclass>
+    <innerclass refid="class_configs_1_1_movement_config" prot="public">Configs::MovementConfig</innerclass>
+    <innerclass refid="class_configs_1_1_projectile_config" prot="public">Configs::ProjectileConfig</innerclass>
+    <innerclass refid="class_configs_1_1_team_config" prot="public">Configs::TeamConfig</innerclass>
+    <innerclass refid="class_configs_1_1_timers_config" prot="public">Configs::TimersConfig</innerclass>
+    <innerclass refid="class_configs_1_1_weapon_config" prot="public">Configs::WeaponConfig</innerclass>
+    <innerclass refid="class_configs_1_1_worm_config" prot="public">Configs::WormConfig</innerclass>
+    <innerclass refid="class_configs_1_1_worms_spawner_config" prot="public">Configs::WormsSpawnerConfig</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Configs/ExplosionConfig.cs" line="3" column="1"/>
+  </compounddef>
+</doxygen>

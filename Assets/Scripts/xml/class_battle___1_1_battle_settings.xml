@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_battle___1_1_battle_settings" kind="class" language="C#" prot="public">
+    <compoundname>Battle_::BattleSettings</compoundname>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_battle___1_1_battle_settings_1a0d5f0f5f647e1ce21dcc94bcdcefb05b" prot="private" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int Battle_.BattleSettings._wormsCount</definition>
+        <argsstring></argsstring>
+        <name>_wormsCount</name>
+        <qualifiedname>Battle_.BattleSettings._wormsCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Battle_/BattleSettings.cs" line="8" column="28" bodyfile="Battle_/BattleSettings.cs" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_battle___1_1_battle_settings_1a409d4c8859b362f733ceed6311cad3f9" prot="private" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int Battle_.BattleSettings._teamsCount</definition>
+        <argsstring></argsstring>
+        <name>_teamsCount</name>
+        <qualifiedname>Battle_.BattleSettings._teamsCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Battle_/BattleSettings.cs" line="9" column="28" bodyfile="Battle_/BattleSettings.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="event">
+      <memberdef kind="event" id="class_battle___1_1_battle_settings_1ae1efcfca0187e2948809bc1ab041ce49" prot="public" static="yes" add="no" remove="no" raise="no">
+        <type>Action</type>
+        <definition>Action Battle_.BattleSettings.BattleSettingsSaved</definition>
+        <argsstring></argsstring>
+        <name>BattleSettingsSaved</name>
+        <qualifiedname>Battle_.BattleSettings.BattleSettingsSaved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Battle_/BattleSettings.cs" line="11" column="36" bodyfile="Battle_/BattleSettings.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_battle___1_1_battle_settings_1a2b5fdebe1e878a6dcbe0f18710837b3b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Battle_.BattleSettings.Save</definition>
+        <argsstring>(int wormsCount, int teamsCount)</argsstring>
+        <name>Save</name>
+        <qualifiedname>Battle_.BattleSettings.Save</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>wormsCount</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>teamsCount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Battle_/BattleSettings.cs" line="13" column="21" bodyfile="Battle_/BattleSettings.cs" bodystart="13" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battle___1_1_battle_settings_1a926cf8e421958a6405abb8f005075d1c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Battle_.BattleSettings.GetSettings</definition>
+        <argsstring>(out int wormsCount, out int teamsCount)</argsstring>
+        <name>GetSettings</name>
+        <qualifiedname>Battle_.BattleSettings.GetSettings</qualifiedname>
+        <param>
+          <type>out int</type>
+          <declname>wormsCount</declname>
+        </param>
+        <param>
+          <type>out int</type>
+          <declname>teamsCount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Battle_/BattleSettings.cs" line="21" column="21" bodyfile="Battle_/BattleSettings.cs" bodystart="21" bodyend="25"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Battle_/BattleSettings.cs" line="6" column="11" bodyfile="Battle_/BattleSettings.cs" bodystart="7" bodyend="26"/>
+    <listofallmembers>
+      <member refid="class_battle___1_1_battle_settings_1a409d4c8859b362f733ceed6311cad3f9" prot="private" virt="non-virtual"><scope>Battle_::BattleSettings</scope><name>_teamsCount</name></member>
+      <member refid="class_battle___1_1_battle_settings_1a0d5f0f5f647e1ce21dcc94bcdcefb05b" prot="private" virt="non-virtual"><scope>Battle_::BattleSettings</scope><name>_wormsCount</name></member>
+      <member refid="class_battle___1_1_battle_settings_1ae1efcfca0187e2948809bc1ab041ce49" prot="public" virt="non-virtual"><scope>Battle_::BattleSettings</scope><name>BattleSettingsSaved</name></member>
+      <member refid="class_battle___1_1_battle_settings_1a926cf8e421958a6405abb8f005075d1c" prot="public" virt="non-virtual"><scope>Battle_::BattleSettings</scope><name>GetSettings</name></member>
+      <member refid="class_battle___1_1_battle_settings_1a2b5fdebe1e878a6dcbe0f18710837b3b" prot="public" virt="non-virtual"><scope>Battle_::BattleSettings</scope><name>Save</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

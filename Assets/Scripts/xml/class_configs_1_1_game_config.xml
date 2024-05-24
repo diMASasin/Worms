@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_configs_1_1_game_config" kind="class" language="C#" prot="public">
+    <compoundname>Configs::GameConfig</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ScriptableObject</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Configs.GameConfig</label>
+        <link refid="class_configs_1_1_game_config"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ScriptableObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Configs.GameConfig</label>
+        <link refid="class_configs_1_1_game_config"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ScriptableObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="Configs/GameConfig.cs" line="6" column="11" bodyfile="Configs/GameConfig.cs" bodystart="7" bodyend="9"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

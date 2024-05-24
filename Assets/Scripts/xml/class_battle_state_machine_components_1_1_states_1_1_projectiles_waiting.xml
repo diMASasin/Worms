@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting" kind="class" language="C#" prot="public">
+    <compoundname>BattleStateMachineComponents::States::ProjectilesWaiting</compoundname>
+    <basecompoundref refid="class_battle_state_machine_components_1_1_states_1_1_battle_state" prot="public" virt="non-virtual">BattleStateMachineComponents.States.BattleState</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting_1a70c11d1d4d8450b483e1c0071ac6eb66" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BattleStateMachineComponents.States.ProjectilesWaiting.ProjectilesWaiting</definition>
+        <argsstring>(IStateSwitcher stateSwitcher, BattleStateMachineData data)</argsstring>
+        <name>ProjectilesWaiting</name>
+        <qualifiedname>BattleStateMachineComponents.States.ProjectilesWaiting.ProjectilesWaiting</qualifiedname>
+        <param>
+          <type><ref refid="interface_battle_state_machine_components_1_1_i_state_switcher" kindref="compound">IStateSwitcher</ref></type>
+          <declname>stateSwitcher</declname>
+        </param>
+        <param>
+          <type><ref refid="class_battle_state_machine_components_1_1_battle_state_machine_data" kindref="compound">BattleStateMachineData</ref></type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="BattleStateMachineComponents/States/ProjectilesWaiting.cs" line="8" column="16" bodyfile="BattleStateMachineComponents/States/ProjectilesWaiting.cs" bodystart="8" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting_1ab1547ae6a8aaac701a0359d9f55ab8f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void BattleStateMachineComponents.States.ProjectilesWaiting.Enter</definition>
+        <argsstring>()</argsstring>
+        <name>Enter</name>
+        <qualifiedname>BattleStateMachineComponents.States.ProjectilesWaiting.Enter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="BattleStateMachineComponents/States/ProjectilesWaiting.cs" line="11" column="30" bodyfile="BattleStateMachineComponents/States/ProjectilesWaiting.cs" bodystart="11" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting_1ab08a0c0a6f33db0bb4e3ecfe65e95208" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void BattleStateMachineComponents.States.ProjectilesWaiting.Exit</definition>
+        <argsstring>()</argsstring>
+        <name>Exit</name>
+        <qualifiedname>BattleStateMachineComponents.States.ProjectilesWaiting.Exit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="BattleStateMachineComponents/States/ProjectilesWaiting.cs" line="18" column="30" bodyfile="BattleStateMachineComponents/States/ProjectilesWaiting.cs" bodystart="18" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting_1ac4c29ba2df455755b7b760a3f226694b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void BattleStateMachineComponents.States.ProjectilesWaiting.Tick</definition>
+        <argsstring>()</argsstring>
+        <name>Tick</name>
+        <qualifiedname>BattleStateMachineComponents.States.ProjectilesWaiting.Tick</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="BattleStateMachineComponents/States/ProjectilesWaiting.cs" line="23" column="30" bodyfile="BattleStateMachineComponents/States/ProjectilesWaiting.cs" bodystart="23" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting_1a300bf4bfceaeb45c391196c4e6d292cf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void BattleStateMachineComponents.States.ProjectilesWaiting.HandleInput</definition>
+        <argsstring>()</argsstring>
+        <name>HandleInput</name>
+        <qualifiedname>BattleStateMachineComponents.States.ProjectilesWaiting.HandleInput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="BattleStateMachineComponents/States/ProjectilesWaiting.cs" line="27" column="30" bodyfile="BattleStateMachineComponents/States/ProjectilesWaiting.cs" bodystart="27" bodyend="29"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting_1ad6d6a6eab2de090f60b09f2702f61adf" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BattleStateMachineComponents.States.ProjectilesWaiting.OnCountChanged</definition>
+        <argsstring>(int count)</argsstring>
+        <name>OnCountChanged</name>
+        <qualifiedname>BattleStateMachineComponents.States.ProjectilesWaiting.OnCountChanged</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="BattleStateMachineComponents/States/ProjectilesWaiting.cs" line="31" column="22" bodyfile="BattleStateMachineComponents/States/ProjectilesWaiting.cs" bodystart="31" bodyend="36"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BattleState</label>
+        <link refid="class_battle_state_machine_components_1_1_states_1_1_battle_state"/>
+      </node>
+      <node id="1">
+        <label>BattleStateMachineComponents.States.ProjectilesWaiting</label>
+        <link refid="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BattleState</label>
+        <link refid="class_battle_state_machine_components_1_1_states_1_1_battle_state"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>StateSwitcher</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>Data</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BattleStateMachineComponents.States.ProjectilesWaiting</label>
+        <link refid="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>BattleStateMachineComponents.BattleStateMachineData</label>
+        <link refid="class_battle_state_machine_components_1_1_battle_state_machine_data"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>CurrentWorm</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>CurrentTeam</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>GlobalTimer</edgelabel>
+          <edgelabel>TurnTimer</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>WormsList</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>TeamsList</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>Wind</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>PlayerInput</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>BattleStateMachineComponents.IStateSwitcher</label>
+        <link refid="interface_battle_state_machine_components_1_1_i_state_switcher"/>
+      </node>
+      <node id="11">
+        <label>InputService</label>
+      </node>
+      <node id="7">
+        <label>Timers.Timer</label>
+        <link refid="class_timers_1_1_timer"/>
+      </node>
+      <node id="10">
+        <label>Wind_.Wind</label>
+        <link refid="class_wind___1_1_wind"/>
+      </node>
+      <node id="8">
+        <label>WormComponents.CycledList&lt; IWorm &gt;</label>
+        <link refid="class_worm_components_1_1_cycled_list"/>
+      </node>
+      <node id="9">
+        <label>WormComponents.CycledList&lt; Team &gt;</label>
+        <link refid="class_worm_components_1_1_cycled_list"/>
+      </node>
+      <node id="5">
+        <label>WormComponents.IWorm</label>
+        <link refid="interface_worm_components_1_1_i_worm"/>
+      </node>
+      <node id="6">
+        <label>WormComponents.Team</label>
+        <link refid="class_worm_components_1_1_team"/>
+      </node>
+    </collaborationgraph>
+    <location file="BattleStateMachineComponents/States/ProjectilesWaiting.cs" line="6" column="11" bodyfile="BattleStateMachineComponents/States/ProjectilesWaiting.cs" bodystart="7" bodyend="37"/>
+    <listofallmembers>
+      <member refid="class_battle_state_machine_components_1_1_states_1_1_battle_state_1af0267f729ba429cdedb690ca0a8f41c6" prot="public" virt="non-virtual"><scope>BattleStateMachineComponents::States::ProjectilesWaiting</scope><name>BattleState</name></member>
+      <member refid="class_battle_state_machine_components_1_1_states_1_1_battle_state_1a6913d092513bcc5587efd17736b0b502" prot="protected" virt="non-virtual"><scope>BattleStateMachineComponents::States::ProjectilesWaiting</scope><name>Data</name></member>
+      <member refid="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting_1ab1547ae6a8aaac701a0359d9f55ab8f8" prot="public" virt="non-virtual"><scope>BattleStateMachineComponents::States::ProjectilesWaiting</scope><name>Enter</name></member>
+      <member refid="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting_1ab08a0c0a6f33db0bb4e3ecfe65e95208" prot="public" virt="non-virtual"><scope>BattleStateMachineComponents::States::ProjectilesWaiting</scope><name>Exit</name></member>
+      <member refid="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting_1a300bf4bfceaeb45c391196c4e6d292cf" prot="public" virt="non-virtual"><scope>BattleStateMachineComponents::States::ProjectilesWaiting</scope><name>HandleInput</name></member>
+      <member refid="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting_1ad6d6a6eab2de090f60b09f2702f61adf" prot="private" virt="non-virtual"><scope>BattleStateMachineComponents::States::ProjectilesWaiting</scope><name>OnCountChanged</name></member>
+      <member refid="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting_1a70c11d1d4d8450b483e1c0071ac6eb66" prot="public" virt="non-virtual"><scope>BattleStateMachineComponents::States::ProjectilesWaiting</scope><name>ProjectilesWaiting</name></member>
+      <member refid="class_battle_state_machine_components_1_1_states_1_1_battle_state_1af3dbdf7d55bef50357def006a7ac38df" prot="protected" virt="non-virtual"><scope>BattleStateMachineComponents::States::ProjectilesWaiting</scope><name>StateSwitcher</name></member>
+      <member refid="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting_1ac4c29ba2df455755b7b760a3f226694b" prot="public" virt="non-virtual"><scope>BattleStateMachineComponents::States::ProjectilesWaiting</scope><name>Tick</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

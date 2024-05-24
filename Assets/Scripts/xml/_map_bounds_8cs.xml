@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="_map_bounds_8cs" kind="file" language="C#">
+    <compoundname>MapBounds.cs</compoundname>
+    <innerclass refid="class_battle___1_1_map_bounds" prot="public">Battle_::MapBounds</innerclass>
+    <innernamespace refid="namespace_battle__">Battle_</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/></highlight><highlight class="normal">UnityEngine;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_battle__" kindref="compound">Battle_</ref></highlight></codeline>
+<codeline lineno="4"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="5" refid="class_battle___1_1_map_bounds" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_battle___1_1_map_bounds" kindref="compound">MapBounds</ref><sp/>:<sp/>MonoBehaviour</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[field:<sp/>SerializeField]<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Transform<sp/><ref refid="class_battle___1_1_map_bounds_1a821fdbfac679da3fa60fe95b5dcefc7c" kindref="member">Left</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">set</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[field:<sp/>SerializeField]<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Transform<sp/><ref refid="class_battle___1_1_map_bounds_1a0a5c2f098e57a21e7900ce8d79acdb1f" kindref="member">Right</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">set</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[field:<sp/>SerializeField]<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Transform<sp/><ref refid="class_battle___1_1_map_bounds_1a69d93ccb1eb16c22846372cb47c5a6cc" kindref="member">Top</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">set</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[field:<sp/>SerializeField]<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Transform<sp/><ref refid="class_battle___1_1_map_bounds_1ad755678bb0e31a57c7dc30f3699474a4" kindref="member">Bottom</ref><sp/>{<sp/></highlight><highlight class="keyword">get</highlight><highlight class="normal">;<sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">set</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="Battle_/MapBounds.cs"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="interface_i_shovel" kind="interface" language="C#" prot="public">
+    <compoundname>IShovel</compoundname>
+    <derivedcompoundref refid="class_shovel_wrapper" prot="public" virt="non-virtual">ShovelWrapper</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interface_i_shovel_1afbcec501ce55fa945ff7fa878e389710" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IShovel.Dig</definition>
+        <argsstring>(Vector3 position, float radius)</argsstring>
+        <name>Dig</name>
+        <qualifiedname>IShovel.Dig</qualifiedname>
+        <reimplementedby refid="class_shovel_wrapper_1ac7f132445f6bf3c953049f9f04796173">Dig</reimplementedby>
+        <param>
+          <type>Vector3</type>
+          <declname>position</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>radius</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="IShovel.cs" line="5" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>IShovel</label>
+        <link refid="interface_i_shovel"/>
+      </node>
+      <node id="2">
+        <label>ShovelWrapper</label>
+        <link refid="class_shovel_wrapper"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="IShovel.cs" line="3" column="18" bodyfile="IShovel.cs" bodystart="4" bodyend="6"/>
+    <listofallmembers>
+      <member refid="interface_i_shovel_1afbcec501ce55fa945ff7fa878e389710" prot="public" virt="non-virtual"><scope>IShovel</scope><name>Dig</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

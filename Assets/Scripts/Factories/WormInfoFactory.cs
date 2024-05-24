@@ -26,9 +26,9 @@ namespace Factories
             _wormEvents.WormCreated -= CreateInfoView;
         }
 
-        private void CreateInfoView(Worm worm, Color teamColor, string wormName)
+        private void CreateInfoView(IWorm worm, Color teamColor, string wormName)
         {
-            var wormTransform = worm.transform;
+            var wormTransform = worm.Transform;
             
             WormInformationView wormInfo = Instantiate(_wormInfoPrefab, wormTransform);
             wormInfo.Init(worm, teamColor, wormName);

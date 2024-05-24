@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_wind___1_1_wind" kind="class" language="C#" prot="public">
+    <compoundname>Wind_::Wind</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_wind___1_1_wind_1ac467dbc9adf0586e32983458c3e0b073" prot="private" static="no" mutable="no">
+        <type><ref refid="class_wind___1_1_wind_data" kindref="compound">WindData</ref></type>
+        <definition>WindData Wind_.Wind._data</definition>
+        <argsstring></argsstring>
+        <name>_data</name>
+        <qualifiedname>Wind_.Wind._data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Wind_/Wind.cs" line="8" column="26" bodyfile="Wind_/Wind.cs" bodystart="8" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_wind___1_1_wind_1a968c08937c9011190e241ba23ea98d68" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float Wind_.Wind.Velocity</definition>
+        <argsstring></argsstring>
+        <name>Velocity</name>
+        <qualifiedname>Wind_.Wind.Velocity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Wind_/Wind.cs" line="10" column="22" bodyfile="Wind_/Wind.cs" bodystart="10" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="property" id="class_wind___1_1_wind_1a71b0db0312312a6fb557549439781e80" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float Wind_.Wind.MaxVelocity</definition>
+        <argsstring></argsstring>
+        <name>MaxVelocity</name>
+        <qualifiedname>Wind_.Wind.MaxVelocity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Wind_/Wind.cs" line="11" column="22" bodyfile="Wind_/Wind.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_wind___1_1_wind_1a9222cd466dd0792f380dff156215d0b1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float Wind_.Wind.Step</definition>
+        <argsstring></argsstring>
+        <name>Step</name>
+        <qualifiedname>Wind_.Wind.Step</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Wind_/Wind.cs" line="12" column="22" bodyfile="Wind_/Wind.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="event">
+      <memberdef kind="event" id="class_wind___1_1_wind_1a28d63a24e352641076e51b6c6de752e2" prot="public" static="no" add="no" remove="no" raise="no">
+        <type>Action&lt; float &gt;</type>
+        <definition>Action&lt;float&gt; Wind_.Wind.VelocityChanged</definition>
+        <argsstring></argsstring>
+        <name>VelocityChanged</name>
+        <qualifiedname>Wind_.Wind.VelocityChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Wind_/Wind.cs" line="14" column="29" bodyfile="Wind_/Wind.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_wind___1_1_wind_1a80e07cfeebf6f3ee7f0f7592bf7739ef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Wind_.Wind.Wind</definition>
+        <argsstring>(WindData data)</argsstring>
+        <name>Wind</name>
+        <qualifiedname>Wind_.Wind.Wind</qualifiedname>
+        <param>
+          <type><ref refid="class_wind___1_1_wind_data" kindref="compound">WindData</ref></type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Wind_/Wind.cs" line="16" column="16" bodyfile="Wind_/Wind.cs" bodystart="16" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_wind___1_1_wind_1aae804983bba8adb63f439db4836259b0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Wind_.Wind.ChangeVelocity</definition>
+        <argsstring>()</argsstring>
+        <name>ChangeVelocity</name>
+        <qualifiedname>Wind_.Wind.ChangeVelocity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Wind_/Wind.cs" line="21" column="21" bodyfile="Wind_/Wind.cs" bodystart="21" bodyend="26"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Wind_/Wind.cs" line="6" column="11" bodyfile="Wind_/Wind.cs" bodystart="7" bodyend="27"/>
+    <listofallmembers>
+      <member refid="class_wind___1_1_wind_1ac467dbc9adf0586e32983458c3e0b073" prot="private" virt="non-virtual"><scope>Wind_::Wind</scope><name>_data</name></member>
+      <member refid="class_wind___1_1_wind_1aae804983bba8adb63f439db4836259b0" prot="public" virt="non-virtual"><scope>Wind_::Wind</scope><name>ChangeVelocity</name></member>
+      <member refid="class_wind___1_1_wind_1a71b0db0312312a6fb557549439781e80" prot="public" virt="non-virtual"><scope>Wind_::Wind</scope><name>MaxVelocity</name></member>
+      <member refid="class_wind___1_1_wind_1a9222cd466dd0792f380dff156215d0b1" prot="public" virt="non-virtual"><scope>Wind_::Wind</scope><name>Step</name></member>
+      <member refid="class_wind___1_1_wind_1a968c08937c9011190e241ba23ea98d68" prot="public" virt="non-virtual"><scope>Wind_::Wind</scope><name>Velocity</name></member>
+      <member refid="class_wind___1_1_wind_1a28d63a24e352641076e51b6c6de752e2" prot="public" virt="non-virtual"><scope>Wind_::Wind</scope><name>VelocityChanged</name></member>
+      <member refid="class_wind___1_1_wind_1a80e07cfeebf6f3ee7f0f7592bf7739ef" prot="public" virt="non-virtual"><scope>Wind_::Wind</scope><name>Wind</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

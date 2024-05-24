@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="namespace_wind__" kind="namespace" language="C#">
+    <compoundname>Wind_</compoundname>
+    <innerclass refid="class_wind___1_1_wind" prot="public">Wind_::Wind</innerclass>
+    <innerclass refid="class_wind___1_1_wind1_diraction_view" prot="public">Wind_::Wind1DiractionView</innerclass>
+    <innerclass refid="class_wind___1_1_wind_data" prot="public">Wind_::WindData</innerclass>
+    <innerclass refid="class_wind___1_1_wind_effect" prot="public">Wind_::WindEffect</innerclass>
+    <innerclass refid="class_wind___1_1_wind_mediator" prot="public">Wind_::WindMediator</innerclass>
+    <innerclass refid="class_wind___1_1_wind_view" prot="public">Wind_::WindView</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Wind_/Wind.cs" line="4" column="1"/>
+  </compounddef>
+</doxygen>

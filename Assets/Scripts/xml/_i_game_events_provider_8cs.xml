@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="_i_game_events_provider_8cs" kind="file" language="C#">
+    <compoundname>IGameEventsProvider.cs</compoundname>
+    <innerclass refid="interface_i_game_events_provider" prot="public">IGameEventsProvider</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/></highlight><highlight class="normal">System;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_worm_components" kindref="compound">WormComponents</ref>;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="interface_i_game_events_provider" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interface_i_game_events_provider" kindref="compound">IGameEventsProvider</ref></highlight></codeline>
+<codeline lineno="5"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">event</highlight><highlight class="normal"><sp/>Action&lt;Worm,<sp/>Team&gt;<sp/><ref refid="interface_i_game_events_provider_1a9b3a79538249b81223a3a8a50fdf8d58" kindref="member">TurnStarted</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">event</highlight><highlight class="normal"><sp/>Action<sp/><ref refid="interface_i_game_events_provider_1af2404cb52edd0a5201abadb69a942282" kindref="member">TurnEnd</ref>;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">event</highlight><highlight class="normal"><sp/>Action<sp/><ref refid="interface_i_game_events_provider_1aa2b95e0819e8185c3b12e678655414ca" kindref="member">GameStarted</ref>;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">event</highlight><highlight class="normal"><sp/>Action<sp/><ref refid="interface_i_game_events_provider_1ac14d0e95645bea5ce3579b709840fd80" kindref="member">GameEnd</ref>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="EventProviders/IGameEventsProvider.cs"/>
+  </compounddef>
+</doxygen>

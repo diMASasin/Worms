@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="dir_42e64dc3137da8fcb1f8ae414a8fa6ff" kind="dir">
+    <compoundname>Timers</compoundname>
+    <innerfile refid="_repeat_timer_8cs">RepeatTimer.cs</innerfile>
+    <innerfile refid="_timer_8cs">Timer.cs</innerfile>
+    <innerfile refid="_timer_view_8cs">TimerView.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Timers/"/>
+  </compounddef>
+</doxygen>

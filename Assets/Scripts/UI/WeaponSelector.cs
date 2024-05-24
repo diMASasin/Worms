@@ -7,14 +7,13 @@ using Weapons;
 
 namespace UI
 {
-    public class WeaponSelector : MonoBehaviour, IWeaponSelectedEvent
+    public class WeaponSelector : MonoBehaviour, IWeaponSelector
     {
         [SerializeField] Animator _animator;
         [SerializeField] private WeaponSelectorItemFactory _itemFactory;
         [SerializeField] private Transform _itemContainer;
     
         private IWeaponShotEvent _shotEvent;
-        private IGameEventsProvider _gameEvents;
         private IWeaponSelectedEvent _selectedEvent;
     
         private static readonly int Opened = Animator.StringToHash("Opened");
@@ -29,7 +28,17 @@ namespace UI
 
             _selectedEvent.WeaponSelected += OnSelected;
         }
+
+        public void Toggle()
+        {
+            _animator.SetBool(Opened, !_animator.GetBool(Opened));
+        }
     
+        public void Close()
+        {
+            _animator.SetBool(Opened, false);
+        }
+
         private void OnDestroy()
         {
             if (_selectedEvent != null) _selectedEvent.WeaponSelected -= OnSelected;
@@ -41,16 +50,6 @@ namespace UI
         {
             Close();
             WeaponSelected?.Invoke(weapon);
-        }
-
-        public void Toggle()
-        {
-            _animator.SetBool(Opened, !_animator.GetBool(Opened));
-        }
-    
-        public void Close()
-        {
-            _animator.SetBool(Opened, false);
         }
     }
 }

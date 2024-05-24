@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_rigidbody2_d_extension" kind="class" language="C#" prot="public">
+    <compoundname>Rigidbody2DExtension</compoundname>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_rigidbody2_d_extension_1a22cef8618f8b376ca031804ba9c6fc1e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Rigidbody2DExtension.AddExplosionForce</definition>
+        <argsstring>(this Rigidbody2D rb, float explosionForce, Vector2 explosionPosition, float upwardsModifier=0.0F, ForceMode2D mode=ForceMode2D.Impulse)</argsstring>
+        <name>AddExplosionForce</name>
+        <qualifiedname>Rigidbody2DExtension.AddExplosionForce</qualifiedname>
+        <param>
+          <type>this Rigidbody2D</type>
+          <declname>rb</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>explosionForce</declname>
+        </param>
+        <param>
+          <type>Vector2</type>
+          <declname>explosionPosition</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>upwardsModifier</declname>
+          <defval>0.0F</defval>
+        </param>
+        <param>
+          <type>ForceMode2D</type>
+          <declname>mode</declname>
+          <defval>ForceMode2D.Impulse</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Rigidbody2DExtension.cs" line="5" column="24" bodyfile="Rigidbody2DExtension.cs" bodystart="5" bodyend="23"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Rigidbody2DExtension.cs" line="3" column="15" bodyfile="Rigidbody2DExtension.cs" bodystart="4" bodyend="24"/>
+    <listofallmembers>
+      <member refid="class_rigidbody2_d_extension_1a22cef8618f8b376ca031804ba9c6fc1e" prot="public" virt="non-virtual"><scope>Rigidbody2DExtension</scope><name>AddExplosionForce</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

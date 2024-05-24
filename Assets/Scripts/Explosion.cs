@@ -13,11 +13,11 @@ public class Explosion : MonoBehaviour
     private float _explosionUpwardsModifier;
     private int _damage;
     private float _projectileColliderRadius;
-    private ShovelWrapper _shovel;
+    private IShovel _shovel;
 
     public event Action<Explosion> AnimationStopped;
 
-    public void Init(ShovelWrapper shovel)
+    public void Init(IShovel shovel)
     {
         _shovel = shovel;
     }

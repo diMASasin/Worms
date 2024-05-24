@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_destructible_land_1_1_intersection" kind="class" language="C#" prot="public">
+    <compoundname>DestructibleLand::Intersection</compoundname>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_destructible_land_1_1_intersection_1a1dc42c873a456e4b75c33dd8e1cdbf40" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool DestructibleLand.Intersection.IsIntersecting</definition>
+        <argsstring>(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4)</argsstring>
+        <name>IsIntersecting</name>
+        <qualifiedname>DestructibleLand.Intersection.IsIntersecting</qualifiedname>
+        <param>
+          <type>Vector2</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>Vector2</type>
+          <declname>p2</declname>
+        </param>
+        <param>
+          <type>Vector2</type>
+          <declname>p3</declname>
+        </param>
+        <param>
+          <type>Vector2</type>
+          <declname>p4</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DestructibleLand/Intersection.cs" line="8" column="20" bodyfile="DestructibleLand/Intersection.cs" bodystart="8" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_destructible_land_1_1_intersection_1af3da41a7611614170d67a7660da79c29" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Vector2</type>
+        <definition>static Vector2 DestructibleLand.Intersection.GetIntersection</definition>
+        <argsstring>(Vector2 A, Vector2 B, Vector2 C, Vector2 D)</argsstring>
+        <name>GetIntersection</name>
+        <qualifiedname>DestructibleLand.Intersection.GetIntersection</qualifiedname>
+        <param>
+          <type>Vector2</type>
+          <declname>A</declname>
+        </param>
+        <param>
+          <type>Vector2</type>
+          <declname>B</declname>
+        </param>
+        <param>
+          <type>Vector2</type>
+          <declname>C</declname>
+        </param>
+        <param>
+          <type>Vector2</type>
+          <declname>D</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DestructibleLand/Intersection.cs" line="27" column="23" bodyfile="DestructibleLand/Intersection.cs" bodystart="27" bodyend="34"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DestructibleLand/Intersection.cs" line="5" column="7" bodyfile="DestructibleLand/Intersection.cs" bodystart="6" bodyend="37"/>
+    <listofallmembers>
+      <member refid="class_destructible_land_1_1_intersection_1af3da41a7611614170d67a7660da79c29" prot="public" virt="non-virtual"><scope>DestructibleLand::Intersection</scope><name>GetIntersection</name></member>
+      <member refid="class_destructible_land_1_1_intersection_1a1dc42c873a456e4b75c33dd8e1cdbf40" prot="public" virt="non-virtual"><scope>DestructibleLand::Intersection</scope><name>IsIntersecting</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

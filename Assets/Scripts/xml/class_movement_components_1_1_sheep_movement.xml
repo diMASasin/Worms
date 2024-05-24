@@ -1,0 +1,282 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_movement_components_1_1_sheep_movement" kind="class" language="C#" prot="public">
+    <compoundname>MovementComponents::SheepMovement</compoundname>
+    <basecompoundref refid="class_movement_components_1_1_movement" prot="public" virt="non-virtual">MovementComponents.Movement</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">IDisposable</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_movement_components_1_1_sheep_movement_1af24a41846df26d3b0e0568d2a0e1d510" prot="private" static="no" mutable="no">
+        <type>readonly float</type>
+        <definition>readonly float MovementComponents.SheepMovement._jumpInterval</definition>
+        <argsstring></argsstring>
+        <name>_jumpInterval</name>
+        <qualifiedname>MovementComponents.SheepMovement._jumpInterval</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MovementComponents/SheepMovement.cs" line="11" column="32" bodyfile="MovementComponents/SheepMovement.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_movement_components_1_1_sheep_movement_1ae7018b4595139d71e4947bbbab662812" prot="private" static="no" mutable="no">
+        <type>Vector3</type>
+        <definition>Vector3 MovementComponents.SheepMovement._overlapPoint</definition>
+        <argsstring></argsstring>
+        <name>_overlapPoint</name>
+        <qualifiedname>MovementComponents.SheepMovement._overlapPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MovementComponents/SheepMovement.cs" line="14" column="25" bodyfile="MovementComponents/SheepMovement.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_movement_components_1_1_sheep_movement_1a6a64085efd8be4a325f28c464de80e74" prot="private" static="no" mutable="no">
+        <type>Vector3</type>
+        <definition>Vector3 MovementComponents.SheepMovement._overlapBoxSize</definition>
+        <argsstring></argsstring>
+        <name>_overlapBoxSize</name>
+        <qualifiedname>MovementComponents.SheepMovement._overlapBoxSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MovementComponents/SheepMovement.cs" line="15" column="25" bodyfile="MovementComponents/SheepMovement.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_movement_components_1_1_sheep_movement_1a29afcf783c6d34863f9721550f75df6c" prot="public" static="no" mutable="no">
+        <type>readonly <ref refid="class_timers_1_1_timer" kindref="compound">Timer</ref></type>
+        <definition>readonly Timer MovementComponents.SheepMovement.JumpTimer</definition>
+        <argsstring></argsstring>
+        <name>JumpTimer</name>
+        <qualifiedname>MovementComponents.SheepMovement.JumpTimer</qualifiedname>
+        <initializer>= new()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MovementComponents/SheepMovement.cs" line="12" column="31" bodyfile="MovementComponents/SheepMovement.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_movement_components_1_1_sheep_movement_1a5ed364d5b7c3d2538513e39f6ffcf462" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>MovementComponents.SheepMovement.SheepMovement</definition>
+        <argsstring>(Rigidbody2D rigidbody2D, Collider2D collider2D, Transform armature, GroundChecker groundChecker, MovementConfig config, float jumpInterval=2)</argsstring>
+        <name>SheepMovement</name>
+        <qualifiedname>MovementComponents.SheepMovement.SheepMovement</qualifiedname>
+        <param>
+          <type>Rigidbody2D</type>
+          <declname>rigidbody2D</declname>
+        </param>
+        <param>
+          <type>Collider2D</type>
+          <declname>collider2D</declname>
+        </param>
+        <param>
+          <type>Transform</type>
+          <declname>armature</declname>
+        </param>
+        <param>
+          <type><ref refid="class_worm_components_1_1_ground_checker" kindref="compound">GroundChecker</ref></type>
+          <declname>groundChecker</declname>
+        </param>
+        <param>
+          <type><ref refid="class_configs_1_1_movement_config" kindref="compound">MovementConfig</ref></type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>jumpInterval</declname>
+          <defval>2</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MovementComponents/SheepMovement.cs" line="17" column="16" bodyfile="MovementComponents/SheepMovement.cs" bodystart="17" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_movement_components_1_1_sheep_movement_1a98c9ab24244679d1c3c328c682564dd4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void MovementComponents.SheepMovement.Dispose</definition>
+        <argsstring>()</argsstring>
+        <name>Dispose</name>
+        <qualifiedname>MovementComponents.SheepMovement.Dispose</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MovementComponents/SheepMovement.cs" line="26" column="21" bodyfile="MovementComponents/SheepMovement.cs" bodystart="26" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_movement_components_1_1_sheep_movement_1acc00108fd0fc1b3049cfa2cffb4b57ee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>override void</type>
+        <definition>override void MovementComponents.SheepMovement.FixedTick</definition>
+        <argsstring>()</argsstring>
+        <name>FixedTick</name>
+        <qualifiedname>MovementComponents.SheepMovement.FixedTick</qualifiedname>
+        <reimplements refid="class_movement_components_1_1_movement_1ad2cd2b796bb6702bd32e565607fc4b26">FixedTick</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MovementComponents/SheepMovement.cs" line="31" column="30" bodyfile="MovementComponents/SheepMovement.cs" bodystart="31" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="class_movement_components_1_1_sheep_movement_1a3237dc9bc7f3e8950d10a49bec81c268" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void MovementComponents.SheepMovement.OnDrawGizmos</definition>
+        <argsstring>()</argsstring>
+        <name>OnDrawGizmos</name>
+        <qualifiedname>MovementComponents.SheepMovement.OnDrawGizmos</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MovementComponents/SheepMovement.cs" line="56" column="21" bodyfile="MovementComponents/SheepMovement.cs" bodystart="56" bodyend="59"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_movement_components_1_1_sheep_movement_1a33ad98e045a37114750d0a48ea375b0d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void MovementComponents.SheepMovement.OnMoveDircetionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>OnMoveDircetionChanged</name>
+        <qualifiedname>MovementComponents.SheepMovement.OnMoveDircetionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MovementComponents/SheepMovement.cs" line="51" column="22" bodyfile="MovementComponents/SheepMovement.cs" bodystart="51" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="class_movement_components_1_1_sheep_movement_1a8de2acc9995ab6a2b4175e34655886a2" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void MovementComponents.SheepMovement.RepeatLongJump</definition>
+        <argsstring>()</argsstring>
+        <name>RepeatLongJump</name>
+        <qualifiedname>MovementComponents.SheepMovement.RepeatLongJump</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MovementComponents/SheepMovement.cs" line="61" column="22" bodyfile="MovementComponents/SheepMovement.cs" bodystart="61" bodyend="65"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>IDisposable</label>
+      </node>
+      <node id="3">
+        <label>IMovement</label>
+        <link refid="interface_movement_components_1_1_i_movement"/>
+      </node>
+      <node id="2">
+        <label>Movement</label>
+        <link refid="class_movement_components_1_1_movement"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>MovementComponents.SheepMovement</label>
+        <link refid="class_movement_components_1_1_sheep_movement"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="6">
+        <label>IDisposable</label>
+      </node>
+      <node id="5">
+        <label>IFixedTickable</label>
+        <link refid="interface_i_fixed_tickable"/>
+      </node>
+      <node id="3">
+        <label>IMovement</label>
+        <link refid="interface_movement_components_1_1_i_movement"/>
+      </node>
+      <node id="2">
+        <label>Movement</label>
+        <link refid="class_movement_components_1_1_movement"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>GroundChecker</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>MovementComponents.SheepMovement</label>
+        <link refid="class_movement_components_1_1_sheep_movement"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="6" relation="public-inheritance">
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>JumpTimer</edgelabel>
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Timers.Timer</label>
+        <link refid="class_timers_1_1_timer"/>
+      </node>
+      <node id="4">
+        <label>WormComponents.GroundChecker</label>
+        <link refid="class_worm_components_1_1_ground_checker"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="MovementComponents/SheepMovement.cs" line="9" column="11" bodyfile="MovementComponents/SheepMovement.cs" bodystart="10" bodyend="66"/>
+    <listofallmembers>
+      <member refid="class_movement_components_1_1_sheep_movement_1af24a41846df26d3b0e0568d2a0e1d510" prot="private" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>_jumpInterval</name></member>
+      <member refid="class_movement_components_1_1_sheep_movement_1a6a64085efd8be4a325f28c464de80e74" prot="private" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>_overlapBoxSize</name></member>
+      <member refid="class_movement_components_1_1_sheep_movement_1ae7018b4595139d71e4947bbbab662812" prot="private" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>_overlapPoint</name></member>
+      <member refid="class_movement_components_1_1_movement_1a105fd4da831602353561eb3d2ed6ae18" prot="public" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>AddExplosionForce</name></member>
+      <member refid="class_movement_components_1_1_movement_1a6f9fff1aeaa0f7a3d026c4a5ffeaf769" prot="protected" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>Armature</name></member>
+      <member refid="class_movement_components_1_1_movement_1a04e87cff7591ae4bc23b4ea18427b792" prot="protected" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>Collider</name></member>
+      <member refid="class_movement_components_1_1_sheep_movement_1a98c9ab24244679d1c3c328c682564dd4" prot="public" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>Dispose</name></member>
+      <member refid="class_movement_components_1_1_sheep_movement_1acc00108fd0fc1b3049cfa2cffb4b57ee" prot="public" virt="virtual"><scope>MovementComponents::SheepMovement</scope><name>FixedTick</name></member>
+      <member refid="class_movement_components_1_1_movement_1abe9e5fd4d3af348f74fd901539901ab6" prot="protected" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>GroundChecker</name></member>
+      <member refid="class_movement_components_1_1_movement_1aab421f90ca9049c726e5c9524014b93c" prot="public" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>HighJump</name></member>
+      <member refid="class_movement_components_1_1_movement_1ab369dbcac6dbc3e40011fdd15950defd" prot="protected" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>Horizontal</name></member>
+      <member refid="class_movement_components_1_1_movement_1aac2c62cda6d32e889f2ea1cf747d7680" prot="public" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>IsWalkingChanged</name></member>
+      <member refid="class_movement_components_1_1_sheep_movement_1a29afcf783c6d34863f9721550f75df6c" prot="public" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>JumpTimer</name></member>
+      <member refid="class_movement_components_1_1_movement_1a6e129b3df0af5dc55b9e89873bc02738" prot="protected" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>LayerMask</name></member>
+      <member refid="class_movement_components_1_1_movement_1ad7b356982f5fc62027102408447ceaf7" prot="public" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>LongJump</name></member>
+      <member refid="class_movement_components_1_1_movement_1a2eb7383c31e5fe9e156ea6b870ae2c4a" prot="public" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>MoveDircetionChanged</name></member>
+      <member refid="class_movement_components_1_1_movement_1a89f97fbe65a8b12f532141f06e99d8bf" prot="public" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>Movement</name></member>
+      <member refid="class_movement_components_1_1_sheep_movement_1a3237dc9bc7f3e8950d10a49bec81c268" prot="public" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>OnDrawGizmos</name></member>
+      <member refid="class_movement_components_1_1_sheep_movement_1a33ad98e045a37114750d0a48ea375b0d" prot="private" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>OnMoveDircetionChanged</name></member>
+      <member refid="class_movement_components_1_1_sheep_movement_1a8de2acc9995ab6a2b4175e34655886a2" prot="private" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>RepeatLongJump</name></member>
+      <member refid="class_movement_components_1_1_movement_1a86810182c5e69265e432b8f221e56187" prot="public" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>Reset</name></member>
+      <member refid="class_movement_components_1_1_movement_1a60814812def4ec01f494c0e5df93d799" prot="public" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>ResetVelocity</name></member>
+      <member refid="class_movement_components_1_1_sheep_movement_1a5ed364d5b7c3d2538513e39f6ffcf462" prot="public" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>SheepMovement</name></member>
+      <member refid="class_movement_components_1_1_movement_1af2eb4dd6c1a23d5c871ba88977531bfa" prot="public" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>TryMove</name></member>
+      <member refid="class_movement_components_1_1_movement_1aea1ee622d6ef5e0c552a4a7107acf4c6" prot="public" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>TurnLeft</name></member>
+      <member refid="class_movement_components_1_1_movement_1af77aa9a2ab1d9bc7524200f9413d0c61" prot="public" virt="non-virtual"><scope>MovementComponents::SheepMovement</scope><name>TurnRight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

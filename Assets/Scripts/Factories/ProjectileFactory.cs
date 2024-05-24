@@ -18,8 +18,7 @@ namespace Factories
         [SerializeField] private ProjectileConfig _config;
         [SerializeField] private ExplosionPool _explosionPool;
         
-        private FollowingTimerView _followingTimerViewPrefab;
-        private ObjectPool<FollowingTimerView> _followingTimerViewPool;
+        private FollowingTimerViewPool _followingTimerViewPool;
         private readonly List<Projectile> _projectiles = new();
         private Transform _projectileParent;
         private ProjectileConfigurator _configurator;
@@ -29,15 +28,10 @@ namespace Factories
         public event Action<Projectile, Vector2> ProjectileLaunched;
         public event Action<Projectile> ProjectileExploded; 
 
-        public void Init(Transform projectileParent, FollowingTimerView followingTimerViewPrefab)
+        public void Init(Transform projectileParent, FollowingTimerViewPool followingTimerViewPool)
         {
             _projectileParent = projectileParent;
-            _followingTimerViewPrefab = followingTimerViewPrefab;
-            
-            _followingTimerViewPool = new ObjectPool<FollowingTimerView>(
-                () => Instantiate(_followingTimerViewPrefab),
-                timer => timer.gameObject.SetActive(true),
-                timer => timer.gameObject.SetActive(false));
+            _followingTimerViewPool = followingTimerViewPool;
         }
 
         private void OnDestroy()

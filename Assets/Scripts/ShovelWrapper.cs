@@ -2,7 +2,7 @@
 using ScriptBoy.Digable2DTerrain.Scripts;
 using UnityEngine;
 
-public class ShovelWrapper
+public class ShovelWrapper : IShovel
 {
     private readonly Shovel _shovel;
 

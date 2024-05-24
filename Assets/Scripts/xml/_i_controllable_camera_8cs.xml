@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="_i_controllable_camera_8cs" kind="file" language="C#">
+    <compoundname>IControllableCamera.cs</compoundname>
+    <innerclass refid="interface_camera_follow_1_1_i_controllable_camera" prot="public">CameraFollow::IControllableCamera</innerclass>
+    <innernamespace refid="namespace_camera_follow">CameraFollow</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_camera_follow" kindref="compound">CameraFollow</ref></highlight></codeline>
+<codeline lineno="2"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3" refid="interface_camera_follow_1_1_i_controllable_camera" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interface_camera_follow_1_1_i_controllable_camera" kindref="compound">IControllableCamera</ref></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interface_camera_follow_1_1_i_controllable_camera_1a2d9ee1061382ae91c30440e1488ac978" kindref="member">TryZoom</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>scrollDeltaY);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="CameraFollow/IControllableCamera.cs"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="dir_1aa64650be6fffad8ec2263389ebc7f3" kind="dir">
+    <compoundname>Projectiles</compoundname>
+    <innerdir refid="dir_c104f77331023e822e351d9c2831cf27">Projectiles/Behaviours</innerdir>
+    <innerfile refid="_i_projectile_8cs">IProjectile.cs</innerfile>
+    <innerfile refid="_projectile_8cs">Projectile.cs</innerfile>
+    <innerfile refid="_projectile_configurator_8cs">ProjectileConfigurator.cs</innerfile>
+    <innerfile refid="_projectile_launcher_8cs">ProjectileLauncher.cs</innerfile>
+    <innerfile refid="_projectiles_event_provider_8cs">ProjectilesEventProvider.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Projectiles/"/>
+  </compounddef>
+</doxygen>

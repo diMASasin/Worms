@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_game_state_machine_components_1_1_states_1_1_bootstrap_state" kind="class" language="C#" prot="public">
+    <compoundname>GameStateMachineComponents::States::BootstrapState</compoundname>
+    <basecompoundref refid="class_game_state_machine_components_1_1_states_1_1_game_state" prot="public" virt="non-virtual">GameStateMachineComponents.States.GameState</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_game_state_machine_components_1_1_states_1_1_bootstrap_state_1a18e27d0cb57cdf7150aebe824f63da2f" prot="private" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_infrastructure_1_1_scene_loader" kindref="compound">SceneLoader</ref></type>
+        <definition>SceneLoader GameStateMachineComponents.States.BootstrapState.SceneLoader</definition>
+        <argsstring></argsstring>
+        <name>SceneLoader</name>
+        <qualifiedname>GameStateMachineComponents.States.BootstrapState.SceneLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameStateMachineComponents/States/BootstrapState.cs" line="10" column="29" bodyfile="GameStateMachineComponents/States/BootstrapState.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_game_state_machine_components_1_1_states_1_1_bootstrap_state_1a6145ef4159ebc201a585cedb4c1ab3b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GameStateMachineComponents.States.BootstrapState.BootstrapState</definition>
+        <argsstring>(GameStateMachineData data, IGameStateSwitcher stateSwitcher)</argsstring>
+        <name>BootstrapState</name>
+        <qualifiedname>GameStateMachineComponents.States.BootstrapState.BootstrapState</qualifiedname>
+        <param>
+          <type><ref refid="class_game_state_machine_components_1_1_game_state_machine_data" kindref="compound">GameStateMachineData</ref></type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type><ref refid="interface_game_state_machine_components_1_1_i_game_state_switcher" kindref="compound">IGameStateSwitcher</ref></type>
+          <declname>stateSwitcher</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameStateMachineComponents/States/BootstrapState.cs" line="12" column="16" bodyfile="GameStateMachineComponents/States/BootstrapState.cs" bodystart="12" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_state_machine_components_1_1_states_1_1_bootstrap_state_1af8a99fa9e902ccecb8b770d3348d5424" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void GameStateMachineComponents.States.BootstrapState.Enter</definition>
+        <argsstring>()</argsstring>
+        <name>Enter</name>
+        <qualifiedname>GameStateMachineComponents.States.BootstrapState.Enter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameStateMachineComponents/States/BootstrapState.cs" line="15" column="30" bodyfile="GameStateMachineComponents/States/BootstrapState.cs" bodystart="15" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_state_machine_components_1_1_states_1_1_bootstrap_state_1a155d03b133cadb1ca4e47a50c29711e4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void GameStateMachineComponents.States.BootstrapState.Exit</definition>
+        <argsstring>()</argsstring>
+        <name>Exit</name>
+        <qualifiedname>GameStateMachineComponents.States.BootstrapState.Exit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameStateMachineComponents/States/BootstrapState.cs" line="27" column="30" bodyfile="GameStateMachineComponents/States/BootstrapState.cs" bodystart="27" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_state_machine_components_1_1_states_1_1_bootstrap_state_1aaa89af5655967a804824b4617bf62912" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void GameStateMachineComponents.States.BootstrapState.Tick</definition>
+        <argsstring>()</argsstring>
+        <name>Tick</name>
+        <qualifiedname>GameStateMachineComponents.States.BootstrapState.Tick</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameStateMachineComponents/States/BootstrapState.cs" line="31" column="30" bodyfile="GameStateMachineComponents/States/BootstrapState.cs" bodystart="31" bodyend="33"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_game_state_machine_components_1_1_states_1_1_bootstrap_state_1a324ceab55c54f946998e64112e0ee0e9" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GameStateMachineComponents.States.BootstrapState.OnLoaded</definition>
+        <argsstring>()</argsstring>
+        <name>OnLoaded</name>
+        <qualifiedname>GameStateMachineComponents.States.BootstrapState.OnLoaded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameStateMachineComponents/States/BootstrapState.cs" line="20" column="22" bodyfile="GameStateMachineComponents/States/BootstrapState.cs" bodystart="20" bodyend="25"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>GameState</label>
+        <link refid="class_game_state_machine_components_1_1_states_1_1_game_state"/>
+      </node>
+      <node id="1">
+        <label>GameStateMachineComponents.States.BootstrapState</label>
+        <link refid="class_game_state_machine_components_1_1_states_1_1_bootstrap_state"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="6">
+        <label>Game</label>
+        <link refid="class_game"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>InputService</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>StateMachine</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>GameState</label>
+        <link refid="class_game_state_machine_components_1_1_states_1_1_game_state"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>Data</edgelabel>
+        </childnode>
+        <childnode refid="12" relation="usage">
+          <edgelabel>StateSwitcher</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>GameStateMachineComponents.States.BootstrapState</label>
+        <link refid="class_game_state_machine_components_1_1_states_1_1_bootstrap_state"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>GameStateMachineComponents.GameStateMachine</label>
+        <link refid="class_game_state_machine_components_1_1_game_state_machine"/>
+        <childnode refid="9" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>GameStateMachineComponents.GameStateMachineData</label>
+        <link refid="class_game_state_machine_components_1_1_game_state_machine_data"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>CoroutinePerformer</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>Game</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>SceneLoader</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>LoadingScreen</edgelabel>
+        </childnode>
+      </node>
+      <node id="12">
+        <label>GameStateMachineComponents.IGameStateSwitcher</label>
+        <link refid="interface_game_state_machine_components_1_1_i_game_state_switcher"/>
+      </node>
+      <node id="9">
+        <label>IGameStateSwitcher</label>
+        <link refid="interface_game_state_machine_components_1_1_i_game_state_switcher"/>
+      </node>
+      <node id="4">
+        <label>Infrastructure.CoroutinePerformer</label>
+        <link refid="class_infrastructure_1_1_coroutine_performer"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Infrastructure.SceneLoader</label>
+        <link refid="class_infrastructure_1_1_scene_loader"/>
+      </node>
+      <node id="7">
+        <label>InputService</label>
+      </node>
+      <node id="5">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="11">
+        <label>UI.LoadingScreen</label>
+        <link refid="class_u_i_1_1_loading_screen"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="GameStateMachineComponents/States/BootstrapState.cs" line="8" column="11" bodyfile="GameStateMachineComponents/States/BootstrapState.cs" bodystart="9" bodyend="34"/>
+    <listofallmembers>
+      <member refid="class_game_state_machine_components_1_1_states_1_1_bootstrap_state_1a6145ef4159ebc201a585cedb4c1ab3b8" prot="public" virt="non-virtual"><scope>GameStateMachineComponents::States::BootstrapState</scope><name>BootstrapState</name></member>
+      <member refid="class_game_state_machine_components_1_1_states_1_1_game_state_1a7076cc8edf6add7c279e806e720f6192" prot="public" virt="non-virtual"><scope>GameStateMachineComponents::States::BootstrapState</scope><name>Data</name></member>
+      <member refid="class_game_state_machine_components_1_1_states_1_1_bootstrap_state_1af8a99fa9e902ccecb8b770d3348d5424" prot="public" virt="non-virtual"><scope>GameStateMachineComponents::States::BootstrapState</scope><name>Enter</name></member>
+      <member refid="class_game_state_machine_components_1_1_states_1_1_bootstrap_state_1a155d03b133cadb1ca4e47a50c29711e4" prot="public" virt="non-virtual"><scope>GameStateMachineComponents::States::BootstrapState</scope><name>Exit</name></member>
+      <member refid="class_game_state_machine_components_1_1_states_1_1_game_state_1ac53b384f0bffc982297f6a3636ff9f72" prot="public" virt="non-virtual"><scope>GameStateMachineComponents::States::BootstrapState</scope><name>GameState</name></member>
+      <member refid="class_game_state_machine_components_1_1_states_1_1_bootstrap_state_1a324ceab55c54f946998e64112e0ee0e9" prot="private" virt="non-virtual"><scope>GameStateMachineComponents::States::BootstrapState</scope><name>OnLoaded</name></member>
+      <member refid="class_game_state_machine_components_1_1_states_1_1_bootstrap_state_1a18e27d0cb57cdf7150aebe824f63da2f" prot="private" virt="non-virtual"><scope>GameStateMachineComponents::States::BootstrapState</scope><name>SceneLoader</name></member>
+      <member refid="class_game_state_machine_components_1_1_states_1_1_game_state_1a65dffd7024488d78897202f7f4e2d43b" prot="public" virt="non-virtual"><scope>GameStateMachineComponents::States::BootstrapState</scope><name>StateSwitcher</name></member>
+      <member refid="class_game_state_machine_components_1_1_states_1_1_bootstrap_state_1aaa89af5655967a804824b4617bf62912" prot="public" virt="non-virtual"><scope>GameStateMachineComponents::States::BootstrapState</scope><name>Tick</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

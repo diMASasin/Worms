@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_projectiles_1_1_projectile_launcher" kind="class" language="C#" prot="public">
+    <compoundname>Projectiles::ProjectileLauncher</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IDisposable</basecompoundref>
+    <basecompoundref refid="interface_event_providers_1_1_i_projectile_events" prot="public" virt="non-virtual">EventProviders.IProjectileEvents</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_projectiles_1_1_projectile_launcher_1a9a1db8caaa2c0b3e35ebfc7b08e27c45" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="interface_event_providers_1_1_i_weapon_selected_event" kindref="compound">IWeaponSelectedEvent</ref></type>
+        <definition>readonly IWeaponSelectedEvent Projectiles.ProjectileLauncher._weaponSelectedEvent</definition>
+        <argsstring></argsstring>
+        <name>_weaponSelectedEvent</name>
+        <qualifiedname>Projectiles.ProjectileLauncher._weaponSelectedEvent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileLauncher.cs" line="12" column="47" bodyfile="Projectiles/ProjectileLauncher.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_projectiles_1_1_projectile_launcher_1a62b56bc6656ed4ff5e77fdd18d45bc5b" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="interface_event_providers_1_1_i_weapon_shot_event" kindref="compound">IWeaponShotEvent</ref></type>
+        <definition>readonly IWeaponShotEvent Projectiles.ProjectileLauncher._weaponShotEvent</definition>
+        <argsstring></argsstring>
+        <name>_weaponShotEvent</name>
+        <qualifiedname>Projectiles.ProjectileLauncher._weaponShotEvent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileLauncher.cs" line="13" column="43" bodyfile="Projectiles/ProjectileLauncher.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_projectiles_1_1_projectile_launcher_1a4a5e78e969bf7a0a9bc2e92cce1a7ada" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="class_weapons_1_1_weapon_view" kindref="compound">WeaponView</ref></type>
+        <definition>readonly WeaponView Projectiles.ProjectileLauncher._weaponView</definition>
+        <argsstring></argsstring>
+        <name>_weaponView</name>
+        <qualifiedname>Projectiles.ProjectileLauncher._weaponView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileLauncher.cs" line="14" column="37" bodyfile="Projectiles/ProjectileLauncher.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_projectiles_1_1_projectile_launcher_1abba7a88c08468d74f49d74b8b39db643" prot="private" static="no" mutable="no">
+        <type><ref refid="class_pools_1_1_projectile_pool" kindref="compound">ProjectilePool</ref></type>
+        <definition>ProjectilePool Projectiles.ProjectileLauncher._pool</definition>
+        <argsstring></argsstring>
+        <name>_pool</name>
+        <qualifiedname>Projectiles.ProjectileLauncher._pool</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileLauncher.cs" line="15" column="32" bodyfile="Projectiles/ProjectileLauncher.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_projectiles_1_1_projectile_launcher_1a1f8654fe0440a4345d518f5baa5a4acc" prot="private" static="no" mutable="no">
+        <type>readonly List&lt; <ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref> &gt;</type>
+        <definition>readonly List&lt;Projectile&gt; Projectiles.ProjectileLauncher._projectilesToUnsubscribe</definition>
+        <argsstring></argsstring>
+        <name>_projectilesToUnsubscribe</name>
+        <qualifiedname>Projectiles.ProjectileLauncher._projectilesToUnsubscribe</qualifiedname>
+        <initializer>= new()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileLauncher.cs" line="16" column="31" bodyfile="Projectiles/ProjectileLauncher.cs" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="event">
+      <memberdef kind="event" id="class_projectiles_1_1_projectile_launcher_1a5a67cee13f541add3ec06adaba3a92d5" prot="public" static="no" add="no" remove="no" raise="no">
+        <type>Action&lt; <ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref>, Vector2 &gt;</type>
+        <definition>Action&lt;Projectile, Vector2&gt; Projectiles.ProjectileLauncher.ProjectileLaunched</definition>
+        <argsstring></argsstring>
+        <name>ProjectileLaunched</name>
+        <qualifiedname>Projectiles.ProjectileLauncher.ProjectileLaunched</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileLauncher.cs" line="18" column="29" bodyfile="Projectiles/ProjectileLauncher.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="event" id="class_projectiles_1_1_projectile_launcher_1a66579290c03f641357819094a8af6a59" prot="public" static="no" add="no" remove="no" raise="no">
+        <type>Action&lt; <ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref> &gt;</type>
+        <definition>Action&lt;Projectile&gt; Projectiles.ProjectileLauncher.ProjectileExploded</definition>
+        <argsstring></argsstring>
+        <name>ProjectileExploded</name>
+        <qualifiedname>Projectiles.ProjectileLauncher.ProjectileExploded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileLauncher.cs" line="19" column="29" bodyfile="Projectiles/ProjectileLauncher.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_projectiles_1_1_projectile_launcher_1a4a511524088a678ff121f29dea9fc795" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Projectiles.ProjectileLauncher.ProjectileLauncher</definition>
+        <argsstring>(IWeaponSelectedEvent weaponSelectedEvent, IWeaponShotEvent weaponShotEvent, WeaponView weaponView)</argsstring>
+        <name>ProjectileLauncher</name>
+        <qualifiedname>Projectiles.ProjectileLauncher.ProjectileLauncher</qualifiedname>
+        <param>
+          <type><ref refid="interface_event_providers_1_1_i_weapon_selected_event" kindref="compound">IWeaponSelectedEvent</ref></type>
+          <declname>weaponSelectedEvent</declname>
+        </param>
+        <param>
+          <type><ref refid="interface_event_providers_1_1_i_weapon_shot_event" kindref="compound">IWeaponShotEvent</ref></type>
+          <declname>weaponShotEvent</declname>
+        </param>
+        <param>
+          <type><ref refid="class_weapons_1_1_weapon_view" kindref="compound">WeaponView</ref></type>
+          <declname>weaponView</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileLauncher.cs" line="21" column="16" bodyfile="Projectiles/ProjectileLauncher.cs" bodystart="21" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="class_projectiles_1_1_projectile_launcher_1aa95394ca02d188fd930c26f5e0442c3e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Projectiles.ProjectileLauncher.Dispose</definition>
+        <argsstring>()</argsstring>
+        <name>Dispose</name>
+        <qualifiedname>Projectiles.ProjectileLauncher.Dispose</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileLauncher.cs" line="32" column="21" bodyfile="Projectiles/ProjectileLauncher.cs" bodystart="32" bodyend="42"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_projectiles_1_1_projectile_launcher_1a335038f4325f4c72aa028002bdc52cac" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Projectiles.ProjectileLauncher.OnWeaponSelected</definition>
+        <argsstring>(Weapon weapon)</argsstring>
+        <name>OnWeaponSelected</name>
+        <qualifiedname>Projectiles.ProjectileLauncher.OnWeaponSelected</qualifiedname>
+        <param>
+          <type><ref refid="class_weapons_1_1_weapon" kindref="compound">Weapon</ref></type>
+          <declname>weapon</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileLauncher.cs" line="44" column="22" bodyfile="Projectiles/ProjectileLauncher.cs" bodystart="44" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_projectiles_1_1_projectile_launcher_1addb9cbeef77bf5695f097086925f8735" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Projectiles.ProjectileLauncher.OnWeaponShot</definition>
+        <argsstring>(float shotPower)</argsstring>
+        <name>OnWeaponShot</name>
+        <qualifiedname>Projectiles.ProjectileLauncher.OnWeaponShot</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>shotPower</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileLauncher.cs" line="49" column="22" bodyfile="Projectiles/ProjectileLauncher.cs" bodystart="49" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="class_projectiles_1_1_projectile_launcher_1ac86f099910bd34e82b8b25529f27d5c4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Projectiles.ProjectileLauncher.OnExploded</definition>
+        <argsstring>(Projectile projectile)</argsstring>
+        <name>OnExploded</name>
+        <qualifiedname>Projectiles.ProjectileLauncher.OnExploded</qualifiedname>
+        <param>
+          <type><ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref></type>
+          <declname>projectile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileLauncher.cs" line="66" column="22" bodyfile="Projectiles/ProjectileLauncher.cs" bodystart="66" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="class_projectiles_1_1_projectile_launcher_1ada6c183a0f14850c2bcd315967f7c6f0" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Projectiles.ProjectileLauncher.OnLaunched</definition>
+        <argsstring>(Projectile projectile, Vector2 velocity)</argsstring>
+        <name>OnLaunched</name>
+        <qualifiedname>Projectiles.ProjectileLauncher.OnLaunched</qualifiedname>
+        <param>
+          <type><ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref></type>
+          <declname>projectile</declname>
+        </param>
+        <param>
+          <type>Vector2</type>
+          <declname>velocity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileLauncher.cs" line="71" column="22" bodyfile="Projectiles/ProjectileLauncher.cs" bodystart="71" bodyend="74"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>IDisposable</label>
+      </node>
+      <node id="3">
+        <label>IProjectileEvents</label>
+        <link refid="interface_event_providers_1_1_i_projectile_events"/>
+      </node>
+      <node id="1">
+        <label>Projectiles.ProjectileLauncher</label>
+        <link refid="class_projectiles_1_1_projectile_launcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>IDisposable</label>
+      </node>
+      <node id="3">
+        <label>IProjectileEvents</label>
+        <link refid="interface_event_providers_1_1_i_projectile_events"/>
+      </node>
+      <node id="1">
+        <label>Projectiles.ProjectileLauncher</label>
+        <link refid="class_projectiles_1_1_projectile_launcher"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Projectiles/ProjectileLauncher.cs" line="10" column="11" bodyfile="Projectiles/ProjectileLauncher.cs" bodystart="11" bodyend="75"/>
+    <listofallmembers>
+      <member refid="class_projectiles_1_1_projectile_launcher_1abba7a88c08468d74f49d74b8b39db643" prot="private" virt="non-virtual"><scope>Projectiles::ProjectileLauncher</scope><name>_pool</name></member>
+      <member refid="class_projectiles_1_1_projectile_launcher_1a1f8654fe0440a4345d518f5baa5a4acc" prot="private" virt="non-virtual"><scope>Projectiles::ProjectileLauncher</scope><name>_projectilesToUnsubscribe</name></member>
+      <member refid="class_projectiles_1_1_projectile_launcher_1a9a1db8caaa2c0b3e35ebfc7b08e27c45" prot="private" virt="non-virtual"><scope>Projectiles::ProjectileLauncher</scope><name>_weaponSelectedEvent</name></member>
+      <member refid="class_projectiles_1_1_projectile_launcher_1a62b56bc6656ed4ff5e77fdd18d45bc5b" prot="private" virt="non-virtual"><scope>Projectiles::ProjectileLauncher</scope><name>_weaponShotEvent</name></member>
+      <member refid="class_projectiles_1_1_projectile_launcher_1a4a5e78e969bf7a0a9bc2e92cce1a7ada" prot="private" virt="non-virtual"><scope>Projectiles::ProjectileLauncher</scope><name>_weaponView</name></member>
+      <member refid="class_projectiles_1_1_projectile_launcher_1aa95394ca02d188fd930c26f5e0442c3e" prot="public" virt="non-virtual"><scope>Projectiles::ProjectileLauncher</scope><name>Dispose</name></member>
+      <member refid="class_projectiles_1_1_projectile_launcher_1ac86f099910bd34e82b8b25529f27d5c4" prot="private" virt="non-virtual"><scope>Projectiles::ProjectileLauncher</scope><name>OnExploded</name></member>
+      <member refid="class_projectiles_1_1_projectile_launcher_1ada6c183a0f14850c2bcd315967f7c6f0" prot="private" virt="non-virtual"><scope>Projectiles::ProjectileLauncher</scope><name>OnLaunched</name></member>
+      <member refid="class_projectiles_1_1_projectile_launcher_1a335038f4325f4c72aa028002bdc52cac" prot="private" virt="non-virtual"><scope>Projectiles::ProjectileLauncher</scope><name>OnWeaponSelected</name></member>
+      <member refid="class_projectiles_1_1_projectile_launcher_1addb9cbeef77bf5695f097086925f8735" prot="private" virt="non-virtual"><scope>Projectiles::ProjectileLauncher</scope><name>OnWeaponShot</name></member>
+      <member refid="class_projectiles_1_1_projectile_launcher_1a66579290c03f641357819094a8af6a59" prot="public" virt="non-virtual"><scope>Projectiles::ProjectileLauncher</scope><name>ProjectileExploded</name></member>
+      <member refid="class_projectiles_1_1_projectile_launcher_1a5a67cee13f541add3ec06adaba3a92d5" prot="public" virt="non-virtual"><scope>Projectiles::ProjectileLauncher</scope><name>ProjectileLaunched</name></member>
+      <member refid="class_projectiles_1_1_projectile_launcher_1a4a511524088a678ff121f29dea9fc795" prot="public" virt="non-virtual"><scope>Projectiles::ProjectileLauncher</scope><name>ProjectileLauncher</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

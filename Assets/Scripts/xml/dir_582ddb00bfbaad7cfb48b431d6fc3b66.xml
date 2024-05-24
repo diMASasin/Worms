@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="dir_582ddb00bfbaad7cfb48b431d6fc3b66" kind="dir">
+    <compoundname>Configs</compoundname>
+    <innerfile refid="_explosion_config_8cs">ExplosionConfig.cs</innerfile>
+    <innerfile refid="_game_config_8cs">GameConfig.cs</innerfile>
+    <innerfile refid="_ground_checker_config_8cs">GroundCheckerConfig.cs</innerfile>
+    <innerfile refid="_movement_config_8cs">MovementConfig.cs</innerfile>
+    <innerfile refid="_projectile_config_8cs">ProjectileConfig.cs</innerfile>
+    <innerfile refid="_team_config_8cs">TeamConfig.cs</innerfile>
+    <innerfile refid="_timers_config_8cs">TimersConfig.cs</innerfile>
+    <innerfile refid="_weapon_config_8cs">WeaponConfig.cs</innerfile>
+    <innerfile refid="_worm_config_8cs">WormConfig.cs</innerfile>
+    <innerfile refid="_worms_spawner_config_8cs">WormsSpawnerConfig.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Configs/"/>
+  </compounddef>
+</doxygen>

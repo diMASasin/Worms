@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_configs_1_1_explosion_config" kind="class" language="C#" prot="public">
+    <compoundname>Configs::ExplosionConfig</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ScriptableObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_configs_1_1_explosion_config_1a660707d663316bf8111ae2a0f9c0a8f3" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>float</type>
+        <definition>float Configs.ExplosionConfig.ExplosionForce</definition>
+        <argsstring></argsstring>
+        <name>ExplosionForce</name>
+        <qualifiedname>Configs.ExplosionConfig.ExplosionForce</qualifiedname>
+        <initializer>= 10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/ExplosionConfig.cs" line="8" column="23" bodyfile="Configs/ExplosionConfig.cs" bodystart="8" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="property" id="class_configs_1_1_explosion_config_1a8ea7ddc0a9486ecec1f9b637710117d8" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>float</type>
+        <definition>float Configs.ExplosionConfig.ExplosionUpwardsModifier</definition>
+        <argsstring></argsstring>
+        <name>ExplosionUpwardsModifier</name>
+        <qualifiedname>Configs.ExplosionConfig.ExplosionUpwardsModifier</qualifiedname>
+        <initializer>= 4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/ExplosionConfig.cs" line="9" column="23" bodyfile="Configs/ExplosionConfig.cs" bodystart="9" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="property" id="class_configs_1_1_explosion_config_1a8427f3507e071eab16d9b9136d68e94c" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>float</type>
+        <definition>float Configs.ExplosionConfig.ExplosionRadius</definition>
+        <argsstring></argsstring>
+        <name>ExplosionRadius</name>
+        <qualifiedname>Configs.ExplosionConfig.ExplosionRadius</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/ExplosionConfig.cs" line="10" column="23" bodyfile="Configs/ExplosionConfig.cs" bodystart="10" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="property" id="class_configs_1_1_explosion_config_1aed40d979173a050fb8f775d6c1782f01" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>int</type>
+        <definition>int Configs.ExplosionConfig.Damage</definition>
+        <argsstring></argsstring>
+        <name>Damage</name>
+        <qualifiedname>Configs.ExplosionConfig.Damage</qualifiedname>
+        <initializer>= 30</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/ExplosionConfig.cs" line="11" column="21" bodyfile="Configs/ExplosionConfig.cs" bodystart="11" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="property" id="class_configs_1_1_explosion_config_1a37b827cb10dee57179a935bc8d117719" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type><ref refid="class_explosion" kindref="compound">Explosion</ref></type>
+        <definition>Explosion Configs.ExplosionConfig.Prefab</definition>
+        <argsstring></argsstring>
+        <name>Prefab</name>
+        <qualifiedname>Configs.ExplosionConfig.Prefab</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/ExplosionConfig.cs" line="12" column="27" bodyfile="Configs/ExplosionConfig.cs" bodystart="12" bodyend="12"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Configs.ExplosionConfig</label>
+        <link refid="class_configs_1_1_explosion_config"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ScriptableObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Configs.ExplosionConfig</label>
+        <link refid="class_configs_1_1_explosion_config"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ScriptableObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="Configs/ExplosionConfig.cs" line="6" column="11" bodyfile="Configs/ExplosionConfig.cs" bodystart="7" bodyend="13"/>
+    <listofallmembers>
+      <member refid="class_configs_1_1_explosion_config_1aed40d979173a050fb8f775d6c1782f01" prot="public" virt="non-virtual"><scope>Configs::ExplosionConfig</scope><name>Damage</name></member>
+      <member refid="class_configs_1_1_explosion_config_1a660707d663316bf8111ae2a0f9c0a8f3" prot="public" virt="non-virtual"><scope>Configs::ExplosionConfig</scope><name>ExplosionForce</name></member>
+      <member refid="class_configs_1_1_explosion_config_1a8427f3507e071eab16d9b9136d68e94c" prot="public" virt="non-virtual"><scope>Configs::ExplosionConfig</scope><name>ExplosionRadius</name></member>
+      <member refid="class_configs_1_1_explosion_config_1a8ea7ddc0a9486ecec1f9b637710117d8" prot="public" virt="non-virtual"><scope>Configs::ExplosionConfig</scope><name>ExplosionUpwardsModifier</name></member>
+      <member refid="class_configs_1_1_explosion_config_1a37b827cb10dee57179a935bc8d117719" prot="public" virt="non-virtual"><scope>Configs::ExplosionConfig</scope><name>Prefab</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

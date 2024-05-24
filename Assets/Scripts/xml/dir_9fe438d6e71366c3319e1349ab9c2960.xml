@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="dir_9fe438d6e71366c3319e1349ab9c2960" kind="dir">
+    <compoundname>BattleStateMachineComponents</compoundname>
+    <innerdir refid="dir_c76c65321a316d26064432c9d4c042a9">BattleStateMachineComponents/States</innerdir>
+    <innerfile refid="_battle_state_machine_8cs">BattleStateMachine.cs</innerfile>
+    <innerfile refid="_battle_state_machine_data_8cs">BattleStateMachineData.cs</innerfile>
+    <innerfile refid="_i_state_switcher_8cs">IStateSwitcher.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="BattleStateMachineComponents/"/>
+  </compounddef>
+</doxygen>

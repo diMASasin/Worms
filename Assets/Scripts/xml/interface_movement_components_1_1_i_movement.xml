@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="interface_movement_components_1_1_i_movement" kind="interface" language="C#" prot="public">
+    <compoundname>MovementComponents::IMovement</compoundname>
+    <derivedcompoundref refid="class_movement_components_1_1_movement" prot="public" virt="non-virtual">MovementComponents.Movement</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interface_movement_components_1_1_i_movement_1a074a4625687f98ff01d3f9fe55f87a40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MovementComponents.IMovement.TryMove</definition>
+        <argsstring>(float horizontal)</argsstring>
+        <name>TryMove</name>
+        <qualifiedname>MovementComponents.IMovement.TryMove</qualifiedname>
+        <reimplementedby refid="class_movement_components_1_1_movement_1af2eb4dd6c1a23d5c871ba88977531bfa">TryMove</reimplementedby>
+        <param>
+          <type>float</type>
+          <declname>horizontal</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MovementComponents/IMovement.cs" line="5" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_movement_components_1_1_i_movement_1aad67ad2ff14da773454092d61b5667ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MovementComponents.IMovement.TurnRight</definition>
+        <argsstring>()</argsstring>
+        <name>TurnRight</name>
+        <qualifiedname>MovementComponents.IMovement.TurnRight</qualifiedname>
+        <reimplementedby refid="class_movement_components_1_1_movement_1af77aa9a2ab1d9bc7524200f9413d0c61">TurnRight</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MovementComponents/IMovement.cs" line="6" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_movement_components_1_1_i_movement_1a2da8c4287c4cf06ee3fbc45ef1f425d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MovementComponents.IMovement.TurnLeft</definition>
+        <argsstring>()</argsstring>
+        <name>TurnLeft</name>
+        <qualifiedname>MovementComponents.IMovement.TurnLeft</qualifiedname>
+        <reimplementedby refid="class_movement_components_1_1_movement_1aea1ee622d6ef5e0c552a4a7107acf4c6">TurnLeft</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MovementComponents/IMovement.cs" line="7" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_movement_components_1_1_i_movement_1ae3b5791e4d1cdac5c1c68a8001b67b8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MovementComponents.IMovement.LongJump</definition>
+        <argsstring>()</argsstring>
+        <name>LongJump</name>
+        <qualifiedname>MovementComponents.IMovement.LongJump</qualifiedname>
+        <reimplementedby refid="class_movement_components_1_1_movement_1ad7b356982f5fc62027102408447ceaf7">LongJump</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MovementComponents/IMovement.cs" line="8" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_movement_components_1_1_i_movement_1a1b1edb2ece3c143228ced8c578c27407" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void MovementComponents.IMovement.HighJump</definition>
+        <argsstring>()</argsstring>
+        <name>HighJump</name>
+        <qualifiedname>MovementComponents.IMovement.HighJump</qualifiedname>
+        <reimplementedby refid="class_movement_components_1_1_movement_1aab421f90ca9049c726e5c9524014b93c">HighJump</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="MovementComponents/IMovement.cs" line="9" column="14"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>MovementComponents.IMovement</label>
+        <link refid="interface_movement_components_1_1_i_movement"/>
+      </node>
+      <node id="2">
+        <label>MovementComponents.Movement</label>
+        <link refid="class_movement_components_1_1_movement"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>MovementComponents.SheepMovement</label>
+        <link refid="class_movement_components_1_1_sheep_movement"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="MovementComponents/IMovement.cs" line="3" column="22" bodyfile="MovementComponents/IMovement.cs" bodystart="4" bodyend="10"/>
+    <listofallmembers>
+      <member refid="interface_movement_components_1_1_i_movement_1a1b1edb2ece3c143228ced8c578c27407" prot="public" virt="non-virtual"><scope>MovementComponents::IMovement</scope><name>HighJump</name></member>
+      <member refid="interface_movement_components_1_1_i_movement_1ae3b5791e4d1cdac5c1c68a8001b67b8c" prot="public" virt="non-virtual"><scope>MovementComponents::IMovement</scope><name>LongJump</name></member>
+      <member refid="interface_movement_components_1_1_i_movement_1a074a4625687f98ff01d3f9fe55f87a40" prot="public" virt="non-virtual"><scope>MovementComponents::IMovement</scope><name>TryMove</name></member>
+      <member refid="interface_movement_components_1_1_i_movement_1a2da8c4287c4cf06ee3fbc45ef1f425d7" prot="public" virt="non-virtual"><scope>MovementComponents::IMovement</scope><name>TurnLeft</name></member>
+      <member refid="interface_movement_components_1_1_i_movement_1aad67ad2ff14da773454092d61b5667ee" prot="public" virt="non-virtual"><scope>MovementComponents::IMovement</scope><name>TurnRight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

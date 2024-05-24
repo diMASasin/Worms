@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="_battle_state_machine_8cs" kind="file" language="C#">
+    <compoundname>BattleStateMachine.cs</compoundname>
+    <innerclass refid="class_battle_state_machine_components_1_1_battle_state_machine" prot="public">BattleStateMachineComponents::BattleStateMachine</innerclass>
+    <innernamespace refid="namespace_battle_state_machine_components">BattleStateMachineComponents</innernamespace>
+    <innernamespace refid="namespace_system_1_1_collections_1_1_generic">System::Collections::Generic</innernamespace>
+    <innernamespace refid="namespace_system_1_1_linq">System::Linq</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/></highlight><highlight class="normal">System.Collections.Generic;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">System.Linq;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_battle_state_machine_components_1_1_states" kindref="compound">BattleStateMachineComponents.States</ref>;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="namespace_battle_state_machine_components" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_battle_state_machine_components" kindref="compound">BattleStateMachineComponents</ref></highlight></codeline>
+<codeline lineno="6"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="7" refid="class_battle_state_machine_components_1_1_battle_state_machine" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_battle_state_machine_components_1_1_battle_state_machine" kindref="compound">BattleStateMachine</ref><sp/>:<sp/><ref refid="interface_battle_state_machine_components_1_1_i_state_switcher" kindref="compound">IStateSwitcher</ref></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/><ref refid="class_battle_state_machine_components_1_1_battle_state_machine_data" kindref="compound">BattleStateMachineData</ref><sp/>_data;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/>List&lt;BattleState&gt;<sp/>_states;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_battle_state" kindref="compound">BattleState</ref><sp/>_currentState;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_battle_state_machine_1a109b9290e5db38a44a7e2a4b0b4cc771" kindref="member">BattleStateMachine</ref>(<ref refid="class_battle_state_machine_components_1_1_battle_state_machine_data" kindref="compound">BattleStateMachineData</ref><sp/>data)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_data<sp/>=<sp/>data;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_states<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>List&lt;BattleState&gt;()</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_start_battle_state" kindref="compound">StartBattleState</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>data),</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_between_turns_state" kindref="compound">BetweenTurnsState</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>data),</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_turn_state" kindref="compound">TurnState</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>data),</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_retreat_state" kindref="compound">RetreatState</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>data),</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_projectiles_waiting" kindref="compound">ProjectilesWaiting</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>data)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_currentState<sp/>=<sp/>_states[0];</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_currentState.<ref refid="class_battle_state_machine_components_1_1_states_1_1_battle_state_1a4eddc9bbf36e73389550fab3c0f7a03e" kindref="member">Enter</ref>();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_battle_state_machine_1a332b693fcfc1b586b91604bd044c9fe4" kindref="member">SwitchState&lt;T&gt;</ref>()<sp/>where<sp/>T<sp/>:<sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_battle_state" kindref="compound">BattleState</ref></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_battle_state" kindref="compound">BattleState</ref><sp/>state<sp/>=<sp/>_states.FirstOrDefault(state<sp/>=&gt;<sp/>state<sp/>is<sp/>T);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_currentState?.<ref refid="class_battle_state_machine_components_1_1_states_1_1_battle_state_1a7c69738e14e2d84868c59e0aecb0e84e" kindref="member">Exit</ref>();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_currentState<sp/>=<sp/>state;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_currentState.<ref refid="class_battle_state_machine_components_1_1_states_1_1_battle_state_1a4eddc9bbf36e73389550fab3c0f7a03e" kindref="member">Enter</ref>();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_battle_state_machine_1a98690752880c6eb802b97c7e934bde6d" kindref="member">HandleInput</ref>()</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_currentState.<ref refid="class_battle_state_machine_components_1_1_states_1_1_battle_state_1aa1c37685a4be1fef197ea0787f97ede3" kindref="member">HandleInput</ref>();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_battle_state_machine_1af7d2148244246e09364e609e4fbf915c" kindref="member">Tick</ref>()</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_currentState.<ref refid="class_battle_state_machine_components_1_1_states_1_1_battle_state_1a44eed10684e050be1d392361bc11e3b0" kindref="member">Tick</ref>();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_data.PlayerInput.CameraInput.Tick();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_battle_state_machine_1ad174ea1e94ce15960378cf3dc6321f8e" kindref="member">FixedTick</ref>()</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_data.FixedTick();</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_battle_state_machine_1a4198ec7c0efed95321090e7a89a7568a" kindref="member">OnDrawGizmos</ref>()</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_data.OnDrawGizmos();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_battle_state_machine_1af3d9f9b34e5aef08669be58e60bb2ffe" kindref="member">Dispose</ref>()</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_data.Dispose();</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="BattleStateMachineComponents/BattleStateMachine.cs"/>
+  </compounddef>
+</doxygen>

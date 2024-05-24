@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_u_i_1_1_settings_window" kind="class" language="C#" prot="public">
+    <compoundname>UI::SettingsWindow</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_u_i_1_1_settings_window_1a9016bd286b5f7225d30d0bc5fe97323e" prot="private" static="no" mutable="no">
+        <type>Animator</type>
+        <definition>Animator UI.SettingsWindow._animator</definition>
+        <argsstring></argsstring>
+        <name>_animator</name>
+        <qualifiedname>UI.SettingsWindow._animator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/SettingsWindow.cs" line="10" column="27" bodyfile="UI/SettingsWindow.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_i_1_1_settings_window_1ab2f320437df518ca6946875b534a8a6b" prot="private" static="no" mutable="no">
+        <type>TMP_Dropdown</type>
+        <definition>TMP_Dropdown UI.SettingsWindow._dropdownTeams</definition>
+        <argsstring></argsstring>
+        <name>_dropdownTeams</name>
+        <qualifiedname>UI.SettingsWindow._dropdownTeams</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/SettingsWindow.cs" line="11" column="31" bodyfile="UI/SettingsWindow.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_i_1_1_settings_window_1aa396b0f50a28a95535497bdbfb874b33" prot="private" static="no" mutable="no">
+        <type>TMP_Dropdown</type>
+        <definition>TMP_Dropdown UI.SettingsWindow._dropdownWorms</definition>
+        <argsstring></argsstring>
+        <name>_dropdownWorms</name>
+        <qualifiedname>UI.SettingsWindow._dropdownWorms</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/SettingsWindow.cs" line="12" column="31" bodyfile="UI/SettingsWindow.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_i_1_1_settings_window_1abf24e7c8ba82a470444dcc45b93c8a40" prot="private" static="no" mutable="no">
+        <type>TMP_Dropdown</type>
+        <definition>TMP_Dropdown UI.SettingsWindow._dropdownMaps</definition>
+        <argsstring></argsstring>
+        <name>_dropdownMaps</name>
+        <qualifiedname>UI.SettingsWindow._dropdownMaps</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/SettingsWindow.cs" line="13" column="31" bodyfile="UI/SettingsWindow.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_i_1_1_settings_window_1a5de3d1027d0da0487461b2b12b08c0a9" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="class_battle___1_1_battle_settings" kindref="compound">BattleSettings</ref></type>
+        <definition>readonly BattleSettings UI.SettingsWindow._battleSettings</definition>
+        <argsstring></argsstring>
+        <name>_battleSettings</name>
+        <qualifiedname>UI.SettingsWindow._battleSettings</qualifiedname>
+        <initializer>= new()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/SettingsWindow.cs" line="15" column="41" bodyfile="UI/SettingsWindow.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_u_i_1_1_settings_window_1a9cf3d03c23a02795eed8ce9a05d9535c" prot="private" static="yes" mutable="no">
+        <type>readonly int</type>
+        <definition>readonly int UI.SettingsWindow.ShowAnimation</definition>
+        <argsstring></argsstring>
+        <name>ShowAnimation</name>
+        <qualifiedname>UI.SettingsWindow.ShowAnimation</qualifiedname>
+        <initializer>= Animator.StringToHash(&quot;Show&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/SettingsWindow.cs" line="17" column="37" bodyfile="UI/SettingsWindow.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_u_i_1_1_settings_window_1a89a4cef5338eb8bbc3bf612db2af5c46" prot="private" static="yes" mutable="no">
+        <type>readonly int</type>
+        <definition>readonly int UI.SettingsWindow.HideAnimation</definition>
+        <argsstring></argsstring>
+        <name>HideAnimation</name>
+        <qualifiedname>UI.SettingsWindow.HideAnimation</qualifiedname>
+        <initializer>= Animator.StringToHash(&quot;Hide&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/SettingsWindow.cs" line="18" column="37" bodyfile="UI/SettingsWindow.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_u_i_1_1_settings_window_1a93e20940fba778b27c31d400becbad9e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void UI.SettingsWindow.Show</definition>
+        <argsstring>()</argsstring>
+        <name>Show</name>
+        <qualifiedname>UI.SettingsWindow.Show</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/SettingsWindow.cs" line="20" column="21" bodyfile="UI/SettingsWindow.cs" bodystart="20" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_i_1_1_settings_window_1af0c167de997cd4613e1f8912ff95bc55" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void UI.SettingsWindow.Hide</definition>
+        <argsstring>()</argsstring>
+        <name>Hide</name>
+        <qualifiedname>UI.SettingsWindow.Hide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/SettingsWindow.cs" line="26" column="21" bodyfile="UI/SettingsWindow.cs" bodystart="26" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_i_1_1_settings_window_1a56a391e4e17174ca511cad2ee177c4b8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void UI.SettingsWindow.Close</definition>
+        <argsstring>()</argsstring>
+        <name>Close</name>
+        <qualifiedname>UI.SettingsWindow.Close</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/SettingsWindow.cs" line="31" column="21" bodyfile="UI/SettingsWindow.cs" bodystart="31" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_u_i_1_1_settings_window_1aa5de52c8aabbee5becae6aa2726b5b3e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void UI.SettingsWindow.Play</definition>
+        <argsstring>()</argsstring>
+        <name>Play</name>
+        <qualifiedname>UI.SettingsWindow.Play</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/SettingsWindow.cs" line="36" column="21" bodyfile="UI/SettingsWindow.cs" bodystart="36" bodyend="45"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="1">
+        <label>UI.SettingsWindow</label>
+        <link refid="class_u_i_1_1_settings_window"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="1">
+        <label>UI.SettingsWindow</label>
+        <link refid="class_u_i_1_1_settings_window"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="UI/SettingsWindow.cs" line="8" column="11" bodyfile="UI/SettingsWindow.cs" bodystart="9" bodyend="46"/>
+    <listofallmembers>
+      <member refid="class_u_i_1_1_settings_window_1a9016bd286b5f7225d30d0bc5fe97323e" prot="private" virt="non-virtual"><scope>UI::SettingsWindow</scope><name>_animator</name></member>
+      <member refid="class_u_i_1_1_settings_window_1a5de3d1027d0da0487461b2b12b08c0a9" prot="private" virt="non-virtual"><scope>UI::SettingsWindow</scope><name>_battleSettings</name></member>
+      <member refid="class_u_i_1_1_settings_window_1abf24e7c8ba82a470444dcc45b93c8a40" prot="private" virt="non-virtual"><scope>UI::SettingsWindow</scope><name>_dropdownMaps</name></member>
+      <member refid="class_u_i_1_1_settings_window_1ab2f320437df518ca6946875b534a8a6b" prot="private" virt="non-virtual"><scope>UI::SettingsWindow</scope><name>_dropdownTeams</name></member>
+      <member refid="class_u_i_1_1_settings_window_1aa396b0f50a28a95535497bdbfb874b33" prot="private" virt="non-virtual"><scope>UI::SettingsWindow</scope><name>_dropdownWorms</name></member>
+      <member refid="class_u_i_1_1_settings_window_1a56a391e4e17174ca511cad2ee177c4b8" prot="public" virt="non-virtual"><scope>UI::SettingsWindow</scope><name>Close</name></member>
+      <member refid="class_u_i_1_1_settings_window_1af0c167de997cd4613e1f8912ff95bc55" prot="public" virt="non-virtual"><scope>UI::SettingsWindow</scope><name>Hide</name></member>
+      <member refid="class_u_i_1_1_settings_window_1a89a4cef5338eb8bbc3bf612db2af5c46" prot="private" virt="non-virtual"><scope>UI::SettingsWindow</scope><name>HideAnimation</name></member>
+      <member refid="class_u_i_1_1_settings_window_1aa5de52c8aabbee5becae6aa2726b5b3e" prot="public" virt="non-virtual"><scope>UI::SettingsWindow</scope><name>Play</name></member>
+      <member refid="class_u_i_1_1_settings_window_1a93e20940fba778b27c31d400becbad9e" prot="public" virt="non-virtual"><scope>UI::SettingsWindow</scope><name>Show</name></member>
+      <member refid="class_u_i_1_1_settings_window_1a9cf3d03c23a02795eed8ce9a05d9535c" prot="private" virt="non-virtual"><scope>UI::SettingsWindow</scope><name>ShowAnimation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

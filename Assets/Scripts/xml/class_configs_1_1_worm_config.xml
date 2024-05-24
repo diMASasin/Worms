@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_configs_1_1_worm_config" kind="class" language="C#" prot="public">
+    <compoundname>Configs::WormConfig</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ScriptableObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_configs_1_1_worm_config_1af55208ff7abfa58cb08830eb3689e77e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>string</type>
+        <definition>string Configs.WormConfig.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <qualifiedname>Configs.WormConfig.Name</qualifiedname>
+        <initializer>= &quot;Worm&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/WormConfig.cs" line="8" column="24" bodyfile="Configs/WormConfig.cs" bodystart="8" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="property" id="class_configs_1_1_worm_config_1ac14b70d41aa3b56bde395a0a3a6e18e2" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>int</type>
+        <definition>int Configs.WormConfig.MaxHealth</definition>
+        <argsstring></argsstring>
+        <name>MaxHealth</name>
+        <qualifiedname>Configs.WormConfig.MaxHealth</qualifiedname>
+        <initializer>= 100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/WormConfig.cs" line="9" column="21" bodyfile="Configs/WormConfig.cs" bodystart="9" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="property" id="class_configs_1_1_worm_config_1abea4a9a20cf14c7790eac2acc799d8ca" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>float</type>
+        <definition>float Configs.WormConfig.RemoveWeaponDelay</definition>
+        <argsstring></argsstring>
+        <name>RemoveWeaponDelay</name>
+        <qualifiedname>Configs.WormConfig.RemoveWeaponDelay</qualifiedname>
+        <initializer>= 0.5f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/WormConfig.cs" line="10" column="23" bodyfile="Configs/WormConfig.cs" bodystart="10" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="property" id="class_configs_1_1_worm_config_1a3a04894f79372db78e1626da526b6533" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Configs.WormConfig.ShowCanSpawnCheckerBox</definition>
+        <argsstring></argsstring>
+        <name>ShowCanSpawnCheckerBox</name>
+        <qualifiedname>Configs.WormConfig.ShowCanSpawnCheckerBox</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/WormConfig.cs" line="11" column="22" bodyfile="Configs/WormConfig.cs" bodystart="11" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="property" id="class_configs_1_1_worm_config_1a91fdbefa101527787b4387653a11be08" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type><ref refid="class_configs_1_1_movement_config" kindref="compound">MovementConfig</ref></type>
+        <definition>MovementConfig Configs.WormConfig.MovementConfig</definition>
+        <argsstring></argsstring>
+        <name>MovementConfig</name>
+        <qualifiedname>Configs.WormConfig.MovementConfig</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/WormConfig.cs" line="12" column="32" bodyfile="Configs/WormConfig.cs" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="property" id="class_configs_1_1_worm_config_1a2accf7abce5979046a1bad542fe61a7e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>LayerMask</type>
+        <definition>LayerMask Configs.WormConfig.WormLayerMask</definition>
+        <argsstring></argsstring>
+        <name>WormLayerMask</name>
+        <qualifiedname>Configs.WormConfig.WormLayerMask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/WormConfig.cs" line="13" column="27" bodyfile="Configs/WormConfig.cs" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="property" id="class_configs_1_1_worm_config_1a62aa144ccefd88f927297d4cb7fce1ab" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>LayerMask</type>
+        <definition>LayerMask Configs.WormConfig.CurrentWormLayerMask</definition>
+        <argsstring></argsstring>
+        <name>CurrentWormLayerMask</name>
+        <qualifiedname>Configs.WormConfig.CurrentWormLayerMask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/WormConfig.cs" line="14" column="27" bodyfile="Configs/WormConfig.cs" bodystart="14" bodyend="14"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Configs.WormConfig</label>
+        <link refid="class_configs_1_1_worm_config"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ScriptableObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Configs.WormConfig</label>
+        <link refid="class_configs_1_1_worm_config"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ScriptableObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="Configs/WormConfig.cs" line="6" column="11" bodyfile="Configs/WormConfig.cs" bodystart="7" bodyend="15"/>
+    <listofallmembers>
+      <member refid="class_configs_1_1_worm_config_1a62aa144ccefd88f927297d4cb7fce1ab" prot="public" virt="non-virtual"><scope>Configs::WormConfig</scope><name>CurrentWormLayerMask</name></member>
+      <member refid="class_configs_1_1_worm_config_1ac14b70d41aa3b56bde395a0a3a6e18e2" prot="public" virt="non-virtual"><scope>Configs::WormConfig</scope><name>MaxHealth</name></member>
+      <member refid="class_configs_1_1_worm_config_1a91fdbefa101527787b4387653a11be08" prot="public" virt="non-virtual"><scope>Configs::WormConfig</scope><name>MovementConfig</name></member>
+      <member refid="class_configs_1_1_worm_config_1af55208ff7abfa58cb08830eb3689e77e" prot="public" virt="non-virtual"><scope>Configs::WormConfig</scope><name>Name</name></member>
+      <member refid="class_configs_1_1_worm_config_1abea4a9a20cf14c7790eac2acc799d8ca" prot="public" virt="non-virtual"><scope>Configs::WormConfig</scope><name>RemoveWeaponDelay</name></member>
+      <member refid="class_configs_1_1_worm_config_1a3a04894f79372db78e1626da526b6533" prot="public" virt="non-virtual"><scope>Configs::WormConfig</scope><name>ShowCanSpawnCheckerBox</name></member>
+      <member refid="class_configs_1_1_worm_config_1a2accf7abce5979046a1bad542fe61a7e" prot="public" virt="non-virtual"><scope>Configs::WormConfig</scope><name>WormLayerMask</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_pools_1_1_projectile_pool" kind="class" language="C#" prot="public">
+    <compoundname>Pools::ProjectilePool</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ScriptableObject</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_pools_1_1_projectile_pool_1a638c3b34d9e33135b4c69ea0c16d4297" prot="private" static="no" mutable="no">
+        <type><ref refid="class_factories_1_1_projectile_factory" kindref="compound">ProjectileFactory</ref></type>
+        <definition>ProjectileFactory Pools.ProjectilePool._projectileFactory</definition>
+        <argsstring></argsstring>
+        <name>_projectileFactory</name>
+        <qualifiedname>Pools.ProjectilePool._projectileFactory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pools/ProjectilePool.cs" line="14" column="36" bodyfile="Pools/ProjectilePool.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_pools_1_1_projectile_pool_1a28c24868fa828cdd1a89197e66434431" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Pools.ProjectilePool._amount</definition>
+        <argsstring></argsstring>
+        <name>_amount</name>
+        <qualifiedname>Pools.ProjectilePool._amount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pools/ProjectilePool.cs" line="15" column="22" bodyfile="Pools/ProjectilePool.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_pools_1_1_projectile_pool_1a9f9121b30d9086277188da49740b4bbd" prot="private" static="no" mutable="no">
+        <type>ObjectPool&lt; <ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref> &gt;</type>
+        <definition>ObjectPool&lt;Projectile&gt; Pools.ProjectilePool._pool</definition>
+        <argsstring></argsstring>
+        <name>_pool</name>
+        <qualifiedname>Pools.ProjectilePool._pool</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pools/ProjectilePool.cs" line="17" column="28" bodyfile="Pools/ProjectilePool.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_pools_1_1_projectile_pool_1afacc57b64a10fa79eae2abe6e5755900" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_factories_1_1_projectile_factory" kindref="compound">ProjectileFactory</ref></type>
+        <definition>ProjectileFactory Pools.ProjectilePool.ProjectileFactory</definition>
+        <argsstring></argsstring>
+        <name>ProjectileFactory</name>
+        <qualifiedname>Pools.ProjectilePool.ProjectileFactory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pools/ProjectilePool.cs" line="19" column="34" bodyfile="Pools/ProjectilePool.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_pools_1_1_projectile_pool_1a23fa47fe262f1563e4bce858dd38c256" prot="public" static="yes" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>int</type>
+        <definition>int Pools.ProjectilePool.Count</definition>
+        <argsstring></argsstring>
+        <name>Count</name>
+        <qualifiedname>Pools.ProjectilePool.Count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pools/ProjectilePool.cs" line="21" column="27" bodyfile="Pools/ProjectilePool.cs" bodystart="21" bodyend="21"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="event">
+      <memberdef kind="event" id="class_pools_1_1_projectile_pool_1a2e1a3a180494660d420e45ab92796b8d" prot="public" static="yes" add="no" remove="no" raise="no">
+        <type>Action&lt; int &gt;</type>
+        <definition>Action&lt;int&gt; Pools.ProjectilePool.CountChanged</definition>
+        <argsstring></argsstring>
+        <name>CountChanged</name>
+        <qualifiedname>Pools.ProjectilePool.CountChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pools/ProjectilePool.cs" line="23" column="36" bodyfile="Pools/ProjectilePool.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_pools_1_1_projectile_pool_1a946b2e7e74e2360cf4fc9a8f54355dd7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Pools.ProjectilePool.Awake</definition>
+        <argsstring>()</argsstring>
+        <name>Awake</name>
+        <qualifiedname>Pools.ProjectilePool.Awake</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pools/ProjectilePool.cs" line="25" column="22" bodyfile="Pools/ProjectilePool.cs" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_pools_1_1_projectile_pool_1a969dd22382268166dd06bd59db14209d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Pools.ProjectilePool.OnDestroy</definition>
+        <argsstring>()</argsstring>
+        <name>OnDestroy</name>
+        <qualifiedname>Pools.ProjectilePool.OnDestroy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pools/ProjectilePool.cs" line="30" column="22" bodyfile="Pools/ProjectilePool.cs" bodystart="30" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="class_pools_1_1_projectile_pool_1a854e01dabcf7b54666a9f00cd367463b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref></type>
+        <definition>Projectile Pools.ProjectilePool.OnCreated</definition>
+        <argsstring>()</argsstring>
+        <name>OnCreated</name>
+        <qualifiedname>Pools.ProjectilePool.OnCreated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pools/ProjectilePool.cs" line="37" column="28" bodyfile="Pools/ProjectilePool.cs" bodystart="37" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_pools_1_1_projectile_pool_1a381f20027e1d27f302b9acad5c7c10d8" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Pools.ProjectilePool.OnGet</definition>
+        <argsstring>(Projectile projectile)</argsstring>
+        <name>OnGet</name>
+        <qualifiedname>Pools.ProjectilePool.OnGet</qualifiedname>
+        <param>
+          <type><ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref></type>
+          <declname>projectile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pools/ProjectilePool.cs" line="45" column="22" bodyfile="Pools/ProjectilePool.cs" bodystart="45" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="class_pools_1_1_projectile_pool_1a2b08b6b55aa26b1f5edd653addea3e8b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Pools.ProjectilePool.OnRelease</definition>
+        <argsstring>(Projectile projectile)</argsstring>
+        <name>OnRelease</name>
+        <qualifiedname>Pools.ProjectilePool.OnRelease</qualifiedname>
+        <param>
+          <type><ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref></type>
+          <declname>projectile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pools/ProjectilePool.cs" line="53" column="22" bodyfile="Pools/ProjectilePool.cs" bodystart="53" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="class_pools_1_1_projectile_pool_1a7374836f5300512fb022bb74324aebe5" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Pools.ProjectilePool.OnExploded</definition>
+        <argsstring>(Projectile projectile)</argsstring>
+        <name>OnExploded</name>
+        <qualifiedname>Pools.ProjectilePool.OnExploded</qualifiedname>
+        <param>
+          <type><ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref></type>
+          <declname>projectile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pools/ProjectilePool.cs" line="59" column="22" bodyfile="Pools/ProjectilePool.cs" bodystart="59" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="class_pools_1_1_projectile_pool_1a4706db15e26484344e67bfae77d326ad" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Pools.ProjectilePool.OnProjectileDestroy</definition>
+        <argsstring>(Projectile projectile)</argsstring>
+        <name>OnProjectileDestroy</name>
+        <qualifiedname>Pools.ProjectilePool.OnProjectileDestroy</qualifiedname>
+        <param>
+          <type><ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref></type>
+          <declname>projectile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pools/ProjectilePool.cs" line="64" column="22" bodyfile="Pools/ProjectilePool.cs" bodystart="64" bodyend="67"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_pools_1_1_projectile_pool_1a04bdca15a5b29e48f5a4860270d9f47d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref></type>
+        <definition>Projectile Pools.ProjectilePool.Get</definition>
+        <argsstring>()</argsstring>
+        <name>Get</name>
+        <qualifiedname>Pools.ProjectilePool.Get</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pools/ProjectilePool.cs" line="35" column="27"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Pools.ProjectilePool</label>
+        <link refid="class_pools_1_1_projectile_pool"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ScriptableObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Pools.ProjectilePool</label>
+        <link refid="class_pools_1_1_projectile_pool"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ScriptableObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="Pools/ProjectilePool.cs" line="12" column="11" bodyfile="Pools/ProjectilePool.cs" bodystart="13" bodyend="68"/>
+    <listofallmembers>
+      <member refid="class_pools_1_1_projectile_pool_1a28c24868fa828cdd1a89197e66434431" prot="private" virt="non-virtual"><scope>Pools::ProjectilePool</scope><name>_amount</name></member>
+      <member refid="class_pools_1_1_projectile_pool_1a9f9121b30d9086277188da49740b4bbd" prot="private" virt="non-virtual"><scope>Pools::ProjectilePool</scope><name>_pool</name></member>
+      <member refid="class_pools_1_1_projectile_pool_1a638c3b34d9e33135b4c69ea0c16d4297" prot="private" virt="non-virtual"><scope>Pools::ProjectilePool</scope><name>_projectileFactory</name></member>
+      <member refid="class_pools_1_1_projectile_pool_1a946b2e7e74e2360cf4fc9a8f54355dd7" prot="private" virt="non-virtual"><scope>Pools::ProjectilePool</scope><name>Awake</name></member>
+      <member refid="class_pools_1_1_projectile_pool_1a23fa47fe262f1563e4bce858dd38c256" prot="public" virt="non-virtual"><scope>Pools::ProjectilePool</scope><name>Count</name></member>
+      <member refid="class_pools_1_1_projectile_pool_1a2e1a3a180494660d420e45ab92796b8d" prot="public" virt="non-virtual"><scope>Pools::ProjectilePool</scope><name>CountChanged</name></member>
+      <member refid="class_pools_1_1_projectile_pool_1a04bdca15a5b29e48f5a4860270d9f47d" prot="public" virt="non-virtual"><scope>Pools::ProjectilePool</scope><name>Get</name></member>
+      <member refid="class_pools_1_1_projectile_pool_1a854e01dabcf7b54666a9f00cd367463b" prot="private" virt="non-virtual"><scope>Pools::ProjectilePool</scope><name>OnCreated</name></member>
+      <member refid="class_pools_1_1_projectile_pool_1a969dd22382268166dd06bd59db14209d" prot="private" virt="non-virtual"><scope>Pools::ProjectilePool</scope><name>OnDestroy</name></member>
+      <member refid="class_pools_1_1_projectile_pool_1a7374836f5300512fb022bb74324aebe5" prot="private" virt="non-virtual"><scope>Pools::ProjectilePool</scope><name>OnExploded</name></member>
+      <member refid="class_pools_1_1_projectile_pool_1a381f20027e1d27f302b9acad5c7c10d8" prot="private" virt="non-virtual"><scope>Pools::ProjectilePool</scope><name>OnGet</name></member>
+      <member refid="class_pools_1_1_projectile_pool_1a4706db15e26484344e67bfae77d326ad" prot="private" virt="non-virtual"><scope>Pools::ProjectilePool</scope><name>OnProjectileDestroy</name></member>
+      <member refid="class_pools_1_1_projectile_pool_1a2b08b6b55aa26b1f5edd653addea3e8b" prot="private" virt="non-virtual"><scope>Pools::ProjectilePool</scope><name>OnRelease</name></member>
+      <member refid="class_pools_1_1_projectile_pool_1afacc57b64a10fa79eae2abe6e5755900" prot="public" virt="non-virtual"><scope>Pools::ProjectilePool</scope><name>ProjectileFactory</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

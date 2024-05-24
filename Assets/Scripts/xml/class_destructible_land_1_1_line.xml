@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_destructible_land_1_1_line" kind="class" language="C#" prot="public">
+    <compoundname>DestructibleLand::Line</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_destructible_land_1_1_line_1a671579120e61add3c9e5b6e2071934c3" prot="public" static="no" mutable="no">
+        <type>List&lt; <ref refid="class_destructible_land_1_1_point" kindref="compound">Point</ref> &gt;</type>
+        <definition>List&lt;Point&gt; DestructibleLand.Line.Points</definition>
+        <argsstring></argsstring>
+        <name>Points</name>
+        <qualifiedname>DestructibleLand.Line.Points</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DestructibleLand/Cutter.cs" line="27" column="21" bodyfile="DestructibleLand/Cutter.cs" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_destructible_land_1_1_line_1a6d85ef6b289708569a104cc51c6d6cb9" prot="public" static="no" mutable="no">
+        <type>List&lt; <ref refid="class_destructible_land_1_1_segment" kindref="compound">Segment</ref> &gt;</type>
+        <definition>List&lt;Segment&gt; DestructibleLand.Line.Segments</definition>
+        <argsstring></argsstring>
+        <name>Segments</name>
+        <qualifiedname>DestructibleLand.Line.Segments</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DestructibleLand/Cutter.cs" line="28" column="21" bodyfile="DestructibleLand/Cutter.cs" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DestructibleLand/Cutter.cs" line="25" column="11" bodyfile="DestructibleLand/Cutter.cs" bodystart="26" bodyend="29"/>
+    <listofallmembers>
+      <member refid="class_destructible_land_1_1_line_1a671579120e61add3c9e5b6e2071934c3" prot="public" virt="non-virtual"><scope>DestructibleLand::Line</scope><name>Points</name></member>
+      <member refid="class_destructible_land_1_1_line_1a6d85ef6b289708569a104cc51c6d6cb9" prot="public" virt="non-virtual"><scope>DestructibleLand::Line</scope><name>Segments</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

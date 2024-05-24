@@ -1,0 +1,236 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_factories_1_1_worm_factory" kind="class" language="C#" prot="public">
+    <compoundname>Factories::WormFactory</compoundname>
+    <basecompoundref refid="interface_event_providers_1_1_i_worm_events_provider" prot="public" virt="non-virtual">EventProviders.IWormEventsProvider</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">IDisposable</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_factories_1_1_worm_factory_1adece43b1331de8dfbba45e1f11384708" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="class_worm_components_1_1_worm" kindref="compound">Worm</ref></type>
+        <definition>readonly Worm Factories.WormFactory._wormPrefab</definition>
+        <argsstring></argsstring>
+        <name>_wormPrefab</name>
+        <qualifiedname>Factories.WormFactory._wormPrefab</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Factories/WormFactory.cs" line="14" column="31" bodyfile="Factories/WormFactory.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_factories_1_1_worm_factory_1a8c8f626bbd30084d6df637a16e58784c" prot="private" static="no" mutable="no">
+        <type>readonly List&lt; <ref refid="class_worm_components_1_1_worm" kindref="compound">Worm</ref> &gt;</type>
+        <definition>readonly List&lt;Worm&gt; Factories.WormFactory._worms</definition>
+        <argsstring></argsstring>
+        <name>_worms</name>
+        <qualifiedname>Factories.WormFactory._worms</qualifiedname>
+        <initializer>= new()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Factories/WormFactory.cs" line="15" column="31" bodyfile="Factories/WormFactory.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="event">
+      <memberdef kind="event" id="class_factories_1_1_worm_factory_1a2c0565493093cd639e5d88fb70d5ca2e" prot="public" static="no" add="no" remove="no" raise="no">
+        <type>Action&lt; <ref refid="interface_worm_components_1_1_i_worm" kindref="compound">IWorm</ref>, Color, string &gt;</type>
+        <definition>Action&lt;IWorm, Color, string&gt; Factories.WormFactory.WormCreated</definition>
+        <argsstring></argsstring>
+        <name>WormCreated</name>
+        <qualifiedname>Factories.WormFactory.WormCreated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Factories/WormFactory.cs" line="17" column="29" bodyfile="Factories/WormFactory.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="event" id="class_factories_1_1_worm_factory_1a0643a09c092a7e592263c5c66a70b0c1" prot="public" static="no" add="no" remove="no" raise="no">
+        <type>Action&lt; <ref refid="interface_worm_components_1_1_i_worm" kindref="compound">IWorm</ref> &gt;</type>
+        <definition>Action&lt;IWorm&gt; Factories.WormFactory.WormDied</definition>
+        <argsstring></argsstring>
+        <name>WormDied</name>
+        <qualifiedname>Factories.WormFactory.WormDied</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Factories/WormFactory.cs" line="18" column="29" bodyfile="Factories/WormFactory.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="event" id="class_factories_1_1_worm_factory_1a2f624552b1e87a95a351603d99c11423" prot="public" static="no" add="no" remove="no" raise="no">
+        <type>Action&lt; <ref refid="interface_worm_components_1_1_i_worm" kindref="compound">IWorm</ref> &gt;</type>
+        <definition>Action&lt;IWorm&gt; Factories.WormFactory.WormDamageTook</definition>
+        <argsstring></argsstring>
+        <name>WormDamageTook</name>
+        <qualifiedname>Factories.WormFactory.WormDamageTook</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Factories/WormFactory.cs" line="19" column="29" bodyfile="Factories/WormFactory.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_factories_1_1_worm_factory_1a763551c79b99cfbf569a48805f4c4b7c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Factories.WormFactory.WormFactory</definition>
+        <argsstring>(Worm wormPrefab)</argsstring>
+        <name>WormFactory</name>
+        <qualifiedname>Factories.WormFactory.WormFactory</qualifiedname>
+        <param>
+          <type><ref refid="class_worm_components_1_1_worm" kindref="compound">Worm</ref></type>
+          <declname>wormPrefab</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Factories/WormFactory.cs" line="21" column="16" bodyfile="Factories/WormFactory.cs" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_factories_1_1_worm_factory_1a861ba12180d547e1e6dd5b82cc76e540" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_worm_components_1_1_worm" kindref="compound">Worm</ref></type>
+        <definition>Worm Factories.WormFactory.Create</definition>
+        <argsstring>(Transform parent, Color teamColor, WormConfig config, Func&lt; Vector2 &gt; getSpawnPoint)</argsstring>
+        <name>Create</name>
+        <qualifiedname>Factories.WormFactory.Create</qualifiedname>
+        <param>
+          <type>Transform</type>
+          <declname>parent</declname>
+        </param>
+        <param>
+          <type>Color</type>
+          <declname>teamColor</declname>
+        </param>
+        <param>
+          <type><ref refid="class_configs_1_1_worm_config" kindref="compound">WormConfig</ref></type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>Func&lt; Vector2 &gt;</type>
+          <declname>getSpawnPoint</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Factories/WormFactory.cs" line="26" column="21" bodyfile="Factories/WormFactory.cs" bodystart="26" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="class_factories_1_1_worm_factory_1a96a640b604848d484fdb6b54ccf31067" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Factories.WormFactory.Dispose</definition>
+        <argsstring>()</argsstring>
+        <name>Dispose</name>
+        <qualifiedname>Factories.WormFactory.Dispose</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Factories/WormFactory.cs" line="40" column="21" bodyfile="Factories/WormFactory.cs" bodystart="40" bodyend="44"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_factories_1_1_worm_factory_1a24652fa1c544e9a2b32b5e10f3604a73" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Factories.WormFactory.OnDamageTook</definition>
+        <argsstring>(IWorm worm)</argsstring>
+        <name>OnDamageTook</name>
+        <qualifiedname>Factories.WormFactory.OnDamageTook</qualifiedname>
+        <param>
+          <type><ref refid="interface_worm_components_1_1_i_worm" kindref="compound">IWorm</ref></type>
+          <declname>worm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Factories/WormFactory.cs" line="46" column="22" bodyfile="Factories/WormFactory.cs" bodystart="46" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="class_factories_1_1_worm_factory_1a3facaa6d8391693a710636759b0bbbd9" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Factories.WormFactory.OnDied</definition>
+        <argsstring>(IWorm worm)</argsstring>
+        <name>OnDied</name>
+        <qualifiedname>Factories.WormFactory.OnDied</qualifiedname>
+        <param>
+          <type><ref refid="interface_worm_components_1_1_i_worm" kindref="compound">IWorm</ref></type>
+          <declname>worm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Factories/WormFactory.cs" line="51" column="22" bodyfile="Factories/WormFactory.cs" bodystart="51" bodyend="55"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Factories.WormFactory</label>
+        <link refid="class_factories_1_1_worm_factory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>IDisposable</label>
+      </node>
+      <node id="2">
+        <label>IWormEventsProvider</label>
+        <link refid="interface_event_providers_1_1_i_worm_events_provider"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Factories.WormFactory</label>
+        <link refid="class_factories_1_1_worm_factory"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>IDisposable</label>
+      </node>
+      <node id="2">
+        <label>IWormEventsProvider</label>
+        <link refid="interface_event_providers_1_1_i_worm_events_provider"/>
+      </node>
+    </collaborationgraph>
+    <location file="Factories/WormFactory.cs" line="12" column="11" bodyfile="Factories/WormFactory.cs" bodystart="13" bodyend="56"/>
+    <listofallmembers>
+      <member refid="class_factories_1_1_worm_factory_1adece43b1331de8dfbba45e1f11384708" prot="private" virt="non-virtual"><scope>Factories::WormFactory</scope><name>_wormPrefab</name></member>
+      <member refid="class_factories_1_1_worm_factory_1a8c8f626bbd30084d6df637a16e58784c" prot="private" virt="non-virtual"><scope>Factories::WormFactory</scope><name>_worms</name></member>
+      <member refid="class_factories_1_1_worm_factory_1a861ba12180d547e1e6dd5b82cc76e540" prot="public" virt="non-virtual"><scope>Factories::WormFactory</scope><name>Create</name></member>
+      <member refid="class_factories_1_1_worm_factory_1a96a640b604848d484fdb6b54ccf31067" prot="public" virt="non-virtual"><scope>Factories::WormFactory</scope><name>Dispose</name></member>
+      <member refid="class_factories_1_1_worm_factory_1a24652fa1c544e9a2b32b5e10f3604a73" prot="private" virt="non-virtual"><scope>Factories::WormFactory</scope><name>OnDamageTook</name></member>
+      <member refid="class_factories_1_1_worm_factory_1a3facaa6d8391693a710636759b0bbbd9" prot="private" virt="non-virtual"><scope>Factories::WormFactory</scope><name>OnDied</name></member>
+      <member refid="class_factories_1_1_worm_factory_1a2c0565493093cd639e5d88fb70d5ca2e" prot="public" virt="non-virtual"><scope>Factories::WormFactory</scope><name>WormCreated</name></member>
+      <member refid="class_factories_1_1_worm_factory_1a2f624552b1e87a95a351603d99c11423" prot="public" virt="non-virtual"><scope>Factories::WormFactory</scope><name>WormDamageTook</name></member>
+      <member refid="class_factories_1_1_worm_factory_1a0643a09c092a7e592263c5c66a70b0c1" prot="public" virt="non-virtual"><scope>Factories::WormFactory</scope><name>WormDied</name></member>
+      <member refid="class_factories_1_1_worm_factory_1a763551c79b99cfbf569a48805f4c4b7c" prot="public" virt="non-virtual"><scope>Factories::WormFactory</scope><name>WormFactory</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

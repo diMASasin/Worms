@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_infrastructure_1_1_scene_loader" kind="class" language="C#" prot="public">
+    <compoundname>Infrastructure::SceneLoader</compoundname>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_infrastructure_1_1_scene_loader_1a162a23186f8a8915536d2fc4c2c1fa94" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Infrastructure.SceneLoader.MainMenu</definition>
+        <argsstring></argsstring>
+        <name>MainMenu</name>
+        <qualifiedname>Infrastructure.SceneLoader.MainMenu</qualifiedname>
+        <initializer>= nameof(MainMenu)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Infrastructure/SceneLoader.cs" line="10" column="29" bodyfile="Infrastructure/SceneLoader.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_infrastructure_1_1_scene_loader_1a0585ca47789fd970726376949ed7a2ca" prot="public" static="yes" mutable="no">
+        <type>const string</type>
+        <definition>const string Infrastructure.SceneLoader.Map3</definition>
+        <argsstring></argsstring>
+        <name>Map3</name>
+        <qualifiedname>Infrastructure.SceneLoader.Map3</qualifiedname>
+        <initializer>= nameof(Map3)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Infrastructure/SceneLoader.cs" line="11" column="29" bodyfile="Infrastructure/SceneLoader.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_infrastructure_1_1_scene_loader_1a51f63e2df1d55559f074f2c9fa62d0ba" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="class_infrastructure_1_1_coroutine_performer" kindref="compound">CoroutinePerformer</ref></type>
+        <definition>readonly CoroutinePerformer Infrastructure.SceneLoader._coroutinePerformer</definition>
+        <argsstring></argsstring>
+        <name>_coroutinePerformer</name>
+        <qualifiedname>Infrastructure.SceneLoader._coroutinePerformer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Infrastructure/SceneLoader.cs" line="13" column="45" bodyfile="Infrastructure/SceneLoader.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="event">
+      <memberdef kind="event" id="class_infrastructure_1_1_scene_loader_1a6a66ccdd4bc1e192778654c9d6318c49" prot="public" static="no" add="no" remove="no" raise="no">
+        <type>Action&lt; float &gt;</type>
+        <definition>Action&lt;float&gt; Infrastructure.SceneLoader.ProgressChanged</definition>
+        <argsstring></argsstring>
+        <name>ProgressChanged</name>
+        <qualifiedname>Infrastructure.SceneLoader.ProgressChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Infrastructure/SceneLoader.cs" line="15" column="29" bodyfile="Infrastructure/SceneLoader.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_infrastructure_1_1_scene_loader_1a88b54371256fa5a3eebf3ca887337239" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Infrastructure.SceneLoader.SceneLoader</definition>
+        <argsstring>(CoroutinePerformer coroutinePerformer)</argsstring>
+        <name>SceneLoader</name>
+        <qualifiedname>Infrastructure.SceneLoader.SceneLoader</qualifiedname>
+        <param>
+          <type><ref refid="class_infrastructure_1_1_coroutine_performer" kindref="compound">CoroutinePerformer</ref></type>
+          <declname>coroutinePerformer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Infrastructure/SceneLoader.cs" line="17" column="16" bodyfile="Infrastructure/SceneLoader.cs" bodystart="17" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_infrastructure_1_1_scene_loader_1a852ed19531b4fd717bff93ad4de72c9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Infrastructure.SceneLoader.Load</definition>
+        <argsstring>(string name, Action onLoaded=null)</argsstring>
+        <name>Load</name>
+        <qualifiedname>Infrastructure.SceneLoader.Load</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>Action</type>
+          <declname>onLoaded</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Infrastructure/SceneLoader.cs" line="22" column="21"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_infrastructure_1_1_scene_loader_1a07597d15f0b6e7f8e1ac9ef65a0f7bb8" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerator</type>
+        <definition>IEnumerator Infrastructure.SceneLoader.LoadScene</definition>
+        <argsstring>(string name, Action onLoaded=null)</argsstring>
+        <name>LoadScene</name>
+        <qualifiedname>Infrastructure.SceneLoader.LoadScene</qualifiedname>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>Action</type>
+          <declname>onLoaded</declname>
+          <defval>null</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Infrastructure/SceneLoader.cs" line="25" column="29" bodyfile="Infrastructure/SceneLoader.cs" bodystart="25" bodyend="42"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Infrastructure/SceneLoader.cs" line="8" column="11" bodyfile="Infrastructure/SceneLoader.cs" bodystart="9" bodyend="43"/>
+    <listofallmembers>
+      <member refid="class_infrastructure_1_1_scene_loader_1a51f63e2df1d55559f074f2c9fa62d0ba" prot="private" virt="non-virtual"><scope>Infrastructure::SceneLoader</scope><name>_coroutinePerformer</name></member>
+      <member refid="class_infrastructure_1_1_scene_loader_1a852ed19531b4fd717bff93ad4de72c9a" prot="public" virt="non-virtual"><scope>Infrastructure::SceneLoader</scope><name>Load</name></member>
+      <member refid="class_infrastructure_1_1_scene_loader_1a07597d15f0b6e7f8e1ac9ef65a0f7bb8" prot="private" virt="non-virtual"><scope>Infrastructure::SceneLoader</scope><name>LoadScene</name></member>
+      <member refid="class_infrastructure_1_1_scene_loader_1a162a23186f8a8915536d2fc4c2c1fa94" prot="public" virt="non-virtual"><scope>Infrastructure::SceneLoader</scope><name>MainMenu</name></member>
+      <member refid="class_infrastructure_1_1_scene_loader_1a0585ca47789fd970726376949ed7a2ca" prot="public" virt="non-virtual"><scope>Infrastructure::SceneLoader</scope><name>Map3</name></member>
+      <member refid="class_infrastructure_1_1_scene_loader_1a6a66ccdd4bc1e192778654c9d6318c49" prot="public" virt="non-virtual"><scope>Infrastructure::SceneLoader</scope><name>ProgressChanged</name></member>
+      <member refid="class_infrastructure_1_1_scene_loader_1a88b54371256fa5a3eebf3ca887337239" prot="public" virt="non-virtual"><scope>Infrastructure::SceneLoader</scope><name>SceneLoader</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

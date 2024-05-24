@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_destructible_land_1_1_collider_renderer" kind="class" language="C#" prot="public">
+    <compoundname>DestructibleLand::ColliderRenderer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_destructible_land_1_1_collider_renderer_1a0aee2fc4d7b0d56b27f0df72ed57501d" prot="private" static="no" mutable="no">
+        <type>PolygonCollider2D</type>
+        <definition>PolygonCollider2D DestructibleLand.ColliderRenderer._collider</definition>
+        <argsstring></argsstring>
+        <name>_collider</name>
+        <qualifiedname>DestructibleLand.ColliderRenderer._collider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DestructibleLand/ColliderRenderer.cs" line="9" column="28" bodyfile="DestructibleLand/ColliderRenderer.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_destructible_land_1_1_collider_renderer_1a8b399b3db2fb7ba39d749b5283727ac7" prot="private" static="no" mutable="no">
+        <type>MeshFilter</type>
+        <definition>MeshFilter DestructibleLand.ColliderRenderer._meshFilter</definition>
+        <argsstring></argsstring>
+        <name>_meshFilter</name>
+        <qualifiedname>DestructibleLand.ColliderRenderer._meshFilter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DestructibleLand/ColliderRenderer.cs" line="10" column="21" bodyfile="DestructibleLand/ColliderRenderer.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_destructible_land_1_1_collider_renderer_1a1526b532e2fdaf9ca6ebd09cb36e32b9" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool DestructibleLand.ColliderRenderer._showPointsIndex</definition>
+        <argsstring></argsstring>
+        <name>_showPointsIndex</name>
+        <qualifiedname>DestructibleLand.ColliderRenderer._showPointsIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DestructibleLand/ColliderRenderer.cs" line="11" column="15" bodyfile="DestructibleLand/ColliderRenderer.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_destructible_land_1_1_collider_renderer_1a3649847ddee0f659b5c1a6b17bd66f23" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DestructibleLand.ColliderRenderer.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <qualifiedname>DestructibleLand.ColliderRenderer.Update</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DestructibleLand/ColliderRenderer.cs" line="13" column="22" bodyfile="DestructibleLand/ColliderRenderer.cs" bodystart="13" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_destructible_land_1_1_collider_renderer_1ad3b3303c3a28e7ae285f664c6e866f07" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DestructibleLand.ColliderRenderer.OnValidate</definition>
+        <argsstring>()</argsstring>
+        <name>OnValidate</name>
+        <qualifiedname>DestructibleLand.ColliderRenderer.OnValidate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DestructibleLand/ColliderRenderer.cs" line="20" column="22" bodyfile="DestructibleLand/ColliderRenderer.cs" bodystart="20" bodyend="23"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_destructible_land_1_1_collider_renderer_1af63e9166c2105e7f567ee470d2ca5a35" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void DestructibleLand.ColliderRenderer.CreateMesh</definition>
+        <argsstring>()</argsstring>
+        <name>CreateMesh</name>
+        <qualifiedname>DestructibleLand.ColliderRenderer.CreateMesh</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DestructibleLand/ColliderRenderer.cs" line="24" column="21" bodyfile="DestructibleLand/ColliderRenderer.cs" bodystart="24" bodyend="31"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DestructibleLand.ColliderRenderer</label>
+        <link refid="class_destructible_land_1_1_collider_renderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DestructibleLand.ColliderRenderer</label>
+        <link refid="class_destructible_land_1_1_collider_renderer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="DestructibleLand/ColliderRenderer.cs" line="7" column="11" bodyfile="DestructibleLand/ColliderRenderer.cs" bodystart="8" bodyend="52"/>
+    <listofallmembers>
+      <member refid="class_destructible_land_1_1_collider_renderer_1a0aee2fc4d7b0d56b27f0df72ed57501d" prot="private" virt="non-virtual"><scope>DestructibleLand::ColliderRenderer</scope><name>_collider</name></member>
+      <member refid="class_destructible_land_1_1_collider_renderer_1a8b399b3db2fb7ba39d749b5283727ac7" prot="private" virt="non-virtual"><scope>DestructibleLand::ColliderRenderer</scope><name>_meshFilter</name></member>
+      <member refid="class_destructible_land_1_1_collider_renderer_1a1526b532e2fdaf9ca6ebd09cb36e32b9" prot="private" virt="non-virtual"><scope>DestructibleLand::ColliderRenderer</scope><name>_showPointsIndex</name></member>
+      <member refid="class_destructible_land_1_1_collider_renderer_1af63e9166c2105e7f567ee470d2ca5a35" prot="public" virt="non-virtual"><scope>DestructibleLand::ColliderRenderer</scope><name>CreateMesh</name></member>
+      <member refid="class_destructible_land_1_1_collider_renderer_1ad3b3303c3a28e7ae285f664c6e866f07" prot="private" virt="non-virtual"><scope>DestructibleLand::ColliderRenderer</scope><name>OnValidate</name></member>
+      <member refid="class_destructible_land_1_1_collider_renderer_1a3649847ddee0f659b5c1a6b17bd66f23" prot="private" virt="non-virtual"><scope>DestructibleLand::ColliderRenderer</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

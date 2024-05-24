@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="_i_explode_behaviour_8cs" kind="file" language="C#">
+    <compoundname>IExplodeBehaviour.cs</compoundname>
+    <innerclass refid="interface_projectiles_1_1_behaviours_1_1_explode_behaviour_1_1_i_explode_behaviour" prot="public">Projectiles::Behaviours::ExplodeBehaviour::IExplodeBehaviour</innerclass>
+    <innernamespace refid="namespace_projectiles">Projectiles</innernamespace>
+    <innernamespace refid="namespace_projectiles_1_1_behaviours">Projectiles::Behaviours</innernamespace>
+    <innernamespace refid="namespace_projectiles_1_1_behaviours_1_1_explode_behaviour">Projectiles::Behaviours::ExplodeBehaviour</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_projectiles_1_1_behaviours_1_1_explode_behaviour" kindref="compound">Projectiles.Behaviours.ExplodeBehaviour</ref></highlight></codeline>
+<codeline lineno="2"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3" refid="interface_projectiles_1_1_behaviours_1_1_explode_behaviour_1_1_i_explode_behaviour" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interface_projectiles_1_1_behaviours_1_1_explode_behaviour_1_1_i_explode_behaviour" kindref="compound">IExplodeBehaviour</ref></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interface_projectiles_1_1_behaviours_1_1_explode_behaviour_1_1_i_explode_behaviour_1a43d397e1205a96e78800dfa4459d0e66" kindref="member">OnExplode</ref>();</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="Projectiles/Behaviours/ExplodeBehaviour/IExplodeBehaviour.cs"/>
+  </compounddef>
+</doxygen>

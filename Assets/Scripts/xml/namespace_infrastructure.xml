@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="namespace_infrastructure" kind="namespace" language="C#">
+    <compoundname>Infrastructure</compoundname>
+    <innerclass refid="class_infrastructure_1_1_coroutine_performer" prot="public">Infrastructure::CoroutinePerformer</innerclass>
+    <innerclass refid="class_infrastructure_1_1_game_bootstrapper" prot="public">Infrastructure::GameBootstrapper</innerclass>
+    <innerclass refid="class_infrastructure_1_1_scene_loader" prot="public">Infrastructure::SceneLoader</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Infrastructure/CoroutinePerformer.cs" line="4" column="1"/>
+  </compounddef>
+</doxygen>

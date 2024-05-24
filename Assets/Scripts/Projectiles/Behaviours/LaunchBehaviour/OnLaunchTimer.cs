@@ -1,4 +1,5 @@
 ﻿using System;
+using Pools;
 using Timers;
 using UI;
 using UnityEngine;
@@ -8,7 +9,7 @@ namespace Projectiles.Behaviours.LaunchBehaviour
 {
     public class OnLaunchTimer : ILaunchBehaviour
     {
-        private readonly ObjectPool<FollowingTimerView> _followingTimerViewPool;
+        private readonly IFollowingTimerViewPool _followingTimerViewPool;
         private readonly Projectile _projectile;
         private readonly float _interval;
         private readonly Action _onElapsed;
@@ -16,7 +17,7 @@ namespace Projectiles.Behaviours.LaunchBehaviour
 
         public readonly Timer Timer = new();
 
-        public OnLaunchTimer(ObjectPool<FollowingTimerView> followingTimerViewPool, Projectile projectile, 
+        public OnLaunchTimer(IFollowingTimerViewPool followingTimerViewPool, Projectile projectile, 
             float interval, Action onElapsed)
         {
             _followingTimerViewPool = followingTimerViewPool;

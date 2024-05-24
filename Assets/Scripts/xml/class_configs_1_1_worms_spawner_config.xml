@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_configs_1_1_worms_spawner_config" kind="class" language="C#" prot="public">
+    <compoundname>Configs::WormsSpawnerConfig</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ScriptableObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_configs_1_1_worms_spawner_config_1a98f3709887400a4876a478dee357ad79" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>float</type>
+        <definition>float Configs.WormsSpawnerConfig.MaxSlope</definition>
+        <argsstring></argsstring>
+        <name>MaxSlope</name>
+        <qualifiedname>Configs.WormsSpawnerConfig.MaxSlope</qualifiedname>
+        <initializer>= 45</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/WormsSpawnerConfig.cs" line="9" column="23" bodyfile="Configs/WormsSpawnerConfig.cs" bodystart="9" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="property" id="class_configs_1_1_worms_spawner_config_1a8242258e6aa492a9055fde32360f6e7c" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>List&lt; <ref refid="class_configs_1_1_team_config" kindref="compound">TeamConfig</ref> &gt;</type>
+        <definition>List&lt;TeamConfig&gt; Configs.WormsSpawnerConfig.TeamConfigs</definition>
+        <argsstring></argsstring>
+        <name>TeamConfigs</name>
+        <qualifiedname>Configs.WormsSpawnerConfig.TeamConfigs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/WormsSpawnerConfig.cs" line="10" column="22" bodyfile="Configs/WormsSpawnerConfig.cs" bodystart="10" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="property" id="class_configs_1_1_worms_spawner_config_1a411989a429d151e386dd9635c9706764" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>List&lt; Color &gt;</type>
+        <definition>List&lt;Color&gt; Configs.WormsSpawnerConfig.TeamColors</definition>
+        <argsstring></argsstring>
+        <name>TeamColors</name>
+        <qualifiedname>Configs.WormsSpawnerConfig.TeamColors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/WormsSpawnerConfig.cs" line="11" column="22" bodyfile="Configs/WormsSpawnerConfig.cs" bodystart="11" bodyend="11"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_configs_1_1_worms_spawner_config_1adbe602dd311c1ede5aaec8c8d4372c1d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Configs.WormsSpawnerConfig.OnValidate</definition>
+        <argsstring>()</argsstring>
+        <name>OnValidate</name>
+        <qualifiedname>Configs.WormsSpawnerConfig.OnValidate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/WormsSpawnerConfig.cs" line="13" column="22" bodyfile="Configs/WormsSpawnerConfig.cs" bodystart="13" bodyend="20"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Configs.WormsSpawnerConfig</label>
+        <link refid="class_configs_1_1_worms_spawner_config"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ScriptableObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Configs.WormsSpawnerConfig</label>
+        <link refid="class_configs_1_1_worms_spawner_config"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ScriptableObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="Configs/WormsSpawnerConfig.cs" line="7" column="11" bodyfile="Configs/WormsSpawnerConfig.cs" bodystart="8" bodyend="21"/>
+    <listofallmembers>
+      <member refid="class_configs_1_1_worms_spawner_config_1a98f3709887400a4876a478dee357ad79" prot="public" virt="non-virtual"><scope>Configs::WormsSpawnerConfig</scope><name>MaxSlope</name></member>
+      <member refid="class_configs_1_1_worms_spawner_config_1adbe602dd311c1ede5aaec8c8d4372c1d" prot="private" virt="non-virtual"><scope>Configs::WormsSpawnerConfig</scope><name>OnValidate</name></member>
+      <member refid="class_configs_1_1_worms_spawner_config_1a411989a429d151e386dd9635c9706764" prot="public" virt="non-virtual"><scope>Configs::WormsSpawnerConfig</scope><name>TeamColors</name></member>
+      <member refid="class_configs_1_1_worms_spawner_config_1a8242258e6aa492a9055fde32360f6e7c" prot="public" virt="non-virtual"><scope>Configs::WormsSpawnerConfig</scope><name>TeamConfigs</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

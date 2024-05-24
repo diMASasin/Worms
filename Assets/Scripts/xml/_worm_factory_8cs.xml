@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="_worm_factory_8cs" kind="file" language="C#">
+    <compoundname>WormFactory.cs</compoundname>
+    <innerclass refid="class_factories_1_1_worm_factory" prot="public">Factories::WormFactory</innerclass>
+    <innernamespace refid="namespace_factories">Factories</innernamespace>
+    <innernamespace refid="namespace_unity_1_1_mathematics">Unity::Mathematics</innernamespace>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_worm_factory_8cs_1aef19bab18b9814edeef255c43e4f6bbc" prot="public" static="no">
+        <type>UnityEngine.Object</type>
+        <definition>using Object =  UnityEngine.Object</definition>
+        <argsstring></argsstring>
+        <name>Object</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Factories/WormFactory.cs" line="8" column="1" bodyfile="Factories/WormFactory.cs" bodystart="8" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/></highlight><highlight class="normal">System;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">System.Collections.Generic;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_configs" kindref="compound">Configs</ref>;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_event_providers" kindref="compound">EventProviders</ref>;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">Unity.Mathematics;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">UnityEngine;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_worm_components" kindref="compound">WormComponents</ref>;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="_battle_state_machine_data_8cs_1aef19bab18b9814edeef255c43e4f6bbc" kindref="member">Object</ref><sp/>=<sp/>UnityEngine.Object;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_factories" kindref="compound">Factories</ref></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12" refid="class_factories_1_1_worm_factory" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_factories_1_1_worm_factory" kindref="compound">WormFactory</ref><sp/>:<sp/><ref refid="interface_event_providers_1_1_i_worm_events_provider" kindref="compound">IWormEventsProvider</ref>,<sp/>IDisposable</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/><ref refid="class_worm_components_1_1_worm" kindref="compound">Worm</ref><sp/>_wormPrefab;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/>List&lt;Worm&gt;<sp/>_worms<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">();</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">event</highlight><highlight class="normal"><sp/>Action&lt;IWorm,<sp/>Color,<sp/>string&gt;<sp/><ref refid="class_factories_1_1_worm_factory_1a2c0565493093cd639e5d88fb70d5ca2e" kindref="member">WormCreated</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">event</highlight><highlight class="normal"><sp/>Action&lt;IWorm&gt;<sp/><ref refid="class_factories_1_1_worm_factory_1a0643a09c092a7e592263c5c66a70b0c1" kindref="member">WormDied</ref>;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">event</highlight><highlight class="normal"><sp/>Action&lt;IWorm&gt;<sp/><ref refid="class_factories_1_1_worm_factory_1a2f624552b1e87a95a351603d99c11423" kindref="member">WormDamageTook</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_factories_1_1_worm_factory_1a763551c79b99cfbf569a48805f4c4b7c" kindref="member">WormFactory</ref>(<ref refid="class_worm_components_1_1_worm" kindref="compound">Worm</ref><sp/>wormPrefab)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_wormPrefab<sp/>=<sp/>wormPrefab;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_worm_components_1_1_worm" kindref="compound">Worm</ref><sp/><ref refid="class_factories_1_1_worm_factory_1a861ba12180d547e1e6dd5b82cc76e540" kindref="member">Create</ref>(Transform<sp/>parent,<sp/>Color<sp/>teamColor,<sp/><ref refid="class_configs_1_1_worm_config" kindref="compound">WormConfig</ref><sp/>config,<sp/>Func&lt;Vector2&gt;<sp/>getSpawnPoint)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>newWorm<sp/>=<sp/><ref refid="_battle_state_machine_data_8cs_1aef19bab18b9814edeef255c43e4f6bbc" kindref="member">Object</ref>.Instantiate(_wormPrefab,<sp/>getSpawnPoint(),<sp/>quaternion.identity,<sp/>parent);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newWorm.<ref refid="class_worm_components_1_1_worm_1aeda7f7f419e32053850fb2be4fca1836" kindref="member">Init</ref>(config);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_worms.Add(newWorm);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newWorm.Died<sp/>+=<sp/>OnDied;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newWorm.DamageTook<sp/>+=<sp/>OnDamageTook;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_factories_1_1_worm_factory_1a2c0565493093cd639e5d88fb70d5ca2e" kindref="member">WormCreated</ref>?.Invoke(newWorm,<sp/>teamColor,<sp/>config.<ref refid="class_configs_1_1_worm_config_1af55208ff7abfa58cb08830eb3689e77e" kindref="member">Name</ref><sp/>+<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="class_worm_components_1_1_worm" kindref="compound">Worm</ref>.<ref refid="class_worm_components_1_1_worm_1afaceb80a0f5a5fdcb3a7f007bbf17075" kindref="member">WormsNumber</ref>);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>newWorm;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_factories_1_1_worm_factory_1a96a640b604848d484fdb6b54ccf31067" kindref="member">Dispose</ref>()</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">foreach</highlight><highlight class="normal"><sp/>(var<sp/>worm<sp/></highlight><highlight class="keywordflow">in</highlight><highlight class="normal"><sp/>_worms)<sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>worm.DamageTook<sp/>-=<sp/>OnDamageTook;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnDamageTook(<ref refid="interface_worm_components_1_1_i_worm" kindref="compound">IWorm</ref><sp/>worm)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_factories_1_1_worm_factory_1a2f624552b1e87a95a351603d99c11423" kindref="member">WormDamageTook</ref>?.Invoke(worm);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnDied(<ref refid="interface_worm_components_1_1_i_worm" kindref="compound">IWorm</ref><sp/>worm)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>worm.Died<sp/>-=<sp/>OnDied;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_factories_1_1_worm_factory_1a0643a09c092a7e592263c5c66a70b0c1" kindref="member">WormDied</ref>?.Invoke(worm);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="Factories/WormFactory.cs"/>
+  </compounddef>
+</doxygen>

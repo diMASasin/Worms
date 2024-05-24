@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="interface_event_providers_1_1_i_projectile_events" kind="interface" language="C#" prot="public">
+    <compoundname>EventProviders::IProjectileEvents</compoundname>
+    <derivedcompoundref refid="class_factories_1_1_projectile_factory" prot="public" virt="non-virtual">Factories.ProjectileFactory</derivedcompoundref>
+    <derivedcompoundref refid="class_projectiles_1_1_projectile_launcher" prot="public" virt="non-virtual">Projectiles.ProjectileLauncher</derivedcompoundref>
+    <derivedcompoundref refid="class_projectiles_1_1_projectiles_event_provider" prot="public" virt="non-virtual">Projectiles.ProjectilesEventProvider</derivedcompoundref>
+    <sectiondef kind="event">
+      <memberdef kind="event" id="interface_event_providers_1_1_i_projectile_events_1a711958a0b169c7bd3c0f85e7a5b6735f" prot="public" static="no" add="no" remove="no" raise="no">
+        <type>Action&lt; <ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref>, Vector2 &gt;</type>
+        <definition>Action&lt;Projectile, Vector2&gt; EventProviders.IProjectileEvents.ProjectileLaunched</definition>
+        <argsstring></argsstring>
+        <name>ProjectileLaunched</name>
+        <qualifiedname>EventProviders.IProjectileEvents.ProjectileLaunched</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="EventProviders/IProjectileEvents.cs" line="9" column="22" bodyfile="EventProviders/IProjectileEvents.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="event" id="interface_event_providers_1_1_i_projectile_events_1a396ad3e42045434bb623bed768ee4f69" prot="public" static="no" add="no" remove="no" raise="no">
+        <type>Action&lt; <ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref> &gt;</type>
+        <definition>Action&lt;Projectile&gt; EventProviders.IProjectileEvents.ProjectileExploded</definition>
+        <argsstring></argsstring>
+        <name>ProjectileExploded</name>
+        <qualifiedname>EventProviders.IProjectileEvents.ProjectileExploded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="EventProviders/IProjectileEvents.cs" line="10" column="22" bodyfile="EventProviders/IProjectileEvents.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>EventProviders.IProjectileEvents</label>
+        <link refid="interface_event_providers_1_1_i_projectile_events"/>
+      </node>
+      <node id="2">
+        <label>Factories.ProjectileFactory</label>
+        <link refid="class_factories_1_1_projectile_factory"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Projectiles.ProjectileLauncher</label>
+        <link refid="class_projectiles_1_1_projectile_launcher"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Projectiles.ProjectilesEventProvider</label>
+        <link refid="class_projectiles_1_1_projectiles_event_provider"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="EventProviders/IProjectileEvents.cs" line="7" column="22" bodyfile="EventProviders/IProjectileEvents.cs" bodystart="8" bodyend="11"/>
+    <listofallmembers>
+      <member refid="interface_event_providers_1_1_i_projectile_events_1a396ad3e42045434bb623bed768ee4f69" prot="public" virt="non-virtual"><scope>EventProviders::IProjectileEvents</scope><name>ProjectileExploded</name></member>
+      <member refid="interface_event_providers_1_1_i_projectile_events_1a711958a0b169c7bd3c0f85e7a5b6735f" prot="public" virt="non-virtual"><scope>EventProviders::IProjectileEvents</scope><name>ProjectileLaunched</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

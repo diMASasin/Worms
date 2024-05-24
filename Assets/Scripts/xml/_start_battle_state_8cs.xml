@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="_start_battle_state_8cs" kind="file" language="C#">
+    <compoundname>StartBattleState.cs</compoundname>
+    <innerclass refid="class_battle_state_machine_components_1_1_states_1_1_start_battle_state" prot="public">BattleStateMachineComponents::States::StartBattleState</innerclass>
+    <innernamespace refid="namespace_battle_state_machine_components">BattleStateMachineComponents</innernamespace>
+    <innernamespace refid="namespace_battle_state_machine_components_1_1_states">BattleStateMachineComponents::States</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_configs" kindref="compound">Configs</ref>;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_battle_state_machine_components_1_1_states" kindref="compound">BattleStateMachineComponents.States</ref></highlight></codeline>
+<codeline lineno="4"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="5" refid="class_battle_state_machine_components_1_1_states_1_1_start_battle_state" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_battle_state_machine_components_1_1_states_1_1_start_battle_state" kindref="compound">StartBattleState</ref><sp/>:<sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_battle_state" kindref="compound">BattleState</ref></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="class_configs_1_1_timers_config" kindref="compound">TimersConfig</ref><sp/><ref refid="class_configs_1_1_timers_config" kindref="compound">TimersConfig</ref><sp/>=&gt;<sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_battle_state_1a6913d092513bcc5587efd17736b0b502" kindref="member">Data</ref>.<ref refid="class_battle_state_machine_components_1_1_battle_state_machine_data_1a25a4dc43ecf4fc51261dac5c377036a1" kindref="member">TimersConfig</ref>;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="class_water_mediator" kindref="compound">WaterMediator</ref><sp/><ref refid="class_water_mediator" kindref="compound">WaterMediator</ref><sp/>=&gt;<sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_battle_state_1a6913d092513bcc5587efd17736b0b502" kindref="member">Data</ref>.<ref refid="class_battle_state_machine_components_1_1_battle_state_machine_data_1af62943155d9f0aa514b8143890fce538" kindref="member">WaterMediator</ref>;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_start_battle_state_1a41b66871abd6693116cfca0e047c9787" kindref="member">StartBattleState</ref>(<ref refid="interface_battle_state_machine_components_1_1_i_state_switcher" kindref="compound">IStateSwitcher</ref><sp/>stateSwitcher,<sp/><ref refid="class_battle_state_machine_components_1_1_battle_state_machine_data" kindref="compound">BattleStateMachineData</ref><sp/>data)<sp/>:<sp/>base(stateSwitcher,<sp/>data)<sp/>{<sp/>}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_start_battle_state_1a9af09cf60aceee621a78668b55f3cb23" kindref="member">Enter</ref>()</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_battle_state_1a6913d092513bcc5587efd17736b0b502" kindref="member">Data</ref>.<ref refid="class_battle_state_machine_components_1_1_battle_state_machine_data_1a4180b78a29780b3d870ca8947c2c886f" kindref="member">GlobalTimer</ref>.Start(<ref refid="class_configs_1_1_timers_config" kindref="compound">TimersConfig</ref>.<ref refid="class_configs_1_1_timers_config_1a78c40ad6ea7be9cfcbdfee24cb0a9c02" kindref="member">GlobalTime</ref>,<sp/>()<sp/>=&gt;<sp/><ref refid="class_water_mediator" kindref="compound">WaterMediator</ref>.<ref refid="class_water_mediator_1a3122a1e41dabffb605c72a3c4019d8ca" kindref="member">AllowIncreaseWaterLevel</ref>());</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_battle_state_1af3dbdf7d55bef50357def006a7ac38df" kindref="member">StateSwitcher</ref>.SwitchState&lt;<ref refid="class_battle_state_machine_components_1_1_states_1_1_between_turns_state" kindref="compound">BetweenTurnsState</ref>&gt;();</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_start_battle_state_1ab5648546e22ffe0b7581826d9a292f19" kindref="member">Exit</ref>()</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_start_battle_state_1a6b408c8c195b1e364e9a598243506ee2" kindref="member">Tick</ref>()</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_start_battle_state_1a7527daa8824f29bc012f8165ac800c75" kindref="member">HandleInput</ref>()</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="BattleStateMachineComponents/States/StartBattleState.cs"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="dir_ab92e4bb97f9b80270e1adcb49653c70" kind="dir">
+    <compoundname>GameStateMachineComponents/States</compoundname>
+    <innerfile refid="_bootstrap_state_8cs">BootstrapState.cs</innerfile>
+    <innerfile refid="_game_loop_state_8cs">GameLoopState.cs</innerfile>
+    <innerfile refid="_game_state_8cs">GameState.cs</innerfile>
+    <innerfile refid="_level_load_state_8cs">LevelLoadState.cs</innerfile>
+    <innerfile refid="_main_menu_state_8cs">MainMenuState.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="GameStateMachineComponents/States/"/>
+  </compounddef>
+</doxygen>

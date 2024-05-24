@@ -31,9 +31,9 @@ namespace Spawn
             GetEdgesForSpawn();
         }
 
-        public void Spawn(int teamsNumber, int wormsNumber, out CycledList<Worm> worms, out CycledList<Team> teams)
+        public void Spawn(int teamsNumber, int wormsNumber, out CycledList<IWorm> worms, out CycledList<Team> teams)
         {
-            worms = new CycledList<Worm>();
+            worms = new CycledList<IWorm>();
             teams = new CycledList<Team>();
 
             for (var i = 0; i < teamsNumber; i++)

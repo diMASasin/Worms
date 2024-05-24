@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="namespace_pools" kind="namespace" language="C#">
+    <compoundname>Pools</compoundname>
+    <innerclass refid="class_pools_1_1_explosion_pool" prot="public">Pools::ExplosionPool</innerclass>
+    <innerclass refid="class_pools_1_1_following_timer_view_pool" prot="public">Pools::FollowingTimerViewPool</innerclass>
+    <innerclass refid="interface_pools_1_1_i_following_timer_view_pool" prot="public">Pools::IFollowingTimerViewPool</innerclass>
+    <innerclass refid="class_pools_1_1_mono_object_pool" prot="public">Pools::MonoObjectPool</innerclass>
+    <innerclass refid="class_pools_1_1_object_pool2" prot="public">Pools::ObjectPool2</innerclass>
+    <innerclass refid="class_pools_1_1_object_pool_data" prot="public">Pools::ObjectPoolData</innerclass>
+    <innerclass refid="class_pools_1_1_projectile_data" prot="public">Pools::ProjectileData</innerclass>
+    <innerclass refid="class_pools_1_1_projectile_pool" prot="public">Pools::ProjectilePool</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Pools/ExplosionPool.cs" line="6" column="1"/>
+  </compounddef>
+</doxygen>

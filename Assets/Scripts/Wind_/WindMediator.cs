@@ -9,14 +9,12 @@ namespace Wind_
     public class WindMediator
     {
         private readonly Wind _wind;
-        private readonly IEnumerable<ProjectilePool> _pools;
 
-        private List<Projectile> _projectilesUnderInfluence = new();
+        private List<IProjectile> _projectilesUnderInfluence = new();
 
-        public WindMediator(Wind wind, IEnumerable<ProjectilePool> pools)
+        public WindMediator(Wind wind)
         {
             _wind = wind;
-            _pools = pools;
         }
 
         public void FixedTick()
@@ -25,13 +23,13 @@ namespace Wind_
                 _projectilesUnderInfluence[i].InfluenceOnVelocity(Vector2.right * (_wind.Velocity * Time.fixedDeltaTime));
         }
 
-        public void InfluenceOnProjectileIfNecessary(Projectile projectile, ProjectileConfig projectileConfig)
+        public void InfluenceOnProjectileIfNecessary(IProjectile projectile)
         {
-            if (projectileConfig.WindInfluence == true)
+            if (projectile.Config.WindInfluence == true)
                 _projectilesUnderInfluence.Add(projectile);
         }
 
-        public void RemoveProjectileFromInfluence(Projectile projectile)
+        public void RemoveProjectileFromInfluence(IProjectile projectile)
         {
             if(_projectilesUnderInfluence.Contains(projectile))
                 _projectilesUnderInfluence.Remove(projectile);

@@ -1,0 +1,342 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_projectiles_1_1_projectile_configurator" kind="class" language="C#" prot="public">
+    <compoundname>Projectiles::ProjectileConfigurator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IDisposable</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_projectiles_1_1_projectile_configurator_1a73bb0ab005a5a4e5a0174acbb5df3488" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref></type>
+        <definition>readonly Projectile Projectiles.ProjectileConfigurator._projectile</definition>
+        <argsstring></argsstring>
+        <name>_projectile</name>
+        <qualifiedname>Projectiles.ProjectileConfigurator._projectile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileConfigurator.cs" line="18" column="37" bodyfile="Projectiles/ProjectileConfigurator.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_projectiles_1_1_projectile_configurator_1a1a2e0efcdfe25c75a2141f3d72efc6e6" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="class_configs_1_1_projectile_config" kindref="compound">ProjectileConfig</ref></type>
+        <definition>readonly ProjectileConfig Projectiles.ProjectileConfigurator._config</definition>
+        <argsstring></argsstring>
+        <name>_config</name>
+        <qualifiedname>Projectiles.ProjectileConfigurator._config</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileConfigurator.cs" line="19" column="43" bodyfile="Projectiles/ProjectileConfigurator.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_projectiles_1_1_projectile_configurator_1ac8dd866f38df55988414234d463166ce" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="interface_pools_1_1_i_following_timer_view_pool" kindref="compound">IFollowingTimerViewPool</ref></type>
+        <definition>readonly IFollowingTimerViewPool Projectiles.ProjectileConfigurator._followingTimerViewPool</definition>
+        <argsstring></argsstring>
+        <name>_followingTimerViewPool</name>
+        <qualifiedname>Projectiles.ProjectileConfigurator._followingTimerViewPool</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileConfigurator.cs" line="20" column="50" bodyfile="Projectiles/ProjectileConfigurator.cs" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_projectiles_1_1_projectile_configurator_1a1854ec55f48215b173c6af972096384c" prot="private" static="no" mutable="no">
+        <type>readonly List&lt; <ref refid="interface_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_i_launch_behaviour" kindref="compound">ILaunchBehaviour</ref> &gt;</type>
+        <definition>readonly List&lt;ILaunchBehaviour&gt; Projectiles.ProjectileConfigurator._launchBehaviours</definition>
+        <argsstring></argsstring>
+        <name>_launchBehaviours</name>
+        <qualifiedname>Projectiles.ProjectileConfigurator._launchBehaviours</qualifiedname>
+        <initializer>= new()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileConfigurator.cs" line="22" column="31" bodyfile="Projectiles/ProjectileConfigurator.cs" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_projectiles_1_1_projectile_configurator_1a5dd8e87ccd923aa7703158ca46ce57f7" prot="private" static="no" mutable="no">
+        <type>readonly List&lt; <ref refid="interface_projectiles_1_1_behaviours_1_1_explode_behaviour_1_1_i_explode_behaviour" kindref="compound">IExplodeBehaviour</ref> &gt;</type>
+        <definition>readonly List&lt;IExplodeBehaviour&gt; Projectiles.ProjectileConfigurator._explodeBehaviours</definition>
+        <argsstring></argsstring>
+        <name>_explodeBehaviours</name>
+        <qualifiedname>Projectiles.ProjectileConfigurator._explodeBehaviours</qualifiedname>
+        <initializer>= new()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileConfigurator.cs" line="23" column="31" bodyfile="Projectiles/ProjectileConfigurator.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_projectiles_1_1_projectile_configurator_1a3f68bb24e71ce09fc94c9a89aaf4c39b" prot="private" static="no" mutable="no">
+        <type><ref refid="class_u_i_1_1_following_timer_view" kindref="compound">FollowingTimerView</ref></type>
+        <definition>FollowingTimerView Projectiles.ProjectileConfigurator._followingTimerView</definition>
+        <argsstring></argsstring>
+        <name>_followingTimerView</name>
+        <qualifiedname>Projectiles.ProjectileConfigurator._followingTimerView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileConfigurator.cs" line="24" column="36" bodyfile="Projectiles/ProjectileConfigurator.cs" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_projectiles_1_1_projectile_configurator_1aab4ce5b59c15bced4abcb6cfacf0c7f4" prot="private" static="no" mutable="no">
+        <type><ref refid="class_movement_components_1_1_sheep_movement" kindref="compound">SheepMovement</ref></type>
+        <definition>SheepMovement Projectiles.ProjectileConfigurator._sheepMovement</definition>
+        <argsstring></argsstring>
+        <name>_sheepMovement</name>
+        <qualifiedname>Projectiles.ProjectileConfigurator._sheepMovement</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileConfigurator.cs" line="25" column="31" bodyfile="Projectiles/ProjectileConfigurator.cs" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_projectiles_1_1_projectile_configurator_1af895f7d340acdc847afedbe16c5f26c6" prot="private" static="no" mutable="no">
+        <type><ref refid="class_worm_components_1_1_ground_checker" kindref="compound">GroundChecker</ref></type>
+        <definition>GroundChecker Projectiles.ProjectileConfigurator._groundChecker</definition>
+        <argsstring></argsstring>
+        <name>_groundChecker</name>
+        <qualifiedname>Projectiles.ProjectileConfigurator._groundChecker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileConfigurator.cs" line="26" column="31" bodyfile="Projectiles/ProjectileConfigurator.cs" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_projectiles_1_1_projectile_configurator_1a50ffe6eb44c95b889e68ebc9e0a52f6c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Projectiles.ProjectileConfigurator.ProjectileConfigurator</definition>
+        <argsstring>(Projectile projectile, ProjectileConfig config, FollowingTimerViewPool followingTimerViewPool)</argsstring>
+        <name>ProjectileConfigurator</name>
+        <qualifiedname>Projectiles.ProjectileConfigurator.ProjectileConfigurator</qualifiedname>
+        <param>
+          <type><ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref></type>
+          <declname>projectile</declname>
+        </param>
+        <param>
+          <type><ref refid="class_configs_1_1_projectile_config" kindref="compound">ProjectileConfig</ref></type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type><ref refid="class_pools_1_1_following_timer_view_pool" kindref="compound">FollowingTimerViewPool</ref></type>
+          <declname>followingTimerViewPool</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileConfigurator.cs" line="28" column="16" bodyfile="Projectiles/ProjectileConfigurator.cs" bodystart="28" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_projectiles_1_1_projectile_configurator_1a10645660cd964675f1d8bffd0f6e115f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Projectiles.ProjectileConfigurator.Dispose</definition>
+        <argsstring>()</argsstring>
+        <name>Dispose</name>
+        <qualifiedname>Projectiles.ProjectileConfigurator.Dispose</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileConfigurator.cs" line="39" column="21" bodyfile="Projectiles/ProjectileConfigurator.cs" bodystart="39" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_projectiles_1_1_projectile_configurator_1aa55fa2bccab76656a660699636ab0326" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Projectiles.ProjectileConfigurator.FixedTick</definition>
+        <argsstring>()</argsstring>
+        <name>FixedTick</name>
+        <qualifiedname>Projectiles.ProjectileConfigurator.FixedTick</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileConfigurator.cs" line="45" column="21" bodyfile="Projectiles/ProjectileConfigurator.cs" bodystart="45" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="class_projectiles_1_1_projectile_configurator_1a224861cb202b231fe845799daa39068f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Projectiles.ProjectileConfigurator.OnDrawGizmos</definition>
+        <argsstring>()</argsstring>
+        <name>OnDrawGizmos</name>
+        <qualifiedname>Projectiles.ProjectileConfigurator.OnDrawGizmos</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileConfigurator.cs" line="51" column="21" bodyfile="Projectiles/ProjectileConfigurator.cs" bodystart="51" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="class_projectiles_1_1_projectile_configurator_1a1ff606d8b8f1531b3578f818f22fee37" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Projectiles.ProjectileConfigurator.Configure</definition>
+        <argsstring>(ProjectileConfig config)</argsstring>
+        <name>Configure</name>
+        <qualifiedname>Projectiles.ProjectileConfigurator.Configure</qualifiedname>
+        <param>
+          <type><ref refid="class_configs_1_1_projectile_config" kindref="compound">ProjectileConfig</ref></type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileConfigurator.cs" line="71" column="21" bodyfile="Projectiles/ProjectileConfigurator.cs" bodystart="71" bodyend="91"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_projectiles_1_1_projectile_configurator_1a6b24b771d6252fc65d46b2ae85f0b808" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Projectiles.ProjectileConfigurator.OnExploded</definition>
+        <argsstring>(Projectile projectile)</argsstring>
+        <name>OnExploded</name>
+        <qualifiedname>Projectiles.ProjectileConfigurator.OnExploded</qualifiedname>
+        <param>
+          <type><ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref></type>
+          <declname>projectile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileConfigurator.cs" line="57" column="22" bodyfile="Projectiles/ProjectileConfigurator.cs" bodystart="57" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="class_projectiles_1_1_projectile_configurator_1a0f61bad6afbcd69f536e6e6eeedc0a79" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Projectiles.ProjectileConfigurator.OnLaunched</definition>
+        <argsstring>(Projectile projectile, Vector2 shotPower)</argsstring>
+        <name>OnLaunched</name>
+        <qualifiedname>Projectiles.ProjectileConfigurator.OnLaunched</qualifiedname>
+        <param>
+          <type><ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref></type>
+          <declname>projectile</declname>
+        </param>
+        <param>
+          <type>Vector2</type>
+          <declname>shotPower</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileConfigurator.cs" line="65" column="22" bodyfile="Projectiles/ProjectileConfigurator.cs" bodystart="65" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="class_projectiles_1_1_projectile_configurator_1a9c20d391362a35314b68d5bf28f47eb4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_sheep_projectile" kindref="compound">SheepProjectile</ref></type>
+        <definition>SheepProjectile Projectiles.ProjectileConfigurator.GetMovementBehaviour</definition>
+        <argsstring>()</argsstring>
+        <name>GetMovementBehaviour</name>
+        <qualifiedname>Projectiles.ProjectileConfigurator.GetMovementBehaviour</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileConfigurator.cs" line="93" column="33" bodyfile="Projectiles/ProjectileConfigurator.cs" bodystart="93" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="class_projectiles_1_1_projectile_configurator_1a6660fda8b2a831bb020e03bb7bea6760" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_projectile_rotator" kindref="compound">ProjectileRotator</ref></type>
+        <definition>ProjectileRotator Projectiles.ProjectileConfigurator.GetRotator</definition>
+        <argsstring>()</argsstring>
+        <name>GetRotator</name>
+        <qualifiedname>Projectiles.ProjectileConfigurator.GetRotator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileConfigurator.cs" line="108" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="class_projectiles_1_1_projectile_configurator_1a714841614f330da91153dae7c768528d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_projectiles_1_1_behaviours_1_1_explode_behaviour_1_1_fragments_explode_behaviour" kindref="compound">FragmentsExplodeBehaviour</ref></type>
+        <definition>FragmentsExplodeBehaviour Projectiles.ProjectileConfigurator.GetFragmentsBehaviour</definition>
+        <argsstring>()</argsstring>
+        <name>GetFragmentsBehaviour</name>
+        <qualifiedname>Projectiles.ProjectileConfigurator.GetFragmentsBehaviour</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/ProjectileConfigurator.cs" line="110" column="43"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>IDisposable</label>
+      </node>
+      <node id="1">
+        <label>Projectiles.ProjectileConfigurator</label>
+        <link refid="class_projectiles_1_1_projectile_configurator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>IDisposable</label>
+      </node>
+      <node id="1">
+        <label>Projectiles.ProjectileConfigurator</label>
+        <link refid="class_projectiles_1_1_projectile_configurator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Projectiles/ProjectileConfigurator.cs" line="16" column="11" bodyfile="Projectiles/ProjectileConfigurator.cs" bodystart="17" bodyend="112"/>
+    <listofallmembers>
+      <member refid="class_projectiles_1_1_projectile_configurator_1a1a2e0efcdfe25c75a2141f3d72efc6e6" prot="private" virt="non-virtual"><scope>Projectiles::ProjectileConfigurator</scope><name>_config</name></member>
+      <member refid="class_projectiles_1_1_projectile_configurator_1a5dd8e87ccd923aa7703158ca46ce57f7" prot="private" virt="non-virtual"><scope>Projectiles::ProjectileConfigurator</scope><name>_explodeBehaviours</name></member>
+      <member refid="class_projectiles_1_1_projectile_configurator_1a3f68bb24e71ce09fc94c9a89aaf4c39b" prot="private" virt="non-virtual"><scope>Projectiles::ProjectileConfigurator</scope><name>_followingTimerView</name></member>
+      <member refid="class_projectiles_1_1_projectile_configurator_1ac8dd866f38df55988414234d463166ce" prot="private" virt="non-virtual"><scope>Projectiles::ProjectileConfigurator</scope><name>_followingTimerViewPool</name></member>
+      <member refid="class_projectiles_1_1_projectile_configurator_1af895f7d340acdc847afedbe16c5f26c6" prot="private" virt="non-virtual"><scope>Projectiles::ProjectileConfigurator</scope><name>_groundChecker</name></member>
+      <member refid="class_projectiles_1_1_projectile_configurator_1a1854ec55f48215b173c6af972096384c" prot="private" virt="non-virtual"><scope>Projectiles::ProjectileConfigurator</scope><name>_launchBehaviours</name></member>
+      <member refid="class_projectiles_1_1_projectile_configurator_1a73bb0ab005a5a4e5a0174acbb5df3488" prot="private" virt="non-virtual"><scope>Projectiles::ProjectileConfigurator</scope><name>_projectile</name></member>
+      <member refid="class_projectiles_1_1_projectile_configurator_1aab4ce5b59c15bced4abcb6cfacf0c7f4" prot="private" virt="non-virtual"><scope>Projectiles::ProjectileConfigurator</scope><name>_sheepMovement</name></member>
+      <member refid="class_projectiles_1_1_projectile_configurator_1a1ff606d8b8f1531b3578f818f22fee37" prot="public" virt="non-virtual"><scope>Projectiles::ProjectileConfigurator</scope><name>Configure</name></member>
+      <member refid="class_projectiles_1_1_projectile_configurator_1a10645660cd964675f1d8bffd0f6e115f" prot="public" virt="non-virtual"><scope>Projectiles::ProjectileConfigurator</scope><name>Dispose</name></member>
+      <member refid="class_projectiles_1_1_projectile_configurator_1aa55fa2bccab76656a660699636ab0326" prot="public" virt="non-virtual"><scope>Projectiles::ProjectileConfigurator</scope><name>FixedTick</name></member>
+      <member refid="class_projectiles_1_1_projectile_configurator_1a714841614f330da91153dae7c768528d" prot="private" virt="non-virtual"><scope>Projectiles::ProjectileConfigurator</scope><name>GetFragmentsBehaviour</name></member>
+      <member refid="class_projectiles_1_1_projectile_configurator_1a9c20d391362a35314b68d5bf28f47eb4" prot="private" virt="non-virtual"><scope>Projectiles::ProjectileConfigurator</scope><name>GetMovementBehaviour</name></member>
+      <member refid="class_projectiles_1_1_projectile_configurator_1a6660fda8b2a831bb020e03bb7bea6760" prot="private" virt="non-virtual"><scope>Projectiles::ProjectileConfigurator</scope><name>GetRotator</name></member>
+      <member refid="class_projectiles_1_1_projectile_configurator_1a224861cb202b231fe845799daa39068f" prot="public" virt="non-virtual"><scope>Projectiles::ProjectileConfigurator</scope><name>OnDrawGizmos</name></member>
+      <member refid="class_projectiles_1_1_projectile_configurator_1a6b24b771d6252fc65d46b2ae85f0b808" prot="private" virt="non-virtual"><scope>Projectiles::ProjectileConfigurator</scope><name>OnExploded</name></member>
+      <member refid="class_projectiles_1_1_projectile_configurator_1a0f61bad6afbcd69f536e6e6eeedc0a79" prot="private" virt="non-virtual"><scope>Projectiles::ProjectileConfigurator</scope><name>OnLaunched</name></member>
+      <member refid="class_projectiles_1_1_projectile_configurator_1a50ffe6eb44c95b889e68ebc9e0a52f6c" prot="public" virt="non-virtual"><scope>Projectiles::ProjectileConfigurator</scope><name>ProjectileConfigurator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

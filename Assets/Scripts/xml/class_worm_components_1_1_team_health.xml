@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_worm_components_1_1_team_health" kind="class" language="C#" prot="public">
+    <compoundname>WormComponents::TeamHealth</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_worm_components_1_1_team_health_1aac75ef2f9da0ce9f00e83f4dad678e72" prot="private" static="no" mutable="no">
+        <type>TMP_Text</type>
+        <definition>TMP_Text WormComponents.TeamHealth._teamName</definition>
+        <argsstring></argsstring>
+        <name>_teamName</name>
+        <qualifiedname>WormComponents.TeamHealth._teamName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/TeamHealth.cs" line="9" column="27" bodyfile="WormComponents/TeamHealth.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_worm_components_1_1_team_health_1a22556b0f9cad9d282038eb5d9ce5a85a" prot="private" static="no" mutable="no">
+        <type>Image</type>
+        <definition>Image WormComponents.TeamHealth._fillImage</definition>
+        <argsstring></argsstring>
+        <name>_fillImage</name>
+        <qualifiedname>WormComponents.TeamHealth._fillImage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/TeamHealth.cs" line="10" column="24" bodyfile="WormComponents/TeamHealth.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_worm_components_1_1_team_health_1a2949b3e6a16470ffc299767641ee133f" prot="private" static="no" mutable="no">
+        <type>Slider</type>
+        <definition>Slider WormComponents.TeamHealth._healthSlider</definition>
+        <argsstring></argsstring>
+        <name>_healthSlider</name>
+        <qualifiedname>WormComponents.TeamHealth._healthSlider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/TeamHealth.cs" line="11" column="25" bodyfile="WormComponents/TeamHealth.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_worm_components_1_1_team_health_1af5dbe1e2e766be42e5bd7e29672976c4" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int WormComponents.TeamHealth._maxHealth</definition>
+        <argsstring></argsstring>
+        <name>_maxHealth</name>
+        <qualifiedname>WormComponents.TeamHealth._maxHealth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/TeamHealth.cs" line="13" column="21" bodyfile="WormComponents/TeamHealth.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_worm_components_1_1_team_health_1a64c03682ca104a56ad6359c0f9f3d390" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.TeamHealth.Init</definition>
+        <argsstring>(Color color, Team team)</argsstring>
+        <name>Init</name>
+        <qualifiedname>WormComponents.TeamHealth.Init</qualifiedname>
+        <param>
+          <type>Color</type>
+          <declname>color</declname>
+        </param>
+        <param>
+          <type><ref refid="class_worm_components_1_1_team" kindref="compound">Team</ref></type>
+          <declname>team</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/TeamHealth.cs" line="15" column="21" bodyfile="WormComponents/TeamHealth.cs" bodystart="15" bodyend="22"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_worm_components_1_1_team_health_1aef993892bb7d7336193a80688fa4f344" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.TeamHealth.OnHealthChanged</definition>
+        <argsstring>(int health)</argsstring>
+        <name>OnHealthChanged</name>
+        <qualifiedname>WormComponents.TeamHealth.OnHealthChanged</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>health</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/TeamHealth.cs" line="24" column="22" bodyfile="WormComponents/TeamHealth.cs" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="class_worm_components_1_1_team_health_1a2a8d11ccbebe0f5b01b1eec1cdca6a9c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.TeamHealth.OnDied</definition>
+        <argsstring>(Team team)</argsstring>
+        <name>OnDied</name>
+        <qualifiedname>WormComponents.TeamHealth.OnDied</qualifiedname>
+        <param>
+          <type><ref refid="class_worm_components_1_1_team" kindref="compound">Team</ref></type>
+          <declname>team</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/TeamHealth.cs" line="29" column="22" bodyfile="WormComponents/TeamHealth.cs" bodystart="29" bodyend="33"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="1">
+        <label>WormComponents.TeamHealth</label>
+        <link refid="class_worm_components_1_1_team_health"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="1">
+        <label>WormComponents.TeamHealth</label>
+        <link refid="class_worm_components_1_1_team_health"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="WormComponents/TeamHealth.cs" line="7" column="11" bodyfile="WormComponents/TeamHealth.cs" bodystart="8" bodyend="34"/>
+    <listofallmembers>
+      <member refid="class_worm_components_1_1_team_health_1a22556b0f9cad9d282038eb5d9ce5a85a" prot="private" virt="non-virtual"><scope>WormComponents::TeamHealth</scope><name>_fillImage</name></member>
+      <member refid="class_worm_components_1_1_team_health_1a2949b3e6a16470ffc299767641ee133f" prot="private" virt="non-virtual"><scope>WormComponents::TeamHealth</scope><name>_healthSlider</name></member>
+      <member refid="class_worm_components_1_1_team_health_1af5dbe1e2e766be42e5bd7e29672976c4" prot="private" virt="non-virtual"><scope>WormComponents::TeamHealth</scope><name>_maxHealth</name></member>
+      <member refid="class_worm_components_1_1_team_health_1aac75ef2f9da0ce9f00e83f4dad678e72" prot="private" virt="non-virtual"><scope>WormComponents::TeamHealth</scope><name>_teamName</name></member>
+      <member refid="class_worm_components_1_1_team_health_1a64c03682ca104a56ad6359c0f9f3d390" prot="public" virt="non-virtual"><scope>WormComponents::TeamHealth</scope><name>Init</name></member>
+      <member refid="class_worm_components_1_1_team_health_1a2a8d11ccbebe0f5b01b1eec1cdca6a9c" prot="private" virt="non-virtual"><scope>WormComponents::TeamHealth</scope><name>OnDied</name></member>
+      <member refid="class_worm_components_1_1_team_health_1aef993892bb7d7336193a80688fa4f344" prot="private" virt="non-virtual"><scope>WormComponents::TeamHealth</scope><name>OnHealthChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

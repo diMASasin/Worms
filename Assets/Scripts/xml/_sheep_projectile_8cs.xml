@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="_sheep_projectile_8cs" kind="file" language="C#">
+    <compoundname>SheepProjectile.cs</compoundname>
+    <innerclass refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_sheep_projectile" prot="public">Projectiles::Behaviours::LaunchBehaviour::SheepProjectile</innerclass>
+    <innernamespace refid="namespace_projectiles">Projectiles</innernamespace>
+    <innernamespace refid="namespace_projectiles_1_1_behaviours">Projectiles::Behaviours</innernamespace>
+    <innernamespace refid="namespace_projectiles_1_1_behaviours_1_1_launch_behaviour">Projectiles::Behaviours::LaunchBehaviour</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_movement_components" kindref="compound">MovementComponents</ref>;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">UnityEngine;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_projectiles_1_1_behaviours_1_1_launch_behaviour" kindref="compound">Projectiles.Behaviours.LaunchBehaviour</ref></highlight></codeline>
+<codeline lineno="5"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="6" refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_sheep_projectile" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_sheep_projectile" kindref="compound">SheepProjectile</ref><sp/>:<sp/><ref refid="interface_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_i_launch_behaviour" kindref="compound">ILaunchBehaviour</ref></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="class_movement_components_1_1_sheep_movement" kindref="compound">SheepMovement</ref><sp/>_sheepMovement;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_sheep_projectile_1a539c352af275d8f542f2f4b1da83f299" kindref="member">SheepProjectile</ref>(<ref refid="class_movement_components_1_1_sheep_movement" kindref="compound">SheepMovement</ref><sp/>sheepMovement)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_sheepMovement<sp/>=<sp/>sheepMovement;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_sheep_projectile_1af6719f6cfc69df5c95f98936ed323f71" kindref="member">OnLaunch</ref>(Vector2<sp/>velocity)</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_sheepMovement.<ref refid="class_movement_components_1_1_movement_1a86810182c5e69265e432b8f221e56187" kindref="member">Reset</ref>();</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_sheepMovement.<ref refid="class_movement_components_1_1_movement_1af2eb4dd6c1a23d5c871ba88977531bfa" kindref="member">TryMove</ref>(Mathf.Sign(velocity.x));</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="Projectiles/Behaviours/LaunchBehaviour/SheepProjectile.cs"/>
+  </compounddef>
+</doxygen>

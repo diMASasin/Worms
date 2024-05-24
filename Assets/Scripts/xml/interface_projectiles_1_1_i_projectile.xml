@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="interface_projectiles_1_1_i_projectile" kind="interface" language="C#" prot="public">
+    <compoundname>Projectiles::IProjectile</compoundname>
+    <derivedcompoundref refid="class_projectiles_1_1_projectile" prot="public" virt="non-virtual">Projectiles.Projectile</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="interface_projectiles_1_1_i_projectile_1a29c2276202c03939bb3d1c83dc77d1de" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_configs_1_1_projectile_config" kindref="compound">ProjectileConfig</ref></type>
+        <definition>ProjectileConfig Projectiles.IProjectile.Config</definition>
+        <argsstring></argsstring>
+        <name>Config</name>
+        <qualifiedname>Projectiles.IProjectile.Config</qualifiedname>
+        <reimplementedby refid="class_projectiles_1_1_projectile_1aa4700df3a709f575a1c07ee6fe23749c">Config</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/IProjectile.cs" line="12" column="26" bodyfile="Projectiles/IProjectile.cs" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_projectiles_1_1_i_projectile_1accb93e89b5d696b6b83f6c8bfd0d3415" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>CircleCollider2D</type>
+        <definition>CircleCollider2D Projectiles.IProjectile.Collider</definition>
+        <argsstring></argsstring>
+        <name>Collider</name>
+        <qualifiedname>Projectiles.IProjectile.Collider</qualifiedname>
+        <reimplementedby refid="class_projectiles_1_1_projectile_1a24a19069c73ffc3a1842fc951bb9d3c4">Collider</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/IProjectile.cs" line="13" column="26" bodyfile="Projectiles/IProjectile.cs" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_projectiles_1_1_i_projectile_1a9c08a5044d1f4e232182ea2b99f69508" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Rigidbody2D</type>
+        <definition>Rigidbody2D Projectiles.IProjectile.Rigidbody</definition>
+        <argsstring></argsstring>
+        <name>Rigidbody</name>
+        <qualifiedname>Projectiles.IProjectile.Rigidbody</qualifiedname>
+        <reimplementedby refid="class_projectiles_1_1_projectile_1aa3f10c36e2d814c7ccb4d5d6a241717f">Rigidbody</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/IProjectile.cs" line="14" column="21" bodyfile="Projectiles/IProjectile.cs" bodystart="14" bodyend="14"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="event">
+      <memberdef kind="event" id="interface_projectiles_1_1_i_projectile_1a30e4ff6059c64552923b3aa4582f0e78" prot="public" static="no" add="no" remove="no" raise="no">
+        <type>Action&lt; <ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref> &gt;</type>
+        <definition>Action&lt;Projectile&gt; Projectiles.IProjectile.Exploded</definition>
+        <argsstring></argsstring>
+        <name>Exploded</name>
+        <qualifiedname>Projectiles.IProjectile.Exploded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/IProjectile.cs" line="15" column="22" bodyfile="Projectiles/IProjectile.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="event" id="interface_projectiles_1_1_i_projectile_1ad680a5b5282b88425c99d57463dd91b6" prot="public" static="no" add="no" remove="no" raise="no">
+        <type>Action&lt; <ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref>, Vector2 &gt;</type>
+        <definition>Action&lt;Projectile, Vector2&gt; Projectiles.IProjectile.Launched</definition>
+        <argsstring></argsstring>
+        <name>Launched</name>
+        <qualifiedname>Projectiles.IProjectile.Launched</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/IProjectile.cs" line="16" column="22" bodyfile="Projectiles/IProjectile.cs" bodystart="16" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interface_projectiles_1_1_i_projectile_1a527a900eb6562c97d1d602a3753c2c4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Projectiles.IProjectile.Init</definition>
+        <argsstring>(ProjectileConfig config)</argsstring>
+        <name>Init</name>
+        <qualifiedname>Projectiles.IProjectile.Init</qualifiedname>
+        <reimplementedby refid="class_projectiles_1_1_projectile_1a1a4e5049b0c2a4691c9958abb9bd546d">Init</reimplementedby>
+        <param>
+          <type><ref refid="class_configs_1_1_projectile_config" kindref="compound">ProjectileConfig</ref></type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/IProjectile.cs" line="17" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_projectiles_1_1_i_projectile_1a6583aaf447e261c20b9f13a95e12bad3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Projectiles.IProjectile.ResetProjectile</definition>
+        <argsstring>()</argsstring>
+        <name>ResetProjectile</name>
+        <qualifiedname>Projectiles.IProjectile.ResetProjectile</qualifiedname>
+        <reimplementedby refid="class_projectiles_1_1_projectile_1a39a62b7465af00e6c41845b2689ca23c">ResetProjectile</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/IProjectile.cs" line="18" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_projectiles_1_1_i_projectile_1a8bdd2cee664ac400c449553ff3f05d2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Projectiles.IProjectile.InfluenceOnVelocity</definition>
+        <argsstring>(Vector2 additionalVelocity)</argsstring>
+        <name>InfluenceOnVelocity</name>
+        <qualifiedname>Projectiles.IProjectile.InfluenceOnVelocity</qualifiedname>
+        <reimplementedby refid="class_projectiles_1_1_projectile_1a38614d4878ed194347f2db3bea7b22a2">InfluenceOnVelocity</reimplementedby>
+        <param>
+          <type>Vector2</type>
+          <declname>additionalVelocity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/IProjectile.cs" line="19" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_projectiles_1_1_i_projectile_1ad3abcafebc22208bcfe90398cab67ec7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Projectiles.IProjectile.ResetView</definition>
+        <argsstring>()</argsstring>
+        <name>ResetView</name>
+        <qualifiedname>Projectiles.IProjectile.ResetView</qualifiedname>
+        <reimplementedby refid="class_projectiles_1_1_projectile_1aaa3b43f0d2340b5457ce4926dd1eeb9d">ResetView</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/IProjectile.cs" line="20" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_projectiles_1_1_i_projectile_1a6d2a92c9784c0e89a6b199fa418db233" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Projectiles.IProjectile.Launch</definition>
+        <argsstring>(Vector2 velocity)</argsstring>
+        <name>Launch</name>
+        <qualifiedname>Projectiles.IProjectile.Launch</qualifiedname>
+        <reimplementedby refid="class_projectiles_1_1_projectile_1ae2260da94ffbb9a2418b9c75d17ff7eb">Launch</reimplementedby>
+        <param>
+          <type>Vector2</type>
+          <declname>velocity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/IProjectile.cs" line="21" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_projectiles_1_1_i_projectile_1a850fec0a2601ec2b2f83f4b41d44f8ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Projectiles.IProjectile.Explode</definition>
+        <argsstring>()</argsstring>
+        <name>Explode</name>
+        <qualifiedname>Projectiles.IProjectile.Explode</qualifiedname>
+        <reimplementedby refid="class_projectiles_1_1_projectile_1a7ef89674503be5f9991fd6ea123cdc8d">Explode</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/IProjectile.cs" line="22" column="14"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Projectiles.IProjectile</label>
+        <link refid="interface_projectiles_1_1_i_projectile"/>
+      </node>
+      <node id="2">
+        <label>Projectiles.Projectile</label>
+        <link refid="class_projectiles_1_1_projectile"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="Projectiles/IProjectile.cs" line="10" column="22" bodyfile="Projectiles/IProjectile.cs" bodystart="11" bodyend="23"/>
+    <listofallmembers>
+      <member refid="interface_projectiles_1_1_i_projectile_1accb93e89b5d696b6b83f6c8bfd0d3415" prot="public" virt="non-virtual"><scope>Projectiles::IProjectile</scope><name>Collider</name></member>
+      <member refid="interface_projectiles_1_1_i_projectile_1a29c2276202c03939bb3d1c83dc77d1de" prot="public" virt="non-virtual"><scope>Projectiles::IProjectile</scope><name>Config</name></member>
+      <member refid="interface_projectiles_1_1_i_projectile_1a850fec0a2601ec2b2f83f4b41d44f8ab" prot="public" virt="non-virtual"><scope>Projectiles::IProjectile</scope><name>Explode</name></member>
+      <member refid="interface_projectiles_1_1_i_projectile_1a30e4ff6059c64552923b3aa4582f0e78" prot="public" virt="non-virtual"><scope>Projectiles::IProjectile</scope><name>Exploded</name></member>
+      <member refid="interface_projectiles_1_1_i_projectile_1a8bdd2cee664ac400c449553ff3f05d2b" prot="public" virt="non-virtual"><scope>Projectiles::IProjectile</scope><name>InfluenceOnVelocity</name></member>
+      <member refid="interface_projectiles_1_1_i_projectile_1a527a900eb6562c97d1d602a3753c2c4e" prot="public" virt="non-virtual"><scope>Projectiles::IProjectile</scope><name>Init</name></member>
+      <member refid="interface_projectiles_1_1_i_projectile_1a6d2a92c9784c0e89a6b199fa418db233" prot="public" virt="non-virtual"><scope>Projectiles::IProjectile</scope><name>Launch</name></member>
+      <member refid="interface_projectiles_1_1_i_projectile_1ad680a5b5282b88425c99d57463dd91b6" prot="public" virt="non-virtual"><scope>Projectiles::IProjectile</scope><name>Launched</name></member>
+      <member refid="interface_projectiles_1_1_i_projectile_1a6583aaf447e261c20b9f13a95e12bad3" prot="public" virt="non-virtual"><scope>Projectiles::IProjectile</scope><name>ResetProjectile</name></member>
+      <member refid="interface_projectiles_1_1_i_projectile_1ad3abcafebc22208bcfe90398cab67ec7" prot="public" virt="non-virtual"><scope>Projectiles::IProjectile</scope><name>ResetView</name></member>
+      <member refid="interface_projectiles_1_1_i_projectile_1a9c08a5044d1f4e232182ea2b99f69508" prot="public" virt="non-virtual"><scope>Projectiles::IProjectile</scope><name>Rigidbody</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

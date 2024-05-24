@@ -17,9 +17,9 @@ namespace Weapons
         public float CurrentShotPower => _currentShotPower;
         public WeaponConfig Config => _config;
 
-        public event UnityAction<float> Shot;
-        public event UnityAction<float> ShotPowerChanged;
-        public event UnityAction IncreasePowerStarted;
+        public event Action<float> Shot;
+        public event Action<float> ShotPowerChanged;
+        public event Action IncreasePowerStarted;
         public event Action<float> ScopeMoved;
 
         public Weapon(WeaponConfig config)

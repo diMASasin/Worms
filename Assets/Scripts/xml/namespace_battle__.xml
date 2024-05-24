@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="namespace_battle__" kind="namespace" language="C#">
+    <compoundname>Battle_</compoundname>
+    <innerclass refid="class_battle___1_1_battle" prot="public">Battle_::Battle</innerclass>
+    <innerclass refid="class_battle___1_1_battle_settings" prot="public">Battle_::BattleSettings</innerclass>
+    <innerclass refid="class_battle___1_1_bootstrap" prot="public">Battle_::Bootstrap</innerclass>
+    <innerclass refid="class_battle___1_1_map_bound" prot="public">Battle_::MapBound</innerclass>
+    <innerclass refid="class_battle___1_1_map_bounds" prot="public">Battle_::MapBounds</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Battle_/Battle.cs" line="5" column="1"/>
+  </compounddef>
+</doxygen>

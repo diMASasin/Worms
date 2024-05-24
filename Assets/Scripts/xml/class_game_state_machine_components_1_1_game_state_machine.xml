@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_game_state_machine_components_1_1_game_state_machine" kind="class" language="C#" prot="public">
+    <compoundname>GameStateMachineComponents::GameStateMachine</compoundname>
+    <basecompoundref refid="interface_game_state_machine_components_1_1_i_game_state_switcher" prot="public" virt="non-virtual">GameStateMachineComponents.IGameStateSwitcher</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_game_state_machine_components_1_1_game_state_machine_1a4d12787ae85fbfef4f5785bd4be922a9" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="class_game_state_machine_components_1_1_game_state_machine_data" kindref="compound">GameStateMachineData</ref></type>
+        <definition>readonly GameStateMachineData GameStateMachineComponents.GameStateMachine._data</definition>
+        <argsstring></argsstring>
+        <name>_data</name>
+        <qualifiedname>GameStateMachineComponents.GameStateMachine._data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameStateMachineComponents/GameStateMachine.cs" line="10" column="47" bodyfile="GameStateMachineComponents/GameStateMachine.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_state_machine_components_1_1_game_state_machine_1a6116487524166d5ea1beee0deb34da62" prot="private" static="no" mutable="no">
+        <type>readonly List&lt; <ref refid="class_game_state_machine_components_1_1_states_1_1_game_state" kindref="compound">GameState</ref> &gt;</type>
+        <definition>readonly List&lt;GameState&gt; GameStateMachineComponents.GameStateMachine._states</definition>
+        <argsstring></argsstring>
+        <name>_states</name>
+        <qualifiedname>GameStateMachineComponents.GameStateMachine._states</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameStateMachineComponents/GameStateMachine.cs" line="11" column="31" bodyfile="GameStateMachineComponents/GameStateMachine.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_state_machine_components_1_1_game_state_machine_1a7812db463e1b265d9d8b1e621bd24393" prot="private" static="no" mutable="no">
+        <type><ref refid="class_game_state_machine_components_1_1_states_1_1_game_state" kindref="compound">GameState</ref></type>
+        <definition>GameState GameStateMachineComponents.GameStateMachine._currentState</definition>
+        <argsstring></argsstring>
+        <name>_currentState</name>
+        <qualifiedname>GameStateMachineComponents.GameStateMachine._currentState</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameStateMachineComponents/GameStateMachine.cs" line="12" column="27" bodyfile="GameStateMachineComponents/GameStateMachine.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_game_state_machine_components_1_1_game_state_machine_1a7f26c8a07d7faefa18076c4a551c8861" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>GameStateMachineComponents.GameStateMachine.GameStateMachine</definition>
+        <argsstring>(GameStateMachineData data)</argsstring>
+        <name>GameStateMachine</name>
+        <qualifiedname>GameStateMachineComponents.GameStateMachine.GameStateMachine</qualifiedname>
+        <param>
+          <type><ref refid="class_game_state_machine_components_1_1_game_state_machine_data" kindref="compound">GameStateMachineData</ref></type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameStateMachineComponents/GameStateMachine.cs" line="14" column="16" bodyfile="GameStateMachineComponents/GameStateMachine.cs" bodystart="14" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_state_machine_components_1_1_game_state_machine_1a6c32d7152395f5b461d08da4658cecd4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GameStateMachineComponents.GameStateMachine.SwitchState&lt; T &gt;</definition>
+        <argsstring>()</argsstring>
+        <name>SwitchState&lt; T &gt;</name>
+        <qualifiedname>GameStateMachineComponents.GameStateMachine.SwitchState&lt; T &gt;</qualifiedname>
+        <reimplements refid="interface_game_state_machine_components_1_1_i_game_state_switcher_1a36ce53a5156a217e4baa29d9d1081276">SwitchState&lt; T &gt;</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameStateMachineComponents/GameStateMachine.cs" line="30" column="16" bodyfile="GameStateMachineComponents/GameStateMachine.cs" bodystart="30" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_state_machine_components_1_1_game_state_machine_1a08db0dbd2500b295b24e4d21e642ab88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GameStateMachineComponents.GameStateMachine.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <qualifiedname>GameStateMachineComponents.GameStateMachine.Update</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameStateMachineComponents/GameStateMachine.cs" line="41" column="21"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GameStateMachineComponents.GameStateMachine</label>
+        <link refid="class_game_state_machine_components_1_1_game_state_machine"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>IGameStateSwitcher</label>
+        <link refid="interface_game_state_machine_components_1_1_i_game_state_switcher"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GameStateMachineComponents.GameStateMachine</label>
+        <link refid="class_game_state_machine_components_1_1_game_state_machine"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>IGameStateSwitcher</label>
+        <link refid="interface_game_state_machine_components_1_1_i_game_state_switcher"/>
+      </node>
+    </collaborationgraph>
+    <location file="GameStateMachineComponents/GameStateMachine.cs" line="8" column="11" bodyfile="GameStateMachineComponents/GameStateMachine.cs" bodystart="9" bodyend="42"/>
+    <listofallmembers>
+      <member refid="class_game_state_machine_components_1_1_game_state_machine_1a7812db463e1b265d9d8b1e621bd24393" prot="private" virt="non-virtual"><scope>GameStateMachineComponents::GameStateMachine</scope><name>_currentState</name></member>
+      <member refid="class_game_state_machine_components_1_1_game_state_machine_1a4d12787ae85fbfef4f5785bd4be922a9" prot="private" virt="non-virtual"><scope>GameStateMachineComponents::GameStateMachine</scope><name>_data</name></member>
+      <member refid="class_game_state_machine_components_1_1_game_state_machine_1a6116487524166d5ea1beee0deb34da62" prot="private" virt="non-virtual"><scope>GameStateMachineComponents::GameStateMachine</scope><name>_states</name></member>
+      <member refid="class_game_state_machine_components_1_1_game_state_machine_1a7f26c8a07d7faefa18076c4a551c8861" prot="public" virt="non-virtual"><scope>GameStateMachineComponents::GameStateMachine</scope><name>GameStateMachine</name></member>
+      <member refid="class_game_state_machine_components_1_1_game_state_machine_1a6c32d7152395f5b461d08da4658cecd4" prot="public" virt="non-virtual"><scope>GameStateMachineComponents::GameStateMachine</scope><name>SwitchState&lt; T &gt;</name></member>
+      <member refid="class_game_state_machine_components_1_1_game_state_machine_1a08db0dbd2500b295b24e4d21e642ab88" prot="public" virt="non-virtual"><scope>GameStateMachineComponents::GameStateMachine</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

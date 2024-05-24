@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="_fragments_explode_behaviour_8cs" kind="file" language="C#">
+    <compoundname>FragmentsExplodeBehaviour.cs</compoundname>
+    <innerclass refid="class_projectiles_1_1_behaviours_1_1_explode_behaviour_1_1_fragments_explode_behaviour" prot="public">Projectiles::Behaviours::ExplodeBehaviour::FragmentsExplodeBehaviour</innerclass>
+    <innernamespace refid="namespace_projectiles">Projectiles</innernamespace>
+    <innernamespace refid="namespace_projectiles_1_1_behaviours">Projectiles::Behaviours</innernamespace>
+    <innernamespace refid="namespace_projectiles_1_1_behaviours_1_1_explode_behaviour">Projectiles::Behaviours::ExplodeBehaviour</innernamespace>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="_fragments_explode_behaviour_8cs_1a832e8f52fca5a678819ec96269dcb532" prot="public" static="no">
+        <type>UnityEngine.Random</type>
+        <definition>using Random =  UnityEngine.Random</definition>
+        <argsstring></argsstring>
+        <name>Random</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/Behaviours/ExplodeBehaviour/FragmentsExplodeBehaviour.cs" line="5" column="1" bodyfile="Projectiles/Behaviours/ExplodeBehaviour/FragmentsExplodeBehaviour.cs" bodystart="5" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/></highlight><highlight class="normal">System;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">System.Collections.Generic;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_pools" kindref="compound">Pools</ref>;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">UnityEngine;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="_fragments_explode_behaviour_8cs_1a832e8f52fca5a678819ec96269dcb532" kindref="member">Random</ref><sp/>=<sp/>UnityEngine.Random;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="namespace_projectiles" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_projectiles_1_1_behaviours_1_1_explode_behaviour" kindref="compound">Projectiles.Behaviours.ExplodeBehaviour</ref></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9" refid="class_projectiles_1_1_behaviours_1_1_explode_behaviour_1_1_fragments_explode_behaviour" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_projectiles_1_1_behaviours_1_1_explode_behaviour_1_1_fragments_explode_behaviour" kindref="compound">FragmentsExplodeBehaviour</ref><sp/>:<sp/><ref refid="interface_projectiles_1_1_behaviours_1_1_explode_behaviour_1_1_i_explode_behaviour" kindref="compound">IExplodeBehaviour</ref></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/><ref refid="class_pools_1_1_projectile_pool" kindref="compound">ProjectilePool</ref><sp/>_fragmentsPool;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_fragmentsAmount;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/>Transform<sp/>_spawnPoint;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/>List&lt;Projectile&gt;<sp/>_fragments<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">();</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">event</highlight><highlight class="normal"><sp/>Action&lt;List&lt;Projectile&gt;&gt;<sp/><ref refid="class_projectiles_1_1_behaviours_1_1_explode_behaviour_1_1_fragments_explode_behaviour_1a91cc0569d2547d2f6f357579cad54743" kindref="member">FragmentsRecieved</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_projectiles_1_1_behaviours_1_1_explode_behaviour_1_1_fragments_explode_behaviour_1acdfccea2bf8a3cc542ec19cb73adc203" kindref="member">FragmentsExplodeBehaviour</ref>(<ref refid="class_pools_1_1_projectile_pool" kindref="compound">ProjectilePool</ref><sp/>fragmentsPool,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fragmentsAmount,<sp/>Transform<sp/>spawnPoint)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_fragmentsPool<sp/>=<sp/>fragmentsPool;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_fragmentsAmount<sp/>=<sp/>fragmentsAmount;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_spawnPoint<sp/>=<sp/>spawnPoint;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_projectiles_1_1_behaviours_1_1_explode_behaviour_1_1_fragments_explode_behaviour_1af9699c44b8bf93604fb4ffbc683758f1" kindref="member">OnExplode</ref>()</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>List&lt;Projectile&gt;<sp/>projectiles<sp/>=<sp/>GetFragments();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_projectiles_1_1_behaviours_1_1_explode_behaviour_1_1_fragments_explode_behaviour_1a91cc0569d2547d2f6f357579cad54743" kindref="member">FragmentsRecieved</ref>?.Invoke(projectiles);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>List&lt;Projectile&gt;<sp/>GetFragments()</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>_fragmentsAmount;<sp/>i++)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>var<sp/>fragment<sp/>=<sp/>_fragmentsPool.Get();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fragment.transform.position<sp/>=<sp/>_spawnPoint.position;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fragment.Launch(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Vector2(<ref refid="_fragments_explode_behaviour_8cs_1a832e8f52fca5a678819ec96269dcb532" kindref="member">Random</ref>.Range(-2f,<sp/>2f),<sp/><ref refid="_fragments_explode_behaviour_8cs_1a832e8f52fca5a678819ec96269dcb532" kindref="member">Random</ref>.Range(4f,<sp/>6f)));</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_fragments.Add(fragment);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_fragments;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="Projectiles/Behaviours/ExplodeBehaviour/FragmentsExplodeBehaviour.cs"/>
+  </compounddef>
+</doxygen>

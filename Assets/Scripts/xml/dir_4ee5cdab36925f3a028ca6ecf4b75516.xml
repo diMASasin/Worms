@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="dir_4ee5cdab36925f3a028ca6ecf4b75516" kind="dir">
+    <compoundname>InputService</compoundname>
+    <innerfile refid="_camera_input_8cs">CameraInput.cs</innerfile>
+    <innerfile refid="_movement_input_8cs">MovementInput.cs</innerfile>
+    <innerfile refid="_player_input_8cs">PlayerInput.cs</innerfile>
+    <innerfile refid="_u_i_input_8cs">UIInput.cs</innerfile>
+    <innerfile refid="_weapon_input_8cs">WeaponInput.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="InputService/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="namespace_weapons" kind="namespace" language="C#">
+    <compoundname>Weapons</compoundname>
+    <innerclass refid="interface_weapons_1_1_i_weapon" prot="public">Weapons::IWeapon</innerclass>
+    <innerclass refid="class_weapons_1_1_weapon" prot="public">Weapons::Weapon</innerclass>
+    <innerclass refid="class_weapons_1_1_weapon_changer" prot="public">Weapons::WeaponChanger</innerclass>
+    <innerclass refid="class_weapons_1_1_weapon_view" prot="public">Weapons::WeaponView</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Weapons/IWeapon.cs" line="4" column="1"/>
+  </compounddef>
+</doxygen>

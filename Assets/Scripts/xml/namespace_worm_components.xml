@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="namespace_worm_components" kind="namespace" language="C#">
+    <compoundname>WormComponents</compoundname>
+    <innerclass refid="class_worm_components_1_1_arrow" prot="public">WormComponents::Arrow</innerclass>
+    <innerclass refid="class_worm_components_1_1_arrow_animation" prot="public">WormComponents::ArrowAnimation</innerclass>
+    <innerclass refid="class_worm_components_1_1_cycled_list" prot="public">WormComponents::CycledList</innerclass>
+    <innerclass refid="class_worm_components_1_1_cycled_list_enumerator" prot="public">WormComponents::CycledListEnumerator</innerclass>
+    <innerclass refid="class_worm_components_1_1_ground_checker" prot="public">WormComponents::GroundChecker</innerclass>
+    <innerclass refid="interface_worm_components_1_1_i_worm" prot="public">WormComponents::IWorm</innerclass>
+    <innerclass refid="class_worm_components_1_1_physics_movement" prot="public">WormComponents::PhysicsMovement</innerclass>
+    <innerclass refid="class_worm_components_1_1_team" prot="public">WormComponents::Team</innerclass>
+    <innerclass refid="class_worm_components_1_1_team_health" prot="public">WormComponents::TeamHealth</innerclass>
+    <innerclass refid="class_worm_components_1_1_worm" prot="public">WormComponents::Worm</innerclass>
+    <innerclass refid="class_worm_components_1_1_worm_animations" prot="public">WormComponents::WormAnimations</innerclass>
+    <innerclass refid="class_worm_components_1_1_worm_information_view" prot="public">WormComponents::WormInformationView</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="WormComponents/Arrow.cs" line="4" column="1"/>
+  </compounddef>
+</doxygen>

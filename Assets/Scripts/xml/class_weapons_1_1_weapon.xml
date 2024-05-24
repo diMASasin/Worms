@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_weapons_1_1_weapon" kind="class" language="C#" prot="public">
+    <compoundname>Weapons::Weapon</compoundname>
+    <basecompoundref refid="interface_weapons_1_1_i_weapon" prot="public" virt="non-virtual">Weapons.IWeapon</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_weapons_1_1_weapon_1a6dd4f43afb3b602bc8c92b07ab655ec9" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="class_configs_1_1_weapon_config" kindref="compound">WeaponConfig</ref></type>
+        <definition>readonly WeaponConfig Weapons.Weapon._config</definition>
+        <argsstring></argsstring>
+        <name>_config</name>
+        <qualifiedname>Weapons.Weapon._config</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Weapons/Weapon.cs" line="10" column="39" bodyfile="Weapons/Weapon.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_weapons_1_1_weapon_1a5ece30a947fff8b0c4faf4f653c1effc" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Weapons.Weapon._currentShotPower</definition>
+        <argsstring></argsstring>
+        <name>_currentShotPower</name>
+        <qualifiedname>Weapons.Weapon._currentShotPower</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Weapons/Weapon.cs" line="12" column="23" bodyfile="Weapons/Weapon.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_weapons_1_1_weapon_1a2d2d0c63966bc8b837652265f9af94b2" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Weapons.Weapon._zRotation</definition>
+        <argsstring></argsstring>
+        <name>_zRotation</name>
+        <qualifiedname>Weapons.Weapon._zRotation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Weapons/Weapon.cs" line="13" column="23" bodyfile="Weapons/Weapon.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_weapons_1_1_weapon_1a20017e60707e69d251220640621d6bcc" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Weapons.Weapon.IsShot</definition>
+        <argsstring></argsstring>
+        <name>IsShot</name>
+        <qualifiedname>Weapons.Weapon.IsShot</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Weapons/Weapon.cs" line="15" column="21" bodyfile="Weapons/Weapon.cs" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="property" id="class_weapons_1_1_weapon_1a778e1b49b301387abf21792b84df8b0f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float Weapons.Weapon.CurrentShotPower</definition>
+        <argsstring></argsstring>
+        <name>CurrentShotPower</name>
+        <qualifiedname>Weapons.Weapon.CurrentShotPower</qualifiedname>
+        <reimplements refid="interface_weapons_1_1_i_weapon_1ad1f5d92a5a5c2db2af0727a3ef75e8fe">CurrentShotPower</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Weapons/Weapon.cs" line="17" column="22" bodyfile="Weapons/Weapon.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_weapons_1_1_weapon_1a3b737d6f8b7d77aabe0fef5350207b33" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_configs_1_1_weapon_config" kindref="compound">WeaponConfig</ref></type>
+        <definition>WeaponConfig Weapons.Weapon.Config</definition>
+        <argsstring></argsstring>
+        <name>Config</name>
+        <qualifiedname>Weapons.Weapon.Config</qualifiedname>
+        <reimplements refid="interface_weapons_1_1_i_weapon_1a72e1fa1637b4bc0bbd0afad5dc07f916">Config</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Weapons/Weapon.cs" line="18" column="29" bodyfile="Weapons/Weapon.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="event">
+      <memberdef kind="event" id="class_weapons_1_1_weapon_1a75796670bc174fa41e330f25c992d22f" prot="public" static="no" add="no" remove="no" raise="no">
+        <type>Action&lt; float &gt;</type>
+        <definition>Action&lt;float&gt; Weapons.Weapon.Shot</definition>
+        <argsstring></argsstring>
+        <name>Shot</name>
+        <qualifiedname>Weapons.Weapon.Shot</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Weapons/Weapon.cs" line="20" column="29" bodyfile="Weapons/Weapon.cs" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="event" id="class_weapons_1_1_weapon_1acec14c33295b04147959e2ae0733a80c" prot="public" static="no" add="no" remove="no" raise="no">
+        <type>Action&lt; float &gt;</type>
+        <definition>Action&lt;float&gt; Weapons.Weapon.ShotPowerChanged</definition>
+        <argsstring></argsstring>
+        <name>ShotPowerChanged</name>
+        <qualifiedname>Weapons.Weapon.ShotPowerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Weapons/Weapon.cs" line="21" column="29" bodyfile="Weapons/Weapon.cs" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="event" id="class_weapons_1_1_weapon_1ab5236e50214d531f16a2651ca1bb27f3" prot="public" static="no" add="no" remove="no" raise="no">
+        <type>Action</type>
+        <definition>Action Weapons.Weapon.IncreasePowerStarted</definition>
+        <argsstring></argsstring>
+        <name>IncreasePowerStarted</name>
+        <qualifiedname>Weapons.Weapon.IncreasePowerStarted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Weapons/Weapon.cs" line="22" column="29" bodyfile="Weapons/Weapon.cs" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="event" id="class_weapons_1_1_weapon_1a8cc255fdc0b3281be5189460cc0dc051" prot="public" static="no" add="no" remove="no" raise="no">
+        <type>Action&lt; float &gt;</type>
+        <definition>Action&lt;float&gt; Weapons.Weapon.ScopeMoved</definition>
+        <argsstring></argsstring>
+        <name>ScopeMoved</name>
+        <qualifiedname>Weapons.Weapon.ScopeMoved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Weapons/Weapon.cs" line="23" column="29" bodyfile="Weapons/Weapon.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_weapons_1_1_weapon_1ae4c1df7d10785ea45077c8b1105483b1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Weapons.Weapon.Weapon</definition>
+        <argsstring>(WeaponConfig config)</argsstring>
+        <name>Weapon</name>
+        <qualifiedname>Weapons.Weapon.Weapon</qualifiedname>
+        <param>
+          <type><ref refid="class_configs_1_1_weapon_config" kindref="compound">WeaponConfig</ref></type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Weapons/Weapon.cs" line="25" column="16" bodyfile="Weapons/Weapon.cs" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_weapons_1_1_weapon_1a48e71dbb4f9aefd1ea0443a1ebee60e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Weapons.Weapon.Reset</definition>
+        <argsstring>()</argsstring>
+        <name>Reset</name>
+        <qualifiedname>Weapons.Weapon.Reset</qualifiedname>
+        <reimplements refid="interface_weapons_1_1_i_weapon_1a794b68c42c4e7914d39f7a6646114460">Reset</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Weapons/Weapon.cs" line="30" column="21" bodyfile="Weapons/Weapon.cs" bodystart="30" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_weapons_1_1_weapon_1ae9840c8077430596c784a626dbb67109" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Weapons.Weapon.MoveScope</definition>
+        <argsstring>(float direction)</argsstring>
+        <name>MoveScope</name>
+        <qualifiedname>Weapons.Weapon.MoveScope</qualifiedname>
+        <reimplements refid="interface_weapons_1_1_i_weapon_1ac255e55d0a4b2e8d44a39314a035292e">MoveScope</reimplements>
+        <param>
+          <type>float</type>
+          <declname>direction</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Weapons/Weapon.cs" line="36" column="21" bodyfile="Weapons/Weapon.cs" bodystart="36" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="class_weapons_1_1_weapon_1a8d217c752b14066bd544c720431a5363" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Weapons.Weapon.StartIncresePower</definition>
+        <argsstring>()</argsstring>
+        <name>StartIncresePower</name>
+        <qualifiedname>Weapons.Weapon.StartIncresePower</qualifiedname>
+        <reimplements refid="interface_weapons_1_1_i_weapon_1a1df00b13a49417d14345d9a1f074094d">StartIncresePower</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Weapons/Weapon.cs" line="43" column="21" bodyfile="Weapons/Weapon.cs" bodystart="43" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="class_weapons_1_1_weapon_1a0cd325f9cb1055aaf1bdc2737ba08ea1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Weapons.Weapon.IncreaseShotPower</definition>
+        <argsstring>()</argsstring>
+        <name>IncreaseShotPower</name>
+        <qualifiedname>Weapons.Weapon.IncreaseShotPower</qualifiedname>
+        <reimplements refid="interface_weapons_1_1_i_weapon_1af37892f0310e85e100eba1298916dce8">IncreaseShotPower</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Weapons/Weapon.cs" line="51" column="21" bodyfile="Weapons/Weapon.cs" bodystart="51" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="class_weapons_1_1_weapon_1a60fd97af08c060703187dea1e4589ccd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Weapons.Weapon.Shoot</definition>
+        <argsstring>()</argsstring>
+        <name>Shoot</name>
+        <qualifiedname>Weapons.Weapon.Shoot</qualifiedname>
+        <reimplements refid="interface_weapons_1_1_i_weapon_1aebffcb5698c9d43b2753dc9b08d4b38e">Shoot</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Weapons/Weapon.cs" line="67" column="21" bodyfile="Weapons/Weapon.cs" bodystart="67" bodyend="75"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>IWeapon</label>
+        <link refid="interface_weapons_1_1_i_weapon"/>
+      </node>
+      <node id="1">
+        <label>Weapons.Weapon</label>
+        <link refid="class_weapons_1_1_weapon"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>IWeapon</label>
+        <link refid="interface_weapons_1_1_i_weapon"/>
+      </node>
+      <node id="1">
+        <label>Weapons.Weapon</label>
+        <link refid="class_weapons_1_1_weapon"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Weapons/Weapon.cs" line="8" column="11" bodyfile="Weapons/Weapon.cs" bodystart="9" bodyend="76"/>
+    <listofallmembers>
+      <member refid="class_weapons_1_1_weapon_1a6dd4f43afb3b602bc8c92b07ab655ec9" prot="private" virt="non-virtual"><scope>Weapons::Weapon</scope><name>_config</name></member>
+      <member refid="class_weapons_1_1_weapon_1a5ece30a947fff8b0c4faf4f653c1effc" prot="private" virt="non-virtual"><scope>Weapons::Weapon</scope><name>_currentShotPower</name></member>
+      <member refid="class_weapons_1_1_weapon_1a2d2d0c63966bc8b837652265f9af94b2" prot="private" virt="non-virtual"><scope>Weapons::Weapon</scope><name>_zRotation</name></member>
+      <member refid="class_weapons_1_1_weapon_1a3b737d6f8b7d77aabe0fef5350207b33" prot="public" virt="non-virtual"><scope>Weapons::Weapon</scope><name>Config</name></member>
+      <member refid="class_weapons_1_1_weapon_1a778e1b49b301387abf21792b84df8b0f" prot="public" virt="non-virtual"><scope>Weapons::Weapon</scope><name>CurrentShotPower</name></member>
+      <member refid="class_weapons_1_1_weapon_1ab5236e50214d531f16a2651ca1bb27f3" prot="public" virt="non-virtual"><scope>Weapons::Weapon</scope><name>IncreasePowerStarted</name></member>
+      <member refid="class_weapons_1_1_weapon_1a0cd325f9cb1055aaf1bdc2737ba08ea1" prot="public" virt="non-virtual"><scope>Weapons::Weapon</scope><name>IncreaseShotPower</name></member>
+      <member refid="class_weapons_1_1_weapon_1a20017e60707e69d251220640621d6bcc" prot="public" virt="non-virtual"><scope>Weapons::Weapon</scope><name>IsShot</name></member>
+      <member refid="class_weapons_1_1_weapon_1ae9840c8077430596c784a626dbb67109" prot="public" virt="non-virtual"><scope>Weapons::Weapon</scope><name>MoveScope</name></member>
+      <member refid="class_weapons_1_1_weapon_1a48e71dbb4f9aefd1ea0443a1ebee60e3" prot="public" virt="non-virtual"><scope>Weapons::Weapon</scope><name>Reset</name></member>
+      <member refid="class_weapons_1_1_weapon_1a8cc255fdc0b3281be5189460cc0dc051" prot="public" virt="non-virtual"><scope>Weapons::Weapon</scope><name>ScopeMoved</name></member>
+      <member refid="class_weapons_1_1_weapon_1a60fd97af08c060703187dea1e4589ccd" prot="public" virt="non-virtual"><scope>Weapons::Weapon</scope><name>Shoot</name></member>
+      <member refid="class_weapons_1_1_weapon_1a75796670bc174fa41e330f25c992d22f" prot="public" virt="non-virtual"><scope>Weapons::Weapon</scope><name>Shot</name></member>
+      <member refid="class_weapons_1_1_weapon_1acec14c33295b04147959e2ae0733a80c" prot="public" virt="non-virtual"><scope>Weapons::Weapon</scope><name>ShotPowerChanged</name></member>
+      <member refid="class_weapons_1_1_weapon_1a8d217c752b14066bd544c720431a5363" prot="public" virt="non-virtual"><scope>Weapons::Weapon</scope><name>StartIncresePower</name></member>
+      <member refid="class_weapons_1_1_weapon_1ae4c1df7d10785ea45077c8b1105483b1" prot="public" virt="non-virtual"><scope>Weapons::Weapon</scope><name>Weapon</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

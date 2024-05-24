@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="_intersection_8cs" kind="file" language="C#">
+    <compoundname>Intersection.cs</compoundname>
+    <innerclass refid="class_destructible_land_1_1_intersection" prot="public">DestructibleLand::Intersection</innerclass>
+    <innernamespace refid="namespace_destructible_land">DestructibleLand</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/></highlight><highlight class="normal">UnityEngine;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_destructible_land" kindref="compound">DestructibleLand</ref></highlight></codeline>
+<codeline lineno="4"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="5" refid="class_destructible_land_1_1_intersection" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_destructible_land_1_1_intersection" kindref="compound">Intersection</ref></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_destructible_land_1_1_intersection_1a1dc42c873a456e4b75c33dd8e1cdbf40" kindref="member">IsIntersecting</ref>(Vector2<sp/>p1,<sp/>Vector2<sp/>p2,<sp/>Vector2<sp/>p3,<sp/>Vector2<sp/>p4)</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isIntersecting<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>denominator<sp/>=<sp/>(p4.y<sp/>-<sp/>p3.y)<sp/>*<sp/>(p2.x<sp/>-<sp/>p1.x)<sp/>-<sp/>(p4.x<sp/>-<sp/>p3.x)<sp/>*<sp/>(p2.y<sp/>-<sp/>p1.y);</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Если<sp/>denominator<sp/>==<sp/>0<sp/>значит<sp/>линии<sp/>параллельны</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(denominator<sp/>!=<sp/>0)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>u_a<sp/>=<sp/>((p4.x<sp/>-<sp/>p3.x)<sp/>*<sp/>(p1.y<sp/>-<sp/>p3.y)<sp/>-<sp/>(p4.y<sp/>-<sp/>p3.y)<sp/>*<sp/>(p1.x<sp/>-<sp/>p3.x))<sp/>/<sp/>denominator;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>u_b<sp/>=<sp/>((p2.x<sp/>-<sp/>p1.x)<sp/>*<sp/>(p1.y<sp/>-<sp/>p3.y)<sp/>-<sp/>(p2.y<sp/>-<sp/>p1.y)<sp/>*<sp/>(p1.x<sp/>-<sp/>p3.x))<sp/>/<sp/>denominator;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Is<sp/>intersecting<sp/>if<sp/>u_a<sp/>and<sp/>u_b<sp/>are<sp/>between<sp/>0<sp/>and<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(u_a<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>u_a<sp/>&lt;=<sp/>1<sp/>&amp;&amp;<sp/>u_b<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>u_b<sp/>&lt;=<sp/>1)</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>isIntersecting<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>isIntersecting;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>Vector2<sp/><ref refid="class_destructible_land_1_1_intersection_1af3da41a7611614170d67a7660da79c29" kindref="member">GetIntersection</ref>(Vector2<sp/>A,<sp/>Vector2<sp/>B,<sp/>Vector2<sp/>C,<sp/>Vector2<sp/>D)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>top<sp/>=<sp/>(D.x<sp/>-<sp/>C.x)<sp/>*<sp/>(A.y<sp/>-<sp/>C.y)<sp/>-<sp/>(D.y<sp/>-<sp/>C.y)<sp/>*<sp/>(A.x<sp/>-<sp/>C.x);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>bottom<sp/>=<sp/>(D.y<sp/>-<sp/>C.y)<sp/>*<sp/>(B.x<sp/>-<sp/>A.x)<sp/>-<sp/>(D.x<sp/>-<sp/>C.x)<sp/>*<sp/>(B.y<sp/>-<sp/>A.y);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>t<sp/>=<sp/>top<sp/>/<sp/>bottom;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector2<sp/>result<sp/>=<sp/>Vector2.Lerp(A,B,<sp/>t);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="DestructibleLand/Intersection.cs"/>
+  </compounddef>
+</doxygen>

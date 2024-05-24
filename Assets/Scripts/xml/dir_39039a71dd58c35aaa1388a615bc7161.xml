@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="dir_39039a71dd58c35aaa1388a615bc7161" kind="dir">
+    <compoundname>DestructibleLand</compoundname>
+    <innerfile refid="_collider_renderer_8cs">ColliderRenderer.cs</innerfile>
+    <innerfile refid="_cutter_8cs">Cutter.cs</innerfile>
+    <innerfile refid="_intersection_8cs">Intersection.cs</innerfile>
+    <innerfile refid="_land_8cs">Land.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="DestructibleLand/"/>
+  </compounddef>
+</doxygen>

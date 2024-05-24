@@ -8,9 +8,9 @@ namespace WormComponents
         [SerializeField] private TMP_Text _healthText;
         [SerializeField] private TMP_Text _nameText;
     
-        private Worm _worm;
+        private IWorm _worm;
 
-        public void Init(Worm worm, Color color, string wormName)
+        public void Init(IWorm worm, Color color, string wormName)
         {
             _worm = worm;
             _worm.DamageTook += OnHealthChanged;
@@ -24,7 +24,7 @@ namespace WormComponents
 
         private void OnDestroy() => _worm.DamageTook -= OnHealthChanged;
 
-        private void OnHealthChanged(Worm worm)
+        private void OnHealthChanged(IWorm worm)
         {
             _healthText.text = worm.Health.ToString();
         }

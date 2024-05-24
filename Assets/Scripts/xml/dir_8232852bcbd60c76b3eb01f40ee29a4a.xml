@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="dir_8232852bcbd60c76b3eb01f40ee29a4a" kind="dir">
+    <compoundname>Pools</compoundname>
+    <innerfile refid="_explosion_pool_8cs">ExplosionPool.cs</innerfile>
+    <innerfile refid="_following_timer_view_pool_8cs">FollowingTimerViewPool.cs</innerfile>
+    <innerfile refid="_i_following_timer_view_pool_8cs">IFollowingTimerViewPool.cs</innerfile>
+    <innerfile refid="_mono_object_pool_8cs">MonoObjectPool.cs</innerfile>
+    <innerfile refid="_object_pool2_8cs">ObjectPool2.cs</innerfile>
+    <innerfile refid="_object_pool_data_8cs">ObjectPoolData.cs</innerfile>
+    <innerfile refid="_projectile_data_8cs">ProjectileData.cs</innerfile>
+    <innerfile refid="_projectile_pool_8cs">ProjectilePool.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Pools/"/>
+  </compounddef>
+</doxygen>

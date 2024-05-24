@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="_i_state_switcher_8cs" kind="file" language="C#">
+    <compoundname>IStateSwitcher.cs</compoundname>
+    <innerclass refid="interface_battle_state_machine_components_1_1_i_state_switcher" prot="public">BattleStateMachineComponents::IStateSwitcher</innerclass>
+    <innernamespace refid="namespace_battle_state_machine_components">BattleStateMachineComponents</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_battle_state_machine_components_1_1_states" kindref="compound">BattleStateMachineComponents.States</ref>;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_battle_state_machine_components" kindref="compound">BattleStateMachineComponents</ref></highlight></codeline>
+<codeline lineno="4"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="5" refid="interface_battle_state_machine_components_1_1_i_state_switcher" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interface_battle_state_machine_components_1_1_i_state_switcher" kindref="compound">IStateSwitcher</ref></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interface_battle_state_machine_components_1_1_i_state_switcher_1ad95c336ed2c3ff1bad5fae37537587ec" kindref="member">SwitchState&lt;T&gt;</ref>()<sp/>where<sp/>T<sp/>:<sp/><ref refid="class_battle_state_machine_components_1_1_states_1_1_battle_state" kindref="compound">BattleState</ref>;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="BattleStateMachineComponents/IStateSwitcher.cs"/>
+  </compounddef>
+</doxygen>

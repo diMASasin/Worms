@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_timers_1_1_timer" kind="class" language="C#" prot="public">
+    <compoundname>Timers::Timer</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_timers_1_1_timer_1aa652a6dda7917f32c58742aed583a7e5" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Timers.Timer._interval</definition>
+        <argsstring></argsstring>
+        <name>_interval</name>
+        <qualifiedname>Timers.Timer._interval</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Timers/Timer.cs" line="10" column="23" bodyfile="Timers/Timer.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_timers_1_1_timer_1a0e6c9c51d8196398216dcd64528815cd" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Timers.Timer._timeLeft</definition>
+        <argsstring></argsstring>
+        <name>_timeLeft</name>
+        <qualifiedname>Timers.Timer._timeLeft</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Timers/Timer.cs" line="11" column="23" bodyfile="Timers/Timer.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_timers_1_1_timer_1a2bfde42e7a579864d863b99b61852581" prot="private" static="no" mutable="no">
+        <type>Coroutine</type>
+        <definition>Coroutine Timers.Timer._coroutine</definition>
+        <argsstring></argsstring>
+        <name>_coroutine</name>
+        <qualifiedname>Timers.Timer._coroutine</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Timers/Timer.cs" line="12" column="27" bodyfile="Timers/Timer.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="event">
+      <memberdef kind="event" id="class_timers_1_1_timer_1a2511c18c78b9585a4ceb1238e8d061ce" prot="public" static="no" add="no" remove="no" raise="no">
+        <type>Action&lt; float &gt;</type>
+        <definition>Action&lt;float&gt; Timers.Timer.TimerUpdated</definition>
+        <argsstring></argsstring>
+        <name>TimerUpdated</name>
+        <qualifiedname>Timers.Timer.TimerUpdated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Timers/Timer.cs" line="14" column="29" bodyfile="Timers/Timer.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_timers_1_1_timer_1aecff15d875d75c3fb79f4dbb2f1ab860" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Timers.Timer.Start</definition>
+        <argsstring>(float interval, Action onElapsed)</argsstring>
+        <name>Start</name>
+        <qualifiedname>Timers.Timer.Start</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>interval</declname>
+        </param>
+        <param>
+          <type>Action</type>
+          <declname>onElapsed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Timers/Timer.cs" line="16" column="21" bodyfile="Timers/Timer.cs" bodystart="16" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_timers_1_1_timer_1a461dbfa5dcc25fc4e0cc4d0fa5c348a4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Timers.Timer.Stop</definition>
+        <argsstring>()</argsstring>
+        <name>Stop</name>
+        <qualifiedname>Timers.Timer.Stop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Timers/Timer.cs" line="24" column="21" bodyfile="Timers/Timer.cs" bodystart="24" bodyend="28"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_timers_1_1_timer_1a24c7a7627c25a81386b9a12392c4952f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerator</type>
+        <definition>IEnumerator Timers.Timer.StartTimer</definition>
+        <argsstring>(Action onElapsed)</argsstring>
+        <name>StartTimer</name>
+        <qualifiedname>Timers.Timer.StartTimer</qualifiedname>
+        <param>
+          <type>Action</type>
+          <declname>onElapsed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Timers/Timer.cs" line="30" column="29" bodyfile="Timers/Timer.cs" bodystart="30" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="class_timers_1_1_timer_1a141e3f0d8725262c9a17c2da8f746885" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Timers.Timer.Reset</definition>
+        <argsstring>()</argsstring>
+        <name>Reset</name>
+        <qualifiedname>Timers.Timer.Reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Timers/Timer.cs" line="43" column="22" bodyfile="Timers/Timer.cs" bodystart="43" bodyend="47"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Timers/Timer.cs" line="8" column="11" bodyfile="Timers/Timer.cs" bodystart="9" bodyend="48"/>
+    <listofallmembers>
+      <member refid="class_timers_1_1_timer_1a2bfde42e7a579864d863b99b61852581" prot="private" virt="non-virtual"><scope>Timers::Timer</scope><name>_coroutine</name></member>
+      <member refid="class_timers_1_1_timer_1aa652a6dda7917f32c58742aed583a7e5" prot="private" virt="non-virtual"><scope>Timers::Timer</scope><name>_interval</name></member>
+      <member refid="class_timers_1_1_timer_1a0e6c9c51d8196398216dcd64528815cd" prot="private" virt="non-virtual"><scope>Timers::Timer</scope><name>_timeLeft</name></member>
+      <member refid="class_timers_1_1_timer_1a141e3f0d8725262c9a17c2da8f746885" prot="private" virt="non-virtual"><scope>Timers::Timer</scope><name>Reset</name></member>
+      <member refid="class_timers_1_1_timer_1aecff15d875d75c3fb79f4dbb2f1ab860" prot="public" virt="non-virtual"><scope>Timers::Timer</scope><name>Start</name></member>
+      <member refid="class_timers_1_1_timer_1a24c7a7627c25a81386b9a12392c4952f" prot="private" virt="non-virtual"><scope>Timers::Timer</scope><name>StartTimer</name></member>
+      <member refid="class_timers_1_1_timer_1a461dbfa5dcc25fc4e0cc4d0fa5c348a4" prot="public" virt="non-virtual"><scope>Timers::Timer</scope><name>Stop</name></member>
+      <member refid="class_timers_1_1_timer_1a2511c18c78b9585a4ceb1238e8d061ce" prot="public" virt="non-virtual"><scope>Timers::Timer</scope><name>TimerUpdated</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

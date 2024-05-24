@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="_level_load_state_8cs" kind="file" language="C#">
+    <compoundname>LevelLoadState.cs</compoundname>
+    <innerclass refid="class_game_state_machine_components_1_1_states_1_1_level_load_state" prot="public">GameStateMachineComponents::States::LevelLoadState</innerclass>
+    <innernamespace refid="namespace_game_state_machine_components">GameStateMachineComponents</innernamespace>
+    <innernamespace refid="namespace_game_state_machine_components_1_1_states">GameStateMachineComponents::States</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_infrastructure" kindref="compound">Infrastructure</ref>;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_game_state_machine_components_1_1_states" kindref="compound">GameStateMachineComponents.States</ref></highlight></codeline>
+<codeline lineno="4"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="5" refid="class_game_state_machine_components_1_1_states_1_1_level_load_state" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_game_state_machine_components_1_1_states_1_1_level_load_state" kindref="compound">LevelLoadState</ref><sp/>:<sp/><ref refid="class_game_state_machine_components_1_1_states_1_1_game_state" kindref="compound">GameState</ref></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_game_state_machine_components_1_1_states_1_1_level_load_state_1a362cc59e4c9e158afaf1f66b3a99de4e" kindref="member">LevelLoadState</ref>(<ref refid="class_game_state_machine_components_1_1_game_state_machine_data" kindref="compound">GameStateMachineData</ref><sp/>data,<sp/><ref refid="interface_game_state_machine_components_1_1_i_game_state_switcher" kindref="compound">IGameStateSwitcher</ref><sp/>stateSwitcher)<sp/>:<sp/></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>base(data,<sp/>stateSwitcher)<sp/>{<sp/>}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_game_state_machine_components_1_1_states_1_1_level_load_state_1a9ef1a1ccf53ddd10f685e7fe8b604a93" kindref="member">Enter</ref>()</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_game_state_machine_components_1_1_states_1_1_game_state_1a7076cc8edf6add7c279e806e720f6192" kindref="member">Data</ref>.<ref refid="class_game_state_machine_components_1_1_game_state_machine_data_1adac487402e94d1b0ddae0ceebaee2a86" kindref="member">LoadingScreen</ref>.Enable();</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_game_state_machine_components_1_1_states_1_1_game_state_1a7076cc8edf6add7c279e806e720f6192" kindref="member">Data</ref>.<ref refid="class_game_state_machine_components_1_1_game_state_machine_data_1af7be194c409a35eb3306709b5859984a" kindref="member">SceneLoader</ref>.<ref refid="class_infrastructure_1_1_scene_loader_1a852ed19531b4fd717bff93ad4de72c9a" kindref="member">Load</ref>(<ref refid="class_infrastructure_1_1_scene_loader" kindref="compound">SceneLoader</ref>.<ref refid="class_infrastructure_1_1_scene_loader_1a0585ca47789fd970726376949ed7a2ca" kindref="member">Map3</ref>,<sp/>()<sp/>=&gt;<sp/><ref refid="class_game_state_machine_components_1_1_states_1_1_game_state_1a65dffd7024488d78897202f7f4e2d43b" kindref="member">StateSwitcher</ref>.SwitchState&lt;<ref refid="class_game_state_machine_components_1_1_states_1_1_game_loop_state" kindref="compound">GameLoopState</ref>&gt;());</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_game_state_machine_components_1_1_states_1_1_level_load_state_1a07199f2c0e4e2dc59c1d153fc05a0f17" kindref="member">Exit</ref>()</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_game_state_machine_components_1_1_states_1_1_game_state_1a7076cc8edf6add7c279e806e720f6192" kindref="member">Data</ref>.<ref refid="class_game_state_machine_components_1_1_game_state_machine_data_1adac487402e94d1b0ddae0ceebaee2a86" kindref="member">LoadingScreen</ref>.Disable();</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_game_state_machine_components_1_1_states_1_1_level_load_state_1a9cf5f5e73e4c6e40b0905c4a8aaf9bf6" kindref="member">Tick</ref>()</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="GameStateMachineComponents/States/LevelLoadState.cs"/>
+  </compounddef>
+</doxygen>

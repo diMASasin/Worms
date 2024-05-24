@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="interface_camera_follow_1_1_i_controllable_camera" kind="interface" language="C#" prot="public">
+    <compoundname>CameraFollow::IControllableCamera</compoundname>
+    <derivedcompoundref refid="class_camera_follow_1_1_following_camera" prot="public" virt="non-virtual">CameraFollow.FollowingCamera</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interface_camera_follow_1_1_i_controllable_camera_1a2d9ee1061382ae91c30440e1488ac978" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void CameraFollow.IControllableCamera.TryZoom</definition>
+        <argsstring>(float scrollDeltaY)</argsstring>
+        <name>TryZoom</name>
+        <qualifiedname>CameraFollow.IControllableCamera.TryZoom</qualifiedname>
+        <reimplementedby refid="class_camera_follow_1_1_following_camera_1a7b5e4e2f22bd6b8eae282ee784adc334">TryZoom</reimplementedby>
+        <param>
+          <type>float</type>
+          <declname>scrollDeltaY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="CameraFollow/IControllableCamera.cs" line="5" column="14"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>CameraFollow.IControllableCamera</label>
+        <link refid="interface_camera_follow_1_1_i_controllable_camera"/>
+      </node>
+      <node id="2">
+        <label>CameraFollow.FollowingCamera</label>
+        <link refid="class_camera_follow_1_1_following_camera"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="CameraFollow/IControllableCamera.cs" line="3" column="22" bodyfile="CameraFollow/IControllableCamera.cs" bodystart="4" bodyend="6"/>
+    <listofallmembers>
+      <member refid="interface_camera_follow_1_1_i_controllable_camera_1a2d9ee1061382ae91c30440e1488ac978" prot="public" virt="non-virtual"><scope>CameraFollow::IControllableCamera</scope><name>TryZoom</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="interface_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_i_launch_behaviour" kind="interface" language="C#" prot="public">
+    <compoundname>Projectiles::Behaviours::LaunchBehaviour::ILaunchBehaviour</compoundname>
+    <derivedcompoundref refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_explode_on_key_down" prot="public" virt="non-virtual">Projectiles.Behaviours.LaunchBehaviour.ExplodeOnKeyDown</derivedcompoundref>
+    <derivedcompoundref refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_on_launch_timer" prot="public" virt="non-virtual">Projectiles.Behaviours.LaunchBehaviour.OnLaunchTimer</derivedcompoundref>
+    <derivedcompoundref refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_projectile_rotator" prot="public" virt="non-virtual">Projectiles.Behaviours.LaunchBehaviour.ProjectileRotator</derivedcompoundref>
+    <derivedcompoundref refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_sheep_projectile" prot="public" virt="non-virtual">Projectiles.Behaviours.LaunchBehaviour.SheepProjectile</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interface_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_i_launch_behaviour_1a2790604911145291e3a69ec991735b0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Projectiles.Behaviours.LaunchBehaviour.ILaunchBehaviour.OnLaunch</definition>
+        <argsstring>(Vector2 velocity)</argsstring>
+        <name>OnLaunch</name>
+        <qualifiedname>Projectiles.Behaviours.LaunchBehaviour.ILaunchBehaviour.OnLaunch</qualifiedname>
+        <reimplementedby refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_explode_on_key_down_1a5f0d33aa9d49a99edc0c75739734fd5b">OnLaunch</reimplementedby>
+        <reimplementedby refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_on_launch_timer_1ab809571af622feac46634424863e3bd1">OnLaunch</reimplementedby>
+        <reimplementedby refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_projectile_rotator_1ad1fa046273354157b7b5da65ab805b09">OnLaunch</reimplementedby>
+        <reimplementedby refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_sheep_projectile_1af6719f6cfc69df5c95f98936ed323f71">OnLaunch</reimplementedby>
+        <param>
+          <type>Vector2</type>
+          <declname>velocity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Projectiles/Behaviours/LaunchBehaviour/ILaunchBehaviour.cs" line="7" column="14"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Projectiles.Behaviours.LaunchBehaviour.ILaunchBehaviour</label>
+        <link refid="interface_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_i_launch_behaviour"/>
+      </node>
+      <node id="2">
+        <label>Projectiles.Behaviours.LaunchBehaviour.ExplodeOnKeyDown</label>
+        <link refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_explode_on_key_down"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Projectiles.Behaviours.LaunchBehaviour.OnLaunchTimer</label>
+        <link refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_on_launch_timer"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Projectiles.Behaviours.LaunchBehaviour.ProjectileRotator</label>
+        <link refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_projectile_rotator"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Projectiles.Behaviours.LaunchBehaviour.SheepProjectile</label>
+        <link refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_sheep_projectile"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="Projectiles/Behaviours/LaunchBehaviour/ILaunchBehaviour.cs" line="5" column="22" bodyfile="Projectiles/Behaviours/LaunchBehaviour/ILaunchBehaviour.cs" bodystart="6" bodyend="8"/>
+    <listofallmembers>
+      <member refid="interface_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_i_launch_behaviour_1a2790604911145291e3a69ec991735b0f" prot="public" virt="non-virtual"><scope>Projectiles::Behaviours::LaunchBehaviour::ILaunchBehaviour</scope><name>OnLaunch</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

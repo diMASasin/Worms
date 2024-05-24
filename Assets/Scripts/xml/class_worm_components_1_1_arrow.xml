@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_worm_components_1_1_arrow" kind="class" language="C#" prot="public">
+    <compoundname>WormComponents::Arrow</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_worm_components_1_1_arrow_1a72a332f03d0a5cf409521613bc44fdd7" prot="private" static="no" mutable="no">
+        <type>Animator</type>
+        <definition>Animator WormComponents.Arrow._animator</definition>
+        <argsstring></argsstring>
+        <name>_animator</name>
+        <qualifiedname>WormComponents.Arrow._animator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/Arrow.cs" line="8" column="27" bodyfile="WormComponents/Arrow.cs" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_worm_components_1_1_arrow_1af2795d624077d16a7c0568f9c2ea07c4" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int WormComponents.Arrow._lifeTime</definition>
+        <argsstring></argsstring>
+        <name>_lifeTime</name>
+        <qualifiedname>WormComponents.Arrow._lifeTime</qualifiedname>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/Arrow.cs" line="9" column="22" bodyfile="WormComponents/Arrow.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_worm_components_1_1_arrow_1aa4093c1509732935a3000d73f781ede4" prot="private" static="no" mutable="no">
+        <type><ref refid="class_following_object" kindref="compound">FollowingObject</ref></type>
+        <definition>FollowingObject WormComponents.Arrow._followingObject</definition>
+        <argsstring></argsstring>
+        <name>_followingObject</name>
+        <qualifiedname>WormComponents.Arrow._followingObject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/Arrow.cs" line="10" column="34" bodyfile="WormComponents/Arrow.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_worm_components_1_1_arrow_1ae40ea267cd8fdf008c17083e30af6688" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="class_timers_1_1_timer" kindref="compound">Timer</ref></type>
+        <definition>readonly Timer WormComponents.Arrow._timer</definition>
+        <argsstring></argsstring>
+        <name>_timer</name>
+        <qualifiedname>WormComponents.Arrow._timer</qualifiedname>
+        <initializer>= new()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/Arrow.cs" line="13" column="32" bodyfile="WormComponents/Arrow.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_worm_components_1_1_arrow_1aa7bb7120c3ffc124bcea1d180e18ce8b" prot="private" static="yes" mutable="no">
+        <type>readonly int</type>
+        <definition>readonly int WormComponents.Arrow.Move</definition>
+        <argsstring></argsstring>
+        <name>Move</name>
+        <qualifiedname>WormComponents.Arrow.Move</qualifiedname>
+        <initializer>= Animator.StringToHash(&quot;Move&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/Arrow.cs" line="12" column="37" bodyfile="WormComponents/Arrow.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_worm_components_1_1_arrow_1a552724f38dd9bbf2e254dfd8bfb2a6e6" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.Arrow.Awake</definition>
+        <argsstring>()</argsstring>
+        <name>Awake</name>
+        <qualifiedname>WormComponents.Arrow.Awake</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/Arrow.cs" line="15" column="22" bodyfile="WormComponents/Arrow.cs" bodystart="15" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_worm_components_1_1_arrow_1a92bdb8be433a4e426079b7b24532358b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.Arrow.Disable</definition>
+        <argsstring>()</argsstring>
+        <name>Disable</name>
+        <qualifiedname>WormComponents.Arrow.Disable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/Arrow.cs" line="31" column="22" bodyfile="WormComponents/Arrow.cs" bodystart="31" bodyend="34"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_worm_components_1_1_arrow_1ac17b892abe86cdbe95d3d9d3a3944ba0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.Arrow.StartMove</definition>
+        <argsstring>(Transform target)</argsstring>
+        <name>StartMove</name>
+        <qualifiedname>WormComponents.Arrow.StartMove</qualifiedname>
+        <param>
+          <type>Transform</type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/Arrow.cs" line="20" column="21" bodyfile="WormComponents/Arrow.cs" bodystart="20" bodyend="29"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="1">
+        <label>WormComponents.Arrow</label>
+        <link refid="class_worm_components_1_1_arrow"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="1">
+        <label>WormComponents.Arrow</label>
+        <link refid="class_worm_components_1_1_arrow"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="WormComponents/Arrow.cs" line="6" column="11" bodyfile="WormComponents/Arrow.cs" bodystart="7" bodyend="35"/>
+    <listofallmembers>
+      <member refid="class_worm_components_1_1_arrow_1a72a332f03d0a5cf409521613bc44fdd7" prot="private" virt="non-virtual"><scope>WormComponents::Arrow</scope><name>_animator</name></member>
+      <member refid="class_worm_components_1_1_arrow_1aa4093c1509732935a3000d73f781ede4" prot="private" virt="non-virtual"><scope>WormComponents::Arrow</scope><name>_followingObject</name></member>
+      <member refid="class_worm_components_1_1_arrow_1af2795d624077d16a7c0568f9c2ea07c4" prot="private" virt="non-virtual"><scope>WormComponents::Arrow</scope><name>_lifeTime</name></member>
+      <member refid="class_worm_components_1_1_arrow_1ae40ea267cd8fdf008c17083e30af6688" prot="private" virt="non-virtual"><scope>WormComponents::Arrow</scope><name>_timer</name></member>
+      <member refid="class_worm_components_1_1_arrow_1a552724f38dd9bbf2e254dfd8bfb2a6e6" prot="private" virt="non-virtual"><scope>WormComponents::Arrow</scope><name>Awake</name></member>
+      <member refid="class_worm_components_1_1_arrow_1a92bdb8be433a4e426079b7b24532358b" prot="private" virt="non-virtual"><scope>WormComponents::Arrow</scope><name>Disable</name></member>
+      <member refid="class_worm_components_1_1_arrow_1aa7bb7120c3ffc124bcea1d180e18ce8b" prot="private" virt="non-virtual"><scope>WormComponents::Arrow</scope><name>Move</name></member>
+      <member refid="class_worm_components_1_1_arrow_1ac17b892abe86cdbe95d3d9d3a3944ba0" prot="public" virt="non-virtual"><scope>WormComponents::Arrow</scope><name>StartMove</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

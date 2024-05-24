@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_battle___1_1_battle" kind="class" language="C#" prot="public">
+    <compoundname>Battle_::Battle</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IDisposable</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_battle___1_1_battle_1ab3a9fcb323d3e88b6276f12287865f8a" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="class_battle_state_machine_components_1_1_battle_state_machine" kindref="compound">BattleStateMachine</ref></type>
+        <definition>readonly BattleStateMachine Battle_.Battle._battleStateMachine</definition>
+        <argsstring></argsstring>
+        <name>_battleStateMachine</name>
+        <qualifiedname>Battle_.Battle._battleStateMachine</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Battle_/Battle.cs" line="9" column="45" bodyfile="Battle_/Battle.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_battle___1_1_battle_1a0def38fda178a59780a3ceca21dea931" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Battle_.Battle.Battle</definition>
+        <argsstring>(BattleStateMachineData data)</argsstring>
+        <name>Battle</name>
+        <qualifiedname>Battle_.Battle.Battle</qualifiedname>
+        <param>
+          <type><ref refid="class_battle_state_machine_components_1_1_battle_state_machine_data" kindref="compound">BattleStateMachineData</ref></type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Battle_/Battle.cs" line="11" column="16" bodyfile="Battle_/Battle.cs" bodystart="11" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battle___1_1_battle_1a51b7cca387d8ede629cfa8feee279afc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Battle_.Battle.Dispose</definition>
+        <argsstring>()</argsstring>
+        <name>Dispose</name>
+        <qualifiedname>Battle_.Battle.Dispose</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Battle_/Battle.cs" line="15" column="21" bodyfile="Battle_/Battle.cs" bodystart="15" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battle___1_1_battle_1a9d5fc3fef1096378e9a80793ab232191" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Battle_.Battle.Tick</definition>
+        <argsstring>()</argsstring>
+        <name>Tick</name>
+        <qualifiedname>Battle_.Battle.Tick</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Battle_/Battle.cs" line="20" column="21" bodyfile="Battle_/Battle.cs" bodystart="20" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battle___1_1_battle_1a7febef5f7aae47a45dee8718784c5cf7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Battle_.Battle.FixedTick</definition>
+        <argsstring>()</argsstring>
+        <name>FixedTick</name>
+        <qualifiedname>Battle_.Battle.FixedTick</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Battle_/Battle.cs" line="26" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battle___1_1_battle_1acbe92cde873aeb0a022cd289349f3535" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Battle_.Battle.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <qualifiedname>Battle_.Battle.Start</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Battle_/Battle.cs" line="28" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battle___1_1_battle_1a4375b439b5290bd069170e602e7914b8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Battle_.Battle.OnDrawGizmos</definition>
+        <argsstring>()</argsstring>
+        <name>OnDrawGizmos</name>
+        <qualifiedname>Battle_.Battle.OnDrawGizmos</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Battle_/Battle.cs" line="30" column="21"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Battle_.Battle</label>
+        <link refid="class_battle___1_1_battle"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>IDisposable</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Battle_.Battle</label>
+        <link refid="class_battle___1_1_battle"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>IDisposable</label>
+      </node>
+    </collaborationgraph>
+    <location file="Battle_/Battle.cs" line="7" column="11" bodyfile="Battle_/Battle.cs" bodystart="8" bodyend="31"/>
+    <listofallmembers>
+      <member refid="class_battle___1_1_battle_1ab3a9fcb323d3e88b6276f12287865f8a" prot="private" virt="non-virtual"><scope>Battle_::Battle</scope><name>_battleStateMachine</name></member>
+      <member refid="class_battle___1_1_battle_1a0def38fda178a59780a3ceca21dea931" prot="public" virt="non-virtual"><scope>Battle_::Battle</scope><name>Battle</name></member>
+      <member refid="class_battle___1_1_battle_1a51b7cca387d8ede629cfa8feee279afc" prot="public" virt="non-virtual"><scope>Battle_::Battle</scope><name>Dispose</name></member>
+      <member refid="class_battle___1_1_battle_1a7febef5f7aae47a45dee8718784c5cf7" prot="public" virt="non-virtual"><scope>Battle_::Battle</scope><name>FixedTick</name></member>
+      <member refid="class_battle___1_1_battle_1a4375b439b5290bd069170e602e7914b8" prot="public" virt="non-virtual"><scope>Battle_::Battle</scope><name>OnDrawGizmos</name></member>
+      <member refid="class_battle___1_1_battle_1acbe92cde873aeb0a022cd289349f3535" prot="public" virt="non-virtual"><scope>Battle_::Battle</scope><name>Start</name></member>
+      <member refid="class_battle___1_1_battle_1a9d5fc3fef1096378e9a80793ab232191" prot="public" virt="non-virtual"><scope>Battle_::Battle</scope><name>Tick</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

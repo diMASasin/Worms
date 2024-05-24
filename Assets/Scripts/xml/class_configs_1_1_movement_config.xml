@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_configs_1_1_movement_config" kind="class" language="C#" prot="public">
+    <compoundname>Configs::MovementConfig</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ScriptableObject</basecompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_configs_1_1_movement_config_1aaefa0aa01113fc32f3027bad4f0d08a7" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>float</type>
+        <definition>float Configs.MovementConfig.Speed</definition>
+        <argsstring></argsstring>
+        <name>Speed</name>
+        <qualifiedname>Configs.MovementConfig.Speed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/MovementConfig.cs" line="8" column="23" bodyfile="Configs/MovementConfig.cs" bodystart="8" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="property" id="class_configs_1_1_movement_config_1a4b531f7bcf8e7bf98d9ebfb3edea9800" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>Vector2</type>
+        <definition>Vector2 Configs.MovementConfig.LongJumpForce</definition>
+        <argsstring></argsstring>
+        <name>LongJumpForce</name>
+        <qualifiedname>Configs.MovementConfig.LongJumpForce</qualifiedname>
+        <initializer>= new(2, 2)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/MovementConfig.cs" line="9" column="25" bodyfile="Configs/MovementConfig.cs" bodystart="9" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="property" id="class_configs_1_1_movement_config_1a5f44e67001bbd8a3d9c23aa220d0080a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>Vector2</type>
+        <definition>Vector2 Configs.MovementConfig.HighJumpForce</definition>
+        <argsstring></argsstring>
+        <name>HighJumpForce</name>
+        <qualifiedname>Configs.MovementConfig.HighJumpForce</qualifiedname>
+        <initializer>= new(2, 2)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/MovementConfig.cs" line="10" column="25" bodyfile="Configs/MovementConfig.cs" bodystart="10" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="property" id="class_configs_1_1_movement_config_1a250e344c2270039019955983cb85212a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>float</type>
+        <definition>float Configs.MovementConfig.JumpCooldown</definition>
+        <argsstring></argsstring>
+        <name>JumpCooldown</name>
+        <qualifiedname>Configs.MovementConfig.JumpCooldown</qualifiedname>
+        <initializer>= 0.5f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/MovementConfig.cs" line="11" column="23" bodyfile="Configs/MovementConfig.cs" bodystart="11" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="property" id="class_configs_1_1_movement_config_1a7f7349424762a067ac4952205c68f301" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>float</type>
+        <definition>float Configs.MovementConfig.MinGroundNormalY</definition>
+        <argsstring></argsstring>
+        <name>MinGroundNormalY</name>
+        <qualifiedname>Configs.MovementConfig.MinGroundNormalY</qualifiedname>
+        <initializer>= .65f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/MovementConfig.cs" line="12" column="23" bodyfile="Configs/MovementConfig.cs" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="property" id="class_configs_1_1_movement_config_1a4c8f2b72c0de93dbaf79b31944a4496d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>float</type>
+        <definition>float Configs.MovementConfig.GravityModifier</definition>
+        <argsstring></argsstring>
+        <name>GravityModifier</name>
+        <qualifiedname>Configs.MovementConfig.GravityModifier</qualifiedname>
+        <initializer>= 1f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/MovementConfig.cs" line="13" column="23" bodyfile="Configs/MovementConfig.cs" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="property" id="class_configs_1_1_movement_config_1a30b5045f3e837d4add9fe434585438b3" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>LayerMask</type>
+        <definition>LayerMask Configs.MovementConfig.LayerMask</definition>
+        <argsstring></argsstring>
+        <name>LayerMask</name>
+        <qualifiedname>Configs.MovementConfig.LayerMask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/MovementConfig.cs" line="14" column="27" bodyfile="Configs/MovementConfig.cs" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="property" id="class_configs_1_1_movement_config_1a0e0d97f029a74518bca0dff35ec26c8e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type><ref refid="class_configs_1_1_ground_checker_config" kindref="compound">GroundCheckerConfig</ref></type>
+        <definition>GroundCheckerConfig Configs.MovementConfig.GroundCheckerConfig</definition>
+        <argsstring></argsstring>
+        <name>GroundCheckerConfig</name>
+        <qualifiedname>Configs.MovementConfig.GroundCheckerConfig</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Configs/MovementConfig.cs" line="15" column="37" bodyfile="Configs/MovementConfig.cs" bodystart="15" bodyend="15"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Configs.MovementConfig</label>
+        <link refid="class_configs_1_1_movement_config"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ScriptableObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Configs.MovementConfig</label>
+        <link refid="class_configs_1_1_movement_config"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ScriptableObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="Configs/MovementConfig.cs" line="6" column="11" bodyfile="Configs/MovementConfig.cs" bodystart="7" bodyend="16"/>
+    <listofallmembers>
+      <member refid="class_configs_1_1_movement_config_1a4c8f2b72c0de93dbaf79b31944a4496d" prot="public" virt="non-virtual"><scope>Configs::MovementConfig</scope><name>GravityModifier</name></member>
+      <member refid="class_configs_1_1_movement_config_1a0e0d97f029a74518bca0dff35ec26c8e" prot="public" virt="non-virtual"><scope>Configs::MovementConfig</scope><name>GroundCheckerConfig</name></member>
+      <member refid="class_configs_1_1_movement_config_1a5f44e67001bbd8a3d9c23aa220d0080a" prot="public" virt="non-virtual"><scope>Configs::MovementConfig</scope><name>HighJumpForce</name></member>
+      <member refid="class_configs_1_1_movement_config_1a250e344c2270039019955983cb85212a" prot="public" virt="non-virtual"><scope>Configs::MovementConfig</scope><name>JumpCooldown</name></member>
+      <member refid="class_configs_1_1_movement_config_1a30b5045f3e837d4add9fe434585438b3" prot="public" virt="non-virtual"><scope>Configs::MovementConfig</scope><name>LayerMask</name></member>
+      <member refid="class_configs_1_1_movement_config_1a4b531f7bcf8e7bf98d9ebfb3edea9800" prot="public" virt="non-virtual"><scope>Configs::MovementConfig</scope><name>LongJumpForce</name></member>
+      <member refid="class_configs_1_1_movement_config_1a7f7349424762a067ac4952205c68f301" prot="public" virt="non-virtual"><scope>Configs::MovementConfig</scope><name>MinGroundNormalY</name></member>
+      <member refid="class_configs_1_1_movement_config_1aaefa0aa01113fc32f3027bad4f0d08a7" prot="public" virt="non-virtual"><scope>Configs::MovementConfig</scope><name>Speed</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_infrastructure_1_1_game_bootstrapper" kind="class" language="C#" prot="public">
+    <compoundname>Infrastructure::GameBootstrapper</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_infrastructure_1_1_game_bootstrapper_1ae906f6fb59555690ccf32fd028ae8a74" prot="private" static="no" mutable="no">
+        <type><ref refid="class_u_i_1_1_loading_screen" kindref="compound">LoadingScreen</ref></type>
+        <definition>LoadingScreen Infrastructure.GameBootstrapper._loadingScreen</definition>
+        <argsstring></argsstring>
+        <name>_loadingScreen</name>
+        <qualifiedname>Infrastructure.GameBootstrapper._loadingScreen</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Infrastructure/GameBootstrapper.cs" line="10" column="32" bodyfile="Infrastructure/GameBootstrapper.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_infrastructure_1_1_game_bootstrapper_1aee8c3a2ff77747fadfeef232cd502aa1" prot="private" static="no" mutable="no">
+        <type><ref refid="class_infrastructure_1_1_coroutine_performer" kindref="compound">CoroutinePerformer</ref></type>
+        <definition>CoroutinePerformer Infrastructure.GameBootstrapper._coroutinePerformer</definition>
+        <argsstring></argsstring>
+        <name>_coroutinePerformer</name>
+        <qualifiedname>Infrastructure.GameBootstrapper._coroutinePerformer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Infrastructure/GameBootstrapper.cs" line="11" column="37" bodyfile="Infrastructure/GameBootstrapper.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_infrastructure_1_1_game_bootstrapper_1a7e55cbe1540136efea7ffc92458e2397" prot="private" static="no" mutable="no">
+        <type><ref refid="class_infrastructure_1_1_scene_loader" kindref="compound">SceneLoader</ref></type>
+        <definition>SceneLoader Infrastructure.GameBootstrapper._sceneLoader</definition>
+        <argsstring></argsstring>
+        <name>_sceneLoader</name>
+        <qualifiedname>Infrastructure.GameBootstrapper._sceneLoader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Infrastructure/GameBootstrapper.cs" line="15" column="29" bodyfile="Infrastructure/GameBootstrapper.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_infrastructure_1_1_game_bootstrapper_1a01ab45bd21a9228713cafcd8094ad38c" prot="private" static="no" mutable="no">
+        <type><ref refid="class_game_state_machine_components_1_1_game_state_machine" kindref="compound">GameStateMachine</ref></type>
+        <definition>GameStateMachine Infrastructure.GameBootstrapper._gameStateMachine</definition>
+        <argsstring></argsstring>
+        <name>_gameStateMachine</name>
+        <qualifiedname>Infrastructure.GameBootstrapper._gameStateMachine</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Infrastructure/GameBootstrapper.cs" line="16" column="34" bodyfile="Infrastructure/GameBootstrapper.cs" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_infrastructure_1_1_game_bootstrapper_1a6de09494175c16be60b3cc6650c5be17" prot="private" static="no" mutable="no">
+        <type><ref refid="class_game" kindref="compound">Game</ref></type>
+        <definition>Game Infrastructure.GameBootstrapper._game</definition>
+        <argsstring></argsstring>
+        <name>_game</name>
+        <qualifiedname>Infrastructure.GameBootstrapper._game</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Infrastructure/GameBootstrapper.cs" line="17" column="22" bodyfile="Infrastructure/GameBootstrapper.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_infrastructure_1_1_game_bootstrapper_1aa7a1a3b6c9708db7802f9a6fbf3d2edb" prot="private" static="no" mutable="no">
+        <type><ref refid="class_game_state_machine_components_1_1_game_state_machine_data" kindref="compound">GameStateMachineData</ref></type>
+        <definition>GameStateMachineData Infrastructure.GameBootstrapper._data</definition>
+        <argsstring></argsstring>
+        <name>_data</name>
+        <qualifiedname>Infrastructure.GameBootstrapper._data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Infrastructure/GameBootstrapper.cs" line="18" column="38" bodyfile="Infrastructure/GameBootstrapper.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_infrastructure_1_1_game_bootstrapper_1a95e8b8a1e05475f894f2efe38430f598" prot="private" static="yes" mutable="no">
+        <type><ref refid="class_infrastructure_1_1_game_bootstrapper" kindref="compound">GameBootstrapper</ref></type>
+        <definition>GameBootstrapper Infrastructure.GameBootstrapper._instance</definition>
+        <argsstring></argsstring>
+        <name>_instance</name>
+        <qualifiedname>Infrastructure.GameBootstrapper._instance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Infrastructure/GameBootstrapper.cs" line="13" column="41" bodyfile="Infrastructure/GameBootstrapper.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_infrastructure_1_1_game_bootstrapper_1a40b13bc8cc5d1c2a9ff1c97ae2605527" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Infrastructure.GameBootstrapper.Awake</definition>
+        <argsstring>()</argsstring>
+        <name>Awake</name>
+        <qualifiedname>Infrastructure.GameBootstrapper.Awake</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Infrastructure/GameBootstrapper.cs" line="20" column="22" bodyfile="Infrastructure/GameBootstrapper.cs" bodystart="20" bodyend="41"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Infrastructure.GameBootstrapper</label>
+        <link refid="class_infrastructure_1_1_game_bootstrapper"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Infrastructure.GameBootstrapper</label>
+        <link refid="class_infrastructure_1_1_game_bootstrapper"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="Infrastructure/GameBootstrapper.cs" line="8" column="11" bodyfile="Infrastructure/GameBootstrapper.cs" bodystart="9" bodyend="42"/>
+    <listofallmembers>
+      <member refid="class_infrastructure_1_1_game_bootstrapper_1aee8c3a2ff77747fadfeef232cd502aa1" prot="private" virt="non-virtual"><scope>Infrastructure::GameBootstrapper</scope><name>_coroutinePerformer</name></member>
+      <member refid="class_infrastructure_1_1_game_bootstrapper_1aa7a1a3b6c9708db7802f9a6fbf3d2edb" prot="private" virt="non-virtual"><scope>Infrastructure::GameBootstrapper</scope><name>_data</name></member>
+      <member refid="class_infrastructure_1_1_game_bootstrapper_1a6de09494175c16be60b3cc6650c5be17" prot="private" virt="non-virtual"><scope>Infrastructure::GameBootstrapper</scope><name>_game</name></member>
+      <member refid="class_infrastructure_1_1_game_bootstrapper_1a01ab45bd21a9228713cafcd8094ad38c" prot="private" virt="non-virtual"><scope>Infrastructure::GameBootstrapper</scope><name>_gameStateMachine</name></member>
+      <member refid="class_infrastructure_1_1_game_bootstrapper_1a95e8b8a1e05475f894f2efe38430f598" prot="private" virt="non-virtual"><scope>Infrastructure::GameBootstrapper</scope><name>_instance</name></member>
+      <member refid="class_infrastructure_1_1_game_bootstrapper_1ae906f6fb59555690ccf32fd028ae8a74" prot="private" virt="non-virtual"><scope>Infrastructure::GameBootstrapper</scope><name>_loadingScreen</name></member>
+      <member refid="class_infrastructure_1_1_game_bootstrapper_1a7e55cbe1540136efea7ffc92458e2397" prot="private" virt="non-virtual"><scope>Infrastructure::GameBootstrapper</scope><name>_sceneLoader</name></member>
+      <member refid="class_infrastructure_1_1_game_bootstrapper_1a40b13bc8cc5d1c2a9ff1c97ae2605527" prot="private" virt="non-virtual"><scope>Infrastructure::GameBootstrapper</scope><name>Awake</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

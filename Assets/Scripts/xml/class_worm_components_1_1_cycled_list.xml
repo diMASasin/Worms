@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_worm_components_1_1_cycled_list" kind="class" language="C#" prot="public">
+    <compoundname>WormComponents::CycledList</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IEnumerable&lt; T &gt;</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>T</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_worm_components_1_1_cycled_list_1a60269f5c10d45276d5aecfaf96aa1597" prot="private" static="no" mutable="no">
+        <type>readonly LinkedList&lt; T &gt;</type>
+        <definition>readonly LinkedList&lt;T&gt; WormComponents.CycledList&lt; T &gt;._items</definition>
+        <argsstring></argsstring>
+        <name>_items</name>
+        <qualifiedname>WormComponents.CycledList._items</qualifiedname>
+        <initializer>= new()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/CycledList.cs" line="9" column="41" bodyfile="WormComponents/CycledList.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_worm_components_1_1_cycled_list_1a436266df848bd541e6381f34ca6b4bef" prot="private" static="no" mutable="no">
+        <type>LinkedListNode&lt; T &gt;</type>
+        <definition>LinkedListNode&lt;T&gt; WormComponents.CycledList&lt; T &gt;._currentItem</definition>
+        <argsstring></argsstring>
+        <name>_currentItem</name>
+        <qualifiedname>WormComponents.CycledList._currentItem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/CycledList.cs" line="10" column="36" bodyfile="WormComponents/CycledList.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_worm_components_1_1_cycled_list_1a559f28b80446f1c357b99e1c5d75a42a" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool WormComponents.CycledList&lt; T &gt;.IsEmpty</definition>
+        <argsstring></argsstring>
+        <name>IsEmpty</name>
+        <qualifiedname>WormComponents.CycledList.IsEmpty</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/CycledList.cs" line="12" column="25" bodyfile="WormComponents/CycledList.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_worm_components_1_1_cycled_list_1ac7ef99521da456df58fca48a387da5a7" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int WormComponents.CycledList&lt; T &gt;.Count</definition>
+        <argsstring></argsstring>
+        <name>Count</name>
+        <qualifiedname>WormComponents.CycledList.Count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/CycledList.cs" line="13" column="24" bodyfile="WormComponents/CycledList.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_worm_components_1_1_cycled_list_1ad9fa539acad8a6c91bff296cd4efcafc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T WormComponents.CycledList&lt; T &gt;.Next</definition>
+        <argsstring>()</argsstring>
+        <name>Next</name>
+        <qualifiedname>WormComponents.CycledList.Next</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/CycledList.cs" line="15" column="22" bodyfile="WormComponents/CycledList.cs" bodystart="15" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_worm_components_1_1_cycled_list_1aca9516d5b862aba4a45df6cf61f114b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.CycledList&lt; T &gt;.Add</definition>
+        <argsstring>(T item)</argsstring>
+        <name>Add</name>
+        <qualifiedname>WormComponents.CycledList.Add</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/CycledList.cs" line="25" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="class_worm_components_1_1_cycled_list_1acfe7290763ac8ad643775ab488a4c305" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.CycledList&lt; T &gt;.Remove</definition>
+        <argsstring>(T item)</argsstring>
+        <name>Remove</name>
+        <qualifiedname>WormComponents.CycledList.Remove</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/CycledList.cs" line="27" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="class_worm_components_1_1_cycled_list_1a18fbbda05934ad47ef072b33e308ba1b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.CycledList&lt; T &gt;.AddRange</definition>
+        <argsstring>(IEnumerable&lt; T &gt; items)</argsstring>
+        <name>AddRange</name>
+        <qualifiedname>WormComponents.CycledList.AddRange</qualifiedname>
+        <param>
+          <type>IEnumerable&lt; T &gt;</type>
+          <declname>items</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/CycledList.cs" line="29" column="25" bodyfile="WormComponents/CycledList.cs" bodystart="29" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="class_worm_components_1_1_cycled_list_1a10e6230aadfa2674e9147af42935627c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerator&lt; T &gt;</type>
+        <definition>IEnumerator&lt; T &gt; WormComponents.CycledList&lt; T &gt;.GetEnumerator</definition>
+        <argsstring>()</argsstring>
+        <name>GetEnumerator</name>
+        <qualifiedname>WormComponents.CycledList.GetEnumerator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/CycledList.cs" line="35" column="32" bodyfile="WormComponents/CycledList.cs" bodystart="35" bodyend="38"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_worm_components_1_1_cycled_list_1a1a8bfa300b2f830581dea6d6a2a5536d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IEnumerator IEnumerable.</type>
+        <definition>IEnumerator IEnumerable. WormComponents.CycledList&lt; T &gt;.GetEnumerator</definition>
+        <argsstring>()</argsstring>
+        <name>GetEnumerator</name>
+        <qualifiedname>WormComponents.CycledList.GetEnumerator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/CycledList.cs" line="40" column="36" bodyfile="WormComponents/CycledList.cs" bodystart="40" bodyend="43"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>IEnumerable&lt; T &gt;</label>
+      </node>
+      <node id="1">
+        <label>WormComponents.CycledList&lt; T &gt;</label>
+        <link refid="class_worm_components_1_1_cycled_list"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>IEnumerable&lt; T &gt;</label>
+      </node>
+      <node id="1">
+        <label>WormComponents.CycledList&lt; T &gt;</label>
+        <link refid="class_worm_components_1_1_cycled_list"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="WormComponents/CycledList.cs" line="7" column="15" bodyfile="WormComponents/CycledList.cs" bodystart="8" bodyend="44"/>
+    <listofallmembers>
+      <member refid="class_worm_components_1_1_cycled_list_1a436266df848bd541e6381f34ca6b4bef" prot="private" virt="non-virtual"><scope>WormComponents::CycledList</scope><name>_currentItem</name></member>
+      <member refid="class_worm_components_1_1_cycled_list_1a60269f5c10d45276d5aecfaf96aa1597" prot="private" virt="non-virtual"><scope>WormComponents::CycledList</scope><name>_items</name></member>
+      <member refid="class_worm_components_1_1_cycled_list_1aca9516d5b862aba4a45df6cf61f114b2" prot="public" virt="non-virtual"><scope>WormComponents::CycledList</scope><name>Add</name></member>
+      <member refid="class_worm_components_1_1_cycled_list_1a18fbbda05934ad47ef072b33e308ba1b" prot="public" virt="non-virtual"><scope>WormComponents::CycledList</scope><name>AddRange</name></member>
+      <member refid="class_worm_components_1_1_cycled_list_1ac7ef99521da456df58fca48a387da5a7" prot="public" virt="non-virtual"><scope>WormComponents::CycledList</scope><name>Count</name></member>
+      <member refid="class_worm_components_1_1_cycled_list_1a10e6230aadfa2674e9147af42935627c" prot="public" virt="non-virtual"><scope>WormComponents::CycledList</scope><name>GetEnumerator</name></member>
+      <member refid="class_worm_components_1_1_cycled_list_1a1a8bfa300b2f830581dea6d6a2a5536d" prot="private" virt="non-virtual"><scope>WormComponents::CycledList</scope><name>GetEnumerator</name></member>
+      <member refid="class_worm_components_1_1_cycled_list_1a559f28b80446f1c357b99e1c5d75a42a" prot="public" virt="non-virtual"><scope>WormComponents::CycledList</scope><name>IsEmpty</name></member>
+      <member refid="class_worm_components_1_1_cycled_list_1ad9fa539acad8a6c91bff296cd4efcafc" prot="public" virt="non-virtual"><scope>WormComponents::CycledList</scope><name>Next</name></member>
+      <member refid="class_worm_components_1_1_cycled_list_1acfe7290763ac8ad643775ab488a4c305" prot="public" virt="non-virtual"><scope>WormComponents::CycledList</scope><name>Remove</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="interface_u_i_1_1_i_weapon_selector" kind="interface" language="C#" prot="public">
+    <compoundname>UI::IWeaponSelector</compoundname>
+    <basecompoundref refid="interface_event_providers_1_1_i_weapon_selected_event" prot="public" virt="non-virtual">EventProviders.IWeaponSelectedEvent</basecompoundref>
+    <derivedcompoundref refid="class_u_i_1_1_weapon_selector" prot="public" virt="non-virtual">UI.WeaponSelector</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interface_u_i_1_1_i_weapon_selector_1ad1763121a0edb475b143396153109c22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UI.IWeaponSelector.Init</definition>
+        <argsstring>(List&lt; Weapon &gt; weaponList)</argsstring>
+        <name>Init</name>
+        <qualifiedname>UI.IWeaponSelector.Init</qualifiedname>
+        <reimplementedby refid="class_u_i_1_1_weapon_selector_1a277cebcc0f9c8859fa19f672fe1ec74e">Init</reimplementedby>
+        <param>
+          <type>List&lt; <ref refid="class_weapons_1_1_weapon" kindref="compound">Weapon</ref> &gt;</type>
+          <declname>weaponList</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/IWeaponSelector.cs" line="9" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_u_i_1_1_i_weapon_selector_1a577a8c8164fedcf63853e6f350382113" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UI.IWeaponSelector.Toggle</definition>
+        <argsstring>()</argsstring>
+        <name>Toggle</name>
+        <qualifiedname>UI.IWeaponSelector.Toggle</qualifiedname>
+        <reimplementedby refid="class_u_i_1_1_weapon_selector_1aeea04e0f28d5c0c6211dded9c03eaba3">Toggle</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/IWeaponSelector.cs" line="10" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_u_i_1_1_i_weapon_selector_1ad07912f3ccf30bd377e0fcec5fd79219" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UI.IWeaponSelector.Close</definition>
+        <argsstring>()</argsstring>
+        <name>Close</name>
+        <qualifiedname>UI.IWeaponSelector.Close</qualifiedname>
+        <reimplementedby refid="class_u_i_1_1_weapon_selector_1a4e06d58add720ea1feec4a68ca60d8c8">Close</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="UI/IWeaponSelector.cs" line="11" column="14"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>IWeaponSelectedEvent</label>
+        <link refid="interface_event_providers_1_1_i_weapon_selected_event"/>
+      </node>
+      <node id="1">
+        <label>UI.IWeaponSelector</label>
+        <link refid="interface_u_i_1_1_i_weapon_selector"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>UI.WeaponSelector</label>
+        <link refid="class_u_i_1_1_weapon_selector"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>IWeaponSelectedEvent</label>
+        <link refid="interface_event_providers_1_1_i_weapon_selected_event"/>
+      </node>
+      <node id="1">
+        <label>UI.IWeaponSelector</label>
+        <link refid="interface_u_i_1_1_i_weapon_selector"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="UI/IWeaponSelector.cs" line="7" column="22" bodyfile="UI/IWeaponSelector.cs" bodystart="8" bodyend="12"/>
+    <listofallmembers>
+      <member refid="interface_u_i_1_1_i_weapon_selector_1ad07912f3ccf30bd377e0fcec5fd79219" prot="public" virt="non-virtual"><scope>UI::IWeaponSelector</scope><name>Close</name></member>
+      <member refid="interface_u_i_1_1_i_weapon_selector_1ad1763121a0edb475b143396153109c22" prot="public" virt="non-virtual"><scope>UI::IWeaponSelector</scope><name>Init</name></member>
+      <member refid="interface_u_i_1_1_i_weapon_selector_1a577a8c8164fedcf63853e6f350382113" prot="public" virt="non-virtual"><scope>UI::IWeaponSelector</scope><name>Toggle</name></member>
+      <member refid="interface_event_providers_1_1_i_weapon_selected_event_1addeef66a4b937990e13ceffa180fb267" prot="public" virt="non-virtual"><scope>UI::IWeaponSelector</scope><name>WeaponSelected</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="_on_launch_timer_8cs" kind="file" language="C#">
+    <compoundname>OnLaunchTimer.cs</compoundname>
+    <innerclass refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_on_launch_timer" prot="public">Projectiles::Behaviours::LaunchBehaviour::OnLaunchTimer</innerclass>
+    <innernamespace refid="namespace_projectiles">Projectiles</innernamespace>
+    <innernamespace refid="namespace_projectiles_1_1_behaviours">Projectiles::Behaviours</innernamespace>
+    <innernamespace refid="namespace_projectiles_1_1_behaviours_1_1_launch_behaviour">Projectiles::Behaviours::LaunchBehaviour</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/></highlight><highlight class="normal">System;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_pools" kindref="compound">Pools</ref>;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_timers" kindref="compound">Timers</ref>;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="namespace_u_i" kindref="compound">UI</ref>;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">UnityEngine;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">UnityEngine.Pool;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_projectiles_1_1_behaviours_1_1_launch_behaviour" kindref="compound">Projectiles.Behaviours.LaunchBehaviour</ref></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="10" refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_on_launch_timer" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_on_launch_timer" kindref="compound">OnLaunchTimer</ref><sp/>:<sp/><ref refid="interface_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_i_launch_behaviour" kindref="compound">ILaunchBehaviour</ref></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/><ref refid="interface_pools_1_1_i_following_timer_view_pool" kindref="compound">IFollowingTimerViewPool</ref><sp/>_followingTimerViewPool;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/><ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref><sp/>_projectile;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>_interval;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/>Action<sp/>_onElapsed;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/><ref refid="class_u_i_1_1_following_timer_view" kindref="compound">FollowingTimerView</ref><sp/>_followingTimerView;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>readonly<sp/><ref refid="class_timers_1_1_timer" kindref="compound">Timer</ref><sp/><ref refid="class_timers_1_1_timer" kindref="compound">Timer</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">();</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_on_launch_timer_1abaf23a3a024f60fd187134341c6e77a4" kindref="member">OnLaunchTimer</ref>(<ref refid="interface_pools_1_1_i_following_timer_view_pool" kindref="compound">IFollowingTimerViewPool</ref><sp/>followingTimerViewPool,<sp/><ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref><sp/>projectile,<sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>interval,<sp/>Action<sp/>onElapsed)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_followingTimerViewPool<sp/>=<sp/>followingTimerViewPool;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_projectile<sp/>=<sp/>projectile;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_interval<sp/>=<sp/>interval;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_onElapsed<sp/>=<sp/>onElapsed;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_projectiles_1_1_behaviours_1_1_launch_behaviour_1_1_on_launch_timer_1ab809571af622feac46634424863e3bd1" kindref="member">OnLaunch</ref>(Vector2<sp/>velocity)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="class_timers_1_1_timer" kindref="compound">Timer</ref>.<ref refid="class_timers_1_1_timer_1aecff15d875d75c3fb79f4dbb2f1ab860" kindref="member">Start</ref>(_interval,<sp/>OnTimerElapsed);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_followingTimerView<sp/>=<sp/>_followingTimerViewPool.Get();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_followingTimerView.<ref refid="class_u_i_1_1_following_timer_view_1a54abd48d2fafc70a38aa3011b0e107f8" kindref="member">TimerView</ref>.<ref refid="class_timers_1_1_timer_view_1ab9928bd1e1eda0dc2abebd198aeae180" kindref="member">Init</ref>(<ref refid="class_timers_1_1_timer" kindref="compound">Timer</ref>,<sp/><ref refid="namespace_timers_1a64befa9aa64f5d4bc7557fff81264b5d" kindref="member">TimerFormattingStyle</ref>.Seconds);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_followingTimerView.<ref refid="class_u_i_1_1_following_timer_view_1aa5909a43fd31e4ed3ae4497fe3da734e" kindref="member">FollowingObject</ref>.<ref refid="class_following_object_1afd393584cb92d9fa708913549c9b8d5d" kindref="member">Connect</ref>(_projectile.transform);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_projectile.Exploded<sp/>+=<sp/>OnExploded;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnExploded(<ref refid="class_projectiles_1_1_projectile" kindref="compound">Projectile</ref><sp/>projectile)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_projectile.Exploded<sp/>-=<sp/>OnExploded;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_followingTimerView<sp/>!=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_followingTimerView.<ref refid="class_u_i_1_1_following_timer_view_1aa5909a43fd31e4ed3ae4497fe3da734e" kindref="member">FollowingObject</ref>.<ref refid="class_following_object_1a800485589c0a31a2599ec8fe2cb1c458" kindref="member">Disonnect</ref>();</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_followingTimerViewPool.Release(_followingTimerView);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_followingTimerView<sp/>=<sp/></highlight><highlight class="keyword">null</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OnTimerElapsed()</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_onElapsed?.Invoke();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="Projectiles/Behaviours/LaunchBehaviour/OnLaunchTimer.cs"/>
+  </compounddef>
+</doxygen>

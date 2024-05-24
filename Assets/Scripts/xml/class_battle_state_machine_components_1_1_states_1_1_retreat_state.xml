@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_battle_state_machine_components_1_1_states_1_1_retreat_state" kind="class" language="C#" prot="public">
+    <compoundname>BattleStateMachineComponents::States::RetreatState</compoundname>
+    <basecompoundref refid="class_battle_state_machine_components_1_1_states_1_1_battle_state" prot="public" virt="non-virtual">BattleStateMachineComponents.States.BattleState</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_battle_state_machine_components_1_1_states_1_1_retreat_state_1a16a362b6b1642c9b0b166ee91d2084e3" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BattleStateMachineComponents.States.RetreatState._timerElapsed</definition>
+        <argsstring></argsstring>
+        <name>_timerElapsed</name>
+        <qualifiedname>BattleStateMachineComponents.States.RetreatState._timerElapsed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="BattleStateMachineComponents/States/RetreatState.cs" line="7" column="22" bodyfile="BattleStateMachineComponents/States/RetreatState.cs" bodystart="7" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_battle_state_machine_components_1_1_states_1_1_retreat_state_1af8750a129da13bd5682bea39a85fc693" prot="private" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_timers_1_1_timer" kindref="compound">Timer</ref></type>
+        <definition>Timer BattleStateMachineComponents.States.RetreatState.Timer</definition>
+        <argsstring></argsstring>
+        <name>Timer</name>
+        <qualifiedname>BattleStateMachineComponents.States.RetreatState.Timer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="BattleStateMachineComponents/States/RetreatState.cs" line="9" column="23" bodyfile="BattleStateMachineComponents/States/RetreatState.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_battle_state_machine_components_1_1_states_1_1_retreat_state_1aca680d599164548534fc068fbd10109e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BattleStateMachineComponents.States.RetreatState.RetreatState</definition>
+        <argsstring>(IStateSwitcher stateSwitcher, BattleStateMachineData data)</argsstring>
+        <name>RetreatState</name>
+        <qualifiedname>BattleStateMachineComponents.States.RetreatState.RetreatState</qualifiedname>
+        <param>
+          <type><ref refid="interface_battle_state_machine_components_1_1_i_state_switcher" kindref="compound">IStateSwitcher</ref></type>
+          <declname>stateSwitcher</declname>
+        </param>
+        <param>
+          <type><ref refid="class_battle_state_machine_components_1_1_battle_state_machine_data" kindref="compound">BattleStateMachineData</ref></type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="BattleStateMachineComponents/States/RetreatState.cs" line="11" column="16" bodyfile="BattleStateMachineComponents/States/RetreatState.cs" bodystart="11" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battle_state_machine_components_1_1_states_1_1_retreat_state_1ac143b1bfac4ce5ba71901ad26be45588" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void BattleStateMachineComponents.States.RetreatState.Enter</definition>
+        <argsstring>()</argsstring>
+        <name>Enter</name>
+        <qualifiedname>BattleStateMachineComponents.States.RetreatState.Enter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="BattleStateMachineComponents/States/RetreatState.cs" line="13" column="30" bodyfile="BattleStateMachineComponents/States/RetreatState.cs" bodystart="13" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battle_state_machine_components_1_1_states_1_1_retreat_state_1a7627bdd347de6d225ea0dd1e35b5c267" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void BattleStateMachineComponents.States.RetreatState.Exit</definition>
+        <argsstring>()</argsstring>
+        <name>Exit</name>
+        <qualifiedname>BattleStateMachineComponents.States.RetreatState.Exit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="BattleStateMachineComponents/States/RetreatState.cs" line="19" column="30" bodyfile="BattleStateMachineComponents/States/RetreatState.cs" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battle_state_machine_components_1_1_states_1_1_retreat_state_1aa017c01f0bd409bd7d203d0abb04ead4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void BattleStateMachineComponents.States.RetreatState.Tick</definition>
+        <argsstring>()</argsstring>
+        <name>Tick</name>
+        <qualifiedname>BattleStateMachineComponents.States.RetreatState.Tick</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="BattleStateMachineComponents/States/RetreatState.cs" line="24" column="30" bodyfile="BattleStateMachineComponents/States/RetreatState.cs" bodystart="24" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="class_battle_state_machine_components_1_1_states_1_1_retreat_state_1a1bf3f237ff031f9bdc86c9ead296ae7f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void BattleStateMachineComponents.States.RetreatState.HandleInput</definition>
+        <argsstring>()</argsstring>
+        <name>HandleInput</name>
+        <qualifiedname>BattleStateMachineComponents.States.RetreatState.HandleInput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="BattleStateMachineComponents/States/RetreatState.cs" line="28" column="30" bodyfile="BattleStateMachineComponents/States/RetreatState.cs" bodystart="28" bodyend="31"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BattleState</label>
+        <link refid="class_battle_state_machine_components_1_1_states_1_1_battle_state"/>
+      </node>
+      <node id="1">
+        <label>BattleStateMachineComponents.States.RetreatState</label>
+        <link refid="class_battle_state_machine_components_1_1_states_1_1_retreat_state"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BattleState</label>
+        <link refid="class_battle_state_machine_components_1_1_states_1_1_battle_state"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>StateSwitcher</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>Data</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>BattleStateMachineComponents.States.RetreatState</label>
+        <link refid="class_battle_state_machine_components_1_1_states_1_1_retreat_state"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>BattleStateMachineComponents.BattleStateMachineData</label>
+        <link refid="class_battle_state_machine_components_1_1_battle_state_machine_data"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>CurrentWorm</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>CurrentTeam</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>GlobalTimer</edgelabel>
+          <edgelabel>TurnTimer</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>WormsList</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>TeamsList</edgelabel>
+        </childnode>
+        <childnode refid="10" relation="usage">
+          <edgelabel>Wind</edgelabel>
+        </childnode>
+        <childnode refid="11" relation="usage">
+          <edgelabel>PlayerInput</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>BattleStateMachineComponents.IStateSwitcher</label>
+        <link refid="interface_battle_state_machine_components_1_1_i_state_switcher"/>
+      </node>
+      <node id="11">
+        <label>InputService</label>
+      </node>
+      <node id="7">
+        <label>Timers.Timer</label>
+        <link refid="class_timers_1_1_timer"/>
+      </node>
+      <node id="10">
+        <label>Wind_.Wind</label>
+        <link refid="class_wind___1_1_wind"/>
+      </node>
+      <node id="8">
+        <label>WormComponents.CycledList&lt; IWorm &gt;</label>
+        <link refid="class_worm_components_1_1_cycled_list"/>
+      </node>
+      <node id="9">
+        <label>WormComponents.CycledList&lt; Team &gt;</label>
+        <link refid="class_worm_components_1_1_cycled_list"/>
+      </node>
+      <node id="5">
+        <label>WormComponents.IWorm</label>
+        <link refid="interface_worm_components_1_1_i_worm"/>
+      </node>
+      <node id="6">
+        <label>WormComponents.Team</label>
+        <link refid="class_worm_components_1_1_team"/>
+      </node>
+    </collaborationgraph>
+    <location file="BattleStateMachineComponents/States/RetreatState.cs" line="5" column="11" bodyfile="BattleStateMachineComponents/States/RetreatState.cs" bodystart="6" bodyend="32"/>
+    <listofallmembers>
+      <member refid="class_battle_state_machine_components_1_1_states_1_1_retreat_state_1a16a362b6b1642c9b0b166ee91d2084e3" prot="private" virt="non-virtual"><scope>BattleStateMachineComponents::States::RetreatState</scope><name>_timerElapsed</name></member>
+      <member refid="class_battle_state_machine_components_1_1_states_1_1_battle_state_1af0267f729ba429cdedb690ca0a8f41c6" prot="public" virt="non-virtual"><scope>BattleStateMachineComponents::States::RetreatState</scope><name>BattleState</name></member>
+      <member refid="class_battle_state_machine_components_1_1_states_1_1_battle_state_1a6913d092513bcc5587efd17736b0b502" prot="protected" virt="non-virtual"><scope>BattleStateMachineComponents::States::RetreatState</scope><name>Data</name></member>
+      <member refid="class_battle_state_machine_components_1_1_states_1_1_retreat_state_1ac143b1bfac4ce5ba71901ad26be45588" prot="public" virt="non-virtual"><scope>BattleStateMachineComponents::States::RetreatState</scope><name>Enter</name></member>
+      <member refid="class_battle_state_machine_components_1_1_states_1_1_retreat_state_1a7627bdd347de6d225ea0dd1e35b5c267" prot="public" virt="non-virtual"><scope>BattleStateMachineComponents::States::RetreatState</scope><name>Exit</name></member>
+      <member refid="class_battle_state_machine_components_1_1_states_1_1_retreat_state_1a1bf3f237ff031f9bdc86c9ead296ae7f" prot="public" virt="non-virtual"><scope>BattleStateMachineComponents::States::RetreatState</scope><name>HandleInput</name></member>
+      <member refid="class_battle_state_machine_components_1_1_states_1_1_retreat_state_1aca680d599164548534fc068fbd10109e" prot="public" virt="non-virtual"><scope>BattleStateMachineComponents::States::RetreatState</scope><name>RetreatState</name></member>
+      <member refid="class_battle_state_machine_components_1_1_states_1_1_battle_state_1af3dbdf7d55bef50357def006a7ac38df" prot="protected" virt="non-virtual"><scope>BattleStateMachineComponents::States::RetreatState</scope><name>StateSwitcher</name></member>
+      <member refid="class_battle_state_machine_components_1_1_states_1_1_retreat_state_1aa017c01f0bd409bd7d203d0abb04ead4" prot="public" virt="non-virtual"><scope>BattleStateMachineComponents::States::RetreatState</scope><name>Tick</name></member>
+      <member refid="class_battle_state_machine_components_1_1_states_1_1_retreat_state_1af8750a129da13bd5682bea39a85fc693" prot="private" virt="non-virtual"><scope>BattleStateMachineComponents::States::RetreatState</scope><name>Timer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

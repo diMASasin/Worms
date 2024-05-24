@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="dir_ee084cbec6df53004dc114ff4e6ef090" kind="dir">
+    <compoundname>Spawn</compoundname>
+    <innerfile refid="_edge_8cs">Edge.cs</innerfile>
+    <innerfile refid="_worms_spawner_8cs">WormsSpawner.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Spawn/"/>
+  </compounddef>
+</doxygen>

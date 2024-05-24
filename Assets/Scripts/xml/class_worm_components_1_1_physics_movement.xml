@@ -1,0 +1,328 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_worm_components_1_1_physics_movement" kind="class" language="C#" prot="public">
+    <compoundname>WormComponents::PhysicsMovement</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_worm_components_1_1_physics_movement_1a0ed9d8434234d7612dffd612763d7c0b" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float WormComponents.PhysicsMovement._minGroundNormalY</definition>
+        <argsstring></argsstring>
+        <name>_minGroundNormalY</name>
+        <qualifiedname>WormComponents.PhysicsMovement._minGroundNormalY</qualifiedname>
+        <initializer>= .65f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/PhysicsMovement.cs" line="8" column="24" bodyfile="WormComponents/PhysicsMovement.cs" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_worm_components_1_1_physics_movement_1a737d19b6fe6fafff2fd51c29b79c382c" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float WormComponents.PhysicsMovement._gravityModifier</definition>
+        <argsstring></argsstring>
+        <name>_gravityModifier</name>
+        <qualifiedname>WormComponents.PhysicsMovement._gravityModifier</qualifiedname>
+        <initializer>= 1f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/PhysicsMovement.cs" line="9" column="24" bodyfile="WormComponents/PhysicsMovement.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_worm_components_1_1_physics_movement_1afac81e70b9046a594542d47ce4087a7d" prot="private" static="no" mutable="no">
+        <type>Vector2</type>
+        <definition>Vector2 WormComponents.PhysicsMovement._velocity</definition>
+        <argsstring></argsstring>
+        <name>_velocity</name>
+        <qualifiedname>WormComponents.PhysicsMovement._velocity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/PhysicsMovement.cs" line="10" column="26" bodyfile="WormComponents/PhysicsMovement.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_worm_components_1_1_physics_movement_1a14f7e8cfa481bd1c9c81be51fd427b27" prot="private" static="no" mutable="no">
+        <type>LayerMask</type>
+        <definition>LayerMask WormComponents.PhysicsMovement._layerMask</definition>
+        <argsstring></argsstring>
+        <name>_layerMask</name>
+        <qualifiedname>WormComponents.PhysicsMovement._layerMask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/PhysicsMovement.cs" line="11" column="28" bodyfile="WormComponents/PhysicsMovement.cs" bodystart="11" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="class_worm_components_1_1_physics_movement_1aabc2c3eed54a5f8aac89f64a1503ddba" prot="protected" static="no" mutable="no">
+        <type>Vector2</type>
+        <definition>Vector2 WormComponents.PhysicsMovement.targetVelocity</definition>
+        <argsstring></argsstring>
+        <name>targetVelocity</name>
+        <qualifiedname>WormComponents.PhysicsMovement.targetVelocity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/PhysicsMovement.cs" line="13" column="27" bodyfile="WormComponents/PhysicsMovement.cs" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_worm_components_1_1_physics_movement_1a918319c31379e9835fc20c4d4e98167e" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool WormComponents.PhysicsMovement.grounded</definition>
+        <argsstring></argsstring>
+        <name>grounded</name>
+        <qualifiedname>WormComponents.PhysicsMovement.grounded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/PhysicsMovement.cs" line="14" column="24" bodyfile="WormComponents/PhysicsMovement.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_worm_components_1_1_physics_movement_1a9ac262ed84ac958b6a9de41cdf5fb3bf" prot="protected" static="no" mutable="no">
+        <type>Vector2</type>
+        <definition>Vector2 WormComponents.PhysicsMovement.groundNormal</definition>
+        <argsstring></argsstring>
+        <name>groundNormal</name>
+        <qualifiedname>WormComponents.PhysicsMovement.groundNormal</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/PhysicsMovement.cs" line="15" column="27" bodyfile="WormComponents/PhysicsMovement.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_worm_components_1_1_physics_movement_1a71dce3f6817d4da61df577a522a7165b" prot="protected" static="no" mutable="no">
+        <type>Rigidbody2D</type>
+        <definition>Rigidbody2D WormComponents.PhysicsMovement._rigidbody2D</definition>
+        <argsstring></argsstring>
+        <name>_rigidbody2D</name>
+        <qualifiedname>WormComponents.PhysicsMovement._rigidbody2D</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/PhysicsMovement.cs" line="16" column="31" bodyfile="WormComponents/PhysicsMovement.cs" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_worm_components_1_1_physics_movement_1a313963fa81c05a057f0adb07f2bf24b5" prot="protected" static="no" mutable="no">
+        <type>ContactFilter2D</type>
+        <definition>ContactFilter2D WormComponents.PhysicsMovement.contactFilter</definition>
+        <argsstring></argsstring>
+        <name>contactFilter</name>
+        <qualifiedname>WormComponents.PhysicsMovement.contactFilter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/PhysicsMovement.cs" line="17" column="35" bodyfile="WormComponents/PhysicsMovement.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_worm_components_1_1_physics_movement_1a920da0015a89d99e56a4e5ccd213116c" prot="protected" static="no" mutable="no">
+        <type>RaycastHit2D[]</type>
+        <definition>RaycastHit2D [] WormComponents.PhysicsMovement.hitBuffer</definition>
+        <argsstring></argsstring>
+        <name>hitBuffer</name>
+        <qualifiedname>WormComponents.PhysicsMovement.hitBuffer</qualifiedname>
+        <initializer>= new RaycastHit2D[16]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/PhysicsMovement.cs" line="18" column="32" bodyfile="WormComponents/PhysicsMovement.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_worm_components_1_1_physics_movement_1a08c154eb43eff130072dce28265ae4a6" prot="protected" static="no" mutable="no">
+        <type>List&lt; RaycastHit2D &gt;</type>
+        <definition>List&lt;RaycastHit2D&gt; WormComponents.PhysicsMovement.hitBufferList</definition>
+        <argsstring></argsstring>
+        <name>hitBufferList</name>
+        <qualifiedname>WormComponents.PhysicsMovement.hitBufferList</qualifiedname>
+        <initializer>= new List&lt;RaycastHit2D&gt;(16)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/PhysicsMovement.cs" line="19" column="24" bodyfile="WormComponents/PhysicsMovement.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-static-attrib">
+      <memberdef kind="variable" id="class_worm_components_1_1_physics_movement_1a3113ae12189b41515f9d513ea40ee5d6" prot="protected" static="yes" mutable="no">
+        <type>const float</type>
+        <definition>const float WormComponents.PhysicsMovement.minMoveDistance</definition>
+        <argsstring></argsstring>
+        <name>minMoveDistance</name>
+        <qualifiedname>WormComponents.PhysicsMovement.minMoveDistance</qualifiedname>
+        <initializer>= 0.001f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/PhysicsMovement.cs" line="21" column="31" bodyfile="WormComponents/PhysicsMovement.cs" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_worm_components_1_1_physics_movement_1a8963f885d07697257927b12141bee043" prot="protected" static="yes" mutable="no">
+        <type>const float</type>
+        <definition>const float WormComponents.PhysicsMovement.shellRadius</definition>
+        <argsstring></argsstring>
+        <name>shellRadius</name>
+        <qualifiedname>WormComponents.PhysicsMovement.shellRadius</qualifiedname>
+        <initializer>= 0.01f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/PhysicsMovement.cs" line="22" column="31" bodyfile="WormComponents/PhysicsMovement.cs" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_worm_components_1_1_physics_movement_1ab3e404ce4fd8602abb61eaaa8d9be6d0" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.PhysicsMovement.Awake</definition>
+        <argsstring>()</argsstring>
+        <name>Awake</name>
+        <qualifiedname>WormComponents.PhysicsMovement.Awake</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/PhysicsMovement.cs" line="24" column="14" bodyfile="WormComponents/PhysicsMovement.cs" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="class_worm_components_1_1_physics_movement_1ac2c347802024386e0440fece9e4dfe54" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.PhysicsMovement.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <qualifiedname>WormComponents.PhysicsMovement.Start</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/PhysicsMovement.cs" line="29" column="14" bodyfile="WormComponents/PhysicsMovement.cs" bodystart="29" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_worm_components_1_1_physics_movement_1a1f92c3cfea622bca97a99a6bb2276052" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.PhysicsMovement.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <qualifiedname>WormComponents.PhysicsMovement.Update</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/PhysicsMovement.cs" line="36" column="14" bodyfile="WormComponents/PhysicsMovement.cs" bodystart="36" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="class_worm_components_1_1_physics_movement_1ad435d52dea2a79e4917e2117bee2819a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.PhysicsMovement.FixedUpdate</definition>
+        <argsstring>()</argsstring>
+        <name>FixedUpdate</name>
+        <qualifiedname>WormComponents.PhysicsMovement.FixedUpdate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/PhysicsMovement.cs" line="44" column="14" bodyfile="WormComponents/PhysicsMovement.cs" bodystart="44" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="class_worm_components_1_1_physics_movement_1aa84d3eb099e89f5e7d3e6113c2b9dcd3" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.PhysicsMovement.Movement</definition>
+        <argsstring>(Vector2 move, bool yMovement)</argsstring>
+        <name>Movement</name>
+        <qualifiedname>WormComponents.PhysicsMovement.Movement</qualifiedname>
+        <param>
+          <type>Vector2</type>
+          <declname>move</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>yMovement</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/PhysicsMovement.cs" line="62" column="22" bodyfile="WormComponents/PhysicsMovement.cs" bodystart="62" bodyend="102"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="1">
+        <label>WormComponents.PhysicsMovement</label>
+        <link refid="class_worm_components_1_1_physics_movement"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="1">
+        <label>WormComponents.PhysicsMovement</label>
+        <link refid="class_worm_components_1_1_physics_movement"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="WormComponents/PhysicsMovement.cs" line="6" column="11" bodyfile="WormComponents/PhysicsMovement.cs" bodystart="7" bodyend="103"/>
+    <listofallmembers>
+      <member refid="class_worm_components_1_1_physics_movement_1a737d19b6fe6fafff2fd51c29b79c382c" prot="private" virt="non-virtual"><scope>WormComponents::PhysicsMovement</scope><name>_gravityModifier</name></member>
+      <member refid="class_worm_components_1_1_physics_movement_1a14f7e8cfa481bd1c9c81be51fd427b27" prot="private" virt="non-virtual"><scope>WormComponents::PhysicsMovement</scope><name>_layerMask</name></member>
+      <member refid="class_worm_components_1_1_physics_movement_1a0ed9d8434234d7612dffd612763d7c0b" prot="private" virt="non-virtual"><scope>WormComponents::PhysicsMovement</scope><name>_minGroundNormalY</name></member>
+      <member refid="class_worm_components_1_1_physics_movement_1a71dce3f6817d4da61df577a522a7165b" prot="protected" virt="non-virtual"><scope>WormComponents::PhysicsMovement</scope><name>_rigidbody2D</name></member>
+      <member refid="class_worm_components_1_1_physics_movement_1afac81e70b9046a594542d47ce4087a7d" prot="private" virt="non-virtual"><scope>WormComponents::PhysicsMovement</scope><name>_velocity</name></member>
+      <member refid="class_worm_components_1_1_physics_movement_1ab3e404ce4fd8602abb61eaaa8d9be6d0" prot="private" virt="non-virtual"><scope>WormComponents::PhysicsMovement</scope><name>Awake</name></member>
+      <member refid="class_worm_components_1_1_physics_movement_1a313963fa81c05a057f0adb07f2bf24b5" prot="protected" virt="non-virtual"><scope>WormComponents::PhysicsMovement</scope><name>contactFilter</name></member>
+      <member refid="class_worm_components_1_1_physics_movement_1ad435d52dea2a79e4917e2117bee2819a" prot="private" virt="non-virtual"><scope>WormComponents::PhysicsMovement</scope><name>FixedUpdate</name></member>
+      <member refid="class_worm_components_1_1_physics_movement_1a918319c31379e9835fc20c4d4e98167e" prot="protected" virt="non-virtual"><scope>WormComponents::PhysicsMovement</scope><name>grounded</name></member>
+      <member refid="class_worm_components_1_1_physics_movement_1a9ac262ed84ac958b6a9de41cdf5fb3bf" prot="protected" virt="non-virtual"><scope>WormComponents::PhysicsMovement</scope><name>groundNormal</name></member>
+      <member refid="class_worm_components_1_1_physics_movement_1a920da0015a89d99e56a4e5ccd213116c" prot="protected" virt="non-virtual"><scope>WormComponents::PhysicsMovement</scope><name>hitBuffer</name></member>
+      <member refid="class_worm_components_1_1_physics_movement_1a08c154eb43eff130072dce28265ae4a6" prot="protected" virt="non-virtual"><scope>WormComponents::PhysicsMovement</scope><name>hitBufferList</name></member>
+      <member refid="class_worm_components_1_1_physics_movement_1a3113ae12189b41515f9d513ea40ee5d6" prot="protected" virt="non-virtual"><scope>WormComponents::PhysicsMovement</scope><name>minMoveDistance</name></member>
+      <member refid="class_worm_components_1_1_physics_movement_1aa84d3eb099e89f5e7d3e6113c2b9dcd3" prot="private" virt="non-virtual"><scope>WormComponents::PhysicsMovement</scope><name>Movement</name></member>
+      <member refid="class_worm_components_1_1_physics_movement_1a8963f885d07697257927b12141bee043" prot="protected" virt="non-virtual"><scope>WormComponents::PhysicsMovement</scope><name>shellRadius</name></member>
+      <member refid="class_worm_components_1_1_physics_movement_1ac2c347802024386e0440fece9e4dfe54" prot="private" virt="non-virtual"><scope>WormComponents::PhysicsMovement</scope><name>Start</name></member>
+      <member refid="class_worm_components_1_1_physics_movement_1aabc2c3eed54a5f8aac89f64a1503ddba" prot="protected" virt="non-virtual"><scope>WormComponents::PhysicsMovement</scope><name>targetVelocity</name></member>
+      <member refid="class_worm_components_1_1_physics_movement_1a1f92c3cfea622bca97a99a6bb2276052" prot="private" virt="non-virtual"><scope>WormComponents::PhysicsMovement</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

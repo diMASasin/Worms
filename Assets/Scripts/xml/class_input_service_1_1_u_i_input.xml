@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_input_service_1_1_u_i_input" kind="class" language="C#" prot="public">
+    <compoundname>InputService::UIInput</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_input_service_1_1_u_i_input_1a5f45dac52c99693b2d73ecd699a76f1e" prot="private" static="no" mutable="no">
+        <type>readonly MainInput.UIActions</type>
+        <definition>readonly MainInput.UIActions InputService.UIInput._uiActions</definition>
+        <argsstring></argsstring>
+        <name>_uiActions</name>
+        <qualifiedname>InputService.UIInput._uiActions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="InputService/UIInput.cs" line="9" column="45" bodyfile="InputService/UIInput.cs" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_input_service_1_1_u_i_input_1a6d95cb67b67f3faed0e6c03be85d0ce2" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="class_u_i_1_1_weapon_selector" kindref="compound">WeaponSelector</ref></type>
+        <definition>readonly WeaponSelector InputService.UIInput._weaponSelector</definition>
+        <argsstring></argsstring>
+        <name>_weaponSelector</name>
+        <qualifiedname>InputService.UIInput._weaponSelector</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="InputService/UIInput.cs" line="10" column="41" bodyfile="InputService/UIInput.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_input_service_1_1_u_i_input_1a13994d7247f3d37fcd76f500d18644c6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>InputService.UIInput.UIInput</definition>
+        <argsstring>(MainInput.UIActions uiActions, WeaponSelector weaponSelector)</argsstring>
+        <name>UIInput</name>
+        <qualifiedname>InputService.UIInput.UIInput</qualifiedname>
+        <param>
+          <type>MainInput.UIActions</type>
+          <declname>uiActions</declname>
+        </param>
+        <param>
+          <type><ref refid="class_u_i_1_1_weapon_selector" kindref="compound">WeaponSelector</ref></type>
+          <declname>weaponSelector</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="InputService/UIInput.cs" line="12" column="16" bodyfile="InputService/UIInput.cs" bodystart="12" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="class_input_service_1_1_u_i_input_1a09cee515c4d3318f7de21d3aaf649e10" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void InputService.UIInput.Enable</definition>
+        <argsstring>()</argsstring>
+        <name>Enable</name>
+        <qualifiedname>InputService.UIInput.Enable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="InputService/UIInput.cs" line="19" column="21" bodyfile="InputService/UIInput.cs" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_input_service_1_1_u_i_input_1a689785249e582c8f5e090d57c25e4211" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void InputService.UIInput.Disable</definition>
+        <argsstring>()</argsstring>
+        <name>Disable</name>
+        <qualifiedname>InputService.UIInput.Disable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="InputService/UIInput.cs" line="24" column="21" bodyfile="InputService/UIInput.cs" bodystart="24" bodyend="27"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_input_service_1_1_u_i_input_1ac87573b1b4bc3c6651136237482eac30" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void InputService.UIInput.OpenWeaponSelector</definition>
+        <argsstring>(InputAction.CallbackContext obj)</argsstring>
+        <name>OpenWeaponSelector</name>
+        <qualifiedname>InputService.UIInput.OpenWeaponSelector</qualifiedname>
+        <param>
+          <type>InputAction.CallbackContext</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="InputService/UIInput.cs" line="29" column="22" bodyfile="InputService/UIInput.cs" bodystart="29" bodyend="32"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="InputService/UIInput.cs" line="7" column="11" bodyfile="InputService/UIInput.cs" bodystart="8" bodyend="33"/>
+    <listofallmembers>
+      <member refid="class_input_service_1_1_u_i_input_1a5f45dac52c99693b2d73ecd699a76f1e" prot="private" virt="non-virtual"><scope>InputService::UIInput</scope><name>_uiActions</name></member>
+      <member refid="class_input_service_1_1_u_i_input_1a6d95cb67b67f3faed0e6c03be85d0ce2" prot="private" virt="non-virtual"><scope>InputService::UIInput</scope><name>_weaponSelector</name></member>
+      <member refid="class_input_service_1_1_u_i_input_1a689785249e582c8f5e090d57c25e4211" prot="public" virt="non-virtual"><scope>InputService::UIInput</scope><name>Disable</name></member>
+      <member refid="class_input_service_1_1_u_i_input_1a09cee515c4d3318f7de21d3aaf649e10" prot="public" virt="non-virtual"><scope>InputService::UIInput</scope><name>Enable</name></member>
+      <member refid="class_input_service_1_1_u_i_input_1ac87573b1b4bc3c6651136237482eac30" prot="private" virt="non-virtual"><scope>InputService::UIInput</scope><name>OpenWeaponSelector</name></member>
+      <member refid="class_input_service_1_1_u_i_input_1a13994d7247f3d37fcd76f500d18644c6" prot="public" virt="non-virtual"><scope>InputService::UIInput</scope><name>UIInput</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

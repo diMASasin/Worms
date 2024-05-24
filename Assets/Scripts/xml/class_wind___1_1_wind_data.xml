@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_wind___1_1_wind_data" kind="class" language="C#" prot="public">
+    <compoundname>Wind_::WindData</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_wind___1_1_wind_data_1ab1e40c01e596ac9d31379c4cc3153b6d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>float</type>
+        <definition>float Wind_.WindData.MaxVelocity</definition>
+        <argsstring></argsstring>
+        <name>MaxVelocity</name>
+        <qualifiedname>Wind_.WindData.MaxVelocity</qualifiedname>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Wind_/WindData.cs" line="9" column="23" bodyfile="Wind_/WindData.cs" bodystart="9" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="property" id="class_wind___1_1_wind_data_1af3c8efead8f9715c0e382aa3d4f669d8" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="yes" protectedsettable="no">
+        <type>float</type>
+        <definition>float Wind_.WindData.Step</definition>
+        <argsstring></argsstring>
+        <name>Step</name>
+        <qualifiedname>Wind_.WindData.Step</qualifiedname>
+        <initializer>= 0.2f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Wind_/WindData.cs" line="10" column="23" bodyfile="Wind_/WindData.cs" bodystart="10" bodyend="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Wind_/WindData.cs" line="7" column="11" bodyfile="Wind_/WindData.cs" bodystart="8" bodyend="11"/>
+    <listofallmembers>
+      <member refid="class_wind___1_1_wind_data_1ab1e40c01e596ac9d31379c4cc3153b6d" prot="public" virt="non-virtual"><scope>Wind_::WindData</scope><name>MaxVelocity</name></member>
+      <member refid="class_wind___1_1_wind_data_1af3c8efead8f9715c0e382aa3d4f669d8" prot="public" virt="non-virtual"><scope>Wind_::WindData</scope><name>Step</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

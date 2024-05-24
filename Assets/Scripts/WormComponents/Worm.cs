@@ -9,7 +9,7 @@ using Weapons;
 
 namespace WormComponents
 {
-    public class Worm : MonoBehaviour
+    public class Worm : MonoBehaviour, IWorm
     {
         [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private CapsuleCollider2D _collider;
@@ -21,8 +21,9 @@ namespace WormComponents
         private Movement _wormMovement;
         private GroundChecker _groundChecker;
 
+        public Transform Transform => transform;
         public int Health { get; private set; }
-        public Weapon Weapon { get; private set; }
+        public IWeapon Weapon { get; private set; }
 
         public CapsuleCollider2D Collider2D => _collider;
         public int MaxHealth => _wormConfig.MaxHealth;
@@ -31,11 +32,11 @@ namespace WormComponents
 
         public static int WormsNumber;
 
-        public event UnityAction<Worm> Died;
-        public event UnityAction<Worm> DamageTook;
-        public event Action<Weapon> WeaponChanged;
+        public event UnityAction<IWorm> Died;
+        public event UnityAction<IWorm> DamageTook;
+        public event Action<IWeapon> WeaponChanged;
         public event Action WeaponRemoved;
-
+        
         private void OnDrawGizmos()
         {
             var colliderSize = Collider2D.size;
@@ -79,6 +80,7 @@ namespace WormComponents
 
         public void SetWormLayer() => gameObject.layer = (int)math.log2(_wormConfig.WormLayerMask.value);
 
+
         public void AddExplosionForce(float explosionForce, Vector3 explosionPosition, float explosionUpwardsModifier)
         {
             SetRigidbodyDynamic();
@@ -119,7 +121,7 @@ namespace WormComponents
             WeaponRemoved?.Invoke();
         }
 
-        public void ChangeWeapon(Weapon weapon)
+        public void ChangeWeapon(IWeapon weapon)
         {
             Weapon = weapon;
 

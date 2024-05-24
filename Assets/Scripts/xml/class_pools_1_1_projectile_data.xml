@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_pools_1_1_projectile_data" kind="class" language="C#" prot="public">
+    <compoundname>Pools::ProjectileData</compoundname>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="class_pools_1_1_projectile_data_1a82acefc967979cdf26842cfe9684cf94" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_wind___1_1_wind" kindref="compound">Wind</ref></type>
+        <definition>Wind Pools.ProjectileData.Wind</definition>
+        <argsstring></argsstring>
+        <name>Wind</name>
+        <qualifiedname>Pools.ProjectileData.Wind</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pools/ProjectileData.cs" line="7" column="21" bodyfile="Pools/ProjectileData.cs" bodystart="7" bodyend="7"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_pools_1_1_projectile_data_1a81989ae759f1c9312f9237da22127d30" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Pools.ProjectileData.ProjectileData</definition>
+        <argsstring>(Wind wind)</argsstring>
+        <name>ProjectileData</name>
+        <qualifiedname>Pools.ProjectileData.ProjectileData</qualifiedname>
+        <param>
+          <type><ref refid="class_wind___1_1_wind" kindref="compound">Wind</ref></type>
+          <declname>wind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Pools/ProjectileData.cs" line="9" column="16" bodyfile="Pools/ProjectileData.cs" bodystart="9" bodyend="12"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Pools/ProjectileData.cs" line="5" column="11" bodyfile="Pools/ProjectileData.cs" bodystart="6" bodyend="13"/>
+    <listofallmembers>
+      <member refid="class_pools_1_1_projectile_data_1a81989ae759f1c9312f9237da22127d30" prot="public" virt="non-virtual"><scope>Pools::ProjectileData</scope><name>ProjectileData</name></member>
+      <member refid="class_pools_1_1_projectile_data_1a82acefc967979cdf26842cfe9684cf94" prot="public" virt="non-virtual"><scope>Pools::ProjectileData</scope><name>Wind</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="_shovel_wrapper_8cs" kind="file" language="C#">
+    <compoundname>ShovelWrapper.cs</compoundname>
+    <innerclass refid="class_shovel_wrapper" prot="public">ShovelWrapper</innerclass>
+    <innernamespace refid="namespace_script_boy_1_1_digable2_d_terrain">ScriptBoy::Digable2DTerrain</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">using<sp/></highlight><highlight class="normal">ScriptBoy.Digable2DTerrain;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">ScriptBoy.Digable2DTerrain.Scripts;</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">UnityEngine;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="class_shovel_wrapper" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_shovel_wrapper" kindref="compound">ShovelWrapper</ref><sp/>:<sp/><ref refid="interface_i_shovel" kindref="compound">IShovel</ref></highlight></codeline>
+<codeline lineno="6"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal"><sp/>readonly<sp/>Shovel<sp/>_shovel;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_shovel_wrapper_1a48b50da170d39ae94c811f38b97d92f1" kindref="member">ShovelWrapper</ref>(Shovel<sp/>shovel)</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_shovel<sp/>=<sp/>shovel;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_shovel_wrapper_1ac7f132445f6bf3c953049f9f04796173" kindref="member">Dig</ref>(Vector3<sp/>position,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>radius)</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_shovel.radius<sp/>=<sp/>radius;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_shovel.transform.position<sp/>=<sp/>position;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_shovel.<ref refid="interface_i_shovel_1afbcec501ce55fa945ff7fa878e389710" kindref="member">Dig</ref>();</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="ShovelWrapper.cs"/>
+  </compounddef>
+</doxygen>

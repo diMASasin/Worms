@@ -12,13 +12,13 @@ namespace Pools
         [SerializeField] private int _amount;
 
         private Transform _objectsParent;
-        private ShovelWrapper _shovelWrapper;
+        private IShovel _shovelWrapper;
 
         private ObjectPool<Explosion> _pool;
 
         public static int Count { get; private set; }
 
-        public void Init(Transform objectsParent, ShovelWrapper shovelWrapper)
+        public void Init(Transform objectsParent, IShovel shovelWrapper)
         {
             _objectsParent = objectsParent;
             _shovelWrapper = shovelWrapper;

@@ -1,0 +1,278 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_spawn_1_1_worms_spawner" kind="class" language="C#" prot="public">
+    <compoundname>Spawn::WormsSpawner</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_spawn_1_1_worms_spawner_1aae3e10cc85731b7608be3eddb87f1ec7" prot="private" static="no" mutable="no">
+        <type><ref refid="class_configs_1_1_worms_spawner_config" kindref="compound">WormsSpawnerConfig</ref></type>
+        <definition>WormsSpawnerConfig Spawn.WormsSpawner._spawnerConfig</definition>
+        <argsstring></argsstring>
+        <name>_spawnerConfig</name>
+        <qualifiedname>Spawn.WormsSpawner._spawnerConfig</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Spawn/WormsSpawner.cs" line="15" column="37" bodyfile="Spawn/WormsSpawner.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spawn_1_1_worms_spawner_1a66374ca14599adef7a6c81cb92869f16" prot="private" static="no" mutable="no">
+        <type>Terrain2D</type>
+        <definition>Terrain2D Spawn.WormsSpawner._terrain</definition>
+        <argsstring></argsstring>
+        <name>_terrain</name>
+        <qualifiedname>Spawn.WormsSpawner._terrain</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Spawn/WormsSpawner.cs" line="16" column="28" bodyfile="Spawn/WormsSpawner.cs" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spawn_1_1_worms_spawner_1a3541de88157a8334b9bb2256f4cb5484" prot="private" static="no" mutable="no">
+        <type><ref refid="class_worm_components_1_1_worm" kindref="compound">Worm</ref></type>
+        <definition>Worm Spawn.WormsSpawner._wormTemplate</definition>
+        <argsstring></argsstring>
+        <name>_wormTemplate</name>
+        <qualifiedname>Spawn.WormsSpawner._wormTemplate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Spawn/WormsSpawner.cs" line="17" column="23" bodyfile="Spawn/WormsSpawner.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spawn_1_1_worms_spawner_1a0f6be1cff9995ddc1fccb86b0c66cf40" prot="private" static="no" mutable="no">
+        <type><ref refid="class_battle___1_1_map_bounds" kindref="compound">MapBounds</ref></type>
+        <definition>MapBounds Spawn.WormsSpawner._mapBounds</definition>
+        <argsstring></argsstring>
+        <name>_mapBounds</name>
+        <qualifiedname>Spawn.WormsSpawner._mapBounds</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Spawn/WormsSpawner.cs" line="18" column="28" bodyfile="Spawn/WormsSpawner.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spawn_1_1_worms_spawner_1abd48de9e0c3af591a27b192eb4c0c189" prot="private" static="no" mutable="no">
+        <type>ContactFilter2D</type>
+        <definition>ContactFilter2D Spawn.WormsSpawner._contactFilter2D</definition>
+        <argsstring></argsstring>
+        <name>_contactFilter2D</name>
+        <qualifiedname>Spawn.WormsSpawner._contactFilter2D</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Spawn/WormsSpawner.cs" line="19" column="34" bodyfile="Spawn/WormsSpawner.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spawn_1_1_worms_spawner_1ac23105c5159431d1811a96faafb3a95e" prot="private" static="no" mutable="no">
+        <type><ref refid="class_factories_1_1_team_factory" kindref="compound">TeamFactory</ref></type>
+        <definition>TeamFactory Spawn.WormsSpawner._teamFactory</definition>
+        <argsstring></argsstring>
+        <name>_teamFactory</name>
+        <qualifiedname>Spawn.WormsSpawner._teamFactory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Spawn/WormsSpawner.cs" line="21" column="29" bodyfile="Spawn/WormsSpawner.cs" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spawn_1_1_worms_spawner_1a1a428c5552dadf34152453637f9ef3a6" prot="private" static="no" mutable="no">
+        <type>Vector2[]</type>
+        <definition>Vector2 [] Spawn.WormsSpawner._points</definition>
+        <argsstring></argsstring>
+        <name>_points</name>
+        <qualifiedname>Spawn.WormsSpawner._points</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Spawn/WormsSpawner.cs" line="22" column="25" bodyfile="Spawn/WormsSpawner.cs" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spawn_1_1_worms_spawner_1a023126bcdffca96e9ecd72d928c63992" prot="private" static="no" mutable="no">
+        <type>readonly List&lt; <ref refid="class_spawn_1_1_edge" kindref="compound">Edge</ref> &gt;</type>
+        <definition>readonly List&lt;Edge&gt; Spawn.WormsSpawner._edges</definition>
+        <argsstring></argsstring>
+        <name>_edges</name>
+        <qualifiedname>Spawn.WormsSpawner._edges</qualifiedname>
+        <initializer>= new()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Spawn/WormsSpawner.cs" line="23" column="31" bodyfile="Spawn/WormsSpawner.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_spawn_1_1_worms_spawner_1a8a52f1295e9f879da73450034cf0d4ac" prot="private" static="no" mutable="no">
+        <type>readonly List&lt; Color &gt;</type>
+        <definition>readonly List&lt;Color&gt; Spawn.WormsSpawner._unusedTeamColors</definition>
+        <argsstring></argsstring>
+        <name>_unusedTeamColors</name>
+        <qualifiedname>Spawn.WormsSpawner._unusedTeamColors</qualifiedname>
+        <initializer>= new()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Spawn/WormsSpawner.cs" line="24" column="31" bodyfile="Spawn/WormsSpawner.cs" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_spawn_1_1_worms_spawner_1a3895c7f51be9fa2b542e07a70486f2e9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Spawn.WormsSpawner.Init</definition>
+        <argsstring>(TeamFactory teamFactory)</argsstring>
+        <name>Init</name>
+        <qualifiedname>Spawn.WormsSpawner.Init</qualifiedname>
+        <param>
+          <type><ref refid="class_factories_1_1_team_factory" kindref="compound">TeamFactory</ref></type>
+          <declname>teamFactory</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Spawn/WormsSpawner.cs" line="26" column="21" bodyfile="Spawn/WormsSpawner.cs" bodystart="26" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spawn_1_1_worms_spawner_1a0e4b0e93de8ec1670ab1adcb05ca4bb2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Spawn.WormsSpawner.Spawn</definition>
+        <argsstring>(int teamsNumber, int wormsNumber, out CycledList&lt; IWorm &gt; worms, out CycledList&lt; Team &gt; teams)</argsstring>
+        <name>Spawn</name>
+        <qualifiedname>Spawn.WormsSpawner.Spawn</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>teamsNumber</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>wormsNumber</declname>
+        </param>
+        <param>
+          <type>out <ref refid="class_worm_components_1_1_cycled_list" kindref="compound">CycledList</ref>&lt; <ref refid="interface_worm_components_1_1_i_worm" kindref="compound">IWorm</ref> &gt;</type>
+          <declname>worms</declname>
+        </param>
+        <param>
+          <type>out <ref refid="class_worm_components_1_1_cycled_list" kindref="compound">CycledList</ref>&lt; <ref refid="class_worm_components_1_1_team" kindref="compound">Team</ref> &gt;</type>
+          <declname>teams</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Spawn/WormsSpawner.cs" line="34" column="21" bodyfile="Spawn/WormsSpawner.cs" bodystart="34" bodyend="49"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_spawn_1_1_worms_spawner_1ac6df41d199f42c7c405c7bb19717af6f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Spawn.WormsSpawner.GetEdgesForSpawn</definition>
+        <argsstring>()</argsstring>
+        <name>GetEdgesForSpawn</name>
+        <qualifiedname>Spawn.WormsSpawner.GetEdgesForSpawn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Spawn/WormsSpawner.cs" line="51" column="22" bodyfile="Spawn/WormsSpawner.cs" bodystart="51" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spawn_1_1_worms_spawner_1a7a2212b14299392702d17263fb160a2e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Vector2</type>
+        <definition>Vector2 Spawn.WormsSpawner.GetRandomSpawnPoint</definition>
+        <argsstring>()</argsstring>
+        <name>GetRandomSpawnPoint</name>
+        <qualifiedname>Spawn.WormsSpawner.GetRandomSpawnPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Spawn/WormsSpawner.cs" line="74" column="25" bodyfile="Spawn/WormsSpawner.cs" bodystart="74" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="class_spawn_1_1_worms_spawner_1a5693ad558fb8a293bc77dde3816ab2e0" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Spawn.WormsSpawner.CanFitWormInPosition</definition>
+        <argsstring>(Vector2 position)</argsstring>
+        <name>CanFitWormInPosition</name>
+        <qualifiedname>Spawn.WormsSpawner.CanFitWormInPosition</qualifiedname>
+        <param>
+          <type>Vector2</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Spawn/WormsSpawner.cs" line="97" column="22" bodyfile="Spawn/WormsSpawner.cs" bodystart="97" bodyend="108"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="1">
+        <label>Spawn.WormsSpawner</label>
+        <link refid="class_spawn_1_1_worms_spawner"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="1">
+        <label>Spawn.WormsSpawner</label>
+        <link refid="class_spawn_1_1_worms_spawner"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Spawn/WormsSpawner.cs" line="13" column="11" bodyfile="Spawn/WormsSpawner.cs" bodystart="14" bodyend="109"/>
+    <listofallmembers>
+      <member refid="class_spawn_1_1_worms_spawner_1abd48de9e0c3af591a27b192eb4c0c189" prot="private" virt="non-virtual"><scope>Spawn::WormsSpawner</scope><name>_contactFilter2D</name></member>
+      <member refid="class_spawn_1_1_worms_spawner_1a023126bcdffca96e9ecd72d928c63992" prot="private" virt="non-virtual"><scope>Spawn::WormsSpawner</scope><name>_edges</name></member>
+      <member refid="class_spawn_1_1_worms_spawner_1a0f6be1cff9995ddc1fccb86b0c66cf40" prot="private" virt="non-virtual"><scope>Spawn::WormsSpawner</scope><name>_mapBounds</name></member>
+      <member refid="class_spawn_1_1_worms_spawner_1a1a428c5552dadf34152453637f9ef3a6" prot="private" virt="non-virtual"><scope>Spawn::WormsSpawner</scope><name>_points</name></member>
+      <member refid="class_spawn_1_1_worms_spawner_1aae3e10cc85731b7608be3eddb87f1ec7" prot="private" virt="non-virtual"><scope>Spawn::WormsSpawner</scope><name>_spawnerConfig</name></member>
+      <member refid="class_spawn_1_1_worms_spawner_1ac23105c5159431d1811a96faafb3a95e" prot="private" virt="non-virtual"><scope>Spawn::WormsSpawner</scope><name>_teamFactory</name></member>
+      <member refid="class_spawn_1_1_worms_spawner_1a66374ca14599adef7a6c81cb92869f16" prot="private" virt="non-virtual"><scope>Spawn::WormsSpawner</scope><name>_terrain</name></member>
+      <member refid="class_spawn_1_1_worms_spawner_1a8a52f1295e9f879da73450034cf0d4ac" prot="private" virt="non-virtual"><scope>Spawn::WormsSpawner</scope><name>_unusedTeamColors</name></member>
+      <member refid="class_spawn_1_1_worms_spawner_1a3541de88157a8334b9bb2256f4cb5484" prot="private" virt="non-virtual"><scope>Spawn::WormsSpawner</scope><name>_wormTemplate</name></member>
+      <member refid="class_spawn_1_1_worms_spawner_1a5693ad558fb8a293bc77dde3816ab2e0" prot="private" virt="non-virtual"><scope>Spawn::WormsSpawner</scope><name>CanFitWormInPosition</name></member>
+      <member refid="class_spawn_1_1_worms_spawner_1ac6df41d199f42c7c405c7bb19717af6f" prot="private" virt="non-virtual"><scope>Spawn::WormsSpawner</scope><name>GetEdgesForSpawn</name></member>
+      <member refid="class_spawn_1_1_worms_spawner_1a7a2212b14299392702d17263fb160a2e" prot="private" virt="non-virtual"><scope>Spawn::WormsSpawner</scope><name>GetRandomSpawnPoint</name></member>
+      <member refid="class_spawn_1_1_worms_spawner_1a3895c7f51be9fa2b542e07a70486f2e9" prot="public" virt="non-virtual"><scope>Spawn::WormsSpawner</scope><name>Init</name></member>
+      <member refid="class_spawn_1_1_worms_spawner_1a0e4b0e93de8ec1670ab1adcb05ca4bb2" prot="public" virt="non-virtual"><scope>Spawn::WormsSpawner</scope><name>Spawn</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

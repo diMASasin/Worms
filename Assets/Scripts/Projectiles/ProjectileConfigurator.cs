@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Configs;
 using MovementComponents;
+using Pools;
 using Projectiles.Behaviours.ExplodeBehaviour;
 using Projectiles.Behaviours.LaunchBehaviour;
 using Timers;
@@ -16,7 +17,7 @@ namespace Projectiles
     {
         private readonly Projectile _projectile;
         private readonly ProjectileConfig _config;
-        private readonly ObjectPool<FollowingTimerView> _followingTimerViewPool;
+        private readonly IFollowingTimerViewPool _followingTimerViewPool;
 
         private readonly List<ILaunchBehaviour> _launchBehaviours = new();
         private readonly List<IExplodeBehaviour> _explodeBehaviours = new();
@@ -25,7 +26,7 @@ namespace Projectiles
         private GroundChecker _groundChecker;
 
         public ProjectileConfigurator(Projectile projectile, ProjectileConfig config,
-            ObjectPool<FollowingTimerView> followingTimerViewPool)
+            FollowingTimerViewPool followingTimerViewPool)
         {
             _config = config;
             _followingTimerViewPool = followingTimerViewPool;

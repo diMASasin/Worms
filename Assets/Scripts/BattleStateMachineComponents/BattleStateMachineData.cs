@@ -38,7 +38,6 @@ namespace BattleStateMachineComponents
         
         [field: Header("Pools")]
         [SerializeField] private ExplosionPool _explosionPool;
-        [SerializeField] private ProjectilePool _fragmentsPool;
         
         [field: Header("UI")]
         [field: SerializeField] public WeaponSelector WeaponSelector { get; private set; }
@@ -58,7 +57,7 @@ namespace BattleStateMachineComponents
         [SerializeField] private Arrow _arrowPrefab;
         [SerializeField] private Shovel _shovelPrefab;
 
-        [NonSerialized] public Worm CurrentWorm;
+        [NonSerialized] public IWorm CurrentWorm;
         [NonSerialized] public Team CurrentTeam;
         
         public WaterMediator WaterMediator { get; private set; }
@@ -71,7 +70,7 @@ namespace BattleStateMachineComponents
         
         public readonly Timer TurnTimer = new();
         public readonly Timer GlobalTimer = new();
-        public readonly CycledList<Worm> WormsList = new();
+        public readonly CycledList<IWorm> WormsList = new();
         public readonly CycledList<Team> TeamsList = new();
         private readonly WeaponFactory _weaponFactory = new();
 
@@ -83,7 +82,8 @@ namespace BattleStateMachineComponents
         private ShovelWrapper _shovelWrapper;
         private BattleSettings _battleSettings = new();
         private IEnumerable<ProjectileFactory> _projectileFactories;
-        
+        private FollowingTimerViewPool _followingTimerViewPool;
+
         public void Init(MainInput mainInput)
         {
             _battleSettings.GetSettings(out int teamsNumber, out int wormsNumber);
@@ -124,7 +124,7 @@ namespace BattleStateMachineComponents
             Wind = new Wind(WindData);
             WindEffect.Init(Wind);
             WindView.Init(Wind);
-            WindMediator = new WindMediator(Wind, WeaponConfigs.Select(config => config.ProjectilePool));
+            WindMediator = new WindMediator(Wind);
         }
 
         public void Dispose()
@@ -159,9 +159,11 @@ namespace BattleStateMachineComponents
             _explosionPool.Init(_projectilesParent, _shovelWrapper);
 
             _projectileFactories = WeaponConfigs.Select(config => config.ProjectilePool.ProjectileFactory);
+
+            _followingTimerViewPool = new FollowingTimerViewPool(_followingTimerViewPrefab);
             
             foreach (var projectileFactory in _projectileFactories)
-                projectileFactory.Init(_projectilesParent, _followingTimerViewPrefab);
+                projectileFactory.Init(_projectilesParent, _followingTimerViewPool);
         }
         
         private void SpawnWorms(int teamsNumber, int wormsNumber)

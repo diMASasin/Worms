@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Configs;
 using EventProviders;
+using MovementComponents;
 using Unity.Mathematics;
 using UnityEngine;
 using WormComponents;
@@ -14,9 +15,9 @@ namespace Factories
         private readonly Worm _wormPrefab;
         private readonly List<Worm> _worms = new();
 
-        public event Action<Worm, Color, string> WormCreated;
-        public event Action<Worm> WormDied;
-        public event Action<Worm> WormDamageTook;
+        public event Action<IWorm, Color, string> WormCreated;
+        public event Action<IWorm> WormDied;
+        public event Action<IWorm> WormDamageTook;
 
         public WormFactory(Worm wormPrefab)
         {
@@ -25,9 +26,8 @@ namespace Factories
 
         public Worm Create(Transform parent, Color teamColor, WormConfig config, Func<Vector2> getSpawnPoint)
         {
-            var newWorm = Object.Instantiate(_wormPrefab, getSpawnPoint(), quaternion.identity, parent);
-
-            newWorm.Init(config);
+            var newWorm = Object.Instantiate(_wormPrefab, getSpawnPoint(), Quaternion.identity, parent);
+            
             _worms.Add(newWorm);
             
             newWorm.Died += OnDied;
@@ -43,12 +43,12 @@ namespace Factories
                 worm.DamageTook -= OnDamageTook;
         }
 
-        private void OnDamageTook(Worm worm)
+        private void OnDamageTook(IWorm worm)
         {
             WormDamageTook?.Invoke(worm);
         }
 
-        private void OnDied(Worm worm)
+        private void OnDied(IWorm worm)
         {
             worm.Died -= OnDied;
             WormDied?.Invoke(worm);

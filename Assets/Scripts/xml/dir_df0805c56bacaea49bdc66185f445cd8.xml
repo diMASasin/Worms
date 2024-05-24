@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="dir_df0805c56bacaea49bdc66185f445cd8" kind="dir">
+    <compoundname>Infrastructure</compoundname>
+    <innerfile refid="_coroutine_performer_8cs">CoroutinePerformer.cs</innerfile>
+    <innerfile refid="_game_bootstrapper_8cs">GameBootstrapper.cs</innerfile>
+    <innerfile refid="_i_fixed_tickable_8cs">IFixedTickable.cs</innerfile>
+    <innerfile refid="_i_tickable_8cs">ITickable.cs</innerfile>
+    <innerfile refid="_scene_loader_8cs">SceneLoader.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Infrastructure/"/>
+  </compounddef>
+</doxygen>

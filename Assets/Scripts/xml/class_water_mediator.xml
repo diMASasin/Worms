@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_water_mediator" kind="class" language="C#" prot="public">
+    <compoundname>WaterMediator</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_water_mediator_1ad4e0221b371010afed56ae959b58b0de" prot="private" static="no" mutable="no">
+        <type>readonly <ref refid="class_water" kindref="compound">Water</ref></type>
+        <definition>readonly Water WaterMediator._water</definition>
+        <argsstring></argsstring>
+        <name>_water</name>
+        <qualifiedname>WaterMediator._water</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WaterMediator.cs" line="5" column="28" bodyfile="WaterMediator.cs" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_water_mediator_1aba3d07d1bad07c71ee420f8067703833" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool WaterMediator._shouldIncreaseLevel</definition>
+        <argsstring></argsstring>
+        <name>_shouldIncreaseLevel</name>
+        <qualifiedname>WaterMediator._shouldIncreaseLevel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WaterMediator.cs" line="7" column="18" bodyfile="WaterMediator.cs" bodystart="7" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_water_mediator_1a614a395337f2a015cc7e0816ce7d87d9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>WaterMediator.WaterMediator</definition>
+        <argsstring>(Water water)</argsstring>
+        <name>WaterMediator</name>
+        <qualifiedname>WaterMediator.WaterMediator</qualifiedname>
+        <param>
+          <type><ref refid="class_water" kindref="compound">Water</ref></type>
+          <declname>water</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WaterMediator.cs" line="9" column="12" bodyfile="WaterMediator.cs" bodystart="9" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_water_mediator_1a775c5738d3283ed6766a45929b2e5aaa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WaterMediator.IncreaseLevelIfAllowed</definition>
+        <argsstring>()</argsstring>
+        <name>IncreaseLevelIfAllowed</name>
+        <qualifiedname>WaterMediator.IncreaseLevelIfAllowed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WaterMediator.cs" line="14" column="17" bodyfile="WaterMediator.cs" bodystart="14" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_water_mediator_1a3122a1e41dabffb605c72a3c4019d8ca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WaterMediator.AllowIncreaseWaterLevel</definition>
+        <argsstring>()</argsstring>
+        <name>AllowIncreaseWaterLevel</name>
+        <qualifiedname>WaterMediator.AllowIncreaseWaterLevel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WaterMediator.cs" line="20" column="17" bodyfile="WaterMediator.cs" bodystart="20" bodyend="23"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="WaterMediator.cs" line="3" column="7" bodyfile="WaterMediator.cs" bodystart="4" bodyend="24"/>
+    <listofallmembers>
+      <member refid="class_water_mediator_1aba3d07d1bad07c71ee420f8067703833" prot="private" virt="non-virtual"><scope>WaterMediator</scope><name>_shouldIncreaseLevel</name></member>
+      <member refid="class_water_mediator_1ad4e0221b371010afed56ae959b58b0de" prot="private" virt="non-virtual"><scope>WaterMediator</scope><name>_water</name></member>
+      <member refid="class_water_mediator_1a3122a1e41dabffb605c72a3c4019d8ca" prot="public" virt="non-virtual"><scope>WaterMediator</scope><name>AllowIncreaseWaterLevel</name></member>
+      <member refid="class_water_mediator_1a775c5738d3283ed6766a45929b2e5aaa" prot="public" virt="non-virtual"><scope>WaterMediator</scope><name>IncreaseLevelIfAllowed</name></member>
+      <member refid="class_water_mediator_1a614a395337f2a015cc7e0816ce7d87d9" prot="public" virt="non-virtual"><scope>WaterMediator</scope><name>WaterMediator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

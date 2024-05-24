@@ -10,7 +10,7 @@ namespace Weapons
         private readonly IWeaponSelectedEvent _weaponSelectedEvent;
         private readonly IWeaponShotEvent _weaponShotEvent;
         private readonly WeaponView _weaponView;
-        private Worm _currentWorm;
+        private IWorm _currentWorm;
 
         public WeaponChanger(IWeaponSelectedEvent weaponSelectedEvent, IWeaponShotEvent weaponShotEvent,
             WeaponView weaponView)
@@ -29,7 +29,7 @@ namespace Weapons
             _weaponShotEvent.WeaponShot -= OnWeaponShot;
         }
 
-        public void ChangeWorm(Worm worm)
+        public void ChangeWorm(IWorm worm)
         {
             _currentWorm = worm;
             

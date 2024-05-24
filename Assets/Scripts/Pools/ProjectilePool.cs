@@ -18,9 +18,6 @@ namespace Pools
 
         public ProjectileFactory ProjectileFactory => _projectileFactory;
         
-        public event Action<Projectile, ProjectileConfig> Got;
-        public event Action Released;
-        
         public static int Count { get; private set; }
 
         public static event Action<int> CountChanged;
@@ -51,14 +48,12 @@ namespace Pools
             projectile.ResetProjectile();
             Count++;
             CountChanged?.Invoke(Count);
-            Got?.Invoke(projectile, _projectileFactory.Config);
         }
 
         private void OnRelease(Projectile projectile)
         {
             Count--;
             CountChanged?.Invoke(Count);
-            Released?.Invoke();
         }
 
         private void OnExploded(Projectile projectile)

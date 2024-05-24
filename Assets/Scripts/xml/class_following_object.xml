@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="class_following_object" kind="class" language="C#" prot="public">
+    <compoundname>FollowingObject</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_following_object_1ab4fec9de7faf52e1bc628166bca1387b" prot="private" static="no" mutable="no">
+        <type>Transform</type>
+        <definition>Transform FollowingObject._followingFor</definition>
+        <argsstring></argsstring>
+        <name>_followingFor</name>
+        <qualifiedname>FollowingObject._followingFor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FollowingObject.cs" line="5" column="24" bodyfile="FollowingObject.cs" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_following_object_1a56d5a866008570cce0fbf32e7faadbf5" prot="private" static="no" mutable="no">
+        <type>Vector2</type>
+        <definition>Vector2 FollowingObject._offset</definition>
+        <argsstring></argsstring>
+        <name>_offset</name>
+        <qualifiedname>FollowingObject._offset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FollowingObject.cs" line="6" column="22" bodyfile="FollowingObject.cs" bodystart="6" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_following_object_1a5037a44e6b3f8bd4cc8c934f6f759905" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FollowingObject.FixedUpdate</definition>
+        <argsstring>()</argsstring>
+        <name>FixedUpdate</name>
+        <qualifiedname>FollowingObject.FixedUpdate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FollowingObject.cs" line="8" column="18" bodyfile="FollowingObject.cs" bodystart="8" bodyend="12"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_following_object_1afd393584cb92d9fa708913549c9b8d5d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FollowingObject.Connect</definition>
+        <argsstring>(Transform target)</argsstring>
+        <name>Connect</name>
+        <qualifiedname>FollowingObject.Connect</qualifiedname>
+        <param>
+          <type>Transform</type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FollowingObject.cs" line="14" column="17" bodyfile="FollowingObject.cs" bodystart="14" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="class_following_object_1a800485589c0a31a2599ec8fe2cb1c458" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FollowingObject.Disonnect</definition>
+        <argsstring>()</argsstring>
+        <name>Disonnect</name>
+        <qualifiedname>FollowingObject.Disonnect</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="FollowingObject.cs" line="19" column="17" bodyfile="FollowingObject.cs" bodystart="19" bodyend="22"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FollowingObject</label>
+        <link refid="class_following_object"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FollowingObject</label>
+        <link refid="class_following_object"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="FollowingObject.cs" line="3" column="7" bodyfile="FollowingObject.cs" bodystart="4" bodyend="23"/>
+    <listofallmembers>
+      <member refid="class_following_object_1ab4fec9de7faf52e1bc628166bca1387b" prot="private" virt="non-virtual"><scope>FollowingObject</scope><name>_followingFor</name></member>
+      <member refid="class_following_object_1a56d5a866008570cce0fbf32e7faadbf5" prot="private" virt="non-virtual"><scope>FollowingObject</scope><name>_offset</name></member>
+      <member refid="class_following_object_1afd393584cb92d9fa708913549c9b8d5d" prot="public" virt="non-virtual"><scope>FollowingObject</scope><name>Connect</name></member>
+      <member refid="class_following_object_1a800485589c0a31a2599ec8fe2cb1c458" prot="public" virt="non-virtual"><scope>FollowingObject</scope><name>Disonnect</name></member>
+      <member refid="class_following_object_1a5037a44e6b3f8bd4cc8c934f6f759905" prot="private" virt="non-virtual"><scope>FollowingObject</scope><name>FixedUpdate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -14,7 +14,7 @@ namespace Weapons
         [SerializeField] private SpriteRenderer _gunSprite;
         [SerializeField] private SpriteRenderer _aimSprite;
 
-        private Weapon _weapon;
+        private IWeapon _weapon;
         private float _initialScaleX;
 
         public Transform SpawnPoint => _spawnPoint;
@@ -61,7 +61,7 @@ namespace Weapons
             TryUnsubscribeWeapon();
         }
 
-        private void OnWeaponChanged(Weapon weapon)
+        private void OnWeaponChanged(IWeapon weapon)
         {
             TryUnsubscribeWeapon();
 

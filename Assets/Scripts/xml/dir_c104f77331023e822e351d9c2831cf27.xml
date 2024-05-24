@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="dir_c104f77331023e822e351d9c2831cf27" kind="dir">
+    <compoundname>Projectiles/Behaviours</compoundname>
+    <innerdir refid="dir_aa661daaafa192e597a94b1993908956">Projectiles/Behaviours/ExplodeBehaviour</innerdir>
+    <innerdir refid="dir_9c19bc581773c376a61ea9c3cd4ebaac">Projectiles/Behaviours/LaunchBehaviour</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Projectiles/Behaviours/"/>
+  </compounddef>
+</doxygen>

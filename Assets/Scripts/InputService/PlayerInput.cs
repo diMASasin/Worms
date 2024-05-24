@@ -10,7 +10,7 @@ namespace InputService
     public class PlayerInput : IDisposable
     {
         private readonly IWormEventsProvider _wormEvents;
-        private Worm _worm;
+        private IWorm _worm;
         private Weapon _weapon;
 
         public readonly MovementInput MovementInput;
@@ -36,7 +36,7 @@ namespace InputService
             UIInput.Disable();
         }
 
-        public void ChangeWorm(Worm newWorm)
+        public void ChangeWorm(IWorm newWorm)
         {
             UnsubscribeWormIfExists();
 
@@ -60,7 +60,7 @@ namespace InputService
             _worm.DamageTook -= OnDamageTook;
         }
 
-        private void OnWeaponChanged(Weapon weapon)
+        private void OnWeaponChanged(IWeapon weapon)
         {
             WeaponInput.Enable(weapon);
         }
@@ -70,7 +70,7 @@ namespace InputService
             WeaponInput.Disable();
         }
 
-        private void OnDamageTook(Worm worm)
+        private void OnDamageTook(IWorm arg0)
         {
             WeaponInput.Disable();
             MovementInput.Disable();

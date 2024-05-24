@@ -11,7 +11,7 @@ namespace BattleStateMachineComponents.States
     {
         private readonly Timer _timer = new();
         private Timer Timer => Data.TurnTimer;
-        private Worm CurrentWorm => Data.CurrentWorm;
+        private IWorm CurrentWorm => Data.CurrentWorm;
         private Arrow Arrow => Data.Arrow;
         private WeaponSelector WeaponSelector => Data.WeaponSelector;
 
@@ -26,9 +26,9 @@ namespace BattleStateMachineComponents.States
             CurrentWorm.SetCurrentWormLayer();
             CurrentWorm.SetRigidbodyDynamic();
 
-            Arrow.StartMove(CurrentWorm.transform);
+            Arrow.StartMove(CurrentWorm.Transform);
             Data.FollowingCamera.ZoomTarget();
-            Data.FollowingCamera.SetTarget(CurrentWorm.transform);
+            Data.FollowingCamera.SetTarget(CurrentWorm.Transform);
             Data.WeaponChanger.ChangeWorm(CurrentWorm);
             
             Data.PlayerInput.ChangeWorm(CurrentWorm);
@@ -69,7 +69,7 @@ namespace BattleStateMachineComponents.States
 
         private void OnProjectileLaunched(Projectile projectile, Vector2 velocity)
         {
-            Data.WindMediator.InfluenceOnProjectileIfNecessary(projectile, projectile.Config);
+            Data.WindMediator.InfluenceOnProjectileIfNecessary(projectile);
             Data.FollowingCamera.SetTarget(projectile.transform);
             
             StateSwitcher.SwitchState<RetreatState>();

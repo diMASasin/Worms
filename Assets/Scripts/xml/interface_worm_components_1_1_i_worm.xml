@@ -1,0 +1,436 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="interface_worm_components_1_1_i_worm" kind="interface" language="C#" prot="public">
+    <compoundname>WormComponents::IWorm</compoundname>
+    <derivedcompoundref refid="class_worm_components_1_1_worm" prot="public" virt="non-virtual">WormComponents.Worm</derivedcompoundref>
+    <sectiondef kind="property">
+      <memberdef kind="property" id="interface_worm_components_1_1_i_worm_1ac9207596dcaa872189d4d3028e731a02" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="interface_worm_components_1_1_i_worm_1acedc2567b1782b322fde12978a404476" kindref="member">Transform</ref></type>
+        <definition>Transform WormComponents.IWorm.Armature</definition>
+        <argsstring></argsstring>
+        <name>Armature</name>
+        <qualifiedname>WormComponents.IWorm.Armature</qualifiedname>
+        <reimplementedby refid="class_worm_components_1_1_worm_1a023dc5c0acb1a02a25cd30e8a9867584">Armature</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="13" column="19" bodyfile="WormComponents/IWorm.cs" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_worm_components_1_1_i_worm_1a7ecfe0c108df63e02de015152acd3ea0" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="interface_worm_components_1_1_i_worm_1acedc2567b1782b322fde12978a404476" kindref="member">Transform</ref></type>
+        <definition>Transform WormComponents.IWorm.WeaponPosition</definition>
+        <argsstring></argsstring>
+        <name>WeaponPosition</name>
+        <qualifiedname>WormComponents.IWorm.WeaponPosition</qualifiedname>
+        <reimplementedby refid="class_worm_components_1_1_worm_1a81a6571432c151e324c4bb94667f5d00">WeaponPosition</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="14" column="19" bodyfile="WormComponents/IWorm.cs" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_worm_components_1_1_i_worm_1aa1a4c4eef39b70ce789b1457ecdc3eb1" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int WormComponents.IWorm.Health</definition>
+        <argsstring></argsstring>
+        <name>Health</name>
+        <qualifiedname>WormComponents.IWorm.Health</qualifiedname>
+        <reimplementedby refid="class_worm_components_1_1_worm_1a497a59e20abff750c3832116b0caab62">Health</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="15" column="13" bodyfile="WormComponents/IWorm.cs" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_worm_components_1_1_i_worm_1aa52d00d0ffe5e99de9fec13791197d7b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="interface_weapons_1_1_i_weapon" kindref="compound">IWeapon</ref></type>
+        <definition>IWeapon WormComponents.IWorm.Weapon</definition>
+        <argsstring></argsstring>
+        <name>Weapon</name>
+        <qualifiedname>WormComponents.IWorm.Weapon</qualifiedname>
+        <reimplementedby refid="class_worm_components_1_1_worm_1a8696c49469740356a7ca1fea5c1a67fa">Weapon</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="16" column="17" bodyfile="WormComponents/IWorm.cs" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_worm_components_1_1_i_worm_1a4f45f2b8aa96e327a7cd22c7cade4e5d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>CapsuleCollider2D</type>
+        <definition>CapsuleCollider2D WormComponents.IWorm.Collider2D</definition>
+        <argsstring></argsstring>
+        <name>Collider2D</name>
+        <qualifiedname>WormComponents.IWorm.Collider2D</qualifiedname>
+        <reimplementedby refid="class_worm_components_1_1_worm_1af65e7c78074676d28464a83379954172">Collider2D</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="17" column="27" bodyfile="WormComponents/IWorm.cs" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_worm_components_1_1_i_worm_1a8f090c2372b65e206e81d27fa98d8ab2" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int WormComponents.IWorm.MaxHealth</definition>
+        <argsstring></argsstring>
+        <name>MaxHealth</name>
+        <qualifiedname>WormComponents.IWorm.MaxHealth</qualifiedname>
+        <reimplementedby refid="class_worm_components_1_1_worm_1a18fbb2a71c0c0f4711eb67f70d346c61">MaxHealth</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="18" column="13" bodyfile="WormComponents/IWorm.cs" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_worm_components_1_1_i_worm_1a0487c4726baed53e7bf4ac60eb0582c9" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_movement_components_1_1_movement" kindref="compound">Movement</ref></type>
+        <definition>Movement WormComponents.IWorm.Movement</definition>
+        <argsstring></argsstring>
+        <name>Movement</name>
+        <qualifiedname>WormComponents.IWorm.Movement</qualifiedname>
+        <reimplementedby refid="class_worm_components_1_1_worm_1ad8c349b385a924a7e24f7f9a3a05b30a">Movement</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="19" column="18" bodyfile="WormComponents/IWorm.cs" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_worm_components_1_1_i_worm_1a6788d5c63cab644d355ffcf4f4233eb9" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_configs_1_1_worm_config" kindref="compound">WormConfig</ref></type>
+        <definition>WormConfig WormComponents.IWorm.Config</definition>
+        <argsstring></argsstring>
+        <name>Config</name>
+        <qualifiedname>WormComponents.IWorm.Config</qualifiedname>
+        <reimplementedby refid="class_worm_components_1_1_worm_1ad53efa0989f275bf1af2913c05fe66d6">Config</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="20" column="20" bodyfile="WormComponents/IWorm.cs" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="property" id="interface_worm_components_1_1_i_worm_1acedc2567b1782b322fde12978a404476" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Transform</type>
+        <definition>Transform WormComponents.IWorm.Transform</definition>
+        <argsstring></argsstring>
+        <name>Transform</name>
+        <qualifiedname>WormComponents.IWorm.Transform</qualifiedname>
+        <reimplementedby refid="class_worm_components_1_1_worm_1af01a904bb6a001cbec35702f11e41a8d">Transform</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="36" column="19" bodyfile="WormComponents/IWorm.cs" bodystart="36" bodyend="36"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="event">
+      <memberdef kind="event" id="interface_worm_components_1_1_i_worm_1a14a03c8b5f3404b536b70ba5eb7d27ce" prot="public" static="no" add="no" remove="no" raise="no">
+        <type>UnityAction&lt; <ref refid="interface_worm_components_1_1_i_worm" kindref="compound">IWorm</ref> &gt;</type>
+        <definition>UnityAction&lt;IWorm&gt; WormComponents.IWorm.Died</definition>
+        <argsstring></argsstring>
+        <name>Died</name>
+        <qualifiedname>WormComponents.IWorm.Died</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="21" column="27" bodyfile="WormComponents/IWorm.cs" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="event" id="interface_worm_components_1_1_i_worm_1af7e1315b7997f0dd9ee065aadce6fb08" prot="public" static="no" add="no" remove="no" raise="no">
+        <type>UnityAction&lt; <ref refid="interface_worm_components_1_1_i_worm" kindref="compound">IWorm</ref> &gt;</type>
+        <definition>UnityAction&lt;IWorm&gt; WormComponents.IWorm.DamageTook</definition>
+        <argsstring></argsstring>
+        <name>DamageTook</name>
+        <qualifiedname>WormComponents.IWorm.DamageTook</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="22" column="27" bodyfile="WormComponents/IWorm.cs" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="event" id="interface_worm_components_1_1_i_worm_1a55b4ddce1343f01fa7891df0a08efcb4" prot="public" static="no" add="no" remove="no" raise="no">
+        <type>Action&lt; <ref refid="interface_weapons_1_1_i_weapon" kindref="compound">IWeapon</ref> &gt;</type>
+        <definition>Action&lt;IWeapon&gt; WormComponents.IWorm.WeaponChanged</definition>
+        <argsstring></argsstring>
+        <name>WeaponChanged</name>
+        <qualifiedname>WormComponents.IWorm.WeaponChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="23" column="22" bodyfile="WormComponents/IWorm.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="event" id="interface_worm_components_1_1_i_worm_1a9f0dbbbbd3d62de2e9d2e47e644501da" prot="public" static="no" add="no" remove="no" raise="no">
+        <type>Action</type>
+        <definition>Action WormComponents.IWorm.WeaponRemoved</definition>
+        <argsstring></argsstring>
+        <name>WeaponRemoved</name>
+        <qualifiedname>WormComponents.IWorm.WeaponRemoved</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="24" column="22" bodyfile="WormComponents/IWorm.cs" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="interface_worm_components_1_1_i_worm_1a1593d3ba07f041d6b309c5098e477f16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.IWorm.Init</definition>
+        <argsstring>(WormConfig config)</argsstring>
+        <name>Init</name>
+        <qualifiedname>WormComponents.IWorm.Init</qualifiedname>
+        <reimplementedby refid="class_worm_components_1_1_worm_1aeda7f7f419e32053850fb2be4fca1836">Init</reimplementedby>
+        <param>
+          <type><ref refid="class_configs_1_1_worm_config" kindref="compound">WormConfig</ref></type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="25" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_worm_components_1_1_i_worm_1a2d115c992798bcc00b155fad5ed1b559" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.IWorm.SetRigidbodyKinematic</definition>
+        <argsstring>()</argsstring>
+        <name>SetRigidbodyKinematic</name>
+        <qualifiedname>WormComponents.IWorm.SetRigidbodyKinematic</qualifiedname>
+        <reimplementedby refid="class_worm_components_1_1_worm_1abcdf6dd78d17388d3f7582bbfd6a7c48">SetRigidbodyKinematic</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="26" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_worm_components_1_1_i_worm_1a20da24df9e4083a34df375202925ed66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.IWorm.SetRigidbodyDynamic</definition>
+        <argsstring>()</argsstring>
+        <name>SetRigidbodyDynamic</name>
+        <qualifiedname>WormComponents.IWorm.SetRigidbodyDynamic</qualifiedname>
+        <reimplementedby refid="class_worm_components_1_1_worm_1af081cdadbf876d42cc1d1f46d5c021d7">SetRigidbodyDynamic</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="27" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_worm_components_1_1_i_worm_1a28189f9c574d3c7dea556b7f16b9424d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.IWorm.SetCurrentWormLayer</definition>
+        <argsstring>()</argsstring>
+        <name>SetCurrentWormLayer</name>
+        <qualifiedname>WormComponents.IWorm.SetCurrentWormLayer</qualifiedname>
+        <reimplementedby refid="class_worm_components_1_1_worm_1a84a725201ad3a660a09667ed1a2b15b3">SetCurrentWormLayer</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="28" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_worm_components_1_1_i_worm_1afa9599400b77a16404074155e6728e44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.IWorm.SetWormLayer</definition>
+        <argsstring>()</argsstring>
+        <name>SetWormLayer</name>
+        <qualifiedname>WormComponents.IWorm.SetWormLayer</qualifiedname>
+        <reimplementedby refid="class_worm_components_1_1_worm_1a38dbfaf9aa8eb048658d49dab24b9817">SetWormLayer</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="29" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_worm_components_1_1_i_worm_1ac6cd6f513feb27ba2405c723fb3fc858" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.IWorm.AddExplosionForce</definition>
+        <argsstring>(float explosionForce, Vector3 explosionPosition, float explosionUpwardsModifier)</argsstring>
+        <name>AddExplosionForce</name>
+        <qualifiedname>WormComponents.IWorm.AddExplosionForce</qualifiedname>
+        <reimplementedby refid="class_worm_components_1_1_worm_1af5772f91c507731dee78f2591dc0da24">AddExplosionForce</reimplementedby>
+        <param>
+          <type>float</type>
+          <declname>explosionForce</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>explosionPosition</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>explosionUpwardsModifier</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="30" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_worm_components_1_1_i_worm_1a93980213e6cf94ca099a820fc44711b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.IWorm.TakeDamage</definition>
+        <argsstring>(int damage)</argsstring>
+        <name>TakeDamage</name>
+        <qualifiedname>WormComponents.IWorm.TakeDamage</qualifiedname>
+        <reimplementedby refid="class_worm_components_1_1_worm_1a9c35b10e2c1fe87d8e999a999e18cd5b">TakeDamage</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>damage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="31" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_worm_components_1_1_i_worm_1a3fa81ba8ee2f0f5e9899b3ba2630389e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.IWorm.Die</definition>
+        <argsstring>()</argsstring>
+        <name>Die</name>
+        <qualifiedname>WormComponents.IWorm.Die</qualifiedname>
+        <reimplementedby refid="class_worm_components_1_1_worm_1ac6cbe4813e796b7362b12ecbfbf8a214">Die</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="32" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_worm_components_1_1_i_worm_1a433137c7aaca92c47c13ecbd2f243dab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>IEnumerator</type>
+        <definition>IEnumerator WormComponents.IWorm.SetRigidbodyKinematicWhenGrounded</definition>
+        <argsstring>()</argsstring>
+        <name>SetRigidbodyKinematicWhenGrounded</name>
+        <qualifiedname>WormComponents.IWorm.SetRigidbodyKinematicWhenGrounded</qualifiedname>
+        <reimplementedby refid="class_worm_components_1_1_worm_1ae6e3034bddc29e803c9a216dfe215fe1">SetRigidbodyKinematicWhenGrounded</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="33" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_worm_components_1_1_i_worm_1a1c886cb755aa228e8d8b0072b932b987" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.IWorm.RemoveWeapon</definition>
+        <argsstring>()</argsstring>
+        <name>RemoveWeapon</name>
+        <qualifiedname>WormComponents.IWorm.RemoveWeapon</qualifiedname>
+        <reimplementedby refid="class_worm_components_1_1_worm_1a5addcc6ae71f561523b5b9ee6029063f">RemoveWeapon</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="34" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_worm_components_1_1_i_worm_1adae9331f6baba1cec58f5a1760d962c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void WormComponents.IWorm.ChangeWeapon</definition>
+        <argsstring>(IWeapon weapon)</argsstring>
+        <name>ChangeWeapon</name>
+        <qualifiedname>WormComponents.IWorm.ChangeWeapon</qualifiedname>
+        <reimplementedby refid="class_worm_components_1_1_worm_1a31884898dda005e595b74cd5e75028fd">ChangeWeapon</reimplementedby>
+        <param>
+          <type><ref refid="interface_weapons_1_1_i_weapon" kindref="compound">IWeapon</ref></type>
+          <declname>weapon</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="WormComponents/IWorm.cs" line="35" column="14"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>WormComponents.IWorm</label>
+        <link refid="interface_worm_components_1_1_i_worm"/>
+      </node>
+      <node id="2">
+        <label>WormComponents.Worm</label>
+        <link refid="class_worm_components_1_1_worm"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="WormComponents/IWorm.cs" line="11" column="22" bodyfile="WormComponents/IWorm.cs" bodystart="12" bodyend="37"/>
+    <listofallmembers>
+      <member refid="interface_worm_components_1_1_i_worm_1ac6cd6f513feb27ba2405c723fb3fc858" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>AddExplosionForce</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1ac9207596dcaa872189d4d3028e731a02" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>Armature</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1adae9331f6baba1cec58f5a1760d962c4" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>ChangeWeapon</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1a4f45f2b8aa96e327a7cd22c7cade4e5d" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>Collider2D</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1a6788d5c63cab644d355ffcf4f4233eb9" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>Config</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1af7e1315b7997f0dd9ee065aadce6fb08" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>DamageTook</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1a3fa81ba8ee2f0f5e9899b3ba2630389e" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>Die</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1a14a03c8b5f3404b536b70ba5eb7d27ce" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>Died</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1aa1a4c4eef39b70ce789b1457ecdc3eb1" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>Health</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1a1593d3ba07f041d6b309c5098e477f16" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>Init</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1a8f090c2372b65e206e81d27fa98d8ab2" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>MaxHealth</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1a0487c4726baed53e7bf4ac60eb0582c9" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>Movement</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1a1c886cb755aa228e8d8b0072b932b987" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>RemoveWeapon</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1a28189f9c574d3c7dea556b7f16b9424d" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>SetCurrentWormLayer</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1a20da24df9e4083a34df375202925ed66" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>SetRigidbodyDynamic</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1a2d115c992798bcc00b155fad5ed1b559" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>SetRigidbodyKinematic</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1a433137c7aaca92c47c13ecbd2f243dab" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>SetRigidbodyKinematicWhenGrounded</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1afa9599400b77a16404074155e6728e44" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>SetWormLayer</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1a93980213e6cf94ca099a820fc44711b6" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>TakeDamage</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1acedc2567b1782b322fde12978a404476" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>Transform</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1aa52d00d0ffe5e99de9fec13791197d7b" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>Weapon</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1a55b4ddce1343f01fa7891df0a08efcb4" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>WeaponChanged</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1a7ecfe0c108df63e02de015152acd3ea0" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>WeaponPosition</name></member>
+      <member refid="interface_worm_components_1_1_i_worm_1a9f0dbbbbd3d62de2e9d2e47e644501da" prot="public" virt="non-virtual"><scope>WormComponents::IWorm</scope><name>WeaponRemoved</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

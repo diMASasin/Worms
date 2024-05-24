@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.11.0" xml:lang="en-US">
+  <compounddef id="_i_fixed_tickable_8cs" kind="file" language="C#">
+    <compoundname>IFixedTickable.cs</compoundname>
+    <innerclass refid="interface_i_fixed_tickable" prot="public">IFixedTickable</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1" refid="interface_i_fixed_tickable" refkind="compound"><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">interface<sp/></highlight><highlight class="normal"><ref refid="interface_i_fixed_tickable" kindref="compound">IFixedTickable</ref></highlight></codeline>
+<codeline lineno="2"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="3"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="interface_i_fixed_tickable_1a503de400fe4dd5972ca0c74031ca7238" kindref="member">FixedTick</ref>();</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="Infrastructure/IFixedTickable.cs"/>
+  </compounddef>
+</doxygen>
