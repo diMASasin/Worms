@@ -8,7 +8,7 @@ using Weapons;
 
 namespace WormComponents
 {
-    public interface IWorm
+    public interface IWorm : IWormWeapon
     {
         Transform Armature { get; }
         Transform WeaponPosition { get; }
@@ -29,11 +29,9 @@ namespace WormComponents
         void Die();
         IEnumerator SetRigidbodyKinematicWhenGrounded();
         void RemoveWeapon();
-        void ChangeWeapon(IWeapon weapon);
-        
+
         event UnityAction<IWorm> Died;
         event UnityAction<IWorm> DamageTook;
         event Action<IWeapon> WeaponChanged;
-        event Action WeaponRemoved;
     }
 }

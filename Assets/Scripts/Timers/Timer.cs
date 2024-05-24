@@ -16,14 +16,15 @@ namespace Timers
         public void Start(float interval, Action onElapsed)
         {
             _interval = interval;
-            Reset();
+            Stop();
             TimerUpdated?.Invoke(_timeLeft);
             _coroutine = CoroutinePerformer.StartCoroutine(StartTimer(onElapsed));
         }
 
         public void Stop()
         {
-            CoroutinePerformer.StopCoroutine(_coroutine);
+            if(_coroutine != null)
+                CoroutinePerformer.StopCoroutine(_coroutine);
             Reset();
         }
 

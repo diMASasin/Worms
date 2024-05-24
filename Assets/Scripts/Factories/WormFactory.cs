@@ -27,6 +27,7 @@ namespace Factories
         public Worm Create(Transform parent, Color teamColor, WormConfig config, Func<Vector2> getSpawnPoint)
         {
             var newWorm = Object.Instantiate(_wormPrefab, getSpawnPoint(), Quaternion.identity, parent);
+            newWorm.Init(config);
             
             _worms.Add(newWorm);
             

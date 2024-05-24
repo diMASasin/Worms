@@ -28,6 +28,7 @@ namespace BattleStateMachineComponents.States
 
         public override void Exit()
         {
+            TurnTimer.Stop();
         }
 
         public override void Tick()

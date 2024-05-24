@@ -19,6 +19,7 @@ namespace BattleStateMachineComponents.States
         public override void Exit()
         {
             Data.PlayerInput.MovementInput.Disable();
+            Timer.Stop();
         }
 
         public override void Tick()

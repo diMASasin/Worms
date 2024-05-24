@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Weapons
 {
-    public class WeaponView : MonoBehaviour
+    public class WeaponView : MonoBehaviour, ISpawnPoint
     {
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private Renderer _pointerRenderer;

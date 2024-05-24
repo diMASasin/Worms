@@ -27,7 +27,6 @@ namespace WormComponents
 
         public void FixedTick()
         {
-            Debug.Log("jlkfsdjfdasklj;");
             Physics2D.OverlapBox(GetPoint(), _config.Size, 0, _config.ContactFilter2D, _contacts);
 
             if(_contacts.Contains(_collider))

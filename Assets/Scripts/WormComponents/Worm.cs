@@ -125,8 +125,6 @@ namespace WormComponents
         {
             Weapon = weapon;
 
-            Weapon?.Reset();
-
             WeaponChanged?.Invoke(Weapon);
         }
     }

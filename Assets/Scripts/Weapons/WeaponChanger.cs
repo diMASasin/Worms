@@ -10,7 +10,7 @@ namespace Weapons
         private readonly IWeaponSelectedEvent _weaponSelectedEvent;
         private readonly IWeaponShotEvent _weaponShotEvent;
         private readonly WeaponView _weaponView;
-        private IWorm _currentWorm;
+        private IWormWeapon _currentWorm;
 
         public WeaponChanger(IWeaponSelectedEvent weaponSelectedEvent, IWeaponShotEvent weaponShotEvent,
             WeaponView weaponView)
@@ -29,7 +29,7 @@ namespace Weapons
             _weaponShotEvent.WeaponShot -= OnWeaponShot;
         }
 
-        public void ChangeWorm(IWorm worm)
+        public void ChangeWorm(IWormWeapon worm)
         {
             _currentWorm = worm;
             
@@ -49,7 +49,8 @@ namespace Weapons
             _weaponView.gameObject.SetActive(true);
             weaponViewTransform.parent = wormTransform;
             weaponViewTransform.position = wormTransform.position;
-            weaponViewTransform.right = _currentWorm.Armature.right;
+            weaponViewTransform.right = _currentWorm.WeaponPosition.right;
+            weapon.Reset();
             
             _currentWorm.ChangeWeapon(weapon);
         }

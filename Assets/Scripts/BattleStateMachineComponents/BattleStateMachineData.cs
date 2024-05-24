@@ -96,12 +96,12 @@ namespace BattleStateMachineComponents
             _shovelWrapper = new ShovelWrapper(shovel);
             
             InitializeWind();
-
-            InitializePools();
             
             CreateWeapon();
 
             InitializeWorms();
+            InitializePools();
+            
             SpawnWorms(teamsNumber, wormsNumber);
             
             WaterMediator = new WaterMediator(_water);

@@ -11,7 +11,7 @@ namespace Projectiles
     {
         private readonly IWeaponSelectedEvent _weaponSelectedEvent;
         private readonly IWeaponShotEvent _weaponShotEvent;
-        private readonly WeaponView _weaponView;
+        private readonly ISpawnPoint _weaponView;
         private ProjectilePool _pool;
         private readonly List<Projectile> _projectilesToUnsubscribe = new();
         
@@ -19,7 +19,7 @@ namespace Projectiles
         public event Action<Projectile> ProjectileExploded;
 
         public ProjectileLauncher(IWeaponSelectedEvent weaponSelectedEvent, IWeaponShotEvent weaponShotEvent, 
-            WeaponView weaponView)
+            ISpawnPoint weaponView)
         {
             _weaponSelectedEvent = weaponSelectedEvent;
             _weaponShotEvent = weaponShotEvent;
@@ -50,7 +50,7 @@ namespace Projectiles
         {
             Projectile projectile = _pool.Get();
             Transform spawnPoint = _weaponView.SpawnPoint;
-            Vector3 velocity = _weaponView.transform.right * shotPower;
+            Vector3 velocity = _weaponView.SpawnPoint.right * shotPower;
 
             var transform = projectile.transform;
             transform.position = spawnPoint.position;

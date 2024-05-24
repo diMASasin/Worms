@@ -9,8 +9,7 @@ namespace BattleStateMachineComponents.States
 {
     public class TurnState : BattleState
     {
-        private readonly Timer _timer = new();
-        private Timer Timer => Data.TurnTimer;
+        private Timer TurnTimer => Data.TurnTimer;
         private IWorm CurrentWorm => Data.CurrentWorm;
         private Arrow Arrow => Data.Arrow;
         private WeaponSelector WeaponSelector => Data.WeaponSelector;
@@ -38,20 +37,18 @@ namespace BattleStateMachineComponents.States
             Data.ProjectileLauncher.ProjectileLaunched += OnProjectileLaunched;
             Data.ProjectileLauncher.ProjectileExploded += OnProjectileExploded;
             
-            Timer.Start(Data.TimersConfig.TurnDuration, OnTimerElapsed);
+            TurnTimer.Start(Data.TimersConfig.TurnDuration, OnTimerElapsed);
         }
 
         public override void Exit()
         {
-            Data.TurnTimer.Stop();
+            TurnTimer.Stop();
             WeaponSelector.Close();
             CurrentWorm.Movement.Reset();
             
             Data.PlayerInput.UIInput.Disable();
             Data.PlayerInput.WeaponInput.Disable();
             CoroutinePerformer.StartCoroutine(CurrentWorm.SetRigidbodyKinematicWhenGrounded());
-            
-            // _timer.Start(CurrentWorm.Config.RemoveWeaponDelay, () => CurrentWorm.RemoveWeapon());
             
             Data.ProjectileLauncher.ProjectileLaunched -= OnProjectileLaunched;
             Data.ProjectileLauncher.ProjectileExploded -= OnProjectileExploded;
