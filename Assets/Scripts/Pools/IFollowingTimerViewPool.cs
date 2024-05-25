@@ -2,9 +2,9 @@ using UI;
 
 namespace Pools
 {
-    public interface IFollowingTimerViewPool
+    public interface IPool<T>
     {
-        FollowingTimerView Get();
-        void Release(FollowingTimerView timerView);
+        T Get();
+        void Release(T obj);
     }
 }

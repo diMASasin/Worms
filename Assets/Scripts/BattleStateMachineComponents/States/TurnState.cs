@@ -1,3 +1,4 @@
+using Configs;
 using Infrastructure;
 using Projectiles;
 using Timers;
@@ -10,22 +11,32 @@ namespace BattleStateMachineComponents.States
     public class TurnState : BattleState
     {
         private Timer TurnTimer => Data.TurnTimer;
-        private IWorm CurrentWorm => Data.CurrentWorm;
-        private Arrow Arrow => Data.Arrow;
-        private WeaponSelector WeaponSelector => Data.WeaponSelector;
+        private TimersConfig GameConfigTimersConfig => Data.GameConfig.TimersConfig;
+        
+        private Team CurrentTeam
+        {
+            get => Data.CurrentTeam;
+            set => Data.CurrentTeam = value;
+        }
+
+        private IWorm CurrentWorm
+        {
+            get => Data.CurrentWorm;
+            set => Data.CurrentWorm = value;
+        }
 
         public TurnState(IStateSwitcher stateSwitcher, BattleStateMachineData data) : base(stateSwitcher, data) { }
 
+
         public override void Enter()
         {
-            Data.CurrentTeam = Data.TeamsList.Next();
-            Data.CurrentWorm = Data.CurrentTeam.Worms.Next();
-            // Debug.Log(Data.CurrentWorm.name + " " + Data.CurrentWorm.transform.position);
+            CurrentTeam = Data.TeamsList.Next();
+            CurrentWorm = Data.CurrentTeam.Worms.Next();
             
             CurrentWorm.SetCurrentWormLayer();
             CurrentWorm.SetRigidbodyDynamic();
 
-            Arrow.StartMove(CurrentWorm.Transform);
+            Data.Arrow.StartMove(CurrentWorm.Transform);
             Data.FollowingCamera.ZoomTarget();
             Data.FollowingCamera.SetTarget(CurrentWorm.Transform);
             Data.WeaponChanger.ChangeWorm(CurrentWorm);
@@ -34,24 +45,22 @@ namespace BattleStateMachineComponents.States
             Data.PlayerInput.MovementInput.Enable(CurrentWorm.Movement);
             Data.PlayerInput.UIInput.Enable();
             
-            Data.ProjectileLauncher.ProjectileLaunched += OnProjectileLaunched;
-            Data.ProjectileLauncher.ProjectileExploded += OnProjectileExploded;
+            Data.AllProjectileEvents.Launched += OnLaunched;
             
-            TurnTimer.Start(Data.TimersConfig.TurnDuration, OnTimerElapsed);
+            TurnTimer.Start(GameConfigTimersConfig.TurnDuration, OnTimerElapsed);
         }
 
         public override void Exit()
         {
             TurnTimer.Stop();
-            WeaponSelector.Close();
+            Data.WeaponSelector.Close();
             CurrentWorm.Movement.Reset();
             
             Data.PlayerInput.UIInput.Disable();
             Data.PlayerInput.WeaponInput.Disable();
             CoroutinePerformer.StartCoroutine(CurrentWorm.SetRigidbodyKinematicWhenGrounded());
             
-            Data.ProjectileLauncher.ProjectileLaunched -= OnProjectileLaunched;
-            Data.ProjectileLauncher.ProjectileExploded -= OnProjectileExploded;
+            Data.AllProjectileEvents.Launched -= OnLaunched;
         }
 
         public override void Tick()
@@ -64,17 +73,11 @@ namespace BattleStateMachineComponents.States
             Data.PlayerInput.WeaponInput.Tick();
         }
 
-        private void OnProjectileLaunched(Projectile projectile, Vector2 velocity)
+        private void OnLaunched(Projectile projectile, Vector2 velocity)
         {
-            Data.WindMediator.InfluenceOnProjectileIfNecessary(projectile);
             Data.FollowingCamera.SetTarget(projectile.transform);
             
             StateSwitcher.SwitchState<RetreatState>();
-        }
-
-        private void OnProjectileExploded(Projectile projectile)
-        {
-            Data.WindMediator.RemoveProjectileFromInfluence(projectile);
         }
 
         private void OnTimerElapsed()

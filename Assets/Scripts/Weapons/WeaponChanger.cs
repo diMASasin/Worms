@@ -1,5 +1,6 @@
 using System;
 using EventProviders;
+using Pools;
 using UnityEngine;
 using WormComponents;
 
@@ -41,7 +42,7 @@ namespace Weapons
             _weaponView.transform.parent = null;
         }
 
-        private void OnWeaponSelected(Weapon weapon)
+        private void OnWeaponSelected(Weapon weapon, ProjectilePool projectilePool)
         {
             Transform weaponViewTransform = _weaponView.transform;
             Transform wormTransform = _currentWorm.WeaponPosition.transform;

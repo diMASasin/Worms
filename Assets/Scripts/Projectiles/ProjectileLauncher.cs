@@ -7,16 +7,12 @@ using Weapons;
 
 namespace Projectiles
 {
-    public class ProjectileLauncher : IDisposable, IProjectileEvents
+    public class ProjectileLauncher : IDisposable
     {
         private readonly IWeaponSelectedEvent _weaponSelectedEvent;
         private readonly IWeaponShotEvent _weaponShotEvent;
         private readonly ISpawnPoint _weaponView;
         private ProjectilePool _pool;
-        private readonly List<Projectile> _projectilesToUnsubscribe = new();
-        
-        public event Action<Projectile, Vector2> ProjectileLaunched;
-        public event Action<Projectile> ProjectileExploded;
 
         public ProjectileLauncher(IWeaponSelectedEvent weaponSelectedEvent, IWeaponShotEvent weaponShotEvent, 
             ISpawnPoint weaponView)
@@ -33,17 +29,11 @@ namespace Projectiles
         {
             _weaponSelectedEvent.WeaponSelected -= OnWeaponSelected;
             _weaponShotEvent.WeaponShot -= OnWeaponShot;
-
-            foreach (var projectile in _projectilesToUnsubscribe)
-            {
-                projectile.Exploded -= OnExploded;
-                projectile.Launched -= OnLaunched;
-            }
         }
 
-        private void OnWeaponSelected(Weapon weapon)
+        private void OnWeaponSelected(Weapon weapon, ProjectilePool pool)
         {
-            _pool = weapon.Config.ProjectilePool;
+            _pool = pool;
         }
 
         private void OnWeaponShot(float shotPower)
@@ -55,22 +45,7 @@ namespace Projectiles
             var transform = projectile.transform;
             transform.position = spawnPoint.position;
             
-            projectile.Launched += OnLaunched;
-            projectile.Exploded += OnExploded;
-            
             projectile.Launch(velocity);
-            
-            _projectilesToUnsubscribe.Add(projectile);
-        }
-
-        private void OnExploded(Projectile projectile)
-        {
-            ProjectileExploded?.Invoke(projectile);
-        }
-
-        private void OnLaunched(Projectile projectile, Vector2 velocity)
-        {
-            ProjectileLaunched?.Invoke(projectile, velocity);
         }
     }
 }

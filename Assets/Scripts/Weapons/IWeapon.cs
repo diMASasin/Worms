@@ -3,7 +3,7 @@ using Configs;
 
 namespace Weapons
 {
-    public interface IWeapon
+    public interface IWeapon : IWeaponEventsAndConfig
     {
         void MoveScope(float direction);
         void StartIncresePower();
@@ -11,11 +11,5 @@ namespace Weapons
         void Shoot();
         void Reset();
         float CurrentShotPower { get; }
-        public WeaponConfig Config { get; }
-        
-        public event Action<float> Shot;
-        public event Action<float> ShotPowerChanged;
-        public event Action IncreasePowerStarted;
-        public event Action<float> ScopeMoved;
     }
 }

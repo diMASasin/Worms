@@ -11,27 +11,25 @@ using Object = UnityEngine.Object;
 
 namespace Factories
 {
-    [CreateAssetMenu(fileName = "ProjectileFactory", menuName = "Factories/Projectile")]
-    public class ProjectileFactory : ScriptableObject, IProjectileEvents
+    public class ProjectileFactory : IProjectileEvents
     {
         [SerializeField] private Projectile _projectilePrefab;
-        [SerializeField] private ProjectileConfig _config;
         [SerializeField] private ExplosionPool _explosionPool;
-        
-        private FollowingTimerViewPool _followingTimerViewPool;
+
+        private readonly ProjectileConfig _config;
         private readonly List<Projectile> _projectiles = new();
-        private Transform _projectileParent;
-        private ProjectileConfigurator _configurator;
+        private readonly Transform _projectileParent;
+        private readonly ProjectileConfigurator _configurator;
+        private AllProjectilesEventProvider _allProjectileEventsProvider;
 
-        public ProjectileConfig Config => _config;
+        public event Action<Projectile, Vector2> Launched;
+        public event Action<Projectile> Exploded;
 
-        public event Action<Projectile, Vector2> ProjectileLaunched;
-        public event Action<Projectile> ProjectileExploded; 
-
-        public void Init(Transform projectileParent, FollowingTimerViewPool followingTimerViewPool)
+        public ProjectileFactory(ProjectileConfig config, Transform projectileParent, ProjectileConfigurator configurator)
         {
+            _config = config;
             _projectileParent = projectileParent;
-            _followingTimerViewPool = followingTimerViewPool;
+            _configurator = configurator;
         }
 
         private void OnDestroy()
@@ -50,30 +48,26 @@ namespace Factories
         public Projectile Create()
         {
             Projectile projectile = Object.Instantiate(_projectilePrefab, _projectileParent);
-            
+
             projectile.Init(_config);
             _projectiles.Add(projectile);
-            
+
             projectile.Launched += OnLaunched;
             projectile.Exploded += OnExploded;
-            
-            _configurator = new ProjectileConfigurator(projectile, _config, _followingTimerViewPool);
-            _configurator.Configure(_config);
-            
+
+            _configurator.Configure(projectile, _config);
+
             return projectile;
         }
 
         private void OnLaunched(Projectile projectile, Vector2 velocity)
         {
-            ProjectileLaunched?.Invoke(projectile, velocity);
+            Launched?.Invoke(projectile, velocity);
         }
 
         private void OnExploded(Projectile projectile)
         {
-            Explosion explosion = _explosionPool.Get();
-            explosion.Explode(_config.ExplosionConfig, projectile.Collider.radius, projectile.transform.position);
-            
-            ProjectileExploded?.Invoke(projectile);
+            Exploded?.Invoke(projectile);
         }
     }
 }

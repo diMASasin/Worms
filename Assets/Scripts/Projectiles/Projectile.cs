@@ -20,7 +20,6 @@ namespace Projectiles
         public CircleCollider2D Collider => _collider;
         public Rigidbody2D Rigidbody => _rigidbody;
         
-        private event Action Reseted;
         public event Action<Projectile> Exploded;
         public event Action<Projectile, Vector2> Launched;
 
@@ -34,7 +33,6 @@ namespace Projectiles
         
         public void ResetProjectile()
         {
-            Reseted?.Invoke();
             _rigidbody.velocity = Vector2.zero;
             _dead = false;
         }

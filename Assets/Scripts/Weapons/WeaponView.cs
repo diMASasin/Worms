@@ -1,6 +1,7 @@
 ﻿using System;
 using Configs;
 using EventProviders;
+using Pools;
 using Projectiles;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ namespace Weapons
         [SerializeField] private SpriteRenderer _gunSprite;
         [SerializeField] private SpriteRenderer _aimSprite;
 
-        private IWeapon _weapon;
+        private IWeaponEventsAndConfig _weapon;
         private float _initialScaleX;
 
         public Transform SpawnPoint => _spawnPoint;
@@ -61,7 +62,7 @@ namespace Weapons
             TryUnsubscribeWeapon();
         }
 
-        private void OnWeaponChanged(IWeapon weapon)
+        private void OnWeaponChanged(IWeaponEventsAndConfig weapon, ProjectilePool projectilePool)
         {
             TryUnsubscribeWeapon();
 
@@ -72,7 +73,7 @@ namespace Weapons
             _weapon.IncreasePowerStarted += OnIncreasePowerStarted;
             _weapon.ScopeMoved += MoveScope;
 
-            SetGunSprite(weapon.Config);
+            SetGunSprite(_weapon.Config);
             EnableAimSprite();
         }
 

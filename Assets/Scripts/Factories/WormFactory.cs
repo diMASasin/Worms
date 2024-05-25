@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using Configs;
 using EventProviders;
-using MovementComponents;
-using Unity.Mathematics;
 using UnityEngine;
 using WormComponents;
 using Object = UnityEngine.Object;
@@ -24,9 +22,10 @@ namespace Factories
             _wormPrefab = wormPrefab;
         }
 
-        public Worm Create(Transform parent, Color teamColor, WormConfig config, Func<Vector2> getSpawnPoint)
+        public Worm Create(Transform parent, Color teamColor, WormConfig config, Func<Vector2, Vector2> getSpawnPoint)
         {
-            var newWorm = Object.Instantiate(_wormPrefab, getSpawnPoint(), Quaternion.identity, parent);
+            Vector2 position = getSpawnPoint(_wormPrefab.Collider2D.size);
+            var newWorm = Object.Instantiate(_wormPrefab, position, Quaternion.identity, parent);
             newWorm.Init(config);
             
             _worms.Add(newWorm);

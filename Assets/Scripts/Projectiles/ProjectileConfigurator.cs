@@ -15,31 +15,21 @@ namespace Projectiles
 {
     public class ProjectileConfigurator : IDisposable
     {
-        private readonly Projectile _projectile;
-        private readonly ProjectileConfig _config;
-        private readonly IFollowingTimerViewPool _followingTimerViewPool;
+        private readonly IPool<FollowingTimerView> _pool;
 
         private readonly List<ILaunchBehaviour> _launchBehaviours = new();
         private readonly List<IExplodeBehaviour> _explodeBehaviours = new();
-        private FollowingTimerView _followingTimerView;
         private SheepMovement _sheepMovement;
         private GroundChecker _groundChecker;
 
-        public ProjectileConfigurator(Projectile projectile, ProjectileConfig config,
-            FollowingTimerViewPool followingTimerViewPool)
+        public ProjectileConfigurator(IPool<FollowingTimerView> pool)
         {
-            _config = config;
-            _followingTimerViewPool = followingTimerViewPool;
-            _projectile = projectile;
-
-            _projectile.Exploded += OnExploded;
-            _projectile.Launched += OnLaunched;
+            _pool = pool;
         }
 
         public void Dispose()
         {
-            _projectile.Exploded -= OnExploded;
-            _projectile.Launched -= OnLaunched;
+            
         }
 
         public void FixedTick()
@@ -56,6 +46,8 @@ namespace Projectiles
 
         private void OnExploded(Projectile projectile)
         {
+            projectile.Exploded -= OnExploded;
+            
             foreach (var behaviour in _explodeBehaviours)
                 behaviour.OnExplode();
 
@@ -64,50 +56,53 @@ namespace Projectiles
 
         private void OnLaunched(Projectile projectile, Vector2 shotPower)
         {
+            projectile.Launched -= OnLaunched;
+            
             foreach (var behaviour in _launchBehaviours)
                 behaviour.OnLaunch(shotPower);
         }
         
-        public void Configure(ProjectileConfig config)
+        public void Configure(Projectile projectile, ProjectileConfig config)
         {
+            projectile.Exploded += OnExploded;
+            projectile.Launched += OnLaunched;
+            
             if (config.CanWalk == true)
-                _launchBehaviours.Add(GetMovementBehaviour());
+                _launchBehaviours.Add(GetMovementBehaviour(projectile, config.MovementConfig));
 
             if (config.HasFragments == true)
-                _explodeBehaviours.Add(GetFragmentsBehaviour());
+                _explodeBehaviours.Add(GetFragmentsBehaviour(config, projectile.transform));
 
             if (config.TorqueRange.StartValue != 0 || config.TorqueRange.EndValue != 0)
-                _launchBehaviours.Add(GetRotator());
+                _launchBehaviours.Add(GetRotator(config, projectile.Rigidbody));
 
             if (config.ExplodeOnKeyDown)
-                _launchBehaviours.Add(new ExplodeOnKeyDown(_projectile));
+                _launchBehaviours.Add(new ExplodeOnKeyDown(projectile));
             
             if (config.IsExplodeWithDelay)
             {
-                var onLaunchTimer = new OnLaunchTimer(_followingTimerViewPool, _projectile,
-                    config.ExplodeDelay, () => _projectile.Explode());
+                var onLaunchTimer = new OnLaunchTimer(_pool, projectile,
+                    config.ExplodeDelay, () => projectile.Explode());
                 _launchBehaviours.Add(onLaunchTimer);
             }
         }
 
-        private SheepProjectile GetMovementBehaviour()
+        private SheepProjectile GetMovementBehaviour(Projectile projectile, MovementConfig movementConfig)
         {
-            MovementConfig movementConfig = _config.MovementConfig;
-
-            _groundChecker = new GroundChecker(_projectile.transform, _projectile.Collider, 
+            _groundChecker = new GroundChecker(projectile.transform, projectile.Collider, 
                 movementConfig.GroundCheckerConfig);
-            _sheepMovement = new SheepMovement(_projectile.Rigidbody, _projectile.Collider,
-                _projectile.transform, _groundChecker, movementConfig);
+            _sheepMovement = new SheepMovement(projectile.Rigidbody, projectile.Collider,
+                projectile.transform, _groundChecker, movementConfig);
 
-            _projectile.Rigidbody.freezeRotation = true;
+            projectile.Rigidbody.freezeRotation = true;
             SheepProjectile sheepProjectile = new SheepProjectile(_sheepMovement);
 
             return sheepProjectile;
         }
 
-        private ProjectileRotator GetRotator() => new (_config, _projectile.Rigidbody);
+        private ProjectileRotator GetRotator(ProjectileConfig config, Rigidbody2D rigidbody) => new (config, rigidbody);
 
-        private FragmentsExplodeBehaviour GetFragmentsBehaviour() => 
-            new(_config.FragmentsPool, _config.FragmentsAmount, _projectile.transform);
+        private FragmentsExplodeBehaviour GetFragmentsBehaviour(ProjectileConfig config, Transform projectileTransform) => 
+            new(config.FragmentsPool, config.FragmentsAmount, projectileTransform);
     }
 }

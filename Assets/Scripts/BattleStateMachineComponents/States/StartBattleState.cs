@@ -4,14 +4,13 @@ namespace BattleStateMachineComponents.States
 {
     public class StartBattleState : BattleState
     {
-        private TimersConfig TimersConfig => Data.TimersConfig;
-        private WaterMediator WaterMediator => Data.WaterMediator;
+        private TimersConfig TimersConfig => Data.GameConfig.TimersConfig;
 
         public StartBattleState(IStateSwitcher stateSwitcher, BattleStateMachineData data) : base(stateSwitcher, data) { }
 
         public override void Enter()
         {
-            Data.GlobalTimer.Start(TimersConfig.GlobalTime, () => WaterMediator.AllowIncreaseWaterLevel());
+            Data.GlobalTimer.Start(TimersConfig.GlobalTime, () => Data.Water.AllowIncreaseWaterLevel());
             StateSwitcher.SwitchState<BetweenTurnsState>();
         }
 

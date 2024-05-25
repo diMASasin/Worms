@@ -1,55 +1,41 @@
-using System;
-using System.Collections.Generic;
+using Configs;
 using EventProviders;
-using Factories;
+using Pools;
 using UnityEngine;
+using UnityEngine.UI;
 using Weapons;
 
 namespace UI
 {
-    public class WeaponSelector : MonoBehaviour, IWeaponSelector
+    public class WeaponSelector : MonoBehaviour, IWeaponSelectorOpener
     {
-        [SerializeField] Animator _animator;
-        [SerializeField] private WeaponSelectorItemFactory _itemFactory;
-        [SerializeField] private Transform _itemContainer;
-    
+        [SerializeField] private Animator _animator;
+        [SerializeField] private Image _image;
+        [SerializeField] private UIConfig _config;
+        
+        [field: SerializeField] public Transform ItemParent { get; private set; }
+        
         private IWeaponShotEvent _shotEvent;
         private IWeaponSelectedEvent _selectedEvent;
     
         private static readonly int Opened = Animator.StringToHash("Opened");
 
-        public event Action<Weapon> WeaponSelected;
-
-        public void Init(List<Weapon> weaponList)
+        public void Init(IWeaponSelectedEvent selectedEvent)
         {
-            _selectedEvent = _itemFactory;
-        
-            _itemFactory.Create(weaponList, _itemContainer);
+            _selectedEvent = selectedEvent;
 
             _selectedEvent.WeaponSelected += OnSelected;
-        }
-
-        public void Toggle()
-        {
-            _animator.SetBool(Opened, !_animator.GetBool(Opened));
-        }
-    
-        public void Close()
-        {
-            _animator.SetBool(Opened, false);
         }
 
         private void OnDestroy()
         {
             if (_selectedEvent != null) _selectedEvent.WeaponSelected -= OnSelected;
-        
-            _itemFactory.Dispose();
         }
 
-        private void OnSelected(Weapon weapon)
-        {
-            Close();
-            WeaponSelected?.Invoke(weapon);
-        }
+        public void Toggle() => _animator.SetBool(Opened, !_animator.GetBool(Opened));
+
+        public void Close() => _animator.SetBool(Opened, false);
+
+        private void OnSelected(Weapon weapon, ProjectilePool projectilePool) => Close();
     }
 }

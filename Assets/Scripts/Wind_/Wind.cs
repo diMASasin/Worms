@@ -5,17 +5,17 @@ namespace Wind_
 {
     public class Wind
     {
-        private WindData _data;
+        public readonly float MaxVelocity;
+        public readonly float Step;
 
-        public float Velocity { get; set; }
-        public float MaxVelocity => _data.MaxVelocity;
-        public float Step => _data.Step;
-
+        public float Velocity { get; private set; }
+        
         public event Action<float> VelocityChanged;
 
-        public Wind(WindData data)
+        public Wind(float maxVelocity, float step)
         {
-            _data = data;
+            MaxVelocity = maxVelocity;
+            Step = step;
         }
 
         public void ChangeVelocity()

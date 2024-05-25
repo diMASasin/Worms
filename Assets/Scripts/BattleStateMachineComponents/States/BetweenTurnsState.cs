@@ -1,10 +1,12 @@
 using CameraFollow;
+using Configs;
 using Timers;
 
 namespace BattleStateMachineComponents.States
 {
     public class BetweenTurnsState : BattleState
     {
+        private TimersConfig GameConfigTimersConfig => Data.GameConfig.TimersConfig;
         private Timer TurnTimer => Data.TurnTimer;
         private FollowingCamera FollowingCamera => Data.FollowingCamera;
 
@@ -13,14 +15,14 @@ namespace BattleStateMachineComponents.States
 
         public override void Enter()
         {
-            TurnTimer.Start(Data.TimersConfig.BetweenTurnsDuration, 
+            TurnTimer.Start(GameConfigTimersConfig.BetweenTurnsDuration, 
                 () => StateSwitcher.SwitchState<TurnState>());
 
             FollowingCamera.ZoomTarget();
             FollowingCamera.SetTarget(Data.FollowingCamera.GeneralViewPosition);
             
-            Data.Wind.ChangeVelocity();
-            Data.WaterMediator.IncreaseLevelIfAllowed();
+            Data.WindMediator.ChangeVelocity();
+            Data.Water.IncreaseLevelIfAllowed();
             
             if(Data.CurrentWorm != null)
                 Data.CurrentWorm.SetWormLayer();

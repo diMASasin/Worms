@@ -13,6 +13,6 @@ namespace Configs
         [field: SerializeField] public float MaxShotPower { get; private set; } = 5;
         [field: SerializeField] public Sprite Sprite{ get; private set; }
         [field: SerializeField] public float SpriteScale { get; private set; } = 1;
-        [field: SerializeField] public ProjectilePool ProjectilePool { get; private set; }
+        [field: SerializeField] public ProjectileConfig ProjectileConfig { get; private set; }
     }
 }

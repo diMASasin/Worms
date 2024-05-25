@@ -5,14 +5,11 @@ namespace Factories
 {
     public class TeamHealthFactory : MonoBehaviour
     {
-        [SerializeField] private TeamHealth _teamHealthTemplate;
-        [SerializeField] private Transform _container;
-    
-        public void Create(CycledList<Team> teams)
+        public void Create(CycledList<Team> teams, TeamHealth prefab)
         {
             foreach (var team in teams)
             {
-                var teamHealth = Instantiate(_teamHealthTemplate, _container);
+                var teamHealth = Instantiate(prefab, transform);
                 teamHealth.Init(team.Color, team);
             }
         }

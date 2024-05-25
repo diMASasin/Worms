@@ -1,12 +1,12 @@
 ﻿using Configs;
+using Projectiles;
 using UnityEngine;
 using UnityEngine.Pool;
 using Object = UnityEngine.Object;
 
 namespace Pools
 {
-    [CreateAssetMenu(fileName = "ExplosionPool", menuName = "ExplosionPool", order = 0)]
-    public class ExplosionPool : ScriptableObject
+    public class ExplosionPool
     {
         [SerializeField] private ExplosionConfig _config;
         [SerializeField] private int _amount;
@@ -15,15 +15,34 @@ namespace Pools
         private IShovel _shovelWrapper;
 
         private ObjectPool<Explosion> _pool;
+        private IProjectileEvents _projectileEvents;
 
         public static int Count { get; private set; }
 
-        public void Init(Transform objectsParent, IShovel shovelWrapper)
+        public ExplosionPool (Transform objectsParent, IShovel shovelWrapper, IProjectileEvents projectileEvents)
         {
+            _projectileEvents = projectileEvents;
             _objectsParent = objectsParent;
             _shovelWrapper = shovelWrapper;
-
+            
             _pool = new ObjectPool<Explosion>(CreateObject, OnGet, OnRelease, OnExplosionDestroy, defaultCapacity: _amount);
+            
+            _projectileEvents.Launched += OnLaunched;
+        }
+
+        private void OnLaunched(Projectile arg1, Vector2 arg2)
+        {
+            _projectileEvents.Exploded += OnExploded;
+        }
+
+        private void OnExploded(Projectile projectile)
+        {
+            _projectileEvents.Launched -= OnLaunched;
+            _projectileEvents.Exploded -= OnExploded;
+            
+            Explosion explosion = Get();
+            ExplosionConfig explosionConfig = projectile.Config.ExplosionConfig;
+            explosion.Explode(explosionConfig, projectile.Collider.radius, projectile.transform.position);
         }
 
         private void OnDestroy()

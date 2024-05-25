@@ -17,6 +17,7 @@ namespace WormComponents
             _fillImage.color = color;
             _teamName.text = team.Name;
             _maxHealth = team.MaxHealth;
+            
             team.HealthChanged += OnHealthChanged;
             team.Died += OnDied;
         }

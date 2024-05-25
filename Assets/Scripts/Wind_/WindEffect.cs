@@ -2,13 +2,14 @@ using UnityEngine;
 
 namespace Wind_
 {
-    public class WindEffect : MonoBehaviour
+    public class WindEffect
     {
-        [SerializeField] private ParticleSystem _particleSystem;
         private Wind _wind;
+        private ParticleSystem _particleSystem;
 
-        public void Init(Wind wind)
+        public WindEffect (Wind wind, ParticleSystem particles)
         {
+            _particleSystem = particles;
             _wind = wind;
 
             _wind.VelocityChanged += OnVelocityChanged;

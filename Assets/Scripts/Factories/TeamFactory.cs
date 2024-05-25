@@ -18,7 +18,7 @@ namespace Factories
             _wormFactory = wormFactory;
         }
 
-        public Team Create(Color color, Transform parent, TeamConfig config, int wormsNumber, Func<Vector2> getSpawnPoint)
+        public Team Create(Color color, Transform parent, TeamConfig config, int wormsNumber, Func<Vector2, Vector2> getSpawnPoint)
         {
             var teamWorms = new CycledList<IWorm>();
             List<WormConfig> wormConfigs = config.WormConfigs;

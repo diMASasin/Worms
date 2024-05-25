@@ -8,23 +8,22 @@ using UnityEngine.Pool;
 
 namespace Pools
 {
-    [CreateAssetMenu(fileName = "ProjectilePool", menuName = "ProjectilePool", order = 0)]
-    public class ProjectilePool : ScriptableObject
+    public class ProjectilePool
     {
-        [SerializeField] private ProjectileFactory _projectileFactory;
-        [SerializeField] private int _amount;
-
-        private ObjectPool<Projectile> _pool;
-
-        public ProjectileFactory ProjectileFactory => _projectileFactory;
+        private readonly int _amount;
+        private readonly ObjectPool<Projectile> _pool;
+        private readonly ProjectileFactory _projectileFactory;
         
         public static int Count { get; private set; }
 
         public static event Action<int> CountChanged;
 
-        private void Awake()
+        public ProjectilePool(ProjectileFactory factory, int amount)
         {
             _pool = new ObjectPool<Projectile>(OnCreated, OnGet, OnRelease, OnProjectileDestroy, true, _amount);
+            
+            _projectileFactory = factory;
+            _amount = amount;
         }
 
         private void OnDestroy()

@@ -6,20 +6,21 @@ using UnityEngine;
 
 namespace Projectiles
 {
-    [Serializable]
-    public class ProjectilesEventProvider : IDisposable, IProjectileEvents
+    public class AllProjectilesEventProvider : IDisposable, IProjectileEvents
     {
-        [SerializeField] private List<ProjectileFactory> _projectileFactories = new();
+        private readonly IEnumerable<ProjectileFactory> _projectileFactories;
 
-        public event Action<Projectile, Vector2> ProjectileLaunched;
-        public event Action<Projectile> ProjectileExploded;
+        public event Action<Projectile> Exploded;
+        public event Action<Projectile, Vector2> Launched;
         
-        public ProjectilesEventProvider()
+        public AllProjectilesEventProvider(IEnumerable<ProjectileFactory> projectileFactories)
         {
+            _projectileFactories = projectileFactories;
+            
             foreach (var factory in _projectileFactories)
             {
-                factory.ProjectileExploded += OnProjectileExploded;
-                factory.ProjectileLaunched += OnProjectileLaunched;
+                factory.Exploded += OnExploded;
+                factory.Launched += OnLaunched;
             }
         }
 
@@ -27,19 +28,19 @@ namespace Projectiles
         {
             foreach (var factory in _projectileFactories)
             {
-                factory.ProjectileExploded -= OnProjectileExploded;
-                factory.ProjectileLaunched -= OnProjectileLaunched;
+                factory.Exploded -= OnExploded;
+                factory.Launched -= OnLaunched;
             }
         }
 
-        private void OnProjectileLaunched(Projectile projectile, Vector2 velovity)
+        private void OnLaunched(Projectile projectile, Vector2 velovity)
         {
-            ProjectileLaunched?.Invoke(projectile, velovity);
+            Launched?.Invoke(projectile, velovity);
         }
 
-        private void OnProjectileExploded(Projectile projectile)
+        private void OnExploded(Projectile projectile)
         {
-            ProjectileExploded?.Invoke(projectile);
+            Exploded?.Invoke(projectile);
         }
     }
 }

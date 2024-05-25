@@ -1,12 +1,13 @@
 using System.Collections.Generic;
+using Configs;
 using EventProviders;
+using Pools;
 using Weapons;
 
 namespace UI
 {
-    public interface IWeaponSelector : IWeaponSelectedEvent
+    public interface IWeaponSelectorOpener
     {
-        void Init(List<Weapon> weaponList);
         void Toggle();
         void Close();
     }

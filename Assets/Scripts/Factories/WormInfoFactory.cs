@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using EventProviders;
 using UnityEngine;
 using WormComponents;
+using static UnityEngine.Object;
 
 namespace Factories
 {
-    [CreateAssetMenu(fileName = "WormInfoFactory", menuName = "Factories/WormInfo")]
-    public class WormInfoFactory : ScriptableObject, IDisposable
+    public class WormInfoFactory : IDisposable
     {
-        [SerializeField] private WormInformationView _wormInfoPrefab;
+        private readonly WormInformationView _wormInfoPrefab;
+        private readonly IWormEventsProvider _wormEvents;
 
-        private readonly List<WormInformationView> _wormInfoList = new();
-        private IWormEventsProvider _wormEvents;
-
-        public void Init(IWormEventsProvider wormEvents)
+        public WormInfoFactory(WormInformationView prefab, IWormEventsProvider wormEvents)
         {
+            _wormInfoPrefab = prefab;
             _wormEvents = wormEvents;
             
             _wormEvents.WormCreated += CreateInfoView;
@@ -32,8 +31,6 @@ namespace Factories
             
             WormInformationView wormInfo = Instantiate(_wormInfoPrefab, wormTransform);
             wormInfo.Init(worm, teamColor, wormName);
-            
-            _wormInfoList.Add(wormInfo);
         }
     }
 }

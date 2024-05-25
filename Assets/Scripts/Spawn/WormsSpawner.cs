@@ -71,7 +71,7 @@ namespace Spawn
             }
         }
 
-        private Vector2 GetRandomSpawnPoint()
+        private Vector2 GetRandomSpawnPoint(Vector2 colliderSize)
         {
             Vector2 randomPoint;
             int i = 0;
@@ -83,25 +83,25 @@ namespace Spawn
                 randomPoint += (Vector2)_terrain.transform.position;
                 
                 i++;
-                if (i >= 100)
+                int tries = 100;
+                if (i >= tries)
                 {
-                    Debug.LogWarning("!!!!!!!!!!");
+                    Debug.LogWarning($"Worm didn't fit for {tries} tries");
                     break;
                 }
             }
-            while (!CanFitWormInPosition(randomPoint));
+            while (!CanFitWormInPosition(randomPoint, colliderSize));
 
             return randomPoint;
         }
 
-        private bool CanFitWormInPosition(Vector2 position)
+        private bool CanFitWormInPosition(Vector2 randomPoint, Vector2 size)
         {
-            var colliderSize = _wormTemplate.Collider2D.size;
-            var size = new Vector2(colliderSize.x, colliderSize.y) * 2;
             List<Collider2D> results = new();
+            size *= 2;
             
             var overlap =
-                Physics2D.OverlapCapsule(position, size, 
+                Physics2D.OverlapCapsule(randomPoint, size, 
                     CapsuleDirection2D.Vertical, 0, _contactFilter2D, results);
             
             return overlap == 0;

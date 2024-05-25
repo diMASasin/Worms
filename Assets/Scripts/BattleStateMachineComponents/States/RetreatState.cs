@@ -1,3 +1,4 @@
+using Configs;
 using Timers;
 
 namespace BattleStateMachineComponents.States
@@ -7,14 +8,16 @@ namespace BattleStateMachineComponents.States
         private bool _timerElapsed;
 
         private Timer Timer => Data.TurnTimer;
+        private TimersConfig GameConfigTimersConfig => Data.GameConfig.TimersConfig;
 
         public RetreatState(IStateSwitcher stateSwitcher, BattleStateMachineData data) : base(stateSwitcher, data) { }
 
         public override void Enter()
         {
-            Timer.Start(Data.TimersConfig.AfterShotDuration, () => 
+            Timer.Start(GameConfigTimersConfig.AfterShotDuration, () => 
                 StateSwitcher.SwitchState<ProjectilesWaiting>());
         }
+
 
         public override void Exit()
         {

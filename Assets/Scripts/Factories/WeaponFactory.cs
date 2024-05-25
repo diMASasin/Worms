@@ -20,7 +20,7 @@ namespace Factories
                 weapon.Shot -= OnShot;
         }
 
-        public List<Weapon> Create(IEnumerable<WeaponConfig> weaponConfigs, Transform projectileSpawnPoint)
+        public List<Weapon> Create(IEnumerable<WeaponConfig> weaponConfigs)
         {
             foreach (var config in weaponConfigs)
             {

@@ -9,29 +9,27 @@ namespace Projectiles.Behaviours.LaunchBehaviour
 {
     public class OnLaunchTimer : ILaunchBehaviour
     {
-        private readonly IFollowingTimerViewPool _followingTimerViewPool;
+        private readonly IPool<FollowingTimerView> _pool;
         private readonly Projectile _projectile;
         private readonly float _interval;
         private readonly Action _onElapsed;
+        private readonly Timer _timer = new();
+
         private FollowingTimerView _followingTimerView;
 
-        public readonly Timer Timer = new();
-
-        public OnLaunchTimer(IFollowingTimerViewPool followingTimerViewPool, Projectile projectile, 
-            float interval, Action onElapsed)
+        public OnLaunchTimer(IPool<FollowingTimerView> pool, Projectile projectile, float interval, Action onElapsed)
         {
-            _followingTimerViewPool = followingTimerViewPool;
+            _pool = pool;
             _projectile = projectile;
             _interval = interval;
             _onElapsed = onElapsed;
-            
         }
 
         public void OnLaunch(Vector2 velocity)
         {
-            Timer.Start(_interval, OnTimerElapsed);
-            _followingTimerView = _followingTimerViewPool.Get();
-            _followingTimerView.TimerView.Init(Timer, TimerFormattingStyle.Seconds);
+            _timer.Start(_interval, OnTimerElapsed);
+            _followingTimerView = _pool.Get();
+            _followingTimerView.TimerView.Init(_timer, TimerFormattingStyle.Seconds);
             _followingTimerView.FollowingObject.Connect(_projectile.transform);
             
             _projectile.Exploded += OnExploded;
@@ -44,7 +42,7 @@ namespace Projectiles.Behaviours.LaunchBehaviour
             if (_followingTimerView != null)
             {
                 _followingTimerView.FollowingObject.Disonnect();
-                _followingTimerViewPool.Release(_followingTimerView);
+                _pool.Release(_followingTimerView);
                 _followingTimerView = null;
             }
         }

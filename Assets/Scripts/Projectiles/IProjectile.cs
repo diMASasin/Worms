@@ -7,13 +7,11 @@ using UnityEngine;
 
 namespace Projectiles
 {
-    public interface IProjectile
+    public interface IProjectile : IProjectileEvents
     {
         ProjectileConfig Config { get; }
         CircleCollider2D Collider { get; }
         Rigidbody2D Rigidbody { get; }
-        event Action<Projectile> Exploded;
-        event Action<Projectile, Vector2> Launched;
         void Init(ProjectileConfig config);
         void ResetProjectile();
         void InfluenceOnVelocity(Vector2 additionalVelocity);

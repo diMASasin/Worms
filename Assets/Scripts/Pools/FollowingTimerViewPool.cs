@@ -4,17 +4,14 @@ using static UnityEngine.Object;
 
 namespace Pools
 {
-    public class FollowingTimerViewPool : IFollowingTimerViewPool
+    public class FollowingTimerViewPool : IPool<FollowingTimerView>
     {
         private readonly ObjectPool<FollowingTimerView> _followingTimerViewPool;
-        private FollowingTimerView _followingTimerViewPrefab;
 
         public FollowingTimerViewPool(FollowingTimerView followingTimerViewPrefab)
         {
-            _followingTimerViewPrefab = followingTimerViewPrefab;
-            
             _followingTimerViewPool = new ObjectPool<FollowingTimerView>(
-                () => Instantiate(_followingTimerViewPrefab),
+                () => Instantiate(followingTimerViewPrefab),
                 timer => timer.gameObject.SetActive(true),
                 timer => timer.gameObject.SetActive(false));
         }
