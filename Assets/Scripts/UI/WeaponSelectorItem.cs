@@ -14,14 +14,12 @@ namespace UI
         [SerializeField] private Image _image;
 
         private Weapon _weapon;
-        private ProjectilePool _projectilePool;
 
-        public event Action<Weapon, ProjectilePool> Selected;
+        public event Action<Weapon> Selected;
 
-        public void Init(Weapon weapon, ProjectilePool projectilePool)
+        public void Init(Weapon weapon)
         {
             _weapon = weapon;
-            _projectilePool = projectilePool;
 
             _image.sprite = _weapon.Config.Sprite;
             _image.gameObject.transform.localScale *= _weapon.Config.SpriteScale;
@@ -39,7 +37,7 @@ namespace UI
 
         private void OnWeaponItemButtonClicked()
         {
-            Selected?.Invoke(_weapon, _projectilePool);
+            Selected?.Invoke(_weapon);
         }
     }
 }

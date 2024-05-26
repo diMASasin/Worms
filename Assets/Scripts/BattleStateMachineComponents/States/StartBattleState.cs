@@ -8,11 +8,9 @@ using Factories;
 using InputService;
 using Pools;
 using Projectiles;
-using Spawn;
 using Timers;
 using UnityEngine;
 using Weapons;
-using Wind_;
 using WormComponents;
 using static UnityEngine.Object;
 
@@ -23,25 +21,27 @@ namespace BattleStateMachineComponents.States
         private readonly Timer _globalTimer = new();
         private readonly List<IDisposable> _toDispose = new ();
         private readonly List<ProjectileFactory> _projectileFactories = new();
-        
+
+        private Transform TeamHealthParent => _startStateData.UIChanger.transform;
         private TimersConfig TimersConfig => _data.TimersConfig;
         private GameConfig GameConfig => _startStateData.GameConfig;
+        private float WaterStep => GameConfig.WaterStep;
         private ITeamDiedEventProvider TeamDiedEvent { get; set; }
-        
+
         private readonly IStateSwitcher _stateSwitcher;
         private readonly BattleStateMachineData _data;
         private readonly StartStateData _startStateData;
         private readonly TurnStateData _turnStateData;
-        private readonly BetweenTurnsStateData _betweenTurnsStateData;
+        private readonly BetweenTurnsStateData _betweenTurnsData;
 
         public StartBattleState(IStateSwitcher stateSwitcher, BattleStateMachineData data,
-            StartStateData startStateData, TurnStateData turnStateData, BetweenTurnsStateData betweenTurnsStateData)
+            StartStateData startStateData, TurnStateData turnStateData, BetweenTurnsStateData betweenTurnsData)
         {
             _stateSwitcher = stateSwitcher;
             _data = data;
             _startStateData = startStateData;
             _turnStateData = turnStateData;
-            _betweenTurnsStateData = betweenTurnsStateData;
+            _betweenTurnsData = betweenTurnsData;
         }
 
         public void Enter()
@@ -49,17 +49,17 @@ namespace BattleStateMachineComponents.States
             _data.PlayerInput = new PlayerInput(_data.MainInput, _data.FollowingCamera, _turnStateData.WeaponSelector);
             
             _startStateData.Terrain.GetEdgesForSpawn();
-            _betweenTurnsStateData.Water.Init(GameConfig.WaterStep);
-            _globalTimer.Start(TimersConfig.GlobalTime, () => _betweenTurnsStateData.Water.AllowIncreaseWaterLevel());
+            _globalTimer.Start(TimersConfig.GlobalTime, () => _betweenTurnsData.Water.AllowIncreaseWaterLevel());
             
             Arrow arrow = Instantiate(GameConfig.ArrowPrefab);
             ShovelWrapper shovelWrapper = new (Instantiate(GameConfig.ShovelPrefab));
+
+            Dictionary<ProjectileConfig, ProjectilePool> projectilePools;
             
-            InitializePools(shovelWrapper, out AllProjectilesEvents allProjectileEvents,
-                out var projectilePools);
+            InitializePools(shovelWrapper, out var allProjectileEvents, out projectilePools);
             CreateWeapon(projectilePools, out WeaponChanger weaponChanger);
 
-            _betweenTurnsStateData.Init(GameConfig.WindData, _startStateData.WindView, allProjectileEvents);
+            _betweenTurnsData.Init(GameConfig.WindData, _startStateData.WindView, allProjectileEvents, WaterStep);
             
             SpawnWorms();
 
@@ -111,11 +111,12 @@ namespace BattleStateMachineComponents.States
 
             _turnStateData.AliveTeams.AddRange(teams);
 
-            TeamHealthFactory teamHealthFactory = Instantiate(GameConfig.TeamHealthFactoryPrefab, _startStateData.UIChanger.transform);
+            TeamHealthFactory teamHealthFactory = Instantiate(GameConfig.TeamHealthFactoryPrefab, TeamHealthParent);
             teamHealthFactory.Create(_turnStateData.AliveTeams, GameConfig.TeamHealthPrefab);
         }
 
-        private void CreateWeapon(Dictionary<ProjectileConfig, ProjectilePool> projectilePools, out WeaponChanger weaponChanger)
+        private void CreateWeapon(Dictionary<ProjectileConfig, ProjectilePool> projectilePools, 
+            out WeaponChanger weaponChanger)
         {
             WeaponFactory weaponFactory = new();
             WeaponSelectorItemFactory itemFactory = new();
@@ -125,13 +126,13 @@ namespace BattleStateMachineComponents.States
             
             IEnumerable<Weapon> weaponList = weaponFactory.Create(GameConfig.WeaponConfigs);
 
-            itemFactory.Create(weaponList, projectilePools, GameConfig.ItemPrefab, _turnStateData.WeaponSelector.ItemParent);
+            itemFactory.Create(weaponList, GameConfig.ItemPrefab, _turnStateData.WeaponSelector.ItemParent);
             _toDispose.Add(itemFactory);
             _turnStateData.WeaponSelector.Init(itemFactory);
             weaponView.Init(itemFactory);
 
             weaponChanger = new WeaponChanger(itemFactory, weaponFactory, weaponView);
-            new ProjectileLauncher(itemFactory, weaponFactory, weaponView);
+            new ProjectileLauncher(itemFactory, weaponFactory, weaponView, projectilePools);
         }
 
         public void Exit()
@@ -155,7 +156,7 @@ namespace BattleStateMachineComponents.States
         
         public void FixedTick()
         {
-            _betweenTurnsStateData.WindMediator.FixedTick();
+            _betweenTurnsData.WindMediator.FixedTick();
 
             foreach (var projectileFactory in _projectileFactories)
                 projectileFactory.FixedTick();

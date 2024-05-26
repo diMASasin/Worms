@@ -11,7 +11,7 @@ namespace BattleStateMachineComponents.StatesData
         [field: SerializeField] public Water Water { get; private set; }
         public WindMediator WindMediator { get; private set; }
 
-        public void Init(WindData data, WindView windView, IProjectileEvents projectileEvents)
+        public void Init(WindData data, WindView windView, IProjectileEvents projectileEvents, float waterStep)
         {
             WindMediator = new WindMediator(data, windView, projectileEvents);
         }

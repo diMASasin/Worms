@@ -6,6 +6,6 @@ namespace EventProviders
 {
     public interface IWeaponSelectedEvent
     {
-        public event Action<Weapon, ProjectilePool> WeaponSelected;
+        public event Action<Weapon> WeaponSelected;
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Configs;
 using EventProviders;
 using Pools;
 using UnityEngine;
@@ -12,14 +13,16 @@ namespace Projectiles
         private readonly IWeaponSelectedEvent _weaponSelectedEvent;
         private readonly IWeaponShotEvent _weaponShotEvent;
         private readonly ISpawnPoint _weaponView;
+        private readonly Dictionary<ProjectileConfig, ProjectilePool> _projectilePools;
         private ProjectilePool _pool;
 
-        public ProjectileLauncher(IWeaponSelectedEvent weaponSelectedEvent, IWeaponShotEvent weaponShotEvent, 
-            ISpawnPoint weaponView)
+        public ProjectileLauncher(IWeaponSelectedEvent weaponSelectedEvent, IWeaponShotEvent weaponShotEvent,
+            ISpawnPoint weaponView, Dictionary<ProjectileConfig, ProjectilePool> projectilePools)
         {
             _weaponSelectedEvent = weaponSelectedEvent;
             _weaponShotEvent = weaponShotEvent;
             _weaponView = weaponView;
+            _projectilePools = projectilePools;
 
             _weaponSelectedEvent.WeaponSelected += OnWeaponSelected;
             _weaponShotEvent.WeaponShot += OnWeaponShot;
@@ -31,9 +34,9 @@ namespace Projectiles
             _weaponShotEvent.WeaponShot -= OnWeaponShot;
         }
 
-        private void OnWeaponSelected(Weapon weapon, ProjectilePool pool)
+        private void OnWeaponSelected(Weapon weapon)
         {
-            _pool = pool;
+            _pool = _projectilePools[weapon.Config.ProjectileConfig];
         }
 
         private void OnWeaponShot(float shotPower)

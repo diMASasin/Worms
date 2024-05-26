@@ -36,6 +36,6 @@ namespace UI
 
         public void Close() => _animator.SetBool(Opened, false);
 
-        private void OnSelected(Weapon weapon, ProjectilePool projectilePool) => Close();
+        private void OnSelected(Weapon weapon) => Close();
     }
 }

@@ -62,7 +62,7 @@ namespace Weapons
             TryUnsubscribeWeapon();
         }
 
-        private void OnWeaponChanged(IWeaponEventsAndConfig weapon, ProjectilePool projectilePool)
+        private void OnWeaponChanged(Weapon weapon)
         {
             TryUnsubscribeWeapon();
 

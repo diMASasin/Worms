@@ -14,15 +14,14 @@ namespace Factories
     {
         private readonly List<WeaponSelectorItem> _items = new();
 
-        public event Action<Weapon, ProjectilePool> WeaponSelected;
+        public event Action<Weapon> WeaponSelected;
 
-        public void Create(IEnumerable<Weapon> weaponList, Dictionary<ProjectileConfig, ProjectilePool> projectilePools,
-            WeaponSelectorItem itemPrefab, Transform itemParent)
+        public void Create(IEnumerable<Weapon> weaponList, WeaponSelectorItem itemPrefab, Transform itemParent)
         {
             foreach (var weapon in weaponList)
             {
                 WeaponSelectorItem weaponItem = Instantiate(itemPrefab, itemParent);
-                weaponItem.Init(weapon, projectilePools[weapon.Config.ProjectileConfig]);
+                weaponItem.Init(weapon);
                 _items.Add(weaponItem);
 
                 weaponItem.Selected += OnSelected;
@@ -35,9 +34,9 @@ namespace Factories
                 item.Selected -= OnSelected;
         }
 
-        private void OnSelected(Weapon weapon, ProjectilePool projectilePool)
+        private void OnSelected(Weapon weapon)
         {
-            WeaponSelected?.Invoke(weapon, projectilePool);
+            WeaponSelected?.Invoke(weapon);
         }
     }
 }

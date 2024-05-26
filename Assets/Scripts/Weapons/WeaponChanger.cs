@@ -42,7 +42,7 @@ namespace Weapons
             _weaponView.transform.parent = null;
         }
 
-        private void OnWeaponSelected(Weapon weapon, ProjectilePool projectilePool)
+        private void OnWeaponSelected(Weapon weapon)
         {
             Transform weaponViewTransform = _weaponView.transform;
             Transform wormTransform = _currentWorm.WeaponPosition.transform;
