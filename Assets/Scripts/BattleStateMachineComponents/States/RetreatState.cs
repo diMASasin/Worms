@@ -3,35 +3,41 @@ using Timers;
 
 namespace BattleStateMachineComponents.States
 {
-    public class RetreatState : BattleState
+    public class RetreatState : IBattleState
     {
+        private readonly IStateSwitcher _stateSwitcher;
+        private readonly BattleStateMachineData _data;
         private bool _timerElapsed;
 
-        private Timer Timer => Data.TurnTimer;
-        private TimersConfig GameConfigTimersConfig => Data.GameConfig.TimersConfig;
+        private Timer Timer => _data.TurnTimer;
+        private TimersConfig TimersConfig => _data.TimersConfig;
 
-        public RetreatState(IStateSwitcher stateSwitcher, BattleStateMachineData data) : base(stateSwitcher, data) { }
-
-        public override void Enter()
+        public RetreatState(IStateSwitcher stateSwitcher, BattleStateMachineData data)
         {
-            Timer.Start(GameConfigTimersConfig.AfterShotDuration, () => 
-                StateSwitcher.SwitchState<ProjectilesWaiting>());
+            _stateSwitcher = stateSwitcher;
+            _data = data;
+        }
+
+        public void Enter()
+        {
+            Timer.Start(TimersConfig.AfterShotDuration, () => 
+                _stateSwitcher.SwitchState<ProjectilesWaiting>());
         }
 
 
-        public override void Exit()
+        public void Exit()
         {
-            Data.PlayerInput.MovementInput.Disable();
+            _data.PlayerInput.MovementInput.Disable();
             Timer.Stop();
         }
 
-        public override void Tick()
+        public void Tick()
         {
         }
 
-        public override void HandleInput()
+        public void HandleInput()
         {
-            Data.PlayerInput.MovementInput.Tick();
+            _data.PlayerInput.MovementInput.Tick();
         }
     }
 }

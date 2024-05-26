@@ -1,3 +1,4 @@
+using BattleStateMachineComponents.StatesData;
 using Configs;
 using Infrastructure;
 using Projectiles;
@@ -8,83 +9,86 @@ using WormComponents;
 
 namespace BattleStateMachineComponents.States
 {
-    public class TurnState : BattleState
+    public class TurnState : IBattleState
     {
-        private Timer TurnTimer => Data.TurnTimer;
-        private TimersConfig GameConfigTimersConfig => Data.GameConfig.TimersConfig;
+        private readonly IStateSwitcher _stateSwitcher;
+        private readonly BattleStateMachineData _data;
+        private readonly TurnStateData _turnStateData;
+        private Timer TurnTimer => _data.TurnTimer;
+        private TimersConfig TimersConfig => _data.TimersConfig;
         
-        private Team CurrentTeam
-        {
-            get => Data.CurrentTeam;
-            set => Data.CurrentTeam = value;
-        }
+        private Team CurrentTeam { set => _data.CurrentTeam = value; }
 
         private IWorm CurrentWorm
         {
-            get => Data.CurrentWorm;
-            set => Data.CurrentWorm = value;
+            get => _data.CurrentWorm;
+            set => _data.CurrentWorm = value;
         }
 
-        public TurnState(IStateSwitcher stateSwitcher, BattleStateMachineData data) : base(stateSwitcher, data) { }
-
-
-        public override void Enter()
+        public TurnState(IStateSwitcher stateSwitcher, BattleStateMachineData data, TurnStateData turnStateData)
         {
-            CurrentTeam = Data.TeamsList.Next();
-            CurrentWorm = Data.CurrentTeam.Worms.Next();
+            _stateSwitcher = stateSwitcher;
+            _data = data;
+            _turnStateData = turnStateData;
+        }
+        
+        public void Enter()
+        {
+            CurrentTeam = _turnStateData.AliveTeams.Next();
+            CurrentWorm = _data.CurrentTeam.Worms.Next();
             
             CurrentWorm.SetCurrentWormLayer();
             CurrentWorm.SetRigidbodyDynamic();
 
-            Data.Arrow.StartMove(CurrentWorm.Transform);
-            Data.FollowingCamera.ZoomTarget();
-            Data.FollowingCamera.SetTarget(CurrentWorm.Transform);
-            Data.WeaponChanger.ChangeWorm(CurrentWorm);
+            _turnStateData.WeaponChanger.ChangeWorm(CurrentWorm);
+            _turnStateData.Arrow.StartMove(CurrentWorm.Transform);
+            _data.FollowingCamera.ZoomTarget();
+            _data.FollowingCamera.SetTarget(CurrentWorm.Transform);
             
-            Data.PlayerInput.ChangeWorm(CurrentWorm);
-            Data.PlayerInput.MovementInput.Enable(CurrentWorm.Movement);
-            Data.PlayerInput.UIInput.Enable();
+            _data.PlayerInput.ChangeWorm(CurrentWorm);
+            _data.PlayerInput.MovementInput.Enable(CurrentWorm.Movement);
+            _data.PlayerInput.UIInput.Enable();
             
-            Data.AllProjectileEvents.Launched += OnLaunched;
+            _turnStateData.AllProjectileEvents.Launched += OnLaunched;
             
-            TurnTimer.Start(GameConfigTimersConfig.TurnDuration, OnTimerElapsed);
+            TurnTimer.Start(TimersConfig.TurnDuration, OnTimerElapsed);
         }
 
-        public override void Exit()
+        public void Exit()
         {
             TurnTimer.Stop();
-            Data.WeaponSelector.Close();
+            _turnStateData.WeaponSelector.Close();
             CurrentWorm.Movement.Reset();
             
-            Data.PlayerInput.UIInput.Disable();
-            Data.PlayerInput.WeaponInput.Disable();
+            _data.PlayerInput.UIInput.Disable();
+            _data.PlayerInput.WeaponInput.Disable();
             CoroutinePerformer.StartCoroutine(CurrentWorm.SetRigidbodyKinematicWhenGrounded());
             
-            Data.AllProjectileEvents.Launched -= OnLaunched;
+            _turnStateData.AllProjectileEvents.Launched -= OnLaunched;
         }
 
-        public override void Tick()
+        public void Tick()
         {
         }
 
-        public override void HandleInput()
+        public void HandleInput()
         {
-            Data.PlayerInput.MovementInput.Tick();
-            Data.PlayerInput.WeaponInput.Tick();
+            _data.PlayerInput.MovementInput.Tick();
+            _data.PlayerInput.WeaponInput.Tick();
         }
 
         private void OnLaunched(Projectile projectile, Vector2 velocity)
         {
-            Data.FollowingCamera.SetTarget(projectile.transform);
+            _data.FollowingCamera.SetTarget(projectile.transform);
             
-            StateSwitcher.SwitchState<RetreatState>();
+            _stateSwitcher.SwitchState<RetreatState>();
         }
 
         private void OnTimerElapsed()
         {
             if (TryFinishShot()) return;
             
-            StateSwitcher.SwitchState<BetweenTurnsState>();
+            _stateSwitcher.SwitchState<BetweenTurnsState>();
         }
 
         private bool TryFinishShot()
@@ -92,7 +96,7 @@ namespace BattleStateMachineComponents.States
             if (CurrentWorm.Weapon?.CurrentShotPower > 0)
             {
                 CurrentWorm.Weapon.Shoot();
-                StateSwitcher.SwitchState<ProjectilesWaiting>();
+                _stateSwitcher.SwitchState<ProjectilesWaiting>();
                 return true;
             }
 

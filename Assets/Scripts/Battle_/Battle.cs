@@ -1,6 +1,9 @@
 using System;
 using BattleStateMachineComponents;
 using BattleStateMachineComponents.States;
+using BattleStateMachineComponents.StatesData;
+using UI;
+using Wind_;
 
 namespace Battle_
 {
@@ -8,9 +11,10 @@ namespace Battle_
     {
         private readonly BattleStateMachine _battleStateMachine; 
     
-        public Battle(BattleStateMachineData data)
+        public Battle(BattleStateMachineData data, TurnStateData turnStateData, StartStateData startStateData,
+            BetweenTurnsStateData windMediator, EndScreen endScreen)
         {
-            _battleStateMachine = new BattleStateMachine(data);
+            _battleStateMachine = new BattleStateMachine(data, turnStateData, windMediator, startStateData, endScreen);
         }
         public void Dispose()
         {

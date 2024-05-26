@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Configs;
+using DestructibleLand;
 using EventProviders;
 using UnityEngine;
 using WormComponents;
@@ -11,22 +12,25 @@ namespace Factories
     public class WormFactory : IWormEventsProvider, IDisposable
     {
         private readonly Worm _wormPrefab;
+        private readonly TerrainWrapper _terrain;
         private readonly List<Worm> _worms = new();
 
         public event Action<IWorm, Color, string> WormCreated;
         public event Action<IWorm> WormDied;
         public event Action<IWorm> WormDamageTook;
 
-        public WormFactory(Worm wormPrefab)
+        public WormFactory(Worm wormPrefab, TerrainWrapper terrain)
         {
             _wormPrefab = wormPrefab;
+            _terrain = terrain;
         }
 
-        public Worm Create(Transform parent, Color teamColor, WormConfig config, Func<Vector2, Vector2> getSpawnPoint)
+        public Worm Create(Transform parent, Color teamColor, WormConfig config)
         {
-            Vector2 position = getSpawnPoint(_wormPrefab.Collider2D.size);
+            Vector2 position = _terrain.GetRandomSpawnPoint(_wormPrefab.Collider2D.size);
             var newWorm = Object.Instantiate(_wormPrefab, position, Quaternion.identity, parent);
             newWorm.Init(config);
+            newWorm.SetRigidbodyKinematic();
             
             _worms.Add(newWorm);
             

@@ -4,6 +4,6 @@ namespace BattleStateMachineComponents
 {
     public interface IStateSwitcher
     {
-        void SwitchState<T>() where T : BattleState;
+        void SwitchState<T>() where T : IBattleState;
     }
 }

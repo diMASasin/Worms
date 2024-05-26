@@ -9,6 +9,7 @@ namespace Configs
         [field: SerializeField] public float MaxSlope { get; private set; } = 45;
         [field: SerializeField] public List<TeamConfig> TeamConfigs { get; private set; }
         [field: SerializeField] public List<Color> TeamColors { get; private set; }
+        [field: SerializeField] public ContactFilter2D ContactFilter { get; private set; }
 
         private void OnValidate()
         {

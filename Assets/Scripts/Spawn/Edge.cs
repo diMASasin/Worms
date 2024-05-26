@@ -1,4 +1,5 @@
 ﻿using System;
+using Battle_;
 using ScriptBoy.Digable2DTerrain.Scripts;
 using UnityEngine;
 
@@ -47,24 +48,22 @@ namespace Spawn
             return Mathf.Abs(_kx) < _maxKx;
         }
 
-        public bool InBounds(Vector3 left, Vector3 up, Vector3 right, Vector3 bottom, Terrain2D terrain)
+        public bool InBounds(MapBounds mapBounds, Terrain2D terrain)
         {
-            var position = terrain.transform.position;
+            var position = (Vector2)terrain.transform.position;
 
-            var point1 = _point1 + (Vector2)position;
-            var point2 = _point2 + (Vector2)position;
+            var point1 = _point1 + position;
+            var point2 = _point2 + position;
 
-            bool inBounds = 
-                point1.x > left.x 
-                && point1.x < right.x 
-                && point1.y < up.y 
-                && point1.y > bottom.y 
-                && point2.x > left.x 
-                && point2.x < right.x 
-                && point2.y < up.y 
-                && point2.y > bottom.y;
+            return IsPointInBounds(point1, mapBounds) && IsPointInBounds(point2, mapBounds);
+        }
 
-            return inBounds;
+        private bool IsPointInBounds(Vector2 point, MapBounds bounds)
+        {
+            return point.x > bounds.Left.position.x && 
+                   point.x < bounds.Right.position.x && 
+                   point.y < bounds.Top.position.y &&
+                   point.y > bounds.Bottom.position.y;
         }
     }
 }

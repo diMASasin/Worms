@@ -29,9 +29,7 @@ namespace WormComponents
         void Die();
         IEnumerator SetRigidbodyKinematicWhenGrounded();
         void RemoveWeapon();
-
-        event UnityAction<IWorm> Died;
-        event UnityAction<IWorm> DamageTook;
-        event Action<IWeapon> WeaponChanged;
+        event Action<IWorm> Died;
+        event Action<IWorm> DamageTook;
     }
 }

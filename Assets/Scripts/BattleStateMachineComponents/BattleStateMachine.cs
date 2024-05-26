@@ -1,34 +1,41 @@
 using System.Collections.Generic;
 using System.Linq;
 using BattleStateMachineComponents.States;
+using BattleStateMachineComponents.StatesData;
+using UI;
 
 namespace BattleStateMachineComponents
 {
     public class BattleStateMachine : IStateSwitcher
     {
         private readonly BattleStateMachineData _data;
-        private readonly List<BattleState> _states;
-        private BattleState _currentState;
+        private readonly StartBattleState _startBattleState;
+        private readonly List<IBattleState> _states;
+        private IBattleState _currentState;
 
-        public BattleStateMachine(BattleStateMachineData data)
+        public BattleStateMachine(BattleStateMachineData data, TurnStateData turnStateData,
+            BetweenTurnsStateData betweenTurnsData, StartStateData startStateData, EndScreen endScreen)
         {
             _data = data;
-            _states = new List<BattleState>()
+            _startBattleState = new StartBattleState(this, data, startStateData, turnStateData, betweenTurnsData); 
+            
+            _states = new List<IBattleState>()
             {
-                new StartBattleState(this, data),
-                new BetweenTurnsState(this, data),
-                new TurnState(this, data),
+                _startBattleState,
+                new BetweenTurnsState(this, data, betweenTurnsData),
+                new TurnState(this, data, turnStateData),
                 new RetreatState(this, data),
-                new ProjectilesWaiting(this, data)
+                new ProjectilesWaiting(this),
+                new BattleEndState(this, endScreen)
             };
 
-            _currentState = _states[0];
+            _currentState = _startBattleState;
             _currentState.Enter();
         }
 
-        public void SwitchState<T>() where T : BattleState
+        public void SwitchState<T>() where T : IBattleState
         {
-            BattleState state = _states.FirstOrDefault(state => state is T);
+            IBattleState state = _states.FirstOrDefault(state => state is T);
 
             _currentState?.Exit();
             _currentState = state;
@@ -48,17 +55,17 @@ namespace BattleStateMachineComponents
 
         public void FixedTick()
         {
-            _data.FixedTick();
+            _startBattleState.FixedTick();
         }
 
         public void OnDrawGizmos()
         {
-            _data.OnDrawGizmos();
+            _startBattleState.OnDrawGizmos();
         }
 
         public void Dispose()
         {
-            _data.Dispose();
+            _startBattleState.Dispose();
         }
     }
 }

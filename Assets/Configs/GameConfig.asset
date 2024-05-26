@@ -15,16 +15,22 @@ MonoBehaviour:
   <FollowingTimerViewPrefab>k__BackingField: {fileID: 4044026241773061690, guid: cec0a7a8bfb2395459f3765209f27b92, type: 3}
   <WormPrefab>k__BackingField: {fileID: 8010253848381206769, guid: 5d44c577df426014ea42a784ad11b1b1, type: 3}
   <WormInfoViewPrefab>k__BackingField: {fileID: 8106106455543795105, guid: a883e5f2399ed0f4ebdc24a80c48d0ba, type: 3}
-  <ArrowPrefab>k__BackingField: {fileID: 4797329700209193142, guid: 5fa67d5b72171244c8459c558265d595, type: 3}
+  <ArrowPrefab>k__BackingField: {fileID: 4208428713464027836, guid: 62bd5ac0d7add0c45a3c28234ef7eb77, type: 3}
   <ShovelPrefab>k__BackingField: {fileID: 1657195945632612654, guid: 17d676ca52c1f844a86b013f76c26863, type: 3}
   <ItemPrefab>k__BackingField: {fileID: 1514001738307777156, guid: 7b5afda30d4fa704997d6f069d0ae1a5, type: 3}
   <WeaponViewPrefab>k__BackingField: {fileID: 9131519681045287937, guid: 8691137e386b63749975d17dece325d8, type: 3}
-  <TimersConfig>k__BackingField: {fileID: 11400000, guid: 571aa5b31e13fd54b9997c643258bcaf, type: 2}
+  <TeamHealthPrefab>k__BackingField: {fileID: 9099762162616485809, guid: dd99d4230622cf74baa5bec06150583f, type: 3}
+  <TeamHealthFactoryPrefab>k__BackingField: {fileID: 4352401895906262629, guid: c4f9cc677daec9e449bbbed965714137, type: 3}
   <WeaponConfigs>k__BackingField:
-  - {fileID: 11400000, guid: 4efad51d55462de4e83f8d27f1b172be, type: 2}
-  - {fileID: 11400000, guid: d5a229232cfc06247bcf2ceb5b3297e2, type: 2}
   - {fileID: 11400000, guid: bc372e3f785a57542ad108e0380b2235, type: 2}
+  - {fileID: 11400000, guid: d5a229232cfc06247bcf2ceb5b3297e2, type: 2}
+  - {fileID: 11400000, guid: 4efad51d55462de4e83f8d27f1b172be, type: 2}
   - {fileID: 11400000, guid: 0ed6c00008d764348800befa94802aa7, type: 2}
+  <TimersConfig>k__BackingField:
+    <TurnDuration>k__BackingField: 6
+    <AfterShotDuration>k__BackingField: 5
+    <BetweenTurnsDuration>k__BackingField: 3
+    <GlobalTime>k__BackingField: 900
   <WindData>k__BackingField:
     <MaxVelocity>k__BackingField: 2
     <Step>k__BackingField: 0.2

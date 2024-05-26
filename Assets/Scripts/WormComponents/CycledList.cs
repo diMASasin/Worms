@@ -65,7 +65,6 @@
                 return _currentItem != null;
             }
 
-
             public void Reset() { }
             public void Dispose() { }
         }

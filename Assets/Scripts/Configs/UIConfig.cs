@@ -1,3 +1,4 @@
+using Factories;
 using UI;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace Configs
         [field: SerializeField] public Sprite TurnTimerSprite { get; private set; }
         [field: SerializeField] public Sprite GlobalTimerSprite { get; private set; }
         [field: SerializeField] public Sprite WindViewSprite { get; private set; }
+        [field: SerializeField] public TeamHealthFactory TeamHealthFactoryPrefab { get; private set; }
         
     }
 }

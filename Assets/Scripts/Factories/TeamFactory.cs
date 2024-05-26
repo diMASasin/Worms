@@ -18,14 +18,14 @@ namespace Factories
             _wormFactory = wormFactory;
         }
 
-        public Team Create(Color color, Transform parent, TeamConfig config, int wormsNumber, Func<Vector2, Vector2> getSpawnPoint)
+        public Team Create(Color color, Transform parent, TeamConfig config, int wormsNumber)
         {
             var teamWorms = new CycledList<IWorm>();
             List<WormConfig> wormConfigs = config.WormConfigs;
             
             for (int i = 0; i < wormsNumber; i++)
             {
-                Worm newWorm = _wormFactory.Create(parent, color, wormConfigs[i], getSpawnPoint);
+                Worm newWorm = _wormFactory.Create(parent, color, wormConfigs[i]);
                 teamWorms.Add(newWorm);
             }
 

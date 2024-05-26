@@ -3,35 +3,39 @@ using Timers;
 
 namespace BattleStateMachineComponents.States
 {
-    public class ProjectilesWaiting : BattleState
+    public class ProjectilesWaiting : IBattleState
     {
-        public ProjectilesWaiting(IStateSwitcher stateSwitcher, BattleStateMachineData data) : base(stateSwitcher, data)
-        { }
+        private readonly IStateSwitcher _stateSwitcher;
 
-        public override void Enter()
+        public ProjectilesWaiting(IStateSwitcher stateSwitcher)
+        {
+            _stateSwitcher = stateSwitcher;
+        }
+
+        public void Enter()
         {
             OnCountChanged(ProjectilePool.Count);
             
             ProjectilePool.CountChanged += OnCountChanged;
         }
 
-        public override void Exit()
+        public void Exit()
         {
             ProjectilePool.CountChanged -= OnCountChanged;
         }
 
-        public override void Tick()
+        public void Tick()
         {
         }
 
-        public override void HandleInput()
+        public void HandleInput()
         {
         }
 
         private void OnCountChanged(int count)
         {
             if(count == 0)
-                StateSwitcher.SwitchState<BetweenTurnsState>();
+                _stateSwitcher.SwitchState<BetweenTurnsState>();
 
         }
     }

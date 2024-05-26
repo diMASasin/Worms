@@ -20,7 +20,7 @@ namespace Factories
         private readonly List<Projectile> _projectiles = new();
         private readonly Transform _projectileParent;
         private readonly ProjectileConfigurator _configurator;
-        private AllProjectilesEventProvider _allProjectileEventsProvider;
+        private AllProjectilesEvents _allProjectileEventsProvider;
 
         public event Action<Projectile, Vector2> Launched;
         public event Action<Projectile> Exploded;

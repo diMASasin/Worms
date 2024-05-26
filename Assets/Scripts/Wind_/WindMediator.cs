@@ -9,16 +9,15 @@ namespace Wind_
 {
     public class WindMediator : IDisposable
     {
-        private readonly Wind _wind;
-        private readonly IProjectileEvents _projectileEvents;
+        private Wind _wind;
+        private IProjectileEvents _projectileEvents;
 
         private readonly List<IProjectile> _projectilesUnderInfluence = new();
-        private WindEffect _windEffect;
 
         public WindMediator(WindData data, WindView windView, IProjectileEvents projectileEvents)
         {
             _wind = new Wind(data.MaxVelocity, data.Step);
-            _windEffect = new WindEffect(_wind, data.Particles);
+            new WindEffect(_wind, data.Particles);
             windView.Init(_wind);
 
             _projectileEvents = projectileEvents;

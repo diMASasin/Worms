@@ -1,3 +1,4 @@
+using Factories;
 using ScriptBoy.Digable2DTerrain.Scripts;
 using UI;
 using UnityEngine;
@@ -19,13 +20,16 @@ namespace Configs
         [field: SerializeField] public WeaponSelectorItem ItemPrefab { get; private set; }
         [field: SerializeField] public WeaponView WeaponViewPrefab { get; private set; }
         [field: SerializeField] public TeamHealth TeamHealthPrefab { get; private set; }
+        [field: SerializeField] public TeamHealthFactory TeamHealthFactoryPrefab { get; private set; }
 
         [field: Header("Configs")]
-        [field: SerializeField] public TimersConfig TimersConfig { get; private set; }
         [field: SerializeField] public WeaponConfig[] WeaponConfigs { get; private set; }
+        [field: Header("Timers")]
+        [field: SerializeField] public TimersConfig TimersConfig { get; private set; }
         
-        [field: Header("Settings")]
+        [field: Header("Wind")]
         [field: SerializeField] public WindData WindData { get; private set; }
+        [field: Header("Water")]
         [field: SerializeField] public float WaterStep { get; private set; } = 1;
 
     }

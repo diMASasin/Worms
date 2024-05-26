@@ -11,8 +11,6 @@ namespace UI
         [SerializeField] private TMP_Dropdown _dropdownTeams;
         [SerializeField] private TMP_Dropdown _dropdownWorms;
         [SerializeField] private TMP_Dropdown _dropdownMaps;
-
-        private readonly BattleSettings _battleSettings = new();
         
         private static readonly int ShowAnimation = Animator.StringToHash("Show");
         private static readonly int HideAnimation = Animator.StringToHash("Hide");
@@ -39,7 +37,7 @@ namespace UI
             int wormsCount = _dropdownWorms.value + 1;
             int sceneNumber = _dropdownMaps.value + 1;
             
-            _battleSettings.Save(wormsCount, teamsCount);
+            BattleSettings.Save(wormsCount, teamsCount);
             
             SceneManager.LoadScene(sceneNumber);
         }

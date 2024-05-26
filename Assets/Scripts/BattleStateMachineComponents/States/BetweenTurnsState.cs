@@ -1,43 +1,54 @@
+using BattleStateMachineComponents.StatesData;
 using CameraFollow;
 using Configs;
 using Timers;
+using Wind_;
 
 namespace BattleStateMachineComponents.States
 {
-    public class BetweenTurnsState : BattleState
+    public class BetweenTurnsState : IBattleState
     {
-        private TimersConfig GameConfigTimersConfig => Data.GameConfig.TimersConfig;
-        private Timer TurnTimer => Data.TurnTimer;
-        private FollowingCamera FollowingCamera => Data.FollowingCamera;
+        private readonly IStateSwitcher _stateSwitcher;
+        private readonly BattleStateMachineData _data;
+        private readonly BetweenTurnsStateData _betweenTurnsData;
+        private readonly WindMediator _windMediator;
+        private TimersConfig TimersConfig => _data.TimersConfig;
+        private Timer TurnTimer => _data.TurnTimer;
+        private FollowingCamera FollowingCamera => _data.FollowingCamera;
 
-        public BetweenTurnsState(IStateSwitcher stateSwitcher, BattleStateMachineData data) : 
-            base(stateSwitcher, data) { }
-
-        public override void Enter()
+        public BetweenTurnsState(IStateSwitcher stateSwitcher, BattleStateMachineData data, 
+            BetweenTurnsStateData betweenTurnsData)
         {
-            TurnTimer.Start(GameConfigTimersConfig.BetweenTurnsDuration, 
-                () => StateSwitcher.SwitchState<TurnState>());
-
-            FollowingCamera.ZoomTarget();
-            FollowingCamera.SetTarget(Data.FollowingCamera.GeneralViewPosition);
-            
-            Data.WindMediator.ChangeVelocity();
-            Data.Water.IncreaseLevelIfAllowed();
-            
-            if(Data.CurrentWorm != null)
-                Data.CurrentWorm.SetWormLayer();
+            _stateSwitcher = stateSwitcher;
+            _data = data;
+            _betweenTurnsData = betweenTurnsData;
         }
 
-        public override void Exit()
+        public void Enter()
+        {
+            TurnTimer.Start(TimersConfig.BetweenTurnsDuration, 
+                () => _stateSwitcher.SwitchState<TurnState>());
+
+            FollowingCamera.ZoomTarget();
+            FollowingCamera.SetTarget(_data.FollowingCamera.GeneralViewPosition);
+            
+            _windMediator.ChangeVelocity();
+            _betweenTurnsData.Water.IncreaseLevelIfAllowed();
+            
+            if(_data.CurrentWorm != null)
+                _data.CurrentWorm.SetWormLayer();
+        }
+
+        public void Exit()
         {
             TurnTimer.Stop();
         }
 
-        public override void Tick()
+        public void Tick()
         {
         }
 
-        public override void HandleInput()
+        public void HandleInput()
         {
         }
     }

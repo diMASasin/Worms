@@ -6,14 +6,14 @@ using UnityEngine;
 
 namespace Projectiles
 {
-    public class AllProjectilesEventProvider : IDisposable, IProjectileEvents
+    public class AllProjectilesEvents : IDisposable, IProjectileEvents
     {
         private readonly IEnumerable<ProjectileFactory> _projectileFactories;
 
         public event Action<Projectile> Exploded;
         public event Action<Projectile, Vector2> Launched;
         
-        public AllProjectilesEventProvider(IEnumerable<ProjectileFactory> projectileFactories)
+        public AllProjectilesEvents(IEnumerable<ProjectileFactory> projectileFactories)
         {
             _projectileFactories = projectileFactories;
             

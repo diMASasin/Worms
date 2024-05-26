@@ -32,8 +32,8 @@ namespace WormComponents
 
         public static int WormsNumber;
 
-        public event UnityAction<IWorm> Died;
-        public event UnityAction<IWorm> DamageTook;
+        public event Action<IWorm> Died;
+        public event Action<IWorm> DamageTook;
         public event Action<IWeapon> WeaponChanged;
         public event Action WeaponRemoved;
         

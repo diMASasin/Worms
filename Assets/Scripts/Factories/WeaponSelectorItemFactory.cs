@@ -10,7 +10,7 @@ using static UnityEngine.Object;
 
 namespace Factories
 {
-    public class WeaponSelectorItemFactory : IWeaponSelectedEvent
+    public class WeaponSelectorItemFactory : IWeaponSelectedEvent, IDisposable
     {
         private readonly List<WeaponSelectorItem> _items = new();
 

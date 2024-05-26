@@ -6,8 +6,11 @@ namespace WormComponents
 {
     public interface IWormWeapon
     {
-        void ChangeWeapon(IWeapon weapon);
-        event Action WeaponRemoved;
         Transform WeaponPosition { get; }
+        
+        event Action<IWeapon> WeaponChanged;
+        event Action WeaponRemoved;
+        
+        void ChangeWeapon(IWeapon weapon);
     }
 }
