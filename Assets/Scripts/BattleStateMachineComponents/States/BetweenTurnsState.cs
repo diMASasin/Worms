@@ -9,14 +9,14 @@ namespace BattleStateMachineComponents.States
     public class BetweenTurnsState : IBattleState
     {
         private readonly IStateSwitcher _stateSwitcher;
-        private readonly BattleStateMachineData _data;
+        private readonly GlobalBattleData _data;
         private readonly BetweenTurnsStateData _betweenTurnsData;
         private readonly WindMediator _windMediator;
         private TimersConfig TimersConfig => _data.TimersConfig;
         private Timer TurnTimer => _data.TurnTimer;
         private FollowingCamera FollowingCamera => _data.FollowingCamera;
 
-        public BetweenTurnsState(IStateSwitcher stateSwitcher, BattleStateMachineData data, 
+        public BetweenTurnsState(IStateSwitcher stateSwitcher, GlobalBattleData data, 
             BetweenTurnsStateData betweenTurnsData)
         {
             _stateSwitcher = stateSwitcher;

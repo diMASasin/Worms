@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b24a7341fcffd6448f37959cf406c28, type: 3}
   m_Name: Granade
   m_EditorClassIdentifier: 
+  <ProjectilePrefab>k__BackingField: {fileID: 5397199631990211761, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
   <ColliderRadius>k__BackingField: 0.125
   <Sprite>k__BackingField: {fileID: -1993632836, guid: 3bb1fadd136a96f42b94902a40eace8b, type: 3}
   <AnimatorController>k__BackingField: {fileID: 0}
@@ -27,6 +28,5 @@ MonoBehaviour:
   <ExplodeDelay>k__BackingField: 5
   <HasFragments>k__BackingField: 0
   <FragmentsAmount>k__BackingField: 0
-  <FragmentsPool>k__BackingField: {fileID: 0}
   <CanWalk>k__BackingField: 0
   <MovementConfig>k__BackingField: {fileID: 0}

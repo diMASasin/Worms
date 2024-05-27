@@ -9,8 +9,8 @@ namespace BattleStateMachineComponents.States
         private readonly BattleStateMachineData _data;
         private bool _timerElapsed;
 
-        private Timer Timer => _data.TurnTimer;
-        private TimersConfig TimersConfig => _data.TimersConfig;
+        private Timer Timer => _data.GlobalBattleData.TurnTimer;
+        private TimersConfig TimersConfig => _data.GlobalBattleData.TimersConfig;
 
         public RetreatState(IStateSwitcher stateSwitcher, BattleStateMachineData data)
         {
@@ -27,7 +27,7 @@ namespace BattleStateMachineComponents.States
 
         public void Exit()
         {
-            _data.PlayerInput.MovementInput.Disable();
+            _data.GlobalBattleData.PlayerInput.MovementInput.Disable();
             Timer.Stop();
         }
 
@@ -37,7 +37,7 @@ namespace BattleStateMachineComponents.States
 
         public void HandleInput()
         {
-            _data.PlayerInput.MovementInput.Tick();
+            _data.GlobalBattleData.PlayerInput.MovementInput.Tick();
         }
     }
 }

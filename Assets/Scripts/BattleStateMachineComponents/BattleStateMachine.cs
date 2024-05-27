@@ -13,20 +13,19 @@ namespace BattleStateMachineComponents
         private readonly List<IBattleState> _states;
         private IBattleState _currentState;
 
-        public BattleStateMachine(BattleStateMachineData data, TurnStateData turnStateData,
-            BetweenTurnsStateData betweenTurnsData, StartStateData startStateData, EndScreen endScreen)
+        public BattleStateMachine(BattleStateMachineData data)
         {
             _data = data;
-            _startBattleState = new StartBattleState(this, data, startStateData, turnStateData, betweenTurnsData); 
+            _startBattleState = new StartBattleState(this, data); 
             
             _states = new List<IBattleState>()
             {
                 _startBattleState,
-                new BetweenTurnsState(this, data, betweenTurnsData),
-                new TurnState(this, data, turnStateData),
+                new BetweenTurnsState(this, data.GlobalBattleData, data.BetweenTurnsData),
+                new TurnState(this, data, data.TurnStateData),
                 new RetreatState(this, data),
                 new ProjectilesWaiting(this),
-                new BattleEndState(this, endScreen)
+                new BattleEndState(this, data.EndScreen)
             };
 
             _currentState = _startBattleState;
@@ -50,7 +49,7 @@ namespace BattleStateMachineComponents
         public void Tick()
         {
             _currentState.Tick();
-            _data.PlayerInput.CameraInput.Tick();
+            _data.GlobalBattleData.PlayerInput.CameraInput.Tick();
         }
 
         public void FixedTick()

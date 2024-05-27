@@ -7,20 +7,20 @@ using Projectiles;
 using UI;
 using UnityEngine;
 using UnityEngine.Pool;
-using Object = UnityEngine.Object;
+using static UnityEngine.Object;
 
 namespace Factories
 {
     public class ProjectileFactory : IProjectileEvents
     {
-        [SerializeField] private Projectile _projectilePrefab;
-        [SerializeField] private ExplosionPool _explosionPool;
-
         private readonly ProjectileConfig _config;
         private readonly List<Projectile> _projectiles = new();
         private readonly Transform _projectileParent;
         private readonly ProjectileConfigurator _configurator;
         private AllProjectilesEvents _allProjectileEventsProvider;
+        
+        private Projectile ProjectilePrefab => _config.ProjectilePrefab;
+        public ProjectileConfig Config => _config;
 
         public event Action<Projectile, Vector2> Launched;
         public event Action<Projectile> Exploded;
@@ -47,7 +47,7 @@ namespace Factories
 
         public Projectile Create()
         {
-            Projectile projectile = Object.Instantiate(_projectilePrefab, _projectileParent);
+            Projectile projectile = Instantiate(ProjectilePrefab, _projectileParent);
 
             projectile.Init(_config);
             _projectiles.Add(projectile);

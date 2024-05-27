@@ -1,31 +1,17 @@
 using System;
-using CameraFollow;
-using Configs;
-using InputService;
-using Timers;
+using BattleStateMachineComponents.StatesData;
+using UI;
 using UnityEngine;
-using WormComponents;
 
 namespace BattleStateMachineComponents
 {
     [Serializable]
     public class BattleStateMachineData
     {
-        [field: SerializeField] public FollowingCamera FollowingCamera { get; private set; }
-        [field: SerializeField] public TimersConfig TimersConfig { get; private set; }
-
-        [NonSerialized] public IWorm CurrentWorm;
-        [NonSerialized] public Team CurrentTeam;
-        
-        public readonly Timer TurnTimer = new();
-
-        public PlayerInput PlayerInput;
-        public MainInput MainInput { get; private set; }
-
-        public void Init(MainInput mainInput, TimersConfig timersConfig)
-        {
-            MainInput = mainInput;
-            TimersConfig = timersConfig;
-        }
+        [field: SerializeField] public GlobalBattleData GlobalBattleData { get; private set; }
+        [field: SerializeField] public StartStateData StartStateData { get; private set; }
+        [field: SerializeField] public BetweenTurnsStateData BetweenTurnsData { get; private set; }
+        [field: SerializeField] public TurnStateData TurnStateData { get; private set; }
+        [field: SerializeField] public EndScreen EndScreen { get; private set; }
     }
 }

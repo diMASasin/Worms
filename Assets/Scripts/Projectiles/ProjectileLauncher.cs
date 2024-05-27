@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Configs;
 using EventProviders;
 using Pools;
@@ -17,12 +18,12 @@ namespace Projectiles
         private ProjectilePool _pool;
 
         public ProjectileLauncher(IWeaponSelectedEvent weaponSelectedEvent, IWeaponShotEvent weaponShotEvent,
-            ISpawnPoint weaponView, Dictionary<ProjectileConfig, ProjectilePool> projectilePools)
+            ISpawnPoint weaponView, List<ProjectilePool> projectilePools)
         {
             _weaponSelectedEvent = weaponSelectedEvent;
             _weaponShotEvent = weaponShotEvent;
             _weaponView = weaponView;
-            _projectilePools = projectilePools;
+            _projectilePools = projectilePools.ToDictionary(pool => pool.Config);
 
             _weaponSelectedEvent.WeaponSelected += OnWeaponSelected;
             _weaponShotEvent.WeaponShot += OnWeaponShot;

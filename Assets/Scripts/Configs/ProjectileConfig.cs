@@ -1,4 +1,5 @@
 ﻿using Pools;
+using Projectiles;
 using UnityEditor.Animations;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ namespace Configs
     [CreateAssetMenu(fileName = "ProjectileConfig", menuName = "Config/Projectile", order = 0)]
     public class ProjectileConfig : ScriptableObject
     {
+        [field: SerializeField] public Projectile ProjectilePrefab { get; private set; }
         [field: SerializeField] public float ColliderRadius { get; private set; } = 1;
         [field: SerializeField] public Sprite Sprite{ get; private set; }
         [field: SerializeField] public AnimatorController AnimatorController { get; private set; }

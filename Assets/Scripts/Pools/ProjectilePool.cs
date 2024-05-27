@@ -13,6 +13,8 @@ namespace Pools
         private readonly int _amount;
         private readonly ObjectPool<Projectile> _pool;
         private readonly ProjectileFactory _projectileFactory;
+
+        public ProjectileConfig Config => _projectileFactory.Config;
         
         public static int Count { get; private set; }
 

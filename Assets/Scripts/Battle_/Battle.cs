@@ -11,10 +11,9 @@ namespace Battle_
     {
         private readonly BattleStateMachine _battleStateMachine; 
     
-        public Battle(BattleStateMachineData data, TurnStateData turnStateData, StartStateData startStateData,
-            BetweenTurnsStateData windMediator, EndScreen endScreen)
+        public Battle(BattleStateMachineData data)
         {
-            _battleStateMachine = new BattleStateMachine(data, turnStateData, windMediator, startStateData, endScreen);
+            _battleStateMachine = new BattleStateMachine(data);
         }
         public void Dispose()
         {
