@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using BattleStateMachineComponents.States;
-using BattleStateMachineComponents.StatesData;
-using UI;
 
 namespace BattleStateMachineComponents
 {
@@ -22,14 +20,11 @@ namespace BattleStateMachineComponents
             {
                 _startBattleState,
                 new BetweenTurnsState(this, data.GlobalBattleData, data.BetweenTurnsData),
-                new TurnState(this, data, data.TurnStateData),
-                new RetreatState(this, data),
+                new TurnState(this, data.GlobalBattleData, data.TurnStateData),
+                new RetreatState(this, data.GlobalBattleData),
                 new ProjectilesWaiting(this),
                 new BattleEndState(this, data.EndScreen)
             };
-
-            _currentState = _startBattleState;
-            _currentState.Enter();
         }
 
         public void SwitchState<T>() where T : IBattleState
@@ -55,11 +50,6 @@ namespace BattleStateMachineComponents
         public void FixedTick()
         {
             _startBattleState.FixedTick();
-        }
-
-        public void OnDrawGizmos()
-        {
-            _startBattleState.OnDrawGizmos();
         }
 
         public void Dispose()

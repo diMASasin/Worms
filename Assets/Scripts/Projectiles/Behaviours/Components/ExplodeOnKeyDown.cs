@@ -2,36 +2,44 @@ using System.Collections;
 using Infrastructure;
 using UnityEngine;
 
-namespace Projectiles.Behaviours.LaunchBehaviour
+namespace Projectiles.Behaviours.Components
 {
-    public class ExplodeOnKeyDown : ILaunchBehaviour
+    public class ExplodeOnKeyDown : MonoBehaviour
     {
-        private readonly Projectile _projectile;
+        [SerializeField] private Projectile _projectile;
         private Coroutine _coroutine;
 
-        public ExplodeOnKeyDown(Projectile projectile)
+        public void Init(Projectile projectile)
         {
             _projectile = projectile;
-            projectile.Exploded += OnExploded;
         }
 
-        public void OnLaunch(Vector2 velocity)
+        private void OnEnable()
+        {
+            _projectile.Launched += OnLaunch;
+            _projectile.Exploded += OnExploded;
+        }
+
+        private void OnDisable()
+        {
+            _projectile.Launched -= OnLaunch;
+            _projectile.Exploded -= OnExploded;
+        }
+
+        public void OnLaunch(Projectile projectile, Vector2 vector2)
         {
             _coroutine = CoroutinePerformer.StartCoroutine(WaitKeyDown());
         }
 
         private void OnExploded(Projectile projectile)
         {
-            projectile.Exploded -= OnExploded;
             CoroutinePerformer.StopCoroutine(_coroutine);
         }
 
         private IEnumerator WaitKeyDown()
         {
             while (Input.GetKeyDown(KeyCode.Space) == false)
-            {
                 yield return null;
-            }
 
             _projectile.Explode();
         }

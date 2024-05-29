@@ -11,7 +11,6 @@ namespace Configs
         [field: SerializeField] public float JumpCooldown { get; private set; } = 0.5f;
         [field: SerializeField] public float MinGroundNormalY { get; private set; } = .65f;
         [field: SerializeField] public float GravityModifier { get; private set; } = 1f;
-        [field: SerializeField] public LayerMask LayerMask { get; private set; }
-        [field: SerializeField] public GroundCheckerConfig GroundCheckerConfig { get; private set; }
+        [field: SerializeField] public ContactFilter2D ContactFilter { get; private set; }
     }
 }

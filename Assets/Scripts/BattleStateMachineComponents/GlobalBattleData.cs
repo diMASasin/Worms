@@ -8,10 +8,11 @@ using WormComponents;
 
 namespace BattleStateMachineComponents
 {
+    [Serializable]
     public class GlobalBattleData
     {
         [field: SerializeField] public FollowingCamera FollowingCamera { get; private set; }
-        [field: SerializeField] public TimersConfig TimersConfig { get; private set; }
+        public TimersConfig TimersConfig { get; private set; }
         
         [NonSerialized] public IWorm CurrentWorm;
         [NonSerialized] public Team CurrentTeam;

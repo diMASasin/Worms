@@ -9,6 +9,7 @@ using Factories;
 using InputService;
 using Pools;
 using Projectiles;
+using Projectiles.Behaviours;
 using Timers;
 using UnityEngine;
 using Weapons;
@@ -23,9 +24,9 @@ namespace BattleStateMachineComponents.States
         private readonly List<IDisposable> _toDispose = new ();
         private readonly List<ProjectileFactory> _projectileFactories = new();
 
-        private Transform TeamHealthParent => _startStateData.UIChanger.transform;
+        private Transform TeamHealthParent => StartStateData.UIChanger.transform;
         private TimersConfig TimersConfig => _data.GlobalBattleData.TimersConfig;
-        private GameConfig GameConfig => _startStateData.GameConfig;
+        private GameConfig GameConfig => StartStateData.GameConfig;
         private float WaterStep => GameConfig.WaterStep;
         private ITeamDiedEventProvider TeamDiedEvent { get; set; }
         private GlobalBattleData GlobalData => _data.GlobalBattleData;
@@ -34,9 +35,10 @@ namespace BattleStateMachineComponents.States
 
         private readonly IStateSwitcher _stateSwitcher;
         private readonly BattleStateMachineData _data;
-        private readonly StartStateData _startStateData;
-        private readonly TurnStateData _turnStateData;
-        private readonly BetweenTurnsStateData _betweenTurnsData;
+        private StartStateData StartStateData => _data.StartStateData;
+        private TurnStateData TurnStateData => _data.TurnStateData;
+        private BetweenTurnsStateData BetweenTurnsData => _data.BetweenTurnsData;
+        private WormsSpawnerConfig SpawnerConfig => StartStateData.WormsSpawner.Config;
         
         public StartBattleState(IStateSwitcher stateSwitcher, BattleStateMachineData data)
         {
@@ -46,10 +48,11 @@ namespace BattleStateMachineComponents.States
 
         public void Enter()
         {
-            GlobalData.PlayerInput = new PlayerInput(MainInput, FollowingCamera, _turnStateData.WeaponSelector);
-            
-            _startStateData.Terrain.GetEdgesForSpawn();
-            _globalTimer.Start(TimersConfig.GlobalTime, () => _betweenTurnsData.Water.AllowIncreaseWaterLevel());
+            GlobalData.PlayerInput = new PlayerInput(MainInput, FollowingCamera, TurnStateData.WeaponSelector);
+            StartStateData.Terrain.Init(SpawnerConfig.ContactFilter, SpawnerConfig.MaxSlope);
+            StartStateData.Terrain.GetEdgesForSpawn();
+   
+            _globalTimer.Start(TimersConfig.GlobalTime, () => BetweenTurnsData.Water.AllowIncreaseWaterLevel());
             
             Arrow arrow = Instantiate(GameConfig.ArrowPrefab);
             ShovelWrapper shovelWrapper = new (Instantiate(GameConfig.ShovelPrefab));
@@ -57,14 +60,14 @@ namespace BattleStateMachineComponents.States
             InitializePools(shovelWrapper, out var allProjectileEvents, out var projectilePools);
             CreateWeapon(projectilePools, out WeaponChanger weaponChanger);
 
-            _betweenTurnsData.Init(GameConfig.WindData, _startStateData.WindView, allProjectileEvents, WaterStep);
+            BetweenTurnsData.Init(GameConfig.WindData, StartStateData.WindView, allProjectileEvents, WaterStep);
             
             SpawnWorms();
 
-            _startStateData.GlobalTimerView.Init(_globalTimer, TimerFormattingStyle.MinutesAndSeconds);
-            _startStateData.TurnTimerView.Init(_data.GlobalBattleData.TurnTimer, TimerFormattingStyle.Seconds);
+            StartStateData.GlobalTimerView.Init(_globalTimer, TimerFormattingStyle.MinutesAndSeconds);
+            StartStateData.TurnTimerView.Init(_data.GlobalBattleData.TurnTimer, TimerFormattingStyle.Seconds);
             
-            _turnStateData.Init(arrow, allProjectileEvents, weaponChanger);
+            TurnStateData.Init(arrow, allProjectileEvents, weaponChanger);
             
             TeamDiedEvent.TeamDied += OnTeamDied;
             _stateSwitcher.SwitchState<BetweenTurnsState>();
@@ -74,43 +77,60 @@ namespace BattleStateMachineComponents.States
             out List<ProjectilePool> projectilePools)
         {
             var projectilesParent = Instantiate(new GameObject()).transform;
+            projectilesParent.name = "Projectile Pools";
             
-            var followingTimerViewPool = new FollowingTimerViewPool(GameConfig.FollowingTimerViewPrefab);
             projectilePools = new List<ProjectilePool>();
+            var fragmentsPools = new List<ProjectilePool>();
+            var allProjectilesFactories = new List<ProjectileFactory>();
 
             foreach (var weaponConfig in GameConfig.WeaponConfigs)
             {
-                var configurator = new ProjectileConfigurator(followingTimerViewPool);
-                var factory = new ProjectileFactory(weaponConfig.ProjectileConfig, projectilesParent, configurator);
-                
-                _projectileFactories.Add(factory);
-
+                var factory = new ProjectileFactory(weaponConfig.ProjectileConfig, projectilesParent);
                 var pool = new ProjectilePool(factory, 1);
 
+                allProjectilesFactories.Add(factory);
                 projectilePools.Add(pool);
+
+                var fragmentsConfig = weaponConfig.ProjectileConfig.FragmentsConfig;
+                var fragmentsFactory = new ProjectileFactory(fragmentsConfig, projectilesParent);
+                var fragmentPool = new ProjectilePool(fragmentsFactory, 5);
+                fragmentsPools.Add(fragmentPool);
+                allProjectilesFactories.Add(fragmentsFactory);
+                
+                _toDispose.Add(factory);
+                _toDispose.Add(pool);
+                _toDispose.Add(fragmentsFactory);
+                _toDispose.Add(fragmentPool);
             }
 
-            allProjectileEvents = new AllProjectilesEvents(_projectileFactories);
-            new ExplosionPool(projectilesParent, shovel, allProjectileEvents);
+            allProjectileEvents = new AllProjectilesEvents(allProjectilesFactories);
+            var fragmentsLauncher = new FragmentsLauncher(allProjectileEvents, fragmentsPools);
+            var timerViewPool = new FollowingTimerViewPool(GameConfig.FollowingTimerViewPrefab, allProjectileEvents);
+            var explosionPool = new ExplosionPool(GameConfig.ExplosionConfig, projectilesParent, shovel, allProjectileEvents);
+            
+            _toDispose.Add(timerViewPool);
+            _toDispose.Add(explosionPool);
+            _toDispose.Add(fragmentsLauncher);
+            _toDispose.Add(allProjectileEvents);
         }
 
         private void SpawnWorms()
         {
             BattleSettings.GetSettings(out int teamsNumber, out int wormsNumber);
             
-            var wormFactory = new WormFactory(GameConfig.WormPrefab, _startStateData.Terrain);
+            var wormFactory = new WormFactory(GameConfig.WormPrefab, StartStateData.Terrain);
             var teamFactory = new TeamFactory(wormFactory);
             new WormInfoFactory(GameConfig.WormInfoViewPrefab, wormFactory);
             
-            _startStateData.WormsSpawner.Init(teamFactory);
+            StartStateData.WormsSpawner.Init(teamFactory);
             TeamDiedEvent = teamFactory;
             
-            CycledList<Team> teams = _startStateData.WormsSpawner.Spawn(teamsNumber, wormsNumber);
+            CycledList<Team> teams = StartStateData.WormsSpawner.Spawn(teamsNumber, wormsNumber);
 
-            _turnStateData.AliveTeams.AddRange(teams);
+            TurnStateData.AliveTeams.AddRange(teams);
 
             TeamHealthFactory teamHealthFactory = Instantiate(GameConfig.TeamHealthFactoryPrefab, TeamHealthParent);
-            teamHealthFactory.Create(_turnStateData.AliveTeams, GameConfig.TeamHealthPrefab);
+            teamHealthFactory.Create(TurnStateData.AliveTeams, GameConfig.TeamHealthPrefab);
         }
 
         private void CreateWeapon(List<ProjectilePool> projectilePools, out WeaponChanger weaponChanger)
@@ -123,9 +143,9 @@ namespace BattleStateMachineComponents.States
             
             IEnumerable<Weapon> weaponList = weaponFactory.Create(GameConfig.WeaponConfigs);
 
-            itemFactory.Create(weaponList, GameConfig.ItemPrefab, _turnStateData.WeaponSelector.ItemParent);
+            itemFactory.Create(weaponList, GameConfig.ItemPrefab, TurnStateData.WeaponSelector.ItemParent);
             _toDispose.Add(itemFactory);
-            _turnStateData.WeaponSelector.Init(itemFactory);
+            TurnStateData.WeaponSelector.Init(itemFactory);
             weaponView.Init(itemFactory);
 
             weaponChanger = new WeaponChanger(itemFactory, weaponFactory, weaponView);
@@ -138,9 +158,9 @@ namespace BattleStateMachineComponents.States
 
         private void OnTeamDied(Team team)
         {
-            _turnStateData.AliveTeams.Remove(team);
+            TurnStateData.AliveTeams.Remove(team);
 
-            if (_turnStateData.AliveTeams.Count <= 1)
+            if (TurnStateData.AliveTeams.Count <= 1)
             {
                 TeamDiedEvent.TeamDied -= OnTeamDied;
                 _stateSwitcher.SwitchState<BattleEndState>();
@@ -148,22 +168,9 @@ namespace BattleStateMachineComponents.States
         }
 
         public void Tick(){}
+        public void FixedTick(){}
 
         public void HandleInput(){}
-        
-        public void FixedTick()
-        {
-            _betweenTurnsData.WindMediator.FixedTick();
-
-            foreach (var projectileFactory in _projectileFactories)
-                projectileFactory.FixedTick();
-        }
-
-        public void OnDrawGizmos()
-        {
-            foreach (var factory in _projectileFactories)
-                factory.OnDrawGizmos();
-        }
         
         public void Dispose()
         {

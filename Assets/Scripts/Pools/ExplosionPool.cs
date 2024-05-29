@@ -1,60 +1,56 @@
-﻿using Configs;
+﻿using System;
+using Configs;
 using Projectiles;
 using UnityEngine;
 using UnityEngine.Pool;
-using Object = UnityEngine.Object;
+using static UnityEngine.Object;
 
 namespace Pools
 {
-    public class ExplosionPool
+    public class ExplosionPool : IDisposable
     {
-        [SerializeField] private ExplosionConfig _config;
-        [SerializeField] private int _amount;
+        private readonly ExplosionConfig _config;
+        private int _amount;
 
-        private Transform _objectsParent;
-        private IShovel _shovelWrapper;
+        private readonly Transform _objectsParent;
+        private readonly IShovel _shovelWrapper;
 
-        private ObjectPool<Explosion> _pool;
-        private IProjectileEvents _projectileEvents;
+        private readonly ObjectPool<Explosion> _pool;
+        private readonly IProjectileEvents _projectileEvents;
 
         public static int Count { get; private set; }
 
-        public ExplosionPool (Transform objectsParent, IShovel shovelWrapper, IProjectileEvents projectileEvents)
+        public ExplosionPool(ExplosionConfig config, Transform objectsParent, IShovel shovelWrapper, IProjectileEvents projectileEvents, int capacity = 5)
         {
+            _config = config;
             _projectileEvents = projectileEvents;
             _objectsParent = objectsParent;
             _shovelWrapper = shovelWrapper;
             
             _pool = new ObjectPool<Explosion>(CreateObject, OnGet, OnRelease, OnExplosionDestroy, defaultCapacity: _amount);
             
-            _projectileEvents.Launched += OnLaunched;
-        }
-
-        private void OnLaunched(Projectile arg1, Vector2 arg2)
-        {
             _projectileEvents.Exploded += OnExploded;
         }
 
         private void OnExploded(Projectile projectile)
         {
-            _projectileEvents.Launched -= OnLaunched;
-            _projectileEvents.Exploded -= OnExploded;
             
             Explosion explosion = Get();
             ExplosionConfig explosionConfig = projectile.Config.ExplosionConfig;
             explosion.Explode(explosionConfig, projectile.Collider.radius, projectile.transform.position);
         }
 
-        private void OnDestroy()
+        public void Dispose()
         {
-            _pool.Dispose();
+            _projectileEvents.Exploded -= OnExploded;
+            _pool?.Dispose();
         }
 
         public Explosion Get() => _pool.Get();
 
         private Explosion CreateObject()
         {
-            var explosion = Object.Instantiate(_config.Prefab, _objectsParent);
+            var explosion = Instantiate(_config.Prefab, _objectsParent);
             explosion.Init(_shovelWrapper);
             explosion.AnimationStopped += OnAnimationStopped;
 

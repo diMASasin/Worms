@@ -18,5 +18,5 @@ MonoBehaviour:
   <ShotPower>k__BackingField: 15
   <MaxShotPower>k__BackingField: 15
   <Sprite>k__BackingField: {fileID: -402192597, guid: 3bb1fadd136a96f42b94902a40eace8b, type: 3}
-  <SpriteScale>k__BackingField: 1
+  <SpriteUIScale>k__BackingField: 1.15
   <ProjectileConfig>k__BackingField: {fileID: 11400000, guid: 741d26835fb274640b0d4e5dc8580aba, type: 2}

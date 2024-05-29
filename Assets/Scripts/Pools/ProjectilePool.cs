@@ -8,7 +8,7 @@ using UnityEngine.Pool;
 
 namespace Pools
 {
-    public class ProjectilePool
+    public class ProjectilePool : IDisposable
     {
         private readonly int _amount;
         private readonly ObjectPool<Projectile> _pool;
@@ -28,9 +28,9 @@ namespace Pools
             _amount = amount;
         }
 
-        private void OnDestroy()
+        public void Dispose()
         {
-            _pool.Dispose();
+            _pool?.Dispose();
         }
 
         public Projectile Get() => _pool.Get();

@@ -9,61 +9,45 @@ using WormComponents;
 
 namespace MovementComponents
 {
-    public class Movement : IMovement
+    public class Movement : MonoBehaviour, IMovement
     {
+        [SerializeField] private Rigidbody2D _rigidbody;
+        [SerializeField] private MovementConfig _config;
+        [field: SerializeField] protected Collider2D Collider { get; private set; }
+        [field: SerializeField] protected GroundChecker GroundChecker { get; private set; }
+        [field: SerializeField] protected Transform Armature { get; private set; }
+        
         private float Speed => _config.Speed;
         private Vector2 LongJumpForce => _config.LongJumpForce;
         private Vector2 HighJumpForce => _config.HighJumpForce;
         private float JumpCooldown => _config.JumpCooldown;
         private float MinGroundNormalY => _config.MinGroundNormalY;
         private float GravityModifier => _config.GravityModifier;
-        protected LayerMask LayerMask => _config.LayerMask;
-
-        protected readonly Transform Armature;
-        protected readonly GroundChecker GroundChecker;
-
+        protected LayerMask LayerMask => _config.ContactFilter.layerMask;
+        
+        private float _maxVelocityX;
         private Vector2 _velocity;
         private Vector2 _groundNormal;
-        private readonly ContactFilter2D _contactFilter;
         private readonly RaycastHit2D[] _hitBuffer = new RaycastHit2D[16];
         private readonly List<RaycastHit2D> _hitBufferList = new List<RaycastHit2D>(16);
 
         private const float MinMoveDistance = 0.001f;
         private const float ShellRadius = 0.01f;
 
-        private Rigidbody2D Rigidbody { get; set; }
-        protected Collider2D Collider { get; private set; }
-
         private bool _canJump = true;
         private float _jumpVelocityX;
-        private float _maxVelocityX;
         private bool _inJump = false;
         private Vector2 _moveAlongGround;
         private Vector2 _move;
-        private readonly MovementConfig _config;
 
         protected float Horizontal;
 
         public event UnityAction<bool> IsWalkingChanged;
         public event Action MoveDircetionChanged;
-    
-        public Movement(Rigidbody2D rigidbody2D, Collider2D collider2D, Transform armature, 
-            GroundChecker groundChecker, MovementConfig config)
-        {
-            Rigidbody = rigidbody2D;
-            Collider = collider2D;
-            Armature = armature;
-            GroundChecker = groundChecker;
-            _config = config;
 
-            _maxVelocityX = _config.Speed;
+        private void Start() => _maxVelocityX = _config.Speed;
 
-            _contactFilter.useTriggers = false;
-            _contactFilter.SetLayerMask(LayerMask);
-            _contactFilter.useLayerMask = true;
-        }
-
-        public void Reset()
+        public virtual void Reset()
         {
             ResetVelocity();
             Horizontal = 0;
@@ -75,7 +59,7 @@ namespace MovementComponents
             _velocity = Vector2.zero;
         }
 
-        public virtual void FixedTick()
+        public virtual void FixedUpdate()
         {
             if (Horizontal != 0)
                 Armature.transform.right = new Vector3(Horizontal, 0);
@@ -117,7 +101,7 @@ namespace MovementComponents
 
             if (distance > MinMoveDistance)
             {
-                int count = Rigidbody.Cast(move, _contactFilter, _hitBuffer, distance + ShellRadius);
+                int count = _rigidbody.Cast(move, _config.ContactFilter, _hitBuffer, distance + ShellRadius);
 
                 _hitBufferList.Clear();
 
@@ -148,7 +132,7 @@ namespace MovementComponents
                     distance = modifiedDistance < distance ? modifiedDistance : distance;
                 }
             }
-            Rigidbody.position += move.normalized * distance;
+            _rigidbody.position += move.normalized * distance;
         }
 
         public void TurnRight()

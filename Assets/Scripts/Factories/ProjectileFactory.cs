@@ -1,22 +1,18 @@
 using System;
 using System.Collections.Generic;
 using Configs;
-using EventProviders;
-using Pools;
 using Projectiles;
-using UI;
+using Projectiles.Behaviours.LaunchBehaviour;
 using UnityEngine;
-using UnityEngine.Pool;
 using static UnityEngine.Object;
 
 namespace Factories
 {
-    public class ProjectileFactory : IProjectileEvents
+    public class ProjectileFactory : IProjectileEvents, IDisposable
     {
         private readonly ProjectileConfig _config;
         private readonly List<Projectile> _projectiles = new();
         private readonly Transform _projectileParent;
-        private readonly ProjectileConfigurator _configurator;
         private AllProjectilesEvents _allProjectileEventsProvider;
         
         private Projectile ProjectilePrefab => _config.ProjectilePrefab;
@@ -25,25 +21,20 @@ namespace Factories
         public event Action<Projectile, Vector2> Launched;
         public event Action<Projectile> Exploded;
 
-        public ProjectileFactory(ProjectileConfig config, Transform projectileParent, ProjectileConfigurator configurator)
+        public ProjectileFactory(ProjectileConfig config, Transform projectileParent)
         {
             _config = config;
             _projectileParent = projectileParent;
-            _configurator = configurator;
         }
 
-        private void OnDestroy()
+        public void Dispose()
         {
             foreach (var projectile in _projectiles)
+            {
+                projectile.Launched -= OnLaunched;
                 projectile.Exploded -= OnExploded;
+            }
         }
-
-        public void FixedTick()
-        {
-            _configurator?.FixedTick();
-        }
-
-        public void OnDrawGizmos() => _configurator?.OnDrawGizmos();
 
         public Projectile Create()
         {
@@ -54,8 +45,6 @@ namespace Factories
 
             projectile.Launched += OnLaunched;
             projectile.Exploded += OnExploded;
-
-            _configurator.Configure(projectile, _config);
 
             return projectile;
         }

@@ -25,6 +25,10 @@ namespace BattleStateMachineComponents.States
         {
         }
 
+        public void FixedTick()
+        {
+        }
+
         public void HandleInput()
         {
         }

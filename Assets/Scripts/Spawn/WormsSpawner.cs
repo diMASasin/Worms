@@ -16,6 +16,8 @@ namespace Spawn
         [SerializeField] private WormsSpawnerConfig _spawnerConfig;
 
         private TeamFactory _teamFactory;
+
+        public WormsSpawnerConfig Config => _spawnerConfig;
         
         private readonly List<Color> _unusedTeamColors = new();
 

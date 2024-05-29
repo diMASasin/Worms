@@ -6,13 +6,13 @@ namespace BattleStateMachineComponents.States
     public class RetreatState : IBattleState
     {
         private readonly IStateSwitcher _stateSwitcher;
-        private readonly BattleStateMachineData _data;
+        private readonly GlobalBattleData _data;
         private bool _timerElapsed;
 
-        private Timer Timer => _data.GlobalBattleData.TurnTimer;
-        private TimersConfig TimersConfig => _data.GlobalBattleData.TimersConfig;
+        private Timer Timer => _data.TurnTimer;
+        private TimersConfig TimersConfig => _data.TimersConfig;
 
-        public RetreatState(IStateSwitcher stateSwitcher, BattleStateMachineData data)
+        public RetreatState(IStateSwitcher stateSwitcher, GlobalBattleData data)
         {
             _stateSwitcher = stateSwitcher;
             _data = data;
@@ -20,6 +20,8 @@ namespace BattleStateMachineComponents.States
 
         public void Enter()
         {
+            _data.PlayerInput.MovementInput.Enable(_data.CurrentWorm.Movement);
+            
             Timer.Start(TimersConfig.AfterShotDuration, () => 
                 _stateSwitcher.SwitchState<ProjectilesWaiting>());
         }
@@ -27,7 +29,9 @@ namespace BattleStateMachineComponents.States
 
         public void Exit()
         {
-            _data.GlobalBattleData.PlayerInput.MovementInput.Disable();
+            _data.PlayerInput.MovementInput.Disable();
+            _data.CurrentWorm.Movement.Reset();
+            
             Timer.Stop();
         }
 
@@ -35,9 +39,13 @@ namespace BattleStateMachineComponents.States
         {
         }
 
+        public void FixedTick()
+        {
+        }
+
         public void HandleInput()
         {
-            _data.GlobalBattleData.PlayerInput.MovementInput.Tick();
+            _data.PlayerInput.MovementInput.Tick();
         }
     }
 }

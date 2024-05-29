@@ -22,7 +22,7 @@ namespace Configs
         [field: SerializeField] public float ExplodeDelay { get; private set; } = 0;
         [field: SerializeField, Header("Fragments")] public bool HasFragments { get; private set; }
         [field: SerializeField] public int FragmentsAmount { get; private set; } = 0;
-        [field: SerializeField] public ProjectilePool FragmentsPool { get; private set; }
+        [field: SerializeField] public ProjectileConfig FragmentsConfig { get; private set; }
         [field: SerializeField, Header("Walk")] public bool CanWalk { get; private set; }
         [field: SerializeField] public MovementConfig MovementConfig { get; private set; }
     }

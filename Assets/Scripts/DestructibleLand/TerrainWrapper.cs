@@ -12,6 +12,7 @@ namespace DestructibleLand
     {
         [SerializeField] private Terrain2D _terrain;
         [SerializeField] private MapBounds _mapBounds;
+        [SerializeField] private PolygonCollider2D _polygonCollider;
         
         private Vector2[] _points;
         private readonly List<Edge> _edges = new();
@@ -26,7 +27,7 @@ namespace DestructibleLand
 
         public void GetEdgesForSpawn()
         {
-            var points = _terrain.polygonCollider.points;
+            var points = _polygonCollider.points;
             int length = points.Length;
             _points = new Vector2[length];
 

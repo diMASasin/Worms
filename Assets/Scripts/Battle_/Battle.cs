@@ -1,9 +1,6 @@
 using System;
 using BattleStateMachineComponents;
 using BattleStateMachineComponents.States;
-using BattleStateMachineComponents.StatesData;
-using UI;
-using Wind_;
 
 namespace Battle_
 {
@@ -29,7 +26,5 @@ namespace Battle_
         public void FixedTick() => _battleStateMachine.FixedTick();
 
         public void Start() => _battleStateMachine.SwitchState<StartBattleState>();
-
-        public void OnDrawGizmos() => _battleStateMachine.OnDrawGizmos();
     }
 }

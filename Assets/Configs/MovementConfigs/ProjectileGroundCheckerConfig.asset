@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ea123c720d230c4181d87ef8beb5e20, type: 3}
-  m_Name: GroundCheckerConfig
+  m_Name: ProjectileGroundCheckerConfig
   m_EditorClassIdentifier: 
   <Size>k__BackingField: {x: 0.3, y: 0.01}
-  <Offset>k__BackingField: {x: 0, y: -0.05}
+  <Offset>k__BackingField: {x: 0, y: -0.3}
   <ShowGroundCheckerBox>k__BackingField: 1
   <ContactFilter2D>k__BackingField:
     useTriggers: 0

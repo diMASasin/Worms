@@ -47,7 +47,6 @@ namespace Weapons
         private void SetGunSprite(WeaponConfig config)
         {
             _gunSprite.enabled = true;
-            _gunSprite.gameObject.transform.localScale = Vector3.one * _initialScaleX * config.SpriteScale;
             _gunSprite.sprite = config.Sprite;
         }
 

@@ -16,19 +16,15 @@ namespace WormComponents
         [SerializeField] private WormAnimations _wormAnimations;
         [field: SerializeField] public Transform Armature { get; private set; }
         [field: SerializeField] public Transform WeaponPosition { get; private set; }
+        [field: SerializeField] public Movement Movement { get; private set; }
 
-        private WormConfig _wormConfig;
-        private Movement _wormMovement;
-        private GroundChecker _groundChecker;
-
-        public Transform Transform => transform;
+        public WormConfig Config { get; private set; }
         public int Health { get; private set; }
         public IWeapon Weapon { get; private set; }
 
+        public Transform Transform => transform;
         public CapsuleCollider2D Collider2D => _collider;
-        public int MaxHealth => _wormConfig.MaxHealth;
-        public Movement Movement => _wormMovement;
-        public WormConfig Config => _wormConfig;
+        public int MaxHealth => Config.MaxHealth;
 
         public static int WormsNumber;
 
@@ -42,30 +38,17 @@ namespace WormComponents
             var colliderSize = Collider2D.size;
             var size = new Vector2(colliderSize.x * 4, colliderSize.y);
             
-            if (_wormConfig.ShowCanSpawnCheckerBox)
+            if (Config != null && Config.ShowCanSpawnCheckerBox)
                 Gizmos.DrawSphere(transform.position + new Vector3(0, 0.5f), size.x);
                 // Gizmos.DrawSphere(transform.position + (Vector3)Collider2D.offset, Collider2D.size.x / 2);
-                
-            _groundChecker.OnDrawGizmos();
         }
 
         public void Init(WormConfig config)
         {
-            _wormConfig = config;
+            Config = config;
             WormsNumber++;
             gameObject.name = config.Name + " " + WormsNumber;
-            Health = _wormConfig.MaxHealth;
-
-            _groundChecker = new GroundChecker(transform, Collider2D, _wormConfig.MovementConfig.GroundCheckerConfig);
-            _wormMovement = new Movement(_rigidbody, _collider, Armature, _groundChecker, _wormConfig.MovementConfig);
-
-            _wormAnimations.Init(_groundChecker, _wormMovement);
-        }
-
-        private void FixedUpdate()
-        {
-            _wormMovement.FixedTick();
-            _groundChecker.FixedTick();
+            Health = Config.MaxHealth;
         }
 
         private void OnDestroy()
@@ -76,15 +59,15 @@ namespace WormComponents
 
         public void SetRigidbodyDynamic() => _rigidbody.bodyType = RigidbodyType2D.Dynamic;
 
-        public void SetCurrentWormLayer() => gameObject.layer = (int)math.log2(_wormConfig.CurrentWormLayerMask.value);
+        public void SetCurrentWormLayer() => gameObject.layer = (int)math.log2(Config.CurrentWormLayerMask.value);
 
-        public void SetWormLayer() => gameObject.layer = (int)math.log2(_wormConfig.WormLayerMask.value);
+        public void SetWormLayer() => gameObject.layer = (int)math.log2(Config.WormLayerMask.value);
 
 
         public void AddExplosionForce(float explosionForce, Vector3 explosionPosition, float explosionUpwardsModifier)
         {
             SetRigidbodyDynamic();
-            _wormMovement.AddExplosionForce(explosionForce, explosionPosition, explosionUpwardsModifier);
+            Movement.AddExplosionForce(explosionForce, explosionPosition, explosionUpwardsModifier);
             StartCoroutine(SetRigidbodyKinematicWhenGrounded());
         }
 

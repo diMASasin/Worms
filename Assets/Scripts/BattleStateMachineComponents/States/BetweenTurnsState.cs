@@ -11,7 +11,6 @@ namespace BattleStateMachineComponents.States
         private readonly IStateSwitcher _stateSwitcher;
         private readonly GlobalBattleData _data;
         private readonly BetweenTurnsStateData _betweenTurnsData;
-        private readonly WindMediator _windMediator;
         private TimersConfig TimersConfig => _data.TimersConfig;
         private Timer TurnTimer => _data.TurnTimer;
         private FollowingCamera FollowingCamera => _data.FollowingCamera;
@@ -32,7 +31,7 @@ namespace BattleStateMachineComponents.States
             FollowingCamera.ZoomTarget();
             FollowingCamera.SetTarget(_data.FollowingCamera.GeneralViewPosition);
             
-            _windMediator.ChangeVelocity();
+            _betweenTurnsData.WindMediator.ChangeVelocity();
             _betweenTurnsData.Water.IncreaseLevelIfAllowed();
             
             if(_data.CurrentWorm != null)
@@ -46,6 +45,11 @@ namespace BattleStateMachineComponents.States
 
         public void Tick()
         {
+        }
+        
+        public void FixedTick()
+        {
+            _betweenTurnsData.WindMediator.FixedTick();
         }
 
         public void HandleInput()

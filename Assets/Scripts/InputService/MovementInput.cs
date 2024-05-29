@@ -17,6 +17,7 @@ namespace InputService
         public void Enable(IMovement movement)
         {
             _movement = movement;
+            _movementInput.Enable();
             
             _movementInput.TurnRight.performed += OnTurnRight;
             _movementInput.TurnLeft.performed += OnTurnLeft;
@@ -28,6 +29,7 @@ namespace InputService
         {
             if(_movement == null)
                 return;
+            _movementInput.Disable();
             
             _movementInput.TurnRight.performed -= OnTurnRight;
             _movementInput.TurnLeft.performed -= OnTurnLeft;

@@ -31,6 +31,11 @@ namespace InputService
         {
             UnsubscribeWormIfExists();
 
+            DisableAll();
+        }
+
+        public void DisableAll()
+        {
             MovementInput.Disable();
             WeaponInput.Disable();
             UIInput.Disable();

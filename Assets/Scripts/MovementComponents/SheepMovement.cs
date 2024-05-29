@@ -1,56 +1,76 @@
-using System;
-using Configs;
 using Timers;
 using UnityEngine;
-using WormComponents;
 
 namespace MovementComponents
 {
-    public class SheepMovement : Movement, IDisposable
+    public class SheepMovement : Movement
     {
-        private readonly float _jumpInterval;
-        public readonly Timer JumpTimer = new();
+        [SerializeField] private float _jumpInterval = 2;
 
+        private readonly Timer _jumpTimer = new();
+        
         private Vector3 _overlapPoint;
         private Vector3 _overlapBoxSize;
+        private bool _shouldJump;
 
-        public SheepMovement(Rigidbody2D rigidbody2D, Collider2D collider2D, Transform armature,
-            GroundChecker groundChecker, MovementConfig config, float jumpInterval = 2) : 
-            base(rigidbody2D, collider2D, armature, groundChecker, config)
+        public override void Reset()
         {
-            _jumpInterval = jumpInterval;
-
-            MoveDircetionChanged += OnMoveDircetionChanged;
-        }
-
-        public void Dispose()
-        {
-            MoveDircetionChanged -= OnMoveDircetionChanged;
+            base.Reset();
+            _shouldJump = false;
+            _jumpTimer.Stop();
         }
         
-        public override void FixedTick()
+        private void OnEnable()
         {
-            base.FixedTick();
+            MoveDircetionChanged += TryJumpAfterDelay;
+            GroundChecker.IsGroundedChanged += OnIsGroundedChanged;
+        }
+
+        private void OnDisable()
+        {
+            MoveDircetionChanged -= TryJumpAfterDelay;
+            GroundChecker.IsGroundedChanged -= OnIsGroundedChanged;
+            
+            Reset();
+        }
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
 
             var right = -Armature.transform.right;
 
             _overlapPoint = Armature.transform.position +
                             new Vector3(-Collider.bounds.size.x / 1.9f * right.x, 0, 0) -
                             new Vector3(0.1f * right.x, 0, 0);
-            _overlapBoxSize = new Vector2(0.01f, 0.12f);
+            _overlapBoxSize = new Vector2(0.01f, 0.1f);
 
             var overlap = Physics2D.OverlapBox(_overlapPoint, _overlapBoxSize, 0, LayerMask);
 
-            if (overlap != null && GroundChecker.IsGrounded)
-            {
+            if (overlap != null && GroundChecker.IsGrounded) 
                 Horizontal = -Horizontal;
-                ResetVelocity();
-            }
         }
 
-        private void OnMoveDircetionChanged()
+        private void OnIsGroundedChanged(bool isGrounded)
         {
-            JumpTimer.Start(_jumpInterval, RepeatLongJump);
+            // Debug.Log($"OnIsGroundedChanged");
+            if(isGrounded == true && _shouldJump == true)
+                RepeatLongJump();
+        }
+
+        private void TryJumpAfterDelay()
+        {
+            Debug.Log($"TryJumpAfterDelay");
+            _jumpTimer.Start(_jumpInterval, () =>
+            {
+                if(GroundChecker.IsGrounded == true)
+                    RepeatLongJump();
+                else
+                {
+                    Debug.Log($"Should jump");
+                    _shouldJump = true;
+                }
+            });
         }
 
         public void OnDrawGizmos()
@@ -60,8 +80,9 @@ namespace MovementComponents
 
         private void RepeatLongJump()
         {
+            Debug.Log($"Jump");
             LongJump();
-            JumpTimer.Start(_jumpInterval, RepeatLongJump);
+            _jumpTimer.Start(_jumpInterval, TryJumpAfterDelay);
         }
     }
 }

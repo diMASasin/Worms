@@ -24,6 +24,7 @@ namespace Configs
 
         [field: Header("Configs")]
         [field: SerializeField] public WeaponConfig[] WeaponConfigs { get; private set; }
+        [field: SerializeField] public ExplosionConfig ExplosionConfig { get; private set; }
         [field: Header("Timers")]
         [field: SerializeField] public TimersConfig TimersConfig { get; private set; }
         
