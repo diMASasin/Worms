@@ -16,9 +16,10 @@ namespace BattleStateMachineComponents.States
         private readonly TurnStateData _turnStateData;
         private Timer TurnTimer => _data.TurnTimer;
         private TimersConfig TimersConfig => _data.TimersConfig;
-        
-        private Team CurrentTeam { set => _data.CurrentTeam = value; }
+        private Timer GlobalTimer => _data.GlobalTimer;
 
+        private Team CurrentTeam { set => _data.CurrentTeam = value; }
+        
         private IWorm CurrentWorm
         {
             get => _data.CurrentWorm;
@@ -31,7 +32,7 @@ namespace BattleStateMachineComponents.States
             _data = data;
             _turnStateData = turnStateData;
         }
-        
+
         public void Enter()
         {
             CurrentTeam = _turnStateData.AliveTeams.Next();
@@ -51,12 +52,14 @@ namespace BattleStateMachineComponents.States
             
             _turnStateData.AllProjectileEvents.Launched += OnLaunched;
             
+            GlobalTimer.Resume();
             TurnTimer.Start(TimersConfig.TurnDuration, OnTimerElapsed);
         }
 
         public void Exit()
         {
             TurnTimer.Stop();
+            GlobalTimer.Pause();
             _turnStateData.WeaponSelector.Close();
             
             _data.PlayerInput.DisableAll();

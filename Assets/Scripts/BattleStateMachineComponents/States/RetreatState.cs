@@ -1,3 +1,4 @@
+using BattleStateMachineComponents.StatesData;
 using Configs;
 using Timers;
 
@@ -20,6 +21,7 @@ namespace BattleStateMachineComponents.States
 
         public void Enter()
         {
+            _data.GlobalTimer.Resume();
             _data.PlayerInput.MovementInput.Enable(_data.CurrentWorm.Movement);
             
             Timer.Start(TimersConfig.AfterShotDuration, () => 
@@ -29,6 +31,7 @@ namespace BattleStateMachineComponents.States
 
         public void Exit()
         {
+            _data.GlobalTimer.Pause();
             _data.PlayerInput.MovementInput.Disable();
             _data.CurrentWorm.Movement.Reset();
             

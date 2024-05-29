@@ -20,9 +20,7 @@ namespace BattleStateMachineComponents.States
 {
     public class StartBattleState : IBattleState
     {
-        private readonly Timer _globalTimer = new();
         private readonly List<IDisposable> _toDispose = new ();
-        private readonly List<ProjectileFactory> _projectileFactories = new();
 
         private Transform TeamHealthParent => StartStateData.UIChanger.transform;
         private TimersConfig TimersConfig => _data.GlobalBattleData.TimersConfig;
@@ -39,7 +37,8 @@ namespace BattleStateMachineComponents.States
         private TurnStateData TurnStateData => _data.TurnStateData;
         private BetweenTurnsStateData BetweenTurnsData => _data.BetweenTurnsData;
         private WormsSpawnerConfig SpawnerConfig => StartStateData.WormsSpawner.Config;
-        
+        private Timer GlobalTimer => GlobalData.GlobalTimer;
+
         public StartBattleState(IStateSwitcher stateSwitcher, BattleStateMachineData data)
         {
             _stateSwitcher = stateSwitcher;
@@ -51,8 +50,6 @@ namespace BattleStateMachineComponents.States
             GlobalData.PlayerInput = new PlayerInput(MainInput, FollowingCamera, TurnStateData.WeaponSelector);
             StartStateData.Terrain.Init(SpawnerConfig.ContactFilter, SpawnerConfig.MaxSlope);
             StartStateData.Terrain.GetEdgesForSpawn();
-   
-            _globalTimer.Start(TimersConfig.GlobalTime, () => BetweenTurnsData.Water.AllowIncreaseWaterLevel());
             
             Arrow arrow = Instantiate(GameConfig.ArrowPrefab);
             ShovelWrapper shovelWrapper = new (Instantiate(GameConfig.ShovelPrefab));
@@ -64,7 +61,10 @@ namespace BattleStateMachineComponents.States
             
             SpawnWorms();
 
-            StartStateData.GlobalTimerView.Init(_globalTimer, TimerFormattingStyle.MinutesAndSeconds);
+            GlobalTimer.Start(TimersConfig.GlobalTime, () => GlobalData.Water.AllowIncreaseWaterLevel());
+            GlobalTimer.Pause();
+            
+            StartStateData.GlobalTimerView.Init(GlobalData.GlobalTimer, TimerFormattingStyle.MinutesAndSeconds);
             StartStateData.TurnTimerView.Init(_data.GlobalBattleData.TurnTimer, TimerFormattingStyle.Seconds);
             
             TurnStateData.Init(arrow, allProjectileEvents, weaponChanger);

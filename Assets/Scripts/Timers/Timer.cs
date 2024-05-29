@@ -10,6 +10,7 @@ namespace Timers
         private float _interval;
         private float _timeLeft = 0;
         private Coroutine _coroutine;
+        private bool _paused;
         
         public event Action<float> TimerUpdated;
 
@@ -25,14 +26,26 @@ namespace Timers
         {
             if(_coroutine != null)
                 CoroutinePerformer.StopCoroutine(_coroutine);
+            
             Reset();
         }
+
+        public void Resume()
+        {
+            _timeLeft = (int)_timeLeft;
+            _paused = false;
+        }
+
+        public void Pause() => _paused = true;
 
         private IEnumerator StartTimer(Action onElapsed)
         {
             while (_timeLeft > 0)
             {
                 yield return null;
+                
+                if (_paused == true) continue;
+                
                 _timeLeft -= Time.deltaTime;
                 TimerUpdated?.Invoke(_timeLeft);
             }
