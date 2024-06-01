@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameConfig
   m_EditorClassIdentifier: 
   <FollowingTimerViewPrefab>k__BackingField: {fileID: 4044026241773061690, guid: cec0a7a8bfb2395459f3765209f27b92, type: 3}
-  <WormPrefab>k__BackingField: {fileID: 8010253848381206769, guid: 5d44c577df426014ea42a784ad11b1b1, type: 3}
+  <WormPrefab>k__BackingField: {fileID: 7083743622210443357, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
   <WormInfoViewPrefab>k__BackingField: {fileID: 8106106455543795105, guid: a883e5f2399ed0f4ebdc24a80c48d0ba, type: 3}
   <ArrowPrefab>k__BackingField: {fileID: 4208428713464027836, guid: 62bd5ac0d7add0c45a3c28234ef7eb77, type: 3}
   <ShovelPrefab>k__BackingField: {fileID: 1657195945632612654, guid: 17d676ca52c1f844a86b013f76c26863, type: 3}
@@ -28,7 +28,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0ed6c00008d764348800befa94802aa7, type: 2}
   <ExplosionConfig>k__BackingField: {fileID: 11400000, guid: 04fad1efc13d81148a61794af9134088, type: 2}
   <TimersConfig>k__BackingField:
-    <TurnDuration>k__BackingField: 6
+    <TurnDuration>k__BackingField: 9000
     <AfterShotDuration>k__BackingField: 5
     <BetweenTurnsDuration>k__BackingField: 3
     <GlobalTime>k__BackingField: 900

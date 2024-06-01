@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Configs;
 using MovementComponents;
+using UltimateCC;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,10 +14,9 @@ namespace WormComponents
     {
         [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private CapsuleCollider2D _collider;
-        [SerializeField] private WormAnimations _wormAnimations;
+        [SerializeField] private PlayerInputManager _input;
         [field: SerializeField] public Transform Armature { get; private set; }
         [field: SerializeField] public Transform WeaponPosition { get; private set; }
-        [field: SerializeField] public Movement Movement { get; private set; }
 
         public WormConfig Config { get; private set; }
         public int Health { get; private set; }
@@ -36,10 +36,10 @@ namespace WormComponents
         private void OnDrawGizmos()
         {
             var colliderSize = Collider2D.size;
-            var size = new Vector2(colliderSize.x * 4, colliderSize.y);
+            var size = new Vector2(colliderSize.x * 2, colliderSize.y);
             
             if (Config != null && Config.ShowCanSpawnCheckerBox)
-                Gizmos.DrawSphere(transform.position + new Vector3(0, 0.5f), size.x);
+                Gizmos.DrawCube(transform.position + new Vector3(0, 0.5f), size);
                 // Gizmos.DrawSphere(transform.position + (Vector3)Collider2D.offset, Collider2D.size.x / 2);
         }
 
@@ -49,17 +49,30 @@ namespace WormComponents
             WormsNumber++;
             gameObject.name = config.Name + " " + WormsNumber;
             Health = Config.MaxHealth;
+            _input.Disable();
         }
 
         private void OnDestroy()
         {
         }
 
-        public void SetRigidbodyKinematic() => _rigidbody.bodyType = RigidbodyType2D.Kinematic;
+        public void SetRigidbodyKinematic()
+        {
+            // _rigidbody.bodyType = RigidbodyType2D.Kinematic;
+            _rigidbody.constraints = RigidbodyConstraints2D.FreezePosition;
+        }
 
-        public void SetRigidbodyDynamic() => _rigidbody.bodyType = RigidbodyType2D.Dynamic;
+        public void SetRigidbodyDynamic()
+        {
+            // _rigidbody.bodyType = RigidbodyType2D.Dynamic;
+            _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
 
-        public void SetCurrentWormLayer() => gameObject.layer = (int)math.log2(Config.CurrentWormLayerMask.value);
+        public void SetCurrentWormLayer()
+        {
+            gameObject.layer = (int)math.log2(Config.CurrentWormLayerMask.value);
+            _input.Enable();
+        }
 
         public void SetWormLayer() => gameObject.layer = (int)math.log2(Config.WormLayerMask.value);
 
@@ -67,7 +80,7 @@ namespace WormComponents
         public void AddExplosionForce(float explosionForce, Vector3 explosionPosition, float explosionUpwardsModifier)
         {
             SetRigidbodyDynamic();
-            Movement.AddExplosionForce(explosionForce, explosionPosition, explosionUpwardsModifier);
+            // Movement.AddExplosionForce(explosionForce, explosionPosition, explosionUpwardsModifier);
             StartCoroutine(SetRigidbodyKinematicWhenGrounded());
         }
 

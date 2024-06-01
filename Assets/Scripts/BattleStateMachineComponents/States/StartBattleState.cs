@@ -33,6 +33,7 @@ namespace BattleStateMachineComponents.States
 
         private readonly IStateSwitcher _stateSwitcher;
         private readonly BattleStateMachineData _data;
+        private WormInfoFactory _wormInfoFactory;
         private StartStateData StartStateData => _data.StartStateData;
         private TurnStateData TurnStateData => _data.TurnStateData;
         private BetweenTurnsStateData BetweenTurnsData => _data.BetweenTurnsData;
@@ -120,7 +121,7 @@ namespace BattleStateMachineComponents.States
             
             var wormFactory = new WormFactory(GameConfig.WormPrefab, StartStateData.Terrain);
             var teamFactory = new TeamFactory(wormFactory);
-            new WormInfoFactory(GameConfig.WormInfoViewPrefab, wormFactory);
+            _wormInfoFactory = new WormInfoFactory(GameConfig.WormInfoViewPrefab, wormFactory);
             
             StartStateData.WormsSpawner.Init(teamFactory);
             TeamDiedEvent = teamFactory;
@@ -168,7 +169,15 @@ namespace BattleStateMachineComponents.States
         }
 
         public void Tick(){}
-        public void FixedTick(){}
+
+        public void FixedTick()
+        {
+        }
+
+        public void LateTick()
+        {
+            _wormInfoFactory.LateTick();
+        }
 
         public void HandleInput(){}
         

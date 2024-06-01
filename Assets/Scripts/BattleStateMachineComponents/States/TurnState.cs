@@ -47,7 +47,7 @@ namespace BattleStateMachineComponents.States
             _data.FollowingCamera.SetTarget(CurrentWorm.Transform);
             
             _data.PlayerInput.ChangeWorm(CurrentWorm);
-            _data.PlayerInput.MovementInput.Enable(CurrentWorm.Movement);
+            // _data.PlayerInput.MovementInput.Enable(CurrentWorm.Movement);
             _data.PlayerInput.UIInput.Enable();
             
             _turnStateData.AllProjectileEvents.Launched += OnLaunched;
@@ -63,7 +63,7 @@ namespace BattleStateMachineComponents.States
             _turnStateData.WeaponSelector.Close();
             
             _data.PlayerInput.DisableAll();
-            CurrentWorm.Movement.Reset();
+            // CurrentWorm.Movement.Reset();
             CurrentWorm.RemoveWeapon();
             CoroutinePerformer.StartCoroutine(CurrentWorm.SetRigidbodyKinematicWhenGrounded());
             

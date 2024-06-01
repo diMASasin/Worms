@@ -1,0 +1,40 @@
+online documentation link: https://abdys-organization.gitbook.io/2d-ultimate-side-scroller-character-controller/
+
+Quick Setup
+
+Make sure that you have Input System and Cinemachine package installed from Unity Registry:
+1-Open your project in Unity.
+2-Go to Window > Package Manager.
+3-In the Package Manager window, select 'Packages' > 'Unity Registry'.
+4-Scroll down the list of available packages and find the "Input System" and "Cinemachine" package.
+5-Click on the "Install" button to install the packages.
+
+After installing the new Input System, please restart Unity and follow these steps:
+1-Download the asset package from the  or the  (Asset Store option will be coming soon).
+2-If you downloaded the package from GitHub, import it into your Unity project by selecting Assets > Import Package > Custom Package, and then selecting the downloaded package file.
+If you added asset from Asset Store, find package in Unity project by selecting Window > Package Manager and then selecting "My Assets" for "Packages:" option then simply import it.
+3-Once the package is imported, navigate to the Prefabs folder within the package. Locate the Player prefab, which includes a pre-configured player character and Cinemachine camera.
+4-Drag and drop the Player prefab into your scene. The player character and Cinemachine camera are now set up and ready to use!
+
+With the quick setup, you can start testing your player character and modifying the provided components to suit your game. Also you can check out test scene included in project.
+
+
+
+
+Detailed Setup
+
+1-Download and import the asset package as described in the Quick Setup section.
+2-Choose or create the GameObject that you want to use as your player character.
+3-Add the following components to your player character GameObject:
+	-Rigidbody2D
+	-CapsuleCollider2D
+	-Animator
+	-PlayerMain script
+	-PlayerInputManager script
+4-If you want to use the default animations provided in the asset package, add the Animator controller found in the Animations folder to the Animator component on your player character and add a Sprite Renderer component to your player character and set the sprite to a capsule shape.
+5-If you want to replace the default animations with your own, follow these steps:
+	-Duplicate the Player AC animator controller found in the Animations folder.
+	-Replace the animations within the duplicated animator controller with your custom animations.
+	-Assign the new animator controller to your player character's Animator component.
+6-Now, you need to configure the PlayerMain script to work with your custom character. To do this, select your player character GameObject and locate the PlayerMain script in the Inspector.
+7-Set the necessary variables in the PlayerMain script, such as the PlayerData. Refer to the Player Data section in this documentation for more information on configuring these settings.

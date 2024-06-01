@@ -33,7 +33,7 @@ namespace CameraFollow
                 ZoomToTarget();
         }
 
-        private void FixedUpdate()
+        private void LateUpdate()
         {
             if (_target != null)
                 FollowTarget();

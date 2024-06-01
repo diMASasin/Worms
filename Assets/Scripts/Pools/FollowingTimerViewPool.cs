@@ -43,7 +43,7 @@ namespace Pools
                 return;
             
             timerView.TimerView.Init(timer.Timer, TimerFormattingStyle.Seconds);
-            timerView.FollowingObject.Connect(projectile.transform);
+            timerView.FollowingObject.Follow(projectile.transform);
             _timersTargets.Add(projectile.transform, timerView);
         }
 

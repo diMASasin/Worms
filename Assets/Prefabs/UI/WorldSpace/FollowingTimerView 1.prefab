@@ -246,7 +246,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3877451833184713406}
   - component: {fileID: 4044026241773061690}
-  - component: {fileID: 5190568527729958577}
   - component: {fileID: 8315000247950326003}
   m_Layer: 0
   m_Name: FollowingTimerView 1
@@ -283,22 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b975aefc3a74da295ac83cf340a24dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <FollowingObject>k__BackingField: {fileID: 5190568527729958577}
   <TimerView>k__BackingField: {fileID: 8315000247950326003}
---- !u!114 &5190568527729958577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7337619980009341545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 478b57a80fa37834e9be6f14ccd22356, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _followingFor: {fileID: 0}
-  _offset: {x: 0, y: 0.5}
 --- !u!114 &8315000247950326003
 MonoBehaviour:
   m_ObjectHideFlags: 0

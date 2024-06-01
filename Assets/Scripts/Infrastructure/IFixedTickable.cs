@@ -1,4 +1,4 @@
 ﻿public interface IFixedTickable
 {
-    public void FixedTick();
+    public void LateTick();
 }

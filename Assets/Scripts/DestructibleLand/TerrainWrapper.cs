@@ -59,6 +59,7 @@ namespace DestructibleLand
                 var randomEdge = _edges[random];
                 randomPoint = Vector2.Lerp(randomEdge.Point1, randomEdge.Point2, Random.value);
                 randomPoint += (Vector2)_terrain.transform.position;
+                randomPoint.y += colliderSize.y / 2;
 
                 if (CanFitWormInPosition(randomPoint, colliderSize) == true)
                     break;
@@ -73,7 +74,7 @@ namespace DestructibleLand
         private bool CanFitWormInPosition(Vector2 randomPoint, Vector2 size)
         {
             List<Collider2D> results = new();
-            size *= 2;
+            size.x *= 2;
 
             var overlap =
                 Physics2D.OverlapCapsule(randomPoint, size,

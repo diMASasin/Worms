@@ -11,6 +11,7 @@ namespace Factories
     {
         private readonly WormInformationView _wormInfoPrefab;
         private readonly IWormEventsProvider _wormEvents;
+        private List<IFixedTickable> _fixedTickables = new();
 
         public WormInfoFactory(WormInformationView prefab, IWormEventsProvider wormEvents)
         {
@@ -25,12 +26,21 @@ namespace Factories
             _wormEvents.WormCreated -= CreateInfoView;
         }
 
+        public void LateTick()
+        {
+            foreach (var tickable in _fixedTickables)
+                tickable.LateTick();
+        }
+
         private void CreateInfoView(IWorm worm, Color teamColor, string wormName)
         {
-            var wormTransform = worm.Transform;
-            
-            WormInformationView wormInfo = Instantiate(_wormInfoPrefab, wormTransform);
+            WormInformationView wormInfo = Instantiate(_wormInfoPrefab);
             wormInfo.Init(worm, teamColor, wormName);
+            
+            FollowingObject followingObject = new(wormInfo.transform, new Vector2(0, 1.4f));
+            followingObject.Follow(worm.Transform);
+            
+            _fixedTickables.Add(followingObject);
         }
     }
 }

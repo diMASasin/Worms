@@ -16,7 +16,6 @@ namespace WormComponents
         IWeapon Weapon { get; }
         CapsuleCollider2D Collider2D { get; }
         int MaxHealth { get; }
-        Movement Movement { get; }
         WormConfig Config { get; }
         Transform Transform { get; }
         void Init(WormConfig config);

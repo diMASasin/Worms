@@ -1,17 +1,24 @@
 using UnityEngine;
 
-public class FollowingObject : MonoBehaviour
+public class FollowingObject : IFixedTickable
 {
-    [SerializeField] private Transform _followingFor;
-    [SerializeField] private Vector2 _offset;
+    private readonly Vector2 _offset;
+    private readonly Transform _objectTransform;
+    private Transform _followingFor;
 
-    private void FixedUpdate()
+    public FollowingObject(Transform objectTransform, Vector2 offset)
     {
-        if(_followingFor != null)
-            transform.position = _followingFor.position + (Vector3)_offset;
+        _offset = offset;
+        _objectTransform = objectTransform;
     }
 
-    public void Connect(Transform target)
+    public void LateTick()
+    {
+        if(_followingFor != null)
+            _objectTransform.position = _followingFor.position + (Vector3)_offset;
+    }
+
+    public void Follow(Transform target)
     {
         _followingFor = target;
     }

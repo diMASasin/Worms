@@ -22,7 +22,7 @@ namespace BattleStateMachineComponents.States
         public void Enter()
         {
             _data.GlobalTimer.Resume();
-            _data.PlayerInput.MovementInput.Enable(_data.CurrentWorm.Movement);
+            // _data.PlayerInput.MovementInput.Enable(_data.CurrentWorm.Movement);
             
             Timer.Start(TimersConfig.AfterShotDuration, () => 
                 _stateSwitcher.SwitchState<ProjectilesWaiting>());
@@ -33,7 +33,7 @@ namespace BattleStateMachineComponents.States
         {
             _data.GlobalTimer.Pause();
             _data.PlayerInput.MovementInput.Disable();
-            _data.CurrentWorm.Movement.Reset();
+            // _data.CurrentWorm.Movement.Reset();
             
             Timer.Stop();
         }

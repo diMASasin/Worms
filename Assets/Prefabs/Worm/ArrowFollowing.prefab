@@ -115,7 +115,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7066426075502181888}
-  - component: {fileID: 8778045968482510615}
   - component: {fileID: 4208428713464027836}
   m_Layer: 0
   m_Name: ArrowFollowing
@@ -133,27 +132,13 @@ Transform:
   m_GameObject: {fileID: 4564253001327817789}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.946712, y: 4.287985, z: 0.11031928}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4289349151978822941}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8778045968482510615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4564253001327817789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 478b57a80fa37834e9be6f14ccd22356, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _followingFor: {fileID: 0}
-  _offset: {x: 0, y: 0}
 --- !u!114 &4208428713464027836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,4 +153,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 6103891854826286232}
   _lifeTime: 2
-  _followingObject: {fileID: 8778045968482510615}
