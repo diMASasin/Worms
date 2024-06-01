@@ -24,8 +24,6 @@ namespace Battle_
         }
 
         public void FixedTick() => _battleStateMachine.FixedTick();
-        public void LateTick() => _battleStateMachine.LateTick();
-
         public void Start() => _battleStateMachine.SwitchState<StartBattleState>();
     }
 }

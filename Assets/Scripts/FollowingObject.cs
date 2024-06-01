@@ -1,29 +1,47 @@
+using System;
 using UnityEngine;
 
+[Serializable]
 public class FollowingObject : IFixedTickable
 {
-    private readonly Vector2 _offset;
-    private readonly Transform _objectTransform;
+    [SerializeField] private Transform _objectTransform;
+    [SerializeField] private Vector3 _offset;
+    [SerializeField] private float _speed = 1000;
+    
     private Transform _followingFor;
+    private Vector3 _newPosition;
+    private Func<Vector3> _getTargetPosition;
+    private bool _freezeZPosition;
 
-    public FollowingObject(Transform objectTransform, Vector2 offset)
-    {
-        _offset = offset;
-        _objectTransform = objectTransform;
-    }
+    public Vector3 TargetPosition => _getTargetPosition();
 
     public void LateTick()
     {
-        if(_followingFor != null)
-            _objectTransform.position = _followingFor.position + (Vector3)_offset;
+        Vector3 newPosition = _getTargetPosition();
+        
+        if (_freezeZPosition == true)
+            newPosition.z = _objectTransform.position.z - _offset.z;
+        
+        _objectTransform.position = Vector3.Lerp(_objectTransform.position, newPosition + _offset, 
+            _speed * Time.deltaTime);
     }
 
     public void Follow(Transform target)
     {
-        _followingFor = target;
+        _getTargetPosition = () => target.position;
+    }
+    
+    public void Follow(Func<Vector3> getTargetPosition)
+    {
+        _getTargetPosition = getTargetPosition;
     }
 
-    public void Disonnect()
+    public void StopFollowZPosition()
+    {
+        _freezeZPosition = true;
+    }
+
+    public void StopFollow()
     {
         _followingFor = null;
     }

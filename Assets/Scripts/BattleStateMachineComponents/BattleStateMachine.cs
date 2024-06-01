@@ -52,11 +52,6 @@ namespace BattleStateMachineComponents
             _startBattleState.FixedTick();
         }
 
-        public void LateTick()
-        {
-            _startBattleState.LateTick();
-        }
-
         public void Dispose()
         {
             _startBattleState.Dispose();

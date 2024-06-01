@@ -174,11 +174,6 @@ namespace BattleStateMachineComponents.States
         {
         }
 
-        public void LateTick()
-        {
-            _wormInfoFactory.LateTick();
-        }
-
         public void HandleInput(){}
         
         public void Dispose()

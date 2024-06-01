@@ -28,7 +28,7 @@ namespace BattleStateMachineComponents.States
             _timer.Start(TimersConfig.BetweenTurnsDuration, 
                 () => _stateSwitcher.SwitchState<TurnState>());
 
-            FollowingCamera.ZoomTarget();
+            // FollowingCamera.ZoomTarget();
             FollowingCamera.SetTarget(_data.FollowingCamera.GeneralViewPosition);
             
             _betweenTurnsData.WindMediator.ChangeVelocity();

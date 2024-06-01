@@ -43,7 +43,7 @@ namespace BattleStateMachineComponents.States
 
             _turnStateData.WeaponChanger.ChangeWorm(CurrentWorm);
             _turnStateData.Arrow.StartMove(CurrentWorm.Transform);
-            _data.FollowingCamera.ZoomTarget();
+            // _data.FollowingCamera.ZoomTarget();
             _data.FollowingCamera.SetTarget(CurrentWorm.Transform);
             
             _data.PlayerInput.ChangeWorm(CurrentWorm);

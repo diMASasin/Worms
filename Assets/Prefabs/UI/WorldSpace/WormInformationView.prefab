@@ -47,6 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthText: {fileID: 5228904223780119505}
   _nameText: {fileID: 3663519595945986517}
+  _followingObject:
+    _objectTransform: {fileID: 2184462189580490931}
+    _offset: {x: 0, y: 1, z: 0}
+    _speed: 1000
 --- !u!1 &2880633298937590097
 GameObject:
   m_ObjectHideFlags: 0
