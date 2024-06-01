@@ -35,7 +35,13 @@ namespace CameraFollow
 
         public void SetTarget(Transform target)
         {
-            _followingObject.Follow(() => target.position);
+            _followingObject.Follow(() =>
+            {
+                if (target == null)
+                    return transform.position;
+                else
+                    return target.position;
+            });
         }
 
         public void SetTarget(Vector3 positionTarget)

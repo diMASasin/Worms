@@ -240,7 +240,7 @@ MonoBehaviour:
         m_Bits: 0
       wallLayerMask:
         serializedVersion: 2
-        m_Bits: 128
+        m_Bits: 640
       groundCheckPosition: {x: 0, y: 0, z: 0}
       headCheckPosition: {x: 0, y: 0, z: 0}
       walkSpeedDirection: {x: 0, y: 0}
@@ -959,7 +959,7 @@ MonoBehaviour:
     Walls:
       WallSlide:
         facingDirectionWhenSliding: -1
-        maxSpeed: 0
+        maxSpeed: 5
         speedUpCurve:
           serializedVersion: 2
           m_Curve:
@@ -1157,7 +1157,7 @@ MonoBehaviour:
           m_RotationOrder: 4
         turnBackTime: 0.15
       WallJump:
-        maxHeight: 2.5
+        maxHeight: 0
         jumpHeightCurve:
           serializedVersion: 2
           m_Curve:

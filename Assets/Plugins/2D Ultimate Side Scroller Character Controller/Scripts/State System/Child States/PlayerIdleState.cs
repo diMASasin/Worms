@@ -25,7 +25,7 @@ namespace UltimateCC
 
             if (playerData.Physics.Contacts.Count == 0 || (playerData.Physics.IsNextToWall && !playerData.Physics.Slope.StayStill))
             {
-                rigidbody2D.velocity = new(0f, -1f);
+                rigidbody2D.velocity += new Vector2(0f, -9.8f * Time.fixedDeltaTime);
             }
             else if (playerData.Physics.IsMultipleContactWithNonWalkableSlope)
             {
@@ -67,7 +67,7 @@ namespace UltimateCC
             }
             else if (!playerData.Physics.IsGrounded || (playerData.Physics.IsOnNotWalkableSlope && !playerData.Physics.Slope.StayStill && !playerData.Physics.IsMultipleContactWithNonWalkableSlope))
             {
-                stateMachine.ChangeState(player.LandState);
+                // stateMachine.ChangeState(player.LandState);
             }
             else if (inputManager.Input_Dash && playerData.Dash.DashCooldownTimer <= 0f)
             {

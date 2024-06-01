@@ -28,7 +28,16 @@ public class FollowingObject : IFixedTickable
 
     public void Follow(Transform target)
     {
-        _getTargetPosition = () => target.position;
+        if(target == null)
+            return;
+        
+        _getTargetPosition = () =>
+        {
+            if (target == null)
+                return _objectTransform.position;
+            else
+                return target.position;
+        };
     }
     
     public void Follow(Func<Vector3> getTargetPosition)

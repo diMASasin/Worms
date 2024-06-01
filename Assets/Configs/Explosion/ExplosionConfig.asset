@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ExplosionConfig
   m_EditorClassIdentifier: 
   <ExplosionForce>k__BackingField: 10
-  <ExplosionUpwardsModifier>k__BackingField: 4
+  <ExplosionUpwardsModifier>k__BackingField: 1
   <ExplosionRadius>k__BackingField: 1
   <Damage>k__BackingField: 30
   <Prefab>k__BackingField: {fileID: 248323110452647603, guid: 54d2942a759940e41b780e6877119525, type: 3}

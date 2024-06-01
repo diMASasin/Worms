@@ -15,6 +15,7 @@ namespace WormComponents
         [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private CapsuleCollider2D _collider;
         [SerializeField] private PlayerInputManager _input;
+        // [SerializeField] private PlayerMain _playerMain;
         [field: SerializeField] public Transform Armature { get; private set; }
         [field: SerializeField] public Transform WeaponPosition { get; private set; }
 
@@ -77,10 +78,13 @@ namespace WormComponents
         public void SetWormLayer() => gameObject.layer = (int)math.log2(Config.WormLayerMask.value);
 
 
-        public void AddExplosionForce(float explosionForce, Vector3 explosionPosition, float explosionUpwardsModifier)
+        public void AddExplosionForce(float explosionForce, Vector3 explosionPosition, float upwardsModifier,
+            float colliderRadius)
         {
             SetRigidbodyDynamic();
             // Movement.AddExplosionForce(explosionForce, explosionPosition, explosionUpwardsModifier);
+            // _playerMain.enabled = false;
+            _rigidbody.AddExplosionForce(explosionForce, explosionPosition, colliderRadius, upwardsModifier);
             StartCoroutine(SetRigidbodyKinematicWhenGrounded());
         }
 

@@ -37,7 +37,7 @@ namespace Pools
             
             Explosion explosion = Get();
             ExplosionConfig explosionConfig = projectile.Config.ExplosionConfig;
-            explosion.Explode(explosionConfig, projectile.Collider.radius, projectile.transform.position);
+            explosion.Explode(explosionConfig, projectile.transform.position);
         }
 
         public void Dispose()

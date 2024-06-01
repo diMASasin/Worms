@@ -71,7 +71,7 @@ namespace Plugins._2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Essent
             float _offset = -0.01f;
             RaycastHit2D _hit = Physics2D.CircleCast(playerData.Physics.GroundCheckPosition,
                 player.CapsuleCollider2D.size.x / 2 * Mathf.Abs(player.transform.localScale.x) + _offset,
-                -player.transform.up, 0.2f, playerData.Physics.GroundLayerMask);
+                -player.transform.up, 0.3f, playerData.Physics.GroundLayerMask);
 
             if (_hit.collider == player.CapsuleCollider2D)
                 return;
@@ -222,6 +222,10 @@ namespace Plugins._2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Essent
             RaycastHit2D _leftHit = Physics2D.Raycast(playerData.Physics.HeadCheckPosition, Vector2.left,
                 player.CapsuleCollider2D.size.x / 2 * Mathf.Abs(player.transform.localScale.x) + _offset,
                 playerData.Physics.WallLayerMask);
+            
+            if(_rightHit.collider == player.CapsuleCollider2D || _leftHit.collider == player.CapsuleCollider2D)
+                return;
+            
             if (_rightHit || _leftHit)
             {
                 playerData.Physics.WallDirection = _rightHit ? 1 : -1;
