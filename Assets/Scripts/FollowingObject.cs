@@ -7,22 +7,20 @@ public class FollowingObject : IFixedTickable
     [SerializeField] private Transform _objectTransform;
     [SerializeField] private Vector3 _offset;
     [SerializeField] private float _speed = 1000;
-    
-    private Transform _followingFor;
-    private Vector3 _newPosition;
-    private Func<Vector3> _getTargetPosition;
-    private bool _freezeZPosition;
 
-    public Vector3 TargetPosition => _getTargetPosition();
+    public Transform FollowingFor { get; private set; }
+    public bool FreezeZPosition { get; private set; }
+    private Vector3 _newPosition;
+    private Vector3 _moveTo;
 
     public void LateTick()
     {
-        Vector3 newPosition = _getTargetPosition();
+        _newPosition = FollowingFor != null ? FollowingFor.position : _moveTo;
         
-        if (_freezeZPosition == true)
-            newPosition.z = _objectTransform.position.z - _offset.z;
+        if (FreezeZPosition == true)
+            _newPosition.z = _objectTransform.position.z - _offset.z;
         
-        _objectTransform.position = Vector3.Lerp(_objectTransform.position, newPosition + _offset, 
+        _objectTransform.position = Vector3.Lerp(_objectTransform.position, _newPosition + _offset, 
             _speed * Time.deltaTime);
     }
 
@@ -30,28 +28,24 @@ public class FollowingObject : IFixedTickable
     {
         if(target == null)
             return;
-        
-        _getTargetPosition = () =>
-        {
-            if (target == null)
-                return _objectTransform.position;
-            else
-                return target.position;
-        };
+
+        FreezeZPosition = false;
+        FollowingFor = target;
     }
     
-    public void Follow(Func<Vector3> getTargetPosition)
+    public void Follow(Vector3 newPosition)
     {
-        _getTargetPosition = getTargetPosition;
+        FreezeZPosition = false;
+        _moveTo = newPosition;
     }
 
     public void StopFollowZPosition()
     {
-        _freezeZPosition = true;
+        FreezeZPosition = true;
     }
 
     public void StopFollow()
     {
-        _followingFor = null;
+        FollowingFor = null;
     }
 }

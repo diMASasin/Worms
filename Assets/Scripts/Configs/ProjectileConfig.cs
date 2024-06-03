@@ -9,7 +9,6 @@ namespace Configs
     public class ProjectileConfig : ScriptableObject
     {
         [field: SerializeField] public Projectile ProjectilePrefab { get; private set; }
-        [field: SerializeField] public float ColliderRadius { get; private set; } = 1;
         [field: SerializeField] public Sprite Sprite{ get; private set; }
         [field: SerializeField] public AnimatorController AnimatorController { get; private set; }
         [field: SerializeField, Header("Behaviour")] public bool WindInfluence { get; private set; } = true;

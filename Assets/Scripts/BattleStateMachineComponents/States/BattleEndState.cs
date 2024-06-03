@@ -29,6 +29,10 @@ namespace BattleStateMachineComponents.States
         {
         }
 
+        public void LateTick()
+        {
+        }
+
         public void HandleInput()
         {
         }

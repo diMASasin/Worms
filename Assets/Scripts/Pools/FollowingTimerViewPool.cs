@@ -37,10 +37,10 @@ namespace Pools
 
         private void OnLaunched(Projectile projectile, Vector2 velocity)
         {
-            var timerView = Get();
-            
             if(projectile.TryGetComponent(out OnLaunchTimer timer) == false)
                 return;
+            
+            FollowingTimerView timerView = Get();
             
             timerView.TimerView.Init(timer.Timer, TimerFormattingStyle.Seconds);
             timerView.FollowingObject.Follow(projectile.transform);

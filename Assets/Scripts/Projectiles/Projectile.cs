@@ -27,7 +27,6 @@ namespace Projectiles
         {
             Config = config;
             _spriteRenderer.sprite = Config.Sprite;
-            _collider.radius = Config.ColliderRadius;
             _animator.runtimeAnimatorController = Config.AnimatorController;
         }
         
@@ -40,7 +39,7 @@ namespace Projectiles
         public void InfluenceOnVelocity(Vector2 additionalVelocity)
         {
             _rigidbody.velocity += additionalVelocity;
-         }
+        }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -57,9 +56,9 @@ namespace Projectiles
         private void FixedUpdate()
         {
             if (Config.LookInVelocityDirection)
-                _spriteObject.transform.rotation = Quaternion.LookRotation(Vector3.forward, _rigidbody.velocity);
-            // if (_config.LookInVelocityDirection)
-            //  _spriteObject.transform.right = _rigidbody.velocity;
+                _spriteObject.transform.up = _rigidbody.velocity;
+            // if (Config.LookInVelocityDirection)
+            //     _spriteObject.transform.rotation = Quaternion.LookRotation(Vector3.forward, _rigidbody.velocity);
         }
 
         public void ResetView()

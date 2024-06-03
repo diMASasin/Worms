@@ -7,5 +7,10 @@ namespace UI
     {
         [field: SerializeField] public FollowingObject FollowingObject { get; private set; }
         [field: SerializeField] public TimerView TimerView { get; private set; }
+
+        private void LateUpdate()
+        {
+            FollowingObject.LateTick();
+        }
     }
 }

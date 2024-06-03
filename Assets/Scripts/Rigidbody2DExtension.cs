@@ -3,7 +3,7 @@ using UnityEngine;
 public static class Rigidbody2DExtension
 {
     public static void AddExplosionForce(this Rigidbody2D rigidbody, float explosionForce, Vector2 explosionPosition,
-        float colliderRadius, float upwardsModifier = 0.0f, ForceMode2D mode = ForceMode2D.Impulse)
+        float explosionRadius, float upwardsModifier = 0.0f, ForceMode2D mode = ForceMode2D.Impulse)
     {
         Vector2 explosionDirection = rigidbody.position - explosionPosition;
         float explosionDistance = explosionDirection.magnitude;
@@ -22,8 +22,8 @@ public static class Rigidbody2DExtension
             explosionDirection.Normalize();
         }
 
-        float interpolationValue = Mathf.Clamp(colliderRadius - explosionDistance, 0, colliderRadius);
-        float newExplosionForce = Mathf.Lerp(0, explosionForce, interpolationValue / colliderRadius);
+        float interpolationValue = Mathf.Clamp(explosionRadius - explosionDistance, 0, explosionRadius);
+        float newExplosionForce = Mathf.Lerp(0, explosionForce, interpolationValue / explosionRadius);
         rigidbody.AddForce(newExplosionForce * explosionDirection, mode);
     }
 }

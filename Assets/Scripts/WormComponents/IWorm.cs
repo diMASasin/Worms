@@ -24,7 +24,7 @@ namespace WormComponents
         void SetCurrentWormLayer();
         void SetWormLayer();
         void AddExplosionForce(float explosionForce, Vector3 explosionPosition, float upwardsModifier,
-            float colliderRadius);
+            float explosionRadius);
         void TakeDamage(int damage);
         void Die();
         IEnumerator SetRigidbodyKinematicWhenGrounded();

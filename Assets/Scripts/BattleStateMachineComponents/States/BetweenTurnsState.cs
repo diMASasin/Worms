@@ -52,6 +52,10 @@ namespace BattleStateMachineComponents.States
             _betweenTurnsData.WindMediator.FixedTick();
         }
 
+        public void LateTick()
+        {
+        }
+
         public void HandleInput()
         {
         }

@@ -36,6 +36,11 @@ namespace Battle_
         {
             _battle?.FixedTick();
         }
+        
+        private void LateUpdate()
+        {
+            _battle?.LateTick();
+        }
 
         private void OnDestroy()
         {

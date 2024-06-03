@@ -13,6 +13,7 @@ public class Explosion : MonoBehaviour
     private float _explosionUpwardsModifier;
     private int _damage;
     private IShovel _shovel;
+    private ExplosionConfig _config;
 
     public event Action<Explosion> AnimationStopped;
 
@@ -25,7 +26,7 @@ public class Explosion : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Worm worm))
         {
-            worm.AddExplosionForce(_explosionForce, transform.position, _explosionUpwardsModifier, _collider.radius);
+            worm.AddExplosionForce(_explosionForce, transform.position, _explosionUpwardsModifier, _config.ExplosionRadius);
             worm.TakeDamage(CalculateDamage(_damage, worm.Collider2D));
         }
     }
@@ -54,6 +55,8 @@ public class Explosion : MonoBehaviour
 
     public void Explode(ExplosionConfig config, Vector3 newPosition)
     {
+        _config = config;
+        
         _explosionForce = config.ExplosionForce;
         _explosionUpwardsModifier = config.ExplosionUpwardsModifier;
         _collider.radius = config.ExplosionRadius;
@@ -64,7 +67,7 @@ public class Explosion : MonoBehaviour
 
         transform.position = newPosition;
         _explosionEffect.Play();
-        _shovel.Dig(transform.position, config.ExplosionRadius);
+        _shovel.Dig(transform.position, config.LandDestroyRadius);
 
         StartCoroutine(DelayedDisable());
     }

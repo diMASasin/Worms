@@ -58,9 +58,9 @@ namespace BattleStateMachineComponents.States
             InitializePools(shovelWrapper, out var allProjectileEvents, out var projectilePools);
             CreateWeapon(projectilePools, out WeaponChanger weaponChanger);
 
-            BetweenTurnsData.Init(GameConfig.WindData, StartStateData.WindView, allProjectileEvents, WaterStep);
-            
-            SpawnWorms();
+            BetweenTurnsData.Init(GameConfig.WindData, StartStateData.WindView, allProjectileEvents);
+
+            SpawnWorms(out WormFactory wormFactory);
 
             GlobalTimer.Start(TimersConfig.GlobalTime, () => GlobalData.Water.AllowIncreaseWaterLevel());
             GlobalTimer.Pause();
@@ -68,7 +68,7 @@ namespace BattleStateMachineComponents.States
             StartStateData.GlobalTimerView.Init(GlobalData.GlobalTimer, TimerFormattingStyle.MinutesAndSeconds);
             StartStateData.TurnTimerView.Init(_data.GlobalBattleData.TurnTimer, TimerFormattingStyle.Seconds);
             
-            TurnStateData.Init(arrow, allProjectileEvents, weaponChanger);
+            TurnStateData.Init(arrow, allProjectileEvents, weaponChanger, wormFactory);
             
             TeamDiedEvent.TeamDied += OnTeamDied;
             _stateSwitcher.SwitchState<BetweenTurnsState>();
@@ -115,11 +115,11 @@ namespace BattleStateMachineComponents.States
             _toDispose.Add(allProjectileEvents);
         }
 
-        private void SpawnWorms()
+        private void SpawnWorms(out WormFactory wormFactory)
         {
             BattleSettings.GetSettings(out int teamsNumber, out int wormsNumber);
             
-            var wormFactory = new WormFactory(GameConfig.WormPrefab, StartStateData.Terrain);
+            wormFactory = new WormFactory(GameConfig.WormPrefab, StartStateData.Terrain);
             var teamFactory = new TeamFactory(wormFactory);
             _wormInfoFactory = new WormInfoFactory(GameConfig.WormInfoViewPrefab, wormFactory);
             
@@ -132,6 +132,9 @@ namespace BattleStateMachineComponents.States
 
             TeamHealthFactory teamHealthFactory = Instantiate(GameConfig.TeamHealthFactoryPrefab, TeamHealthParent);
             teamHealthFactory.Create(TurnStateData.AliveTeams, GameConfig.TeamHealthPrefab);
+            
+            _toDispose.Add(_wormInfoFactory);
+            _toDispose.Add(wormFactory);
         }
 
         private void CreateWeapon(List<ProjectilePool> projectilePools, out WeaponChanger weaponChanger)
@@ -171,6 +174,10 @@ namespace BattleStateMachineComponents.States
         public void Tick(){}
 
         public void FixedTick()
+        {
+        }
+
+        public void LateTick()
         {
         }
 

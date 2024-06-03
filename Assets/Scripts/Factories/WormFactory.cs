@@ -9,7 +9,7 @@ using Object = UnityEngine.Object;
 
 namespace Factories
 {
-    public class WormFactory : IWormEventsProvider, IDisposable
+    public class WormFactory : IWormEvents, IDisposable
     {
         private readonly Worm _wormPrefab;
         private readonly TerrainWrapper _terrain;

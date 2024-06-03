@@ -23,6 +23,11 @@ namespace Battle_
             _battleStateMachine.HandleInput();
         }
 
+        public void LateTick()
+        {
+            
+        }
+
         public void FixedTick() => _battleStateMachine.FixedTick();
         public void Start() => _battleStateMachine.SwitchState<StartBattleState>();
     }

@@ -4,7 +4,7 @@ using WormComponents;
 
 namespace EventProviders
 {
-    public interface IWormEventsProvider
+    public interface IWormEvents
     {
         event Action<IWorm, Color, string> WormCreated;
         event Action<IWorm> WormDamageTook;

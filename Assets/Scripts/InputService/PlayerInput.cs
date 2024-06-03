@@ -9,7 +9,7 @@ namespace InputService
 {
     public class PlayerInput : IDisposable
     {
-        private readonly IWormEventsProvider _wormEvents;
+        private readonly IWormEvents _wormEvents;
         private IWorm _worm;
         private Weapon _weapon;
 

@@ -79,12 +79,12 @@ namespace WormComponents
 
 
         public void AddExplosionForce(float explosionForce, Vector3 explosionPosition, float upwardsModifier,
-            float colliderRadius)
+            float explosionRadius)
         {
             SetRigidbodyDynamic();
             // Movement.AddExplosionForce(explosionForce, explosionPosition, explosionUpwardsModifier);
             // _playerMain.enabled = false;
-            _rigidbody.AddExplosionForce(explosionForce, explosionPosition, colliderRadius, upwardsModifier);
+            _rigidbody.AddExplosionForce(explosionForce, explosionPosition, explosionRadius, upwardsModifier);
             StartCoroutine(SetRigidbodyKinematicWhenGrounded());
         }
 
@@ -109,8 +109,13 @@ namespace WormComponents
 
         public IEnumerator SetRigidbodyKinematicWhenGrounded()
         {
-            while (_rigidbody.velocity.magnitude != 0)
+            do
+            {
                 yield return null;
+                
+                if (_rigidbody == null) yield break;
+                
+            } while (_rigidbody.velocity.magnitude != 0);
 
             SetRigidbodyKinematic();
         }

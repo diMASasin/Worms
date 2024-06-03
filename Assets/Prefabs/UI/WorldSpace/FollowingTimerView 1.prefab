@@ -282,6 +282,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b975aefc3a74da295ac83cf340a24dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <FollowingObject>k__BackingField:
+    _objectTransform: {fileID: 3877451833184713406}
+    _offset: {x: 0, y: 0.6, z: 0}
+    _speed: 1000
   <TimerView>k__BackingField: {fileID: 8315000247950326003}
 --- !u!114 &8315000247950326003
 MonoBehaviour:

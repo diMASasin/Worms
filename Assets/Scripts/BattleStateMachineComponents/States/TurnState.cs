@@ -50,6 +50,7 @@ namespace BattleStateMachineComponents.States
             // _data.PlayerInput.MovementInput.Enable(CurrentWorm.Movement);
             _data.PlayerInput.UIInput.Enable();
             
+            _turnStateData.WormEvents.WormDied += OnWormDied;
             _turnStateData.AllProjectileEvents.Launched += OnLaunched;
             
             GlobalTimer.Resume();
@@ -68,6 +69,7 @@ namespace BattleStateMachineComponents.States
             CoroutinePerformer.StartCoroutine(CurrentWorm.SetRigidbodyKinematicWhenGrounded());
             
             _turnStateData.AllProjectileEvents.Launched -= OnLaunched;
+            _turnStateData.WormEvents.WormDied -= OnWormDied;
         }
 
         public void Tick()
@@ -78,10 +80,19 @@ namespace BattleStateMachineComponents.States
         {
         }
 
+        public void LateTick()
+        {
+        }
+
         public void HandleInput()
         {
             _data.PlayerInput.MovementInput.Tick();
             _data.PlayerInput.WeaponInput.Tick();
+        }
+
+        private void OnWormDied(IWorm worm)
+        {
+            _stateSwitcher.SwitchState<ProjectilesWaiting>();
         }
 
         private void OnLaunched(Projectile projectile, Vector2 velocity)

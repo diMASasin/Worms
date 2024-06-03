@@ -1,6 +1,7 @@
 using System;
 using CameraFollow;
 using Configs;
+using EventProviders;
 using InputService;
 using Timers;
 using UnityEngine;
@@ -20,7 +21,7 @@ namespace BattleStateMachineComponents.StatesData
         
         public readonly Timer TurnTimer = new();
         public readonly Timer GlobalTimer = new();
-        
+
         public PlayerInput PlayerInput;
         public MainInput MainInput { get; private set; }
         

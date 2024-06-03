@@ -1,4 +1,5 @@
 using System;
+using EventProviders;
 using Projectiles;
 using UI;
 using UnityEngine;
@@ -16,12 +17,15 @@ namespace BattleStateMachineComponents.StatesData
         public Arrow Arrow { get; private set; }
         public IProjectileEvents AllProjectileEvents { get; private set; }
         public WeaponChanger WeaponChanger { get; private set; }
+        public IWormEvents WormEvents { get; private set; }
 
-        public void Init(Arrow arrow, IProjectileEvents allProjectileEvents, WeaponChanger weaponChanger)
+        public void Init(Arrow arrow, IProjectileEvents allProjectileEvents, WeaponChanger weaponChanger,
+            IWormEvents wormEvents)
         {
             Arrow = arrow;
             AllProjectileEvents = allProjectileEvents;
             WeaponChanger = weaponChanger;
+            WormEvents = wormEvents;
         }
     }
 }

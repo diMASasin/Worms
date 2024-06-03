@@ -56,7 +56,6 @@ namespace Timers
 
         private void Reset()
         {
-            _timeLeft = 0;
             _timeLeft = _interval;
         }
     }

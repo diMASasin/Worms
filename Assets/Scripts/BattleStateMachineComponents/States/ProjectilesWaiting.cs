@@ -6,6 +6,7 @@ namespace BattleStateMachineComponents.States
     public class ProjectilesWaiting : IBattleState
     {
         private readonly IStateSwitcher _stateSwitcher;
+        private Timer _timer = new();
 
         public ProjectilesWaiting(IStateSwitcher stateSwitcher)
         {
@@ -32,6 +33,10 @@ namespace BattleStateMachineComponents.States
         {
         }
 
+        public void LateTick()
+        {
+        }
+
         public void HandleInput()
         {
         }
@@ -39,7 +44,14 @@ namespace BattleStateMachineComponents.States
         private void OnCountChanged(int count)
         {
             if(count == 0)
-                _stateSwitcher.SwitchState<BetweenTurnsState>();
+            {
+                _timer.Start(3, () =>
+                {
+                    if(count == 0)
+                        _stateSwitcher.SwitchState<BetweenTurnsState>();
+                });
+            }
+                
 
         }
     }

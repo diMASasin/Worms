@@ -46,6 +46,10 @@ namespace BattleStateMachineComponents.States
         {
         }
 
+        public void LateTick()
+        {
+        }
+
         public void HandleInput()
         {
             _data.PlayerInput.MovementInput.Tick();
