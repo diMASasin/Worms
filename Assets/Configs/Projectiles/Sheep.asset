@@ -13,9 +13,22 @@ MonoBehaviour:
   m_Name: Sheep
   m_EditorClassIdentifier: 
   <ProjectilePrefab>k__BackingField: {fileID: 6127689516811422399, guid: d17e8377b5675114098b52b4d58f5811, type: 3}
-  <ColliderRadius>k__BackingField: 0.2
   <Sprite>k__BackingField: {fileID: 673358070, guid: 3bb1fadd136a96f42b94902a40eace8b, type: 3}
   <AnimatorController>k__BackingField: {fileID: 9100000, guid: 36849faeb33168c49ab15364bc56b75b, type: 2}
+  <ContactFilter>k__BackingField:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 1681
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
   <WindInfluence>k__BackingField: 0
   <LookInVelocityDirection>k__BackingField: 0
   <TorqueRange>k__BackingField:
@@ -28,5 +41,6 @@ MonoBehaviour:
   <ExplodeDelay>k__BackingField: 10
   <HasFragments>k__BackingField: 0
   <FragmentsAmount>k__BackingField: 0
+  <FragmentsConfig>k__BackingField: {fileID: 0}
   <CanWalk>k__BackingField: 1
   <MovementConfig>k__BackingField: {fileID: 11400000, guid: a90e511df48cda34b96dac68484c4523, type: 2}

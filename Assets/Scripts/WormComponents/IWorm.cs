@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Configs;
 using MovementComponents;
+using UltimateCC;
 using UnityEngine;
 using UnityEngine.Events;
 using Weapons;
@@ -15,19 +16,20 @@ namespace WormComponents
         int Health { get; }
         IWeapon Weapon { get; }
         CapsuleCollider2D Collider2D { get; }
+        PlayerInputManager Input { get; }
         int MaxHealth { get; }
         WormConfig Config { get; }
         Transform Transform { get; }
         void Init(WormConfig config);
-        void SetRigidbodyKinematic();
-        void SetRigidbodyDynamic();
+        void FreezePosition();
+        void UnfreezePosition();
         void SetCurrentWormLayer();
         void SetWormLayer();
         void AddExplosionForce(float explosionForce, Vector3 explosionPosition, float upwardsModifier,
             float explosionRadius);
         void TakeDamage(int damage);
         void Die();
-        IEnumerator SetRigidbodyKinematicWhenGrounded();
+        IEnumerator FreezePositionWhenGrounded();
         void RemoveWeapon();
         event Action<IWorm> Died;
         event Action<IWorm> DamageTook;

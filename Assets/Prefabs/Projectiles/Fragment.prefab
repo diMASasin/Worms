@@ -136,6 +136,20 @@ MonoBehaviour:
   _collider: {fileID: 5475799449231331852}
   _rigidbody: {fileID: 4747351946527315547}
   _animator: {fileID: 8667236989723147752}
+  _contactFilter:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 1745
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
 --- !u!1 &3348539933408502303
 GameObject:
   m_ObjectHideFlags: 0

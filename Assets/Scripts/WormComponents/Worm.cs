@@ -14,8 +14,7 @@ namespace WormComponents
     {
         [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private CapsuleCollider2D _collider;
-        [SerializeField] private PlayerInputManager _input;
-        // [SerializeField] private PlayerMain _playerMain;
+        [field: SerializeField] public PlayerInputManager Input { get; private set; }
         [field: SerializeField] public Transform Armature { get; private set; }
         [field: SerializeField] public Transform WeaponPosition { get; private set; }
 
@@ -50,30 +49,26 @@ namespace WormComponents
             WormsNumber++;
             gameObject.name = config.Name + " " + WormsNumber;
             Health = Config.MaxHealth;
-            _input.Disable();
+            Input.Disable();
         }
 
         private void OnDestroy()
         {
         }
 
-        public void SetRigidbodyKinematic()
+        public void FreezePosition()
         {
             // _rigidbody.bodyType = RigidbodyType2D.Kinematic;
             _rigidbody.constraints = RigidbodyConstraints2D.FreezePosition;
         }
 
-        public void SetRigidbodyDynamic()
+        public void UnfreezePosition()
         {
             // _rigidbody.bodyType = RigidbodyType2D.Dynamic;
             _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
-        public void SetCurrentWormLayer()
-        {
-            gameObject.layer = (int)math.log2(Config.CurrentWormLayerMask.value);
-            _input.Enable();
-        }
+        public void SetCurrentWormLayer() => gameObject.layer = (int)math.log2(Config.CurrentWormLayerMask.value);
 
         public void SetWormLayer() => gameObject.layer = (int)math.log2(Config.WormLayerMask.value);
 
@@ -81,11 +76,9 @@ namespace WormComponents
         public void AddExplosionForce(float explosionForce, Vector3 explosionPosition, float upwardsModifier,
             float explosionRadius)
         {
-            SetRigidbodyDynamic();
-            // Movement.AddExplosionForce(explosionForce, explosionPosition, explosionUpwardsModifier);
-            // _playerMain.enabled = false;
+            UnfreezePosition();
             _rigidbody.AddExplosionForce(explosionForce, explosionPosition, explosionRadius, upwardsModifier);
-            StartCoroutine(SetRigidbodyKinematicWhenGrounded());
+            StartCoroutine(FreezePositionWhenGrounded());
         }
 
         public void TakeDamage(int damage)
@@ -107,7 +100,7 @@ namespace WormComponents
             Destroy(gameObject);
         }
 
-        public IEnumerator SetRigidbodyKinematicWhenGrounded()
+        public IEnumerator FreezePositionWhenGrounded()
         {
             do
             {
@@ -117,7 +110,7 @@ namespace WormComponents
                 
             } while (_rigidbody.velocity.magnitude != 0);
 
-            SetRigidbodyKinematic();
+            FreezePosition();
         }
 
         public void RemoveWeapon()

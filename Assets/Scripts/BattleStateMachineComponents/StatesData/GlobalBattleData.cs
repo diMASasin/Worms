@@ -19,8 +19,8 @@ namespace BattleStateMachineComponents.StatesData
         [NonSerialized] public IWorm CurrentWorm;
         [NonSerialized] public Team CurrentTeam;
         
-        public readonly Timer TurnTimer = new();
         public readonly Timer GlobalTimer = new();
+        public readonly Timer TurnTimer = new();
 
         public PlayerInput PlayerInput;
         public MainInput MainInput { get; private set; }

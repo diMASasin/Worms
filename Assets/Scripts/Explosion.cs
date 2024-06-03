@@ -63,7 +63,6 @@ public class Explosion : MonoBehaviour
         _damage = config.Damage;
 
         _collider.enabled = true;
-        transform.parent = null;
 
         transform.position = newPosition;
         _explosionEffect.Play();

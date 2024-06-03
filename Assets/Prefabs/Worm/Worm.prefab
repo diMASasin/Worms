@@ -1346,7 +1346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 3213259104454701872}
   _collider: {fileID: 3213259104454701873}
-  _input: {fileID: 1868357830118979999}
+  <Input>k__BackingField: {fileID: 1868357830118979999}
   <Armature>k__BackingField: {fileID: 5433852659771445145}
   <WeaponPosition>k__BackingField: {fileID: 3757564109097753724}
 --- !u!95 &3797376096388542332

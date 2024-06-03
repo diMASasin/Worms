@@ -107,7 +107,7 @@ namespace BattleStateMachineComponents.States
             allProjectileEvents = new AllProjectilesEvents(allProjectilesFactories);
             var fragmentsLauncher = new FragmentsLauncher(allProjectileEvents, fragmentsPools);
             var timerViewPool = new FollowingTimerViewPool(GameConfig.FollowingTimerViewPrefab, allProjectileEvents);
-            var explosionPool = new ExplosionPool(GameConfig.ExplosionConfig, projectilesParent, shovel, allProjectileEvents);
+            var explosionPool = new ExplosionPool(GameConfig.ExplosionConfig, shovel, allProjectileEvents);
             
             _toDispose.Add(timerViewPool);
             _toDispose.Add(explosionPool);

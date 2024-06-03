@@ -33,9 +33,8 @@ namespace BattleStateMachineComponents.States
             
             _betweenTurnsData.WindMediator.ChangeVelocity();
             _data.Water.IncreaseLevelIfAllowed();
-            
-            if(_data.CurrentWorm != null)
-                _data.CurrentWorm.SetWormLayer();
+
+            _data.CurrentWorm?.SetWormLayer();
         }
 
         public void Exit()

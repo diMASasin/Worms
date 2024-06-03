@@ -14,12 +14,13 @@ namespace BattleStateMachineComponents.States
         private readonly IStateSwitcher _stateSwitcher;
         private readonly GlobalBattleData _data;
         private readonly TurnStateData _turnStateData;
-        private Timer TurnTimer => _data.TurnTimer;
         private TimersConfig TimersConfig => _data.TimersConfig;
         private Timer GlobalTimer => _data.GlobalTimer;
+        private Timer TurnTimer => _data.TurnTimer;
 
         private Team CurrentTeam { set => _data.CurrentTeam = value; }
-        
+
+
         private IWorm CurrentWorm
         {
             get => _data.CurrentWorm;
@@ -39,15 +40,14 @@ namespace BattleStateMachineComponents.States
             CurrentWorm = _data.CurrentTeam.Worms.Next();
             
             CurrentWorm.SetCurrentWormLayer();
-            CurrentWorm.SetRigidbodyDynamic();
+            CurrentWorm.UnfreezePosition();
+            CurrentWorm.Input.Enable();
 
             _turnStateData.WeaponChanger.ChangeWorm(CurrentWorm);
             _turnStateData.Arrow.StartMove(CurrentWorm.Transform);
-            // _data.FollowingCamera.ZoomTarget();
             _data.FollowingCamera.SetTarget(CurrentWorm.Transform);
             
             _data.PlayerInput.ChangeWorm(CurrentWorm);
-            // _data.PlayerInput.MovementInput.Enable(CurrentWorm.Movement);
             _data.PlayerInput.UIInput.Enable();
             
             _turnStateData.WormEvents.WormDied += OnWormDied;
@@ -63,11 +63,9 @@ namespace BattleStateMachineComponents.States
             GlobalTimer.Pause();
             _turnStateData.WeaponSelector.Close();
             
-            _data.PlayerInput.DisableAll();
-            // CurrentWorm.Movement.Reset();
+            // _data.PlayerInput.DisableAll();
+            CurrentWorm.Input.Disable();
             CurrentWorm.RemoveWeapon();
-            CoroutinePerformer.StartCoroutine(CurrentWorm.SetRigidbodyKinematicWhenGrounded());
-            
             _turnStateData.AllProjectileEvents.Launched -= OnLaunched;
             _turnStateData.WormEvents.WormDied -= OnWormDied;
         }
@@ -86,7 +84,7 @@ namespace BattleStateMachineComponents.States
 
         public void HandleInput()
         {
-            _data.PlayerInput.MovementInput.Tick();
+            // _data.PlayerInput.MovementInput.Tick();
             _data.PlayerInput.WeaponInput.Tick();
         }
 

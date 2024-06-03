@@ -11,13 +11,16 @@ namespace Factories
     {
         private readonly WormInformationView _wormInfoPrefab;
         private readonly IWormEvents _wormEvents;
-        private List<IFixedTickable> _fixedTickables = new();
         private readonly Dictionary<IWorm, WormInformationView> _informationViews = new();
+        private readonly Transform _parent;
 
         public WormInfoFactory(WormInformationView prefab, IWormEvents wormEvents)
         {
             _wormInfoPrefab = prefab;
             _wormEvents = wormEvents;
+            
+            _parent = Instantiate(new GameObject()).transform;
+            _parent.name = "WormInformations";
             
             _wormEvents.WormCreated += CreateInfoView;
             _wormEvents.WormDied += OnWormDied;
@@ -31,7 +34,7 @@ namespace Factories
 
         private void CreateInfoView(IWorm worm, Color teamColor, string wormName)
         {
-            WormInformationView wormInfo = Instantiate(_wormInfoPrefab);
+            WormInformationView wormInfo = Instantiate(_wormInfoPrefab, _parent);
             wormInfo.Init(worm, teamColor, wormName);
             
             _informationViews.Add(worm, wormInfo);

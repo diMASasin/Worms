@@ -44,6 +44,7 @@ namespace BattleStateMachineComponents
         public void Tick()
         {
             _data.GlobalBattleData.PlayerInput.CameraInput.Tick();
+            _currentState.Tick();
         }
 
         public void FixedTick()

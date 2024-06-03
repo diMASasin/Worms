@@ -30,7 +30,7 @@ namespace Factories
             Vector2 position = _terrain.GetRandomSpawnPoint(_wormPrefab.Collider2D.size);
             var newWorm = Object.Instantiate(_wormPrefab, position, Quaternion.identity, parent);
             newWorm.Init(config);
-            newWorm.SetRigidbodyKinematic();
+            newWorm.FreezePosition();
             
             _worms.Add(newWorm);
             

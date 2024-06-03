@@ -20,12 +20,13 @@ namespace Pools
 
         public static int Count { get; private set; }
 
-        public ExplosionPool(ExplosionConfig config, Transform objectsParent, IShovel shovelWrapper, IProjectileEvents projectileEvents, int capacity = 5)
+        public ExplosionPool(ExplosionConfig config, IShovel shovelWrapper, IProjectileEvents projectileEvents, int capacity = 5)
         {
             _config = config;
             _projectileEvents = projectileEvents;
-            _objectsParent = objectsParent;
             _shovelWrapper = shovelWrapper;
+            _objectsParent = Instantiate(new GameObject()).transform;
+            _objectsParent.name = "Explosions";
             
             _pool = new ObjectPool<Explosion>(CreateObject, OnGet, OnRelease, OnExplosionDestroy, defaultCapacity: _amount);
             

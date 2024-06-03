@@ -21,7 +21,7 @@ namespace InputService
         public PlayerInput(MainInput input, IControllableCamera camera, WeaponSelector weaponSelector)
         {
             input.Enable();
-            MovementInput = new MovementInput(input.Movement);
+            // MovementInput = new MovementInput(input.Movement);
             WeaponInput = new WeaponInput(input.Weapon);
             CameraInput = new CameraInput(camera);
             UIInput = new UIInput(input.UI, weaponSelector);

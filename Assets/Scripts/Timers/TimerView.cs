@@ -8,9 +8,9 @@ namespace Timers
         [SerializeField] private TMP_Text _text;
 
         TimerFormattingStyle _formattingStyle;
-        private Timer _timer;
+        private ITimerUpdateEvent _timer;
     
-        public void Init(Timer timer, TimerFormattingStyle style)
+        public void Init(ITimerUpdateEvent timer, TimerFormattingStyle style)
         {
             _timer = timer;
             _formattingStyle = style;
@@ -24,7 +24,7 @@ namespace Timers
                 _timer.TimerUpdated -= OnTimerUpdated;
         }
 
-        private void OnTimerUpdated(float timeLeft)
+        private void OnTimerUpdated(double timeLeft)
         {
             switch (_formattingStyle)
             {
@@ -33,8 +33,8 @@ namespace Timers
                     break;
 
                 case TimerFormattingStyle.MinutesAndSeconds:
-                    float minutes = timeLeft / 60;
-                    float seconds = timeLeft % 60;
+                    double minutes = timeLeft / 60;
+                    double seconds = timeLeft % 60;
                     _text.text = $"{minutes:F0}:{seconds:00}";
                     break;
             }

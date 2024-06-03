@@ -13,9 +13,22 @@ MonoBehaviour:
   m_Name: FragmentationGranade
   m_EditorClassIdentifier: 
   <ProjectilePrefab>k__BackingField: {fileID: 8548344523921114467, guid: dc3939daa32642442acba24e0bf78082, type: 3}
-  <ColliderRadius>k__BackingField: 0.125
   <Sprite>k__BackingField: {fileID: -243623698, guid: 3bb1fadd136a96f42b94902a40eace8b, type: 3}
   <AnimatorController>k__BackingField: {fileID: 0}
+  <ContactFilter>k__BackingField:
+    useTriggers: 0
+    useLayerMask: 1
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 1681
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
   <WindInfluence>k__BackingField: 1
   <LookInVelocityDirection>k__BackingField: 0
   <TorqueRange>k__BackingField:

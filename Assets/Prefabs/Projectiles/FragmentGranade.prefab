@@ -72,6 +72,18 @@ PrefabInstance:
       propertyPath: m_Interpolate
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5397199631990211761, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
+      propertyPath: _layerMask.m_Bits
+      value: 1749
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397199631990211761, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
+      propertyPath: _contactFilter.useLayerMask
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397199631990211761, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
+      propertyPath: _contactFilter.layerMask.m_Bits
+      value: 1745
+      objectReference: {fileID: 0}
     - target: {fileID: 6387142177158353546, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
       propertyPath: m_Sprite
       value: 

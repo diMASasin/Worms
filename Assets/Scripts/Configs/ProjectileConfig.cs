@@ -11,6 +11,7 @@ namespace Configs
         [field: SerializeField] public Projectile ProjectilePrefab { get; private set; }
         [field: SerializeField] public Sprite Sprite{ get; private set; }
         [field: SerializeField] public AnimatorController AnimatorController { get; private set; }
+        [field: SerializeField] public ContactFilter2D ContactFilter { get; private set; }
         [field: SerializeField, Header("Behaviour")] public bool WindInfluence { get; private set; } = true;
         [field: SerializeField] public bool LookInVelocityDirection { get; private set; }
         [field: SerializeField] public Range TorqueRange { get; private set; }
