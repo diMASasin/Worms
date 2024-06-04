@@ -1,5 +1,6 @@
 using Plugins._2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Essentials;
 using UnityEngine;
+using static UltimateCC.PlayerData;
 
 namespace UltimateCC
 {
@@ -67,6 +68,10 @@ namespace UltimateCC
             {
                 stateMachine.ChangeState(player.IdleState);
             }
+            else if (playerData.Physics.IsGrounded || playerData.Physics.IsMultipleContactWithNonWalkableSlope)
+            {
+                stateMachine.ChangeState(player.IdleState);
+            }
             else if ((playerData.Physics.IsGrounded && !playerData.Physics.IsOnNotWalkableSlope))
             {
                 stateMachine.ChangeState(player.WalkState);
@@ -103,9 +108,14 @@ namespace UltimateCC
             _newVelocity.y *= playerData.Jump.Jumps[0].currentJumpType.MaxHeight * 1 / playerData.Land.LandTime;
             _newVelocity.y = Mathf.Clamp(_newVelocity.y, playerData.Land.MinLandSpeed, float.MaxValue);
 
-            if (!playerData.Physics.IsOnNotWalkableSlope || playerData.Physics.FacingDirection != Mathf.Sign(playerData.Physics.ContactPosition.x - rigidbody2D.position.x))
+            PhysicsVariables physics = playerData.Physics;
+            
+            if (!physics.IsOnNotWalkableSlope || 
+                physics.FacingDirection != Mathf.Sign(physics.ContactPosition.x - rigidbody2D.position.x))
             {
-                _newVelocity.x = VelocityOnx();
+                // _newVelocity.x = VelocityOnx();
+                phase = Phase.Null;
+                _newVelocity.x = rigidbody2D.velocity.x;
             }
             rigidbody2D.velocity = _newVelocity;
             localXVelovity = rigidbody2D.velocity.x;
@@ -118,63 +128,63 @@ namespace UltimateCC
             if (inputManager.Input_Walk != 0 && (localXVelovity == 0 || Mathf.Sign(inputManager.Input_Walk) == Mathf.Sign(localXVelovity))
                 && (phase != Phase.TurnBack || xCurveTime > playerData.Walk.TurnBackTime))
             {
-                // if (phase != Phase.SpeedUp && (phase != Phase.TurnBack || xCurveTime > playerData.Walk.TurnBackTime))
-                // {
-                //     xCurveTime = EssentialPhysics.SetCurveTimeByValue(playerData.Land.XSpeedUpCurve, 
-                //         Mathf.Abs(rigidbody2D.velocity.x) / playerData.Jump.CurrentJump.jumpXImpulse, 1, true);
-                //     xCurveTime *= playerData.Land.XSpeedUpTime;
-                //     phase = Phase.SpeedUp;
-                // }
-                // if (xCurveTime < playerData.Land.XSpeedUpTime)
-                // {
-                //     XVelocity = playerData.Land.XSpeedUpCurve.Evaluate(xCurveTime / playerData.Land.XSpeedUpTime);
-                // }
-                // else
-                // {
-                //     XVelocity = playerData.Land.XSpeedUpCurve.Evaluate(1f);
-                // }
-                // XVelocity *= inputManager.Input_Walk * playerData.Jump.CurrentJump.jumpXImpulse;
+                if (phase != Phase.SpeedUp && (phase != Phase.TurnBack || xCurveTime > playerData.Walk.TurnBackTime))
+                {
+                    xCurveTime = EssentialPhysics.SetCurveTimeByValue(playerData.Land.XSpeedUpCurve, 
+                        Mathf.Abs(rigidbody2D.velocity.x) / playerData.Jump.CurrentJump.jumpXImpulse, 1, true);
+                    xCurveTime *= playerData.Land.XSpeedUpTime;
+                    phase = Phase.SpeedUp;
+                }
+                if (xCurveTime < playerData.Land.XSpeedUpTime)
+                {
+                    XVelocity = playerData.Land.XSpeedUpCurve.Evaluate(xCurveTime / playerData.Land.XSpeedUpTime);
+                }
+                else
+                {
+                    XVelocity = playerData.Land.XSpeedUpCurve.Evaluate(1f);
+                }
+                XVelocity *= inputManager.Input_Walk * playerData.Jump.CurrentJump.jumpXImpulse;
             }
             else if (inputManager.Input_Walk != 0 && ((localXVelovity != 0 && Mathf.Sign(inputManager.Input_Walk) != Mathf.Sign(localXVelovity)) || phase == Phase.TurnBack))
             {
-                // if (phase != Phase.TurnBack)
-                // {
-                //     xCurveTime = EssentialPhysics.SetCurveTimeByValue(playerData.Land.XTurnBackCurve, 
-                //         Mathf.Abs(localXVelovity) / playerData.Jump.CurrentJump.jumpXImpulse, 2f, false);
-                //     xCurveTime *= playerData.Land.XTurnBackTime;
-                //     phase = Phase.TurnBack;
-                //     turnBackStartDirection = (int)Mathf.Sign(localXVelovity);
-                // }
-                // if (xCurveTime < playerData.Land.XTurnBackTime)
-                // {
-                //     XVelocity = playerData.Land.XTurnBackCurve.Evaluate(xCurveTime / playerData.Land.XTurnBackTime);
-                // }
-                // else
-                // {
-                //     XVelocity = playerData.Land.XTurnBackCurve.Evaluate(2f);
-                // }
-                // XVelocity *= playerData.Jump.CurrentJump.jumpXImpulse * turnBackStartDirection;
+                if (phase != Phase.TurnBack)
+                {
+                    xCurveTime = EssentialPhysics.SetCurveTimeByValue(playerData.Land.XTurnBackCurve, 
+                        Mathf.Abs(localXVelovity) / playerData.Jump.CurrentJump.jumpXImpulse, 2f, false);
+                    xCurveTime *= playerData.Land.XTurnBackTime;
+                    phase = Phase.TurnBack;
+                    turnBackStartDirection = (int)Mathf.Sign(localXVelovity);
+                }
+                if (xCurveTime < playerData.Land.XTurnBackTime)
+                {
+                    XVelocity = playerData.Land.XTurnBackCurve.Evaluate(xCurveTime / playerData.Land.XTurnBackTime);
+                }
+                else
+                {
+                    XVelocity = playerData.Land.XTurnBackCurve.Evaluate(2f);
+                }
+                XVelocity *= playerData.Jump.CurrentJump.jumpXImpulse * turnBackStartDirection;
             }
             else if (localXVelovity != 0)
             {
-                // if (phase != Phase.SlowDown)
-                // {
-                //     xCurveTime = EssentialPhysics.SetCurveTimeByValue(playerData.Land.XSlowDownCurve, 
-                //         Mathf.Abs(rigidbody2D.velocity.x) / playerData.Jump.CurrentJump.jumpXImpulse, 1, false);
-                //     xCurveTime *= playerData.Land.XSlowDownTime;
-                //     phase = Phase.SlowDown;
-                // }
-                // if (xCurveTime < playerData.Land.XSlowDownTime)
-                // {
-                //     XVelocity = playerData.Land.XSlowDownCurve.Evaluate(xCurveTime / playerData.Land.XSlowDownTime);
-                // }
-                // else
-                // {
-                //     XVelocity = playerData.Land.XSlowDownCurve.Evaluate(1f);
-                // }
-                //
-                // var jumpDirection = (int)playerData.Jump.CurrentJump.JumpDirection;
-                // XVelocity *= playerData.Jump.CurrentJump.jumpXImpulse * playerData.Physics.FacingDirection * jumpDirection;
+                if (phase != Phase.SlowDown)
+                {
+                    xCurveTime = EssentialPhysics.SetCurveTimeByValue(playerData.Land.XSlowDownCurve, 
+                        Mathf.Abs(rigidbody2D.velocity.x) / playerData.Jump.CurrentJump.jumpXImpulse, 1, false);
+                    xCurveTime *= playerData.Land.XSlowDownTime;
+                    phase = Phase.SlowDown;
+                }
+                if (xCurveTime < playerData.Land.XSlowDownTime)
+                {
+                    XVelocity = playerData.Land.XSlowDownCurve.Evaluate(xCurveTime / playerData.Land.XSlowDownTime);
+                }
+                else
+                {
+                    XVelocity = playerData.Land.XSlowDownCurve.Evaluate(1f);
+                }
+                
+                var jumpDirection = (int)playerData.Jump.CurrentJump.JumpDirection;
+                XVelocity *= playerData.Jump.CurrentJump.jumpXImpulse * playerData.Physics.FacingDirection * jumpDirection;
             }
             else
             {

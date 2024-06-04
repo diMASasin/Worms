@@ -78,7 +78,7 @@ namespace InputService
         private void OnDamageTook(IWorm arg0)
         {
             WeaponInput.Disable();
-            MovementInput.Disable();
+            // MovementInput.Disable();
         }
     }
 }

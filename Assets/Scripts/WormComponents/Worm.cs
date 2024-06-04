@@ -78,7 +78,7 @@ namespace WormComponents
         {
             UnfreezePosition();
             _rigidbody.AddExplosionForce(explosionForce, explosionPosition, explosionRadius, upwardsModifier);
-            StartCoroutine(FreezePositionWhenGrounded());
+            FreezePositionWhenGrounded();
         }
 
         public void TakeDamage(int damage)
@@ -87,6 +87,7 @@ namespace WormComponents
                 throw new ArgumentOutOfRangeException("damage should be greater then 0. damage = " + damage);
 
             Health -= damage;
+            Input.Disable();
             DamageTook?.Invoke(this);
 
             if (Health <= 0)
@@ -100,7 +101,8 @@ namespace WormComponents
             Destroy(gameObject);
         }
 
-        public IEnumerator FreezePositionWhenGrounded()
+        public void FreezePositionWhenGrounded() => StartCoroutine(FreezePositionWhenGroundedCoroutine());
+        private IEnumerator FreezePositionWhenGroundedCoroutine()
         {
             do
             {

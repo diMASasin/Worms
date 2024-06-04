@@ -35,7 +35,7 @@ namespace BattleStateMachineComponents.States
             _data.GlobalTimer.Pause();
             _data.CurrentWorm.Input.Disable();
             _data.CurrentWorm.SetWormLayer();
-            _data.CurrentWorm.FreezePosition();
+            _data.CurrentWorm.FreezePositionWhenGrounded();
             
             _data.TurnTimer.Stop();
         }

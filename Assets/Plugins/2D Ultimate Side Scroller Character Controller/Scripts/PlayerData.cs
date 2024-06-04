@@ -88,6 +88,7 @@ namespace UltimateCC
             }
 
             [SerializeField] private LayerMask groundLayerMask;
+            [SerializeField] private ContactFilter2D groundContactFilter;
             [SerializeField] private LayerMask headBumpLayerMask;
             [SerializeField] private LayerMask wallLayerMask;
             [SerializeField, NonEditable] private Vector3 groundCheckPosition;
@@ -120,6 +121,7 @@ namespace UltimateCC
             public PlatformVariables Platform;
 
             public LayerMask GroundLayerMask => groundLayerMask;
+            public ContactFilter2D GroundContactFilter => groundContactFilter;
             public LayerMask HeadBumpLayerMask => headBumpLayerMask;
             public LayerMask WallLayerMask => wallLayerMask;
 

@@ -7,7 +7,8 @@ namespace UltimateCC
     {
         private PlayerStateMachine _stateMachine; // State Machine declaration where we change current state
         [NonEditable, Space(5)] public AnimName CurrentState; // Variable to display the current state in the Unity inspector for debugging purposes.
-        public MainState IdleState, WalkState, JumpState, LandState, DashState, CrouchIdleState, CrouchWalkState, WallGrabState, WallClimbState, WallJumpState, WallSlideState; // State declarations
+        public MainState IdleState, WalkState, JumpState, LandState, FreeFallingState, DashState, CrouchIdleState, 
+            CrouchWalkState, WallGrabState, WallClimbState, WallJumpState, WallSlideState; // State declarations
         public enum AnimName { Idle, Walk, Jump, ExtraJump1, ExtraJump2, Land, Dash, CrouchIdle, CrouchWalk, WallGrab, WallClimb, WallJump, WallSlide } // Enum declaration of state names as animator parameters
 
         [NonSerialized] public Animator Animator; // The Animator is used to control the player's animations based on their current state.
@@ -35,6 +36,7 @@ namespace UltimateCC
             WalkState = new PlayerWalkState(this, _stateMachine, AnimName.Walk, PlayerData);
             JumpState = new PlayerJumpState(this, _stateMachine, AnimName.Jump, PlayerData);
             LandState = new PlayerLandState(this, _stateMachine, AnimName.Land, PlayerData);
+            FreeFallingState = new PlayerFreeFallingState(this, _stateMachine, AnimName.Jump, PlayerData);
             DashState = new PlayerDashState(this, _stateMachine, AnimName.Dash, PlayerData);
             CrouchIdleState = new PlayerCrouchIdleState(this, _stateMachine, AnimName.CrouchIdle, PlayerData);
             CrouchWalkState = new PlayerCrouchWalkState(this, _stateMachine, AnimName.CrouchWalk, PlayerData);
@@ -74,6 +76,13 @@ namespace UltimateCC
         private void FixedUpdate()
         {
             _stateMachine.CurrentState.FixedUpdate(); // FixedUpdate method of current state at runtime
+        }
+
+        private void OnDrawGizmos()
+        {
+            
+            Gizmos.DrawSphere(PlayerData.Physics.GroundCheckPosition + new Vector2(0, -0.125f),
+                CapsuleCollider2D.size.x / 1.97f * Mathf.Abs(transform.localScale.x));
         }
     }
 }

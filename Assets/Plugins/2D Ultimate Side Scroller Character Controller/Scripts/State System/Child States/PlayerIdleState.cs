@@ -69,6 +69,10 @@ namespace UltimateCC
             {
                 // stateMachine.ChangeState(player.LandState);
             }
+            else if (!playerData.Physics.IsGrounded)
+            {
+                stateMachine.ChangeState(player.FreeFallingState);
+            }
             else if (inputManager.Input_Dash && playerData.Dash.DashCooldownTimer <= 0f)
             {
                 stateMachine.ChangeState(player.DashState);

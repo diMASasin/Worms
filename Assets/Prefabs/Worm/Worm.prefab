@@ -235,6 +235,20 @@ MonoBehaviour:
       groundLayerMask:
         serializedVersion: 2
         m_Bits: 640
+      groundContactFilter:
+        useTriggers: 0
+        useLayerMask: 1
+        useDepth: 0
+        useOutsideDepth: 0
+        useNormalAngle: 0
+        useOutsideNormalAngle: 0
+        layerMask:
+          serializedVersion: 2
+          m_Bits: 2001
+        minDepth: 0
+        maxDepth: 0
+        minNormalAngle: 0
+        maxNormalAngle: 0
       headBumpLayerMask:
         serializedVersion: 2
         m_Bits: 0

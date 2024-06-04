@@ -69,26 +69,32 @@ namespace Plugins._2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Essent
         {
             playerData.Physics.GroundCheckPosition = SetGroundCheckPosition(player, playerData);
             float _offset = -0.01f;
-            RaycastHit2D _hit = Physics2D.CircleCast(playerData.Physics.GroundCheckPosition,
-                player.CapsuleCollider2D.size.x / 2 * Mathf.Abs(player.transform.localScale.x) + _offset,
-                -player.transform.up, 0.3f, playerData.Physics.GroundLayerMask);
+            List<RaycastHit2D> results = new();
+            int count = Physics2D.CircleCast(playerData.Physics.GroundCheckPosition,
+                player.CapsuleCollider2D.size.x / 1.99f * Mathf.Abs(player.transform.localScale.x) + _offset,
+                -player.transform.up, playerData.Physics.GroundContactFilter, results, 0.1f);
 
-            if (_hit.collider == player.CapsuleCollider2D)
-                return;
+            RaycastHit2D hittedPlayer = results.FirstOrDefault(hit => hit.collider == player.CapsuleCollider2D);
+            
+            if (hittedPlayer) 
+                results.Remove(hittedPlayer);
 
-            Debug.DrawRay(_hit.point, _hit.normal, Color.red);
-            if (_hit)
+            // Debug.DrawRay(_hit.point, _hit.normal, Color.red);
+            if (results.Count > 0)
             {
-                playerData.Physics.IsGrounded = true;
-                playerData.Physics.WalkSpeedDirection = Vector2.Perpendicular(_hit.normal).normalized;
-                playerData.Physics.ContactPosition = _hit.point;
-                playerData.Physics.Slope.CurrentSlopeAngle = Vector2.Angle(_hit.normal, Vector2.up);
-                playerData.Physics.IsOnNotWalkableSlope = playerData.Physics.Slope.CurrentSlopeAngle >
-                                                          playerData.Physics.Slope.MaxSlopeAngle;
-                SlopeAngleChangeCheck(_hit, player, playerData);
-                if (_hit.collider.gameObject.layer == 12 && _hit.rigidbody)
+                foreach (var hit in results)
                 {
-                    playerData.Physics.CollidedMovingRigidbody = _hit.rigidbody;
+                    playerData.Physics.IsGrounded = true;
+                    playerData.Physics.WalkSpeedDirection = Vector2.Perpendicular(hit.normal).normalized;
+                    playerData.Physics.ContactPosition = hit.point;
+                    playerData.Physics.Slope.CurrentSlopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+                    playerData.Physics.IsOnNotWalkableSlope = playerData.Physics.Slope.CurrentSlopeAngle >
+                                                              playerData.Physics.Slope.MaxSlopeAngle;
+                    SlopeAngleChangeCheck(hit, player, playerData);
+                    if (hit.collider.gameObject.layer == 12 && hit.rigidbody)
+                    {
+                        playerData.Physics.CollidedMovingRigidbody = hit.rigidbody;
+                    }
                 }
             }
             else

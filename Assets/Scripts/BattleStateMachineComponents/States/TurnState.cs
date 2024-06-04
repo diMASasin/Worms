@@ -66,6 +66,7 @@ namespace BattleStateMachineComponents.States
             // _data.PlayerInput.DisableAll();
             CurrentWorm.Input.Disable();
             CurrentWorm.RemoveWeapon();
+            
             _turnStateData.AllProjectileEvents.Launched -= OnLaunched;
             _turnStateData.WormEvents.WormDied -= OnWormDied;
         }
