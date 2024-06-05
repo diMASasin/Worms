@@ -1,6 +1,7 @@
 ﻿using BattleStateMachineComponents;
 using BattleStateMachineComponents.StatesData;
 using Infrastructure;
+using Services;
 using UI;
 using UnityEngine;
 using PlayerInput = InputService.PlayerInput;
@@ -18,11 +19,10 @@ namespace Battle_
     
         private void Start()
         {
-            _coroutinePerformer.Init();
             _mainInput = new MainInput();
         
             _data.GlobalBattleData.Init(_mainInput, _data.StartStateData.GameConfig.TimersConfig);
-            _battle = new Battle(_data);
+            _battle = new Battle(_data, AllServices.Container);
         
             _battle.Start();
         }

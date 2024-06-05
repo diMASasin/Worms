@@ -3,25 +3,32 @@ using GameStateMachineComponents;
 
 namespace Battle_
 {
-    public static class BattleSettings
+    public class BattleSettings : IBattleSettings
     {
-        private static int _wormsCount; 
-        private static int _teamsCount; 
+        private int _wormsCount;
+        private int _teamsCount;
         
-        public static event Action BattleSettingsSaved;
-        
-        public static void Save(int wormsCount, int teamsCount)
+        public SettingsData Data { get; private set; }
+
+        public event Action BattleSettingsSaved;
+
+        public void Save(SettingsData data)
         {
-            _wormsCount = wormsCount;
-            _teamsCount = teamsCount;
-            
+            Data = data;
+
             BattleSettingsSaved?.Invoke();
         }
+    }
 
-        public static void GetSettings(out int wormsCount, out int teamsCount)
+    public class SettingsData
+    {
+        public readonly int WormsCount;
+        public readonly int TeamsCount;
+
+        public SettingsData(int wormsCount, int teamsCount)
         {
-            wormsCount = _wormsCount;
-            teamsCount = _teamsCount;
+            WormsCount = wormsCount;
+            TeamsCount = teamsCount;
         }
     }
 }

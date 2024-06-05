@@ -1,20 +1,27 @@
+using Battle_;
 using Infrastructure;
-using InputService;
+using Services;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace GameStateMachineComponents.States
 {
     public class BootstrapState : GameState
     {
-        private SceneLoader SceneLoader => Data.SceneLoader;
+        private readonly ISceneLoader _sceneLoader;
 
-        public BootstrapState(GameStateMachineData data, IGameStateSwitcher stateSwitcher) : 
-            base(data, stateSwitcher) { }
+        public BootstrapState(GameStateMachineData data, IGameStateSwitcher stateSwitcher, AllServices services) : 
+            base(data, stateSwitcher)
+        {
+            RegisterServices(services);
+            
+            _sceneLoader = services.Single<ISceneLoader>();
+        }
 
         public override void Enter()
-        {
-            SceneLoader.Load(SceneLoader.MainMenu, OnLoaded);
+        {            
+            Data.LoadingScreen.Init(_sceneLoader);
+            
+            _sceneLoader.Load(_sceneLoader.SceneNames.MainMenu, OnLoaded);
         }
 
         private void OnLoaded()
@@ -27,9 +34,13 @@ namespace GameStateMachineComponents.States
         public override void Exit()
         {
         }
-
-        public override void Tick()
+        
+        private void RegisterServices(AllServices services)
         {
+            CoroutinePerformer coroutinePerformer = Object.Instantiate(Data.CoroutinePerformerPrefab, Data.GameParent);
+            services.RegisterSingle<ICoroutinePerformer>(coroutinePerformer);
+            services.RegisterSingle<ISceneLoader>(new SceneLoader(coroutinePerformer));
+            services.RegisterSingle<IBattleSettings>(new BattleSettings());
         }
     }
 }

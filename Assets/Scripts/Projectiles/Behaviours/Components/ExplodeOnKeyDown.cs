@@ -1,5 +1,6 @@
 using System.Collections;
 using Infrastructure;
+using Services;
 using UnityEngine;
 using Input = UnityEngine.Input;
 
@@ -9,10 +10,12 @@ namespace Projectiles.Behaviours.Components
     {
         [SerializeField] private Projectile _projectile;
         private Coroutine _coroutine;
+        private ICoroutinePerformer _coroutinePerformer;
 
-        public void Init(Projectile projectile)
+        public void Init(Projectile projectile, AllServices allServices)
         {
             _projectile = projectile;
+            _coroutinePerformer = allServices.Single<ICoroutinePerformer>();
         }
 
         private void OnEnable()
@@ -29,12 +32,12 @@ namespace Projectiles.Behaviours.Components
 
         public void OnLaunch(Projectile projectile, Vector2 vector2)
         {
-            _coroutine = CoroutinePerformer.StartCoroutine(WaitKeyDown());
+            _coroutine = StartCoroutine(WaitKeyDown());
         }
 
         private void OnExploded(Projectile projectile)
         {
-            CoroutinePerformer.StopCoroutine(_coroutine);
+            _coroutinePerformer.StopCoroutine(_coroutine);
         }
 
         private IEnumerator WaitKeyDown()

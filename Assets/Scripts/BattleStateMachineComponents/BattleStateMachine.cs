@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using BattleStateMachineComponents.States;
+using Services;
+using UnityEngine;
 
 namespace BattleStateMachineComponents
 {
@@ -11,10 +13,10 @@ namespace BattleStateMachineComponents
         private readonly List<IBattleState> _states;
         private IBattleState _currentState;
 
-        public BattleStateMachine(BattleStateMachineData data)
+        public BattleStateMachine(BattleStateMachineData data, AllServices services)
         {
             _data = data;
-            _startBattleState = new StartBattleState(this, data); 
+            _startBattleState = new StartBattleState(this, data, services); 
             
             _states = new List<IBattleState>()
             {
@@ -32,7 +34,9 @@ namespace BattleStateMachineComponents
             IBattleState state = _states.FirstOrDefault(state => state is T);
 
             _currentState?.Exit();
+            Debug.Log($"{_currentState?.GetType().Name} EXIT");
             _currentState = state;
+            Debug.Log($"{_currentState?.GetType().Name} ENTER");
             _currentState.Enter();
         }
 

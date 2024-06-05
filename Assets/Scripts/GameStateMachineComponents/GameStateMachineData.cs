@@ -1,23 +1,27 @@
 using System;
 using Infrastructure;
+using Services;
 using UI;
+using UnityEngine;
 
 namespace GameStateMachineComponents
 {
     public class GameStateMachineData
     {
-        public readonly CoroutinePerformer CoroutinePerformer;
         public readonly Game Game;
-        public readonly SceneLoader SceneLoader;
         public readonly LoadingScreen LoadingScreen;
-        
-        public GameStateMachineData(CoroutinePerformer coroutinePerformer, Game game, SceneLoader sceneLoader,
-            LoadingScreen loadingScreen)
+        public readonly MainMenu MainMenuPrefab;
+        public readonly CoroutinePerformer CoroutinePerformerPrefab;
+        public readonly Transform GameParent;
+
+        public GameStateMachineData(Game game, LoadingScreen loadingScreen, MainMenu mainMenuPrefab, 
+            CoroutinePerformer coroutinePerformerPrefab, Transform gameParent)
         {
-            CoroutinePerformer = coroutinePerformer;
             Game = game;
-            SceneLoader = sceneLoader;
             LoadingScreen = loadingScreen;
+            MainMenuPrefab = mainMenuPrefab;
+            CoroutinePerformerPrefab = coroutinePerformerPrefab;
+            GameParent = gameParent;
         }
     }
 }

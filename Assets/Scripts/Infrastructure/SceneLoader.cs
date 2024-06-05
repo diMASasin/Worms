@@ -1,16 +1,24 @@
 using System;
 using System.Collections;
+using Services;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Infrastructure
 {
-    public class SceneLoader
+    public class SceneNames
     {
-        public const string MainMenu = nameof(MainMenu);
-        public const string Map3 = nameof(Map3);
+        public const string BattleScenePrefix = "Map";
         
-        private readonly CoroutinePerformer _coroutinePerformer;
+        public readonly string MainMenu = nameof(MainMenu);
+        public readonly string Map3 = nameof(Map3);
+    }
+
+    public class SceneLoader : ISceneLoader
+    {
+        private readonly ICoroutinePerformer _coroutinePerformer;
+
+        public SceneNames SceneNames { get; } = new();
 
         public event Action<float> ProgressChanged;
 
@@ -20,11 +28,17 @@ namespace Infrastructure
         }
     
         public void Load(string name, Action onLoaded = null) => 
-            _coroutinePerformer.StartRoutine(LoadScene(name, onLoaded));
+            _coroutinePerformer.StartCoroutine(LoadScene(name, onLoaded));
+        
+        public void LoadBattleMap(int index, Action onLoaded = null)
+        {
+            _coroutinePerformer.StartCoroutine(LoadScene($"{SceneNames.BattleScenePrefix}{index}", onLoaded));
+        }
 
         private IEnumerator LoadScene(string name, Action onLoaded = null)
         {
-            if (SceneManager.GetActiveScene().name == name)
+            var activeScene = SceneManager.GetActiveScene();
+            if (activeScene.name == name)
             {
                 onLoaded?.Invoke();
                 yield break;
@@ -40,5 +54,7 @@ namespace Infrastructure
         
             onLoaded?.Invoke();
         }
+
     }
+    
 }

@@ -13,9 +13,5 @@ namespace GameStateMachineComponents.States
         public override void Exit()
         {
         }
-
-        public override void Tick()
-        {
-        }
     }
 }

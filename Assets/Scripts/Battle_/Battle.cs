@@ -1,6 +1,7 @@
 using System;
 using BattleStateMachineComponents;
 using BattleStateMachineComponents.States;
+using Services;
 
 namespace Battle_
 {
@@ -8,9 +9,9 @@ namespace Battle_
     {
         private readonly BattleStateMachine _battleStateMachine; 
     
-        public Battle(BattleStateMachineData data)
+        public Battle(BattleStateMachineData data, AllServices services)
         {
-            _battleStateMachine = new BattleStateMachine(data);
+            _battleStateMachine = new BattleStateMachine(data, services);
         }
         public void Dispose()
         {

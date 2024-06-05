@@ -65,10 +65,10 @@ namespace UltimateCC
             {
                 stateMachine.ChangeState(player.JumpState);
             }
-            else if (!playerData.Physics.IsGrounded || (playerData.Physics.IsOnNotWalkableSlope && !playerData.Physics.Slope.StayStill && !playerData.Physics.IsMultipleContactWithNonWalkableSlope))
-            {
-                // stateMachine.ChangeState(player.LandState);
-            }
+            // else if (!playerData.Physics.IsGrounded || (playerData.Physics.IsOnNotWalkableSlope && !playerData.Physics.Slope.StayStill && !playerData.Physics.IsMultipleContactWithNonWalkableSlope))
+            // {
+            //     stateMachine.ChangeState(player.LandState);
+            // }
             else if (!playerData.Physics.IsGrounded)
             {
                 stateMachine.ChangeState(player.FreeFallingState);

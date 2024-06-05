@@ -43,7 +43,7 @@ namespace BattleStateMachineComponents.States
 
         private void OnCountChanged(int count)
         {
-            if(count == 0)
+            if(count == 0 && _timer.Started == false)
             {
                 _timer.Start(3, () =>
                 {

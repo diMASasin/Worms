@@ -8,9 +8,8 @@ namespace CameraFollow
     public class FollowingCamera : MonoBehaviour, IControllableCamera
     {
         [SerializeField] private Camera _camera;
-        [SerializeField] private Vector3 _offset;
-        [SerializeField] private int _maxPosition = 60;
         [SerializeField] private FollowingObject _followingObject;
+        [SerializeField] private int _maxPosition = 60;
         [field: SerializeField] public int MinPosition { get; private set; } = 10;
         [field: SerializeField] public Vector3 GeneralViewPosition { get; private set; }
 
@@ -56,7 +55,7 @@ namespace CameraFollow
                 return;
             
             float tolerance = 0.2f;
-            float positionZ = transform.position.z - _offset.z;
+            float positionZ = transform.position.z - _followingObject.Offset.z;
             float targetPositionZ = _followingObject.FollowingFor.position.z;
 
             if (Math.Abs(positionZ - targetPositionZ) < 2 ||

@@ -5,8 +5,8 @@ using UnityEngine;
 public class FollowingObject : IFixedTickable
 {
     [SerializeField] private Transform _objectTransform;
-    [SerializeField] private Vector3 _offset;
     [SerializeField] private float _speed = 1000;
+    [field: SerializeField] public Vector3 Offset { get; private set; }
 
     public Transform FollowingFor { get; private set; }
     public bool FreezeZPosition { get; private set; }
@@ -18,9 +18,9 @@ public class FollowingObject : IFixedTickable
         _newPosition = FollowingFor != null ? FollowingFor.position : _moveTo;
         
         if (FreezeZPosition == true)
-            _newPosition.z = _objectTransform.position.z - _offset.z;
+            _newPosition.z = _objectTransform.position.z - Offset.z;
         
-        _objectTransform.position = Vector3.Lerp(_objectTransform.position, _newPosition + _offset, 
+        _objectTransform.position = Vector3.Lerp(_objectTransform.position, _newPosition + Offset, 
             _speed * Time.deltaTime);
     }
 

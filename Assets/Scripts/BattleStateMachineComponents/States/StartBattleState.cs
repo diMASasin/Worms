@@ -10,6 +10,7 @@ using InputService;
 using Pools;
 using Projectiles;
 using Projectiles.Behaviours;
+using Services;
 using Timers;
 using UnityEngine;
 using Weapons;
@@ -34,16 +35,18 @@ namespace BattleStateMachineComponents.States
         private readonly IStateSwitcher _stateSwitcher;
         private readonly BattleStateMachineData _data;
         private WormInfoFactory _wormInfoFactory;
+        private AllServices _services;
         private StartStateData StartStateData => _data.StartStateData;
         private TurnStateData TurnStateData => _data.TurnStateData;
         private BetweenTurnsStateData BetweenTurnsData => _data.BetweenTurnsData;
         private WormsSpawnerConfig SpawnerConfig => StartStateData.WormsSpawner.Config;
         private Timer GlobalTimer => GlobalData.GlobalTimer;
 
-        public StartBattleState(IStateSwitcher stateSwitcher, BattleStateMachineData data)
+        public StartBattleState(IStateSwitcher stateSwitcher, BattleStateMachineData data, AllServices services)
         {
             _stateSwitcher = stateSwitcher;
             _data = data;
+            _services = services;
         }
 
         public void Enter()
@@ -117,7 +120,10 @@ namespace BattleStateMachineComponents.States
 
         private void SpawnWorms(out WormFactory wormFactory)
         {
-            BattleSettings.GetSettings(out int teamsNumber, out int wormsNumber);
+            var battleSettings = _services.Single<IBattleSettings>();
+            
+            int teamsNumber = battleSettings.Data.TeamsCount;
+            int wormsNumber = battleSettings.Data.WormsCount;
             
             wormFactory = new WormFactory(GameConfig.WormPrefab, StartStateData.Terrain);
             var teamFactory = new TeamFactory(wormFactory);

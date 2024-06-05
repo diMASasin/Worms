@@ -1,5 +1,7 @@
+using Battle_;
 using GameStateMachineComponents;
 using GameStateMachineComponents.States;
+using Services;
 using UI;
 using UnityEngine;
 
@@ -8,15 +10,14 @@ namespace Infrastructure
     public class GameBootstrapper : MonoBehaviour
     {
         [SerializeField] private LoadingScreen _loadingScreen;
-        [SerializeField] private CoroutinePerformer _coroutinePerformer;
-
+        [SerializeField] private CoroutinePerformer _coroutinePerformerPrefab;
+        [SerializeField] private MainMenu _mainMenuPrefab;
+        
         private static GameBootstrapper _instance;
         
-        private SceneLoader _sceneLoader;
-        private GameStateMachine _gameStateMachine;
         private Game _game;
         private GameStateMachineData _data;
-        
+
         private void Awake()
         {
             if (_instance == null)
@@ -29,15 +30,14 @@ namespace Infrastructure
                 return;
             }
             
-            _coroutinePerformer.Init();
-            _sceneLoader = new SceneLoader(_coroutinePerformer);
             DontDestroyOnLoad(this);
 
             _game = new Game();
-            _loadingScreen.Init(_sceneLoader);
             
-            _data = new GameStateMachineData(_coroutinePerformer, _game, _sceneLoader, _loadingScreen);
-            _game.StateMachine = new GameStateMachine(_data);
+            _data = new GameStateMachineData(_game, _loadingScreen, _mainMenuPrefab, _coroutinePerformerPrefab, transform);
+            _game.StateMachine = new GameStateMachine(_data, AllServices.Container);
         }
+
+        
     }
 }

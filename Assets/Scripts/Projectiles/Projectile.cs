@@ -42,31 +42,6 @@ namespace Projectiles
             _rigidbody.velocity += additionalVelocity;
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space) && Config.ExplodeOnKeyDown)
-                Explode();
-        }
-
-        private void FixedUpdate()
-        {
-            if (Config.LookInVelocityDirection)
-                _spriteObject.transform.up = _rigidbody.velocity;
-        }
-
-        private void LateUpdate()
-        {
-            Vector2 direction = _spriteObject.transform.up;
-            Vector2 origin = transform.position;
-            float maxDistance = 0f;
-            float radius = _collider.radius * 1.2f;
-            List<RaycastHit2D> results = new();
-            int count = Physics2D.CircleCast(origin, radius, direction, Config.ContactFilter, results, maxDistance);
-            Debug.DrawRay(origin, direction * (radius + maxDistance), Color.red, Time.deltaTime);
-            
-            if (Config.ExplodeOnCollision && count > 0) Explode();
-        }
-
         public void ResetView()
         {
             _rigidbody.velocity = Vector2.zero;
@@ -87,6 +62,40 @@ namespace Projectiles
             _dead = true;
             Exploded?.Invoke(this);
             gameObject.SetActive(false);
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && Config.ExplodeOnKeyDown)
+                Explode();
+        }
+
+        private void FixedUpdate()
+        {
+            if (Config.LookInVelocityDirection)
+                _spriteObject.transform.up = _rigidbody.velocity;
+        }
+
+        private void LateUpdate()
+        {
+            GetCollisionDetectionParameters(out Vector2 origin, out float radius);
+            List<RaycastHit2D> results = new();
+            
+            int count = Physics2D.CircleCast(origin, radius, Vector2.zero, Config.ContactFilter, results, distance: 0);
+            
+            if (Config.ExplodeOnCollision && count > 0) Explode();
+        }
+
+        private void OnDrawGizmos()
+        {
+            GetCollisionDetectionParameters(out Vector2 origin, out float radius);
+            Gizmos.DrawSphere(origin, radius);
+        }
+
+        private void GetCollisionDetectionParameters(out Vector2 origin, out float radius)
+        {
+            origin = transform.position;
+            radius = _collider.radius * 1.2f;
         }
     }
 }

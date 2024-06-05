@@ -3,31 +3,11 @@ using UnityEngine;
 
 namespace Infrastructure
 {
-    public class CoroutinePerformer : MonoBehaviour
+    public class CoroutinePerformer : MonoBehaviour, ICoroutinePerformer
     {
-        private static CoroutinePerformer _instance;
-        private static MonoBehaviour _instanceMono;
-
-        public void Init()
-        {
-            if (_instance == null)
-            {
-                _instance = this;
-                _instanceMono = _instance;
-            }
-        }
-
-        public new Coroutine StartRoutine(IEnumerator enumerator)
-        {
-            return _instanceMono.StartCoroutine(enumerator);
-        }
-    
-        public new static Coroutine StartCoroutine(IEnumerator enumerator)
-        {
-            return _instanceMono.StartCoroutine(enumerator);
-        }
-    
-        public new static void StopCoroutine(Coroutine coroutine) => _instanceMono.StopCoroutine(coroutine);
-        public new static void StopCoroutine(IEnumerator coroutine) => _instanceMono.StopCoroutine(coroutine);
+        public new Coroutine StartCoroutine(IEnumerator enumerator) => 
+            ((MonoBehaviour)this).StartCoroutine(enumerator);
+        public new void StopCoroutine(Coroutine coroutine) => 
+            ((MonoBehaviour)this).StopCoroutine(coroutine);
     }
 }

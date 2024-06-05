@@ -1,7 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
+using Battle_;
 using BattleStateMachineComponents;
 using GameStateMachineComponents.States;
+using Infrastructure;
+using Services;
 
 namespace GameStateMachineComponents
 {
@@ -11,15 +14,15 @@ namespace GameStateMachineComponents
         private readonly List<GameState> _states;
         private GameState _currentState;
 
-        public GameStateMachine(GameStateMachineData data)
+        public GameStateMachine(GameStateMachineData data, AllServices services)
         {
             _data = data;
 
             _states = new List<GameState>()
             {
-                new BootstrapState(_data, this),
-                new MainMenuState(_data, this),
-                new LevelLoadState(_data, this),
+                new BootstrapState(_data, this, services),
+                new MainMenuState(_data, this, services.Single<IBattleSettings>(), services.Single<ISceneLoader>()),
+                new LevelLoadState(_data, this, services.Single<ISceneLoader>()),
                 new GameLoopState(_data, this)
             };
 
@@ -35,9 +38,5 @@ namespace GameStateMachineComponents
             _currentState = state;
             _currentState.Enter();
         }
-
-        // public void HandleInput() => _currentState.HandleInput();
-
-        public void Update() => _currentState.Tick();
     }
 }

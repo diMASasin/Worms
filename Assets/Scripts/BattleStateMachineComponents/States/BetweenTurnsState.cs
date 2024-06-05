@@ -2,6 +2,7 @@ using BattleStateMachineComponents.StatesData;
 using CameraFollow;
 using Configs;
 using Timers;
+using UnityEngine;
 using Wind_;
 
 namespace BattleStateMachineComponents.States

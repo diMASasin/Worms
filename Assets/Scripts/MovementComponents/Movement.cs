@@ -152,7 +152,7 @@ namespace MovementComponents
 
             _canJump = false;
             _inJump = true;
-            CoroutinePerformer.StartCoroutine(ReloadJump(JumpCooldown));
+            StartCoroutine(ReloadJump(JumpCooldown));
 
             return true;
         }
@@ -164,7 +164,7 @@ namespace MovementComponents
             _jumpVelocityX += LongJumpForce.x * Armature.transform.right.x;
             _velocity.y = LongJumpForce.y;
             _maxVelocityX = Mathf.Abs(_jumpVelocityX);
-            CoroutinePerformer.StartCoroutine(StopJump());
+            StartCoroutine(StopJump());
         }
 
         public void HighJump()
@@ -174,7 +174,7 @@ namespace MovementComponents
             _jumpVelocityX += HighJumpForce.x * -Armature.transform.right.x;
             _velocity.y = HighJumpForce.y;
             _maxVelocityX = Mathf.Abs(_jumpVelocityX);
-            CoroutinePerformer.StartCoroutine(StopJump());
+            StartCoroutine(StopJump());
         }
 
         private IEnumerator ReloadJump(float duration)

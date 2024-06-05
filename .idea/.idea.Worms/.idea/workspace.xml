@@ -5,23 +5,67 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="200a9c5f-335a-44bb-b8dc-d5d4d6152652" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/PlayerFreeFallingState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/PlayerFreeFallingState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Infrastructure.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Infrastructure/CoroutinePerformer.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Infrastructure/CoroutinePerformer.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/MainMenuCanvas.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/MainMenuCanvas.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/WorldSpace/FollowingTimerView.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/WorldSpace/FollowingTimerView.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Battle_/IBattleSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Battle_/IBattleSettings.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/ICoroutinePerformer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/ICoroutinePerformer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/ISceneLoader.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/ISceneLoader.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Services.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Services/AllServices.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Services/AllServices.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Services/IService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Services/IService.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/Explosion/FragmentExplosion.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Explosion/FragmentExplosion.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/Show.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/UI/Show.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/WeaponSelector.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/UI/WeaponSelector.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/EssentialPhysics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/EssentialPhysics.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/PlayerData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/PlayerData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/PlayerMain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/PlayerMain.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerIdleState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerLandState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerLandState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bootstrapper.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bootstrapper.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Windows/SettingsWindow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Windows/SettingsWindow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/WorldSpace/FollowingTimerView 1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/WorldSpace/FollowingTimerView 1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/WorldSpace/WormInformationView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/WorldSpace/WormInformationView.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/WindEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/WindEffect.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Worm/Worm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Worm/Worm.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/RetreatState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/RetreatState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputService/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/PlayerInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/IWorm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/IWorm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BetweenTurnsState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BetweenTurnsState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/ProjectilesWaiting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/ProjectilesWaiting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/StartBattleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/StartBattleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle_/Battle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle_/Battle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle_/BattleSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle_/BattleSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle_/Bootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle_/Bootstrap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCamera.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FollowingObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FollowingObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/GameStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/GameStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/GameStateMachineData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/GameStateMachineData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/BootstrapState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/BootstrapState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/GameLoopState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/GameLoopState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/GameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/GameState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/LevelLoadState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/LevelLoadState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/MainMenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/MainMenuState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/CoroutinePerformer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/CoroutinePerformer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/GameBootstrapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/GameBootstrapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MovementComponents/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MovementComponents/Movement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/ExplodeOnKeyDown.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/ExplodeOnKeyDown.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Projectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rigidbody2DExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rigidbody2DExtension.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Timers/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Timers/Timer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/LoadingScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LoadingScreen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/SettingsWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/SettingsWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +150,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/00/6df15695/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/18/172bf742/UnitySynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/22/1cb6480a/SetupCoroutine.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/43/c9ea3a32/StackTraceUtility.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/4e/b5bb6101/Debug.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/aa/754c92bb/ScriptableObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/d9/11443d3d/ObjectPool`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/df/890bb65e/SceneManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -178,10 +224,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="16656">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="16656" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -246,7 +292,10 @@
       <workItem from="1717337502817" duration="106000" />
       <workItem from="1717343682619" duration="5789000" />
       <workItem from="1717392091433" duration="4437000" />
-      <workItem from="1717479704663" duration="7862000" />
+      <workItem from="1717479704663" duration="19922000" />
+      <workItem from="1717518823160" duration="4361000" />
+      <workItem from="1717574112301" duration="5417000" />
+      <workItem from="1717583210855" duration="922000" />
     </task>
     <servers />
   </component>
@@ -275,80 +324,127 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/PlayerFreeFallingState.cs</url>
-          <line>26</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Plugins\2D Ultimate Side Scroller Character Controller\Scripts\PlayerFreeFallingState.cs" initialLine="26" containingFunctionPresentation="Method 'Update'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/StartBattleState.cs</url>
+          <line>53</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\BattleStateMachineComponents\States\StartBattleState.cs" initialLine="51" containingFunctionPresentation="Method 'Enter'">
             <startOffsets>
-              <option value="761" />
+              <option value="1981" />
             </startOffsets>
             <endOffsets>
-              <option value="838" />
+              <option value="2080" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="288" />
+          <option name="timeStamp" value="312" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerLandState.cs</url>
-          <line>70</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Plugins\2D Ultimate Side Scroller Character Controller\Scripts\State System\Child States\PlayerLandState.cs" initialLine="70" containingFunctionPresentation="Method 'SwitchStateLogic'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs</url>
+          <line>38</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\BattleStateMachineComponents\States\TurnState.cs" initialLine="38" containingFunctionPresentation="Method 'Enter'">
             <startOffsets>
-              <option value="2078" />
+              <option value="1103" />
             </startOffsets>
             <endOffsets>
-              <option value="2172" />
+              <option value="1150" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="292" />
+          <option name="timeStamp" value="313" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/EssentialPhysics.cs</url>
-          <line>82</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Plugins\2D Ultimate Side Scroller Character Controller\Scripts\Essentials\EssentialPhysics.cs" initialLine="82" containingFunctionPresentation="Method 'GroundCheck'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/RetreatState.cs</url>
+          <line>22</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\BattleStateMachineComponents\States\RetreatState.cs" initialLine="22" containingFunctionPresentation="Method 'Enter'">
             <startOffsets>
-              <option value="3711" />
+              <option value="606" />
             </startOffsets>
             <endOffsets>
-              <option value="3733" />
+              <option value="633" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="294" />
+          <option name="timeStamp" value="314" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/EssentialPhysics.cs</url>
-          <line>78</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Plugins\2D Ultimate Side Scroller Character Controller\Scripts\Essentials\EssentialPhysics.cs" initialLine="78" containingFunctionPresentation="Method 'GroundCheck'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/ProjectilesWaiting.cs</url>
+          <line>17</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\BattleStateMachineComponents\States\ProjectilesWaiting.cs" initialLine="17" containingFunctionPresentation="Method 'Enter'">
             <startOffsets>
-              <option value="3567" />
+              <option value="407" />
             </startOffsets>
             <endOffsets>
-              <option value="3584" />
+              <option value="444" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="295" />
+          <option name="timeStamp" value="316" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerLandState.cs</url>
-          <line>65</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Plugins\2D Ultimate Side Scroller Character Controller\Scripts\State System\Child States\PlayerLandState.cs" initialLine="65" containingFunctionPresentation="Method 'SwitchStateLogic'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BetweenTurnsState.cs</url>
+          <line>28</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\BattleStateMachineComponents\States\BetweenTurnsState.cs" initialLine="27" containingFunctionPresentation="Method 'Enter'">
             <startOffsets>
-              <option value="1759" />
+              <option value="912" />
             </startOffsets>
             <endOffsets>
-              <option value="1783" />
+              <option value="1024" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="297" />
+          <option name="timeStamp" value="317" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs</url>
+          <line>61</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\BattleStateMachineComponents\States\TurnState.cs" initialLine="61" containingFunctionPresentation="Method 'Exit'">
+            <startOffsets>
+              <option value="1996" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2013" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="318" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/RetreatState.cs</url>
+          <line>34</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\BattleStateMachineComponents\States\RetreatState.cs" initialLine="34" containingFunctionPresentation="Method 'Exit'">
+            <startOffsets>
+              <option value="997" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1023" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="319" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BetweenTurnsState.cs</url>
+          <line>42</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\BattleStateMachineComponents\States\BetweenTurnsState.cs" initialLine="41" containingFunctionPresentation="Method 'Exit'">
+            <startOffsets>
+              <option value="1385" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1399" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="320" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/ProjectilesWaiting.cs</url>
+          <line>24</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\BattleStateMachineComponents\States\ProjectilesWaiting.cs" initialLine="24" containingFunctionPresentation="Method 'Exit'">
+            <startOffsets>
+              <option value="577" />
+            </startOffsets>
+            <endOffsets>
+              <option value="623" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="321" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="UNITY_DEBUG_RUN_CONFIGURATION">
-        <watch expression="rigidbody2D.velocity" language="C#" />
-        <watch expression="localXVelovity" language="C#" />
-        <watch expression="_objectTransform" language="C#" />
-        <watch expression="hitInfo.collider" language="C#" />
-        <watch expression="playerData.Physics.IsGrounded" language="C#" />
-        <watch expression="_playerMain.gameObject.name" language="C#" />
+        <watch expression="AllServices.Container.Single&lt;BattleSettings&gt;()" language="C#" />
       </configuration>
     </watches-manager>
   </component>

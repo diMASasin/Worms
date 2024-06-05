@@ -71,8 +71,8 @@ namespace Plugins._2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Essent
             float _offset = -0.01f;
             List<RaycastHit2D> results = new();
             int count = Physics2D.CircleCast(playerData.Physics.GroundCheckPosition,
-                player.CapsuleCollider2D.size.x / 1.99f * Mathf.Abs(player.transform.localScale.x) + _offset,
-                -player.transform.up, playerData.Physics.GroundContactFilter, results, 0.1f);
+                player.CapsuleCollider2D.size.x / 2f * Mathf.Abs(player.transform.localScale.x) + _offset,
+                -player.transform.up, playerData.Physics.GroundContactFilter, results, 0.05f);
 
             RaycastHit2D hittedPlayer = results.FirstOrDefault(hit => hit.collider == player.CapsuleCollider2D);
             

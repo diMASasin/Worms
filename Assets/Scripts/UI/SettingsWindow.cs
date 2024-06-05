@@ -1,7 +1,10 @@
 using Battle_;
+using Infrastructure;
+using Services;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -11,9 +14,32 @@ namespace UI
         [SerializeField] private TMP_Dropdown _dropdownTeams;
         [SerializeField] private TMP_Dropdown _dropdownWorms;
         [SerializeField] private TMP_Dropdown _dropdownMaps;
+        [SerializeField] private Button _playButton;
+        [SerializeField] private Button _closeButton;
         
         private static readonly int ShowAnimation = Animator.StringToHash("Show");
         private static readonly int HideAnimation = Animator.StringToHash("Hide");
+        private IBattleSettings _battleSettings;
+        private ISceneLoader _sceneLoader;
+
+        public void Init(IBattleSettings battleSettings, ISceneLoader sceneLoader)
+        {
+            _battleSettings = battleSettings;
+            _sceneLoader = sceneLoader;
+        }
+
+        private void OnEnable()
+        {
+            _playButton.onClick.AddListener(Play);
+            _closeButton.onClick.AddListener(Hide);
+        }
+
+        private void OnDisable()
+        {
+            _playButton.onClick.RemoveListener(Play);
+            _closeButton.onClick.RemoveListener(Hide);
+        }
+
 
         public void Show()
         {
@@ -37,9 +63,9 @@ namespace UI
             int wormsCount = _dropdownWorms.value + 1;
             int sceneNumber = _dropdownMaps.value + 1;
             
-            BattleSettings.Save(wormsCount, teamsCount);
+            _battleSettings.Save(new SettingsData(wormsCount, teamsCount));
             
-            SceneManager.LoadScene(sceneNumber);
+            _sceneLoader.LoadBattleMap(sceneNumber);
         }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Infrastructure;
+using Services;
 using UnityEngine;
 
 namespace Timers
@@ -11,23 +12,29 @@ namespace Timers
         private double _timeLeft = 0;
         private Coroutine _coroutine;
         private bool _paused;
-        [field: SerializeField] public bool Started { get; private set; }
+        private readonly ICoroutinePerformer _coroutinePerformer;
+        public bool Started { get; private set; }
         
         public event Action<double> TimerUpdated;
 
+        public Timer()
+        {
+            _coroutinePerformer = AllServices.Container.Single<ICoroutinePerformer>();
+        }
+        
         public void Start(float interval, Action onElapsed)
         {
             _interval = interval;
-            _timeLeft = _interval;
+            Stop();
             Started = true;
             TimerUpdated?.Invoke(_timeLeft);
-            _coroutine = CoroutinePerformer.StartCoroutine(StartTimer(onElapsed));
+            _coroutine = _coroutinePerformer.StartCoroutine(StartTimer(onElapsed));
         }
 
         public void Stop()
         {
             if(_coroutine != null)
-                CoroutinePerformer.StopCoroutine(_coroutine);
+                _coroutinePerformer.StopCoroutine(_coroutine);
             
             Reset();
         }

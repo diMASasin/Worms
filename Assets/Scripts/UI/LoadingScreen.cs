@@ -1,4 +1,5 @@
 using Infrastructure;
+using Services;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,12 +12,11 @@ namespace UI
         [SerializeField] private TMP_Text _percents;
         [SerializeField] private Slider _progressBar;
         
-        private SceneLoader _sceneLoader;
+        private ISceneLoader _sceneLoader;
 
-        public void Init(SceneLoader sceneLoader)
+        public void Init(ISceneLoader sceneLoader)
         {
             _sceneLoader = sceneLoader;
-            
         }
 
         private void OnProgressChanged(float progress)

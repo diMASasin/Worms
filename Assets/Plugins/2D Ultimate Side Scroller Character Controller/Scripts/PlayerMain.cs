@@ -81,8 +81,8 @@ namespace UltimateCC
         private void OnDrawGizmos()
         {
             
-            Gizmos.DrawSphere(PlayerData.Physics.GroundCheckPosition + new Vector2(0, -0.125f),
-                CapsuleCollider2D.size.x / 1.97f * Mathf.Abs(transform.localScale.x));
+            Gizmos.DrawSphere(PlayerData.Physics.GroundCheckPosition + new Vector2(0, -0.05f),
+                CapsuleCollider2D.size.x / 2f * Mathf.Abs(transform.localScale.x));
         }
     }
 }

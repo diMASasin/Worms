@@ -8,17 +8,20 @@ public static class Rigidbody2DExtension
         Vector2 explosionDirection = rigidbody.position - explosionPosition;
         float explosionDistance = explosionDirection.magnitude;
 
-        // Normalize without computing magnitude again
         if (upwardsModifier == 0)
         {
             explosionDirection /= explosionDistance;
         }
         else
         {
-            // From Rigidbody.AddExplosionForce doc:
-            // If you pass a non-zero value for the upwardsModifier parameter, the direction
-            // will be modified by subtracting that value from the Y component of the centre point.
             explosionDirection.y += upwardsModifier;
+
+            if (explosionDirection.y <= 0.1f)
+            {
+                explosionDirection.y = 0.1f;
+                Debug.Log("explosionDirection.y = 0.1f");
+            }
+            
             explosionDirection.Normalize();
         }
 

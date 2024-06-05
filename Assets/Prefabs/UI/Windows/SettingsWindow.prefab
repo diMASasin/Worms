@@ -679,6 +679,8 @@ MonoBehaviour:
   _dropdownTeams: {fileID: 3393798505268519304}
   _dropdownWorms: {fileID: 5140868902496533594}
   _dropdownMaps: {fileID: 1122526343915028686}
+  _playButton: {fileID: 5104141653446976561}
+  _closeButton: {fileID: 3095866155367641615}
 --- !u!1 &1841728351411391744
 GameObject:
   m_ObjectHideFlags: 0
@@ -2141,19 +2143,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6533602134078828360}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7676447965944914202}
-        m_TargetAssemblyTypeName: SettingsWindow, Assembly-CSharp
-        m_MethodName: Hide
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &6363828728968092238
 GameObject:
   m_ObjectHideFlags: 0
@@ -2968,19 +2958,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 198757143589615967}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7676447965944914202}
-        m_TargetAssemblyTypeName: SettingsWindow, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &7715664279889326509
 GameObject:
   m_ObjectHideFlags: 0
