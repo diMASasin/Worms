@@ -5,9 +5,9 @@ using UnityEngine.Events;
 
 namespace Weapons
 {
-    public class Weapon : IWeapon
+    public class Weapon : MonoBehaviour, IWeapon
     {
-        private readonly WeaponConfig _config;
+        private WeaponConfig _config;
 
         private float _currentShotPower = 0;
         private float _zRotation;
@@ -16,13 +16,14 @@ namespace Weapons
 
         public float CurrentShotPower => _currentShotPower;
         public WeaponConfig Config => _config;
+        public GameObject gameObject => ((Component)this).gameObject;
 
-        public event Action<float> Shot;
+        public event Action<float, Weapon> Shot;
         public event Action<float> ShotPowerChanged;
         public event Action IncreasePowerStarted;
         public event Action<float> ScopeMoved;
 
-        public Weapon(WeaponConfig config)
+        public void Init(WeaponConfig config)
         {
             _config = config;
         }
@@ -69,7 +70,7 @@ namespace Weapons
             if (IsShot)
                 return;
 
-            Shot?.Invoke(_currentShotPower);
+            Shot?.Invoke(_currentShotPower, this);
             IsShot = true;
             _currentShotPower = 0;
         }

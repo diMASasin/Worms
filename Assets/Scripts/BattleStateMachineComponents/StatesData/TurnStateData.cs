@@ -13,7 +13,6 @@ namespace BattleStateMachineComponents.StatesData
     {
         [field: SerializeField] public WeaponSelector WeaponSelector { get; private set; }
         
-        public CycledList<Team> AliveTeams { get; private set; } = new();
         public Arrow Arrow { get; private set; }
         public IProjectileEvents AllProjectileEvents { get; private set; }
         public WeaponChanger WeaponChanger { get; private set; }

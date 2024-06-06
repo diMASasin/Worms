@@ -10,15 +10,15 @@ namespace Weapons
     {
         private readonly IWeaponSelectedEvent _weaponSelectedEvent;
         private readonly IWeaponShotEvent _weaponShotEvent;
-        private readonly WeaponView _weaponView;
+        private readonly Transform _weaponsParent;
         private IWormWeapon _currentWorm;
 
         public WeaponChanger(IWeaponSelectedEvent weaponSelectedEvent, IWeaponShotEvent weaponShotEvent,
-            WeaponView weaponView)
+             Transform weaponsParent)
         {
             _weaponSelectedEvent = weaponSelectedEvent;
             _weaponShotEvent = weaponShotEvent;
-            _weaponView = weaponView;
+            _weaponsParent = weaponsParent;
 
             _weaponSelectedEvent.WeaponSelected += OnWeaponSelected;
             _weaponShotEvent.WeaponShot += OnWeaponShot;
@@ -37,30 +37,30 @@ namespace Weapons
             _currentWorm.WeaponRemoved += OnWeaponRemoved;
         }
 
-        private void OnWeaponShot(float shotPower)
+        private void OnWeaponShot(float shotPower, Weapon weapon)
         {
-            _weaponView.transform.parent = null;
+            weapon.transform.parent = _weaponsParent;
         }
 
         private void OnWeaponSelected(Weapon weapon)
         {
-            Transform weaponViewTransform = _weaponView.transform;
+            Transform weaponTransform = weapon.transform;
             Transform wormTransform = _currentWorm.WeaponPosition.transform;
 
-            _weaponView.gameObject.SetActive(true);
-            weaponViewTransform.parent = wormTransform;
-            weaponViewTransform.position = wormTransform.position;
-            weaponViewTransform.right = _currentWorm.WeaponPosition.right;
+            ((Component)weapon).gameObject.SetActive(true);
+            weaponTransform.parent = wormTransform;
+            weaponTransform.position = wormTransform.position;
+            weaponTransform.right = _currentWorm.WeaponPosition.right;
             weapon.Reset();
             
             _currentWorm.ChangeWeapon(weapon);
         }
 
-        private void OnWeaponRemoved()
+        private void OnWeaponRemoved(IWeapon weapon)
         {
             _currentWorm.WeaponRemoved -= OnWeaponRemoved;
             
-            _weaponView.gameObject.SetActive(false);
+            weapon.gameObject.SetActive(false);
         }
     }
 }

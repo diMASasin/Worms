@@ -7,7 +7,7 @@ namespace Weapons
     {
         public WeaponConfig Config { get; }
         
-        event Action<float> Shot;
+        event Action<float, Weapon> Shot;
         event Action<float> ShotPowerChanged;
         event Action IncreasePowerStarted;
         event Action<float> ScopeMoved;

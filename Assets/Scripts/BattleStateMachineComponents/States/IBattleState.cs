@@ -6,7 +6,5 @@ namespace BattleStateMachineComponents.States
         void Exit();
         void Tick();
         void FixedTick();
-        void LateTick();
-        void HandleInput();
     }
 }

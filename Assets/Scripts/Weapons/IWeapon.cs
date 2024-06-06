@@ -1,5 +1,6 @@
 using System;
 using Configs;
+using UnityEngine;
 
 namespace Weapons
 {
@@ -11,5 +12,6 @@ namespace Weapons
         void Shoot();
         void Reset();
         float CurrentShotPower { get; }
+        GameObject gameObject { get; }
     }
 }

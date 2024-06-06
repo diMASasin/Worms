@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b7954cebe7df9449e4f4e24d5dd5aa, type: 3}
   m_Name: RocketLauncher
   m_EditorClassIdentifier: 
+  <WeaponPrefab>k__BackingField: {fileID: 8510113237089447412, guid: 3676fab9d2835e44dbc02545e67707ec, type: 3}
   <Sencetivity>k__BackingField: 0.01
   <ScopeSensetivity>k__BackingField: 50
   <SpeedMultiplier>k__BackingField: 0.03

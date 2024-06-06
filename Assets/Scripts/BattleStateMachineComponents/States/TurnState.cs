@@ -36,7 +36,7 @@ namespace BattleStateMachineComponents.States
 
         public void Enter()
         {
-            CurrentTeam = _turnStateData.AliveTeams.Next();
+            CurrentTeam = _data.AliveTeams.Next();
             CurrentWorm = _data.CurrentTeam.Worms.Next();
             
             CurrentWorm.SetCurrentWormLayer();

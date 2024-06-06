@@ -31,7 +31,7 @@ namespace WormComponents
         public event Action<IWorm> Died;
         public event Action<IWorm> DamageTook;
         public event Action<IWeapon> WeaponChanged;
-        public event Action WeaponRemoved;
+        public event Action<IWeapon> WeaponRemoved;
         
         private void OnDrawGizmos()
         {
@@ -117,8 +117,8 @@ namespace WormComponents
 
         public void RemoveWeapon()
         {
+            WeaponRemoved?.Invoke(Weapon);
             ChangeWeapon(null);
-            WeaponRemoved?.Invoke();
         }
 
         public void ChangeWeapon(IWeapon weapon)

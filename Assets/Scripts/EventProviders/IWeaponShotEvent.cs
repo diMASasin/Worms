@@ -1,10 +1,11 @@
 using System;
 using UnityEngine;
+using Weapons;
 
 namespace EventProviders
 {
     public interface IWeaponShotEvent
     {
-        event Action<float> WeaponShot;
+        event Action<float, Weapon> WeaponShot;
     }
 }

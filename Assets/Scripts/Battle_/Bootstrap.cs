@@ -10,7 +10,6 @@ namespace Battle_
 {
     public class Bootstrap : MonoBehaviour
     {
-        [SerializeField] private CoroutinePerformer _coroutinePerformer;
         [SerializeField] private BattleStateMachineData _data;
         
         private Battle _battle;

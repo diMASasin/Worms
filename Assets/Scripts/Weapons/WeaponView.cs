@@ -7,26 +7,19 @@ using UnityEngine;
 
 namespace Weapons
 {
-    public class WeaponView : MonoBehaviour, ISpawnPoint
+    public class WeaponView : MonoBehaviour
     {
-        [SerializeField] private Transform _spawnPoint;
         [SerializeField] private Renderer _pointerRenderer;
         [SerializeField] private Transform _pointerLine;
         [SerializeField] private SpriteRenderer _gunSprite;
         [SerializeField] private SpriteRenderer _aimSprite;
 
         private IWeaponEventsAndConfig _weapon;
-        private float _initialScaleX;
-
-        public Transform SpawnPoint => _spawnPoint;
-
-        public Action<Projectile> Shot;
         private IWeaponSelectedEvent _weaponSelectedEvent;
 
         public void Init(IWeaponSelectedEvent weaponSelectedEvent)
         {
             _weaponSelectedEvent = weaponSelectedEvent;
-            _initialScaleX = _gunSprite.gameObject.transform.localScale.x;
             
             _weaponSelectedEvent.WeaponSelected += OnWeaponChanged;
 
@@ -55,7 +48,7 @@ namespace Weapons
             transform.Rotate(0, 0, zRotation * Time.deltaTime);
         }
 
-        private void OnShot(float arg0)
+        private void OnShot(float arg0, Weapon weapon)
         {
             Hide();
             TryUnsubscribeWeapon();

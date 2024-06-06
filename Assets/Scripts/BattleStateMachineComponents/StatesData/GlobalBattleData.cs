@@ -14,7 +14,9 @@ namespace BattleStateMachineComponents.StatesData
     {
         [field: SerializeField] public FollowingCamera FollowingCamera { get; private set; }
         [field: SerializeField] public Water Water { get; private set; }
+        
         public TimersConfig TimersConfig { get; private set; }
+        public CycledList<Team> AliveTeams { get; private set; } = new();
         
         [NonSerialized] public IWorm CurrentWorm;
         [NonSerialized] public Team CurrentTeam;

@@ -21,7 +21,6 @@ namespace Battle_
         public void Tick()
         {
             _battleStateMachine.Tick();
-            _battleStateMachine.HandleInput();
         }
 
         public void LateTick()
@@ -30,6 +29,6 @@ namespace Battle_
         }
 
         public void FixedTick() => _battleStateMachine.FixedTick();
-        public void Start() => _battleStateMachine.SwitchState<StartBattleState>();
+        public void Start() => _battleStateMachine.SwitchState<BootstrapBattleState>();
     }
 }

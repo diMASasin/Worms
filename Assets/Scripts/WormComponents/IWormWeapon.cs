@@ -9,7 +9,7 @@ namespace WormComponents
         Transform WeaponPosition { get; }
         
         event Action<IWeapon> WeaponChanged;
-        event Action WeaponRemoved;
+        event Action<IWeapon> WeaponRemoved;
         
         void ChangeWeapon(IWeapon weapon);
     }

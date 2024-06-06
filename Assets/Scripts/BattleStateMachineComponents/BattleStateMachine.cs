@@ -9,18 +9,18 @@ namespace BattleStateMachineComponents
     public class BattleStateMachine : IStateSwitcher
     {
         private readonly BattleStateMachineData _data;
-        private readonly StartBattleState _startBattleState;
+        private readonly BootstrapBattleState _bootstrapBattleState;
         private readonly List<IBattleState> _states;
         private IBattleState _currentState;
 
         public BattleStateMachine(BattleStateMachineData data, AllServices services)
         {
             _data = data;
-            _startBattleState = new StartBattleState(this, data, services); 
+            _bootstrapBattleState = new BootstrapBattleState(this, data, services); 
             
             _states = new List<IBattleState>()
             {
-                _startBattleState,
+                _bootstrapBattleState,
                 new BetweenTurnsState(this, data.GlobalBattleData, data.BetweenTurnsData),
                 new TurnState(this, data.GlobalBattleData, data.TurnStateData),
                 new RetreatState(this, data.GlobalBattleData),
@@ -40,25 +40,14 @@ namespace BattleStateMachineComponents
             _currentState.Enter();
         }
 
-        public void HandleInput()
-        {
-            _currentState.HandleInput();
-        }
-
         public void Tick()
         {
             _data.GlobalBattleData.PlayerInput.CameraInput.Tick();
             _currentState.Tick();
         }
 
-        public void FixedTick()
-        {
-            _currentState.FixedTick();
-        }
+        public void FixedTick() => _currentState.FixedTick();
 
-        public void Dispose()
-        {
-            _startBattleState.Dispose();
-        }
+        public void Dispose() => _bootstrapBattleState.Dispose();
     }
 }

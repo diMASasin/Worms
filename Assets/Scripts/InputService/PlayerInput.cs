@@ -70,7 +70,7 @@ namespace InputService
             WeaponInput.Enable(weapon);
         }
 
-        private void OnWeaponRemoved()
+        private void OnWeaponRemoved(IWeapon weapon)
         {
             WeaponInput.Disable();
         }

@@ -1163,12 +1163,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a252a0b89272ba440a49f7bd59e47139, type: 3}
---- !u!4 &2047420903 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2462788789681257133, guid: a49187f72e412ea4697513f6a276efa0, type: 3}
-  m_PrefabInstance: {fileID: 170273389}
-  m_PrefabAsset: {fileID: 0}
---- !u!43 &2068803254
+--- !u!43 &2047065645
 Mesh:
   m_ObjectHideFlags: 16
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1343,6 +1338,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!4 &2047420903 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2462788789681257133, guid: a49187f72e412ea4697513f6a276efa0, type: 3}
+  m_PrefabInstance: {fileID: 170273389}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2069717353
 GameObject:
   m_ObjectHideFlags: 0
@@ -1565,7 +1565,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172764772764920397}
-  m_Mesh: {fileID: 2068803254}
+  m_Mesh: {fileID: 2047065645}
 --- !u!114 &172764772764920386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1579,7 +1579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   digable: 1
-  mesh: {fileID: 2068803254}
+  mesh: {fileID: 2047065645}
   meshRenderer: {fileID: 172764772764920384}
   polygonCollider: {fileID: 172764772764920387}
   positions:
