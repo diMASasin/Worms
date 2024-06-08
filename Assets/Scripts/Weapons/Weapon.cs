@@ -5,38 +5,58 @@ using UnityEngine.Events;
 
 namespace Weapons
 {
-    public class Weapon : MonoBehaviour, IWeapon
+    public class Weapon : MonoBehaviour
     {
         private WeaponConfig _config;
 
         private float _currentShotPower = 0;
         private float _zRotation;
+        private IWeaponInput _weaponInput;
 
         public bool IsShot { get; private set; } = false;
 
         public float CurrentShotPower => _currentShotPower;
         public WeaponConfig Config => _config;
-        public GameObject gameObject => ((Component)this).gameObject;
+        public GameObject GameObject => gameObject;
 
         public event Action<float, Weapon> Shot;
         public event Action<float> ShotPowerChanged;
         public event Action IncreasePowerStarted;
         public event Action<float> ScopeMoved;
 
-        public void Init(WeaponConfig config)
+        public void Init(WeaponConfig config, IWeaponInput weaponInput)
         {
+            _weaponInput = weaponInput;
             _config = config;
+
+            _weaponInput.PointerLineEnabled += StartIncresePower;
+            _weaponInput.Shoot += Shoot;
+        }
+
+        private void OnDestroy()
+        {
+            _weaponInput.PointerLineEnabled -= StartIncresePower;
+            _weaponInput.Shoot -= Shoot;
+        }
+
+        private void Update()
+        {
+            MoveScope();
+            
+            if(_weaponInput.IsShotPowerIncreasing() == true)
+                IncreaseShotPower();
         }
 
         public void Reset()
         {
             IsShot = false;
             _currentShotPower = 0;
+            ShotPowerChanged?.Invoke(_currentShotPower);
         }
 
-        public void MoveScope(float direction)
+        public void MoveScope()
         {
-            _zRotation = -direction * Config.ScopeSensetivity;
+            _zRotation = _weaponInput.GetAimDirection() * Config.ScopeSensetivity;
             //_zRotation = Mathf.Repeat(_zRotation, 720) - 360;
             ScopeMoved?.Invoke(_zRotation);
         }

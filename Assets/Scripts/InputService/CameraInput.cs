@@ -3,18 +3,11 @@ using UnityEngine;
 
 namespace InputService
 {
-    public class CameraInput
+    public class CameraInput : ICameraInput
     {
-        private readonly IControllableCamera _camera;
-
-        public CameraInput(IControllableCamera camera)
+        public float GetScrollDeltaY()
         {
-            _camera = camera;
-        }
-        
-        public void Tick()
-        {
-            _camera.TryZoom(Input.mouseScrollDelta.y);
+            return Input.mouseScrollDelta.y;
         }
     }
 }

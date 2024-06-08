@@ -12,7 +12,7 @@ namespace BattleStateMachineComponents.States
         private readonly IStateSwitcher _stateSwitcher;
         private readonly GlobalBattleData _data;
         private readonly BetweenTurnsStateData _betweenTurnsData;
-        private Timer _timer = new();
+        private readonly Timer _timer;
         private TimersConfig TimersConfig => _data.TimersConfig;
         private FollowingCamera FollowingCamera => _data.FollowingCamera;
 
@@ -22,6 +22,7 @@ namespace BattleStateMachineComponents.States
             _stateSwitcher = stateSwitcher;
             _data = data;
             _betweenTurnsData = betweenTurnsData;
+            _timer = new Timer();
         }
 
         public void Enter()

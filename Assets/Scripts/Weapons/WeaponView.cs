@@ -4,43 +4,33 @@ using EventProviders;
 using Pools;
 using Projectiles;
 using UnityEngine;
+using WormComponents;
 
 namespace Weapons
 {
     public class WeaponView : MonoBehaviour
     {
+        [SerializeField] private Weapon _weapon;
         [SerializeField] private Renderer _pointerRenderer;
         [SerializeField] private Transform _pointerLine;
         [SerializeField] private SpriteRenderer _gunSprite;
         [SerializeField] private SpriteRenderer _aimSprite;
-
-        private IWeaponEventsAndConfig _weapon;
-        private IWeaponSelectedEvent _weaponSelectedEvent;
-
-        public void Init(IWeaponSelectedEvent weaponSelectedEvent)
+        
+        private void OnEnable()
         {
-            _weaponSelectedEvent = weaponSelectedEvent;
-            
-            _weaponSelectedEvent.WeaponSelected += OnWeaponChanged;
+            _weapon.ScopeMoved += MoveScope;
+            _weapon.Shot += OnShot;
+            _weapon.IncreasePowerStarted += OnIncreasePowerStarted;
+            _weapon.ShotPowerChanged += OnShotPowerChanged;
 
-            Hide();
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
-            if (_weaponSelectedEvent != null)
-                _weaponSelectedEvent.WeaponSelected -= OnWeaponChanged;
-        }
-
-        private void EnableAimSprite()
-        {
-            _aimSprite.enabled = true;
-        }
-
-        private void SetGunSprite(WeaponConfig config)
-        {
-            _gunSprite.enabled = true;
-            _gunSprite.sprite = config.Sprite;
+            _weapon.ScopeMoved -= MoveScope;
+            _weapon.Shot -= OnShot;
+            _weapon.IncreasePowerStarted -= OnIncreasePowerStarted;
+            _weapon.ShotPowerChanged -= OnShotPowerChanged;
         }
 
         private void MoveScope(float zRotation)
@@ -51,33 +41,6 @@ namespace Weapons
         private void OnShot(float arg0, Weapon weapon)
         {
             Hide();
-            TryUnsubscribeWeapon();
-        }
-
-        private void OnWeaponChanged(Weapon weapon)
-        {
-            TryUnsubscribeWeapon();
-
-            _weapon = weapon;
-
-            _weapon.ShotPowerChanged += OnShotPowerChanged;
-            _weapon.Shot += OnShot;
-            _weapon.IncreasePowerStarted += OnIncreasePowerStarted;
-            _weapon.ScopeMoved += MoveScope;
-
-            SetGunSprite(_weapon.Config);
-            EnableAimSprite();
-        }
-
-        private void TryUnsubscribeWeapon()
-        {
-            if (_weapon == null)
-                return;
-
-            _weapon.ShotPowerChanged -= OnShotPowerChanged;
-            _weapon.Shot -= OnShot;
-            _weapon.IncreasePowerStarted -= OnIncreasePowerStarted;
-            _weapon.ScopeMoved -= MoveScope;
         }
 
         private void OnShotPowerChanged(float currentShotPower)

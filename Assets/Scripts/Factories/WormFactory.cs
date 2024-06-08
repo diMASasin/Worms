@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using Configs;
 using DestructibleLand;
 using EventProviders;
+using InputService;
+using Services;
+using UltimateCC;
 using UnityEngine;
 using WormComponents;
-using Object = UnityEngine.Object;
+using static UnityEngine.Object;
 
 namespace Factories
 {
@@ -14,21 +17,24 @@ namespace Factories
         private readonly Worm _wormPrefab;
         private readonly TerrainWrapper _terrain;
         private readonly List<Worm> _worms = new();
+        private readonly IInput _input;
 
-        public event Action<IWorm, Color, string> WormCreated;
-        public event Action<IWorm> WormDied;
-        public event Action<IWorm> WormDamageTook;
+        public event Action<Worm, Color, string> WormCreated;
+        public event Action<Worm> WormDied;
+        public event Action<Worm> WormDamageTook;
 
-        public WormFactory(Worm wormPrefab, TerrainWrapper terrain)
+        public WormFactory(Worm wormPrefab, TerrainWrapper terrain, AllServices services)
         {
             _wormPrefab = wormPrefab;
             _terrain = terrain;
+            _input = services.Single<IInput>();
         }
 
         public Worm Create(Transform parent, Color teamColor, WormConfig config)
         {
             Vector2 position = _terrain.GetRandomSpawnPoint(_wormPrefab.Collider2D.size);
-            var newWorm = Object.Instantiate(_wormPrefab, position, Quaternion.identity, parent);
+            Worm newWorm = Instantiate(_wormPrefab, position, Quaternion.identity, parent);
+            
             newWorm.Init(config);
             newWorm.FreezePosition();
             
@@ -47,12 +53,12 @@ namespace Factories
                 worm.DamageTook -= OnDamageTook;
         }
 
-        private void OnDamageTook(IWorm worm)
+        private void OnDamageTook(Worm worm)
         {
             WormDamageTook?.Invoke(worm);
         }
 
-        private void OnDied(IWorm worm)
+        private void OnDied(Worm worm)
         {
             worm.Died -= OnDied;
             WormDied?.Invoke(worm);

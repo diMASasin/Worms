@@ -9,7 +9,7 @@ namespace WormComponents
         [SerializeField] private Animator _animator;
         [SerializeField] private GroundChecker _groundChecker;
         [SerializeField] private Movement _movement;
-        [SerializeField] private PlayerInputManager _input;
+        [SerializeField] private InputHandler _input;
     
         private static readonly int Idle = Animator.StringToHash("Idle");
         private static readonly int Walk = Animator.StringToHash("Walk");

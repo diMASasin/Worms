@@ -19,17 +19,21 @@ namespace UI
         private IWeaponSelectedEvent _selectedEvent;
     
         private static readonly int Opened = Animator.StringToHash("Opened");
+        private IWeaponSelectorInput _weaponSelectorInput;
 
-        public void Init(IWeaponSelectedEvent selectedEvent)
+        public void Init(IWeaponSelectedEvent selectedEvent, IWeaponSelectorInput weaponSelectorInput)
         {
+            _weaponSelectorInput = weaponSelectorInput;
             _selectedEvent = selectedEvent;
 
             _selectedEvent.WeaponSelected += OnSelected;
+            _weaponSelectorInput.ShouldTogleWeaponSelector += Toggle;
         }
 
         private void OnDestroy()
         {
             if (_selectedEvent != null) _selectedEvent.WeaponSelected -= OnSelected;
+            if (_weaponSelectorInput != null) _weaponSelectorInput.ShouldTogleWeaponSelector -= Toggle;
         }
 
         public void Toggle() => _animator.SetBool(Opened, !_animator.GetBool(Opened));

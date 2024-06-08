@@ -21,9 +21,7 @@ namespace BattleStateMachineComponents.States
         public void Enter()
         {
             _data.GlobalTimer.Resume();
-            _data.CurrentWorm.Input.Enable();
-            _data.CurrentWorm.SetCurrentWormLayer();
-            _data.CurrentWorm.UnfreezePosition();
+            _data.CurrentWorm.DelegateInput(_data.Input);
             
             _data.TurnTimer.Start(TimersConfig.AfterShotDuration, () => 
                 _stateSwitcher.SwitchState<ProjectilesWaiting>());
@@ -33,11 +31,9 @@ namespace BattleStateMachineComponents.States
         public void Exit()
         {
             _data.GlobalTimer.Pause();
-            _data.CurrentWorm.Input.Disable();
-            _data.CurrentWorm.SetWormLayer();
-            _data.CurrentWorm.FreezePositionWhenGrounded();
-            
             _data.TurnTimer.Stop();
+            
+            _data.CurrentWorm.RemoveInput();
         }
 
         public void Tick()

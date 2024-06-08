@@ -1,13 +1,24 @@
+using System;
 using Battle_;
+using CameraFollow;
 using Infrastructure;
+using InputService;
 using Services;
+using UI;
+using UltimateCC;
 using UnityEngine;
+using Weapons;
+using Object = UnityEngine.Object;
 
 namespace GameStateMachineComponents.States
 {
-    public class BootstrapState : GameState
+    public class BootstrapState : GameState, IDisposable
     {
         private readonly ISceneLoader _sceneLoader;
+        private MovementInput _movementInput;
+        private CameraInput _cameraInput;
+        private WeaponInput _weaponInput;
+        private WeaponSelectorInput _weaponSelectorInput;
 
         public BootstrapState(GameStateMachineData data, IGameStateSwitcher stateSwitcher, AllServices services) : 
             base(data, stateSwitcher)
@@ -15,6 +26,13 @@ namespace GameStateMachineComponents.States
             RegisterServices(services);
             
             _sceneLoader = services.Single<ISceneLoader>();
+        }
+
+        public void Dispose()
+        {
+            _movementInput.Unsubscribe();
+            _weaponInput.Unsubscribe();
+            _weaponSelectorInput.Unsubscribe();
         }
 
         public override void Enter()
@@ -27,20 +45,39 @@ namespace GameStateMachineComponents.States
         private void OnLoaded()
         {
             StateSwitcher.SwitchState<MainMenuState>();
-            // if(SceneManager.GetActiveScene().name == SceneLoader.MainMenu)
-            //     StateSwitcher.SwitchState<LevelLoadState>();
         }
 
         public override void Exit()
         {
         }
-        
+
         private void RegisterServices(AllServices services)
         {
             CoroutinePerformer coroutinePerformer = Object.Instantiate(Data.CoroutinePerformerPrefab, Data.GameParent);
             services.RegisterSingle<ICoroutinePerformer>(coroutinePerformer);
             services.RegisterSingle<ISceneLoader>(new SceneLoader(coroutinePerformer));
             services.RegisterSingle<IBattleSettings>(new BattleSettings());
+            
+            RegisterInput(services);
+        }
+
+        private void RegisterInput(AllServices services)
+        {
+            var mainInput = new MainInput();
+            
+            _movementInput = new MovementInput();
+            _cameraInput = new CameraInput();
+            _weaponInput = new WeaponInput(mainInput.Weapon);
+            _weaponSelectorInput = new WeaponSelectorInput(mainInput.UI);
+            
+            services.RegisterSingle<ICameraInput>(_cameraInput);
+            services.RegisterSingle<IWeaponInput>(_weaponInput);
+            services.RegisterSingle<IWeaponSelectorInput>(_weaponSelectorInput);
+            services.RegisterSingle<IInput>(_movementInput);
+            
+            _weaponInput.Subscribe();
+            _weaponSelectorInput.Subscribe();
+            _movementInput.Subscribe();
         }
     }
 }

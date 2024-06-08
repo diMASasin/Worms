@@ -21,7 +21,7 @@ namespace BattleStateMachineComponents.States
         private Team CurrentTeam { set => _data.CurrentTeam = value; }
 
 
-        private IWorm CurrentWorm
+        private Worm CurrentWorm
         {
             get => _data.CurrentWorm;
             set => _data.CurrentWorm = value;
@@ -39,16 +39,10 @@ namespace BattleStateMachineComponents.States
             CurrentTeam = _data.AliveTeams.Next();
             CurrentWorm = _data.CurrentTeam.Worms.Next();
             
-            CurrentWorm.SetCurrentWormLayer();
-            CurrentWorm.UnfreezePosition();
-            CurrentWorm.Input.Enable();
+            CurrentWorm.DelegateInput(_data.Input);
 
-            _turnStateData.WeaponChanger.ChangeWorm(CurrentWorm);
             _turnStateData.Arrow.StartMove(CurrentWorm.Transform);
             _data.FollowingCamera.SetTarget(CurrentWorm.Transform);
-            
-            _data.PlayerInput.ChangeWorm(CurrentWorm);
-            _data.PlayerInput.UIInput.Enable();
             
             _turnStateData.WormEvents.WormDied += OnWormDied;
             _turnStateData.AllProjectileEvents.Launched += OnLaunched;
@@ -63,9 +57,7 @@ namespace BattleStateMachineComponents.States
             GlobalTimer.Pause();
             _turnStateData.WeaponSelector.Close();
             
-            // _data.PlayerInput.DisableAll();
-            CurrentWorm.Input.Disable();
-            CurrentWorm.RemoveWeapon();
+            CurrentWorm.RemoveInput();
             
             _turnStateData.AllProjectileEvents.Launched -= OnLaunched;
             _turnStateData.WormEvents.WormDied -= OnWormDied;
@@ -79,17 +71,7 @@ namespace BattleStateMachineComponents.States
         {
         }
 
-        public void LateTick()
-        {
-        }
-
-        public void HandleInput()
-        {
-            // _data.PlayerInput.MovementInput.Tick();
-            _data.PlayerInput.WeaponInput.Tick();
-        }
-
-        private void OnWormDied(IWorm worm)
+        private void OnWormDied(Worm worm)
         {
             _stateSwitcher.SwitchState<ProjectilesWaiting>();
         }

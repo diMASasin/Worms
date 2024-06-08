@@ -7,12 +7,18 @@ namespace MovementComponents
     {
         [SerializeField] private float _jumpInterval = 2;
 
-        private readonly Timer _jumpTimer = new();
+        private Timer _jumpTimer;
         
         private Vector3 _overlapPoint;
         private Vector3 _overlapBoxSize;
         private bool _shouldJump;
 
+        protected override void Start()
+        {
+            base.Start();
+            _jumpTimer = new Timer();
+        }
+        
         public override void Reset()
         {
             base.Reset();

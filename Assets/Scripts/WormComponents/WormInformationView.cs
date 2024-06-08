@@ -9,9 +9,9 @@ namespace WormComponents
         [SerializeField] private TMP_Text _nameText;
         [SerializeField] private FollowingObject _followingObject;
     
-        private IWorm _worm;
+        private Worm _worm;
 
-        public void Init(IWorm worm, Color color, string wormName)
+        public void Init(Worm worm, Color color, string wormName)
         {
             _worm = worm;
             _worm.DamageTook += OnHealthChanged;
@@ -29,7 +29,7 @@ namespace WormComponents
 
         private void LateUpdate() => _followingObject.LateTick();
 
-        private void OnHealthChanged(IWorm worm)
+        private void OnHealthChanged(Worm worm)
         {
             _healthText.text = worm.Health.ToString();
         }

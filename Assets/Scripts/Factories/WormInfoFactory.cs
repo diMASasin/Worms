@@ -11,7 +11,7 @@ namespace Factories
     {
         private readonly WormInformationView _wormInfoPrefab;
         private readonly IWormEvents _wormEvents;
-        private readonly Dictionary<IWorm, WormInformationView> _informationViews = new();
+        private readonly Dictionary<Worm, WormInformationView> _informationViews = new();
         private readonly Transform _parent;
 
         public WormInfoFactory(WormInformationView prefab, IWormEvents wormEvents)
@@ -32,7 +32,7 @@ namespace Factories
             _wormEvents.WormDied -= OnWormDied;
         }
 
-        private void CreateInfoView(IWorm worm, Color teamColor, string wormName)
+        private void CreateInfoView(Worm worm, Color teamColor, string wormName)
         {
             WormInformationView wormInfo = Instantiate(_wormInfoPrefab, _parent);
             wormInfo.Init(worm, teamColor, wormName);
@@ -40,7 +40,7 @@ namespace Factories
             _informationViews.Add(worm, wormInfo);
         }
 
-        private void OnWormDied(IWorm worm)
+        private void OnWormDied(Worm worm)
         {
             Destroy(_informationViews[worm].gameObject);
             _informationViews.Remove(worm);

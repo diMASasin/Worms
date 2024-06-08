@@ -1,13 +1,13 @@
 using System;
-using System.Collections.Generic;
 using Battle_;
 using BattleStateMachineComponents.StatesData;
+using CameraFollow;
 using Configs;
-using Factories;
-using InputService;
-using Pools;
+using Projectiles;
 using Services;
 using Timers;
+using UltimateCC;
+using UnityEngine;
 using Weapons;
 using WormComponents;
 using static UnityEngine.Object;
@@ -18,6 +18,7 @@ namespace BattleStateMachineComponents.States
     {
         private readonly IStateSwitcher _stateSwitcher;
         private readonly BattleStateMachineData _data;
+        private readonly AllServices _services;
         private readonly WeaponBootstrapper _weaponBootstrapper;
         private readonly PoolBootsrapper _poolBootsrapper;
         private readonly WormsBootstraper _wormsBootstraper;
@@ -32,38 +33,62 @@ namespace BattleStateMachineComponents.States
         {
             _stateSwitcher = stateSwitcher;
             _data = data;
+            _services = services;
+            Transform healthParent = StartStateData.UIChanger.transform;
 
             _weaponBootstrapper = new WeaponBootstrapper(GameConfig.WeaponConfigs, TurnStateData.WeaponSelector, 
-                GameConfig.ItemPrefab);
+                GameConfig.ItemPrefab, _services);
             
             _poolBootsrapper = new PoolBootsrapper(GameConfig.WeaponConfigs, GameConfig.ExplosionConfig, 
                 GameConfig.FollowingTimerViewPrefab);
-            
-            _wormsBootstraper = new WormsBootstraper(StartStateData.Terrain, services.Single<BattleSettings>(), 
-                GameConfig, StartStateData.UIChanger.transform, _data.GlobalBattleData.AliveTeams);
+
+            _wormsBootstraper = new WormsBootstraper(StartStateData.Terrain, services.Single<IBattleSettings>(), 
+                StartStateData.WormsSpawner, GameConfig, healthParent, GlobalData.AliveTeams, services);
         }
 
         public void Enter()
         {
-            GlobalData.PlayerInput = new PlayerInput(GlobalData.MainInput, GlobalData.FollowingCamera,
-                TurnStateData.WeaponSelector);
+            WeaponChanger weaponChanger = _weaponBootstrapper.WeaponChanger;
+            GlobalData.Init(GameConfig.TimersConfig, AllServices.Container.Single<IInput>());
             
-            StartStateData.Terrain.Init(SpawnerConfig.ContactFilter, SpawnerConfig.MaxSlope);
-            StartStateData.Terrain.GetEdgesForSpawn();
-            
-            Arrow arrow = Instantiate(GameConfig.ArrowPrefab);
-            ShovelWrapper shovelWrapper = new (Instantiate(GameConfig.ShovelPrefab));
+            InitializeTerrain();
 
-            _poolBootsrapper.InitializePools(shovelWrapper, out var allProjectileEvents, out List<ProjectilePool> projectilePools);
-            _weaponBootstrapper.CreateWeapon(projectilePools, out WeaponChanger weaponChanger);
-            _wormsBootstraper.SpawnWorms(out WormFactory wormFactory);
+            CreateObjects(out var shovelWrapper, out var arrow);
+
+            InitializeBootstrappers(shovelWrapper);
 
             InitializeTimers();
 
-            _data.BetweenTurnsData.Init(GameConfig.WindData, StartStateData.WindView, allProjectileEvents);
-            TurnStateData.Init(arrow, allProjectileEvents, weaponChanger, wormFactory);
+            InitializeStatesData(arrow, weaponChanger);
 
             _stateSwitcher.SwitchState<BetweenTurnsState>();
+        }
+
+        private void InitializeTerrain()
+        {
+            StartStateData.Terrain.Init(SpawnerConfig.ContactFilter, SpawnerConfig.MaxSlope);
+            StartStateData.Terrain.GetEdgesForSpawn();
+        }
+
+        private void CreateObjects(out ShovelWrapper shovelWrapper, out Arrow arrow)
+        {
+            arrow = Instantiate(GameConfig.ArrowPrefab);
+            shovelWrapper = new(Instantiate(GameConfig.ShovelPrefab));
+        }
+
+        private void InitializeBootstrappers(ShovelWrapper shovelWrapper)
+        {
+            _poolBootsrapper.InitializePools(shovelWrapper);
+            _wormsBootstraper.SpawnWorms();
+            _weaponBootstrapper.CreateWeapon(_poolBootsrapper.ProjectilePools, _wormsBootstraper.WormEvents);
+        }
+
+        private void InitializeStatesData(Arrow arrow, WeaponChanger weaponChanger)
+        {
+            IProjectileEvents projectileEvents = _poolBootsrapper.ProjectilesEvents;
+            _data.BetweenTurnsData.Init(GameConfig.WindData, StartStateData.WindView, projectileEvents);
+            TurnStateData.Init(arrow, projectileEvents, weaponChanger, _wormsBootstraper.WormEvents);
+            GlobalData.FollowingCamera.Init(_services.Single<ICameraInput>());
         }
 
         private void InitializeTimers()

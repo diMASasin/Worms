@@ -9,13 +9,14 @@ namespace WormComponents
         [SerializeField] private int _lifeTime = 2;
         [SerializeField] private FollowingObject _followingObject;
     
-        private readonly Timer _timer = new();
+        private Timer _timer;
         
         private static readonly int Move = Animator.StringToHash("Move");
 
-        private void Awake()
+        private void Start()
         {
             gameObject.SetActive(false);
+            _timer = new Timer();
         }
 
         public void LateUpdate() => _followingObject.LateTick();

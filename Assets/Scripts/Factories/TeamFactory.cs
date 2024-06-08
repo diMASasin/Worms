@@ -20,7 +20,7 @@ namespace Factories
 
         public Team Create(Color color, Transform parent, TeamConfig config, int wormsNumber)
         {
-            var teamWorms = new CycledList<IWorm>();
+            var teamWorms = new CycledList<Worm>();
             List<WormConfig> wormConfigs = config.WormConfigs;
             
             for (int i = 0; i < wormsNumber; i++)

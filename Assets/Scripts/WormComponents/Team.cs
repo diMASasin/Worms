@@ -11,17 +11,17 @@ namespace WormComponents
     {
         [field: SerializeField] public string Name { get; private set; }
 
-        private readonly CycledList<IWorm> _worms;
+        private readonly CycledList<Worm> _worms;
 
         public int MaxHealth { get; private set; }
         public Color Color { get; private set; }
 
-        public CycledList<IWorm> Worms => _worms;
+        public CycledList<Worm> Worms => _worms;
 
         public event UnityAction<Team> Died;
         public event UnityAction<int> HealthChanged;
 
-        public Team(CycledList<IWorm> worms, Color color, TeamConfig config)
+        public Team(CycledList<Worm> worms, Color color, TeamConfig config)
         {
             _worms = worms;
             Color = color;
@@ -36,7 +36,7 @@ namespace WormComponents
             }
         }
 
-        private void OnWormDied(IWorm worm)
+        private void OnWormDied(Worm worm)
         {
             worm.DamageTook -= OnDamageTook;
             worm.Died -= OnWormDied;
@@ -49,7 +49,7 @@ namespace WormComponents
                 Died?.Invoke(this);
         }
 
-        private void OnDamageTook(IWorm arg0)
+        private void OnDamageTook(Worm arg0)
         {
             var sum = _worms.Sum(worm => worm.Health);
             HealthChanged?.Invoke(sum);

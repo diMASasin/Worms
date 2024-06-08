@@ -11,30 +11,33 @@ namespace Weapons
         private readonly IWeaponSelectedEvent _weaponSelectedEvent;
         private readonly IWeaponShotEvent _weaponShotEvent;
         private readonly Transform _weaponsParent;
-        private IWormWeapon _currentWorm;
+        private readonly IWormEvents _wormEvents;
+        private Worm _currentWorm;
+        private Transform _weaponTransform;
+
+        public Weapon CurrentWeapon { get; private set; }
+
+        public event Action<Weapon> WeaponRemoved;
+        public event Action<Weapon> WeaponChanged;
 
         public WeaponChanger(IWeaponSelectedEvent weaponSelectedEvent, IWeaponShotEvent weaponShotEvent,
-             Transform weaponsParent)
+             Transform weaponsParent, IWormEvents wormEvents)
         {
             _weaponSelectedEvent = weaponSelectedEvent;
             _weaponShotEvent = weaponShotEvent;
             _weaponsParent = weaponsParent;
+            _wormEvents = wormEvents;
 
             _weaponSelectedEvent.WeaponSelected += OnWeaponSelected;
             _weaponShotEvent.WeaponShot += OnWeaponShot;
+            _wormEvents.WormDied += OnWormDied;
         }
 
         public void Dispose()
         {
             _weaponSelectedEvent.WeaponSelected -= OnWeaponSelected;
             _weaponShotEvent.WeaponShot -= OnWeaponShot;
-        }
-
-        public void ChangeWorm(IWormWeapon worm)
-        {
-            _currentWorm = worm;
-            
-            _currentWorm.WeaponRemoved += OnWeaponRemoved;
+            _wormEvents.WormDied -= OnWormDied;
         }
 
         private void OnWeaponShot(float shotPower, Weapon weapon)
@@ -44,23 +47,31 @@ namespace Weapons
 
         private void OnWeaponSelected(Weapon weapon)
         {
-            Transform weaponTransform = weapon.transform;
             Transform wormTransform = _currentWorm.WeaponPosition.transform;
+            _weaponTransform = weapon.transform;
 
-            ((Component)weapon).gameObject.SetActive(true);
-            weaponTransform.parent = wormTransform;
-            weaponTransform.position = wormTransform.position;
-            weaponTransform.right = _currentWorm.WeaponPosition.right;
+            RemoveWeapon(CurrentWeapon);
+            CurrentWeapon = weapon;
+            
+            weapon.GameObject.SetActive(true);
+            _weaponTransform.parent = wormTransform;
+            _weaponTransform.position = wormTransform.position;
+            _weaponTransform.right = _currentWorm.WeaponPosition.right;
             weapon.Reset();
             
-            _currentWorm.ChangeWeapon(weapon);
+            WeaponChanged?.Invoke(weapon);
         }
 
-        private void OnWeaponRemoved(IWeapon weapon)
+        private void RemoveWeapon(Weapon weapon)
         {
-            _currentWorm.WeaponRemoved -= OnWeaponRemoved;
-            
-            weapon.gameObject.SetActive(false);
+            _weaponTransform.parent = _weaponsParent;
+            weapon.GameObject.SetActive(false);
+            WeaponRemoved?.Invoke(weapon);
+        }
+
+        private void OnWormDied(Worm worm)
+        {
+            RemoveWeapon(CurrentWeapon);
         }
     }
 }

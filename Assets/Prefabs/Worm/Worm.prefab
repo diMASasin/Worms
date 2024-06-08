@@ -261,8 +261,8 @@ MonoBehaviour:
       contactPosition: {x: 0, y: 0}
       facingDirection: 0
       headBumpMinAngle: 30
-      slideOnCornerMinAngle: 90
-      slideSpeedOnCorner: 0
+      slideOnCornerMinAngle: 45
+      slideSpeedOnCorner: 1
       isGrounded: 0
       isOnNotWalkableSlope: 0
       isMultipleContactWithNonWalkableSlope: 0
@@ -697,7 +697,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      xSlowDownTime: 1
+      xSlowDownTime: 0.1
       xTurnBackCurve:
         serializedVersion: 2
         m_Curve:
@@ -706,32 +706,23 @@ MonoBehaviour:
           value: 1
           inSlope: 0
           outSlope: 0
-          tangentMode: 136
+          tangentMode: 34
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0
           outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 0.7
-          value: 0
-          inSlope: -2.3701289
-          outSlope: -2.3701289
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.116191454
-          outWeight: 0.05372711
         - serializedVersion: 3
           time: 2
-          value: -1
+          value: 1
           inSlope: 0
           outSlope: 0
-          tangentMode: 136
+          tangentMode: 34
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.33333334
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      xTurnBackTime: 0.04
+      xTurnBackTime: 100
       ignoreWallSlideTime: 0.2
       physics2DGravityScale: 0
       currentJumpType: 0
@@ -846,7 +837,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      xSlowDownTime: 1
+      xSlowDownTime: 0.1
       xTurnBackCurve:
         serializedVersion: 2
         m_Curve:
@@ -855,32 +846,23 @@ MonoBehaviour:
           value: 1
           inSlope: 0
           outSlope: 0
-          tangentMode: 136
+          tangentMode: 34
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 0.7
-          value: 0
-          inSlope: -2.3701289
-          outSlope: -2.3701289
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.116191454
-          outWeight: 0.05372711
+          inWeight: 0
+          outWeight: 0
         - serializedVersion: 3
           time: 2
-          value: -1
+          value: 1
           inSlope: 0
           outSlope: 0
-          tangentMode: 136
+          tangentMode: 34
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      xTurnBackTime: 0.04
+      xTurnBackTime: 10
       physics2DGravityScale: 0
     Dash:
       maxHeight: 0.3
@@ -966,7 +948,7 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      dashTime: 0.35
+      dashTime: 0
       dashCooldown: 1
       dashCooldownTimer: 0
       physics2DGravityScale: 0
@@ -1360,7 +1342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 3213259104454701872}
   _collider: {fileID: 3213259104454701873}
-  <Input>k__BackingField: {fileID: 1868357830118979999}
+  <InputHandler>k__BackingField: {fileID: 1868357830118979999}
   <Armature>k__BackingField: {fileID: 5433852659771445145}
   <WeaponPosition>k__BackingField: {fileID: 3757564109097753724}
 --- !u!95 &3797376096388542332

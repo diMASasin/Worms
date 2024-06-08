@@ -5,7 +5,7 @@ using UnityEngine;
 namespace CameraFollow
 {
     [RequireComponent(typeof(Camera))]
-    public class FollowingCamera : MonoBehaviour, IControllableCamera
+    public class FollowingCamera : MonoBehaviour
     {
         [SerializeField] private Camera _camera;
         [SerializeField] private FollowingObject _followingObject;
@@ -14,13 +14,26 @@ namespace CameraFollow
         [field: SerializeField] public Vector3 GeneralViewPosition { get; private set; }
 
         private Transform _target;
+        private ICameraInput _cameraInput;
 
         private Vector3 CameraPosition
         {
             get => _camera.transform.position;
             set => _camera.transform.position = value;
         }
-        
+
+        public void Init(ICameraInput cameraInput)
+        {
+            _cameraInput = cameraInput;
+        }
+
+        private void Update()
+        {
+            if (_cameraInput == null) return;
+            
+            TryZoom(_cameraInput.GetScrollDeltaY());
+        }
+
         private void LateUpdate()
         {
             _followingObject.LateTick();

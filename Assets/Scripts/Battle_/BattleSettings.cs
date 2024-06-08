@@ -7,8 +7,8 @@ namespace Battle_
     {
         private int _wormsCount;
         private int _teamsCount;
-        
-        public SettingsData Data { get; private set; }
+
+        public SettingsData Data { get; private set; } 
 
         public event Action BattleSettingsSaved;
 

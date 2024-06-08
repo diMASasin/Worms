@@ -5,55 +5,336 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="200a9c5f-335a-44bb-b8dc-d5d4d6152652" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/FragGranade.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/FragGranade.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Granade.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Granade.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RocketLauncher.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RocketLauncher.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Sheep.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Sheep.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/PoolBootsrapper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/PoolBootsrapper.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/WeaponBootstrapper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/WeaponBootstrapper.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/WormsBootstraper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/WormsBootstraper.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Interfaces.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/Player AC.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/Player AC.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerCrouchIdle.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerCrouchIdle.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerCrouchWalk.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerCrouchWalk.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerDash.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerDash.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerExtraJump1.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerExtraJump1.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerExtraJump2.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerExtraJump2.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerIdle.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerIdle.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerJump.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerJump.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerLand.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerLand.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerWalk.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerWalk.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerWallClimb.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerWallClimb.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerWallGrab.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerWallGrab.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerWallJump.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerWallJump.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerWallSlide.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Animations/PlayerWallSlide.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Documentation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Documentation.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Materials/Default-BuiltIn.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Materials/Default-BuiltIn.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Materials/ZeroFriction.physicsMaterial2D" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Materials/ZeroFriction.physicsMaterial2D.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Prefabs/Coyote Time Jump.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Prefabs/Coyote Time Jump.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Prefabs/FreePlatform.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Prefabs/FreePlatform.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Prefabs/Platform.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Prefabs/Platform.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Prefabs/Swinging Platform.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Prefabs/Swinging Platform.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Prefabs/Swinging and Moving Platform.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Prefabs/Swinging and Moving Platform.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Prefabs/TestRoom_Big.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Prefabs/TestRoom_Big.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Prefabs/TestRoom_Flat.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Prefabs/TestRoom_Flat.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Prefabs/TestRoom_Small.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Prefabs/TestRoom_Small.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scenes/TestScene_PC.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scenes/TestScene_PC.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Custom Attributes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Custom Attributes/BoundedCurveAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Custom Attributes/CustomRangeAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Custom Attributes/CustomRangeAttribute.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Custom Attributes/InformAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Custom Attributes/InformAttribute.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Custom Attributes/NonEditableAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Custom Attributes/NonEditableAttribute.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/EssentialPhysics.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/EssentialPhysics.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Extensions.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Extensions/AnimationCurveExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Extensions/AnimationCurveExtensions.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Extensions/Vector2Extensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Extensions/Vector2Extensions.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Input System.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Input System/IInput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Input System/IInput.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Input System/InputActions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Input System/InputActions.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Input System/InputActions.inputactions" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Input System/InputActions.inputactions.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Input System/InputManager.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Input System/InputManager/PlayerInputManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Input System/InputManager/PlayerInputManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Platform Movement.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Platform Movement/Platform.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Platform Movement/Platform.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Platform Movement/SwingingPlatform.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Platform Movement/SwingingPlatform.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/PlayerData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/PlayerData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/PlayerFreeFallingState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/PlayerFreeFallingState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/PlayerMain.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/PlayerMain.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Base States.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Base States/MainState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Base States/MainState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/Interfaces.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/Interfaces/IInterfaces.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/Interfaces/IInterfaces.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerCrouchIdleState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerCrouchIdleState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerCrouchWalkState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerCrouchWalkState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerDashState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerDashState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerIdleState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerIdleState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerJumpState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerJumpState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerLandState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerLandState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerWalkState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerWalkState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerWallClimbState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerWallClimbState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerWallGrabState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerWallGrabState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerWallJumpState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerWallJumpState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerWallSlideState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerWallSlideState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/PlayerStateMachine.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/PlayerStateMachine.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/ICameraInput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/ICameraInput.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/IWeaponInput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/IWeaponInput.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/IWeaponSelectorInput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/IWeaponSelectorInput.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/NewInput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/NewInput.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/WeaponSelectorInput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/WeaponSelectorInput.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/Player AC.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/Player AC.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerCrouchIdle.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerCrouchIdle.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerCrouchWalk.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerCrouchWalk.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerDash.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerDash.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerExtraJump1.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerExtraJump1.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerExtraJump2.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerExtraJump2.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerIdle.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerIdle.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerJump.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerJump.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerLand.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerLand.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerWalk.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerWalk.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerWallClimb.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerWallClimb.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerWallGrab.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerWallGrab.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerWallJump.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerWallJump.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerWallSlide.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Animations/PlayerWallSlide.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Documentation.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Documentation.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Materials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Materials/Default-BuiltIn.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Materials/Default-BuiltIn.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Materials/ZeroFriction.physicsMaterial2D" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Materials/ZeroFriction.physicsMaterial2D.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Prefabs/Coyote Time Jump.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Prefabs/Coyote Time Jump.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Prefabs/FreePlatform.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Prefabs/FreePlatform.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Prefabs/Platform.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Prefabs/Platform.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Prefabs/Swinging Platform.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Prefabs/Swinging Platform.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Prefabs/Swinging and Moving Platform.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Prefabs/Swinging and Moving Platform.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Prefabs/TestRoom_Big.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Prefabs/TestRoom_Big.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Prefabs/TestRoom_Flat.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Prefabs/TestRoom_Flat.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Prefabs/TestRoom_Small.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Prefabs/TestRoom_Small.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scenes/TestScene_PC.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scenes/TestScene_PC.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Essentials.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Custom Attributes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Custom Attributes/BoundedCurveAttribute.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Custom Attributes/BoundedCurveAttribute.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Custom Attributes/CustomRangeAttribute.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Custom Attributes/CustomRangeAttribute.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Custom Attributes/InformAttribute.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Custom Attributes/InformAttribute.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Custom Attributes/NonEditableAttribute.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Custom Attributes/NonEditableAttribute.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/EssentialPhysics.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/EssentialPhysics.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Extensions.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Extensions/AnimationCurveExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Extensions/AnimationCurveExtensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Extensions/Vector2Extensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Extensions/Vector2Extensions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Input System.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Input System/InputActions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Input System/InputActions.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Input System/InputActions.inputactions" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Input System/InputActions.inputactions.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Input System/InputManager.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Input System/InputManager/PlayerInputManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Input System/InputManager/PlayerInputManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Platform Movement.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Platform Movement/Platform.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Platform Movement/Platform.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Platform Movement/SwingingPlatform.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/Platform Movement/SwingingPlatform.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/PlayerData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/PlayerData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/PlayerFreeFallingState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/PlayerFreeFallingState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/PlayerMain.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/PlayerMain.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Base States.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Base States/MainState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Base States/MainState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/Interfaces.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/Interfaces/IInterfaces.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/Interfaces/IInterfaces.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerCrouchIdleState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerCrouchIdleState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerCrouchWalkState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerCrouchWalkState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerDashState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerDashState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerIdleState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerIdleState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerJumpState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerJumpState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerLandState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerLandState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerWalkState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerWalkState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerWallClimbState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerWallClimbState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerWallGrabState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerWallGrabState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerWallJumpState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerWallJumpState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerWallSlideState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerWallSlideState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/PlayerStateMachine.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/2D Ultimate Side Scroller Character Controller/Scripts/State System/PlayerStateMachine.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/WeaponView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/WeaponView.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/WindEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/WindEffect.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Worm/Worm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Worm/Worm.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map3.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachine.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BetweenTurnsState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BetweenTurnsState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/IBattleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/IBattleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/PoolBootsrapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/PoolBootsrapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/PoolBootsrapper.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/PoolBootsrapper.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/ProjectilesWaiting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/ProjectilesWaiting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/RetreatState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/RetreatState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/StartBattleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/StartBattleState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/WeaponBootstrapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/WeaponBootstrapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/WeaponBootstrapper.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/WeaponBootstrapper.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/WormsBootstraper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/WormsBootstraper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/WormsBootstraper.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/WormsBootstraper.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/StatesData/GlobalBattleData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/StatesData/GlobalBattleData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/StatesData/TurnStateData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/StatesData/TurnStateData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle_/Battle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle_/Battle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle_/Bootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle_/Bootstrap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Configs/WeaponConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Configs/WeaponConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EventProviders/IWeaponShotEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EventProviders/IWeaponShotEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle_/BattleSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle_/BattleSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle_/Bootstrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle_/BattleBootstraper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Battle_/Bootstrap.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Battle_/BattleBootstraper.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCamera.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/IControllableCamera.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/IControllableCamera.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EventProviders/IWormEventsProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EventProviders/IWormEventsProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/TeamFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/TeamFactory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/WeaponFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/WeaponFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/ICoroutinePerformer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Interfaces/ICoroutinePerformer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/ICoroutinePerformer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Interfaces/ICoroutinePerformer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/IFixedTickable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Interfaces/IFixedTickable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/IFixedTickable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Interfaces/IFixedTickable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/ISceneLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Interfaces/ISceneLoader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/ISceneLoader.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Interfaces/ISceneLoader.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/ITickable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Interfaces/ITickable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/ITickable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Interfaces/ITickable.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputService/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/PlayerInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/ProjectileLauncher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/ProjectileLauncher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/IWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/IWeapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/IWeaponEventsAndConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/IWeaponEventsAndConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/WormFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/WormFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/WormInfoFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/WormInfoFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Game.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Game.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/GameStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/GameStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/BootstrapState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/BootstrapState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/MainMenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/MainMenuState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/GameBootstrapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/GameBootstrapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputService/CameraInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/CameraInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputService/MovementInput.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputService/MovementInput.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputService/PlayerInput.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputService/PlayerInput.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/Custom Attributes/BoundedCurveAttribute.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputService/UIInput.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputService/UIInput.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputService/WeaponInput.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputService/WeaponInput.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MovementComponents/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MovementComponents/Movement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MovementComponents/SheepMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MovementComponents/SheepMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/OnLaunchTimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/OnLaunchTimer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Services/AllServices.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Services/AllServices.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Timers/RepeatTimer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Timers/RepeatTimer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/WeaponSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/WeaponSelector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/ISpawnPoint.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/ISpawnPoint.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/IWeapon.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/IWeapon.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/IWeaponEventsAndConfig.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/IWeaponEventsAndConfig.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponChanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponChanger.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Arrow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Arrow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/IWorm.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/IWorm.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/IWormWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/IWormWeapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Team.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Team.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Worm.psd" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Worm.psd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/WormAnimations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/WormAnimations.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/WormInformationView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/WormInformationView.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,11 +376,13 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.tilemap@1.0.0/Editor/UI/TilePaletteBrushesButton.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.tilemap@1.0.0/Editor/UI/TilePaletteBrushesLabel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.tilemap@1.0.0/Editor/UI/TilePaletteBrushesPopup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.tilemap@1.0.0/Editor/UI/TilePaletteClipboardElement.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.tilemap@1.0.0/Editor/UI/TilePaletteDragHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.tilemap@1.0.0/Editor/UI/TilePaletteElement.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.tilemap@1.0.0/Tests/Editor/TilemapPackageTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.5/Runtime/Core/CinemachineVirtualCameraBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collections@1.2.4/Unity.Collections.Tests/WordsTests.gen.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collections@1.2.4/Unity.Collections/JetBrains.Annotations.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Actions/InputActionState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Actions/InputInteractionContext.cs" root0="SKIP_HIGHLIGHTING" />
@@ -112,6 +395,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/Samples~/InGameHints/InGameHintsActions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/Samples~/SimpleDemo/SimpleControls.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.7.6/Runtime/Utilities/HashUtility.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.7.6/Samples~/Customization/Tween/TweenMixerBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Editor/EventSystem/EventTriggerEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Editor/UI/SpriteDrawUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
@@ -174,7 +458,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propDebugger&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -212,10 +496,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="12548">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="12548" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -284,6 +568,10 @@
       <workItem from="1717518823160" duration="4361000" />
       <workItem from="1717574112301" duration="5417000" />
       <workItem from="1717583210855" duration="14387000" />
+      <workItem from="1717657783075" duration="16577000" />
+      <workItem from="1717691128540" duration="2480000" />
+      <workItem from="1717746974118" duration="14515000" />
+      <workItem from="1717774916329" duration="7821000" />
     </task>
     <servers />
   </component>
@@ -312,121 +600,82 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/StartBattleState.cs</url>
-          <line>50</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\BattleStateMachineComponents\States\StartBattleState.cs" initialLine="51" containingFunctionPresentation="Method 'Enter'">
-            <startOffsets>
-              <option value="2028" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2165" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="312" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs</url>
+          <url>file://$PROJECT_DIR$/Assets/Scripts/UI/WeaponSelector.cs</url>
           <line>38</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\BattleStateMachineComponents\States\TurnState.cs" initialLine="38" containingFunctionPresentation="Method 'Enter'">
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\UI\WeaponSelector.cs" initialLine="38" containingFunctionPresentation="Method 'Toggle'">
             <startOffsets>
-              <option value="1103" />
+              <option value="1318" />
             </startOffsets>
             <endOffsets>
-              <option value="1141" />
+              <option value="1371" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="313" />
+          <option name="timeStamp" value="341" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/RetreatState.cs</url>
-          <line>22</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\BattleStateMachineComponents\States\RetreatState.cs" initialLine="22" containingFunctionPresentation="Method 'Enter'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/InputService/WeaponSelectorInput.cs</url>
+          <line>27</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\InputService\WeaponSelectorInput.cs" initialLine="26" containingFunctionPresentation="Method 'OpenWeaponSelector'">
             <startOffsets>
-              <option value="606" />
+              <option value="740" />
             </startOffsets>
             <endOffsets>
-              <option value="633" />
+              <option value="775" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="314" />
+          <option name="timeStamp" value="342" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/ProjectilesWaiting.cs</url>
-          <line>17</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\BattleStateMachineComponents\States\ProjectilesWaiting.cs" initialLine="17" containingFunctionPresentation="Method 'Enter'">
+          <url>file://$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerJumpState.cs</url>
+          <line>139</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\2D Ultimate Side Scroller Character Controller\Scripts\State System\Child States\PlayerJumpState.cs" initialLine="137" containingFunctionPresentation="Method 'SwitchStateLogic'">
             <startOffsets>
-              <option value="407" />
+              <option value="4972" />
             </startOffsets>
             <endOffsets>
-              <option value="444" />
+              <option value="5020" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="316" />
+          <option name="timeStamp" value="346" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BetweenTurnsState.cs</url>
-          <line>28</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\BattleStateMachineComponents\States\BetweenTurnsState.cs" initialLine="27" containingFunctionPresentation="Method 'Enter'">
+          <url>file://$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerJumpState.cs</url>
+          <line>134</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\2D Ultimate Side Scroller Character Controller\Scripts\State System\Child States\PlayerJumpState.cs" initialLine="132" containingFunctionPresentation="Method 'SwitchStateLogic'">
             <startOffsets>
-              <option value="912" />
+              <option value="4650" />
             </startOffsets>
             <endOffsets>
-              <option value="1024" />
+              <option value="4697" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="317" />
+          <option name="timeStamp" value="347" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs</url>
-          <line>61</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\BattleStateMachineComponents\States\TurnState.cs" initialLine="61" containingFunctionPresentation="Method 'Exit'">
+          <url>file://$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerJumpState.cs</url>
+          <line>128</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\2D Ultimate Side Scroller Character Controller\Scripts\State System\Child States\PlayerJumpState.cs" initialLine="126" containingFunctionPresentation="Method 'SwitchStateLogic'">
             <startOffsets>
-              <option value="1987" />
+              <option value="4437" />
             </startOffsets>
             <endOffsets>
-              <option value="2004" />
+              <option value="4480" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="318" />
+          <option name="timeStamp" value="348" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/RetreatState.cs</url>
-          <line>34</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\BattleStateMachineComponents\States\RetreatState.cs" initialLine="34" containingFunctionPresentation="Method 'Exit'">
+          <url>file://$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerLandState.cs</url>
+          <line>50</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\2D Ultimate Side Scroller Character Controller\Scripts\State System\Child States\PlayerLandState.cs" initialLine="50" containingFunctionPresentation="Method 'FixedUpdate'">
             <startOffsets>
-              <option value="997" />
+              <option value="1454" />
             </startOffsets>
             <endOffsets>
-              <option value="1023" />
+              <option value="1521" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="319" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BetweenTurnsState.cs</url>
-          <line>45</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\BattleStateMachineComponents\States\BetweenTurnsState.cs" initialLine="41" containingFunctionPresentation="Method 'Exit'">
-            <startOffsets>
-              <option value="1506" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1520" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="320" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/ProjectilesWaiting.cs</url>
-          <line>24</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\BattleStateMachineComponents\States\ProjectilesWaiting.cs" initialLine="24" containingFunctionPresentation="Method 'Exit'">
-            <startOffsets>
-              <option value="577" />
-            </startOffsets>
-            <endOffsets>
-              <option value="623" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="321" />
+          <option name="timeStamp" value="350" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

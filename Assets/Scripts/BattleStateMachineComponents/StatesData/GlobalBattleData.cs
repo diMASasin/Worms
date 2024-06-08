@@ -4,6 +4,7 @@ using Configs;
 using EventProviders;
 using InputService;
 using Timers;
+using UltimateCC;
 using UnityEngine;
 using WormComponents;
 
@@ -18,19 +19,22 @@ namespace BattleStateMachineComponents.StatesData
         public TimersConfig TimersConfig { get; private set; }
         public CycledList<Team> AliveTeams { get; private set; } = new();
         
-        [NonSerialized] public IWorm CurrentWorm;
+        [NonSerialized] public Worm CurrentWorm;
         [NonSerialized] public Team CurrentTeam;
         
-        public readonly Timer GlobalTimer = new();
-        public readonly Timer TurnTimer = new();
+        public Timer GlobalTimer;
+        public Timer TurnTimer;
 
-        public PlayerInput PlayerInput;
-        public MainInput MainInput { get; private set; }
+        public IInput Input { get; private set; }
         
-        public void Init(MainInput mainInput, TimersConfig timersConfig)
+        public void Init(TimersConfig timersConfig, IInput input)
         {
-            MainInput = mainInput;
+            Input = input;
             TimersConfig = timersConfig;
+            
+            Input.Enable();
+            GlobalTimer = new Timer();
+            TurnTimer = new Timer();
         }
     }
 }

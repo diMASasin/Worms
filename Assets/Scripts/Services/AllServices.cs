@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Services
@@ -26,8 +27,15 @@ namespace Services
         public void RegisterSingle<TService>(TService implementation) where TService : IService => 
             Implementation<TService>.ServiceInstance = implementation;
 
-        public TService Single<TService>() where TService : IService => 
-            Implementation<TService>.ServiceInstance;
+        public TService Single<TService>() where TService : IService
+        {
+            TService implementation = Implementation<TService>.ServiceInstance;
+            
+            if (implementation == null)
+                throw new NotImplementedException($"Service {typeof(TService)} not implemented");
+            
+            return implementation;
+        }
 
         private static class Implementation<TService> where TService : IService
         {

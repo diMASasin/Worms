@@ -6,11 +6,12 @@ namespace BattleStateMachineComponents.States
     public class ProjectilesWaiting : IBattleState
     {
         private readonly IStateSwitcher _stateSwitcher;
-        private Timer _timer = new();
+        private readonly Timer _timer;
 
         public ProjectilesWaiting(IStateSwitcher stateSwitcher)
         {
             _stateSwitcher = stateSwitcher;
+            _timer = new Timer();
         }
 
         public void Enter()

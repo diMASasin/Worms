@@ -38,6 +38,6 @@ namespace Infrastructure
             _game.StateMachine = new GameStateMachine(_data, AllServices.Container);
         }
 
-        
+        private void OnDestroy() => _game?.StateMachine?.Dispose();
     }
 }

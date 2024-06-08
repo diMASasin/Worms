@@ -14,15 +14,20 @@ namespace Factories
     {
         private readonly List<ProjectilePool> _projectilePools;
         private readonly Transform _weaponsParent;
+        private readonly IWeaponSelectedEvent _weaponSelectedEvent;
+        private readonly IWeaponInput _weaponInput;
 
         private readonly List<Weapon> _weaponList = new();
 
         public event Action<float, Weapon> WeaponShot;
 
-        public WeaponFactory(List<ProjectilePool> projectilePools, Transform weaponsParent)
+        public WeaponFactory(List<ProjectilePool> projectilePools, Transform weaponsParent,
+            IWeaponSelectedEvent weaponSelectedEvent, IWeaponInput weaponInput)
         {
             _projectilePools = projectilePools;
             _weaponsParent = weaponsParent;
+            _weaponSelectedEvent = weaponSelectedEvent;
+            _weaponInput = weaponInput;
         }
         
         public void Dispose()
@@ -33,12 +38,11 @@ namespace Factories
 
         public List<Weapon> Create(IEnumerable<WeaponConfig> weaponConfigs)
         {
-            
             foreach (var config in weaponConfigs)
             {
                 Weapon weapon = Instantiate(config.WeaponPrefab, _weaponsParent);
-                weapon.Init(config);
-                ((Component)weapon).gameObject.SetActive(false);
+                weapon.Init(config, _weaponInput);
+                weapon.GameObject.SetActive(false);
                 
                 if(weapon.TryGetComponent(out ProjectileLauncher projectileLauncher) == true)
                     projectileLauncher.Init(_projectilePools);

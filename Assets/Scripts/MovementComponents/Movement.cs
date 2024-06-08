@@ -45,7 +45,7 @@ namespace MovementComponents
         public event UnityAction<bool> IsWalkingChanged;
         public event Action MoveDircetionChanged;
 
-        private void Start() => _maxVelocityX = _config.Speed;
+        protected virtual void Start() => _maxVelocityX = _config.Speed;
 
         public virtual void Reset()
         {

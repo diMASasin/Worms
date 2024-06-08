@@ -13,7 +13,12 @@ namespace Projectiles.Behaviours.LaunchBehaviour
         [SerializeField] private float _interval;
         
         private Action _onElapsed;
-        public readonly Timer Timer = new();
+        public Timer Timer;
+
+        private void Start()
+        {
+            Timer = new Timer();
+        }
 
         private void OnEnable()
         {
