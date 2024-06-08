@@ -494,7 +494,7 @@ MonoBehaviour:
       Jumps:
       - <LongJump>k__BackingField:
           Animation: 2
-          maxHeight: 3
+          maxHeight: 5
           jumpHeightCurve:
             serializedVersion: 2
             m_Curve:
@@ -559,7 +559,7 @@ MonoBehaviour:
           jumpXImpulse: 5
         <HighJump>k__BackingField:
           Animation: 2
-          maxHeight: 5
+          maxHeight: 8
           jumpHeightCurve:
             serializedVersion: 2
             m_Curve:
@@ -724,7 +724,6 @@ MonoBehaviour:
         m_RotationOrder: 4
       xTurnBackTime: 100
       ignoreWallSlideTime: 0.2
-      physics2DGravityScale: 0
       currentJumpType: 0
       CurrentXImpulse: 0
     Land:
@@ -863,7 +862,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
       xTurnBackTime: 10
-      physics2DGravityScale: 0
+      physics2DGravityScale: 1
     Dash:
       maxHeight: 0.3
       dashHeightCurve:
@@ -1067,7 +1066,7 @@ MonoBehaviour:
           m_RotationOrder: 4
         slowDownTime: 0.25
       WallClimb:
-        maxSpeed: 6
+        maxSpeed: 0
         speedUpCurve:
           serializedVersion: 2
           m_Curve:
@@ -1303,12 +1302,12 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         xTurnBackTime: 0.1
-      maxStamina: 100
+      maxStamina: 0
       currentStamina: 0
       exhaustTrigger: 0
       staminaDrainPerTrigger: 0
-      staminaRegenPerSec: 50
-      allowJumpWhenExhausted: 1
+      staminaRegenPerSec: 0
+      allowJumpWhenExhausted: 0
       physics2DGravityScale: 0
 --- !u!114 &1868357830118979999
 MonoBehaviour:

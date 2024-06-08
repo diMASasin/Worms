@@ -1,6 +1,7 @@
 using Plugins._2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Essentials;
 using UnityEngine;
 using static UltimateCC.PlayerData;
+using static UltimateCC.PlayerData.JumpVariables;
 using static UltimateCC.PlayerData.JumpVariables.JumpType;
 
 namespace UltimateCC
@@ -20,9 +21,9 @@ namespace UltimateCC
         float xCurveTime;
         private float localXVelovity;
         private int turnBackStartDirection;
-        JumpVariables.JumpInfo jumpInfo;
+        JumpInfo jumpInfo;
         private int _facingDirection;
-        private JumpVariables.JumpInf JumpType => jumpInfo.currentJumpType;
+        private JumpInf JumpType => jumpInfo.currentJumpType;
 
 
         public PlayerJumpState(PlayerMain player, PlayerStateMachine stateMachine, PlayerMain.AnimName animEnum,
@@ -35,33 +36,19 @@ namespace UltimateCC
             base.Enter();
             var dataJump = playerData.Jump;
             _facingDirection = playerData.Physics.FacingDirection;
-            
-            switch (dataJump.NextJumpInt)
-            {
-                case 1:
-                    jumpInfo = dataJump.Jumps[0];
-                    break;
-                case 2:
-                    jumpInfo = dataJump.Jumps[1];
-                    break;
-                case 3:
-                    jumpInfo = dataJump.Jumps[2];
-                    break;
-                default:
-                    Debug.LogError("jump array error");
-                    break;
-            }
+
+            int clampedJumpInt = Mathf.Clamp(dataJump.NextJumpInt, 0, dataJump.Jumps.Count);
+            jumpInfo = dataJump.Jumps[clampedJumpInt - 1];
 
             jumpInfo.currentJumpType = dataJump.currentJumpType == HighJump ? jumpInfo.HighJump : jumpInfo.LongJump;
             dataJump.NextJumpInt++;
             player.Animator.SetBool(_animEnum.ToString(), false);
             player.Animator.SetBool(JumpType.Animation.ToString(), true);
-            player.Rigidbody2D.velocity = new Vector2(player.Rigidbody2D.velocity.x, JumpType.MaxHeight);
             dataJump.JumpBufferTimer = 0;
             cutJumpTime = 0f;
             playerData.Physics.CutJump = false;
             dataJump.NewJump = false;
-            rigidbody2D.gravityScale = dataJump.Physics2DGravityScale;
+            rigidbody2D.gravityScale = playerData.Land.Physics2DGravityScale;
             if (rigidbody2D.velocity.x != 0)
             {
                 phase = InputHandler.Input_Walk != 0 ? Phase.SpeedUp : Phase.SlowDown;
@@ -72,7 +59,10 @@ namespace UltimateCC
             }
 
             localXVelovity = 0;
-            rigidbody2D.AddForce(new Vector2(JumpType.jumpXImpulse, 0), ForceMode2D.Impulse);
+            JumpInf currentJump = playerData.Jump.CurrentJump;
+            Vector2 jumpForce = new Vector2(JumpType.jumpXImpulse * _facingDirection * (int)currentJump.JumpDirection, 
+                currentJump.MaxHeight);
+            rigidbody2D.AddForce(jumpForce, ForceMode2D.Impulse);
         }
 
         public override void Update()
@@ -93,11 +83,12 @@ namespace UltimateCC
                             JumpType.JumpTime;
             }
 
-            Move2D();
+            // Move2D();
             rigidbody2D.velocity += physics.Platform.DampedVelocity;
             xCurveTime += Time.fixedDeltaTime;
 
-            Vector2 inputSpeed = new Vector2(player.InputHandler.Input_Walk * playerData.Walk.MaxSpeed, 0);
+            Vector2 inputSpeed = new Vector2(player.InputHandler.Input_Walk * playerData.Jump.CurrentJump.jumpXImpulse * Time.fixedDeltaTime, 0);
+            // inputSpeed.y += -9.8f * Time.fixedDeltaTime;
             float jumpXImpulse = jumpInfo.currentJumpType.jumpXImpulse;
             inputSpeed += rigidbody2D.velocity;
             inputSpeed.x = Mathf.Clamp(inputSpeed.x, -jumpXImpulse, jumpXImpulse);

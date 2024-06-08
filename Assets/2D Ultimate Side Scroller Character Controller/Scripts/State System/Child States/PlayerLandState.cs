@@ -47,13 +47,20 @@ namespace UltimateCC
         {
             base.FixedUpdate();
 
-            Move2D();
+            // Move2D();
             rigidbody2D.velocity += playerData.Physics.Platform.DampedVelocity;
-            if (playerData.Physics.IsMultipleContactWithNonWalkableSlope)
-            {
-                rigidbody2D.velocity = new(0f, -1f);
-            }
+            // if (playerData.Physics.IsMultipleContactWithNonWalkableSlope)
+            // {
+            //     rigidbody2D.velocity = new(0f, -1f);
+            // }
             xCurveTime += Time.fixedDeltaTime;
+            
+            Vector2 inputSpeed = new Vector2(player.InputHandler.Input_Walk * playerData.Jump.CurrentJump.jumpXImpulse * Time.fixedDeltaTime, 0);
+            float jumpXImpulse = playerData.Jump.CurrentJump.jumpXImpulse;
+            inputSpeed += rigidbody2D.velocity;
+            inputSpeed.x = Mathf.Clamp(inputSpeed.x, -jumpXImpulse, jumpXImpulse);
+            // inputSpeed.y += -9.8f * Time.fixedDeltaTime;
+            rigidbody2D.velocity = inputSpeed;
         }
 
         public override void Exit()

@@ -379,7 +379,6 @@ namespace UltimateCC
 
             [SerializeField] private float xTurnBackTime;
             [SerializeField] private float ignoreWallSlideTime;
-            [SerializeField, NonEditable] private float physics2DGravityScale;
             
             [NonEditable] public JumpType currentJumpType;
 
@@ -397,13 +396,7 @@ namespace UltimateCC
             
             public int CurrentJumpInt => nextJumpInt - 2;
             
-            public JumpInf CurrentJump
-            {
-                get
-                {
-                    return CurrentJumpInt >= 0 ? Jumps[CurrentJumpInt].currentJumpType : Jumps[0].currentJumpType;
-                }
-            }
+            public JumpInf CurrentJump => Jumps[Mathf.Clamp(CurrentJumpInt, 0, Jumps.Count - 1)].currentJumpType;
 
 
             public int NextJumpInt
@@ -442,7 +435,6 @@ namespace UltimateCC
             public AnimationCurve XTurnBackCurve => xTurnBackCurve;
             public float XTurnBackTime => xTurnBackTime;
             public float IgnoreWallSlideTime => ignoreWallSlideTime;
-            public float Physics2DGravityScale => physics2DGravityScale;
         }
 
         [System.Serializable]
@@ -468,7 +460,7 @@ namespace UltimateCC
             private AnimationCurve xTurnBackCurve;
 
             [SerializeField] private float xTurnBackTime;
-            [SerializeField, NonEditable] private float physics2DGravityScale;
+            [SerializeField] private float physics2DGravityScale;
 
             public AnimationCurve LandHeightCurve => landHeightCurve;
             public float LandTime => landTime;
