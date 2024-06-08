@@ -11,7 +11,7 @@ using WormComponents;
 namespace BattleStateMachineComponents.StatesData
 {
     [Serializable]
-    public class GlobalBattleData
+    public class GlobalBattleData : ICurrentWorm
     {
         [field: SerializeField] public FollowingCamera FollowingCamera { get; private set; }
         [field: SerializeField] public Water Water { get; private set; }
@@ -19,9 +19,9 @@ namespace BattleStateMachineComponents.StatesData
         public TimersConfig TimersConfig { get; private set; }
         public CycledList<Team> AliveTeams { get; private set; } = new();
         
-        [NonSerialized] public Worm CurrentWorm;
-        [NonSerialized] public Team CurrentTeam;
-        
+        public Worm CurrentWorm { get; set; }
+        public Team CurrentTeam { get; set; }
+
         public Timer GlobalTimer;
         public Timer TurnTimer;
 
@@ -36,5 +36,10 @@ namespace BattleStateMachineComponents.StatesData
             GlobalTimer = new Timer();
             TurnTimer = new Timer();
         }
+    }
+
+    public interface ICurrentWorm
+    {
+        public Worm CurrentWorm { get; }
     }
 }

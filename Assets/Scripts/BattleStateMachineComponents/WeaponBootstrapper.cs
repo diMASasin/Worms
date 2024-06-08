@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using BattleStateMachineComponents.StatesData;
 using Configs;
 using EventProviders;
 using Factories;
@@ -8,6 +9,7 @@ using Services;
 using UI;
 using UnityEngine;
 using Weapons;
+using WormComponents;
 using Object = UnityEngine.Object;
 
 namespace BattleStateMachineComponents.States
@@ -41,7 +43,7 @@ namespace BattleStateMachineComponents.States
             _weaponFactory.Dispose();
         }
 
-        public void CreateWeapon(List<ProjectilePool> projectilePools, IWormEvents wormEvents)
+        public void CreateWeapon(List<ProjectilePool> projectilePools, IWormEvents wormEvents, ICurrentWorm currentWorm)
         {
             Transform weaponsParent = Object.Instantiate(new GameObject("Weapons")).transform;
             
@@ -53,7 +55,7 @@ namespace BattleStateMachineComponents.States
             _itemFactory.Create(weaponList, _weaponSelectorItemPrefab, _weaponSelector.ItemParent);
             _weaponSelector.Init(_itemFactory, _weaponSelectorInput);
 
-            WeaponChanger = new WeaponChanger(_itemFactory, _weaponFactory, weaponsParent, wormEvents);
+            WeaponChanger = new WeaponChanger(_itemFactory, _weaponFactory, weaponsParent, wormEvents, currentWorm);
         }
     }
 }

@@ -80,7 +80,7 @@ namespace BattleStateMachineComponents.States
         {
             _poolBootsrapper.InitializePools(shovelWrapper);
             _wormsBootstraper.SpawnWorms();
-            _weaponBootstrapper.CreateWeapon(_poolBootsrapper.ProjectilePools, _wormsBootstraper.WormEvents);
+            _weaponBootstrapper.CreateWeapon(_poolBootsrapper.ProjectilePools, _wormsBootstraper.WormEvents, GlobalData);
         }
 
         private void InitializeStatesData(Arrow arrow, WeaponChanger weaponChanger)

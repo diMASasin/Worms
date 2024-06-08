@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="200a9c5f-335a-44bb-b8dc-d5d4d6152652" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/WeaponInput.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/WeaponInput.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/EssentialPhysics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/EssentialPhysics.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/PlayerData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/PlayerData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerJumpState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerJumpState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerLandState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerLandState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Worm/Worm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Worm/Worm.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/WindEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/WindEffect.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BetweenTurnsState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BetweenTurnsState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/StartBattleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/StartBattleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/StatesData/GlobalBattleData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/StatesData/GlobalBattleData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/WeaponBootstrapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/WeaponBootstrapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputService/IWeaponInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/IWeaponInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponChanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponChanger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +80,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@1.7.6/Samples~/Customization/Tween/TweenMixerBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Editor/EventSystem/EventTriggerEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Editor/UI/SpriteDrawUtility.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/ScrollRect.cs" root0="SKIP_HIGHLIGHTING" />
@@ -172,10 +179,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="15796">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="1532">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="15796" />
+      <option name="pid" value="1532" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -248,7 +255,8 @@
       <workItem from="1717691128540" duration="2480000" />
       <workItem from="1717746974118" duration="14515000" />
       <workItem from="1717774916329" duration="7821000" />
-      <workItem from="1717831060096" duration="5572000" />
+      <workItem from="1717831060096" duration="9642000" />
+      <workItem from="1717866784458" duration="641000" />
     </task>
     <servers />
   </component>
@@ -276,32 +284,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/UI/WeaponSelector.cs</url>
-          <line>38</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\UI\WeaponSelector.cs" initialLine="38" containingFunctionPresentation="Method 'Toggle'">
-            <startOffsets>
-              <option value="1318" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1371" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="341" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/InputService/WeaponSelectorInput.cs</url>
-          <line>27</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\InputService\WeaponSelectorInput.cs" initialLine="26" containingFunctionPresentation="Method 'OpenWeaponSelector'">
-            <startOffsets>
-              <option value="740" />
-            </startOffsets>
-            <endOffsets>
-              <option value="775" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="342" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerJumpState.cs</url>
           <line>130</line>
@@ -342,17 +324,30 @@
           <option name="timeStamp" value="348" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerJumpState.cs</url>
-          <line>91</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\2D Ultimate Side Scroller Character Controller\Scripts\State System\Child States\PlayerJumpState.cs" initialLine="101" containingFunctionPresentation="Method 'FixedUpdate'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponChanger.cs</url>
+          <line>59</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\Weapons\WeaponChanger.cs" initialLine="57" containingFunctionPresentation="Method 'OnWeaponSelected'">
             <startOffsets>
-              <option value="3341" />
+              <option value="2123" />
             </startOffsets>
             <endOffsets>
-              <option value="3400" />
+              <option value="2174" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="352" />
+          <option name="timeStamp" value="354" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponChanger.cs</url>
+          <line>51</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\Weapons\WeaponChanger.cs" initialLine="49" containingFunctionPresentation="Method 'OnWeaponSelected'">
+            <startOffsets>
+              <option value="1786" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1870" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="357" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

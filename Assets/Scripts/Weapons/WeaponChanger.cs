@@ -1,4 +1,5 @@
 using System;
+using BattleStateMachineComponents.StatesData;
 using EventProviders;
 using Pools;
 using UnityEngine;
@@ -12,7 +13,7 @@ namespace Weapons
         private readonly IWeaponShotEvent _weaponShotEvent;
         private readonly Transform _weaponsParent;
         private readonly IWormEvents _wormEvents;
-        private Worm _currentWorm;
+        private ICurrentWorm _currentWormProvider;
         private Transform _weaponTransform;
 
         public Weapon CurrentWeapon { get; private set; }
@@ -21,13 +22,14 @@ namespace Weapons
         public event Action<Weapon> WeaponChanged;
 
         public WeaponChanger(IWeaponSelectedEvent weaponSelectedEvent, IWeaponShotEvent weaponShotEvent,
-             Transform weaponsParent, IWormEvents wormEvents)
+            Transform weaponsParent, IWormEvents wormEvents, ICurrentWorm currentWormProvider)
         {
             _weaponSelectedEvent = weaponSelectedEvent;
             _weaponShotEvent = weaponShotEvent;
             _weaponsParent = weaponsParent;
             _wormEvents = wormEvents;
-
+            _currentWormProvider = currentWormProvider;
+            
             _weaponSelectedEvent.WeaponSelected += OnWeaponSelected;
             _weaponShotEvent.WeaponShot += OnWeaponShot;
             _wormEvents.WormDied += OnWormDied;
@@ -47,7 +49,7 @@ namespace Weapons
 
         private void OnWeaponSelected(Weapon weapon)
         {
-            Transform wormTransform = _currentWorm.WeaponPosition.transform;
+            Transform wormTransform = _currentWormProvider.CurrentWorm.WeaponPosition.transform;
             _weaponTransform = weapon.transform;
 
             RemoveWeapon(CurrentWeapon);
@@ -56,7 +58,7 @@ namespace Weapons
             weapon.GameObject.SetActive(true);
             _weaponTransform.parent = wormTransform;
             _weaponTransform.position = wormTransform.position;
-            _weaponTransform.right = _currentWorm.WeaponPosition.right;
+            _weaponTransform.right = _currentWormProvider.CurrentWorm.WeaponPosition.right;
             weapon.Reset();
             
             WeaponChanged?.Invoke(weapon);
@@ -64,6 +66,9 @@ namespace Weapons
 
         private void RemoveWeapon(Weapon weapon)
         {
+            if (weapon == null)
+                return;
+            
             _weaponTransform.parent = _weaponsParent;
             weapon.GameObject.SetActive(false);
             WeaponRemoved?.Invoke(weapon);

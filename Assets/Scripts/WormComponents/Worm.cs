@@ -16,6 +16,7 @@ namespace WormComponents
         [field: SerializeField] public Transform Armature { get; private set; }
         [field: SerializeField] public Transform WeaponPosition { get; private set; }
 
+        private bool _isDied;
         public WormConfig Config { get; private set; }
         public int Health { get; private set; }
         public Weapon Weapon { get; private set; }
@@ -57,7 +58,7 @@ namespace WormComponents
         public void RemoveInput()
         {
             SetWormLayer();
-            FreezePosition();
+            if(_isDied == false) FreezePosition();
             InputHandler.Disable();
         }
         
@@ -92,8 +93,9 @@ namespace WormComponents
 
         public void Die()
         {
+            _isDied = true;
             Died?.Invoke(this);
-            Destroy(gameObject);
+            Destroy(gameObject, 1);
         }
 
         public void FreezePositionWhenGrounded() => StartCoroutine(FreezePositionWhenGroundedCoroutine());

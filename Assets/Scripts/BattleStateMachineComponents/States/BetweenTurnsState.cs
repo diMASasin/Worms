@@ -36,8 +36,8 @@ namespace BattleStateMachineComponents.States
             _betweenTurnsData.WindMediator.ChangeVelocity();
             _data.Water.IncreaseLevelIfAllowed();
 
-            _data.CurrentWorm?.SetWormLayer();
-            
+            if (_data.CurrentWorm != null) _data.CurrentWorm.SetWormLayer();
+
             if (_data.AliveTeams.Count <= 1) 
                 _stateSwitcher.SwitchState<BattleEndState>();
         }

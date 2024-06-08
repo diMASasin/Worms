@@ -123,9 +123,6 @@ MonoBehaviour:
   _collider: {fileID: 8627371742549677022}
   _rigidbody: {fileID: 9054096744867501961}
   _animator: {fileID: 4904226937973439546}
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 1745
   _sheepMovement: {fileID: 6544760676024238336}
 --- !u!114 &6544760676024238336
 MonoBehaviour:
