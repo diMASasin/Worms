@@ -41,7 +41,7 @@ namespace Factories
             foreach (var config in weaponConfigs)
             {
                 Weapon weapon = Instantiate(config.WeaponPrefab, _weaponsParent);
-                weapon.Init(config, _weaponInput);
+                weapon.Init(config);
                 weapon.GameObject.SetActive(false);
                 
                 if(weapon.TryGetComponent(out ProjectileLauncher projectileLauncher) == true)

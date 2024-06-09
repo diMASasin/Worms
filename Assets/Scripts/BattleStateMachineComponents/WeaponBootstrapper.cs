@@ -45,7 +45,7 @@ namespace BattleStateMachineComponents.States
 
         public void CreateWeapon(List<ProjectilePool> projectilePools, IWormEvents wormEvents, ICurrentWorm currentWorm)
         {
-            Transform weaponsParent = Object.Instantiate(new GameObject("Weapons")).transform;
+            Transform weaponsParent = new GameObject("Weapons").transform;
             
             _itemFactory = new WeaponSelectorItemFactory();
             _weaponFactory = new WeaponFactory(projectilePools, weaponsParent, _itemFactory, _weaponInput);
@@ -55,7 +55,7 @@ namespace BattleStateMachineComponents.States
             _itemFactory.Create(weaponList, _weaponSelectorItemPrefab, _weaponSelector.ItemParent);
             _weaponSelector.Init(_itemFactory, _weaponSelectorInput);
 
-            WeaponChanger = new WeaponChanger(_itemFactory, _weaponFactory, weaponsParent, wormEvents, currentWorm);
+            WeaponChanger = new WeaponChanger(_itemFactory, _weaponFactory, weaponsParent, wormEvents, currentWorm, _weaponInput);
         }
     }
 }

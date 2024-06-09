@@ -14,6 +14,7 @@ namespace Weapons
         private readonly Transform _weaponsParent;
         private readonly IWormEvents _wormEvents;
         private ICurrentWorm _currentWormProvider;
+        private readonly IWeaponInput _weaponInput;
         private Transform _weaponTransform;
 
         public Weapon CurrentWeapon { get; private set; }
@@ -22,14 +23,15 @@ namespace Weapons
         public event Action<Weapon> WeaponChanged;
 
         public WeaponChanger(IWeaponSelectedEvent weaponSelectedEvent, IWeaponShotEvent weaponShotEvent,
-            Transform weaponsParent, IWormEvents wormEvents, ICurrentWorm currentWormProvider)
+            Transform weaponsParent, IWormEvents wormEvents, ICurrentWorm currentWormProvider, IWeaponInput weaponInput)
         {
             _weaponSelectedEvent = weaponSelectedEvent;
             _weaponShotEvent = weaponShotEvent;
             _weaponsParent = weaponsParent;
             _wormEvents = wormEvents;
             _currentWormProvider = currentWormProvider;
-            
+            _weaponInput = weaponInput;
+
             _weaponSelectedEvent.WeaponSelected += OnWeaponSelected;
             _weaponShotEvent.WeaponShot += OnWeaponShot;
             _wormEvents.WormDied += OnWormDied;
@@ -59,6 +61,7 @@ namespace Weapons
             _weaponTransform.parent = wormTransform;
             _weaponTransform.position = wormTransform.position;
             _weaponTransform.right = _currentWormProvider.CurrentWorm.WeaponPosition.right;
+            weapon.DelegateInput(_weaponInput);
             weapon.Reset();
             
             WeaponChanged?.Invoke(weapon);
@@ -70,6 +73,7 @@ namespace Weapons
                 return;
             
             _weaponTransform.parent = _weaponsParent;
+            weapon.RemoveInput();
             weapon.GameObject.SetActive(false);
             WeaponRemoved?.Invoke(weapon);
         }

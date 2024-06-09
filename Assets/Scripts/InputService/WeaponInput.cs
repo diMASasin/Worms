@@ -1,5 +1,5 @@
 using System;
-using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.InputAction;
 
 namespace Weapons
 {
@@ -29,8 +29,8 @@ namespace Weapons
         }
 
         public float GetAimDirection() => -_weaponInput.RaiseScope.ReadValue<float>();
-        private void EnablePointerLine(InputAction.CallbackContext callbackContext) => PointerLineEnabled?.Invoke();
-        private void OnShoot(InputAction.CallbackContext obj) => Shoot?.Invoke();
+        private void EnablePointerLine(CallbackContext callbackContext) => PointerLineEnabled?.Invoke();
+        private void OnShoot(CallbackContext obj) => Shoot?.Invoke();
         public bool IsShotPowerIncreasing() => _weaponInput.IncreaseShotPower.ReadValue<float>() == 1;
     }
 }

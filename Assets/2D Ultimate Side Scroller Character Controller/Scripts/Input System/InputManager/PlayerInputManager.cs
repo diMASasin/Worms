@@ -31,13 +31,11 @@ namespace UltimateCC
         {
             player = GetComponent<PlayerMain>(); // Reference for Ultimate2DPlayer component where all of content come up together
             PlayerData = player.PlayerData; // Reference for Ultimate2DPlayer.PlayerData component where all variables stored
-            enabled = false;
         }
 
-        private void OnEnable()
+        public void Enable(IInput input)
         {
-            if(_playerInput == null)
-                return;
+            _playerInput = input;
             
             _playerInput.Enable();
             _playerInput.LongJumpStarted += OnLongJumpStarted;
@@ -48,13 +46,12 @@ namespace UltimateCC
             _playerInput.WallGrabPerformed += OnWallGrab;
             _playerInput.WallClimbPerformed += OnWallClimb;
         }
-        
-        private void OnDisable()
+
+        public void Disable()
         {
             if (_playerInput == null)
                 return;
-                
-            _playerInput.Disable();
+            
             _playerInput.LongJumpStarted -= OnLongJumpStarted;
             _playerInput.HighJumpStarted -= OnHighJumpStarted;
             _playerInput.WalkPerformed -= OnWalk;
@@ -62,18 +59,9 @@ namespace UltimateCC
             _playerInput.CrouchPerformed -= OnCrouch;
             _playerInput.WallGrabPerformed -= OnWallGrab;
             _playerInput.WallClimbPerformed -= OnWallClimb;
-        }
-
-        public void Enable(IInput input)
-        {
-            _playerInput = input;
-            enabled = true;
-        }
-
-        public void Disable()
-        {
+            _playerInput.Disable();
+            
             _playerInput = null;
-            enabled = false;
         }
 
         private void FixedUpdate() => UpdateTimers();

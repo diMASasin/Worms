@@ -25,7 +25,7 @@ namespace Pools
             _config = config;
             _projectileEvents = projectileEvents;
             _shovelWrapper = shovelWrapper;
-            _objectsParent = Instantiate(new GameObject()).transform;
+            _objectsParent = new GameObject().transform;
             _objectsParent.name = "Explosions";
             
             _pool = new ObjectPool<Explosion>(CreateObject, OnGet, OnRelease, OnExplosionDestroy, defaultCapacity: _amount);

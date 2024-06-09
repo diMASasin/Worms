@@ -54,7 +54,7 @@ namespace BattleStateMachineComponents.States
 
         public void InitializePools(ShovelWrapper shovel)
         {
-            var projectilesParent = Object.Instantiate(new GameObject()).transform;
+            Transform projectilesParent = new GameObject().transform;
             projectilesParent.name = "Projectiles";
 
             ProjectilePools = new List<ProjectilePool>();

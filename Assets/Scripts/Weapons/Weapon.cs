@@ -24,19 +24,9 @@ namespace Weapons
         public event Action IncreasePowerStarted;
         public event Action<float> ScopeMoved;
 
-        public void Init(WeaponConfig config, IWeaponInput weaponInput)
+        public void Init(WeaponConfig config)
         {
-            _weaponInput = weaponInput;
             _config = config;
-
-            _weaponInput.PointerLineEnabled += StartIncresePower;
-            _weaponInput.Shoot += Shoot;
-        }
-
-        private void OnDestroy()
-        {
-            _weaponInput.PointerLineEnabled -= StartIncresePower;
-            _weaponInput.Shoot -= Shoot;
         }
 
         private void Update()
@@ -45,6 +35,25 @@ namespace Weapons
             
             if(_weaponInput.IsShotPowerIncreasing() == true)
                 IncreaseShotPower();
+        }
+
+        public void DelegateInput(IWeaponInput weaponInput)
+        {
+            _weaponInput = weaponInput;
+            
+            _weaponInput.PointerLineEnabled += StartIncresePower;
+            _weaponInput.Shoot += Shoot;
+        }
+
+        public void RemoveInput()
+        {
+            if(_weaponInput == null)
+                return;
+            
+            _weaponInput.PointerLineEnabled -= StartIncresePower;
+            _weaponInput.Shoot -= Shoot;
+
+            _weaponInput = null;
         }
 
         public void Reset()

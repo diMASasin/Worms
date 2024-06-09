@@ -15,7 +15,7 @@ namespace Projectiles.Behaviours.LaunchBehaviour
         private Action _onElapsed;
         public Timer Timer;
 
-        private void Start()
+        private void Awake()
         {
             Timer = new Timer();
         }

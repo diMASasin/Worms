@@ -1,6 +1,7 @@
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using UnityEngine;
 
     namespace WormComponents
     {
@@ -16,15 +17,21 @@
             {
                 if(_currentItem == _items.Last) 
                     _currentItem = _items.First;
+                else if (_currentItem == null || _items.Contains(_currentItem.Value) == false)
+                    _currentItem = _items.First;
                 else
-                    _currentItem = _currentItem == null ? _items.First : _currentItem.Next;
+                    _currentItem = _currentItem.Next;
+                    
                 
                 return _currentItem.Value;
             }
         
             public void Add(T item) => _items.AddLast(item);
 
-            public void Remove(T item) => _items.Remove(item);
+            public void Remove(T item)
+            {
+                _items.Remove(item);
+            }
 
             public void AddRange(IEnumerable<T> items)
             {

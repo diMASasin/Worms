@@ -5,18 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="200a9c5f-335a-44bb-b8dc-d5d4d6152652" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/WeaponInput.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/WeaponInput.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/WindEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/WindEffect.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BetweenTurnsState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BetweenTurnsState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/StartBattleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/StartBattleState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/StatesData/GlobalBattleData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/StatesData/GlobalBattleData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Input System/InputManager/PlayerInputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Input System/InputManager/PlayerInputManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/PoolBootsrapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/PoolBootsrapper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/WeaponBootstrapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/WeaponBootstrapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputService/IWeaponInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/IWeaponInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/WeaponFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/WeaponFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/WormInfoFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/WormInfoFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputService/WeaponInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/WeaponInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/ExplosionPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/ExplosionPool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/OnLaunchTimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/OnLaunchTimer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponChanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponChanger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/CycledList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/CycledList.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +111,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/d9/11443d3d/ObjectPool`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/df/890bb65e/SceneManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/e8/9c366691/Vector2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cb81df0c49c643b1a04d9fc6ccca2433175400/ea/8debf90e/RectTransform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d303c2bf72cd4cec95665b89c457d265d2b8ef3ed6da17cd4f85587c2f9de7/System.Linq.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -256,7 +257,7 @@
       <workItem from="1717746974118" duration="14515000" />
       <workItem from="1717774916329" duration="7821000" />
       <workItem from="1717831060096" duration="9642000" />
-      <workItem from="1717866784458" duration="641000" />
+      <workItem from="1717866784458" duration="5682000" />
     </task>
     <servers />
   </component>
@@ -285,69 +286,17 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerJumpState.cs</url>
-          <line>130</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\2D Ultimate Side Scroller Character Controller\Scripts\State System\Child States\PlayerJumpState.cs" initialLine="137" containingFunctionPresentation="Method 'SwitchStateLogic'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/WormComponents/CycledList.cs</url>
+          <line>17</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\WormComponents\CycledList.cs" initialLine="16" containingFunctionPresentation="Method 'Next'">
             <startOffsets>
-              <option value="4850" />
+              <option value="521" />
             </startOffsets>
             <endOffsets>
-              <option value="4898" />
+              <option value="552" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="346" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerJumpState.cs</url>
-          <line>125</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\2D Ultimate Side Scroller Character Controller\Scripts\State System\Child States\PlayerJumpState.cs" initialLine="132" containingFunctionPresentation="Method 'SwitchStateLogic'">
-            <startOffsets>
-              <option value="4528" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4575" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="347" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerJumpState.cs</url>
-          <line>119</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\2D Ultimate Side Scroller Character Controller\Scripts\State System\Child States\PlayerJumpState.cs" initialLine="126" containingFunctionPresentation="Method 'SwitchStateLogic'">
-            <startOffsets>
-              <option value="4315" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4358" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="348" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponChanger.cs</url>
-          <line>59</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\Weapons\WeaponChanger.cs" initialLine="57" containingFunctionPresentation="Method 'OnWeaponSelected'">
-            <startOffsets>
-              <option value="2123" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2174" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="354" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponChanger.cs</url>
-          <line>51</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\Weapons\WeaponChanger.cs" initialLine="49" containingFunctionPresentation="Method 'OnWeaponSelected'">
-            <startOffsets>
-              <option value="1786" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1870" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="357" />
+          <option name="timeStamp" value="365" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

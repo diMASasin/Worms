@@ -19,7 +19,7 @@ namespace Factories
             _wormInfoPrefab = prefab;
             _wormEvents = wormEvents;
             
-            _parent = Instantiate(new GameObject()).transform;
+            _parent = new GameObject().transform;
             _parent.name = "WormInformations";
             
             _wormEvents.WormCreated += CreateInfoView;
