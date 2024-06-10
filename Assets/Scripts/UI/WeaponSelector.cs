@@ -10,16 +10,14 @@ namespace UI
     public class WeaponSelector : MonoBehaviour, IWeaponSelectorOpener
     {
         [SerializeField] private Animator _animator;
-        [SerializeField] private Image _image;
-        [SerializeField] private UIConfig _config;
-        
         [field: SerializeField] public Transform ItemParent { get; private set; }
         
         private IWeaponShotEvent _shotEvent;
         private IWeaponSelectedEvent _selectedEvent;
+        private IWeaponSelectorInput _weaponSelectorInput;
+        private bool _canOpen;
     
         private static readonly int Opened = Animator.StringToHash("Opened");
-        private IWeaponSelectorInput _weaponSelectorInput;
 
         public void Init(IWeaponSelectedEvent selectedEvent, IWeaponSelectorInput weaponSelectorInput)
         {
@@ -36,7 +34,20 @@ namespace UI
             if (_weaponSelectorInput != null) _weaponSelectorInput.ShouldTogleWeaponSelector -= Toggle;
         }
 
-        public void Toggle() => _animator.SetBool(Opened, !_animator.GetBool(Opened));
+        public void AllowOpen() => _canOpen = true;
+
+        public void DisallowOpen() => _canOpen = false;
+
+        public void Toggle()
+        {
+            if (_canOpen == false)
+            {
+                Close();
+                return;
+            }
+            
+            _animator.SetBool(Opened, !_animator.GetBool(Opened));
+        }
 
         public void Close() => _animator.SetBool(Opened, false);
 

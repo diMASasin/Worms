@@ -86,8 +86,7 @@ namespace UltimateCC
                 public AnimationCurve DampingCurve => dampingCurve;
                 public float DampingTime => dampingTime;
             }
-
-            [SerializeField] private LayerMask groundLayerMask;
+            
             [SerializeField] private ContactFilter2D groundContactFilter;
             [SerializeField] private LayerMask headBumpLayerMask;
             [SerializeField] private LayerMask wallLayerMask;
@@ -120,7 +119,7 @@ namespace UltimateCC
             public SlopeVariables Slope;
             public PlatformVariables Platform;
 
-            public LayerMask GroundLayerMask => groundLayerMask;
+            public LayerMask GroundLayerMask => groundContactFilter.layerMask;
             public ContactFilter2D GroundContactFilter => groundContactFilter;
             public LayerMask HeadBumpLayerMask => headBumpLayerMask;
             public LayerMask WallLayerMask => wallLayerMask;

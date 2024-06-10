@@ -15,6 +15,8 @@ namespace Configs
         [field: SerializeField] public float MaxShotPower { get; private set; } = 5;
         [field: SerializeField] public Sprite Sprite{ get; private set; }
         [field: SerializeField] public float SpriteUIScale { get; private set; } = 1;
+        [field: SerializeField] public bool IsScopeMovable { get; private set; } = true;
+        [field: SerializeField] public bool IsShotPowerChangable { get; private set; } = true;
         [field: SerializeField] public ProjectileConfig ProjectileConfig { get; private set; }
     }
 }

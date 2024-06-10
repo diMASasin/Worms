@@ -3,7 +3,7 @@ using Services;
 
 namespace UltimateCC
 {
-    public interface IInput : IService
+    public interface IMovementInput : IService
     {
         void Enable();
         void Disable();

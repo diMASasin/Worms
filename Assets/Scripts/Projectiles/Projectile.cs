@@ -6,23 +6,24 @@ using UnityEngine;
 
 namespace Projectiles
 {
-    public class Projectile : MonoBehaviour, IProjectile
+    public class Projectile : MonoBehaviour
     {
         [SerializeField] private GameObject _spriteObject;
         [SerializeField] private SpriteRenderer _spriteRenderer;
-        [SerializeField] private CircleCollider2D _collider;
+        [SerializeField] private CapsuleCollider2D _collider;
         [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private Animator _animator;
+        [SerializeField] private bool _showCollisionDetection;
 
         public ProjectileConfig Config { get; private set; }
 
         private bool _dead;
 
-        public CircleCollider2D Collider => _collider;
-        public Rigidbody2D Rigidbody => _rigidbody;
+        public CapsuleCollider2D Collider => _collider;
         
         public event Action<Projectile> Exploded;
         public event Action<Projectile, Vector2> Launched;
+        public event Action Reseted;
 
         public void Init(ProjectileConfig config)
         {
@@ -40,11 +41,6 @@ namespace Projectiles
         public void InfluenceOnVelocity(Vector2 additionalVelocity)
         {
             _rigidbody.velocity += additionalVelocity;
-        }
-
-        public void ResetView()
-        {
-            _rigidbody.velocity = Vector2.zero;
         }
 
         public virtual void Launch(Vector2 velocity)
@@ -88,14 +84,17 @@ namespace Projectiles
 
         private void OnDrawGizmos()
         {
-            GetCollisionDetectionParameters(out Vector2 origin, out float radius);
-            Gizmos.DrawSphere(origin, radius);
+            if (_showCollisionDetection)
+            {
+                GetCollisionDetectionParameters(out Vector2 origin, out float radius);
+                Gizmos.DrawSphere(origin, radius);
+            }
         }
 
         private void GetCollisionDetectionParameters(out Vector2 origin, out float radius)
         {
             origin = transform.position;
-            radius = _collider.radius * 1.2f;
+            radius = _collider.bounds.size.x * 1.2f;
         }
     }
 }

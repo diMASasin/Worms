@@ -25,21 +25,15 @@ namespace BattleStateMachineComponents.StatesData
         public Timer GlobalTimer;
         public Timer TurnTimer;
 
-        public IInput Input { get; private set; }
+        public IMovementInput MovementInput { get; private set; }
         
-        public void Init(TimersConfig timersConfig, IInput input)
+        public void Init(TimersConfig timersConfig, IMovementInput movementInput)
         {
-            Input = input;
+            MovementInput = movementInput;
             TimersConfig = timersConfig;
             
-            Input.Enable();
             GlobalTimer = new Timer();
             TurnTimer = new Timer();
         }
-    }
-
-    public interface ICurrentWorm
-    {
-        public Worm CurrentWorm { get; }
     }
 }

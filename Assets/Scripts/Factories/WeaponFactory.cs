@@ -14,20 +14,15 @@ namespace Factories
     {
         private readonly List<ProjectilePool> _projectilePools;
         private readonly Transform _weaponsParent;
-        private readonly IWeaponSelectedEvent _weaponSelectedEvent;
-        private readonly IWeaponInput _weaponInput;
 
         private readonly List<Weapon> _weaponList = new();
 
         public event Action<float, Weapon> WeaponShot;
 
-        public WeaponFactory(List<ProjectilePool> projectilePools, Transform weaponsParent,
-            IWeaponSelectedEvent weaponSelectedEvent, IWeaponInput weaponInput)
+        public WeaponFactory(List<ProjectilePool> projectilePools, Transform weaponsParent)
         {
             _projectilePools = projectilePools;
             _weaponsParent = weaponsParent;
-            _weaponSelectedEvent = weaponSelectedEvent;
-            _weaponInput = weaponInput;
         }
         
         public void Dispose()

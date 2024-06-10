@@ -5,6 +5,8 @@ namespace UltimateCC
 {
     public class PlayerMain : MonoBehaviour
     {
+        [SerializeField] private bool _showGroundCheck;
+        
         private PlayerStateMachine _stateMachine; // State Machine declaration where we change current state
         [NonEditable, Space(5)] public AnimName CurrentState; // Variable to display the current state in the Unity inspector for debugging purposes.
         public MainState IdleState, WalkState, JumpState, LandState, FreeFallingState, DashState, CrouchIdleState, 
@@ -80,7 +82,7 @@ namespace UltimateCC
 
         private void OnDrawGizmos()
         {
-            if(CapsuleCollider2D == null)
+            if(CapsuleCollider2D == null || _showGroundCheck == false)
                 return;
             
             Gizmos.DrawSphere(PlayerData.Physics.GroundCheckPosition + new Vector2(0, -0.05f),

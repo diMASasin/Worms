@@ -15,7 +15,7 @@ namespace GameStateMachineComponents.States
     public class BootstrapState : GameState, IDisposable
     {
         private readonly ISceneLoader _sceneLoader;
-        private MovementInput _movementInput;
+        private MovementMovementInput _movementMovementInput;
         private CameraInput _cameraInput;
         private WeaponInput _weaponInput;
         private WeaponSelectorInput _weaponSelectorInput;
@@ -30,7 +30,7 @@ namespace GameStateMachineComponents.States
 
         public void Dispose()
         {
-            _movementInput.Unsubscribe();
+            _movementMovementInput.Unsubscribe();
             _weaponInput.Unsubscribe();
             _weaponSelectorInput.Unsubscribe();
         }
@@ -65,7 +65,7 @@ namespace GameStateMachineComponents.States
         {
             var mainInput = new MainInput();
             
-            _movementInput = new MovementInput();
+            _movementMovementInput = new MovementMovementInput();
             _cameraInput = new CameraInput();
             _weaponInput = new WeaponInput(mainInput.Weapon);
             _weaponSelectorInput = new WeaponSelectorInput(mainInput.UI);
@@ -73,11 +73,11 @@ namespace GameStateMachineComponents.States
             services.RegisterSingle<ICameraInput>(_cameraInput);
             services.RegisterSingle<IWeaponInput>(_weaponInput);
             services.RegisterSingle<IWeaponSelectorInput>(_weaponSelectorInput);
-            services.RegisterSingle<IInput>(_movementInput);
+            services.RegisterSingle<IMovementInput>(_movementMovementInput);
             
             _weaponInput.Subscribe();
             _weaponSelectorInput.Subscribe();
-            _movementInput.Subscribe();
+            _movementMovementInput.Subscribe();
         }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Configs;
 using Projectiles;
+using Projectiles.Behaviours.Components;
 using Projectiles.Behaviours.LaunchBehaviour;
 using UnityEngine;
 using static UnityEngine.Object;
@@ -42,6 +43,9 @@ namespace Factories
 
             projectile.Init(_config);
             _projectiles.Add(projectile);
+
+            if (projectile.TryGetComponent(out SheepProjectile sheepProjectile) == true)
+                sheepProjectile.Init();
 
             projectile.Launched += OnLaunched;
             projectile.Exploded += OnExploded;

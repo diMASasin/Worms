@@ -34,9 +34,7 @@ namespace BattleStateMachineComponents
             IBattleState state = _states.FirstOrDefault(state => state is T);
 
             _currentState?.Exit();
-            Debug.Log($"{_currentState?.GetType().Name} EXIT");
             _currentState = state;
-            Debug.Log($"{_currentState?.GetType().Name} ENTER");
             _currentState.Enter();
         }
 

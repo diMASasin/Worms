@@ -12,10 +12,9 @@ namespace Projectiles.Behaviours.Components
         private Coroutine _coroutine;
         private ICoroutinePerformer _coroutinePerformer;
 
-        public void Init(Projectile projectile, AllServices allServices)
+        public void Start()
         {
-            _projectile = projectile;
-            _coroutinePerformer = allServices.Single<ICoroutinePerformer>();
+            _coroutinePerformer = AllServices.Container.Single<ICoroutinePerformer>();
         }
 
         private void OnEnable()

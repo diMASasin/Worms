@@ -232,9 +232,6 @@ MonoBehaviour:
   CurrentState: 0
   PlayerData:
     Physics:
-      groundLayerMask:
-        serializedVersion: 2
-        m_Bits: 640
       groundContactFilter:
         useTriggers: 0
         useLayerMask: 1
@@ -244,7 +241,7 @@ MonoBehaviour:
         useOutsideNormalAngle: 0
         layerMask:
           serializedVersion: 2
-          m_Bits: 2001
+          m_Bits: 640
         minDepth: 0
         maxDepth: 0
         minNormalAngle: 0

@@ -48,7 +48,7 @@ namespace BattleStateMachineComponents.States
             Transform weaponsParent = new GameObject("Weapons").transform;
             
             _itemFactory = new WeaponSelectorItemFactory();
-            _weaponFactory = new WeaponFactory(projectilePools, weaponsParent, _itemFactory, _weaponInput);
+            _weaponFactory = new WeaponFactory(projectilePools, weaponsParent);
             
             IEnumerable<Weapon> weaponList = _weaponFactory.Create(_weaponConfigs);
 

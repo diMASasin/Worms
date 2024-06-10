@@ -48,17 +48,17 @@ namespace WormComponents
             Health = Config.MaxHealth;
         }
 
-        public void DelegateInput(IInput input)
+        public void DelegateInput(IMovementInput movementInput)
         {
             SetCurrentWormLayer();
             UnfreezePosition();
-            InputHandler.Enable(input);
+            InputHandler.Enable(movementInput);
         }
         
         public void RemoveInput()
         {
             SetWormLayer();
-            if(_isDied == false) FreezePosition();
+            if(_isDied == false) FreezePositionWhenGrounded();
             InputHandler.Disable();
         }
         
@@ -101,13 +101,8 @@ namespace WormComponents
         public void FreezePositionWhenGrounded() => StartCoroutine(FreezePositionWhenGroundedCoroutine());
         private IEnumerator FreezePositionWhenGroundedCoroutine()
         {
-            do
-            {
+            while (_rigidbody != null && _rigidbody.velocity.magnitude != 0)
                 yield return null;
-                
-                if (_rigidbody == null) yield break;
-                
-            } while (_rigidbody.velocity.magnitude != 0);
 
             FreezePosition();
         }

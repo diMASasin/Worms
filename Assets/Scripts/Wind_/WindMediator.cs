@@ -12,7 +12,7 @@ namespace Wind_
         private Wind _wind;
         private IProjectileEvents _projectileEvents;
 
-        private readonly List<IProjectile> _projectilesUnderInfluence = new();
+        private readonly List<Projectile> _projectilesUnderInfluence = new();
 
         public WindMediator(WindData data, WindView windView, IProjectileEvents projectileEvents)
         {
@@ -46,7 +46,7 @@ namespace Wind_
                 _projectilesUnderInfluence.Add(projectile);
         }
 
-        private void RemoveProjectileFromInfluence(IProjectile projectile)
+        private void RemoveProjectileFromInfluence(Projectile projectile)
         {
             if(_projectilesUnderInfluence.Contains(projectile))
                 _projectilesUnderInfluence.Remove(projectile);

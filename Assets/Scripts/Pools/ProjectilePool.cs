@@ -1,9 +1,7 @@
 using System;
 using Configs;
-using EventProviders;
 using Factories;
 using Projectiles;
-using UnityEngine;
 using UnityEngine.Pool;
 
 namespace Pools

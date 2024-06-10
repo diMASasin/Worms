@@ -20,7 +20,6 @@ namespace BattleStateMachineComponents.States
 
         private Team CurrentTeam { set => _data.CurrentTeam = value; }
 
-
         private Worm CurrentWorm
         {
             get => _data.CurrentWorm;
@@ -39,25 +38,29 @@ namespace BattleStateMachineComponents.States
             CurrentTeam = _data.AliveTeams.Next();
             CurrentWorm = _data.CurrentTeam.Worms.Next();
             
-            CurrentWorm.DelegateInput(_data.Input);
+            CurrentWorm.DelegateInput(_data.MovementInput);
+            _turnStateData.WeaponSelector.AllowOpen();
 
             _turnStateData.Arrow.StartMove(CurrentWorm.Transform);
             _data.FollowingCamera.SetTarget(CurrentWorm.Transform);
             
-            _turnStateData.WormEvents.WormDied += OnWormDied;
-            _turnStateData.AllProjectileEvents.Launched += OnLaunched;
-            
             GlobalTimer.Resume();
             TurnTimer.Start(TimersConfig.TurnDuration, OnTimerElapsed);
+            
+            _turnStateData.WormEvents.WormDied += OnWormDied;
+            _turnStateData.AllProjectileEvents.Launched += OnLaunched;
         }
 
         public void Exit()
         {
             TurnTimer.Stop();
             GlobalTimer.Pause();
+            
+            _turnStateData.WeaponSelector.DisallowOpen();
             _turnStateData.WeaponSelector.Close();
             
             CurrentWorm.RemoveInput();
+            _turnStateData.WeaponChanger.TryRemoveWeapon(_turnStateData.WeaponChanger.CurrentWeapon);
             
             _turnStateData.AllProjectileEvents.Launched -= OnLaunched;
             _turnStateData.WormEvents.WormDied -= OnWormDied;
@@ -85,14 +88,7 @@ namespace BattleStateMachineComponents.States
 
         private void OnTimerElapsed()
         {
-            FinishShotIfNecessary();
             _stateSwitcher.SwitchState<ProjectilesWaiting>();
-        }
-
-        private void FinishShotIfNecessary()
-        {
-            if (CurrentWorm.Weapon?.CurrentShotPower > 0) 
-                CurrentWorm.Weapon.Shoot();
         }
     }
 }

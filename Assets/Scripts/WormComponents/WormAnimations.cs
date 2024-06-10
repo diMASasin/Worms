@@ -7,8 +7,6 @@ namespace WormComponents
     public class WormAnimations : MonoBehaviour
     {
         [SerializeField] private Animator _animator;
-        [SerializeField] private GroundChecker _groundChecker;
-        [SerializeField] private Movement _movement;
         [SerializeField] private InputHandler _input;
     
         private static readonly int Idle = Animator.StringToHash("Idle");

@@ -23,6 +23,7 @@ namespace MovementComponents
         {
             base.Reset();
             _shouldJump = false;
+            if (_jumpTimer == null) _jumpTimer = new Timer();
             _jumpTimer.Stop();
         }
         

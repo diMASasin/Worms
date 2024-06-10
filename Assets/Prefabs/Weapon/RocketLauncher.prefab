@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3108561999023601886, guid: 8691137e386b63749975d17dece325d8, type: 3}
       propertyPath: m_Name
-      value: WeaponView Variant
+      value: RocketLauncher
       objectReference: {fileID: 0}
     - target: {fileID: 4782872535538918547, guid: 8691137e386b63749975d17dece325d8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52,10 +52,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9131519681045287937, guid: 8691137e386b63749975d17dece325d8, type: 3}
+      propertyPath: _shotPowerIncreaser
+      value: 
+      objectReference: {fileID: 394527788724439086}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3108561999023601886, guid: 8691137e386b63749975d17dece325d8, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 394527788724439086}
+    - targetCorrespondingSourceObject: {fileID: 3108561999023601886, guid: 8691137e386b63749975d17dece325d8, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 2898837615553465336}
     - targetCorrespondingSourceObject: {fileID: 3108561999023601886, guid: 8691137e386b63749975d17dece325d8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4250261875457337058}
@@ -70,6 +80,32 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3108561999023601886, guid: 8691137e386b63749975d17dece325d8, type: 3}
   m_PrefabInstance: {fileID: 6577181796692523690}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &394527788724439086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8098883165098181236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c757b48926304c1fa58129faefafa65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weapon: {fileID: 8510113237089447412}
+--- !u!114 &2898837615553465336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8098883165098181236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f93b7144a444f8daaf11a1628bb5505, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weapon: {fileID: 8510113237089447412}
 --- !u!114 &4250261875457337058
 MonoBehaviour:
   m_ObjectHideFlags: 0

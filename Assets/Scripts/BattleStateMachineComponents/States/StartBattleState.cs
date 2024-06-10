@@ -48,8 +48,7 @@ namespace BattleStateMachineComponents.States
 
         public void Enter()
         {
-            WeaponChanger weaponChanger = _weaponBootstrapper.WeaponChanger;
-            GlobalData.Init(GameConfig.TimersConfig, AllServices.Container.Single<IInput>());
+            GlobalData.Init(GameConfig.TimersConfig, AllServices.Container.Single<IMovementInput>());
             
             InitializeTerrain();
 
@@ -59,7 +58,7 @@ namespace BattleStateMachineComponents.States
 
             InitializeTimers();
 
-            InitializeStatesData(arrow, weaponChanger);
+            InitializeStatesData(arrow, _weaponBootstrapper.WeaponChanger);
 
             _stateSwitcher.SwitchState<BetweenTurnsState>();
         }

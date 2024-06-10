@@ -9,5 +9,7 @@ namespace Infrastructure
             ((MonoBehaviour)this).StartCoroutine(enumerator);
         public new void StopCoroutine(Coroutine coroutine) => 
             ((MonoBehaviour)this).StopCoroutine(coroutine);
+        public new void StopCoroutine(IEnumerator enumerator) => 
+            ((MonoBehaviour)this).StopCoroutine(enumerator);
     }
 }

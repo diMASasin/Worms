@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b24a7341fcffd6448f37959cf406c28, type: 3}
   m_Name: Sheep
   m_EditorClassIdentifier: 
-  <ProjectilePrefab>k__BackingField: {fileID: 6127689516811422399, guid: d17e8377b5675114098b52b4d58f5811, type: 3}
+  <ProjectilePrefab>k__BackingField: {fileID: 2391104422186719664, guid: daa044b639514394489834bec9cc4bdd, type: 3}
   <Sprite>k__BackingField: {fileID: 673358070, guid: 3bb1fadd136a96f42b94902a40eace8b, type: 3}
   <AnimatorController>k__BackingField: {fileID: 9100000, guid: 36849faeb33168c49ab15364bc56b75b, type: 2}
   <ContactFilter>k__BackingField:
@@ -24,7 +24,7 @@ MonoBehaviour:
     useOutsideNormalAngle: 0
     layerMask:
       serializedVersion: 2
-      m_Bits: 1681
+      m_Bits: 640
     minDepth: 0
     maxDepth: 0
     minNormalAngle: 0

@@ -17,7 +17,7 @@ namespace Factories
         private readonly Worm _wormPrefab;
         private readonly TerrainWrapper _terrain;
         private readonly List<Worm> _worms = new();
-        private readonly IInput _input;
+        private readonly IMovementInput _movementInput;
 
         public event Action<Worm, Color, string> WormCreated;
         public event Action<Worm> WormDied;
@@ -27,7 +27,7 @@ namespace Factories
         {
             _wormPrefab = wormPrefab;
             _terrain = terrain;
-            _input = services.Single<IInput>();
+            _movementInput = services.Single<IMovementInput>();
         }
 
         public Worm Create(Transform parent, Color teamColor, WormConfig config)

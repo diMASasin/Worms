@@ -21,12 +21,11 @@ namespace BattleStateMachineComponents.States
         public void Enter()
         {
             _data.GlobalTimer.Resume();
-            _data.CurrentWorm.DelegateInput(_data.Input);
+            _data.CurrentWorm.DelegateInput(_data.MovementInput);
             
             _data.TurnTimer.Start(TimersConfig.AfterShotDuration, () => 
                 _stateSwitcher.SwitchState<ProjectilesWaiting>());
         }
-
 
         public void Exit()
         {

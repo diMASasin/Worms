@@ -6,7 +6,7 @@ namespace UltimateCC
 {
     public class InputHandler : MonoBehaviour
     {
-        private IInput _playerInput;
+        private IMovementInput _playerMovementInput;
         private PlayerMain player;
 
         // Variables to store input
@@ -33,35 +33,38 @@ namespace UltimateCC
             PlayerData = player.PlayerData; // Reference for Ultimate2DPlayer.PlayerData component where all variables stored
         }
 
-        public void Enable(IInput input)
+        public void Enable(IMovementInput movementInput)
         {
-            _playerInput = input;
+            Debug.Log($"Enable");
+            _playerMovementInput = movementInput;
             
-            _playerInput.Enable();
-            _playerInput.LongJumpStarted += OnLongJumpStarted;
-            _playerInput.HighJumpStarted += OnHighJumpStarted;
-            _playerInput.WalkPerformed += OnWalk;
-            _playerInput.DashPerformed += OnDash;
-            _playerInput.CrouchPerformed += OnCrouch;
-            _playerInput.WallGrabPerformed += OnWallGrab;
-            _playerInput.WallClimbPerformed += OnWallClimb;
+            _playerMovementInput.Enable();
+            _playerMovementInput.LongJumpStarted += OnLongJumpStarted;
+            _playerMovementInput.HighJumpStarted += OnHighJumpStarted;
+            _playerMovementInput.WalkPerformed += OnWalk;
+            _playerMovementInput.DashPerformed += OnDash;
+            _playerMovementInput.CrouchPerformed += OnCrouch;
+            _playerMovementInput.WallGrabPerformed += OnWallGrab;
+            _playerMovementInput.WallClimbPerformed += OnWallClimb;
         }
 
         public void Disable()
         {
-            if (_playerInput == null)
+            if (_playerMovementInput == null)
                 return;
+            Debug.Log($"Disable");
+            OnWalk(0);
             
-            _playerInput.LongJumpStarted -= OnLongJumpStarted;
-            _playerInput.HighJumpStarted -= OnHighJumpStarted;
-            _playerInput.WalkPerformed -= OnWalk;
-            _playerInput.DashPerformed -= OnDash;
-            _playerInput.CrouchPerformed -= OnCrouch;
-            _playerInput.WallGrabPerformed -= OnWallGrab;
-            _playerInput.WallClimbPerformed -= OnWallClimb;
-            _playerInput.Disable();
+            _playerMovementInput.LongJumpStarted -= OnLongJumpStarted;
+            _playerMovementInput.HighJumpStarted -= OnHighJumpStarted;
+            _playerMovementInput.WalkPerformed -= OnWalk;
+            _playerMovementInput.DashPerformed -= OnDash;
+            _playerMovementInput.CrouchPerformed -= OnCrouch;
+            _playerMovementInput.WallGrabPerformed -= OnWallGrab;
+            _playerMovementInput.WallClimbPerformed -= OnWallClimb;
             
-            _playerInput = null;
+            _playerMovementInput.Disable();
+            _playerMovementInput = null;
         }
 
         private void FixedUpdate() => UpdateTimers();
