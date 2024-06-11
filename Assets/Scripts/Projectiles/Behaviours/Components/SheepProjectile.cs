@@ -114,7 +114,7 @@ namespace Projectiles.Behaviours.Components
             });
         }
 
-        public void OnDrawGizmos()
+        public void OnDrawGizmosSelected()
         {
             Gizmos.DrawCube(_overlapPoint, _overlapBoxSize);
         }

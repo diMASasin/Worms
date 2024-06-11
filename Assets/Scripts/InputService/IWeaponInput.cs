@@ -9,7 +9,7 @@ namespace Weapons
 {
     public interface IWeaponInput : IService
     {
-        event Action PointerLineEnabled;
+        event Action PowerIncreasingStarted;
         event Action Shoot;
         float GetAimDirection();
         bool IsShotPowerIncreasing();

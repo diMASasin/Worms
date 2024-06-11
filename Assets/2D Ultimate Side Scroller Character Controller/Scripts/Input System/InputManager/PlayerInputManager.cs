@@ -35,7 +35,6 @@ namespace UltimateCC
 
         public void Enable(IMovementInput movementInput)
         {
-            Debug.Log($"Enable");
             _playerMovementInput = movementInput;
             
             _playerMovementInput.Enable();
@@ -52,7 +51,6 @@ namespace UltimateCC
         {
             if (_playerMovementInput == null)
                 return;
-            Debug.Log($"Disable");
             OnWalk(0);
             
             _playerMovementInput.LongJumpStarted -= OnLongJumpStarted;

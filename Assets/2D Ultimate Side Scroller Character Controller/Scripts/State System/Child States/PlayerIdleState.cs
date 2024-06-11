@@ -25,7 +25,7 @@ namespace UltimateCC
 
             if (playerData.Physics.Contacts.Count == 0 || (playerData.Physics.IsNextToWall && !playerData.Physics.Slope.StayStill))
             {
-                rigidbody2D.velocity += new Vector2(0f, -9.8f * Time.fixedDeltaTime);
+                rigidbody2D.velocity += new Vector2(0f, -9.8f * Time.fixedDeltaTime); 
             }
             else if (playerData.Physics.IsMultipleContactWithNonWalkableSlope)
             {
@@ -37,10 +37,10 @@ namespace UltimateCC
             }
             else
             {
-                rigidbody2D.velocity = Vector2.zero;
+                // rigidbody2D.velocity = Vector2.zero;
             }
-            rigidbody2D.velocity += playerData.Physics.Platform.DampedVelocity;
             playerData.Walls.CurrentStamina = Mathf.Clamp(playerData.Walls.CurrentStamina + (Time.fixedDeltaTime * playerData.Walls.StaminaRegenPerSec), 0, playerData.Walls.MaxStamina);
+            rigidbody2D.velocity += playerData.Physics.Platform.DampedVelocity;
         }
 
         public override void Exit()

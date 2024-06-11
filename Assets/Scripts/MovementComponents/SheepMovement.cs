@@ -80,7 +80,7 @@ namespace MovementComponents
             });
         }
 
-        public void OnDrawGizmos()
+        public void OnDrawGizmosSelected()
         {
             Gizmos.DrawCube(_overlapPoint, _overlapBoxSize);
         }

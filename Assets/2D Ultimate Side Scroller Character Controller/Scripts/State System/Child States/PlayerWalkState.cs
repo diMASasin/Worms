@@ -42,6 +42,7 @@ namespace UltimateCC
         public override void Exit()
         {
             base.Exit();
+            rigidbody2D.velocity = Vector2.zero;
         }
 
         public override void PhysicsCheck()

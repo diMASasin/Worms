@@ -8,6 +8,7 @@ namespace UltimateCC
         private readonly PlayerMain _playerMain;
         private readonly PlayerStateMachine _stateMachine;
         private float _speed = 9.8f;
+        private RigidbodyConstraints2D _previousConstraints;
 
         public PlayerFreeFallingState(PlayerMain playerMain, PlayerStateMachine stateMachine, 
             AnimName animName, PlayerData playerData) : base(playerMain, stateMachine, animName, playerData)
@@ -19,15 +20,20 @@ namespace UltimateCC
         public override void Enter()
         {
             base.Enter();
+            _previousConstraints = _playerMain.Rigidbody2D.constraints;
+            _playerMain.Rigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
         public override void Update()
         {
             base.Update();
             _playerMain.Rigidbody2D.velocity += Vector2.down * (_speed * Time.deltaTime);
-            
-            if(playerData.Physics.IsGrounded == true)
+
+            if (playerData.Physics.IsGrounded == true)
+            {
+                _playerMain.Rigidbody2D.constraints = _previousConstraints;
                 _stateMachine.ChangeState(_playerMain.IdleState);
+            }
         }
     }
 }

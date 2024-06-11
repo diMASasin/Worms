@@ -82,7 +82,7 @@ namespace Projectiles
             if (Config.ExplodeOnCollision && count > 0) Explode();
         }
 
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
             if (_showCollisionDetection)
             {

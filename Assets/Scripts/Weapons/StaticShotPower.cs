@@ -23,15 +23,15 @@ namespace Weapons
         private void OnInputDelegated(IWeaponInput weaponInput)
         {
             _weaponInput = weaponInput;
-            _weaponInput.PointerLineEnabled += OnPointerLineEnabled;
+            _weaponInput.PowerIncreasingStarted += OnPowerIncreasingStarted;
         }
 
         private void OnInputRemoved()
         {
-            _weaponInput.PointerLineEnabled -= OnPointerLineEnabled;
+            _weaponInput.PowerIncreasingStarted -= OnPowerIncreasingStarted;
         }
 
-        private void OnPointerLineEnabled()
+        private void OnPowerIncreasingStarted()
         {
             _weapon.Shoot(_weapon.Config.MaxShotPower); 
         }

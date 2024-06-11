@@ -24,6 +24,8 @@ namespace BattleStateMachineComponents.States
         private WeaponSelectorItemFactory _itemFactory;
         private WeaponFactory _weaponFactory;
 
+        public IWeaponShotEvent WeaponShotEvent;
+
         public WeaponChanger WeaponChanger { get; private set; }
         
         public WeaponBootstrapper(IEnumerable<WeaponConfig> weaponConfigs, WeaponSelector weaponSelector, 
@@ -48,7 +50,7 @@ namespace BattleStateMachineComponents.States
             Transform weaponsParent = new GameObject("Weapons").transform;
             
             _itemFactory = new WeaponSelectorItemFactory();
-            _weaponFactory = new WeaponFactory(projectilePools, weaponsParent);
+            WeaponShotEvent = _weaponFactory = new WeaponFactory(projectilePools, weaponsParent);
             
             IEnumerable<Weapon> weaponList = _weaponFactory.Create(_weaponConfigs);
 

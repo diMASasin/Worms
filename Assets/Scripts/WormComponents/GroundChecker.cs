@@ -29,7 +29,7 @@ namespace WormComponents
             IsGroundedChanged?.Invoke(IsGrounded);
         }
 
-        public void OnDrawGizmos()
+        public void OnDrawGizmosSelected()
         {
             if(_config.ShowGroundCheckerBox)
                 Gizmos.DrawCube(GetPoint(), _config.Size);

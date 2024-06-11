@@ -7,7 +7,7 @@ namespace Weapons
     {
         private MainInput.WeaponActions _weaponInput;
 
-        public event Action PointerLineEnabled;
+        public event Action PowerIncreasingStarted;
         public event Action Shoot;
 
         public WeaponInput(MainInput.WeaponActions weaponActions)
@@ -29,7 +29,7 @@ namespace Weapons
         }
 
         public float GetAimDirection() => -_weaponInput.RaiseScope.ReadValue<float>();
-        private void EnablePointerLine(CallbackContext callbackContext) => PointerLineEnabled?.Invoke();
+        private void EnablePointerLine(CallbackContext callbackContext) => PowerIncreasingStarted?.Invoke();
         private void OnShoot(CallbackContext obj) => Shoot?.Invoke();
         public bool IsShotPowerIncreasing() => _weaponInput.IncreaseShotPower.ReadValue<float>() == 1;
     }

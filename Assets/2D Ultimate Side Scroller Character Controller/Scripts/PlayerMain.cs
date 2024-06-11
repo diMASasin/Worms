@@ -80,13 +80,13 @@ namespace UltimateCC
             _stateMachine.CurrentState.FixedUpdate(); // FixedUpdate method of current state at runtime
         }
 
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
             if(CapsuleCollider2D == null || _showGroundCheck == false)
                 return;
             
             Gizmos.DrawSphere(PlayerData.Physics.GroundCheckPosition + new Vector2(0, -0.05f),
-                CapsuleCollider2D.size.x / 2f * Mathf.Abs(transform.localScale.x));
+                CapsuleCollider2D.size.x / 1.9f * Mathf.Abs(transform.localScale.x));
         }
     }
 }

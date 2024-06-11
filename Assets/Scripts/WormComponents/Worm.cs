@@ -12,6 +12,7 @@ namespace WormComponents
     {
         [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private CapsuleCollider2D _collider;
+        [SerializeField] private PlayerMain _playerMain;
         [field: SerializeField] public InputHandler InputHandler { get; private set; }
         [field: SerializeField] public Transform Armature { get; private set; }
         [field: SerializeField] public Transform WeaponPosition { get; private set; }
@@ -23,6 +24,7 @@ namespace WormComponents
 
         public Transform Transform => transform;
         public CapsuleCollider2D Collider2D => _collider;
+        public Rigidbody2D Rigidbody2D => _rigidbody;
         public int MaxHealth => Config.MaxHealth;
 
         public static int WormsNumber;
@@ -30,14 +32,13 @@ namespace WormComponents
         public event Action<Worm> Died;
         public event Action<Worm> DamageTook;
         
-        private void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
             var colliderSize = Collider2D.size;
             var size = new Vector2(colliderSize.x * 2, colliderSize.y);
             
             if (Config != null && Config.ShowCanSpawnCheckerBox)
                 Gizmos.DrawCube(transform.position + new Vector3(0, 0.5f), size);
-                // Gizmos.DrawSphere(transform.position + (Vector3)Collider2D.offset, Collider2D.size.x / 2);
         }
 
         public void Init(WormConfig config)
@@ -101,9 +102,22 @@ namespace WormComponents
         public void FreezePositionWhenGrounded() => StartCoroutine(FreezePositionWhenGroundedCoroutine());
         private IEnumerator FreezePositionWhenGroundedCoroutine()
         {
-            while (_rigidbody != null && _rigidbody.velocity.magnitude != 0)
+           
+            while (_playerMain.PlayerData.Physics.IsGrounded == false)
                 yield return null;
-
+            
+            FreezePosition();
+        }
+        
+        public void FreezePositionWhenFlyUpAndGrounded() => StartCoroutine(FreezePositionWhenFlyUpAndGroundedCoroutine());
+        private IEnumerator FreezePositionWhenFlyUpAndGroundedCoroutine()
+        {
+            while (_playerMain.PlayerData.Physics.IsGrounded == true)
+                yield return null;
+            
+            while (_playerMain.PlayerData.Physics.IsGrounded == false)
+                yield return null;
+            
             FreezePosition();
         }
     }

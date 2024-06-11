@@ -3,6 +3,7 @@ using Battle_;
 using BattleStateMachineComponents.StatesData;
 using CameraFollow;
 using Configs;
+using EventProviders;
 using Projectiles;
 using Services;
 using Timers;
@@ -85,8 +86,10 @@ namespace BattleStateMachineComponents.States
         private void InitializeStatesData(Arrow arrow, WeaponChanger weaponChanger)
         {
             IProjectileEvents projectileEvents = _poolBootsrapper.ProjectilesEvents;
+            IWeaponShotEvent weaponShotEvent = _weaponBootstrapper.WeaponShotEvent;
+            
             _data.BetweenTurnsData.Init(GameConfig.WindData, StartStateData.WindView, projectileEvents);
-            TurnStateData.Init(arrow, projectileEvents, weaponChanger, _wormsBootstraper.WormEvents);
+            TurnStateData.Init(arrow, projectileEvents, weaponChanger, _wormsBootstraper.WormEvents, weaponShotEvent);
             GlobalData.FollowingCamera.Init(_services.Single<ICameraInput>());
         }
 

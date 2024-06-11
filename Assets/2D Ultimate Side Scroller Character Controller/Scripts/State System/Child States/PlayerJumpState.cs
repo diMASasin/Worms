@@ -86,7 +86,10 @@ namespace UltimateCC
             // Move2D();
             rigidbody2D.velocity += physics.Platform.DampedVelocity;
             xCurveTime += Time.fixedDeltaTime;
-
+            
+            if(player.InputHandler.Input_Walk == 0)
+                return;
+            
             Vector2 inputSpeed = new Vector2(player.InputHandler.Input_Walk * playerData.Jump.CurrentJump.jumpXImpulse * Time.fixedDeltaTime, 0);
             // inputSpeed.y += -9.8f * Time.fixedDeltaTime;
             float jumpXImpulse = jumpInfo.currentJumpType.jumpXImpulse;

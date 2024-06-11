@@ -5,6 +5,7 @@ using Projectiles;
 using Timers;
 using UI;
 using UnityEngine;
+using Weapons;
 using WormComponents;
 
 namespace BattleStateMachineComponents.States
@@ -49,6 +50,7 @@ namespace BattleStateMachineComponents.States
             
             _turnStateData.WormEvents.WormDied += OnWormDied;
             _turnStateData.AllProjectileEvents.Launched += OnLaunched;
+            _turnStateData.WeaponShotEvent.WeaponShot += OnWeaponShot;
         }
 
         public void Exit()
@@ -64,6 +66,7 @@ namespace BattleStateMachineComponents.States
             
             _turnStateData.AllProjectileEvents.Launched -= OnLaunched;
             _turnStateData.WormEvents.WormDied -= OnWormDied;
+            _turnStateData.WeaponShotEvent.WeaponShot -= OnWeaponShot;
         }
 
         public void Tick()
@@ -79,11 +82,14 @@ namespace BattleStateMachineComponents.States
             _stateSwitcher.SwitchState<ProjectilesWaiting>();
         }
 
+        private void OnWeaponShot(float velocity, Weapon weapon)
+        {
+            _stateSwitcher.SwitchState<RetreatState>();
+        }
+
         private void OnLaunched(Projectile projectile, Vector2 velocity)
         {
             _data.FollowingCamera.SetTarget(projectile.transform);
-            
-            _stateSwitcher.SwitchState<RetreatState>();
         }
 
         private void OnTimerElapsed()

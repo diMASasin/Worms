@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b998c27e145394681709518387b450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showGroundCheck: 1
   CurrentState: 0
   PlayerData:
     Physics:
@@ -251,7 +252,7 @@ MonoBehaviour:
         m_Bits: 0
       wallLayerMask:
         serializedVersion: 2
-        m_Bits: 640
+        m_Bits: 128
       groundCheckPosition: {x: 0, y: 0, z: 0}
       headCheckPosition: {x: 0, y: 0, z: 0}
       walkSpeedDirection: {x: 0, y: 0}
@@ -1338,6 +1339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 3213259104454701872}
   _collider: {fileID: 3213259104454701873}
+  _playerMain: {fileID: 3213259104454701870}
   <InputHandler>k__BackingField: {fileID: 1868357830118979999}
   <Armature>k__BackingField: {fileID: 5433852659771445145}
   <WeaponPosition>k__BackingField: {fileID: 3757564109097753724}

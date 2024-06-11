@@ -5,60 +5,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="200a9c5f-335a-44bb-b8dc-d5d4d6152652" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/StatesData/ICurrentWorm.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/StatesData/ICurrentWorm.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Interfaces/IBattleEvents.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Interfaces/IBattleEvents.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/ILaunchVelocity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/ILaunchVelocity.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/ScopeMover.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/ScopeMover.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/ShotPowerIncreaser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/ShotPowerIncreaser.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/StaticShotPower.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/StaticShotPower.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animation/Weapon.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animation/Weapon/Baseball bat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animation/Weapon/Baseball bat/Atack.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animation/Weapon/Baseball bat/Atack.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animation/Weapon/Baseball bat/Baseball bat.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animation/Weapon/Baseball bat/Baseball bat.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Configs/Weapon/Baseball Bat.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Configs/Weapon/Baseball Bat.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Baseball bat.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Baseball bat.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/MeleeAtacker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/MeleeAtacker.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponAnimator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponAnimator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponAnimatorEventsHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponAnimatorEventsHandler.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Input System/IInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Input System/IInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/EssentialPhysics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/EssentialPhysics.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Input System/InputManager/PlayerInputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Input System/InputManager/PlayerInputManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/PlayerData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/PlayerData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/PlayerFreeFallingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/PlayerFreeFallingState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/PlayerMain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/PlayerMain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/Projectiles/Sheep.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Projectiles/Sheep.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/WalkingProjectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/WalkingProjectile.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/WalkingProjectile.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/WalkingProjectile.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/FragGranade.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/FragGranade.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Granade.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Granade.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RocketLauncher.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RocketLauncher.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Sheep.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Sheep.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerIdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerJumpState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerJumpState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerWalkState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/State System/Child States/PlayerWalkState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/GameConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/GameConfig.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/WindEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/WindEffect.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Worm/Worm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Worm/Worm.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/RetreatState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/RetreatState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/PoolBootsrapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/PoolBootsrapper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/StartBattleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/StartBattleState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/StatesData/GlobalBattleData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/StatesData/GlobalBattleData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/StatesData/TurnStateData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/StatesData/TurnStateData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/WeaponBootstrapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/WeaponBootstrapper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Configs/WeaponConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Configs/WeaponConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/ProjectileFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/ProjectileFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/WeaponFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/WeaponFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/WormFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/WormFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/BootstrapState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/BootstrapState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/CoroutinePerformer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/CoroutinePerformer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Interfaces/ICoroutinePerformer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Interfaces/ICoroutinePerformer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputService/NewInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/NewInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputService/IWeaponInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/IWeaponInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputService/WeaponInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/WeaponInput.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MovementComponents/SheepMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MovementComponents/SheepMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/ProjectilePool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/ProjectilePool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/ExplodeOnKeyDown.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/ExplodeOnKeyDown.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/SheepProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/SheepProjectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/IProjectile.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/IProjectile.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Projectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/WeaponSelector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/WeaponSelector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/ProjectileLauncher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/ProjectileLauncher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/StaticShotPower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/StaticShotPower.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponChanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponChanger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Wind_/WindMediator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Wind_/WindMediator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/GroundChecker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/GroundChecker.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/WormAnimations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/WormAnimations.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Worm.psd.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Worm.psd.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +68,10 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.0/Editor/ClipperLib/clipper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.0/Editor/SpriteSkin/BoneGizmoToggle.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.0/IK/Editor/IKEditorManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.0/IK/Runtime/IKManager2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.0/Runtime/SpriteSkin.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.pixel-perfect@5.0.3/Samples~/Scenes and Extras/Scenes/Rule Tiles/Scripts/Editor/RuleTileEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.psdimporter@8.0.4/Editor/PSDImporter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.psdimporter@8.0.4/Editor/PSDPlugin/PDNWrapper/BitmapLayer.cs" root0="SKIP_HIGHLIGHTING" />
@@ -130,6 +125,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/Samples~/SimpleDemo/SimpleController_UsingActions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/Samples~/SimpleDemo/SimpleController_UsingPlayerInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/Samples~/SimpleDemo/SimpleControls.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/Samples~/Visualizers/VisualizationHelpers.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/Tests/IntegrationTests/IntegrationTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.mathematics@1.2.6/Unity.Mathematics/Noise/common.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.33/UnityEngine.TestRunner/TestRunner/Callbacks/RemoteTestResultSender.cs" root0="SKIP_HIGHLIGHTING" />
@@ -242,10 +238,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="20356">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="20356" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -321,7 +317,9 @@
       <workItem from="1717831060096" duration="9642000" />
       <workItem from="1717866784458" duration="5682000" />
       <workItem from="1717945112770" duration="14092000" />
-      <workItem from="1718000555485" duration="23308000" />
+      <workItem from="1718000555485" duration="33985000" />
+      <workItem from="1718104903929" duration="604000" />
+      <workItem from="1718115950895" duration="3598000" />
     </task>
     <servers />
   </component>
@@ -350,121 +348,56 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/SheepProjectile.cs</url>
-          <line>135</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\Projectiles\Behaviours\Components\SheepProjectile.cs" initialLine="101" containingFunctionPresentation="Method 'RepeatLongJump'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Weapons/MeleeAtacker.cs</url>
+          <line>35</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\Weapons\MeleeAtacker.cs" initialLine="33" containingFunctionPresentation="Method 'OnShot'">
             <startOffsets>
-              <option value="4198" />
+              <option value="1104" />
             </startOffsets>
             <endOffsets>
-              <option value="4217" />
+              <option value="1135" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="374" />
+          <option name="timeStamp" value="415" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/SheepProjectile.cs</url>
-          <line>98</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\Projectiles\Behaviours\Components\SheepProjectile.cs" initialLine="69" containingFunctionPresentation="Method 'TryJumpAfterDelay'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Weapons/MeleeAtacker.cs</url>
+          <line>33</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\Weapons\MeleeAtacker.cs" initialLine="31" containingFunctionPresentation="Method 'OnShot'">
             <startOffsets>
-              <option value="3192" />
+              <option value="1001" />
             </startOffsets>
             <endOffsets>
-              <option value="3224" />
+              <option value="1078" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="376" />
+          <option name="timeStamp" value="416" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/SheepProjectile.cs</url>
-          <line>52</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\Projectiles\Behaviours\Components\SheepProjectile.cs" initialLine="49" containingFunctionPresentation="Method 'Reset'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Weapons/MeleeAtacker.cs</url>
+          <line>32</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\Weapons\MeleeAtacker.cs" initialLine="30" containingFunctionPresentation="Method 'OnShot'">
             <startOffsets>
-              <option value="1626" />
+              <option value="953" />
             </startOffsets>
             <endOffsets>
-              <option value="1646" />
+              <option value="988" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="379" />
+          <option name="timeStamp" value="417" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/SheepProjectile.cs</url>
-          <line>90</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\Projectiles\Behaviours\Components\SheepProjectile.cs" initialLine="91" containingFunctionPresentation="Method 'FixedUpdate'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Weapons/MeleeAtacker.cs</url>
+          <line>31</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\Weapons\MeleeAtacker.cs" initialLine="29" containingFunctionPresentation="Method 'OnShot'">
             <startOffsets>
-              <option value="2893" />
+              <option value="879" />
             </startOffsets>
             <endOffsets>
-              <option value="2964" />
+              <option value="940" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="383" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/SheepProjectile.cs</url>
-          <line>92</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\Projectiles\Behaviours\Components\SheepProjectile.cs" initialLine="93" containingFunctionPresentation="Lambda expression inside Method 'FixedUpdate'">
-            <startOffsets>
-              <option value="3074" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3100" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="384" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs</url>
-          <line>64</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\WormComponents\Worm.cs" initialLine="64" containingFunctionPresentation="Method 'FreezePosition'">
-            <startOffsets>
-              <option value="2163" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2225" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="395" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs</url>
-          <line>52</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\WormComponents\Worm.cs" initialLine="52" containingFunctionPresentation="Method 'DelegateInput'">
-            <startOffsets>
-              <option value="1811" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1833" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="396" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs</url>
-          <line>59</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\WormComponents\Worm.cs" initialLine="59" containingFunctionPresentation="Method 'RemoveInput'">
-            <startOffsets>
-              <option value="1989" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2004" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="397" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs</url>
-          <line>66</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\WormComponents\Worm.cs" initialLine="66" containingFunctionPresentation="Method 'UnfreezePosition'">
-            <startOffsets>
-              <option value="2270" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2332" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="398" />
+          <option name="timeStamp" value="418" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
