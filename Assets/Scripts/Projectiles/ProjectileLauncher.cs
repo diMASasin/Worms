@@ -37,7 +37,7 @@ namespace Projectiles
             var transform = projectile.transform;
             transform.position = _spawnPoint.position;
             
-            projectile.Launch(velocity);
+            projectile.Launch(velocity, weapon.Config.Damage);
         }
     }
 }

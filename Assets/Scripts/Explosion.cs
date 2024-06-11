@@ -30,17 +30,6 @@ public class Explosion : MonoBehaviour
             worm.TakeDamage(CalculateDamage(_damage, worm.Collider2D));
         }
     }
-
-    // private int CalculateDamage(int maxDamage, Collider2D wormCollider)
-    // {
-    //     float multiplier = 1 - (Vector3.Distance(transform.position, 
-    //         wormCollider.ClosestPoint(transform.position)) - _projectileColliderRadius);
-    //     multiplier = Mathf.Clamp01(multiplier);
-    //     if (multiplier >= 0.9f)
-    //         multiplier = 1;
-    //
-    //     return Convert.ToInt32(maxDamage * multiplier);
-    // }
     
     private int CalculateDamage(int maxDamage, Collider2D wormCollider)
     {
@@ -53,14 +42,14 @@ public class Explosion : MonoBehaviour
         return Convert.ToInt32(maxDamage * multiplier);
     }
 
-    public void Explode(ExplosionConfig config, Vector3 newPosition)
+    public void Explode(ExplosionConfig config, Vector3 newPosition, int damage)
     {
         _config = config;
         
         _explosionForce = config.ExplosionForce;
         _explosionUpwardsModifier = config.ExplosionUpwardsModifier;
         _collider.radius = config.ExplosionRadius;
-        _damage = config.Damage;
+        _damage = damage;
 
         _collider.enabled = true;
 

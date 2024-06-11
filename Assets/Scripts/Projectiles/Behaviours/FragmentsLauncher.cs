@@ -51,7 +51,7 @@ namespace Projectiles.Behaviours
             {
                 Projectile fragment = _fragmentPool.Get();
                 fragment.transform.position = projectile.transform.position;
-                fragment.Launch(new Vector2(Random.Range(-2f, 2f), Random.Range(4f, 6f)));
+                fragment.Launch(new Vector2(Random.Range(-2f, 2f), Random.Range(4f, 6f)), projectile.Config.FragmentsDamage);
             }
         }
     }

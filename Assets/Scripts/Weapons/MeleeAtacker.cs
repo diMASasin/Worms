@@ -38,6 +38,7 @@ namespace Weapons
                 {
                     worm.UnfreezePosition();
                     worm.Rigidbody2D.AddForce(transform.right * _weapon.Config.MaxShotPower);
+                    worm.TakeDamage(_weapon.Config.Damage);
                     worm.FreezePositionWhenFlyUpAndGrounded();
                 }
             }

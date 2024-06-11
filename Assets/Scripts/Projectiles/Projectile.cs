@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Projectiles
 {
-    public class Projectile : MonoBehaviour
+    public class Projectile : MonoBehaviour, IProjectileEvents
     {
         [SerializeField] private GameObject _spriteObject;
         [SerializeField] private SpriteRenderer _spriteRenderer;
@@ -16,6 +16,7 @@ namespace Projectiles
         [SerializeField] private bool _showCollisionDetection;
 
         public ProjectileConfig Config { get; private set; }
+        public int MaxDamage { get; private set; }
 
         private bool _dead;
 
@@ -23,7 +24,6 @@ namespace Projectiles
         
         public event Action<Projectile> Exploded;
         public event Action<Projectile, Vector2> Launched;
-        public event Action Reseted;
 
         public void Init(ProjectileConfig config)
         {
@@ -43,8 +43,10 @@ namespace Projectiles
             _rigidbody.velocity += additionalVelocity;
         }
 
-        public virtual void Launch(Vector2 velocity)
+        public virtual void Launch(Vector2 velocity, int maxDamage)
         {
+            MaxDamage = maxDamage;
+            
             _rigidbody.AddForce(velocity, ForceMode2D.Impulse);
             
             Launched?.Invoke(this, velocity);

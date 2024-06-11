@@ -35,10 +35,9 @@ namespace Pools
 
         private void OnExploded(Projectile projectile)
         {
-            
             Explosion explosion = Get();
             ExplosionConfig explosionConfig = projectile.Config.ExplosionConfig;
-            explosion.Explode(explosionConfig, projectile.transform.position);
+            explosion.Explode(explosionConfig, projectile.transform.position, projectile.MaxDamage);
         }
 
         public void Dispose()

@@ -30,14 +30,12 @@ namespace Projectiles.Behaviours.Components
         {
             _projectile.Launched += OnLaunched;
             _projectile.Exploded += OnExploded;
-            _projectile.Reseted += OnProjectileReseted;
         }
 
         private void OnDisable()
         {
             _projectile.Launched -= OnLaunched;
             _projectile.Exploded -= OnExploded;
-            _projectile.Reseted -= OnProjectileReseted;
         }
 
         public void Init()
