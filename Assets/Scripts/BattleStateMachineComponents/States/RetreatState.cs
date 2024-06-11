@@ -1,4 +1,5 @@
 using BattleStateMachineComponents.StatesData;
+using CameraFollow;
 using Configs;
 using Timers;
 
@@ -22,6 +23,7 @@ namespace BattleStateMachineComponents.States
         {
             _data.GlobalTimer.Resume();
             _data.CurrentWorm.DelegateInput(_data.MovementInput);
+            _data.WormWhenMoveCameraFollower.Enable();
             
             _data.TurnTimer.Start(TimersConfig.AfterShotDuration, () => 
                 _stateSwitcher.SwitchState<ProjectilesWaiting>());
@@ -33,6 +35,7 @@ namespace BattleStateMachineComponents.States
             _data.TurnTimer.Stop();
             
             _data.CurrentWorm.RemoveInput();
+            _data.WormWhenMoveCameraFollower.Disable();
         }
 
         public void Tick()

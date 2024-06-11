@@ -4,7 +4,7 @@ using static UnityEngine.InputSystem.InputAction;
 
 namespace InputService
 {
-    public class MovementMovementInput : IMovementInput
+    public class MovementInput : IMovementInput
     {
         private readonly InputActions _playerControls = new();
         

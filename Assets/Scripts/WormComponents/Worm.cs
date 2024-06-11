@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Configs;
+using EventProviders;
 using UltimateCC;
 using Unity.Mathematics;
 using UnityEngine;
@@ -31,6 +32,8 @@ namespace WormComponents
 
         public event Action<Worm> Died;
         public event Action<Worm> DamageTook;
+        public event Action<Worm> InputDelegated;
+        public event Action<Worm> InputRemoved;
         
         private void OnDrawGizmosSelected()
         {
@@ -54,6 +57,7 @@ namespace WormComponents
             SetCurrentWormLayer();
             UnfreezePosition();
             InputHandler.Enable(movementInput);
+            InputDelegated?.Invoke(this);
         }
         
         public void RemoveInput()
@@ -61,6 +65,7 @@ namespace WormComponents
             SetWormLayer();
             if(_isDied == false) FreezePositionWhenGrounded();
             InputHandler.Disable();
+            InputRemoved?.Invoke(this);
         }
         
         public void FreezePosition() => _rigidbody.constraints = RigidbodyConstraints2D.FreezePosition;

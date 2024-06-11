@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using Configs;
 using DestructibleLand;
 using EventProviders;
-using InputService;
-using Services;
-using UltimateCC;
 using UnityEngine;
 using WormComponents;
 using static UnityEngine.Object;
@@ -17,17 +14,17 @@ namespace Factories
         private readonly Worm _wormPrefab;
         private readonly TerrainWrapper _terrain;
         private readonly List<Worm> _worms = new();
-        private readonly IMovementInput _movementInput;
 
         public event Action<Worm, Color, string> WormCreated;
+        public event Action<Worm> DamageTook;
         public event Action<Worm> WormDied;
-        public event Action<Worm> WormDamageTook;
+        public event Action<Worm> InputDelegated;
+        public event Action<Worm> InputRemoved;
 
-        public WormFactory(Worm wormPrefab, TerrainWrapper terrain, AllServices services)
+        public WormFactory(Worm wormPrefab, TerrainWrapper terrain)
         {
             _wormPrefab = wormPrefab;
             _terrain = terrain;
-            _movementInput = services.Single<IMovementInput>();
         }
 
         public Worm Create(Transform parent, Color teamColor, WormConfig config)
@@ -42,6 +39,8 @@ namespace Factories
             
             newWorm.Died += OnDied;
             newWorm.DamageTook += OnDamageTook;
+            newWorm.InputDelegated += OnInputDelegated;
+            newWorm.InputRemoved += OnInputRemoved;
 
             WormCreated?.Invoke(newWorm, teamColor, config.Name + " " + Worm.WormsNumber);
             return newWorm;
@@ -49,14 +48,19 @@ namespace Factories
 
         public void Dispose()
         {
-            foreach (var worm in _worms) 
+            foreach (var worm in _worms)
+            {
                 worm.DamageTook -= OnDamageTook;
+                worm.InputDelegated -= OnInputDelegated;
+                worm.InputRemoved -= OnInputRemoved;
+            }
         }
 
-        private void OnDamageTook(Worm worm)
-        {
-            WormDamageTook?.Invoke(worm);
-        }
+        private void OnDamageTook(Worm worm) => DamageTook?.Invoke(worm);
+
+        private void OnInputDelegated(Worm worm) => InputDelegated?.Invoke(worm);
+
+        private void OnInputRemoved(Worm worm) => InputRemoved?.Invoke(worm);
 
         private void OnDied(Worm worm)
         {

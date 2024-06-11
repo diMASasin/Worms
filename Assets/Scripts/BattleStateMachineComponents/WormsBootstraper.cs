@@ -1,6 +1,7 @@
 using System;
 using Battle_;
 using BattleStateMachineComponents.StatesData;
+using CameraFollow;
 using Configs;
 using DestructibleLand;
 using EventProviders;
@@ -21,15 +22,15 @@ namespace BattleStateMachineComponents.States
         private readonly GameConfig _gameConfig;
         private readonly Transform _teamHealthParent;
         private readonly CycledList<Team> _aliveTeams;
+        private readonly FollowingCamera _followingCamera;
         private WormInfoFactory _wormInfoFactory;
         private WormFactory _wormFactory;
-        private AllServices _services;
 
         public IWormEvents WormEvents { get; private set; }
         public ITeamDiedEventProvider TeamDiedEvent { get; private set; }
 
         public WormsBootstraper(TerrainWrapper terrain, IBattleSettings battleSettings, WormsSpawner wormsSpawner,
-            GameConfig gameConfig, Transform teamHealthParent, CycledList<Team> aliveTeams, AllServices services)
+            GameConfig gameConfig, Transform teamHealthParent, CycledList<Team> aliveTeams)
         {
             _terrain = terrain;
             _battleSettings = battleSettings;
@@ -37,7 +38,6 @@ namespace BattleStateMachineComponents.States
             _gameConfig = gameConfig;
             _teamHealthParent = teamHealthParent;
             _aliveTeams = aliveTeams;
-            _services = services;
         }
 
         public void Dispose()
@@ -51,8 +51,7 @@ namespace BattleStateMachineComponents.States
             int teamsNumber = _battleSettings.Data.TeamsCount;
             int wormsNumber = _battleSettings.Data.WormsCount;
 
-            _services = AllServices.Container;
-            WormEvents = _wormFactory = new WormFactory(_gameConfig.WormPrefab, _terrain, _services);
+            WormEvents = _wormFactory = new WormFactory(_gameConfig.WormPrefab, _terrain);
             var teamFactory = new TeamFactory(_wormFactory);
             _wormInfoFactory = new WormInfoFactory(_gameConfig.WormInfoViewPrefab, WormEvents);
 

@@ -18,6 +18,7 @@ namespace BattleStateMachineComponents.StatesData
         
         public TimersConfig TimersConfig { get; private set; }
         public CycledList<Team> AliveTeams { get; private set; } = new();
+        public WormWhenMoveCameraFollower WormWhenMoveCameraFollower { get; private set; }
         
         public Worm CurrentWorm { get; set; }
         public Team CurrentTeam { get; set; }
@@ -34,6 +35,8 @@ namespace BattleStateMachineComponents.StatesData
             
             GlobalTimer = new Timer();
             TurnTimer = new Timer();
+            
+            WormWhenMoveCameraFollower = new WormWhenMoveCameraFollower(FollowingCamera, MovementInput, this);
         }
     }
 }

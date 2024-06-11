@@ -44,7 +44,7 @@ namespace BattleStateMachineComponents.States
                 GameConfig.FollowingTimerViewPrefab);
 
             _wormsBootstraper = new WormsBootstraper(StartStateData.Terrain, services.Single<IBattleSettings>(), 
-                StartStateData.WormsSpawner, GameConfig, healthParent, GlobalData.AliveTeams, services);
+                StartStateData.WormsSpawner, GameConfig, healthParent, GlobalData.AliveTeams);
         }
 
         public void Enter()
@@ -60,7 +60,7 @@ namespace BattleStateMachineComponents.States
             InitializeTimers();
 
             InitializeStatesData(arrow, _weaponBootstrapper.WeaponChanger);
-
+            
             _stateSwitcher.SwitchState<BetweenTurnsState>();
         }
 
