@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Baseball Bat
   m_EditorClassIdentifier: 
   <WeaponPrefab>k__BackingField: {fileID: 8510113237089447412, guid: 22f8ae861d31a334ca416ffc35e6dbbe, type: 3}
+  <Damage>k__BackingField: 25
   <Sencetivity>k__BackingField: 0.01
   <ScopeSensetivity>k__BackingField: 50
   <SpeedMultiplier>k__BackingField: 0.03

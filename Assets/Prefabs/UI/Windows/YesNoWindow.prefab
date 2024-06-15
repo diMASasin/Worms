@@ -120,19 +120,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6774818945077392813}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4063495141204815358}
-        m_TargetAssemblyTypeName: ExitToMenuWindow, Assembly-CSharp
-        m_MethodName: ExitToMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &3573471896586777752
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,19 +510,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7370536399575927633}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4063495141204815358}
-        m_TargetAssemblyTypeName: ExitToMenuWindow, Assembly-CSharp
-        m_MethodName: Hide
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &7458459809137529895
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,6 +738,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 4820545720169541764}
+  _yesButton: {fileID: 1555599416946472469}
+  _noButton: {fileID: 3916089403708810453}
 --- !u!95 &4820545720169541764
 Animator:
   serializedVersion: 5

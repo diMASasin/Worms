@@ -50,11 +50,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4782872535538918547, guid: 8691137e386b63749975d17dece325d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.57
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4782872535538918547, guid: 8691137e386b63749975d17dece325d8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.76
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4782872535538918547, guid: 8691137e386b63749975d17dece325d8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6011924778602359624, guid: 8691137e386b63749975d17dece325d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9131519681045287937, guid: 8691137e386b63749975d17dece325d8, type: 3}
     m_RemovedGameObjects: []
@@ -112,6 +116,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5884089838859642725}
   m_SourcePrefab: {fileID: 100100000, guid: 8691137e386b63749975d17dece325d8, type: 3}
+--- !u!4 &587845391713800674 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6011924778602359624, guid: 8691137e386b63749975d17dece325d8, type: 3}
+  m_PrefabInstance: {fileID: 6577181796692523690}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8005951856838632737 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3772905108119691147, guid: 8691137e386b63749975d17dece325d8, type: 3}
@@ -195,6 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapon: {fileID: 8510113237089447412}
+  _hitPointStart: {fileID: 587845391713800674}
   _contactFilter:
     useTriggers: 0
     useLayerMask: 1

@@ -7,6 +7,7 @@ namespace Weapons
     public class MeleeAttacker : MonoBehaviour
     {
         [SerializeField] private Weapon _weapon;
+        [SerializeField] private Transform _hitPointStart;
         [SerializeField] private ContactFilter2D _contactFilter;
         [SerializeField] private WeaponAnimatorEventsHandler _animatorEventsHandler;
 
@@ -22,7 +23,7 @@ namespace Weapons
 
         private void GetCollisionParameters(out Vector2 origin, out Vector2 size)
         {
-            origin = transform.position + new Vector3(0.5f, 0);
+            origin = _hitPointStart.transform.position;
             size = new Vector2(0.8f, 1);
         }
         
@@ -30,7 +31,7 @@ namespace Weapons
         {
             GetCollisionParameters(out Vector2 origin, out Vector2 size);
             List<RaycastHit2D> results = new();
-            Physics2D.BoxCast(origin, size, 0, transform.right, _contactFilter, results);
+            Physics2D.BoxCast(origin, size, 0, transform.right, _contactFilter, results, 0);
             
             foreach (var result in results)
             {

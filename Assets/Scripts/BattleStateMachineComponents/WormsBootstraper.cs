@@ -64,6 +64,7 @@ namespace BattleStateMachineComponents.States
 
             TeamHealthFactory teamHealthFactory = Instantiate(_gameConfig.TeamHealthFactoryPrefab, _teamHealthParent);
             teamHealthFactory.Create(_aliveTeams, _gameConfig.TeamHealthPrefab);
+            teamHealthFactory.transform.SetAsFirstSibling();
         }
     }
 }

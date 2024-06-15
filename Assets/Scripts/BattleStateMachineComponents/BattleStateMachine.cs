@@ -25,7 +25,8 @@ namespace BattleStateMachineComponents
                 new TurnState(this, data.GlobalBattleData, data.TurnStateData),
                 new RetreatState(this, data.GlobalBattleData),
                 new ProjectilesWaiting(this),
-                new BattleEndState(this, data.EndScreen)
+                new BattleEndState(this, data.EndScreen),
+                new ExitBattleState()
             };
         }
 

@@ -28,13 +28,5 @@ namespace BattleStateMachineComponents.States
         public void FixedTick()
         {
         }
-
-        public void LateTick()
-        {
-        }
-
-        public void HandleInput()
-        {
-        }
     }
 }

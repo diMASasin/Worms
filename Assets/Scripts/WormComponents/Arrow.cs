@@ -32,8 +32,9 @@ namespace WormComponents
             _timer.Start(_lifeTime, Disable);
         }
 
-        private void Disable()
+        public void Disable()
         {
+            _timer.Stop();
             gameObject.SetActive(false);
         }
     }

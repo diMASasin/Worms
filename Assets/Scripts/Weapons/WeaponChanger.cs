@@ -44,14 +44,17 @@ namespace Weapons
             _wormEvents.WormDied -= OnWormDied;
         }
 
-        private void OnWeaponShot(float shotPower, Weapon weapon) => TryRemoveWeapon(weapon);
+        private void OnWeaponShot(float shotPower, Weapon weapon) => RemoveWeapon(weapon);
 
         private void OnWeaponSelected(Weapon weapon)
         {
-            TryRemoveWeapon(CurrentWeapon);
-
             Transform wormTransform = _currentWormProvider.CurrentWorm.WeaponPosition.transform;
             _weaponTransform = weapon.transform;
+            RemoveWeapon(CurrentWeapon);
+            
+            if (CurrentWeapon != null)
+                CurrentWeapon.GameObject.SetActive(false);
+
             CurrentWeapon = weapon;
 
             weapon.GameObject.SetActive(true);
@@ -64,20 +67,19 @@ namespace Weapons
             WeaponChanged?.Invoke(weapon);
         }
 
-        public void TryRemoveWeapon(Weapon weapon)
+        public void RemoveWeapon(Weapon weapon)
         {
-            if (weapon == null)
+            if (_weaponTransform == null || weapon == null)
                 return;
-            
+                
             _weaponTransform.parent = _weaponsParent;
             weapon.RemoveInput();
-            // weapon.GameObject.SetActive(false);
             WeaponRemoved?.Invoke(weapon);
         }
 
         private void OnWormDied(Worm worm)
         {
-            TryRemoveWeapon(CurrentWeapon);
+            RemoveWeapon(CurrentWeapon);
         }
     }
 }

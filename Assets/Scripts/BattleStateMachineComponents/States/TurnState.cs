@@ -60,9 +60,10 @@ namespace BattleStateMachineComponents.States
             
             _turnStateData.WeaponSelector.DisallowOpen();
             _turnStateData.WeaponSelector.Close();
+            _turnStateData.Arrow.Disable();
             
             CurrentWorm.RemoveInput();
-            _turnStateData.WeaponChanger.TryRemoveWeapon(_turnStateData.WeaponChanger.CurrentWeapon);
+            _turnStateData.WeaponChanger.RemoveWeapon(_turnStateData.WeaponChanger.CurrentWeapon);
             
             _turnStateData.AllProjectileEvents.Launched -= OnLaunched;
             _turnStateData.WormEvents.WormDied -= OnWormDied;

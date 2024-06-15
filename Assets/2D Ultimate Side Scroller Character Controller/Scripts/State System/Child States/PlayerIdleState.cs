@@ -12,6 +12,7 @@ namespace UltimateCC
         {
             base.Enter();
             rigidbody2D.gravityScale = playerData.Walk.Physics2DGravityScale;
+            player.Rigidbody2D.constraints = RigidbodyConstraints2D.FreezePosition;
         }
 
         public override void Update()
@@ -29,11 +30,11 @@ namespace UltimateCC
             }
             else if (playerData.Physics.IsMultipleContactWithNonWalkableSlope)
             {
-                rigidbody2D.velocity = (playerData.Physics.ContactPosition.RotateAround(playerData.Physics.GroundCheckPosition, playerData.Physics.FacingDirection * 5) - playerData.Physics.GroundCheckPosition) * 1;
+                // rigidbody2D.velocity = (playerData.Physics.ContactPosition.RotateAround(playerData.Physics.GroundCheckPosition, playerData.Physics.FacingDirection * 5) - playerData.Physics.GroundCheckPosition) * 1;
             }
             else if (playerData.Physics.CanSlideCorner)
             {
-                rigidbody2D.velocity = new(0f, -playerData.Physics.SlideSpeedOnCorner);
+                // rigidbody2D.velocity = new(0f, -playerData.Physics.SlideSpeedOnCorner);
             }
             else
             {
@@ -46,6 +47,7 @@ namespace UltimateCC
         public override void Exit()
         {
             base.Exit();
+            player.Rigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
         public override void PhysicsCheck()

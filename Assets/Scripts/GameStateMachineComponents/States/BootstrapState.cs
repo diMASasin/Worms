@@ -57,6 +57,7 @@ namespace GameStateMachineComponents.States
             services.RegisterSingle<ICoroutinePerformer>(coroutinePerformer);
             services.RegisterSingle<ISceneLoader>(new SceneLoader(coroutinePerformer));
             services.RegisterSingle<IBattleSettings>(new BattleSettings());
+            services.RegisterSingle<IGameStateSwitcher>(StateSwitcher);
             
             RegisterInput(services);
         }

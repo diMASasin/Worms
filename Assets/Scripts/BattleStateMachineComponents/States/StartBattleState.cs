@@ -36,6 +36,8 @@ namespace BattleStateMachineComponents.States
             _data = data;
             _services = services;
             Transform healthParent = StartStateData.UIChanger.transform;
+            
+            _services.RegisterSingle<IStateSwitcher>(stateSwitcher);
 
             _weaponBootstrapper = new WeaponBootstrapper(GameConfig.WeaponConfigs, TurnStateData.WeaponSelector, 
                 GameConfig.ItemPrefab, _services);

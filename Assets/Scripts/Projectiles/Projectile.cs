@@ -62,12 +62,6 @@ namespace Projectiles
             gameObject.SetActive(false);
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space) && Config.ExplodeOnKeyDown)
-                Explode();
-        }
-
         private void FixedUpdate()
         {
             if (Config.LookInVelocityDirection)
