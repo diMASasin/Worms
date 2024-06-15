@@ -32,12 +32,12 @@ namespace CameraFollow
             if (_cameraInput == null) return;
             
             TryZoom(_cameraInput.GetScrollDeltaY());
+            TryStopZoom();
         }
 
         private void LateUpdate()
         {
             _followingObject.LateTick();
-            TryStopZoom();
         }
 
         public void SetTarget(Transform target)
@@ -64,12 +64,17 @@ namespace CameraFollow
         
         private void TryStopZoom()
         {
-            if(_followingObject.FollowingFor == null || _followingObject.FreezeZPosition == true)
+            if(_followingObject.FreezeZPosition == true)
                 return;
+
+            float targetPositionZ;
+            if (_followingObject.FollowingFor == null)
+                targetPositionZ = _followingObject.MoveTo.z;
+            else
+                targetPositionZ = _followingObject.FollowingFor.position.z;
             
             float tolerance = 0.2f;
             float positionZ = transform.position.z - _followingObject.Offset.z;
-            float targetPositionZ = _followingObject.FollowingFor.position.z;
 
             if (Math.Abs(positionZ - targetPositionZ) < 2 ||
                 Math.Abs(positionZ - _maxPosition) < tolerance ||
@@ -77,6 +82,6 @@ namespace CameraFollow
             {
                 _followingObject.StopFollowZPosition();
             }
-        }
+        } 
     }
 }

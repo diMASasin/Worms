@@ -276,7 +276,7 @@ namespace UltimateCC
             private AnimationCurve turnBackCurve;
 
             [SerializeField] private float turnBackTime;
-            [SerializeField, NonEditable] private float physics2DGravityScale;
+            [SerializeField] private float physics2DGravityScale;
 
             public float MaxSpeed => maxSpeed;
             public AnimationCurve SpeedUpCurve => speedUpCurve;

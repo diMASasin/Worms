@@ -259,7 +259,7 @@ MonoBehaviour:
       contactPosition: {x: 0, y: 0}
       facingDirection: 0
       headBumpMinAngle: 30
-      slideOnCornerMinAngle: 45
+      slideOnCornerMinAngle: 65
       slideSpeedOnCorner: 1
       isGrounded: 0
       isOnNotWalkableSlope: 0
@@ -860,7 +860,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
       xTurnBackTime: 10
-      physics2DGravityScale: 1
+      physics2DGravityScale: 1.5
     Dash:
       maxHeight: 0.3
       dashHeightCurve:
@@ -952,7 +952,7 @@ MonoBehaviour:
     Walls:
       WallSlide:
         facingDirectionWhenSliding: -1
-        maxSpeed: 5
+        maxSpeed: 1
         speedUpCurve:
           serializedVersion: 2
           m_Curve:
@@ -1188,7 +1188,7 @@ MonoBehaviour:
         jumpBufferMaxTime: 0.15
         coyoteTimeTimer: 0
         jumpBufferTimer: 0
-        xStartVelocity: 7
+        xStartVelocity: 0
         xStartVelocityDampingCurve:
           serializedVersion: 2
           m_Curve:

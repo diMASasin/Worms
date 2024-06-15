@@ -107,13 +107,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 3649500008628473168}
-  _speed: 3
-  _offset: {x: 0, y: 1.2, z: -10}
-  _maxPosition: -10
   _followingObject:
-    _objectTransform: {fileID: 3649500008628473263}
-    _offset: {x: 0, y: 1, z: 0}
-    _speed: 1000
+    _followingTransform: {fileID: 3649500008628473263}
+    _moveSmoothly: 1
+    _speed: 5
+    <Offset>k__BackingField: {x: 0, y: 1, z: -10}
+  _maxPosition: -10
   <MinPosition>k__BackingField: -65
   <GeneralViewPosition>k__BackingField: {x: 20, y: 5.6, z: -60}
 --- !u!114 &3649500008628473261

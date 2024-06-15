@@ -85,7 +85,7 @@ namespace UltimateCC
             if (playerData.Physics.IsOnNotWalkableSlope && Mathf.Sign(playerData.Physics.ContactPosition.x - player.transform.position.x) == Mathf.Sign(playerData.Physics.FacingDirection)
                 && playerData.Physics.Slope.CurrentSlopeAngle > playerData.Physics.Slope.MaxSlopeAngle)
             {
-                rigidbody2D.velocity = Vector2.zero;
+                // rigidbody2D.velocity = Vector2.zero;
             }
             else if (!playerData.Physics.IsOnNotWalkableSlope)
             {

@@ -154,6 +154,7 @@ MonoBehaviour:
   _animator: {fileID: 6103891854826286232}
   _lifeTime: 2
   _followingObject:
-    _objectTransform: {fileID: 7066426075502181888}
-    _offset: {x: 0, y: 0, z: 0}
+    _followingTransform: {fileID: 7066426075502181888}
+    _moveSmoothly: 0
     _speed: 1000
+    <Offset>k__BackingField: {x: 0, y: 0, z: 0}

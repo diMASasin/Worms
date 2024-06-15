@@ -80,10 +80,10 @@ namespace UltimateCC
             {
                 stateMachine.ChangeState(player.IdleState);
             }
-            else if (playerData.Physics.IsGrounded || playerData.Physics.IsMultipleContactWithNonWalkableSlope)
-            {
-                stateMachine.ChangeState(player.IdleState);
-            }
+            // else if (playerData.Physics.IsGrounded || playerData.Physics.IsMultipleContactWithNonWalkableSlope)
+            // {
+            //     stateMachine.ChangeState(player.IdleState);
+            // }
             else if ((playerData.Physics.IsGrounded && !playerData.Physics.IsOnNotWalkableSlope))
             {
                 stateMachine.ChangeState(player.WalkState);

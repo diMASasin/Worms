@@ -43,12 +43,12 @@ namespace UltimateCC
             jumpInfo.currentJumpType = dataJump.currentJumpType == HighJump ? jumpInfo.HighJump : jumpInfo.LongJump;
             dataJump.NextJumpInt++;
             player.Animator.SetBool(_animEnum.ToString(), false);
-            player.Animator.SetBool(JumpType.Animation.ToString(), true);
+            player.Animator.SetTrigger(JumpType.Animation.ToString());
             dataJump.JumpBufferTimer = 0;
             cutJumpTime = 0f;
             playerData.Physics.CutJump = false;
             dataJump.NewJump = false;
-            rigidbody2D.gravityScale = playerData.Land.Physics2DGravityScale;
+            // rigidbody2D.gravityScale = playerData.Land.Physics2DGravityScale;
             if (rigidbody2D.velocity.x != 0)
             {
                 phase = InputHandler.Input_Walk != 0 ? Phase.SpeedUp : Phase.SlowDown;
@@ -74,7 +74,6 @@ namespace UltimateCC
         {
             base.FixedUpdate();
             PhysicsVariables physics = playerData.Physics;
-            WalkVariables walk = playerData.Walk;
             
             if (cutJumpTime == 0 && physics.CutJump)
             {
@@ -101,7 +100,6 @@ namespace UltimateCC
         public override void Exit()
         {
             base.Exit();
-            player.Animator.SetBool(JumpType.Animation.ToString(), false);
             playerData.Physics.CutJump = false;
         }
 

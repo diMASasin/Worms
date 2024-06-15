@@ -48,7 +48,8 @@ MonoBehaviour:
   _healthText: {fileID: 5228904223780119505}
   _nameText: {fileID: 3663519595945986517}
   _followingObject:
-    _objectTransform: {fileID: 2184462189580490931}
+    _followingTransform: {fileID: 2184462189580490931}
+    _moveSmoothly: 0
     _speed: 1000
     <Offset>k__BackingField: {x: 0, y: 1, z: 0}
 --- !u!1 &2880633298937590097
