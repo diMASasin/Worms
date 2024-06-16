@@ -21,17 +21,26 @@ namespace Weapons
             _animatorEventsHandler.WeaponShot -= OnShot;
         }
 
-        private void GetCollisionParameters(out Vector2 origin, out Vector2 size)
+        private void Update()
         {
-            origin = _hitPointStart.transform.position;
-            size = new Vector2(0.8f, 1);
+            GetOverlapParameters(out Vector2 origin, out Vector2 pointB);
+            Debug.DrawLine(origin, pointB);
+        }
+
+        private void GetOverlapParameters(out Vector2 pointA, out Vector2 pointB)
+        {
+            float length = 1.1f;
+            
+            pointA = _hitPointStart.transform.position;
+            
+            pointB = pointA + (Vector2)transform.right * length;
         }
         
         private void OnShot()
         {
-            GetCollisionParameters(out Vector2 origin, out Vector2 size);
-            List<RaycastHit2D> results = new();
-            Physics2D.BoxCast(origin, size, 0, transform.right, _contactFilter, results, 0);
+            GetOverlapParameters(out Vector2 origin, out Vector2 pointB);
+            List<Collider2D> results = new();
+            Physics2D.OverlapArea(origin, pointB, _contactFilter, results);
             
             foreach (var result in results)
             {
@@ -40,7 +49,6 @@ namespace Weapons
                     worm.UnfreezePosition();
                     worm.Rigidbody2D.AddForce(transform.right * _weapon.Config.MaxShotPower);
                     worm.TakeDamage(_weapon.Config.Damage);
-                    worm.FreezePositionWhenFlyUpAndGrounded();
                 }
             }
         }

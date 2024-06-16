@@ -1,3 +1,4 @@
+using System;
 using Configs;
 using EventProviders;
 using Pools;
@@ -7,17 +8,22 @@ using Weapons;
 
 namespace UI
 {
-    public class WeaponSelector : MonoBehaviour, IWeaponSelectorOpener
+    public class WeaponSelector : MonoBehaviour, IWeaponSelectorEvents
     {
         [SerializeField] private Animator _animator;
         [field: SerializeField] public Transform ItemParent { get; private set; }
-        
+
         private IWeaponShotEvent _shotEvent;
         private IWeaponSelectedEvent _selectedEvent;
         private IWeaponSelectorInput _weaponSelectorInput;
         private bool _canOpen;
-    
-        private static readonly int Opened = Animator.StringToHash("Opened");
+        private bool _isOpened;
+
+        public event Action SelectorOpened;
+        public event Action SelectorClosed;
+
+        private static readonly int Open = Animator.StringToHash("Open");
+        private static readonly int Close = Animator.StringToHash("Close");
 
         public void Init(IWeaponSelectedEvent selectedEvent, IWeaponSelectorInput weaponSelectorInput)
         {
@@ -42,15 +48,32 @@ namespace UI
         {
             if (_canOpen == false)
             {
-                Close();
+                CloseIfOpened();
                 return;
             }
-            
-            _animator.SetBool(Opened, !_animator.GetBool(Opened));
+
+            if (_isOpened)
+                CloseIfOpened();
+            else
+                OpenIfClosed();
         }
 
-        public void Close() => _animator.SetBool(Opened, false);
+        public void OpenIfClosed()
+        {
+            _isOpened = true;
+            _animator.ResetTrigger(Close);
+            _animator.SetTrigger(Open);
+            SelectorOpened?.Invoke();
+        }
 
-        private void OnSelected(Weapon weapon) => Close();
+        public void CloseIfOpened()
+        {
+            _isOpened = false;
+            _animator.ResetTrigger(Open);
+            _animator.SetTrigger(Close);
+            SelectorClosed?.Invoke();
+        }
+
+        private void OnSelected(Weapon weapon) => CloseIfOpened();
     }
 }

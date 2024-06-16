@@ -9,12 +9,16 @@ namespace Projectiles.Behaviours.Components
     public class ExplodeOnKeyDown : MonoBehaviour
     {
         [SerializeField] private Projectile _projectile;
+        
         private Coroutine _coroutine;
         private ICoroutinePerformer _coroutinePerformer;
+        private WaitForSeconds _waitForEnableKey;
+        private readonly float _secondsToEnableKey = 1;
 
-        public void Start()
+        public void Awake()
         {
             _coroutinePerformer = AllServices.Container.Single<ICoroutinePerformer>();
+            _waitForEnableKey = new WaitForSeconds(_secondsToEnableKey);
         }
 
         private void OnEnable()
@@ -41,6 +45,8 @@ namespace Projectiles.Behaviours.Components
 
         private IEnumerator WaitKeyDown()
         {
+            yield return _waitForEnableKey;
+            
             while (Input.GetKeyDown(KeyCode.Space) == false)
                 yield return null;
 

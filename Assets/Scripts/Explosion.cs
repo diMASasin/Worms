@@ -14,6 +14,7 @@ public class Explosion : MonoBehaviour
     private int _damage;
     private IShovel _shovel;
     private ExplosionConfig _config;
+    private CapsuleCollider2D _projectileCollider;
 
     public event Action<Explosion> AnimationStopped;
 
@@ -27,23 +28,26 @@ public class Explosion : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out Worm worm))
         {
             worm.AddExplosionForce(_explosionForce, transform.position, _explosionUpwardsModifier, _config.ExplosionRadius);
-            worm.TakeDamage(CalculateDamage(_damage, worm.Collider2D));
+            worm.TakeDamage(CalculateDamage(_damage, worm));
         }
     }
     
-    private int CalculateDamage(int maxDamage, Collider2D wormCollider)
+    private int CalculateDamage(int maxDamage, Worm worm)
     {
-        float multiplier = 1 - (Vector3.Distance(transform.position, 
-            wormCollider.ClosestPoint(transform.position)));
+        float multiplier = 1 - (Vector2.Distance(_projectileCollider.ClosestPoint(worm.transform.position), 
+            worm.Collider2D.ClosestPoint(transform.position)));
+        
         multiplier = Mathf.Clamp01(multiplier);
+        
         if (multiplier >= 0.9f)
             multiplier = 1;
 
         return Convert.ToInt32(maxDamage * multiplier);
     }
 
-    public void Explode(ExplosionConfig config, Vector3 newPosition, int damage)
+    public void Explode(ExplosionConfig config, Vector3 newPosition, int damage, CapsuleCollider2D projectileCollider)
     {
+        _projectileCollider = projectileCollider;
         _config = config;
         
         _explosionForce = config.ExplosionForce;

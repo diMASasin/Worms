@@ -12,6 +12,7 @@ namespace Weapons
         private float _zRotation;
         private IWeaponInput _weaponInput;
 
+        public bool CanShot { get; private set; } = false;
         public bool IsShot { get; private set; } = false;
 
         public WeaponConfig Config => _config;
@@ -29,6 +30,7 @@ namespace Weapons
         public void DelegateInput(IWeaponInput weaponInput)
         {
             _weaponInput = weaponInput;
+            IsShot = false;
             InputDelegated?.Invoke(_weaponInput);
         }
 
@@ -38,17 +40,17 @@ namespace Weapons
             InputRemoved?.Invoke();
         }
 
-        public void Reset()
-        {
-            IsShot = false;
-        }
+        public void AllowShoot() => CanShot = true;
+
+        public void DisallowShoot() => CanShot = false;
 
         public void Shoot(float shotPower)
         {
-            if (IsShot)
+            if (CanShot == false || IsShot == true)
                 return;
 
             IsShot = true;
+            CanShot = false;
             Shot?.Invoke(shotPower, this);
         }
     }

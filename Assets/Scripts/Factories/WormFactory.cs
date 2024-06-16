@@ -33,7 +33,6 @@ namespace Factories
             Worm newWorm = Instantiate(_wormPrefab, position, Quaternion.identity, parent);
             
             newWorm.Init(config);
-            newWorm.FreezePosition();
             
             _worms.Add(newWorm);
             

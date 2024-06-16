@@ -4,7 +4,8 @@ namespace UltimateCC
 {
     public class PlayerIdleState : MainState
     {
-        public PlayerIdleState(PlayerMain player, PlayerStateMachine stateMachine, PlayerMain.AnimName animEnum, PlayerData playerData) : base(player, stateMachine, animEnum, playerData)
+        public PlayerIdleState(PlayerMain player, PlayerStateMachine stateMachine, PlayerMain.AnimName animEnum,
+            PlayerData playerData) : base(player, stateMachine, animEnum, playerData)
         {
         }
 
@@ -12,9 +13,6 @@ namespace UltimateCC
         {
             base.Enter();
             rigidbody2D.gravityScale = playerData.Walk.Physics2DGravityScale;
-            
-            if(rigidbody2D.gameObject.layer != 6)
-                player.Rigidbody2D.constraints = RigidbodyConstraints2D.FreezePosition;
         }
 
         public override void Update()
@@ -26,23 +24,34 @@ namespace UltimateCC
         {
             base.FixedUpdate();
 
-            if (playerData.Physics.Contacts.Count == 0 || (playerData.Physics.IsNextToWall && !playerData.Physics.Slope.StayStill))
+            if (playerData.Physics.Attacked == true)
             {
-                rigidbody2D.velocity += new Vector2(0f, -9.8f * Time.fixedDeltaTime); 
+                playerData.Physics.Attacked = false;
+                stateMachine.ChangeState(player.AttackedState);
             }
-            else if (playerData.Physics.IsMultipleContactWithNonWalkableSlope)
+            else if (playerData.Physics.Contacts.Count == 0 ||
+                (playerData.Physics.IsNextToWall && !playerData.Physics.Slope.StayStill))
             {
-                rigidbody2D.velocity = (playerData.Physics.ContactPosition.RotateAround(playerData.Physics.GroundCheckPosition, playerData.Physics.FacingDirection * 5) - playerData.Physics.GroundCheckPosition) * 1;
+                rigidbody2D.velocity += new Vector2(0f, -9.8f * Time.fixedDeltaTime);
             }
-            else if (playerData.Physics.CanSlideCorner)
+            // else if (playerData.Physics.IsMultipleContactWithNonWalkableSlope)
+            // {
+            //     rigidbody2D.velocity = (playerData.Physics.ContactPosition.RotateAround(playerData.Physics.GroundCheckPosition, playerData.Physics.FacingDirection * 5) - playerData.Physics.GroundCheckPosition) * 1;
+            // }
+            // else if (playerData.Physics.CanSlideCorner)
+            // {
+            //     rigidbody2D.velocity = new(0f, -playerData.Physics.SlideSpeedOnCorner);
+            // }
+            else if (rigidbody2D.velocity.magnitude < 0.3f && playerData.Physics.IsGrounded &&
+                     rigidbody2D.gameObject.layer != 6)
             {
-                rigidbody2D.velocity = new(0f, -playerData.Physics.SlideSpeedOnCorner);
+                player.Rigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
             }
-            else
-            {
-                // rigidbody2D.velocity = Vector2.zero;
-            }
-            playerData.Walls.CurrentStamina = Mathf.Clamp(playerData.Walls.CurrentStamina + (Time.fixedDeltaTime * playerData.Walls.StaminaRegenPerSec), 0, playerData.Walls.MaxStamina);
+
+            playerData.Walls.CurrentStamina =
+                Mathf.Clamp(
+                    playerData.Walls.CurrentStamina + (Time.fixedDeltaTime * playerData.Walls.StaminaRegenPerSec), 0,
+                    playerData.Walls.MaxStamina);
             rigidbody2D.velocity += playerData.Physics.Platform.DampedVelocity;
         }
 
@@ -85,7 +94,8 @@ namespace UltimateCC
             {
                 stateMachine.ChangeState(player.CrouchIdleState);
             }
-            else if (playerData.Physics.IsNextToWall && InputHandler.Input_WallGrab && playerData.Walls.CurrentStamina > 0)
+            else if (playerData.Physics.IsNextToWall && InputHandler.Input_WallGrab &&
+                     playerData.Walls.CurrentStamina > 0)
             {
                 stateMachine.ChangeState(player.WallGrabState);
             }

@@ -27,6 +27,7 @@ namespace Weapons
         private void OnInputDelegated(IWeaponInput weaponInput)
         {
             _weaponInput = weaponInput;
+            Reset();
             ShotPowerChanged?.Invoke(_currentShotPower);
             
             _weaponInput.Shoot += OnShot; 
@@ -63,7 +64,7 @@ namespace Weapons
 
         public void IncreaseShotPower()
         {
-            if (_currentShotPower >= _weapon.Config.MaxShotPower || _weapon.IsShot)
+            if (_currentShotPower >= _weapon.Config.MaxShotPower || _weapon.CanShot == false)
                 return;
 
             _currentShotPower += _weapon.Config.ShotPower * Time.deltaTime;

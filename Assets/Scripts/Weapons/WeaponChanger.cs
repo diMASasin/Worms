@@ -2,12 +2,13 @@ using System;
 using BattleStateMachineComponents.StatesData;
 using EventProviders;
 using Pools;
+using UI;
 using UnityEngine;
 using WormComponents;
 
 namespace Weapons
 {
-    public class WeaponChanger: IDisposable
+    public class WeaponChanger : IDisposable
     {
         private readonly IWeaponSelectedEvent _weaponSelectedEvent;
         private readonly IWeaponShotEvent _weaponShotEvent;
@@ -15,6 +16,8 @@ namespace Weapons
         private readonly IWormEvents _wormEvents;
         private readonly ICurrentWorm _currentWormProvider;
         private readonly IWeaponInput _weaponInput;
+        private readonly WeaponSelector _weaponSelector;
+
         private Transform _weaponTransform;
 
         public Weapon CurrentWeapon { get; private set; }
@@ -23,7 +26,8 @@ namespace Weapons
         public event Action<Weapon> WeaponChanged;
 
         public WeaponChanger(IWeaponSelectedEvent weaponSelectedEvent, IWeaponShotEvent weaponShotEvent,
-            Transform weaponsParent, IWormEvents wormEvents, ICurrentWorm currentWormProvider, IWeaponInput weaponInput)
+            Transform weaponsParent, IWormEvents wormEvents, ICurrentWorm currentWormProvider, IWeaponInput weaponInput,
+            WeaponSelector weaponSelector)
         {
             _weaponSelectedEvent = weaponSelectedEvent;
             _weaponShotEvent = weaponShotEvent;
@@ -31,7 +35,11 @@ namespace Weapons
             _wormEvents = wormEvents;
             _currentWormProvider = currentWormProvider;
             _weaponInput = weaponInput;
+            _weaponSelector = weaponSelector;
 
+            _weaponInput.PowerIncreasingStarted += OnPowerIncreasingStarted;
+            _weaponSelector.SelectorOpened += OnSelectorOpened;
+            _weaponSelector.SelectorClosed += OnSelectorClosed;
             _weaponSelectedEvent.WeaponSelected += OnWeaponSelected;
             _weaponShotEvent.WeaponShot += OnWeaponShot;
             _wormEvents.WormDied += OnWormDied;
@@ -39,10 +47,23 @@ namespace Weapons
 
         public void Dispose()
         {
+            _weaponInput.PowerIncreasingStarted -= OnPowerIncreasingStarted;
+            _weaponSelector.SelectorOpened -= OnSelectorOpened;
+            _weaponSelector.SelectorClosed -= OnSelectorClosed;
             _weaponSelectedEvent.WeaponSelected -= OnWeaponSelected;
             _weaponShotEvent.WeaponShot -= OnWeaponShot;
             _wormEvents.WormDied -= OnWormDied;
         }
+
+        private void OnPowerIncreasingStarted()
+        {
+            if (CurrentWeapon != null && CurrentWeapon.CanShot == true)
+                _weaponSelector.DisallowOpen();
+        }
+
+        private void OnSelectorOpened() => CurrentWeapon?.DisallowShoot();
+
+        private void OnSelectorClosed() => CurrentWeapon?.AllowShoot();
 
         private void OnWeaponShot(float shotPower, Weapon weapon) => RemoveWeapon(weapon);
 
@@ -52,9 +73,8 @@ namespace Weapons
             _weaponTransform = weapon.transform;
             RemoveWeapon(CurrentWeapon);
             
-            if (CurrentWeapon != null)
-                CurrentWeapon.GameObject.SetActive(false);
-
+            CurrentWeapon?.gameObject.SetActive(false);
+            
             CurrentWeapon = weapon;
 
             weapon.GameObject.SetActive(true);
@@ -62,8 +82,8 @@ namespace Weapons
             _weaponTransform.position = wormTransform.position;
             _weaponTransform.right = _currentWormProvider.CurrentWorm.WeaponPosition.right;
             weapon.DelegateInput(_weaponInput);
-            weapon.Reset();
-            
+            weapon.AllowShoot();
+
             WeaponChanged?.Invoke(weapon);
         }
 
@@ -71,9 +91,9 @@ namespace Weapons
         {
             if (_weaponTransform == null || weapon == null)
                 return;
-                
-            _weaponTransform.parent = _weaponsParent;
+
             weapon.RemoveInput();
+            _weaponTransform.parent = _weaponsParent;
             WeaponRemoved?.Invoke(weapon);
         }
 

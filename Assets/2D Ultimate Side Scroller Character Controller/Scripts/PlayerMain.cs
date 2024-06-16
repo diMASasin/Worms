@@ -9,7 +9,7 @@ namespace UltimateCC
         
         private PlayerStateMachine _stateMachine; // State Machine declaration where we change current state
         [NonEditable, Space(5)] public AnimName CurrentState; // Variable to display the current state in the Unity inspector for debugging purposes.
-        public MainState IdleState, WalkState, JumpState, LandState, FreeFallingState, DashState, CrouchIdleState, 
+        public MainState IdleState, WalkState, JumpState, AttackedState, LandState, FreeFallingState, DashState, CrouchIdleState, 
             CrouchWalkState, WallGrabState, WallClimbState, WallJumpState, WallSlideState; // State declarations
         public enum AnimName { Idle, Walk, Jump, ExtraJump1, ExtraJump2, Land, Dash, CrouchIdle, CrouchWalk, WallGrab, WallClimb, WallJump, WallSlide } // Enum declaration of state names as animator parameters
 
@@ -35,6 +35,7 @@ namespace UltimateCC
             // In this section, we assign all states
             _stateMachine = new PlayerStateMachine();
             IdleState = new PlayerIdleState(this, _stateMachine, AnimName.Idle, PlayerData);
+            AttackedState = new PlayerAttackedState(this, _stateMachine, AnimName.Jump, PlayerData);
             WalkState = new PlayerWalkState(this, _stateMachine, AnimName.Walk, PlayerData);
             JumpState = new PlayerJumpState(this, _stateMachine, AnimName.Jump, PlayerData);
             LandState = new PlayerLandState(this, _stateMachine, AnimName.Land, PlayerData);

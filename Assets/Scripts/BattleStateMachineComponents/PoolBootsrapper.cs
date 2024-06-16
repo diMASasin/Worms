@@ -14,7 +14,7 @@ namespace BattleStateMachineComponents.States
     public class PoolBootsrapper : IDisposable
     {
         private readonly WeaponConfig[] _weaponConfigs;
-        private List<ProjectileFactory> _allProjectilesFactories;
+        private List<ProjectileFactory> _projectileFactories;
         private List<ProjectilePool> _fragmentsPools;
         private List<ProjectileFactory> _fragmentFactories;
         private FollowingTimerViewPool _timerViewPool;
@@ -22,6 +22,7 @@ namespace BattleStateMachineComponents.States
         private FragmentsLauncher _fragmentsLauncher;
         private readonly FollowingTimerView _followingTimerViewPrefab;
         private readonly ExplosionConfig _explosionConfig;
+        private ExplosionPool _fragmentsExplosionPool;
 
         public List<ProjectilePool> ProjectilePools { get; private set; }
         public AllProjectilesEvents ProjectilesEvents { get; private set; }
@@ -38,7 +39,7 @@ namespace BattleStateMachineComponents.States
         {
             List<IDisposable> disposables = new();
 
-            disposables.AddRange(_allProjectilesFactories);
+            disposables.AddRange(_projectileFactories);
             disposables.AddRange(ProjectilePools);
             disposables.AddRange(_fragmentsPools);
             disposables.AddRange(_fragmentFactories);
@@ -59,7 +60,7 @@ namespace BattleStateMachineComponents.States
 
             ProjectilePools = new List<ProjectilePool>();
             _fragmentsPools = new List<ProjectilePool>();
-            _allProjectilesFactories = new List<ProjectileFactory>();
+            _projectileFactories = new List<ProjectileFactory>();
             _fragmentFactories = new List<ProjectileFactory>();
 
             foreach (var weaponConfig in _weaponConfigs)
@@ -70,7 +71,7 @@ namespace BattleStateMachineComponents.States
                 var factory = new ProjectileFactory(weaponConfig.ProjectileConfig, projectilesParent);
                 var pool = new ProjectilePool(factory, 1);
 
-                _allProjectilesFactories.Add(factory);
+                _projectileFactories.Add(factory);
                 ProjectilePools.Add(pool);
                 
                 if (weaponConfig.ProjectileConfig.FragmentsConfig == null)
@@ -82,10 +83,12 @@ namespace BattleStateMachineComponents.States
 
                 _fragmentFactories.Add(fragmentsFactory);
                 _fragmentsPools.Add(fragmentPool);
-                _allProjectilesFactories.Add(fragmentsFactory);
+                
+                var fragmentEvents = new AllProjectilesEvents(_fragmentFactories);
+                _fragmentsExplosionPool = new ExplosionPool(fragmentsConfig.ExplosionConfig, shovel, fragmentEvents);
             }
 
-            ProjectilesEvents = new AllProjectilesEvents(_allProjectilesFactories);
+            ProjectilesEvents = new AllProjectilesEvents(_projectileFactories);
             _fragmentsLauncher = new FragmentsLauncher(ProjectilesEvents, _fragmentsPools);
             _timerViewPool = new FollowingTimerViewPool(_followingTimerViewPrefab, ProjectilesEvents);
             _explosionPool = new ExplosionPool(_explosionConfig, shovel, ProjectilesEvents);

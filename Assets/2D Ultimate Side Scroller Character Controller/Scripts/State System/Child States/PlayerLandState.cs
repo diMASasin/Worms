@@ -76,14 +76,14 @@ namespace UltimateCC
         public override void SwitchStateLogic()
         {
             base.SwitchStateLogic();
-            if ((((playerData.Physics.IsGrounded && !playerData.Physics.IsOnNotWalkableSlope)) && InputHandler.Input_Walk == 0) || playerData.Physics.IsMultipleContactWithNonWalkableSlope)
-            {
-                stateMachine.ChangeState(player.IdleState);
-            }
-            // else if (playerData.Physics.IsGrounded || playerData.Physics.IsMultipleContactWithNonWalkableSlope)
+            // if ((((playerData.Physics.IsGrounded && !playerData.Physics.IsOnNotWalkableSlope)) && InputHandler.Input_Walk == 0) || playerData.Physics.IsMultipleContactWithNonWalkableSlope)
             // {
             //     stateMachine.ChangeState(player.IdleState);
             // }
+            if (playerData.Physics.IsGrounded && InputHandler.Input_Walk == 0 || playerData.Physics.IsMultipleContactWithNonWalkableSlope)
+            {
+                stateMachine.ChangeState(player.IdleState);
+            }
             else if ((playerData.Physics.IsGrounded && !playerData.Physics.IsOnNotWalkableSlope))
             {
                 stateMachine.ChangeState(player.WalkState);

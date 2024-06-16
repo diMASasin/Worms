@@ -4,6 +4,7 @@ using System.Linq;
 using Configs;
 using Pools;
 using Projectiles.Behaviours.Components;
+using Timers;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,6 +15,8 @@ namespace Projectiles.Behaviours
         private readonly IProjectileEvents _projectileEvents;
         private readonly List<ProjectilePool> _fragmentPoolsList;
         private readonly Dictionary<ProjectileConfig, ProjectilePool> _fragmentPools;
+        private readonly float _launchDelay = 0.15f;
+        private readonly Timer _timer;
         private ProjectilePool _fragmentPool;
 
         public FragmentsLauncher(IProjectileEvents projectileEvents, List<ProjectilePool> fragmentPoolsList)
@@ -23,6 +26,8 @@ namespace Projectiles.Behaviours
             _fragmentPools = fragmentPoolsList
                 .Where(pool => pool.Config != null)
                 .ToDictionary(pool => pool.Config);
+
+            _timer = new Timer();
 
             _projectileEvents.Exploded += OnExploded;
         }
@@ -42,7 +47,7 @@ namespace Projectiles.Behaviours
                 return;
             
             _fragmentPool = _fragmentPools[fragmentConfig];
-            LaunchFragments(projectile, fragmentsAmount);
+            _timer.Start(_launchDelay, () => LaunchFragments(projectile, fragmentsAmount));
         }
         
         private void LaunchFragments(Projectile projectile, int amount)

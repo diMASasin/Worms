@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3348539931435737147, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
       propertyPath: m_Name
-      value: WalkingProjectile 1
+      value: WalkingProjectile
       objectReference: {fileID: 0}
     - target: {fileID: 3348539933408502300, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -67,6 +67,10 @@ PrefabInstance:
     - target: {fileID: 4747351946527315547, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747351946527315547, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5475799449231331852, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
       propertyPath: m_Radius
@@ -491,7 +495,7 @@ MonoBehaviour:
       Jumps:
       - <LongJump>k__BackingField:
           Animation: 2
-          maxHeight: 7
+          maxHeight: 5
           jumpHeightCurve:
             serializedVersion: 2
             m_Curve:
@@ -556,7 +560,7 @@ MonoBehaviour:
           jumpXImpulse: 3
         <HighJump>k__BackingField:
           Animation: 2
-          maxHeight: 8
+          maxHeight: 5
           jumpHeightCurve:
             serializedVersion: 2
             m_Curve:
@@ -859,7 +863,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
       xTurnBackTime: 10
-      physics2DGravityScale: 1
+      physics2DGravityScale: 1.5
     Dash:
       maxHeight: 0.3
       dashHeightCurve:

@@ -99,6 +99,8 @@ namespace UltimateCC
             [SerializeField, Range(0, 90)] private float headBumpMinAngle;
             [SerializeField, Range(0, 90)] private float slideOnCornerMinAngle;
             [SerializeField] private float slideSpeedOnCorner;
+            [SerializeField, NonEditable] private bool attacked;
+            [NonEditable] public bool died;
 
             [SerializeField, NonEditable] private bool isGrounded,
                 isOnNotWalkableSlope,
@@ -123,6 +125,12 @@ namespace UltimateCC
             public ContactFilter2D GroundContactFilter => groundContactFilter;
             public LayerMask HeadBumpLayerMask => headBumpLayerMask;
             public LayerMask WallLayerMask => wallLayerMask;
+            
+            public bool Attacked
+            {
+                get => attacked;
+                set => attacked = value;
+            }
 
             public Vector2 GroundCheckPosition
             {

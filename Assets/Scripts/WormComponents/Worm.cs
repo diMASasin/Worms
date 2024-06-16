@@ -63,12 +63,9 @@ namespace WormComponents
         public void RemoveInput()
         {
             SetWormLayer();
-            if(_isDied == false) FreezePositionWhenGrounded();
             InputHandler.Disable();
             InputRemoved?.Invoke(this);
         }
-        
-        public void FreezePosition() => _rigidbody.constraints = RigidbodyConstraints2D.FreezePosition;
 
         public void UnfreezePosition() => _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
 
@@ -81,7 +78,6 @@ namespace WormComponents
         {
             UnfreezePosition();
             _rigidbody.AddExplosionForce(explosionForce, explosionPosition, explosionRadius, upwardsModifier);
-            FreezePositionWhenGrounded();
         }
 
         public void TakeDamage(int damage)
@@ -90,6 +86,7 @@ namespace WormComponents
                 throw new ArgumentOutOfRangeException("damage should be greater then 0. damage = " + damage);
 
             Health -= damage;
+            _playerMain.PlayerData.Physics.Attacked = true;
             InputHandler.Disable();
             DamageTook?.Invoke(this);
 
@@ -100,30 +97,9 @@ namespace WormComponents
         public void Die()
         {
             _isDied = true;
+            _playerMain.PlayerData.Physics.died = true;
             Died?.Invoke(this);
             Destroy(gameObject, 1);
-        }
-
-        public void FreezePositionWhenGrounded() => StartCoroutine(FreezePositionWhenGroundedCoroutine());
-        private IEnumerator FreezePositionWhenGroundedCoroutine()
-        {
-           
-            while (_playerMain.PlayerData.Physics.IsGrounded == false)
-                yield return null;
-            
-            FreezePosition();
-        }
-        
-        public void FreezePositionWhenFlyUpAndGrounded() => StartCoroutine(FreezePositionWhenFlyUpAndGroundedCoroutine());
-        private IEnumerator FreezePositionWhenFlyUpAndGroundedCoroutine()
-        {
-            while (_playerMain.PlayerData.Physics.IsGrounded == true)
-                yield return null;
-            
-            while (_playerMain.PlayerData.Physics.IsGrounded == false)
-                yield return null;
-            
-            FreezePosition();
         }
     }
 }

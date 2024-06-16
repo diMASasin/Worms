@@ -57,7 +57,7 @@ namespace BattleStateMachineComponents.States
             _itemFactory.Create(weaponList, _weaponSelectorItemPrefab, _weaponSelector.ItemParent);
             _weaponSelector.Init(_itemFactory, _weaponSelectorInput);
 
-            WeaponChanger = new WeaponChanger(_itemFactory, _weaponFactory, weaponsParent, wormEvents, currentWorm, _weaponInput);
+            WeaponChanger = new WeaponChanger(_itemFactory, _weaponFactory, weaponsParent, wormEvents, currentWorm, _weaponInput,  _weaponSelector);
         }
     }
 }

@@ -260,7 +260,7 @@ MonoBehaviour:
       facingDirection: 0
       headBumpMinAngle: 30
       slideOnCornerMinAngle: 65
-      slideSpeedOnCorner: 1
+      slideSpeedOnCorner: 0
       isGrounded: 0
       isOnNotWalkableSlope: 0
       isMultipleContactWithNonWalkableSlope: 0
@@ -278,7 +278,7 @@ MonoBehaviour:
       localVelocity: {x: 0, y: 0}
       useCustomZRotations: 0
       Slope:
-        maxSlopeAngle: 59
+        maxSlopeAngle: 65.4
         currentSlopeAngle: 0
         maxEasedSlopeAngleChange: 150
         currentSlopeAngleChange: 0
