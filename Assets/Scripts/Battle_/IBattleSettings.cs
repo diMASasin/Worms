@@ -1,9 +1,8 @@
 using System;
-using Services;
 
 namespace Battle_
 {
-    public interface IBattleSettings : IService
+    public interface IBattleSettings
     {
         public SettingsData Data { get; }
         public event Action BattleSettingsSaved;

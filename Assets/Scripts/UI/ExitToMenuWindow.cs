@@ -3,10 +3,10 @@ using BattleStateMachineComponents.States;
 using GameStateMachineComponents;
 using GameStateMachineComponents.States;
 using Infrastructure;
-using Services;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Zenject;
 
 namespace UI
 {
@@ -18,16 +18,17 @@ namespace UI
         
         private ISceneLoader _sceneLoader;
         private IGameStateSwitcher _gameStateSwitcher;
-        private IStateSwitcher _battleStateSwitcher;
+        private IBattleStateSwitcher _battleBattleStateSwitcher;
         
         private static readonly int ShowAnimation = Animator.StringToHash("Show");
         private static readonly int HideAnimation = Animator.StringToHash("Hide");
 
-        private void Start()
+        [Inject]
+        private void Construct(ISceneLoader sceneLoader, IGameStateSwitcher gameStateSwitcher, IBattleStateSwitcher battleBattleStateSwitcher)
         {
-            _sceneLoader = AllServices.Container.Single<ISceneLoader>();
-            _gameStateSwitcher = AllServices.Container.Single<IGameStateSwitcher>();
-            _battleStateSwitcher = AllServices.Container.Single<IStateSwitcher>();
+            _sceneLoader = sceneLoader;
+            _gameStateSwitcher = gameStateSwitcher;
+            _battleBattleStateSwitcher = battleBattleStateSwitcher;
         }
 
         private void OnEnable()
@@ -44,7 +45,7 @@ namespace UI
 
         public void ExitToMenu()
         {
-            _battleStateSwitcher.SwitchState<ExitBattleState>();
+            _battleBattleStateSwitcher.SwitchState<ExitBattleState>();
             _sceneLoader.Load(_sceneLoader.SceneNames.MainMenu, () =>
                     _gameStateSwitcher.SwitchState<MainMenuState>());
         }

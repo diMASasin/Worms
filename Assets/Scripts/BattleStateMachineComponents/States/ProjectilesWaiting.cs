@@ -5,13 +5,13 @@ namespace BattleStateMachineComponents.States
 {
     public class ProjectilesWaiting : IBattleState
     {
-        private readonly IStateSwitcher _stateSwitcher;
+        private readonly IBattleStateSwitcher _battleStateSwitcher;
         private readonly Timer _timer;
 
-        public ProjectilesWaiting(IStateSwitcher stateSwitcher)
+        public ProjectilesWaiting(IBattleStateSwitcher battleStateSwitcher, Timer timer)
         {
-            _stateSwitcher = stateSwitcher;
-            _timer = new Timer();
+            _battleStateSwitcher = battleStateSwitcher;
+            _timer = timer;
         }
 
         public void Enter()
@@ -49,7 +49,7 @@ namespace BattleStateMachineComponents.States
                 _timer.Start(3, () =>
                 {
                     if(count == 0)
-                        _stateSwitcher.SwitchState<BetweenTurnsState>();
+                        _battleStateSwitcher.SwitchState<BetweenTurnsState>();
                 });
             }
                 

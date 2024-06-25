@@ -1,35 +1,39 @@
 using System;
 using UnityEngine;
+using Zenject;
 
-[Serializable]
-public class FollowingObject : IFixedTickable
+public class FollowingObject : MonoBehaviour, ILateTickable
 {
-    [SerializeField] private Transform _followingTransform;
-    [SerializeField] private bool _moveSmoothly;
-    [SerializeField] private float _speed = 10;
-    [field: SerializeField] public Vector3 Offset { get; private set; }
-    
+    [field: SerializeField] public FollowingObjectConfig Config { get; private set; }
+
     private Vector3 _newPosition;
+    private FollowingObjectConfig _followingObjectConfig;
     public Vector3 MoveTo { get; private set; }
     public Transform FollowingFor { get; private set; }
     public bool FreezeZPosition { get; private set; }
-    private Vector3 CurrentPosition
+
+    public Vector3 CurrentPosition
     {
-        get => _followingTransform.position;
-        set => _followingTransform.position = value;
+        get => transform.position;
+        protected set => transform.position = value;
     }
 
     public void LateTick()
     {
-        _newPosition = FollowingFor != null ? FollowingFor.position + Offset : MoveTo;
+        _newPosition = FollowingFor != null ? FollowingFor.position + _followingObjectConfig.Offset : MoveTo;
 
         if (FreezeZPosition == true && FollowingFor != null)
-            _newPosition.z = _followingTransform.position.z;
+            _newPosition.z = transform.position.z;
 
-        if (_moveSmoothly == true)
-            CurrentPosition = Vector3.Lerp(CurrentPosition, _newPosition, _speed * Time.deltaTime);
+        Move(_newPosition);
+    }
+
+    protected void Move(Vector3 newPosition)
+    {
+        if (Config.MoveSmoothly == true)
+            CurrentPosition = Vector3.Lerp(CurrentPosition, newPosition, Config.Speed * Time.deltaTime);
         else
-            _followingTransform.position = _newPosition;
+            transform.position = newPosition;
     }
 
     public void Follow(Transform target)

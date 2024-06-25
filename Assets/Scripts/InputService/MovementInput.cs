@@ -4,7 +4,7 @@ using static UnityEngine.InputSystem.InputAction;
 
 namespace InputService
 {
-    public class MovementInput : IMovementInput
+    public class MovementInput : IMovementInput, IDisposable
     {
         private readonly InputActions _playerControls = new();
         
@@ -34,7 +34,7 @@ namespace InputService
             _playerControls.Player.WallClimb.performed += OnWallClimbPerformed;
         }
         
-        public void Unsubscribe()
+        public void Dispose()
         {
             _playerControls.Player.Jump.started -= OnLongJumpStarted;
             _playerControls.Player.Highjump.started -= OnHighJumpStarted;

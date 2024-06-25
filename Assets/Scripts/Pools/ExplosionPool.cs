@@ -33,17 +33,17 @@ namespace Pools
             _projectileEvents.Exploded += OnExploded;
         }
 
+        public void Dispose()
+        {
+            _projectileEvents.Exploded -= OnExploded;
+            _pool?.Dispose();
+        }
+
         private void OnExploded(Projectile projectile)
         {
             Explosion explosion = Get();
             ExplosionConfig explosionConfig = projectile.Config.ExplosionConfig;
             explosion.Explode(explosionConfig, projectile.transform.position, projectile.MaxDamage, projectile.Collider);
-        }
-
-        public void Dispose()
-        {
-            _projectileEvents.Exploded -= OnExploded;
-            _pool?.Dispose();
         }
 
         public Explosion Get() => _pool.Get();

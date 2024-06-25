@@ -1,10 +1,10 @@
 using Battle_;
 using Infrastructure;
-using Services;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Zenject;
 
 namespace UI
 {
@@ -22,7 +22,8 @@ namespace UI
         private IBattleSettings _battleSettings;
         private ISceneLoader _sceneLoader;
 
-        public void Init(IBattleSettings battleSettings, ISceneLoader sceneLoader)
+        [Inject]
+        public void Construct(IBattleSettings battleSettings, ISceneLoader sceneLoader)
         {
             _battleSettings = battleSettings;
             _sceneLoader = sceneLoader;

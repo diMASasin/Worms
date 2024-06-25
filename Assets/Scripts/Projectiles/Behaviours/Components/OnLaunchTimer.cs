@@ -17,7 +17,6 @@ namespace Projectiles.Behaviours.LaunchBehaviour
 
         private void Awake()
         {
-            Timer = new Timer();
         }
 
         private void OnEnable()

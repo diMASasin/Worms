@@ -26,9 +26,7 @@ namespace WormComponents
         }
 
         private void OnDestroy() => _worm.DamageTook -= OnHealthChanged;
-
-        private void LateUpdate() => _followingObject.LateTick();
-
+        
         private void OnHealthChanged(Worm worm)
         {
             _healthText.text = worm.Health.ToString();

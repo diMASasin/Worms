@@ -7,36 +7,37 @@ using Factories;
 using ScriptBoy.Digable2DTerrain.Scripts;
 using UnityEngine;
 using WormComponents;
+using Zenject;
 using Random = UnityEngine.Random;
 
 namespace Spawn
 {
-    public class WormsSpawner : MonoBehaviour
+    public class WormsSpawner
     {
-        [SerializeField] private WormsSpawnerConfig _spawnerConfig;
-
         private TeamFactory _teamFactory;
-
-        public WormsSpawnerConfig Config => _spawnerConfig;
         
         private readonly List<Color> _unusedTeamColors = new();
+        private WormsSpawnerConfig _wormsSpawnerConfig;
 
-        public void Init(TeamFactory teamFactory)
+        public WormsSpawner(WormsSpawnerConfig wormsSpawnerConfig, TeamFactory teamFactory)
         {
+            _wormsSpawnerConfig = wormsSpawnerConfig;
             _teamFactory = teamFactory;
-            _unusedTeamColors.AddRange(_spawnerConfig.TeamColors);
+            
+            _unusedTeamColors.AddRange(_wormsSpawnerConfig.TeamColors);
         }
 
-        public CycledList<Team> Spawn(int teamsNumber, int wormsNumber)
+        public CycledList<Team> Spawn(int teamsCount, int wormsCount)
         {
+            Transform parent = new GameObject("Worms").transform;
             var teams = new CycledList<Team>();
-
-            for (var i = 0; i < teamsNumber; i++)
+            
+            for (int i = 0; i < teamsCount; i++)
             {
-                var teamConfig = _spawnerConfig.TeamConfigs[i];
+                var teamConfig = _wormsSpawnerConfig.TeamConfigs[i];
                 Color randomColor = _unusedTeamColors[Random.Range(0, _unusedTeamColors.Count)];
                 _unusedTeamColors.Remove(randomColor);
-                Team team = _teamFactory.Create(randomColor, transform, teamConfig, wormsNumber);
+                Team team = _teamFactory.Create(randomColor, parent, teamConfig, wormsCount);
 
                 teams.Add(team);
             }

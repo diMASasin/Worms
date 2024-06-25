@@ -1,43 +1,37 @@
-using Battle_;
 using GameStateMachineComponents;
 using GameStateMachineComponents.States;
-using Services;
-using UI;
 using UnityEngine;
+using Zenject;
 
 namespace Infrastructure
 {
     public class GameBootstrapper : MonoBehaviour
     {
-        [SerializeField] private LoadingScreen _loadingScreen;
-        [SerializeField] private CoroutinePerformer _coroutinePerformerPrefab;
-        [SerializeField] private MainMenu _mainMenuPrefab;
-        
+        private GameStateMachine _stateMachine;
         private static GameBootstrapper _instance;
-        
-        private Game _game;
-        private GameStateMachineData _data;
 
+        [Inject]
+        public void Construct(GameStateMachine stateMachine)
+        {
+            _stateMachine = stateMachine;
+        }
+        
         private void Awake()
         {
             if (_instance == null)
             {
                 _instance = this;
             }
-            else if (_instance != this)
+            else
             {
                 Destroy(gameObject);
                 return;
             }
             
-            DontDestroyOnLoad(this);
-
-            _game = new Game();
+            _stateMachine?.Init();
+            _stateMachine?.SwitchState<BootstrapState>();
             
-            _data = new GameStateMachineData(_game, _loadingScreen, _mainMenuPrefab, _coroutinePerformerPrefab, transform);
-            _game.StateMachine = new GameStateMachine(_data, AllServices.Container);
+            DontDestroyOnLoad(gameObject);
         }
-
-        private void OnDestroy() => _game?.StateMachine?.Dispose();
     }
 }

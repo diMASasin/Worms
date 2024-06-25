@@ -1,45 +1,53 @@
+using System.Collections.Generic;
 using BattleStateMachineComponents.StatesData;
 using CameraFollow;
 using Configs;
 using Timers;
 using UnityEngine;
 using Wind_;
+using WormComponents;
+using Zenject;
 
 namespace BattleStateMachineComponents.States
 {
     public class BetweenTurnsState : IBattleState
     {
-        private readonly IStateSwitcher _stateSwitcher;
-        private readonly GlobalBattleData _data;
-        private readonly BetweenTurnsStateData _betweenTurnsData;
+        private IBattleStateSwitcher _battleStateSwitcher;
+        private readonly BattleStateMachineData _data;
+        private readonly Worm _currentWorm;
+        private WindMediator _windMediator;
         private readonly Timer _timer;
-        private TimersConfig TimersConfig => _data.TimersConfig;
-        private FollowingCamera FollowingCamera => _data.FollowingCamera;
+        private TimersConfig _timersConfig;
+        private FollowingCamera _followingCamera;
+        private Water _water;
+        private CycledList<Team> _aliveTeams;
 
-        public BetweenTurnsState(IStateSwitcher stateSwitcher, GlobalBattleData data, 
-            BetweenTurnsStateData betweenTurnsData)
+        public BetweenTurnsState(IBattleStateSwitcher battleStateSwitcher, BattleStateMachineData data, WindMediator windMediator, Timer timer)
         {
-            _stateSwitcher = stateSwitcher;
+            _water = data.Water;
+            _followingCamera = data.FollowingCamera;
+            _timersConfig = data.TimersConfig;
+            _currentWorm = data.CurrentWorm;
+            _battleStateSwitcher = battleStateSwitcher;
             _data = data;
-            _betweenTurnsData = betweenTurnsData;
-            _timer = new Timer();
+            _windMediator = windMediator;
+            
+            _timer = timer;
         }
 
         public void Enter()
         {
-            _timer.Start(TimersConfig.BetweenTurnsDuration, 
-                () => _stateSwitcher.SwitchState<TurnState>());
+            _timer.Start(_timersConfig.BetweenTurnsDuration, () => _battleStateSwitcher.SwitchState<TurnState>());
 
-            // FollowingCamera.ZoomTarget();
-            FollowingCamera.SetTarget(_data.FollowingCamera.GeneralViewPosition);
+            _followingCamera.SetTarget(_followingCamera.GeneralViewPosition);
             
-            _betweenTurnsData.WindMediator.ChangeVelocity();
-            _data.Water.IncreaseLevelIfAllowed();
+            _windMediator.ChangeVelocity();
+            _water.IncreaseLevelIfAllowed();
 
-            if (_data.CurrentWorm != null) _data.CurrentWorm.SetWormLayer();
+            if (_currentWorm != null) _currentWorm.SetWormLayer();
 
             if (_data.AliveTeams.Count <= 1) 
-                _stateSwitcher.SwitchState<BattleEndState>();
+                _battleStateSwitcher.SwitchState<BattleEndState>();
         }
 
         public void Exit()
@@ -53,7 +61,7 @@ namespace BattleStateMachineComponents.States
         
         public void FixedTick()
         {
-            _betweenTurnsData.WindMediator.FixedTick();
+            _windMediator.FixedTick();
         }
 
         public void LateTick()

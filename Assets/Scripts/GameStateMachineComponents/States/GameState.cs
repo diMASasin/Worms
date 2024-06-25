@@ -1,13 +1,13 @@
+using Zenject;
+
 namespace GameStateMachineComponents.States
 {
     public abstract class GameState
     {
-        public readonly GameStateMachineData Data;
-        public readonly IGameStateSwitcher StateSwitcher;
+        public IGameStateSwitcher StateSwitcher;
 
-        public GameState(GameStateMachineData data, IGameStateSwitcher stateSwitcher)
+        public GameState(IGameStateSwitcher stateSwitcher)
         {
-            Data = data;
             StateSwitcher = stateSwitcher;
         }
 

@@ -16,14 +16,12 @@ namespace MovementComponents
         protected override void Start()
         {
             base.Start();
-            _jumpTimer = new Timer();
         }
         
         public override void Reset()
         {
             base.Reset();
             _shouldJump = false;
-            if (_jumpTimer == null) _jumpTimer = new Timer();
             _jumpTimer.Stop();
         }
         

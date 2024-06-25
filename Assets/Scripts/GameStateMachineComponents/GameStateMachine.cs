@@ -1,36 +1,44 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Battle_;
-using BattleStateMachineComponents;
 using GameStateMachineComponents.States;
 using Infrastructure;
-using Services;
+using UI;
+using UnityEngine;
+using Zenject;
 
 namespace GameStateMachineComponents
 {
-    public class GameStateMachine : IGameStateSwitcher, IDisposable
+    public class GameStateMachine : IGameStateSwitcher
     {
-        private readonly GameStateMachineData _data;
-        private readonly List<GameState> _states;
+        private List<GameState> _states;
         private GameState _currentState;
-        private readonly BootstrapState _bootstrapState;
+        private readonly StateFactory _stateFactory;
+        private SceneLoader _sceneLoader;
+        private LoadingScreen _loadingScreen;
+        private IBattleSettings _battleSettings;
+        private DiContainer _container;
+        private MainMenu _mainMenu;
 
-        public GameStateMachine(GameStateMachineData data, AllServices services)
+        public GameStateMachine(DiContainer container, SceneLoader sceneLoader, LoadingScreen loadingScreen, 
+            IBattleSettings battleSettings, MainMenu mainMenu)
         {
-            _data = data;
-            _bootstrapState = new BootstrapState(_data, this, services);
-            
+            _mainMenu = mainMenu;
+            _container = container;
+            _battleSettings = battleSettings;
+            _loadingScreen = loadingScreen;
+            _sceneLoader = sceneLoader;
+        }
+
+        public void Init()
+        {
             _states = new List<GameState>()
             {
-                _bootstrapState,
-                new MainMenuState(_data, this, services.Single<IBattleSettings>(), services.Single<ISceneLoader>()),
-                new LevelLoadState(_data, this, services.Single<ISceneLoader>()),
-                new GameLoopState(_data, this)
+                new BootstrapState(_container, this, _sceneLoader, _loadingScreen, _mainMenu),
+                new MainMenuState(this, _battleSettings, _mainMenu),
+                new LevelLoadState(_container, this, _sceneLoader, _loadingScreen),
+                new GameLoopState(_container, this)
             };
-
-            _currentState = _states[0];
-            _currentState.Enter();
         }
 
         public void SwitchState<T>() where T : GameState
@@ -40,11 +48,6 @@ namespace GameStateMachineComponents
             _currentState?.Exit();
             _currentState = state;
             _currentState.Enter();
-        }
-
-        public void Dispose()
-        {
-            _bootstrapState.Dispose();
         }
     }
 }

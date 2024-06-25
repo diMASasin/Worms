@@ -1,8 +1,6 @@
-using Services;
-
 namespace CameraFollow
 {
-    public interface ICameraInput : IService
+    public interface ICameraInput
     {
         float GetScrollDeltaY();
     }

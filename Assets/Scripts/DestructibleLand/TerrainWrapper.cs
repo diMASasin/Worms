@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using Battle_;
+using Configs;
 using ScriptBoy.Digable2DTerrain.Scripts;
 using Spawn;
 using UnityEngine;
+using Zenject;
 using Random = UnityEngine.Random;
 
 namespace DestructibleLand
@@ -15,18 +17,20 @@ namespace DestructibleLand
         [SerializeField] private PolygonCollider2D _polygonCollider;
         
         private Vector2[] _points;
-        private readonly List<Edge> _edges = new();
+        private List<Edge> _edges;
         private float _maxSlope;
         private ContactFilter2D _contactFilter2D;
 
-        public void Init(ContactFilter2D contactFilter2D, float maxSlope)
+        [Inject]
+        public void Construct(WormsSpawnerConfig spawnerConfig)
         {
-            _contactFilter2D = contactFilter2D;
-            _maxSlope = maxSlope;
+            _contactFilter2D = spawnerConfig.ContactFilter;
+            _maxSlope = spawnerConfig.MaxSlope;
         }
 
         public void GetEdgesForSpawn()
         {
+            _edges = new List<Edge>();
             var points = _polygonCollider.points;
             int length = points.Length;
             _points = new Vector2[length];
@@ -46,14 +50,12 @@ namespace DestructibleLand
             }
         }
 
-        // ReSharper disable Unity.PerformanceAnalysis
         public Vector2 GetRandomSpawnPoint(Vector2 colliderSize)
         {
             Vector2 randomPoint = Vector2.zero;
             const int tries = 100;
 
-            int i = 0;
-            for (i = 0; i < tries; i++)
+            for (int i = 0; i < tries && i < _edges.Count; i++)
             {
                 int random = Random.Range(0, _edges.Count);
                 var randomEdge = _edges[random];

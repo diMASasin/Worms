@@ -27,7 +27,6 @@ namespace Projectiles.Behaviours
                 .Where(pool => pool.Config != null)
                 .ToDictionary(pool => pool.Config);
 
-            _timer = new Timer();
 
             _projectileEvents.Exploded += OnExploded;
         }

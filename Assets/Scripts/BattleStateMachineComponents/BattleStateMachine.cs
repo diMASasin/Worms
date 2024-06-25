@@ -1,33 +1,22 @@
 using System.Collections.Generic;
 using System.Linq;
+using Battle_;
 using BattleStateMachineComponents.States;
-using Services;
+using Spawn;
 using UnityEngine;
+using Zenject;
 
 namespace BattleStateMachineComponents
 {
-    public class BattleStateMachine : IStateSwitcher
+    public class BattleStateMachine : IBattleStateSwitcher
     {
-        private readonly BattleStateMachineData _data;
-        private readonly BootstrapBattleState _bootstrapBattleState;
-        private readonly List<IBattleState> _states;
+        private List<IBattleState> _states;
         private IBattleState _currentState;
 
-        public BattleStateMachine(BattleStateMachineData data, AllServices services)
+        [Inject]
+        public void Construct(List<IBattleState> states)
         {
-            _data = data;
-            _bootstrapBattleState = new BootstrapBattleState(this, data, services); 
-            
-            _states = new List<IBattleState>()
-            {
-                _bootstrapBattleState,
-                new BetweenTurnsState(this, data.GlobalBattleData, data.BetweenTurnsData),
-                new TurnState(this, data.GlobalBattleData, data.TurnStateData),
-                new RetreatState(this, data.GlobalBattleData),
-                new ProjectilesWaiting(this),
-                new BattleEndState(this, data.EndScreen),
-                new ExitBattleState()
-            };
+            _states = states;
         }
 
         public void SwitchState<T>() where T : IBattleState
@@ -36,16 +25,8 @@ namespace BattleStateMachineComponents
 
             _currentState?.Exit();
             _currentState = state;
+            Debug.Log($"{_currentState.GetType().FullName}");
             _currentState.Enter();
         }
-
-        public void Tick()
-        {
-            _currentState.Tick();
-        }
-
-        public void FixedTick() => _currentState.FixedTick();
-
-        public void Dispose() => _bootstrapBattleState.Dispose();
     }
 }

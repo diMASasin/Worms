@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2cc1a06e012493685db20d42c32599f, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  <FollowingTimerViewPrefab>k__BackingField: {fileID: 4044026241773061690, guid: cec0a7a8bfb2395459f3765209f27b92, type: 3}
+  <InstantlyFollowingObject>k__BackingField: {fileID: 1291682954175847481, guid: b1c3910bcfe0d1347aa1c1728385f220, type: 3}
+  <SmoothlyFollowingObject>k__BackingField: {fileID: 3383447088720452358, guid: 061c632ecdaf4b74b8f0d09d83929e92, type: 3}
   <WormPrefab>k__BackingField: {fileID: 7083743622210443357, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
   <WormInfoViewPrefab>k__BackingField: {fileID: 8106106455543795105, guid: a883e5f2399ed0f4ebdc24a80c48d0ba, type: 3}
   <ArrowPrefab>k__BackingField: {fileID: 4208428713464027836, guid: 62bd5ac0d7add0c45a3c28234ef7eb77, type: 3}
@@ -21,6 +22,8 @@ MonoBehaviour:
   <WeaponViewPrefab>k__BackingField: {fileID: 9131519681045287937, guid: 8691137e386b63749975d17dece325d8, type: 3}
   <TeamHealthPrefab>k__BackingField: {fileID: 9099762162616485809, guid: dd99d4230622cf74baa5bec06150583f, type: 3}
   <TeamHealthFactoryPrefab>k__BackingField: {fileID: 4352401895906262629, guid: c4f9cc677daec9e449bbbed965714137, type: 3}
+  <TimerSecondsViewPrefab>k__BackingField: {fileID: 4849060836550800993, guid: 6e7d80e48851acf4b8ad48a7cd68db88, type: 3}
+  <TimerMinutesAndSecondsViewPrefab>k__BackingField: {fileID: 4856824650351712806, guid: 64e9066450f663a469284ac5dbe57551, type: 3}
   <WeaponConfigs>k__BackingField:
   - {fileID: 11400000, guid: bc372e3f785a57542ad108e0380b2235, type: 2}
   - {fileID: 11400000, guid: d5a229232cfc06247bcf2ceb5b3297e2, type: 2}
@@ -28,11 +31,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0ed6c00008d764348800befa94802aa7, type: 2}
   - {fileID: 11400000, guid: e6863657b03b37344980be7f7e53bed9, type: 2}
   <ExplosionConfig>k__BackingField: {fileID: 11400000, guid: 04fad1efc13d81148a61794af9134088, type: 2}
+  <WormsSpawnerConfig>k__BackingField: {fileID: 11400000, guid: 594ace3d60a09ec4cb9cf002a0c4e354, type: 2}
   <TimersConfig>k__BackingField:
     <TurnDuration>k__BackingField: 9000
-    <AfterShotDuration>k__BackingField: 5
+    <RetreatDuration>k__BackingField: 5
     <BetweenTurnsDuration>k__BackingField: 3
-    <GlobalTime>k__BackingField: 900
+    <BattleTime>k__BackingField: 900
   <WindData>k__BackingField:
     <MaxVelocity>k__BackingField: 2
     <Step>k__BackingField: 0.2

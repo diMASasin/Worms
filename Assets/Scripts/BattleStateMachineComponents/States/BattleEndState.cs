@@ -7,7 +7,7 @@ namespace BattleStateMachineComponents.States
         private readonly EndScreen _endScreen;
         private readonly BattleStateMachineData _data;
 
-        public BattleEndState(BattleStateMachine battleStateMachine, EndScreen endScreen)
+        public BattleEndState(IBattleStateSwitcher battleStateMachine, EndScreen endScreen)
         {
             _endScreen = endScreen;
         }

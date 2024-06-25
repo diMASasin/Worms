@@ -9,7 +9,7 @@ using static UnityEngine.Object;
 
 namespace Factories
 {
-    public class ProjectileFactory : IProjectileEvents, IDisposable
+    public class ProjectileFactory : IDisposable
     {
         private readonly ProjectileConfig _config;
         private readonly List<Projectile> _projectiles = new();

@@ -1,9 +1,8 @@
 using System;
-using Services;
 
 namespace UltimateCC
 {
-    public interface IMovementInput : IService
+    public interface IMovementInput
     {
         void Enable();
         void Disable();

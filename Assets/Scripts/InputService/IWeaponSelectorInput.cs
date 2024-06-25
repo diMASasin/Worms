@@ -1,9 +1,8 @@
 using System;
-using Services;
 
 namespace UI
 {
-    public interface IWeaponSelectorInput : IService
+    public interface IWeaponSelectorInput
     {
         public event Action ShouldTogleWeaponSelector;
     }

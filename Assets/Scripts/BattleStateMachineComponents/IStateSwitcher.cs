@@ -1,9 +1,8 @@
 using BattleStateMachineComponents.States;
-using Services;
 
 namespace BattleStateMachineComponents
 {
-    public interface IStateSwitcher : IService
+    public interface IBattleStateSwitcher
     {
         void SwitchState<T>() where T : IBattleState;
     }

@@ -1,28 +1,32 @@
 using Infrastructure;
-using Services;
+using Spawn;
+using UI;
+using Zenject;
 
 namespace GameStateMachineComponents.States
 {
     public class LevelLoadState : GameState
     {
-        private readonly ISceneLoader _sceneLoader;
+        private ISceneLoader _sceneLoader;
+        private LoadingScreen _loadingScreen;
 
-        public LevelLoadState(GameStateMachineData data, IGameStateSwitcher stateSwitcher, ISceneLoader sceneLoader) :
-            base(data, stateSwitcher)
+        public LevelLoadState(DiContainer diContainer, IGameStateSwitcher stateSwitcher, ISceneLoader sceneLoader,
+            LoadingScreen loadingScreen) : base(stateSwitcher)
         {
+            _loadingScreen = loadingScreen;
             _sceneLoader = sceneLoader;
         }
 
         public override void Enter()
         {
-            Data.LoadingScreen.Enable();
+            _loadingScreen.Enable();
             
             _sceneLoader.Load(_sceneLoader.SceneNames.MainMenu, () => StateSwitcher.SwitchState<GameLoopState>());
         }
 
         public override void Exit()
         {
-            Data.LoadingScreen.Disable();
+            _loadingScreen.Disable();
         }
     }
 }

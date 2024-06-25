@@ -5,8 +5,9 @@ namespace Weapons
     public class ScopeMover : MonoBehaviour
     {
         [SerializeField] private Weapon _weapon;
+        
         private IWeaponInput _weaponInput;
-
+        
         private void OnEnable() => _weapon.InputDelegated += OnInputDelegated;
 
         private void OnDisable() => _weapon.InputDelegated -= OnInputDelegated;

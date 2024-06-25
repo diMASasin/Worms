@@ -1,13 +1,8 @@
 using System;
-using Services;
 
 namespace Weapons
 {
-}
-
-namespace Weapons
-{
-    public interface IWeaponInput : IService
+    public interface IWeaponInput
     {
         event Action PowerIncreasingStarted;
         event Action Shoot;

@@ -1,6 +1,7 @@
 using System;
 using InputService;
 using UnityEngine;
+using Zenject;
 
 namespace CameraFollow
 {
@@ -8,10 +9,10 @@ namespace CameraFollow
     public class FollowingCamera : MonoBehaviour
     {
         [SerializeField] private Camera _camera;
-        [SerializeField] private FollowingObject _followingObject;
-        [SerializeField] private int _maxPosition = 60;
-        [field: SerializeField] public int MinPosition { get; private set; } = 10;
+        [field: SerializeField] public int MinPosition { get; private set; } = -65;
+        [field: SerializeField]public int MaxPosition { get; set; } = -10;
         [field: SerializeField] public Vector3 GeneralViewPosition { get; private set; }
+        [SerializeField] private FollowingObject _followingObject;
 
         private Transform _target;
         private ICameraInput _cameraInput;
@@ -22,7 +23,8 @@ namespace CameraFollow
             set => _camera.transform.position = value;
         }
 
-        public void Init(ICameraInput cameraInput)
+        [Inject]
+        public void Construct(ICameraInput cameraInput)
         {
             _cameraInput = cameraInput;
         }
@@ -33,11 +35,6 @@ namespace CameraFollow
             
             TryZoom(_cameraInput.GetScrollDeltaY());
             TryStopZoom();
-        }
-
-        private void LateUpdate()
-        {
-            _followingObject.LateTick();
         }
 
         public void SetTarget(Transform target)
@@ -54,10 +51,10 @@ namespace CameraFollow
         public void TryZoom(float scrollDeltaY)
         {
             if (scrollDeltaY < 0 && CameraPosition.z > MinPosition ||
-                scrollDeltaY > 0 && CameraPosition.z < _maxPosition)
+                scrollDeltaY > 0 && CameraPosition.z < MaxPosition)
                 CameraPosition += new Vector3(0, 0, scrollDeltaY);
 
-            float newPositionZ = Mathf.Clamp(CameraPosition.z, MinPosition, _maxPosition);
+            float newPositionZ = Mathf.Clamp(CameraPosition.z, MinPosition, MaxPosition);
 
             CameraPosition = new Vector3(CameraPosition.x, CameraPosition.y, newPositionZ);
         }
@@ -74,10 +71,10 @@ namespace CameraFollow
                 targetPositionZ = _followingObject.FollowingFor.position.z;
             
             float tolerance = 0.2f;
-            float positionZ = transform.position.z - _followingObject.Offset.z;
+            float positionZ = transform.position.z - _followingObject.Config.Offset.z;
 
             if (Math.Abs(positionZ - targetPositionZ) < 2 ||
-                Math.Abs(positionZ - _maxPosition) < tolerance ||
+                Math.Abs(positionZ - MaxPosition) < tolerance ||
                 Math.Abs(positionZ - MinPosition) < tolerance)
             {
                 _followingObject.StopFollowZPosition();

@@ -5,59 +5,61 @@ using Configs;
 using EventProviders;
 using Factories;
 using Pools;
-using Services;
 using UI;
 using UnityEngine;
 using Weapons;
 using WormComponents;
+using Zenject;
 using Object = UnityEngine.Object;
 
 namespace BattleStateMachineComponents.States
 {
-    public class WeaponBootstrapper : IDisposable
+    public class WeaponBootstrapper
     {
-        private readonly IEnumerable<WeaponConfig> _weaponConfigs;
+        private readonly BattleStateMachineData _data;
+        private IEnumerable<WeaponConfig> _weaponConfigs;
         private readonly WeaponSelector _weaponSelector;
-        private readonly WeaponSelectorItem _weaponSelectorItemPrefab;
-        private readonly IWeaponInput _weaponInput;
-        private readonly IWeaponSelectorInput _weaponSelectorInput;
-        private WeaponSelectorItemFactory _itemFactory;
+        private WeaponSelectorItem _weaponSelectorItemPrefab;
+        private DiContainer _container;
+        private WeaponSelectorItemFactory _itemFactory = new();
         private WeaponFactory _weaponFactory;
-
-        public IWeaponShotEvent WeaponShotEvent;
+        private IWormEvents _wormEvents;
+        private Transform _weaponsParent;
+        private ProjectilesBootsrapper _projectilesBootsrapper;
 
         public WeaponChanger WeaponChanger { get; private set; }
         
-        public WeaponBootstrapper(IEnumerable<WeaponConfig> weaponConfigs, WeaponSelector weaponSelector, 
-            WeaponSelectorItem weaponSelectorItemPrefab, AllServices services)
+        public WeaponBootstrapper(DiContainer container, IEnumerable<WeaponConfig> weaponConfigs, 
+            WeaponSelectorItem weaponSelectorItemPrefab, IWormEvents wormEvents, WeaponSelector weaponSelector,
+                ProjectilesBootsrapper projectilesBootsrapper)
         {
-            _weaponConfigs = weaponConfigs;
+            _projectilesBootsrapper = projectilesBootsrapper;
+            _container = container;
+            _wormEvents = wormEvents;
             _weaponSelector = weaponSelector;
+            _weaponConfigs = weaponConfigs;
             _weaponSelectorItemPrefab = weaponSelectorItemPrefab;
-            _weaponInput = services.Single<IWeaponInput>();
-            _weaponSelectorInput = services.Single<IWeaponSelectorInput>();
+            
+            _weaponsParent = new GameObject("Weapons").transform;
+            CreateWeapon();
         }
 
-        public void Dispose()
+        public void CreateWeapon()
         {
-            _itemFactory.Dispose();
-            WeaponChanger.Dispose();
-            _weaponFactory.Dispose();
-        }
-
-        public void CreateWeapon(List<ProjectilePool> projectilePools, IWormEvents wormEvents, ICurrentWorm currentWorm)
-        {
-            Transform weaponsParent = new GameObject("Weapons").transform;
+            _weaponFactory = new WeaponFactory(_projectilesBootsrapper.ProjectilePools, _weaponsParent, _weaponConfigs);
             
-            _itemFactory = new WeaponSelectorItemFactory();
-            WeaponShotEvent = _weaponFactory = new WeaponFactory(projectilePools, weaponsParent);
-            
-            IEnumerable<Weapon> weaponList = _weaponFactory.Create(_weaponConfigs);
-
+            IEnumerable<Weapon> weaponList = _weaponFactory.Create();
             _itemFactory.Create(weaponList, _weaponSelectorItemPrefab, _weaponSelector.ItemParent);
-            _weaponSelector.Init(_itemFactory, _weaponSelectorInput);
+            
+            BindServices();
+        }
 
-            WeaponChanger = new WeaponChanger(_itemFactory, _weaponFactory, weaponsParent, wormEvents, currentWorm, _weaponInput,  _weaponSelector);
+        private void BindServices()
+        {
+            _container.BindInterfacesAndSelfTo<WeaponSelector>().FromInstance(_weaponSelector).AsSingle();
+            _container.Bind<WeaponChanger>().AsSingle().WithArguments(_weaponsParent);
+            _container.BindInterfacesAndSelfTo<WeaponFactory>().FromInstance(_weaponFactory).AsSingle();
+            _container.BindInterfacesAndSelfTo<WeaponSelectorItemFactory>().FromInstance(_itemFactory).AsSingle();
         }
     }
 }

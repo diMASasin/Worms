@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8576820259905064569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7024732260266714013}
+  - component: {fileID: 7443889097698868007}
+  - component: {fileID: -6959157601512668319}
+  - component: {fileID: 6143760040096536043}
+  - component: {fileID: 5351598239848717003}
+  m_Layer: 0
+  m_Name: ProjectContext
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7024732260266714013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8576820259905064569}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7443889097698868007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8576820259905064569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4e6589720da476459dc6dd71624b071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: -6959157601512668319}
+  _installerPrefabs: []
+  _parentNewObjectsUnderContext: 1
+  _editorReflectionBakingCoverageMode: 0
+  _buildsReflectionBakingCoverageMode: 0
+  _settings:
+    _ensureDeterministicDestructionOrderOnApplicationQuit: 0
+    _displayWarningWhenResolvingDuringInstall: 1
+    _validationRootResolveMethod: 0
+    _validationErrorResponse: 0
+    _signalSettings:
+      _defaultSyncMode: 0
+      _missingHandlerDefaultResponse: 2
+      _requireStrictUnsubscribe: 0
+      _defaultAsyncTickPriority: 1
+--- !u!114 &-6959157601512668319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8576820259905064569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf766dc334b46838d028288b1d5d105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponSelectorItemPrefab: {fileID: 1514001738307777156, guid: 7b5afda30d4fa704997d6f069d0ae1a5, type: 3}
+  _followingTimerViewPrefab: {fileID: 4044026241773061690, guid: cec0a7a8bfb2395459f3765209f27b92, type: 3}
+  _mainMenuPrefab: {fileID: -6624065519348056580, guid: 12ddb6831cf80c144a3118da577f8f68, type: 3}
+  _loadingScreenPrefab: {fileID: 8213998634821453300, guid: 1ea496a7e39f577468db927e06e1dddc, type: 3}
+  _weaponConfigs:
+  - {fileID: 11400000, guid: bc372e3f785a57542ad108e0380b2235, type: 2}
+  - {fileID: 11400000, guid: d5a229232cfc06247bcf2ceb5b3297e2, type: 2}
+  - {fileID: 11400000, guid: 4efad51d55462de4e83f8d27f1b172be, type: 2}
+  - {fileID: 11400000, guid: 0ed6c00008d764348800befa94802aa7, type: 2}
+  - {fileID: 11400000, guid: e6863657b03b37344980be7f7e53bed9, type: 2}
+  _coroutinePerformer: {fileID: 5351598239848717003}
+--- !u!114 &6143760040096536043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8576820259905064569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d82d1c9ab24c53aece8b41ce964379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5351598239848717003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8576820259905064569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 461c6f9dc49611d4da4c4dca410b40e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

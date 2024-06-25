@@ -3,7 +3,7 @@ using static UnityEngine.InputSystem.InputAction;
 
 namespace Weapons
 {
-    class WeaponInput : IWeaponInput
+    class WeaponInput : IWeaponInput, IDisposable
     {
         private MainInput.WeaponActions _weaponInput;
 
@@ -22,7 +22,7 @@ namespace Weapons
             _weaponInput.Shoot.performed += OnShoot;
         }
 
-        public void Unsubscribe()
+        public void Dispose()
         {
             _weaponInput.EnablePointerLine.performed -= EnablePointerLine;
             _weaponInput.Shoot.performed -= OnShoot;

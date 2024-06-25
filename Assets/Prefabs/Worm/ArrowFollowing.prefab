@@ -116,6 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7066426075502181888}
   - component: {fileID: 4208428713464027836}
+  - component: {fileID: 6189027040722857457}
   m_Layer: 0
   m_Name: ArrowFollowing
   m_TagString: Untagged
@@ -153,8 +154,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 6103891854826286232}
   _lifeTime: 2
-  _followingObject:
-    _followingTransform: {fileID: 7066426075502181888}
-    _moveSmoothly: 0
-    _speed: 1000
-    <Offset>k__BackingField: {x: 0, y: 0, z: 0}
+  _followingObject: {fileID: 6189027040722857457}
+--- !u!114 &6189027040722857457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4564253001327817789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478b57a80fa37834e9be6f14ccd22356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Config>k__BackingField: {fileID: 11400000, guid: 2ff57f3587748d849890cef1d3d94b6d, type: 2}

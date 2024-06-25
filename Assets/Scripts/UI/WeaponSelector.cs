@@ -5,6 +5,7 @@ using Pools;
 using UnityEngine;
 using UnityEngine.UI;
 using Weapons;
+using Zenject;
 
 namespace UI
 {
@@ -25,13 +26,14 @@ namespace UI
         private static readonly int Open = Animator.StringToHash("Open");
         private static readonly int Close = Animator.StringToHash("Close");
 
-        public void Init(IWeaponSelectedEvent selectedEvent, IWeaponSelectorInput weaponSelectorInput)
+        [Inject]
+        public void Construct(IWeaponSelectorInput weaponSelectorInput, IWeaponSelectedEvent selectedEvent)
         {
             _weaponSelectorInput = weaponSelectorInput;
             _selectedEvent = selectedEvent;
-
-            _selectedEvent.WeaponSelected += OnSelected;
+            
             _weaponSelectorInput.ShouldTogleWeaponSelector += Toggle;
+            _selectedEvent.WeaponSelected += OnSelected;
         }
 
         private void OnDestroy()

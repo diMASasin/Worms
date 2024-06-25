@@ -1,44 +1,38 @@
-using System;
-using Battle_;
-using CameraFollow;
+using System.ComponentModel;
+using Factories;
 using Infrastructure;
 using InputService;
-using Services;
 using UI;
-using UltimateCC;
 using UnityEngine;
 using Weapons;
-using Object = UnityEngine.Object;
+using Zenject;
 
 namespace GameStateMachineComponents.States
 {
-    public class BootstrapState : GameState, IDisposable
+    public class BootstrapState : GameState
     {
-        private readonly ISceneLoader _sceneLoader;
+        private ISceneLoader _sceneLoader;
         private MovementInput _movementInput;
         private CameraInput _cameraInput;
         private WeaponInput _weaponInput;
         private WeaponSelectorInput _weaponSelectorInput;
+        private LoadingScreen _loadingScreen;
+        private DiContainer _diContainer;
+        private MainMenu _mainMenu;
 
-        public BootstrapState(GameStateMachineData data, IGameStateSwitcher stateSwitcher, AllServices services) : 
-            base(data, stateSwitcher)
+        public BootstrapState(DiContainer diContainer, IGameStateSwitcher stateSwitcher, ISceneLoader sceneLoader,
+            LoadingScreen loadingScreen, MainMenu mainMenu) : base(stateSwitcher)
         {
-            RegisterServices(services);
-            
-            _sceneLoader = services.Single<ISceneLoader>();
+            _mainMenu = mainMenu;
+            _diContainer = diContainer;
+            _loadingScreen = loadingScreen;
+            _sceneLoader = sceneLoader;
         }
-
-        public void Dispose()
-        {
-            _movementInput.Unsubscribe();
-            _weaponInput.Unsubscribe();
-            _weaponSelectorInput.Unsubscribe();
-        }
-
+        
         public override void Enter()
-        {            
-            Data.LoadingScreen.Init(_sceneLoader);
-            
+        {
+            _mainMenu.gameObject.SetActive(false);
+            _loadingScreen.Init(_sceneLoader);
             _sceneLoader.Load(_sceneLoader.SceneNames.MainMenu, OnLoaded);
         }
 
@@ -49,36 +43,6 @@ namespace GameStateMachineComponents.States
 
         public override void Exit()
         {
-        }
-
-        private void RegisterServices(AllServices services)
-        {
-            CoroutinePerformer coroutinePerformer = Object.Instantiate(Data.CoroutinePerformerPrefab, Data.GameParent);
-            services.RegisterSingle<ICoroutinePerformer>(coroutinePerformer);
-            services.RegisterSingle<ISceneLoader>(new SceneLoader(coroutinePerformer));
-            services.RegisterSingle<IBattleSettings>(new BattleSettings());
-            services.RegisterSingle<IGameStateSwitcher>(StateSwitcher);
-            
-            RegisterInput(services);
-        }
-
-        private void RegisterInput(AllServices services)
-        {
-            var mainInput = new MainInput();
-            
-            _movementInput = new MovementInput();
-            _cameraInput = new CameraInput();
-            _weaponInput = new WeaponInput(mainInput.Weapon);
-            _weaponSelectorInput = new WeaponSelectorInput(mainInput.UI);
-            
-            services.RegisterSingle<ICameraInput>(_cameraInput);
-            services.RegisterSingle<IWeaponInput>(_weaponInput);
-            services.RegisterSingle<IWeaponSelectorInput>(_weaponSelectorInput);
-            services.RegisterSingle<IMovementInput>(_movementInput);
-            
-            _weaponInput.Subscribe();
-            _weaponSelectorInput.Subscribe();
-            _movementInput.Subscribe();
         }
     }
 }

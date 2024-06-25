@@ -5,17 +5,18 @@ using Pools;
 using UI;
 using UnityEngine;
 using WormComponents;
+using Zenject;
 
 namespace Weapons
 {
     public class WeaponChanger : IDisposable
     {
-        private readonly IWeaponSelectedEvent _weaponSelectedEvent;
-        private readonly IWeaponShotEvent _weaponShotEvent;
+        private IWeaponSelectedEvent _weaponSelectedEvent;
+        private IWeaponShotEvent _weaponShotEvent;
         private readonly Transform _weaponsParent;
-        private readonly IWormEvents _wormEvents;
-        private readonly ICurrentWorm _currentWormProvider;
-        private readonly IWeaponInput _weaponInput;
+        private IWormEvents _wormEvents;
+        private ICurrentWorm _currentWormProvider;
+        private IWeaponInput _weaponInput;
         private readonly WeaponSelector _weaponSelector;
 
         private Transform _weaponTransform;
@@ -25,24 +26,29 @@ namespace Weapons
         public event Action<Weapon> WeaponRemoved;
         public event Action<Weapon> WeaponChanged;
 
-        public WeaponChanger(IWeaponSelectedEvent weaponSelectedEvent, IWeaponShotEvent weaponShotEvent,
-            Transform weaponsParent, IWormEvents wormEvents, ICurrentWorm currentWormProvider, IWeaponInput weaponInput,
-            WeaponSelector weaponSelector)
+        public WeaponChanger(WeaponSelector weaponSelector, Transform weaponsParent)
         {
-            _weaponSelectedEvent = weaponSelectedEvent;
-            _weaponShotEvent = weaponShotEvent;
             _weaponsParent = weaponsParent;
-            _wormEvents = wormEvents;
-            _currentWormProvider = currentWormProvider;
-            _weaponInput = weaponInput;
             _weaponSelector = weaponSelector;
 
-            _weaponInput.PowerIncreasingStarted += OnPowerIncreasingStarted;
             _weaponSelector.SelectorOpened += OnSelectorOpened;
             _weaponSelector.SelectorClosed += OnSelectorClosed;
-            _weaponSelectedEvent.WeaponSelected += OnWeaponSelected;
-            _weaponShotEvent.WeaponShot += OnWeaponShot;
+        }
+
+        [Inject]
+        public void Construct(IWeaponInput weaponInput, IWormEvents wormEvents, IWeaponShotEvent weaponShotEvent,
+            IWeaponSelectedEvent weaponSelectedEvent, ICurrentWorm currentWormProvider)
+        {
+            _weaponInput = weaponInput;
+            _wormEvents = wormEvents;
+            _weaponShotEvent = weaponShotEvent;
+            _weaponSelectedEvent = weaponSelectedEvent;
+            _currentWormProvider = currentWormProvider;
+            
+            _weaponInput.PowerIncreasingStarted += OnPowerIncreasingStarted;
             _wormEvents.WormDied += OnWormDied;
+            _weaponShotEvent.WeaponShot += OnWeaponShot;
+            _weaponSelectedEvent.WeaponSelected += OnWeaponSelected;
         }
 
         public void Dispose()

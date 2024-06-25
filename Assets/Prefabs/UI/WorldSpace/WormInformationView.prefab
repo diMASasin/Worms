@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2184462189580490931}
   - component: {fileID: 8106106455543795105}
+  - component: {fileID: 7980353158680543581}
   m_Layer: 0
   m_Name: WormInformationView
   m_TagString: Untagged
@@ -47,11 +48,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthText: {fileID: 5228904223780119505}
   _nameText: {fileID: 3663519595945986517}
-  _followingObject:
-    _followingTransform: {fileID: 2184462189580490931}
-    _moveSmoothly: 0
-    _speed: 1000
-    <Offset>k__BackingField: {x: 0, y: 1, z: 0}
+  _followingObject: {fileID: 7980353158680543581}
+--- !u!114 &7980353158680543581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552397899960248940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bfed8ded9de4545ae6b40a0f27480cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Config>k__BackingField: {fileID: 11400000, guid: 2ff57f3587748d849890cef1d3d94b6d, type: 2}
 --- !u!1 &2880633298937590097
 GameObject:
   m_ObjectHideFlags: 0

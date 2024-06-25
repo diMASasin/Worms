@@ -40,8 +40,6 @@ namespace Projectiles.Behaviours.Components
 
         public void Init()
         {
-            _jumpTimer = new Timer();
-            _changeDirectionCooldownTimer = new Timer();
         }
 
         private void OnProjectileReseted() => Reset();

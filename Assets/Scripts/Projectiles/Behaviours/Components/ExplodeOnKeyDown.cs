@@ -1,7 +1,7 @@
 using System.Collections;
 using Infrastructure;
-using Services;
 using UnityEngine;
+using Zenject;
 using Input = UnityEngine.Input;
 
 namespace Projectiles.Behaviours.Components
@@ -17,8 +17,13 @@ namespace Projectiles.Behaviours.Components
 
         public void Awake()
         {
-            _coroutinePerformer = AllServices.Container.Single<ICoroutinePerformer>();
             _waitForEnableKey = new WaitForSeconds(_secondsToEnableKey);
+        }
+
+        [Inject]
+        private void Construct(ICoroutinePerformer coroutinePerformer)
+        {
+            _coroutinePerformer = coroutinePerformer;
         }
 
         private void OnEnable()

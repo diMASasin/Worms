@@ -1,22 +1,26 @@
 using System.Collections;
 using Infrastructure;
-using Services;
 using Timers;
 using UnityEngine;
+using Zenject;
 
 namespace UltimateCC
 {
     public class PlayerAttackedState : MainState
     {
         private readonly Timer _timer;
-        private readonly ICoroutinePerformer _coroutinePerformer;
+        private ICoroutinePerformer _coroutinePerformer;
         private Coroutine _coroutine;
 
         public PlayerAttackedState(PlayerMain playerMain, PlayerStateMachine playerStateMachine,
             PlayerMain.AnimName idle, PlayerData playerData) : base(playerMain, playerStateMachine, idle, playerData)
         {
-            _timer = new Timer();
-            _coroutinePerformer = AllServices.Container.Single<ICoroutinePerformer>();
+        }
+
+        [Inject]
+        private void Construct(ICoroutinePerformer coroutinePerformer)
+        {
+            _coroutinePerformer = coroutinePerformer;
         }
 
         public override void Enter()

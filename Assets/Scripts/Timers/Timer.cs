@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
 using Infrastructure;
-using Services;
 using UnityEngine;
+using Zenject;
 
 namespace Timers
 {
@@ -12,14 +12,14 @@ namespace Timers
         private double _timeLeft = 0;
         private Coroutine _coroutine;
         private bool _paused;
-        private readonly ICoroutinePerformer _coroutinePerformer;
+        private ICoroutinePerformer _coroutinePerformer;
         public bool Started { get; private set; }
         
         public event Action<double> TimerUpdated;
 
-        public Timer()
+        public Timer(ICoroutinePerformer coroutinePerformer)
         {
-            _coroutinePerformer = AllServices.Container.Single<ICoroutinePerformer>();
+            _coroutinePerformer = coroutinePerformer;
         }
         
         public void Start(float interval, Action onElapsed)

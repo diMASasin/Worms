@@ -1,9 +1,8 @@
 using System;
-using Services;
 
 namespace Infrastructure
 {
-    public interface ISceneLoader : IService
+    public interface ISceneLoader
     {
         event Action<float> ProgressChanged;
         void Load(string name, Action onLoaded = null);

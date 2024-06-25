@@ -6,23 +6,26 @@ using Pools;
 using Projectiles;
 using UnityEngine;
 using Weapons;
+using Zenject;
 using static UnityEngine.Object;
 
 namespace Factories
 {
-    public class WeaponFactory : IWeaponShotEvent, IDisposable
+    public class WeaponFactory : IFactory<List<Weapon>>, IWeaponShotEvent, IDisposable
     {
         private readonly List<ProjectilePool> _projectilePools;
         private readonly Transform _weaponsParent;
+        private readonly IEnumerable<WeaponConfig> _weaponConfigs;
 
         private readonly List<Weapon> _weaponList = new();
 
         public event Action<float, Weapon> WeaponShot;
 
-        public WeaponFactory(List<ProjectilePool> projectilePools, Transform weaponsParent)
+        public WeaponFactory(List<ProjectilePool> projectilePools, Transform weaponsParent, IEnumerable<WeaponConfig> weaponConfigs)
         {
             _projectilePools = projectilePools;
             _weaponsParent = weaponsParent;
+            _weaponConfigs = weaponConfigs;
         }
         
         public void Dispose()
@@ -31,9 +34,9 @@ namespace Factories
                 weapon.Shot -= OnShot;
         }
 
-        public List<Weapon> Create(IEnumerable<WeaponConfig> weaponConfigs)
+        public List<Weapon> Create()
         {
-            foreach (var config in weaponConfigs)
+            foreach (var config in _weaponConfigs)
             {
                 Weapon weapon = Instantiate(config.WeaponPrefab, _weaponsParent);
                 weapon.Init(config);

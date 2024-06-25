@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 namespace UI
 {
-    class WeaponSelectorInput : IWeaponSelectorInput
+    class WeaponSelectorInput : IWeaponSelectorInput, IDisposable
     {
         private readonly MainInput.UIActions _uiActions;
         
@@ -20,7 +20,7 @@ namespace UI
             _uiActions.OpenWeaponSelector.performed += OpenWeaponSelector;
         }
 
-        public void Unsubscribe()
+        public void Dispose()
         {
             _uiActions.OpenWeaponSelector.performed -= OpenWeaponSelector;
         }

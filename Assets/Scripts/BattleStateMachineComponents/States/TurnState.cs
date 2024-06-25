@@ -1,22 +1,29 @@
 using BattleStateMachineComponents.StatesData;
 using Configs;
+using EventProviders;
 using Infrastructure;
 using Projectiles;
 using Timers;
 using UI;
+using UltimateCC;
 using UnityEngine;
 using Weapons;
 using WormComponents;
+using Zenject;
 
 namespace BattleStateMachineComponents.States
 {
     public class TurnState : IBattleState
     {
-        private readonly IStateSwitcher _stateSwitcher;
-        private readonly GlobalBattleData _data;
-        private readonly TurnStateData _turnStateData;
+        private IBattleStateSwitcher _battleStateSwitcher;
+        private BattleStateMachineData _data;
+        private IMovementInput _movementInput;
+        private Arrow _arrow;
+        private IWormEvents _wormEvents;
+        private IProjectileEvents _allProjectileEvents;
+        private IWeaponShotEvent _weaponShotEvent;
         private TimersConfig TimersConfig => _data.TimersConfig;
-        private Timer GlobalTimer => _data.GlobalTimer;
+        private Timer BattleTimer => _data.BattleTimer;
         private Timer TurnTimer => _data.TurnTimer;
 
         private Team CurrentTeam { set => _data.CurrentTeam = value; }
@@ -26,12 +33,18 @@ namespace BattleStateMachineComponents.States
             get => _data.CurrentWorm;
             set => _data.CurrentWorm = value;
         }
-
-        public TurnState(IStateSwitcher stateSwitcher, GlobalBattleData data, TurnStateData turnStateData)
+        
+        [Inject]
+        public void Construct(IBattleStateSwitcher battleStateSwitcher, BattleStateMachineData data, IMovementInput movementInput, 
+            Arrow arrow, IWormEvents wormEvents, IProjectileEvents allProjectileEvents, IWeaponShotEvent weaponShotEvent)
         {
-            _stateSwitcher = stateSwitcher;
+            _weaponShotEvent = weaponShotEvent;
+            _allProjectileEvents = allProjectileEvents;
+            _wormEvents = wormEvents;
+            _arrow = arrow;
+            _movementInput = movementInput;
+            _battleStateSwitcher = battleStateSwitcher;
             _data = data;
-            _turnStateData = turnStateData;
         }
 
         public void Enter()
@@ -39,34 +52,34 @@ namespace BattleStateMachineComponents.States
             CurrentTeam = _data.AliveTeams.Next();
             CurrentWorm = _data.CurrentTeam.Worms.Next();
             
-            CurrentWorm.DelegateInput(_data.MovementInput);
-            _turnStateData.WeaponSelector.AllowOpen();
+            CurrentWorm.DelegateInput(_movementInput);
+            _data.WeaponSelector.AllowOpen();
 
-            _turnStateData.Arrow.StartMove(CurrentWorm.Transform);
+            _arrow.StartMove(CurrentWorm.Transform);
             _data.FollowingCamera.SetTarget(CurrentWorm.Transform);
             
-            GlobalTimer.Resume();
+            BattleTimer.Resume();
             TurnTimer.Start(TimersConfig.TurnDuration, OnTimerElapsed);
             
-            _turnStateData.WormEvents.WormDied += OnWormDied;
-            _turnStateData.AllProjectileEvents.Launched += OnLaunched;
-            _turnStateData.WeaponShotEvent.WeaponShot += OnWeaponShot;
+            _wormEvents.WormDied += OnWormDied;
+            _allProjectileEvents.Launched += OnLaunched;
+            _weaponShotEvent .WeaponShot += OnWeaponShot;
         }
 
         public void Exit()
         {
             TurnTimer.Stop();
-            GlobalTimer.Pause();
+            BattleTimer.Pause();
             
-            _turnStateData.WeaponSelector.DisallowOpen();
-            _turnStateData.WeaponSelector.CloseIfOpened();
-            _turnStateData.Arrow.Disable();
+            _data.WeaponSelector.DisallowOpen();
+            _data.WeaponSelector.CloseIfOpened();
+            _arrow.Disable();
             
             CurrentWorm.RemoveInput();
             
-            _turnStateData.AllProjectileEvents.Launched -= OnLaunched;
-            _turnStateData.WormEvents.WormDied -= OnWormDied;
-            _turnStateData.WeaponShotEvent.WeaponShot -= OnWeaponShot;
+            _allProjectileEvents.Launched -= OnLaunched;
+            _wormEvents.WormDied -= OnWormDied;
+            _weaponShotEvent.WeaponShot -= OnWeaponShot;
         }
 
         public void Tick()
@@ -79,12 +92,12 @@ namespace BattleStateMachineComponents.States
 
         private void OnWormDied(Worm worm)
         {
-            _stateSwitcher.SwitchState<ProjectilesWaiting>();
+            _battleStateSwitcher.SwitchState<ProjectilesWaiting>();
         }
 
         private void OnWeaponShot(float velocity, Weapon weapon)
         {
-            _stateSwitcher.SwitchState<RetreatState>();
+            _battleStateSwitcher.SwitchState<RetreatState>();
         }
 
         private void OnLaunched(Projectile projectile, Vector2 velocity)
@@ -94,7 +107,7 @@ namespace BattleStateMachineComponents.States
 
         private void OnTimerElapsed()
         {
-            _stateSwitcher.SwitchState<ProjectilesWaiting>();
+            _battleStateSwitcher.SwitchState<ProjectilesWaiting>();
         }
     }
 }

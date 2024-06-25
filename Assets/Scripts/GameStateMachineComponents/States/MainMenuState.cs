@@ -1,36 +1,33 @@
 using Battle_;
-using Infrastructure;
-using Services;
 using UI;
-using UnityEngine;
-using static UnityEngine.Object;
+using Zenject;
 
 namespace GameStateMachineComponents.States
 {
     public class MainMenuState : GameState
     {
-        private readonly IBattleSettings _battleSettings;
-        private readonly ISceneLoader _sceneLoader;
+        private IBattleSettings _battleSettings;
         private MainMenu _mainMenu;
 
-        public MainMenuState(GameStateMachineData data, IGameStateSwitcher stateSwitcher, 
-            IBattleSettings battleSettings, ISceneLoader sceneLoader) : base(data, stateSwitcher)
+        public MainMenuState(IGameStateSwitcher stateSwitcher, IBattleSettings battleSettings, MainMenu mainMenu) : 
+            base(stateSwitcher)
         {
+            _mainMenu = mainMenu;
             _battleSettings = battleSettings;
-            _sceneLoader = sceneLoader;
         }
 
         public override void Enter()
         {
-            _mainMenu = Instantiate(Data.MainMenuPrefab);
-            _mainMenu.SettingsWindow.Init(_battleSettings, _sceneLoader);
-
+            _mainMenu.gameObject.SetActive(true);
+            
             _battleSettings.BattleSettingsSaved += OnBattleSettingsSaved;
         }
 
         public override void Exit()
         {
             _battleSettings.BattleSettingsSaved -= OnBattleSettingsSaved;
+            
+            _mainMenu.gameObject.SetActive(false);
         }
 
         private void OnBattleSettingsSaved()
