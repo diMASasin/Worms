@@ -18,7 +18,7 @@ using Zenject;
 namespace BattleStateMachineComponents
 {
     [Serializable]
-    public class BattleStateMachineData
+    public class BattleStateMachineData : ICurrentWorm
     {
         [field: SerializeField] public FollowingCamera FollowingCamera { get; private set; }
         [field: SerializeField] public Water Water { get; private set; }

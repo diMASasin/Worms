@@ -1,9 +1,10 @@
 using System;
 using UnityEngine.InputSystem;
+using Zenject;
 
 namespace UI
 {
-    class WeaponSelectorInput : IWeaponSelectorInput, IDisposable
+    class WeaponSelectorInput : IWeaponSelectorInput, IInitializable, IDisposable
     {
         private readonly MainInput.UIActions _uiActions;
         
@@ -14,8 +15,8 @@ namespace UI
             _uiActions = uiActions;
             _uiActions.Enable();
         }
-        
-        public void Subscribe()
+
+        public void Initialize()
         {
             _uiActions.OpenWeaponSelector.performed += OpenWeaponSelector;
         }
@@ -26,6 +27,5 @@ namespace UI
         }
 
         private void OpenWeaponSelector(InputAction.CallbackContext obj) => ShouldTogleWeaponSelector?.Invoke();
-
     }
 }

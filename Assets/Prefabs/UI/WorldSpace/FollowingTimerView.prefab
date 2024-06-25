@@ -245,7 +245,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3877451833184713406}
-  - component: {fileID: 1320009262169890257}
+  - component: {fileID: 7202543109251396895}
+  - component: {fileID: 3700164070925485691}
+  - component: {fileID: 362783865745450675}
   m_Layer: 0
   m_Name: FollowingTimerView
   m_TagString: Untagged
@@ -269,7 +271,7 @@ Transform:
   - {fileID: 3120300344482459558}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1320009262169890257
+--- !u!114 &7202543109251396895
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -278,7 +280,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 7337619980009341545}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19892a1bf5db4b44b30af636b3579417, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b975aefc3a74da295ac83cf340a24dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Config>k__BackingField: {fileID: 11400000, guid: 2ff57f3587748d849890cef1d3d94b6d, type: 2}
+  <FollowingObject>k__BackingField: {fileID: 3700164070925485691}
+  <TimerView>k__BackingField: {fileID: 362783865745450675}
+--- !u!114 &3700164070925485691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7337619980009341545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478b57a80fa37834e9be6f14ccd22356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MoveSmoothly>k__BackingField: 0
+  <Speed>k__BackingField: 10
+  <Offset>k__BackingField: {x: 0, y: 0.5, z: 0}
+--- !u!114 &362783865745450675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7337619980009341545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e990ceb9ee600478881d97aed36c7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 6113779953236470261}

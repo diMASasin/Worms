@@ -12,7 +12,7 @@ namespace CameraFollow
         [field: SerializeField] public int MinPosition { get; private set; } = -65;
         [field: SerializeField]public int MaxPosition { get; set; } = -10;
         [field: SerializeField] public Vector3 GeneralViewPosition { get; private set; }
-        [SerializeField] private FollowingObject _followingObject;
+        [field: SerializeField] public FollowingObject FollowingObject { get; private set; }
 
         private Transform _target;
         private ICameraInput _cameraInput;
@@ -39,13 +39,13 @@ namespace CameraFollow
 
         public void SetTarget(Transform target)
         {
-            _followingObject.Follow(target);
+            FollowingObject.Follow(target);
         }
 
         public void SetTarget(Vector3 positionTarget)
         {
-            _followingObject.StopFollow();
-            _followingObject.Follow(positionTarget);
+            FollowingObject.StopFollow();
+            FollowingObject.Follow(positionTarget);
         }
 
         public void TryZoom(float scrollDeltaY)
@@ -61,23 +61,23 @@ namespace CameraFollow
         
         private void TryStopZoom()
         {
-            if(_followingObject.FreezeZPosition == true)
+            if(FollowingObject.FreezeZPosition == true)
                 return;
 
             float targetPositionZ;
-            if (_followingObject.FollowingFor == null)
-                targetPositionZ = _followingObject.MoveTo.z;
+            if (FollowingObject.FollowingFor == null)
+                targetPositionZ = FollowingObject.MoveTo.z;
             else
-                targetPositionZ = _followingObject.FollowingFor.position.z;
+                targetPositionZ = FollowingObject.FollowingFor.position.z;
             
             float tolerance = 0.2f;
-            float positionZ = transform.position.z - _followingObject.Config.Offset.z;
+            float positionZ = transform.position.z - FollowingObject.Offset.z;
 
             if (Math.Abs(positionZ - targetPositionZ) < 2 ||
                 Math.Abs(positionZ - MaxPosition) < tolerance ||
                 Math.Abs(positionZ - MinPosition) < tolerance)
             {
-                _followingObject.StopFollowZPosition();
+                FollowingObject.StopFollowZPosition();
             }
         } 
     }

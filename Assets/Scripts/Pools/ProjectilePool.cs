@@ -6,7 +6,7 @@ using UnityEngine.Pool;
 
 namespace Pools
 {
-    public class ProjectilePool : IDisposable
+    public class ProjectilePool : IDisposable, IProjectilePool
     {
         private readonly int _amount;
         private readonly ObjectPool<Projectile> _pool;

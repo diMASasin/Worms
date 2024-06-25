@@ -25,13 +25,17 @@ namespace BattleStateMachineComponents.States
         private Timer _battleTimer;
         private Timer _turnBattle;
         private IMovementInput _movementInput;
+        private WeaponSelectorItemFactory _itemFactory;
+        private WeaponFactory _weaponFactory;
 
         private GameConfig GameConfig => _data.GameConfig;
 
         public BootstrapBattleState(BattleStateMachineData data, DiContainer container, 
             IBattleStateSwitcher battleStateSwitcher, WormsSpawner wormsSpawner, IBattleSettings battleSettings, 
-            Timer battleTimer, Timer turnBattle, IMovementInput movementInput)
+            Timer battleTimer, Timer turnBattle, IMovementInput movementInput, WeaponSelectorItemFactory itemFactory, WeaponFactory weaponFactory)
         {
+            _weaponFactory = weaponFactory;
+            _itemFactory = itemFactory;
             _movementInput = movementInput;
             _turnBattle = turnBattle;
             _battleTimer = battleTimer;
@@ -49,8 +53,10 @@ namespace BattleStateMachineComponents.States
 
         public void Enter()
         {
+            var weaponList = _weaponFactory.Create();
+            _itemFactory.Create(weaponList);   
             
-           var whenMoveCameraFollower = new WhenMoveCameraFollower(_data.FollowingCamera, _movementInput, _data.CurrentWorm);
+            var whenMoveCameraFollower = new WhenMoveCameraFollower(_data.FollowingCamera, _movementInput, _data.CurrentWorm);
             SettingsData settingsData = _battleSettings.Data;
             _data.Terrain.GetEdgesForSpawn();
             _data.AliveTeams = _wormsSpawner.Spawn(settingsData.TeamsCount, settingsData.WormsCount);

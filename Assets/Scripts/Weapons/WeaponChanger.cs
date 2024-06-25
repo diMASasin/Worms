@@ -26,19 +26,12 @@ namespace Weapons
         public event Action<Weapon> WeaponRemoved;
         public event Action<Weapon> WeaponChanged;
 
-        public WeaponChanger(WeaponSelector weaponSelector, Transform weaponsParent)
+        public WeaponChanger(WeaponSelector weaponSelector, Transform weaponsParent, IWeaponInput weaponInput, 
+            IWormEvents wormEvents, IWeaponShotEvent weaponShotEvent,IWeaponSelectedEvent weaponSelectedEvent, 
+            ICurrentWorm currentWormProvider)
         {
             _weaponsParent = weaponsParent;
             _weaponSelector = weaponSelector;
-
-            _weaponSelector.SelectorOpened += OnSelectorOpened;
-            _weaponSelector.SelectorClosed += OnSelectorClosed;
-        }
-
-        [Inject]
-        public void Construct(IWeaponInput weaponInput, IWormEvents wormEvents, IWeaponShotEvent weaponShotEvent,
-            IWeaponSelectedEvent weaponSelectedEvent, ICurrentWorm currentWormProvider)
-        {
             _weaponInput = weaponInput;
             _wormEvents = wormEvents;
             _weaponShotEvent = weaponShotEvent;
@@ -49,6 +42,8 @@ namespace Weapons
             _wormEvents.WormDied += OnWormDied;
             _weaponShotEvent.WeaponShot += OnWeaponShot;
             _weaponSelectedEvent.WeaponSelected += OnWeaponSelected;
+            _weaponSelector.SelectorOpened += OnSelectorOpened;
+            _weaponSelector.SelectorClosed += OnSelectorClosed;
         }
 
         public void Dispose()

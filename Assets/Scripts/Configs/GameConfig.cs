@@ -13,8 +13,6 @@ namespace Configs
     public class GameConfig : ScriptableObject
     {
         [field: Header("Prefabs")]
-        [field: SerializeField] public InstantlyFollowingObject InstantlyFollowingObject { get; private set; }
-        [field: SerializeField] public SmoothlyFollowingObject SmoothlyFollowingObject { get; private set; }
         [field: SerializeField] public Worm WormPrefab { get; private set; }
         [field: SerializeField] public WormInformationView WormInfoViewPrefab { get; private set; }
         [field: SerializeField] public Arrow ArrowPrefab { get; private set; }

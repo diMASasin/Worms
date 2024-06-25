@@ -55,9 +55,9 @@ namespace Infrastructure.Installers
             var mainInput = new MainInput();
             
             Container.BindInterfacesAndSelfTo<CameraInput>().AsSingle();
-            Container.BindInterfacesAndSelfTo<WeaponSelectorInput>().AsSingle().WithArguments(mainInput.UI);
+            Container.BindInterfacesAndSelfTo<WeaponSelectorInput>().FromNew().AsSingle().WithArguments(mainInput.UI);
             Container.BindInterfacesAndSelfTo<WeaponInput>().AsSingle().WithArguments(mainInput.Weapon);
-            Container.BindInterfacesAndSelfTo<MovementInput>().AsSingle();
+            Container.BindInterfacesAndSelfTo<MovementInput>().FromNew().AsSingle();
         }
 
         private void BindConfigs()

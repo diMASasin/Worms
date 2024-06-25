@@ -22,8 +22,7 @@ MonoBehaviour:
   <WeaponViewPrefab>k__BackingField: {fileID: 9131519681045287937, guid: 8691137e386b63749975d17dece325d8, type: 3}
   <TeamHealthPrefab>k__BackingField: {fileID: 9099762162616485809, guid: dd99d4230622cf74baa5bec06150583f, type: 3}
   <TeamHealthFactoryPrefab>k__BackingField: {fileID: 4352401895906262629, guid: c4f9cc677daec9e449bbbed965714137, type: 3}
-  <TimerSecondsViewPrefab>k__BackingField: {fileID: 4849060836550800993, guid: 6e7d80e48851acf4b8ad48a7cd68db88, type: 3}
-  <TimerMinutesAndSecondsViewPrefab>k__BackingField: {fileID: 4856824650351712806, guid: 64e9066450f663a469284ac5dbe57551, type: 3}
+  <FollowingTimerViewPrefab>k__BackingField: {fileID: 7202543109251396895, guid: cec0a7a8bfb2395459f3765209f27b92, type: 3}
   <WeaponConfigs>k__BackingField:
   - {fileID: 11400000, guid: bc372e3f785a57542ad108e0380b2235, type: 2}
   - {fileID: 11400000, guid: d5a229232cfc06247bcf2ceb5b3297e2, type: 2}

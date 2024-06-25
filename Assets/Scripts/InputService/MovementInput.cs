@@ -1,10 +1,11 @@
 using System;
 using UltimateCC;
+using Zenject;
 using static UnityEngine.InputSystem.InputAction;
 
 namespace InputService
 {
-    public class MovementInput : IMovementInput, IDisposable
+    public class MovementInput : IMovementInput, IInitializable, IDisposable
     {
         private readonly InputActions _playerControls = new();
         
@@ -21,7 +22,7 @@ namespace InputService
 
         public void Disable() => _playerControls.Disable();
 
-        public void Subscribe()
+        public void Initialize()
         {
             _playerControls.Player.Jump.started += OnLongJumpStarted;
             _playerControls.Player.Highjump.started += OnHighJumpStarted;
@@ -33,7 +34,7 @@ namespace InputService
             _playerControls.Player.WallGrab.performed += OnWallGrabPerformed;
             _playerControls.Player.WallClimb.performed += OnWallClimbPerformed;
         }
-        
+
         public void Dispose()
         {
             _playerControls.Player.Jump.started -= OnLongJumpStarted;
@@ -48,20 +49,28 @@ namespace InputService
 
         private void OnLongJumpStarted(CallbackContext context) => 
             LongJumpStarted?.Invoke(context.ReadValueAsButton());
+
         private void OnHighJumpStarted(CallbackContext context) => 
             HighJumpStarted?.Invoke(context.ReadValueAsButton());
+
         private void OnHighJumpCanceled(CallbackContext context) => 
             JumpCanceled?.Invoke(context.ReadValueAsButton());
+
         private void OnWalkPerformed(CallbackContext context) => 
             WalkPerformed?.Invoke(context.ReadValue<float>());
+
         private void OnWalkCanceled(CallbackContext obj) => 
             WalkPerformed?.Invoke(0);
+
         private void OnDashPerformed(CallbackContext context) => 
             DashPerformed?.Invoke(context.ReadValueAsButton());
+
         private void OnCrouchPerformed(CallbackContext context) => 
             CrouchPerformed?.Invoke(context.ReadValueAsButton());
+
         private void OnWallGrabPerformed(CallbackContext context) => 
             WallGrabPerformed?.Invoke(context.ReadValueAsButton());
+
         private void OnWallClimbPerformed(CallbackContext context) => 
             WallClimbPerformed?.Invoke(context.ReadValue<float>());
     }
