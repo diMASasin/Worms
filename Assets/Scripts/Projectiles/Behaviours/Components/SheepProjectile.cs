@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
+using Infrastructure;
 using Timers;
 using UltimateCC;
 using UnityEngine;
 
 namespace Projectiles.Behaviours.Components
 {
-    public class SheepProjectile : MonoBehaviour, IMovementInput
+    public class SheepProjectile : MonoBehaviour, IMovementInput, ICoroutinePerformer
     {
         [SerializeField] private InputHandler _inputHandler;
         [SerializeField] private Projectile _projectile;
@@ -25,6 +26,12 @@ namespace Projectiles.Behaviours.Components
         private int _currentDirection;
 
         private bool IsGrounded => _playerMain.PlayerData.Physics.IsGrounded;
+
+        private void Awake()
+        {
+            _jumpTimer = new Timer(this);
+            _changeDirectionCooldownTimer = new Timer(this);
+        }
 
         private void OnEnable()
         {

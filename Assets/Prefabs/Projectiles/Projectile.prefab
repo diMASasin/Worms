@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3348539931435737142}
-  - component: {fileID: 5475799449231331852}
+  - component: {fileID: 7839476975635090577}
   - component: {fileID: 4747351946527315547}
   - component: {fileID: 8667236989723147752}
   - component: {fileID: 5397199631990211761}
   m_Layer: 8
-  m_Name: Rocket
+  m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,8 +36,8 @@ Transform:
   - {fileID: 4920859619722031753}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &5475799449231331852
-CircleCollider2D:
+--- !u!70 &7839476975635090577
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -68,9 +68,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.125
+  m_Offset: {x: 0, y: -0.002104044}
+  m_Size: {x: 0.18232036, y: 0.22043276}
+  m_Direction: 0
 --- !u!50 &4747351946527315547
 Rigidbody2D:
   serializedVersion: 4
@@ -133,12 +133,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteObject: {fileID: 7410048026872486735}
   _spriteRenderer: {fileID: 6387142177158353546}
-  _collider: {fileID: 5475799449231331852}
+  _collider: {fileID: 7839476975635090577}
   _rigidbody: {fileID: 4747351946527315547}
   _animator: {fileID: 8667236989723147752}
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 1745
+  _showCollisionDetection: 0
 --- !u!1 &3348539933408502303
 GameObject:
   m_ObjectHideFlags: 0

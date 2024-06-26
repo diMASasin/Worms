@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2521885436698720599
+--- !u!1001 &7077917760684918873
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -50,24 +50,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3348539931435737147, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
       propertyPath: m_Name
-      value: Frag
+      value: Projectile Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 3348539933408502300, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3348539933408502300, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3348539933408502300, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6387142177158353546, guid: 99bbc875f63d84040a0182c4265670c7, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -303267400, guid: 3bb1fadd136a96f42b94902a40eace8b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

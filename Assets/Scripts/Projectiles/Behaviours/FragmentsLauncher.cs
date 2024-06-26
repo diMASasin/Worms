@@ -19,19 +19,18 @@ namespace Projectiles.Behaviours
         private readonly Timer _timer;
         private ProjectilePool _fragmentPool;
 
-        public FragmentsLauncher(IProjectileEvents projectileEvents, List<ProjectilePool> fragmentPoolsList)
+        public FragmentsLauncher(IProjectileEvents projectileEvents, List<ProjectilePool> fragmentPoolsList, Timer timer)
         {
+            _timer = timer;
             _projectileEvents = projectileEvents;
             _fragmentPoolsList = fragmentPoolsList;
             _fragmentPools = fragmentPoolsList
                 .Where(pool => pool.Config != null)
                 .ToDictionary(pool => pool.Config);
-
-
+            
             _projectileEvents.Exploded += OnExploded;
         }
-
-
+        
         public void Dispose()
         {
             _projectileEvents.Exploded -= OnExploded;

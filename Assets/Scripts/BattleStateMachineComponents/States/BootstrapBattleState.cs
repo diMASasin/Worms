@@ -56,7 +56,6 @@ namespace BattleStateMachineComponents.States
             var weaponList = _weaponFactory.Create();
             _itemFactory.Create(weaponList);   
             
-            var whenMoveCameraFollower = new WhenMoveCameraFollower(_data.FollowingCamera, _movementInput, _data.CurrentWorm);
             SettingsData settingsData = _battleSettings.Data;
             _data.Terrain.GetEdgesForSpawn();
             _data.AliveTeams = _wormsSpawner.Spawn(settingsData.TeamsCount, settingsData.WormsCount);

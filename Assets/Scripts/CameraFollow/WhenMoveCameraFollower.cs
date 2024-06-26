@@ -9,9 +9,9 @@ namespace CameraFollow
     {
         private readonly FollowingCamera _followingCamera;
         private readonly IMovementInput _movementInput;
-        private readonly Worm _currentWorm;
+        private readonly ICurrentWorm _currentWorm;
 
-        public WhenMoveCameraFollower(FollowingCamera followingCamera, IMovementInput movementInput, Worm currentWorm)
+        public WhenMoveCameraFollower(FollowingCamera followingCamera, IMovementInput movementInput, ICurrentWorm currentWorm)
         {
             _followingCamera = followingCamera;
             _movementInput = movementInput;
@@ -34,7 +34,7 @@ namespace CameraFollow
             if(direction == 0)
                 return;
             
-            _followingCamera.SetTarget(_currentWorm.transform);
+            _followingCamera.SetTarget(_currentWorm.CurrentWorm.transform);
             Disable();
         }
     }

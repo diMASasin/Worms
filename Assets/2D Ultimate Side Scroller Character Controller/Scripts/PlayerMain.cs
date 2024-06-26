@@ -1,9 +1,10 @@
 using System;
+using Infrastructure;
 using UnityEngine;
 
 namespace UltimateCC
 {
-    public class PlayerMain : MonoBehaviour
+    public class PlayerMain : MonoBehaviour, ICoroutinePerformer
     {
         [SerializeField] private bool _showGroundCheck;
         

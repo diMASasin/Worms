@@ -9,18 +9,14 @@ namespace UltimateCC
     public class PlayerAttackedState : MainState
     {
         private readonly Timer _timer;
-        private ICoroutinePerformer _coroutinePerformer;
+        private readonly ICoroutinePerformer _coroutinePerformer;
         private Coroutine _coroutine;
 
         public PlayerAttackedState(PlayerMain playerMain, PlayerStateMachine playerStateMachine,
             PlayerMain.AnimName idle, PlayerData playerData) : base(playerMain, playerStateMachine, idle, playerData)
         {
-        }
-
-        [Inject]
-        private void Construct(ICoroutinePerformer coroutinePerformer)
-        {
-            _coroutinePerformer = coroutinePerformer;
+            _coroutinePerformer = playerMain;
+            _timer = new Timer(_coroutinePerformer);
         }
 
         public override void Enter()

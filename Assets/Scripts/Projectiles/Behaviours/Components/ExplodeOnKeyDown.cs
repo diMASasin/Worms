@@ -11,19 +11,12 @@ namespace Projectiles.Behaviours.Components
         [SerializeField] private Projectile _projectile;
         
         private Coroutine _coroutine;
-        private ICoroutinePerformer _coroutinePerformer;
         private WaitForSeconds _waitForEnableKey;
         private readonly float _secondsToEnableKey = 1;
 
         public void Awake()
         {
             _waitForEnableKey = new WaitForSeconds(_secondsToEnableKey);
-        }
-
-        [Inject]
-        private void Construct(ICoroutinePerformer coroutinePerformer)
-        {
-            _coroutinePerformer = coroutinePerformer;
         }
 
         private void OnEnable()
@@ -45,7 +38,7 @@ namespace Projectiles.Behaviours.Components
 
         private void OnExploded(Projectile projectile)
         {
-            _coroutinePerformer.StopCoroutine(_coroutine);
+            StopCoroutine(_coroutine);
         }
 
         private IEnumerator WaitKeyDown()

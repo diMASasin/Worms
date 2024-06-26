@@ -1,13 +1,11 @@
 ﻿using System;
-using Pools;
+using Infrastructure;
 using Timers;
-using UI;
 using UnityEngine;
-using UnityEngine.Pool;
 
 namespace Projectiles.Behaviours.LaunchBehaviour
 {
-    public class OnLaunchTimer : MonoBehaviour
+    public class OnLaunchTimer : MonoBehaviour, ICoroutinePerformer
     {
         [SerializeField] private Projectile _projectile;
         [SerializeField] private float _interval;
@@ -15,9 +13,7 @@ namespace Projectiles.Behaviours.LaunchBehaviour
         private Action _onElapsed;
         public Timer Timer;
 
-        private void Awake()
-        {
-        }
+        public void Awake() => Timer = new Timer(this);
 
         private void OnEnable()
         {

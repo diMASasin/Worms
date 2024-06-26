@@ -36,6 +36,7 @@ namespace Infrastructure.Installers
             Container.BindInstance(_data.Terrain).AsSingle();
 
             Container.BindInterfacesAndSelfTo<FollowingCamera>().FromInstance(_data.FollowingCamera).AsSingle();
+            Container.BindInterfacesAndSelfTo<WhenMoveCameraFollower>().FromNew().AsSingle();
             
             Container.Bind<Arrow>().FromComponentInNewPrefab(_gameConfig.ArrowPrefab).AsSingle();
             var shovelWrapper = new ShovelWrapper(_gameConfig.ShovelPrefab);
@@ -45,7 +46,6 @@ namespace Infrastructure.Installers
             Container.Bind<ProjectilesBootsrapper>().FromInstance(_projectilesBootsrapper).AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<FollowingTimerView>()
                 .FromComponentInNewPrefab(_gameConfig.FollowingTimerViewPrefab).AsSingle();
-            Container.Bind<FollowingTimerViewPool>().FromNew().AsSingle();
             
             BindWeapons();
 

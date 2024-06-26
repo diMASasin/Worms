@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b24a7341fcffd6448f37959cf406c28, type: 3}
   m_Name: Fragment
   m_EditorClassIdentifier: 
-  <ProjectilePrefab>k__BackingField: {fileID: 5397199631990211761, guid: 30b8f967dab8b0548935166fccf4f7a1, type: 3}
+  <ProjectilePrefab>k__BackingField: {fileID: 7501093764502207974, guid: 0ad4d46b76bf0fe499d27abf4e06c3ad, type: 3}
   <Sprite>k__BackingField: {fileID: -303267400, guid: 3bb1fadd136a96f42b94902a40eace8b, type: 3}
   <AnimatorController>k__BackingField: {fileID: 0}
   <ContactFilter>k__BackingField:
@@ -31,16 +31,8 @@ MonoBehaviour:
     maxNormalAngle: 0
   <WindInfluence>k__BackingField: 1
   <LookInVelocityDirection>k__BackingField: 0
-  <TorqueRange>k__BackingField:
-    <StartValue>k__BackingField: 0
-    <EndValue>k__BackingField: 0
   <ExplosionConfig>k__BackingField: {fileID: 11400000, guid: cac35c375a53f6e42a54a5a59d51898e, type: 2}
   <ExplodeOnCollision>k__BackingField: 1
-  <ExplodeOnKeyDown>k__BackingField: 0
-  <IsExplodeWithDelay>k__BackingField: 0
-  <ExplodeDelay>k__BackingField: 0
-  <HasFragments>k__BackingField: 0
   <FragmentsAmount>k__BackingField: 0
+  <FragmentsDamage>k__BackingField: 10
   <FragmentsConfig>k__BackingField: {fileID: 0}
-  <CanWalk>k__BackingField: 0
-  <MovementConfig>k__BackingField: {fileID: 0}

@@ -81,9 +81,9 @@ namespace BattleStateMachineComponents.States
                 fragmentsPools.Add(fragmentPool);
                 projectileAndFragmentFactories.Add(fragmentsFactory);
             }
-            
-            var allProjectileEvents = new AllProjectilesEvents(projectileAndFragmentFactories);
-            _container.Bind<IProjectileEvents>().FromInstance(allProjectileEvents).AsSingle();
+
+            AllProjectilesEvents allProjectileEvents = new(projectileAndFragmentFactories);
+            _container.BindInterfacesAndSelfTo<AllProjectilesEvents>().FromInstance(allProjectileEvents).AsSingle();
             
             IEnumerable<ExplosionConfig> explosionConfigs = 
                 projectileConfigs
@@ -92,11 +92,15 @@ namespace BattleStateMachineComponents.States
                     .Where(explosionConfig => explosionConfig != null)
                     .Distinct();
 
-            foreach (var explosionConfig in explosionConfigs)
-                new ExplosionPool(explosionConfig, _shovel, allProjectileEvents);
+            List<ExplosionPool> explosionPools = new();
             
-            _fragmentsLauncher = new FragmentsLauncher(allProjectileEvents, fragmentsPools);
-            _timerViewPool = new FollowingTimerViewPool(_followingTimerViewPrefab, allProjectileEvents);
+            foreach (var explosionConfig in explosionConfigs)
+                explosionPools.Add(new ExplosionPool(explosionConfig, _shovel, allProjectileEvents));
+
+            _container.BindInterfacesAndSelfTo<List<ExplosionPool>>().FromInstance(explosionPools).AsSingle();
+
+            _container.BindInterfacesAndSelfTo<FragmentsLauncher>().FromNew().AsSingle().WithArguments(fragmentsPools);
+            _container.BindInterfacesAndSelfTo<FollowingTimerViewPool>().FromNew().AsSingle();
         }
     }
 }

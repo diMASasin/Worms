@@ -4,7 +4,5 @@ namespace BattleStateMachineComponents.States
     {
         void Enter();
         void Exit();
-        void Tick();
-        void FixedTick();
     }
 }
