@@ -2,11 +2,12 @@ using System;
 using Configs;
 using Factories;
 using Projectiles;
+using UnityEngine;
 using UnityEngine.Pool;
 
 namespace Pools
 {
-    public class ProjectilePool : IDisposable, IProjectilePool
+    public class ProjectilePool : IDisposable, IProjectilePool, IProjectilesCount
     {
         private readonly int _amount;
         private readonly ObjectPool<Projectile> _pool;
@@ -28,6 +29,8 @@ namespace Pools
 
         public void Dispose()
         {
+            Debug.Log($"{GetType().Name}");
+
             _pool?.Dispose();
         }
 

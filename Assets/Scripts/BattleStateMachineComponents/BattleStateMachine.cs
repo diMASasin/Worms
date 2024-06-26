@@ -11,7 +11,7 @@ namespace BattleStateMachineComponents
     public class BattleStateMachine : IBattleStateSwitcher
     {
         private List<IBattleState> _states;
-        private IBattleState _currentState;
+        protected IBattleState CurrentState { get; private set; }
 
         [Inject]
         public void Construct(List<IBattleState> states)
@@ -19,14 +19,13 @@ namespace BattleStateMachineComponents
             _states = states;
         }
 
-        public void SwitchState<T>() where T : IBattleState
+        public virtual void SwitchState<T>() where T : IBattleState
         {
             IBattleState state = _states.FirstOrDefault(state => state is T);
 
-            _currentState?.Exit();
-            _currentState = state;
-            Debug.Log($"{_currentState.GetType().FullName}");
-            _currentState.Enter();
+            CurrentState?.Exit();
+            CurrentState = state;
+            CurrentState.Enter();
         }
     }
 }

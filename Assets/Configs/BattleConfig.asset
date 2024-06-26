@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2cc1a06e012493685db20d42c32599f, type: 3}
-  m_Name: GameConfig
+  m_Name: BattleConfig
   m_EditorClassIdentifier: 
   <InstantlyFollowingObject>k__BackingField: {fileID: 1291682954175847481, guid: b1c3910bcfe0d1347aa1c1728385f220, type: 3}
   <SmoothlyFollowingObject>k__BackingField: {fileID: 3383447088720452358, guid: 061c632ecdaf4b74b8f0d09d83929e92, type: 3}

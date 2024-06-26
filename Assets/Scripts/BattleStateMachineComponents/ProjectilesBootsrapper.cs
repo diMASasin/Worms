@@ -11,7 +11,7 @@ using Zenject;
 
 namespace BattleStateMachineComponents.States
 {
-    public class ProjectilesBootsrapper
+    public class ProjectileInstaller
     {
         private WeaponConfig[] _weaponConfigs;
         private FollowingTimerViewPool _timerViewPool;
@@ -27,13 +27,13 @@ namespace BattleStateMachineComponents.States
         public List<ProjectilePool> ProjectilePools { get; private set; }
         private AllProjectilesEvents _projectilesEvents;
         
-        public ProjectilesBootsrapper(DiContainer container, GameConfig gameConfig, ShovelWrapper shovel)
+        public ProjectileInstaller(DiContainer container, BattleConfig battleConfig, ShovelWrapper shovel)
         {
             _container = container;
             _shovel = shovel;
-            _weaponConfigs = gameConfig.WeaponConfigs;
-            _explosionConfig = gameConfig.ExplosionConfig;
-            _followingTimerViewPrefab = gameConfig.FollowingTimerViewPrefab;
+            _weaponConfigs = battleConfig.WeaponConfigs;
+            _explosionConfig = battleConfig.ExplosionConfig;
+            _followingTimerViewPrefab = battleConfig.FollowingTimerViewPrefab;
             
             InitializePools();
         } 

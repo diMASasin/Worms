@@ -30,6 +30,8 @@ namespace Factories
 
         public void Dispose()
         {
+            Debug.Log($"{GetType().Name}");
+
             foreach (var projectile in _projectiles)
             {
                 projectile.Launched -= OnLaunched;

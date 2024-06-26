@@ -31,6 +31,8 @@ namespace Pools
 
         public void Dispose()
         {
+            Debug.Log($"{GetType().Name}");
+
             _projectileEvents.Launched -= OnLaunched;
             _projectileEvents.Exploded -= OnExploded;
         }

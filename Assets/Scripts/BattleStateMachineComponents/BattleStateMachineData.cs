@@ -27,13 +27,12 @@ namespace BattleStateMachineComponents
         [field: SerializeField] public TimerView TurnTimerView { get; private set; }
         [field: SerializeField] public TimerView GlobalTimerView { get; private set; }
         [field: SerializeField] public TerrainWrapper Terrain { get; private set; }
-        [field: SerializeField] public GameConfig GameConfig { get; private set; }
+        [field: SerializeField] public BattleConfig BattleConfig { get; private set; }
         [field: SerializeField] public WeaponSelector WeaponSelector { get; private set; }
         [field: SerializeField] public EndScreen EndScreen { get; private set; }
 
         public TimersConfig TimersConfig { get; private set; } = new();
         public CycledList<Team> AliveTeams { get; set; }
-        public WhenMoveCameraFollower WhenMoveCameraFollower { get; private set; }
         
         public Worm CurrentWorm { get; set; }
         public Team CurrentTeam { get; set; }

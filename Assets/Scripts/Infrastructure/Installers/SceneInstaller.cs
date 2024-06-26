@@ -19,51 +19,46 @@ namespace Infrastructure.Installers
     {
         [SerializeField] private BattleStateMachineData _data;
 
-        private ProjectilesBootsrapper _projectilesBootsrapper;
-        private GameConfig _gameConfig;
+        private ProjectileInstaller _projectileInstaller;
+        private BattleConfig _battleConfig;
 
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<BattleStateMachineData>().FromInstance(_data).AsSingle();
 
-            _gameConfig = _data.GameConfig;
-            Container.BindInstance(_gameConfig).AsSingle();
-            Container.BindInstance(_gameConfig.TimersConfig).AsSingle();
-            Container.BindInstance(_gameConfig.WormsSpawnerConfig).AsSingle();
-            Container.BindInstance(_gameConfig.WeaponConfigs).AsSingle();
-            
+            BindConfigs();
+
             Container.BindInterfacesAndSelfTo<Timer>().FromNew().AsTransient();
             Container.BindInstance(_data.Terrain).AsSingle();
 
             Container.BindInterfacesAndSelfTo<FollowingCamera>().FromInstance(_data.FollowingCamera).AsSingle();
             Container.BindInterfacesAndSelfTo<WhenMoveCameraFollower>().FromNew().AsSingle();
             
-            Container.Bind<Arrow>().FromComponentInNewPrefab(_gameConfig.ArrowPrefab).AsSingle();
-            var shovelWrapper = new ShovelWrapper(_gameConfig.ShovelPrefab);
+            Container.Bind<Arrow>().FromComponentInNewPrefab(_battleConfig.ArrowPrefab).AsSingle();
+            var shovelWrapper = new ShovelWrapper(_battleConfig.ShovelPrefab);
             Container.BindInstance(shovelWrapper).AsSingle();
 
-            _projectilesBootsrapper = new ProjectilesBootsrapper(Container, _gameConfig, shovelWrapper);
-            Container.Bind<ProjectilesBootsrapper>().FromInstance(_projectilesBootsrapper).AsSingle().NonLazy();
+            _projectileInstaller = new ProjectileInstaller(Container, _battleConfig, shovelWrapper);
+            Container.Bind<ProjectileInstaller>().FromInstance(_projectileInstaller).AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<FollowingTimerView>()
-                .FromComponentInNewPrefab(_gameConfig.FollowingTimerViewPrefab).AsSingle();
+                .FromComponentInNewPrefab(_battleConfig.FollowingTimerViewPrefab).AsSingle();
             
             BindWeapons();
 
-            Worm wormPrefab = _data.GameConfig.WormPrefab;
-            Container.BindInterfacesAndSelfTo<WormFactory>().FromNew().AsSingle().WithArguments(wormPrefab);
-            Container.BindInterfacesAndSelfTo<TeamFactory>().FromNew().AsSingle();
-            Container.BindInterfacesAndSelfTo<WormInfoFactory>().FromNew().AsSingle().WithArguments(_gameConfig.WormInfoViewPrefab);
-            Container
-                .Bind<WindMediator>()
-                .FromNew()
-                .AsSingle()
-                .WithArguments(_gameConfig.WindData, _data.WindView);
-
-            Container.Bind<WormsSpawner>().FromNew().AsSingle();
+            BindWorms();
 
             BindStateMachine();
 
             Container.Bind<EndScreen>().FromInstance(_data.EndScreen).AsSingle();
+        }
+
+        private void BindConfigs()
+        {
+            _battleConfig = _data.BattleConfig;
+            Container.BindInstance(_battleConfig).AsSingle();
+            Container.BindInstance(_battleConfig.TimersConfig).AsSingle();
+            Container.BindInstance(_battleConfig.WormsSpawnerConfig).AsSingle();
+            Container.BindInstance(_battleConfig.WeaponConfigs).AsSingle();
         }
 
         private void BindWeapons()
@@ -71,13 +66,29 @@ namespace Infrastructure.Installers
             Transform weaponsParent = new GameObject("Weapons").transform;
             
             Container.BindInterfacesAndSelfTo<WeaponFactory>().FromNew().AsSingle()
-                .WithArguments(_projectilesBootsrapper.ProjectilePools, weaponsParent, _gameConfig.WeaponConfigs);
+                .WithArguments(_projectileInstaller.ProjectilePools, weaponsParent, _battleConfig.WeaponConfigs);
             
             Container.BindInterfacesAndSelfTo<WeaponSelector>().FromInstance(_data.WeaponSelector).AsSingle();
             Container.BindInterfacesAndSelfTo<WeaponChanger>().FromNew().AsSingle().WithArguments(weaponsParent);
             
             Container.BindInterfacesAndSelfTo<WeaponSelectorItemFactory>().FromNew().AsSingle()
-                .WithArguments(_gameConfig.ItemPrefab, _data.WeaponSelector.ItemParent);
+                .WithArguments(_battleConfig.ItemPrefab, _data.WeaponSelector.ItemParent);
+        }
+
+        private void BindWorms()
+        {
+            Worm wormPrefab = _data.BattleConfig.WormPrefab;
+            Container.BindInterfacesAndSelfTo<WormFactory>().FromNew().AsSingle().WithArguments(wormPrefab);
+            Container.BindInterfacesAndSelfTo<TeamFactory>().FromNew().AsSingle();
+            Container.BindInterfacesAndSelfTo<WormInfoFactory>().FromNew().AsSingle()
+                .WithArguments(_battleConfig.WormInfoViewPrefab);
+            Container
+                .Bind<WindMediator>()
+                .FromNew()
+                .AsSingle()
+                .WithArguments(_battleConfig.WindData, _data.WindView);
+
+            Container.Bind<WormsSpawner>().FromNew().AsSingle();
         }
 
         private void BindStateMachine()

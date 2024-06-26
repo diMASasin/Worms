@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Sheep
   m_EditorClassIdentifier: 
   <WeaponPrefab>k__BackingField: {fileID: 8510113237089447412, guid: ed5f7f9c913b5b5408e6d3c635778677, type: 3}
+  <Damage>k__BackingField: 30
   <Sencetivity>k__BackingField: 0.01
   <ScopeSensetivity>k__BackingField: 50
   <SpeedMultiplier>k__BackingField: 0.03
   <ShotPower>k__BackingField: 100
-  <MaxShotPower>k__BackingField: 1
+  <MaxShotPower>k__BackingField: 3
   <Sprite>k__BackingField: {fileID: 673358070, guid: 3bb1fadd136a96f42b94902a40eace8b, type: 3}
   <SpriteUIScale>k__BackingField: 1
   <ProjectileConfig>k__BackingField: {fileID: 11400000, guid: 43822e07ea1144f4782473220d8b464b, type: 2}

@@ -44,7 +44,7 @@ Camera:
   m_GameObject: {fileID: 3649500008628473171}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 3
   m_BackGroundColor: {r: 0.1764706, g: 0.14901961, b: 0.44705886, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -107,14 +107,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 3649500008628473168}
-  _followingObject:
-    _followingTransform: {fileID: 3649500008628473263}
-    _moveSmoothly: 1
-    _speed: 5
-    <Offset>k__BackingField: {x: 0, y: 1, z: -10}
-  _maxPosition: -10
   <MinPosition>k__BackingField: -65
+  <MaxPosition>k__BackingField: -10
   <GeneralViewPosition>k__BackingField: {x: 20, y: 5.6, z: -60}
+  <FollowingObject>k__BackingField: {fileID: 0}
 --- !u!114 &3649500008628473261
 MonoBehaviour:
   m_ObjectHideFlags: 0

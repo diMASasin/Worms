@@ -5,32 +5,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="200a9c5f-335a-44bb-b8dc-d5d4d6152652" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/Projectile.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/Projectile.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/Rocket Launcher.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/Rocket Launcher.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Configs/BattleConfig.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Configs/BattleConfig.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Configs/Projectiles/Granade 1.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Configs/Projectiles/Granade 1.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/DebugBattleStateMachine.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/DebugBattleStateMachine.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/IProjectilesCount.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/IProjectilesCount.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/PlayerAttackedState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/PlayerAttackedState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/PlayerMain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/PlayerMain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/Projectiles/Fragment.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Projectiles/Fragment.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/Fragment.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/Fragment.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/Fragment.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/Fragment.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/GranadeProjectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/GranadeProjectile.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/Rocket.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Projectiles/Rocket.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Input System/InputManager/PlayerInputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Input System/InputManager/PlayerInputManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Explosion/FragmentExplosion.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Explosion/FragmentExplosion.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/GameConfig.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/GameConfig.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Projectiles/Granade.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Projectiles/Granade.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Weapon/Sheep.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Weapon/Sheep.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Digable2DTerrain/Shovel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Digable2DTerrain/Shovel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Main Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Main Camera.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Map/Background.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Map/Background.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MapBounds.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MapBounds.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Water.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Water.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/WindEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/WindEffect.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachineData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachineData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/ProjectilesBootsrapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/ProjectilesBootsrapper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BootstrapBattleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BootstrapBattleState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/IBattleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/IBattleState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/RetreatState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/RetreatState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/WhenMoveCameraFollower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/WhenMoveCameraFollower.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/ProjectilesWaiting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/ProjectilesWaiting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/WeaponBootstrapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/WeaponBootstrapper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Configs/GameConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Configs/GameConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Configs/TimersConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Configs/TimersConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/ProjectileFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/ProjectileFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/WeaponFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/WeaponFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/WeaponSelectorItemFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/WeaponSelectorItemFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/WormFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/WormFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/WormInfoFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/WormInfoFactory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/SceneInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/SceneInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputService/MovementInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/MovementInput.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputService/WeaponInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/WeaponInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/ExplodeOnKeyDown.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/ExplodeOnKeyDown.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/OnLaunchTimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/OnLaunchTimer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputService/WeaponSelectorInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputService/WeaponSelectorInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/ExplosionPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/ExplosionPool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/FollowingTimerViewPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/FollowingTimerViewPool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/ProjectilePool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/ProjectilePool.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/SheepProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/SheepProjectile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/FragmentsLauncher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/FragmentsLauncher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/ProjectilesEventProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/ProjectilesEventProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponChanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponChanger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Wind_/WindMediator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Wind_/WindMediator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StylizedWater/Materials/Textures/StylizedWater_Mobile_normal_baked.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StylizedWater/Materials/Textures/StylizedWater_Mobile_normal_baked.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StylizedWater/Materials/Textures/StylizedWater_Mobile_shadermap_baked.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StylizedWater/Materials/Textures/StylizedWater_Mobile_shadermap_baked.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -317,7 +340,7 @@
       <workItem from="1719208975443" duration="33823000" />
       <workItem from="1719303103510" duration="2977000" />
       <workItem from="1719319781218" duration="13366000" />
-      <workItem from="1719381816056" duration="4608000" />
+      <workItem from="1719381816056" duration="12542000" />
     </task>
     <servers />
   </component>
@@ -346,17 +369,17 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/OnLaunchTimer.cs</url>
-          <line>29</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\Projectiles\Behaviours\Components\OnLaunchTimer.cs" initialLine="36" containingFunctionPresentation="Method 'OnLaunched'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/SheepProjectile.cs</url>
+          <line>64</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\Projectiles\Behaviours\Components\SheepProjectile.cs" initialLine="64" containingFunctionPresentation="Method 'Update'">
             <startOffsets>
-              <option value="729" />
+              <option value="1818" />
             </startOffsets>
             <endOffsets>
-              <option value="768" />
+              <option value="1873" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="561" />
+          <option name="timeStamp" value="563" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

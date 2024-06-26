@@ -48,6 +48,8 @@ namespace Weapons
 
         public void Dispose()
         {
+            Debug.Log($"{GetType().Name}");
+
             _weaponInput.PowerIncreasingStarted -= OnPowerIncreasingStarted;
             _weaponSelector.SelectorOpened -= OnSelectorOpened;
             _weaponSelector.SelectorClosed -= OnSelectorClosed;

@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7236504146698475169
 Transform:
@@ -1495,7 +1495,7 @@ ParticleSystem:
     x:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.8000001
+      scalar: -0.8
       minScalar: 0
       maxCurve:
         serializedVersion: 2

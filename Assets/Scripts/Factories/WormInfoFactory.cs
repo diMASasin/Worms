@@ -28,6 +28,8 @@ namespace Factories
 
         public void Dispose()
         {
+            Debug.Log($"{GetType().Name}");
+
             _wormEvents.WormCreated -= CreateInfoView;
             _wormEvents.WormDied -= OnWormDied;
         }

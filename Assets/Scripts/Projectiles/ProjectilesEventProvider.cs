@@ -26,6 +26,8 @@ namespace Projectiles
 
         public void Dispose()
         {
+            Debug.Log($"{GetType().Name}");
+
             foreach (var factory in _projectileFactories)
             {
                 factory.Exploded -= OnExploded;

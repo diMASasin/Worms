@@ -1,3 +1,4 @@
+using Configs;
 using Pools;
 using Timers;
 
@@ -7,9 +8,11 @@ namespace BattleStateMachineComponents.States
     {
         private readonly IBattleStateSwitcher _battleStateSwitcher;
         private readonly Timer _timer;
+        private TimersConfig _timersConfig;
 
-        public ProjectilesWaiting(IBattleStateSwitcher battleStateSwitcher, Timer timer)
+        public ProjectilesWaiting(IBattleStateSwitcher battleStateSwitcher, Timer timer, TimersConfig timersConfig)
         {
+            _timersConfig = timersConfig;
             _battleStateSwitcher = battleStateSwitcher;
             _timer = timer;
         }
@@ -46,9 +49,9 @@ namespace BattleStateMachineComponents.States
         {
             if(count == 0 && _timer.Started == false)
             {
-                _timer.Start(3, () =>
+                _timer.Start(_timersConfig.ProjectileWaitingDuration, () =>
                 {
-                    if(count == 0)
+                    if(ProjectilePool.Count == 0)
                         _battleStateSwitcher.SwitchState<BetweenTurnsState>();
                 });
             }

@@ -48,6 +48,7 @@ namespace Factories
 
         public void Dispose()
         {
+            Debug.Log($"{GetType().Name}");
             foreach (var worm in _worms)
             {
                 worm.DamageTook -= OnDamageTook;

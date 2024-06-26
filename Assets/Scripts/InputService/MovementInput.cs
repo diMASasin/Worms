@@ -1,5 +1,6 @@
 using System;
 using UltimateCC;
+using UnityEngine;
 using Zenject;
 using static UnityEngine.InputSystem.InputAction;
 
@@ -37,6 +38,8 @@ namespace InputService
 
         public void Dispose()
         {
+            Debug.Log($"{GetType().Name}");
+
             _playerControls.Player.Jump.started -= OnLongJumpStarted;
             _playerControls.Player.Highjump.started -= OnHighJumpStarted;
             _playerControls.Player.Jump.canceled -= OnHighJumpCanceled;

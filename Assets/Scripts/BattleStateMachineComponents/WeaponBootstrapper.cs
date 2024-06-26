@@ -25,16 +25,16 @@ namespace BattleStateMachineComponents.States
         private WeaponFactory _weaponFactory;
         private IWormEvents _wormEvents;
         private Transform _weaponsParent;
-        private ProjectilesBootsrapper _projectilesBootsrapper;
+        private ProjectileInstaller _projectileInstaller;
         private IEnumerable<Weapon> _weaponList;
 
         public WeaponChanger WeaponChanger { get; private set; }
         
         public WeaponBootstrapper(DiContainer container, IEnumerable<WeaponConfig> weaponConfigs, 
             WeaponSelectorItem weaponSelectorItemPrefab, IWormEvents wormEvents, WeaponSelector weaponSelector,
-                ProjectilesBootsrapper projectilesBootsrapper)
+                ProjectileInstaller projectileInstaller)
         {
-            _projectilesBootsrapper = projectilesBootsrapper;
+            _projectileInstaller = projectileInstaller;
             _container = container;
             _wormEvents = wormEvents;
             _weaponSelector = weaponSelector;

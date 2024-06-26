@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b24a7341fcffd6448f37959cf406c28, type: 3}
-  m_Name: Granade
+  m_Name: Granade 1
   m_EditorClassIdentifier: 
   <ProjectilePrefab>k__BackingField: {fileID: 8548344523921114467, guid: ee2408941dd719d408bba029c8ac5dfa, type: 3}
   <Sprite>k__BackingField: {fileID: -1993632836, guid: 3bb1fadd136a96f42b94902a40eace8b, type: 3}
@@ -33,6 +33,6 @@ MonoBehaviour:
   <LookInVelocityDirection>k__BackingField: 0
   <ExplosionConfig>k__BackingField: {fileID: 11400000, guid: 04fad1efc13d81148a61794af9134088, type: 2}
   <ExplodeOnCollision>k__BackingField: 0
-  <FragmentsAmount>k__BackingField: 5
+  <FragmentsAmount>k__BackingField: 0
   <FragmentsDamage>k__BackingField: 10
-  <FragmentsConfig>k__BackingField: {fileID: 11400000, guid: 43822e07ea1144f4782473220d8b464b, type: 2}
+  <FragmentsConfig>k__BackingField: {fileID: 0}

@@ -9,8 +9,8 @@ using WormComponents;
 
 namespace Configs
 {
-    [CreateAssetMenu(fileName = "GameConfig", menuName = "Config/Game", order = 0)]
-    public class GameConfig : ScriptableObject
+    [CreateAssetMenu(fileName = "BattleConfig", menuName = "Config/Battle", order = 0)]
+    public class BattleConfig : ScriptableObject
     {
         [field: Header("Prefabs")]
         [field: SerializeField] public Worm WormPrefab { get; private set; }

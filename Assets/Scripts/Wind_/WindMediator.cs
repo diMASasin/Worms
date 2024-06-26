@@ -33,6 +33,8 @@ namespace Wind_
 
         public void Dispose()
         {
+            Debug.Log($"{GetType().Name}");
+
             _projectileEvents.Launched -= InfluenceOnProjectileIfNecessary;
             _projectileEvents.Exploded -= RemoveProjectileFromInfluence;
         }

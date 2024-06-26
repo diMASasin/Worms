@@ -27,7 +27,7 @@ namespace UltimateCC
         public bool Input_WallGrab => input_WallGrab;
         public float Input_WallClimb => input_WallClimb;
 
-        private void Start()
+        private void Awake()
         {
             player = GetComponent<PlayerMain>(); // Reference for Ultimate2DPlayer component where all of content come up together
             PlayerData = player.PlayerData; // Reference for Ultimate2DPlayer.PlayerData component where all variables stored

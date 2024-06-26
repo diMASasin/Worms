@@ -48,10 +48,8 @@ namespace Projectiles.Behaviours.Components
         public void Init()
         {
         }
-
-        private void OnProjectileReseted() => Reset();
-
-        public void Reset()
+        
+        public void ResetSheep()
         {
             _shouldJump = false;
             _canChangeDirection = true;
@@ -64,18 +62,8 @@ namespace Projectiles.Behaviours.Components
 
         private void Update()
         {
-            _currentDirection = _playerMain.PlayerData.Physics.FacingDirection;
-
-            if (_currentDirection != _previousDirection)
-                OnDirectionChanged();
-                
-            _previousDirection = _currentDirection;
-            WalkPerformed?.Invoke(_playerMain.PlayerData.Physics.FacingDirection);
-        }
-
-        private void OnDirectionChanged()
-        {
-            // TryJumpAfterDelay();
+            if(_inputHandler.PlayerData.Physics.IsGrounded == true)
+                WalkPerformed?.Invoke(_playerMain.PlayerData.Physics.FacingDirection);
         }
 
         public void FixedUpdate()
@@ -99,7 +87,6 @@ namespace Projectiles.Behaviours.Components
 
         private void TryJumpAfterDelay()
         { 
-            Debug.Log($"TryJumpAfterDelay");
             _jumpTimer.Start(_jumpInterval, () =>
             {
                 if (IsGrounded == true)
@@ -108,7 +95,6 @@ namespace Projectiles.Behaviours.Components
                 }
                 else
                 {
-                    Debug.Log($"Should jump");
                     _shouldJump = true;
                     
                     if(gameObject.activeInHierarchy == true)
@@ -130,13 +116,12 @@ namespace Projectiles.Behaviours.Components
 
         private void OnExploded(Projectile projectile)
         {
-            Reset();
+            ResetSheep();
             gameObject.SetActive(false);
         }
 
         private void RepeatLongJump()
         {
-            Debug.Log($"Jump");
             LongJumpStarted?.Invoke(true);
             _jumpTimer.Start(_jumpInterval, TryJumpAfterDelay);
         }

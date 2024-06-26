@@ -33,6 +33,7 @@ namespace Projectiles.Behaviours
         
         public void Dispose()
         {
+            Debug.Log($"{GetType().Name}");
             _projectileEvents.Exploded -= OnExploded;
         }
 
