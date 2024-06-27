@@ -1,5 +1,3 @@
-using Zenject;
-
 namespace GameStateMachineComponents.States
 {
     public abstract class GameState

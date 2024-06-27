@@ -3,7 +3,7 @@ using BattleStateMachineComponents.States;
 using CameraFollow;
 using Configs;
 using Factories;
-using Pools;
+using ScriptBoy.Digable2DTerrain.Scripts;
 using Spawn;
 using Timers;
 using UI;
@@ -21,6 +21,7 @@ namespace Infrastructure.Installers
 
         private ProjectileInstaller _projectileInstaller;
         private BattleConfig _battleConfig;
+        private ShovelWrapper _shovelWrapper;
 
         public override void InstallBindings()
         {
@@ -28,28 +29,45 @@ namespace Infrastructure.Installers
 
             BindConfigs();
 
-            Container.BindInterfacesAndSelfTo<Timer>().FromNew().AsTransient();
             Container.BindInstance(_data.Terrain).AsSingle();
-
-            Container.BindInterfacesAndSelfTo<FollowingCamera>().FromInstance(_data.FollowingCamera).AsSingle();
-            Container.BindInterfacesAndSelfTo<WhenMoveCameraFollower>().FromNew().AsSingle();
-            
+            Container.BindInterfacesAndSelfTo<Timer>().FromNew().AsTransient();
             Container.Bind<Arrow>().FromComponentInNewPrefab(_battleConfig.ArrowPrefab).AsSingle();
-            var shovelWrapper = new ShovelWrapper(_battleConfig.ShovelPrefab);
-            Container.BindInstance(shovelWrapper).AsSingle();
+            BindShovel();
+            Container.Bind<Explosion>().FromComponentInNewPrefab(_battleConfig.ExplosionConfig.Prefab).AsSingle();
 
-            _projectileInstaller = new ProjectileInstaller(Container, _battleConfig, shovelWrapper);
-            Container.Bind<ProjectileInstaller>().FromInstance(_projectileInstaller).AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<FollowingTimerView>()
-                .FromComponentInNewPrefab(_battleConfig.FollowingTimerViewPrefab).AsSingle();
+            BindCamera();
+            BindProjectile();
+            
+            Container.Bind<WindMediator>().FromNew().AsSingle().WithArguments(_battleConfig.WindData, _data.WindView,
+                _projectileInstaller.ProjectileEvents);
             
             BindWeapons();
-
             BindWorms();
-
+            BindUI();
             BindStateMachine();
+            
+        }
 
-            Container.Bind<EndScreen>().FromInstance(_data.EndScreen).AsSingle();
+        private void BindShovel()
+        {
+            var shovel = Instantiate(_battleConfig.ShovelPrefab);
+            Container.BindInterfacesAndSelfTo<Shovel>().FromInstance(shovel).AsSingle().NonLazy();
+            _shovelWrapper = new ShovelWrapper(shovel);
+            Container.BindInterfacesAndSelfTo<ShovelWrapper>().FromInstance(_shovelWrapper).AsSingle().NonLazy();
+        }
+
+        private void BindCamera()
+        {
+            Container.BindInterfacesAndSelfTo<FollowingCamera>().FromInstance(_data.FollowingCamera).AsSingle();
+            Container.BindInterfacesAndSelfTo<WhenMoveCameraFollower>().FromNew().AsSingle();
+        }
+
+        private void BindProjectile()
+        {
+            _projectileInstaller = new ProjectileInstaller(Container, _battleConfig, _shovelWrapper);
+            Container.Bind<ProjectileInstaller>().FromInstance(_projectileInstaller).AsSingle();
+            Container.BindInterfacesAndSelfTo<FollowingTimerView>()
+                .FromComponentInNewPrefab(_battleConfig.FollowingTimerViewPrefab).AsSingle();
         }
 
         private void BindConfigs()
@@ -82,11 +100,6 @@ namespace Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<TeamFactory>().FromNew().AsSingle();
             Container.BindInterfacesAndSelfTo<WormInfoFactory>().FromNew().AsSingle()
                 .WithArguments(_battleConfig.WormInfoViewPrefab);
-            Container
-                .Bind<WindMediator>()
-                .FromNew()
-                .AsSingle()
-                .WithArguments(_battleConfig.WindData, _data.WindView);
 
             Container.Bind<WormsSpawner>().FromNew().AsSingle();
         }
@@ -102,6 +115,11 @@ namespace Infrastructure.Installers
             Container.Bind<IBattleState>().To<ExitBattleState>().FromNew().AsSingle();
 
             Container.BindInterfacesAndSelfTo<BattleStateMachine>().FromNew().AsSingle();
+        }
+
+        private void BindUI()
+        {
+            Container.Bind<EndScreen>().FromInstance(_data.EndScreen).AsSingle();
         }
     }
 }

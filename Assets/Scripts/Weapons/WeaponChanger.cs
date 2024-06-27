@@ -1,22 +1,20 @@
 using System;
 using BattleStateMachineComponents.StatesData;
 using EventProviders;
-using Pools;
 using UI;
 using UnityEngine;
 using WormComponents;
-using Zenject;
 
 namespace Weapons
 {
     public class WeaponChanger : IDisposable
     {
-        private IWeaponSelectedEvent _weaponSelectedEvent;
-        private IWeaponShotEvent _weaponShotEvent;
+        private readonly IWeaponSelectedEvent _weaponSelectedEvent;
+        private readonly IWeaponShotEvent _weaponShotEvent;
         private readonly Transform _weaponsParent;
-        private IWormEvents _wormEvents;
-        private ICurrentWorm _currentWormProvider;
-        private IWeaponInput _weaponInput;
+        private readonly IWormEvents _wormEvents;
+        private readonly ICurrentWorm _currentWormProvider;
+        private readonly IWeaponInput _weaponInput;
         private readonly WeaponSelector _weaponSelector;
 
         private Transform _weaponTransform;
@@ -48,7 +46,7 @@ namespace Weapons
 
         public void Dispose()
         {
-            Debug.Log($"{GetType().Name}");
+            
 
             _weaponInput.PowerIncreasingStarted -= OnPowerIncreasingStarted;
             _weaponSelector.SelectorOpened -= OnSelectorOpened;

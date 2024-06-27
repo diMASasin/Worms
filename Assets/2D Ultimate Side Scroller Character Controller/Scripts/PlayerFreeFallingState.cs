@@ -7,7 +7,7 @@ namespace UltimateCC
     {
         private readonly PlayerMain _playerMain;
         private readonly PlayerStateMachine _stateMachine;
-        private float _speed = 9.8f;
+        private readonly float _speed = 9.8f;
         private RigidbodyConstraints2D _previousConstraints;
 
         public PlayerFreeFallingState(PlayerMain playerMain, PlayerStateMachine stateMachine, 

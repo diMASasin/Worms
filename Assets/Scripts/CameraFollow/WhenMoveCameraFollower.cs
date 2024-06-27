@@ -1,7 +1,5 @@
-using System;
 using BattleStateMachineComponents.StatesData;
 using UltimateCC;
-using WormComponents;
 
 namespace CameraFollow
 {

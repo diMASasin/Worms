@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3649500008628473170}
   - component: {fileID: 3649500008628473262}
   - component: {fileID: 3649500008628473261}
+  - component: {fileID: 6586191643644614104}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -110,7 +111,7 @@ MonoBehaviour:
   <MinPosition>k__BackingField: -65
   <MaxPosition>k__BackingField: -10
   <GeneralViewPosition>k__BackingField: {x: 20, y: 5.6, z: -60}
-  <FollowingObject>k__BackingField: {fileID: 0}
+  <FollowingObject>k__BackingField: {fileID: 6586191643644614104}
 --- !u!114 &3649500008628473261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,3 +124,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b9ae18c04c25345a5622a4d1fdcf22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6586191643644614104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3649500008628473171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 478b57a80fa37834e9be6f14ccd22356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MoveSmoothly>k__BackingField: 1
+  <Speed>k__BackingField: 5
+  <Offset>k__BackingField: {x: 0, y: 1, z: -10}

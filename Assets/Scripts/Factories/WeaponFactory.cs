@@ -30,7 +30,7 @@ namespace Factories
         
         public void Dispose()
         {
-            Debug.Log($"{GetType().Name}");
+            
 
             foreach (var weapon in _weaponList)
                 weapon.Shot -= OnShot;

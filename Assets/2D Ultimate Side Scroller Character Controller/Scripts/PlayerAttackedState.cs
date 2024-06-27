@@ -2,7 +2,6 @@ using System.Collections;
 using Infrastructure;
 using Timers;
 using UnityEngine;
-using Zenject;
 
 namespace UltimateCC
 {

@@ -4,7 +4,6 @@ using Battle_;
 using GameStateMachineComponents.States;
 using Infrastructure;
 using UI;
-using UnityEngine;
 using Zenject;
 
 namespace GameStateMachineComponents
@@ -14,11 +13,11 @@ namespace GameStateMachineComponents
         private List<GameState> _states;
         private GameState _currentState;
         private readonly StateFactory _stateFactory;
-        private SceneLoader _sceneLoader;
-        private LoadingScreen _loadingScreen;
-        private IBattleSettings _battleSettings;
-        private DiContainer _container;
-        private MainMenu _mainMenu;
+        private readonly SceneLoader _sceneLoader;
+        private readonly LoadingScreen _loadingScreen;
+        private readonly IBattleSettings _battleSettings;
+        private readonly DiContainer _container;
+        private readonly MainMenu _mainMenu;
 
         public GameStateMachine(DiContainer container, SceneLoader sceneLoader, LoadingScreen loadingScreen, 
             IBattleSettings battleSettings, MainMenu mainMenu)
@@ -37,7 +36,7 @@ namespace GameStateMachineComponents
                 new BootstrapState(_container, this, _sceneLoader, _loadingScreen, _mainMenu),
                 new MainMenuState(this, _battleSettings, _mainMenu),
                 new LevelLoadState(_container, this, _sceneLoader, _loadingScreen),
-                new GameLoopState(_container, this)
+                new GameLoopState(_container, this, _loadingScreen)
             };
         }
 

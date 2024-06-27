@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using Infrastructure;
 using UnityEngine;
-using Zenject;
 
 namespace Timers
 {
@@ -12,7 +11,7 @@ namespace Timers
         private double _timeLeft = 0;
         private Coroutine _coroutine;
         private bool _paused;
-        private ICoroutinePerformer _coroutinePerformer;
+        private readonly ICoroutinePerformer _coroutinePerformer;
         public bool Started { get; private set; }
         
         public event Action<double> TimerUpdated;

@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
 
@@ -24,7 +23,7 @@ namespace UI
 
         public void Dispose()
         {
-            Debug.Log($"{GetType().Name}");
+            
 
             _uiActions.OpenWeaponSelector.performed -= OpenWeaponSelector;
         }

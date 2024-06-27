@@ -18,12 +18,12 @@ public static class Rigidbody2DExtension
             explosionDirection.Normalize();
         }
 
-        float interpolationValue = Mathf.Clamp(explosionRadius - explosionDistance, 0, explosionRadius);
+        float interpolationValue = Mathf.Clamp(explosionDistance / explosionRadius, 0, explosionRadius);
             
         float minForce = explosionForce * 0.5f;
         explosionForce = interpolationValue >= explosionForce * 0.9f ? explosionForce : interpolationValue;
         
-        float newExplosionForce = Mathf.Lerp(minForce, explosionForce, interpolationValue / explosionRadius);
+        float newExplosionForce = Mathf.Lerp(minForce, explosionForce, interpolationValue);
         rigidbody.AddForce(newExplosionForce * explosionDirection, mode);
     }
 }

@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Configs;
 using EventProviders;
-using Pools;
 using UI;
 using UnityEngine;
 using Weapons;
@@ -38,7 +36,7 @@ namespace Factories
 
         public void Dispose()
         {
-            Debug.Log($"{GetType().Name}");
+            
 
             foreach (var item in _items)
                 item.Selected -= OnSelected;

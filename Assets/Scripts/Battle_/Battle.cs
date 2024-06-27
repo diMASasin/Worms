@@ -1,6 +1,4 @@
-using System;
 using BattleStateMachineComponents;
-using BattleStateMachineComponents.States;
 
 namespace Battle_
 {

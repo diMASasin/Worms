@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using BattleStateMachineComponents;
 using Configs;
 using DestructibleLand;
 using EventProviders;
@@ -48,7 +47,7 @@ namespace Factories
 
         public void Dispose()
         {
-            Debug.Log($"{GetType().Name}");
+            
             foreach (var worm in _worms)
             {
                 worm.DamageTook -= OnDamageTook;

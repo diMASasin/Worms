@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Configs;
-using Pools;
 using Projectiles;
 using UnityEngine;
 using Zenject;
@@ -10,31 +8,25 @@ namespace Wind_
 {
     public class WindMediator : IDisposable, IFixedTickable
     {
-        private Wind _wind;
+        private readonly Wind _wind;
         private IProjectileEvents _projectileEvents;
 
         private readonly List<Projectile> _projectilesUnderInfluence = new();
 
-        public WindMediator(WindData data, WindView windView)
-        {
-            _wind = new Wind(data.MaxVelocity, data.Step);
-            new WindEffect(_wind, data.Particles);
-            windView.Init(_wind);
-        }
-
-        [Inject]
-        private void Construct(IProjectileEvents projectileEvents)
+        public WindMediator(WindData data, WindView windView, IProjectileEvents projectileEvents)
         {
             _projectileEvents = projectileEvents;
 
+            _wind = new Wind(data.MaxVelocity, data.Step);
+            new WindEffect(_wind, data.Particles);
+            windView.Init(_wind);
+            
             _projectileEvents.Launched += InfluenceOnProjectileIfNecessary;
             _projectileEvents.Exploded += RemoveProjectileFromInfluence;
         }
 
         public void Dispose()
         {
-            Debug.Log($"{GetType().Name}");
-
             _projectileEvents.Launched -= InfluenceOnProjectileIfNecessary;
             _projectileEvents.Exploded -= RemoveProjectileFromInfluence;
         }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Configs;
-using Timers;
 using UnityEngine;
 
 namespace Projectiles

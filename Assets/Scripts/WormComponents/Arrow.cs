@@ -1,7 +1,6 @@
 using Infrastructure;
 using Timers;
 using UnityEngine;
-using Zenject;
 
 namespace WormComponents
 {
@@ -11,7 +10,7 @@ namespace WormComponents
         [SerializeField] private int _lifeTime = 2;
         [SerializeField] private FollowingObject _followingObject;
     
-        private Timer _timer;
+        private readonly Timer _timer;
         
         private static readonly int Move = Animator.StringToHash("Move");
 

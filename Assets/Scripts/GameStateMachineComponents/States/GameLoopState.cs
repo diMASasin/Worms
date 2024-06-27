@@ -1,12 +1,15 @@
+using UI;
 using Zenject;
 
 namespace GameStateMachineComponents.States
 {
     public class GameLoopState : GameState
     {
-        public GameLoopState(DiContainer diContainer, IGameStateSwitcher stateSwitcher) : base(stateSwitcher)
+        private LoadingScreen _loadingScreen;
+
+        public GameLoopState(DiContainer diContainer, IGameStateSwitcher stateSwitcher, LoadingScreen loadingScreen) : base(stateSwitcher)
         {
-            
+            _loadingScreen = loadingScreen;
         }
         
         public override void Enter()

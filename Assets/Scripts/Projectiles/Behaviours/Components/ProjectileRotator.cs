@@ -1,5 +1,4 @@
-﻿using Configs;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Projectiles.Behaviours.LaunchBehaviour
 {

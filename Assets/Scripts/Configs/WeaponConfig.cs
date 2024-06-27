@@ -1,5 +1,4 @@
-﻿using Pools;
-using UnityEngine;
+﻿using UnityEngine;
 using Weapons;
 
 namespace Configs

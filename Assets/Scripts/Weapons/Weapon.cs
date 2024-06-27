@@ -1,7 +1,6 @@
 using System;
 using Configs;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Weapons
 {

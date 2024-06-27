@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using EventProviders;
 using Factories;
 using UnityEngine;
 
@@ -26,8 +25,6 @@ namespace Projectiles
 
         public void Dispose()
         {
-            Debug.Log($"{GetType().Name}");
-
             foreach (var factory in _projectileFactories)
             {
                 factory.Exploded -= OnExploded;

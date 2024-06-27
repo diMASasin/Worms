@@ -1,6 +1,5 @@
 using UnityEngine;
 using static UltimateCC.PlayerMain;
-using InputService;
 
 namespace UltimateCC
 {

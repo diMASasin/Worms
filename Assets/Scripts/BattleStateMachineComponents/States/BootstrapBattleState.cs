@@ -1,46 +1,47 @@
 using Battle_;
-using CameraFollow;
 using Configs;
 using Factories;
+using ScriptBoy.Digable2DTerrain.Scripts;
 using Spawn;
 using Timers;
-using UltimateCC;
+using UI;
 using UnityEngine;
+using WormComponents;
 using Zenject;
 
 namespace BattleStateMachineComponents.States
 {
     public class BootstrapBattleState : IBattleState
     {
-        private IBattleStateSwitcher _battleStateSwitcher;
+        private readonly IBattleStateSwitcher _battleStateSwitcher;
         private readonly BattleStateMachineData _data;
         private readonly WeaponBootstrapper _weaponBootstrapper;
         private readonly ProjectileInstaller _projectileInstaller;
         private readonly WormsBootstraper _wormsBootstraper;
-        private DiContainer _container;
-        private Transform _healthParent;
         private TeamHealthFactory _teamHealthFactoryPrefab;
-        private WormsSpawner _wormsSpawner;
-        private IBattleSettings _battleSettings;
-        private Timer _battleTimer;
-        private WeaponSelectorItemFactory _itemFactory;
-        private WeaponFactory _weaponFactory;
+        private readonly WormsSpawner _wormsSpawner;
+        private readonly IBattleSettings _battleSettings;
+        private readonly Timer _battleTimer;
+        private readonly WeaponSelectorItemFactory _itemFactory;
+        private readonly WeaponFactory _weaponFactory;
+        private readonly TeamHealthFactory _teamHealthFactory;
+        private DiContainer _container;
+        private LoadingScreen _loadingScreen;
 
         private BattleConfig BattleConfig => _data.BattleConfig;
 
-        public BootstrapBattleState(BattleStateMachineData data, DiContainer container, 
-            IBattleStateSwitcher battleStateSwitcher, WormsSpawner wormsSpawner, IBattleSettings battleSettings, 
-            Timer battleTimer, Timer turnBattle, WeaponSelectorItemFactory itemFactory, WeaponFactory weaponFactory)
+        public BootstrapBattleState(BattleStateMachineData data, DiContainer container, IBattleStateSwitcher battleStateSwitcher,
+            WormsSpawner wormsSpawner, IBattleSettings battleSettings, Timer battleTimer, Timer turnBattle,
+            WeaponSelectorItemFactory itemFactory, WeaponFactory weaponFactory, LoadingScreen loadingScreen)
         {
+            _loadingScreen = loadingScreen;
+            _container = container;
             _weaponFactory = weaponFactory;
             _itemFactory = itemFactory;
             _battleTimer = battleTimer;
             _data = data;
             _battleSettings = battleSettings;
-            _healthParent = _data.UIChanger.transform;
-            _teamHealthFactoryPrefab = _data.BattleConfig.TeamHealthFactoryPrefab;
             _wormsSpawner = wormsSpawner;
-            _container = container;
             _battleStateSwitcher = battleStateSwitcher;
             
             _data.BattleTimer = battleTimer;
@@ -55,20 +56,28 @@ namespace BattleStateMachineComponents.States
             SettingsData settingsData = _battleSettings.Data;
             _data.Terrain.GetEdgesForSpawn();
             _data.AliveTeams = _wormsSpawner.Spawn(settingsData.TeamsCount, settingsData.WormsCount);
-            
-            CreateTeamHealthFactory();
 
+            CreateShovel();
+            CreateTeamHealth();
             InitializeTimers();
             
             _battleStateSwitcher.SwitchState<BetweenTurnsState>();
         }
 
-        private void CreateTeamHealthFactory()
+        private void CreateShovel()
         {
-            var teamHealthFactory =
-                _container.InstantiatePrefabForComponent<TeamHealthFactory>(_teamHealthFactoryPrefab, _healthParent);
-            teamHealthFactory.Create(_data.AliveTeams, BattleConfig.TeamHealthPrefab);
-            teamHealthFactory.transform.SetAsFirstSibling();
+            var shovel = _container.InstantiatePrefabForComponent<Shovel>(BattleConfig.ShovelPrefab);
+        }
+
+        private void CreateTeamHealth()
+        {
+            Transform teamHealthParent = _data.UIChanger.transform;
+            TeamHealthFactory teamHealthPrefab = BattleConfig.TeamHealthFactoryPrefab;
+            
+            var factory = _container.InstantiatePrefabForComponent<TeamHealthFactory>(teamHealthPrefab, teamHealthParent);
+
+            factory.Create(_data.AliveTeams, BattleConfig.TeamHealthPrefab);
+            factory.transform.SetAsFirstSibling();
         }
 
         private void InitializeTimers()
@@ -82,10 +91,9 @@ namespace BattleStateMachineComponents.States
             _data.TurnTimerView.Init(_data.TurnTimer, TimerFormattingStyle.Seconds);
         }
 
-        public void Exit() { }
-
-        public void Tick(){}
-
-        public void FixedTick(){ }
+        public void Exit()
+        {
+            _loadingScreen.Disable();
+        }
     }
 }

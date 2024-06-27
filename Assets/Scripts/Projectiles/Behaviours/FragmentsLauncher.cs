@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Configs;
 using Pools;
-using Projectiles.Behaviours.Components;
 using Timers;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -33,7 +32,7 @@ namespace Projectiles.Behaviours
         
         public void Dispose()
         {
-            Debug.Log($"{GetType().Name}");
+            
             _projectileEvents.Exploded -= OnExploded;
         }
 

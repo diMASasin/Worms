@@ -4,8 +4,8 @@ namespace Wind_
 {
     public class WindEffect
     {
-        private Wind _wind;
-        private ParticleSystem _particleSystem;
+        private readonly Wind _wind;
+        private readonly ParticleSystem _particleSystem;
 
         public WindEffect (Wind wind, ParticleSystem particles)
         {

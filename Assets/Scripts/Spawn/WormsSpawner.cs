@@ -1,23 +1,18 @@
-using System;
 using System.Collections.Generic;
-using Battle_;
 using Configs;
-using DestructibleLand;
 using Factories;
-using ScriptBoy.Digable2DTerrain.Scripts;
 using UnityEngine;
 using WormComponents;
-using Zenject;
 using Random = UnityEngine.Random;
 
 namespace Spawn
 {
     public class WormsSpawner
     {
-        private TeamFactory _teamFactory;
+        private readonly TeamFactory _teamFactory;
         
         private readonly List<Color> _unusedTeamColors = new();
-        private WormsSpawnerConfig _wormsSpawnerConfig;
+        private readonly WormsSpawnerConfig _wormsSpawnerConfig;
 
         public WormsSpawner(WormsSpawnerConfig wormsSpawnerConfig, TeamFactory teamFactory)
         {

@@ -4,7 +4,7 @@ namespace EffectCore.packs.WebDemoAssets.scripts
 {
 	public class EffectCoreProjectile : MonoBehaviour
 	{
-		private float disappearAfterTime = 3;
+		private readonly float disappearAfterTime = 3;
 		private float disappearTimer = 0;
 
 		private bool isActive = false;

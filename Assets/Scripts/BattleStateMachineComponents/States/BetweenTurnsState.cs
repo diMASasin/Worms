@@ -1,25 +1,21 @@
-using System.Collections.Generic;
-using BattleStateMachineComponents.StatesData;
 using CameraFollow;
 using Configs;
 using Timers;
-using UnityEngine;
 using Wind_;
 using WormComponents;
-using Zenject;
 
 namespace BattleStateMachineComponents.States
 {
     public class BetweenTurnsState : IBattleState
     {
-        private IBattleStateSwitcher _battleStateSwitcher;
+        private readonly IBattleStateSwitcher _battleStateSwitcher;
         private readonly BattleStateMachineData _data;
         private readonly Worm _currentWorm;
-        private WindMediator _windMediator;
+        private readonly WindMediator _windMediator;
         private readonly Timer _timer;
-        private TimersConfig _timersConfig;
-        private FollowingCamera _followingCamera;
-        private Water _water;
+        private readonly TimersConfig _timersConfig;
+        private readonly FollowingCamera _followingCamera;
+        private readonly Water _water;
         private CycledList<Team> _aliveTeams;
 
         public BetweenTurnsState(IBattleStateSwitcher battleStateSwitcher, BattleStateMachineData data, WindMediator windMediator, Timer timer)

@@ -2,7 +2,6 @@ using System;
 using Configs;
 using Factories;
 using Projectiles;
-using UnityEngine;
 using UnityEngine.Pool;
 
 namespace Pools
@@ -29,7 +28,7 @@ namespace Pools
 
         public void Dispose()
         {
-            Debug.Log($"{GetType().Name}");
+            
 
             _pool?.Dispose();
         }

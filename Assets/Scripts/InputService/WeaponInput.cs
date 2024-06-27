@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 using Zenject;
 using static UnityEngine.InputSystem.InputAction;
 
@@ -26,7 +25,7 @@ namespace Weapons
 
         public void Dispose()
         {
-            Debug.Log($"{GetType().Name}");
+            
 
             _weaponInput.EnablePointerLine.performed -= EnablePointerLine;
             _weaponInput.Shoot.performed -= OnShoot;

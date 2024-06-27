@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponSelectorItemPrefab: {fileID: 1514001738307777156, guid: 7b5afda30d4fa704997d6f069d0ae1a5, type: 3}
-  _followingTimerViewPrefab: {fileID: 4044026241773061690, guid: cec0a7a8bfb2395459f3765209f27b92, type: 3}
+  _followingTimerViewPrefab: {fileID: 7202543109251396895, guid: cec0a7a8bfb2395459f3765209f27b92, type: 3}
   _mainMenuPrefab: {fileID: -6624065519348056580, guid: 12ddb6831cf80c144a3118da577f8f68, type: 3}
   _loadingScreenPrefab: {fileID: 8213998634821453300, guid: 1ea496a7e39f577468db927e06e1dddc, type: 3}
   _weaponConfigs:

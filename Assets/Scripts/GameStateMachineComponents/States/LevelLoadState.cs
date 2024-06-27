@@ -1,5 +1,4 @@
 using Infrastructure;
-using Spawn;
 using UI;
 using Zenject;
 
@@ -7,8 +6,8 @@ namespace GameStateMachineComponents.States
 {
     public class LevelLoadState : GameState
     {
-        private ISceneLoader _sceneLoader;
-        private LoadingScreen _loadingScreen;
+        private readonly ISceneLoader _sceneLoader;
+        private readonly LoadingScreen _loadingScreen;
 
         public LevelLoadState(DiContainer diContainer, IGameStateSwitcher stateSwitcher, ISceneLoader sceneLoader,
             LoadingScreen loadingScreen) : base(stateSwitcher)
@@ -26,7 +25,6 @@ namespace GameStateMachineComponents.States
 
         public override void Exit()
         {
-            _loadingScreen.Disable();
         }
     }
 }

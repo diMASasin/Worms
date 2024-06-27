@@ -8,7 +8,7 @@ namespace BattleStateMachineComponents.States
     {
         private readonly IBattleStateSwitcher _battleStateSwitcher;
         private readonly Timer _timer;
-        private TimersConfig _timersConfig;
+        private readonly TimersConfig _timersConfig;
 
         public ProjectilesWaiting(IBattleStateSwitcher battleStateSwitcher, Timer timer, TimersConfig timersConfig)
         {
@@ -27,22 +27,6 @@ namespace BattleStateMachineComponents.States
         public void Exit()
         {
             ProjectilePool.CountChanged -= OnCountChanged;
-        }
-
-        public void Tick()
-        {
-        }
-
-        public void FixedTick()
-        {
-        }
-
-        public void LateTick()
-        {
-        }
-
-        public void HandleInput()
-        {
         }
 
         private void OnCountChanged(int count)

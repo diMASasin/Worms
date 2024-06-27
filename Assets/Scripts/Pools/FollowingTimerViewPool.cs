@@ -15,13 +15,15 @@ namespace Pools
         private readonly AllProjectilesEvents _projectileEvents;
         private readonly ObjectPool<FollowingTimerView> _followingTimerViewPool;
         private readonly Dictionary<Transform, FollowingTimerView> _timersTargets = new();
+        private readonly FollowingTimerView _followingTimerViewPrefab;
 
         public FollowingTimerViewPool(FollowingTimerView followingTimerViewPrefab, AllProjectilesEvents projectileEvents)
         {
+            _followingTimerViewPrefab = followingTimerViewPrefab;
             _projectileEvents = projectileEvents;
             
             _followingTimerViewPool = new ObjectPool<FollowingTimerView>(
-                () => Instantiate(followingTimerViewPrefab),
+                Create,
                 timer => timer.gameObject.SetActive(true),
                 timer => timer.gameObject.SetActive(false));
             
@@ -29,10 +31,15 @@ namespace Pools
             _projectileEvents.Exploded += OnExploded;
         }
 
+        private FollowingTimerView Create()
+        {
+            var timerView = Instantiate(_followingTimerViewPrefab);
+            timerView.gameObject.SetActive(false);
+            return timerView;
+        }
+
         public void Dispose()
         {
-            Debug.Log($"{GetType().Name}");
-
             _projectileEvents.Launched -= OnLaunched;
             _projectileEvents.Exploded -= OnExploded;
         }

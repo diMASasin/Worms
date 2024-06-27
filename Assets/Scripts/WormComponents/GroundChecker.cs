@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using Configs;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace WormComponents
 {

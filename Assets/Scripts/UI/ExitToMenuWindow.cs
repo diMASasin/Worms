@@ -1,10 +1,8 @@
 using BattleStateMachineComponents;
-using BattleStateMachineComponents.States;
 using GameStateMachineComponents;
 using GameStateMachineComponents.States;
 using Infrastructure;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Zenject;
 

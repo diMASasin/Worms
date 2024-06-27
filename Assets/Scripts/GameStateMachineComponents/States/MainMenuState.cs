@@ -1,13 +1,12 @@
 using Battle_;
 using UI;
-using Zenject;
 
 namespace GameStateMachineComponents.States
 {
     public class MainMenuState : GameState
     {
-        private IBattleSettings _battleSettings;
-        private MainMenu _mainMenu;
+        private readonly IBattleSettings _battleSettings;
+        private readonly MainMenu _mainMenu;
 
         public MainMenuState(IGameStateSwitcher stateSwitcher, IBattleSettings battleSettings, MainMenu mainMenu) : 
             base(stateSwitcher)

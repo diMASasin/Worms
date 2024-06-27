@@ -1,7 +1,5 @@
-using BattleStateMachineComponents.StatesData;
 using CameraFollow;
 using Configs;
-using Timers;
 using UltimateCC;
 
 namespace BattleStateMachineComponents.States
@@ -11,8 +9,8 @@ namespace BattleStateMachineComponents.States
         private readonly IBattleStateSwitcher _battleStateSwitcher;
         private readonly BattleStateMachineData _data;
         private bool _timerElapsed;
-        private IMovementInput _movementInput;
-        private WhenMoveCameraFollower _whenMoveCameraFollower;
+        private readonly IMovementInput _movementInput;
+        private readonly WhenMoveCameraFollower _whenMoveCameraFollower;
 
         private TimersConfig TimersConfig => _data.TimersConfig;
 

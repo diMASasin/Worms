@@ -1,9 +1,6 @@
 using System;
-using Configs;
 using EventProviders;
-using Pools;
 using UnityEngine;
-using UnityEngine.UI;
 using Weapons;
 using Zenject;
 

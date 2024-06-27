@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Configs;
 using Projectiles;
 using Projectiles.Behaviours.Components;
-using Projectiles.Behaviours.LaunchBehaviour;
 using UnityEngine;
 using static UnityEngine.Object;
 
@@ -30,8 +29,6 @@ namespace Factories
 
         public void Dispose()
         {
-            Debug.Log($"{GetType().Name}");
-
             foreach (var projectile in _projectiles)
             {
                 projectile.Launched -= OnLaunched;

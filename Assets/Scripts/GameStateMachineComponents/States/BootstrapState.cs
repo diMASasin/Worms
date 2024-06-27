@@ -1,5 +1,3 @@
-using System.ComponentModel;
-using Factories;
 using Infrastructure;
 using InputService;
 using UI;
@@ -11,14 +9,14 @@ namespace GameStateMachineComponents.States
 {
     public class BootstrapState : GameState
     {
-        private ISceneLoader _sceneLoader;
+        private readonly ISceneLoader _sceneLoader;
         private MovementInput _movementInput;
         private CameraInput _cameraInput;
         private WeaponInput _weaponInput;
         private WeaponSelectorInput _weaponSelectorInput;
-        private LoadingScreen _loadingScreen;
+        private readonly LoadingScreen _loadingScreen;
         private DiContainer _diContainer;
-        private MainMenu _mainMenu;
+        private readonly MainMenu _mainMenu;
 
         public BootstrapState(DiContainer diContainer, IGameStateSwitcher stateSwitcher, ISceneLoader sceneLoader,
             LoadingScreen loadingScreen, MainMenu mainMenu) : base(stateSwitcher)

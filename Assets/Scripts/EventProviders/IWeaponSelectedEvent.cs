@@ -1,5 +1,4 @@
 ﻿using System;
-using Pools;
 using Weapons;
 
 namespace EventProviders

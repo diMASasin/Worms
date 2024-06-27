@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using Configs;
-using Pools;
 using UnityEngine;
 using UnityEngine.UI;
 using Weapons;

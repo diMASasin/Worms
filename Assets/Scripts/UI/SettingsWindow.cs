@@ -2,7 +2,6 @@ using Battle_;
 using Infrastructure;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Zenject;
 

@@ -1,10 +1,10 @@
-﻿using ScriptBoy.Digable2DTerrain;
-using ScriptBoy.Digable2DTerrain.Scripts;
+﻿using ScriptBoy.Digable2DTerrain.Scripts;
 using UnityEngine;
+using Zenject;
 
 public class ShovelWrapper : IShovel
 {
-    private readonly Shovel _shovel;
+    private Shovel _shovel;
 
     public ShovelWrapper(Shovel shovel)
     {

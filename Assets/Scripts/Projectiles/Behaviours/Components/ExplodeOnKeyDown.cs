@@ -1,7 +1,5 @@
 using System.Collections;
-using Infrastructure;
 using UnityEngine;
-using Zenject;
 using Input = UnityEngine.Input;
 
 namespace Projectiles.Behaviours.Components

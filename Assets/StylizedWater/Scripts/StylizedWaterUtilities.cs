@@ -195,9 +195,9 @@ namespace StylizedWater.Scripts
         #endregion
 
         //Fixed for now, max texture size can be overridden in the inspector by user
-        private static int SHADERMAP_RESOLUTION = 1024;
-        private static int NORMAL_RESOLUTION = 1024;
-        private static int GRADIENT_RESOLUTION = 32;
+        private static readonly int SHADERMAP_RESOLUTION = 1024;
+        private static readonly int NORMAL_RESOLUTION = 1024;
+        private static readonly int GRADIENT_RESOLUTION = 32;
 
         public static bool useCompression = false;
 

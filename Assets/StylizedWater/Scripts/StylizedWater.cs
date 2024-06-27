@@ -189,9 +189,9 @@ namespace StylizedWater.Scripts
         public LayerMask reflectLayers = -1;
         public LayerMask refractLayers = -1;
 
-        private Dictionary<Camera, Camera> m_ReflectionCameras = new Dictionary<Camera, Camera>();
-        private Dictionary<Camera, StylizedWaterBlur> m_BlurRenderers = new Dictionary<Camera, StylizedWaterBlur>();
-        private Dictionary<Camera, Camera> m_RefractCameras = new Dictionary<Camera, Camera>();
+        private readonly Dictionary<Camera, Camera> m_ReflectionCameras = new Dictionary<Camera, Camera>();
+        private readonly Dictionary<Camera, StylizedWaterBlur> m_BlurRenderers = new Dictionary<Camera, StylizedWaterBlur>();
+        private readonly Dictionary<Camera, Camera> m_RefractCameras = new Dictionary<Camera, Camera>();
 
         private RenderTexture m_ReflectionTexture;
         private RenderTexture m_RefractTexture;

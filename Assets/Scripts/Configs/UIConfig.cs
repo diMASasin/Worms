@@ -1,5 +1,4 @@
 using Factories;
-using UI;
 using UnityEngine;
 
 namespace Configs

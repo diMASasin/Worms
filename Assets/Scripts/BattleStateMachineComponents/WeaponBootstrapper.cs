@@ -1,16 +1,11 @@
-using System;
 using System.Collections.Generic;
-using BattleStateMachineComponents.StatesData;
 using Configs;
 using EventProviders;
 using Factories;
-using Pools;
 using UI;
 using UnityEngine;
 using Weapons;
-using WormComponents;
 using Zenject;
-using Object = UnityEngine.Object;
 
 namespace BattleStateMachineComponents.States
 {

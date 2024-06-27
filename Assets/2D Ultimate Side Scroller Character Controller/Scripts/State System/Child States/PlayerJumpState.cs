@@ -37,8 +37,8 @@ namespace UltimateCC
             var dataJump = playerData.Jump;
             _facingDirection = playerData.Physics.FacingDirection;
 
-            int clampedJumpInt = Mathf.Clamp(dataJump.NextJumpInt, 0, dataJump.Jumps.Count);
-            jumpInfo = dataJump.Jumps[clampedJumpInt - 1];
+            int clampedJumpInt = Mathf.Clamp(dataJump.NextJumpInt, 0, dataJump.Jumps.Count - 1);
+            jumpInfo = dataJump.Jumps[0];
 
             jumpInfo.currentJumpType = dataJump.currentJumpType == HighJump ? jumpInfo.HighJump : jumpInfo.LongJump;
             dataJump.NextJumpInt++;

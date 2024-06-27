@@ -1,9 +1,7 @@
-    using System;
-    using System.Collections;
+using System.Collections;
     using System.Collections.Generic;
-    using UnityEngine;
 
-    namespace WormComponents
+namespace WormComponents
     {
         public class CycledList<T> : IEnumerable<T> where T : class
         {

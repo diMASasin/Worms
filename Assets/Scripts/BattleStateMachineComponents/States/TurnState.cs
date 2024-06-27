@@ -1,10 +1,7 @@
-using BattleStateMachineComponents.StatesData;
 using Configs;
 using EventProviders;
-using Infrastructure;
 using Projectiles;
 using Timers;
-using UI;
 using UltimateCC;
 using UnityEngine;
 using Weapons;
@@ -82,32 +79,13 @@ namespace BattleStateMachineComponents.States
             _weaponShotEvent.WeaponShot -= OnWeaponShot;
         }
 
-        public void Tick()
-        {
-        }
+        private void OnWormDied(Worm worm) => _battleStateSwitcher.SwitchState<ProjectilesWaiting>();
 
-        public void FixedTick()
-        {
-        }
+        private void OnWeaponShot(float velocity, Weapon weapon) => _battleStateSwitcher.SwitchState<RetreatState>();
 
-        private void OnWormDied(Worm worm)
-        {
-            _battleStateSwitcher.SwitchState<ProjectilesWaiting>();
-        }
-
-        private void OnWeaponShot(float velocity, Weapon weapon)
-        {
-            _battleStateSwitcher.SwitchState<RetreatState>();
-        }
-
-        private void OnLaunched(Projectile projectile, Vector2 velocity)
-        {
+        private void OnLaunched(Projectile projectile, Vector2 velocity) => 
             _data.FollowingCamera.SetTarget(projectile.transform);
-        }
 
-        private void OnTimerElapsed()
-        {
-            _battleStateSwitcher.SwitchState<ProjectilesWaiting>();
-        }
+        private void OnTimerElapsed() => _battleStateSwitcher.SwitchState<ProjectilesWaiting>();
     }
 }
