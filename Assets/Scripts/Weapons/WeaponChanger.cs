@@ -95,6 +95,7 @@ namespace Weapons
 
             weapon.RemoveInput();
             _weaponTransform.parent = _weaponsParent;
+            CurrentWeapon.gameObject.SetActive(false);
             WeaponRemoved?.Invoke(weapon);
         }
 

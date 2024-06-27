@@ -19,6 +19,7 @@ namespace BattleStateMachineComponents.States
         private IWormEvents _wormEvents;
         private IProjectileEvents _allProjectileEvents;
         private IWeaponShotEvent _weaponShotEvent;
+        private WeaponChanger _weaponChanger;
         private TimersConfig TimersConfig => _data.TimersConfig;
         private Timer BattleTimer => _data.BattleTimer;
         private Timer TurnTimer => _data.TurnTimer;
@@ -33,8 +34,10 @@ namespace BattleStateMachineComponents.States
         
         [Inject]
         public void Construct(IBattleStateSwitcher battleStateSwitcher, BattleStateMachineData data, IMovementInput movementInput, 
-            Arrow arrow, IWormEvents wormEvents, IProjectileEvents allProjectileEvents, IWeaponShotEvent weaponShotEvent)
+            Arrow arrow, IWormEvents wormEvents, IProjectileEvents allProjectileEvents, IWeaponShotEvent weaponShotEvent,
+            WeaponChanger weaponChanger)
         {
+            _weaponChanger = weaponChanger;
             _weaponShotEvent = weaponShotEvent;
             _allProjectileEvents = allProjectileEvents;
             _wormEvents = wormEvents;
@@ -73,6 +76,7 @@ namespace BattleStateMachineComponents.States
             _arrow.Disable();
             
             CurrentWorm.RemoveInput();
+            _weaponChanger.RemoveWeapon(_weaponChanger.CurrentWeapon);
             
             _allProjectileEvents.Launched -= OnLaunched;
             _wormEvents.WormDied -= OnWormDied;

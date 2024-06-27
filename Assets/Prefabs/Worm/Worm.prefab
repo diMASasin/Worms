@@ -59,8 +59,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5433852659771445145}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -187,7 +187,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.05}
   m_Size: {x: 0.5, y: 0.7}
   m_Direction: 0
 --- !u!50 &3213259104454701872
@@ -261,6 +261,8 @@ MonoBehaviour:
       headBumpMinAngle: 30
       slideOnCornerMinAngle: 65
       slideSpeedOnCorner: 0
+      attacked: 0
+      died: 0
       isGrounded: 0
       isOnNotWalkableSlope: 0
       isMultipleContactWithNonWalkableSlope: 0

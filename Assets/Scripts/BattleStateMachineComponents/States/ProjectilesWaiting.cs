@@ -34,7 +34,7 @@ namespace BattleStateMachineComponents.States
             _projectileEvents.Launched += OnLaunched;
         }
 
-        public void Exit()
+        public void Exit() 
         {
             ProjectilePool.CountChanged -= OnCountChanged;
             _projectileEvents.Launched -= OnLaunched;

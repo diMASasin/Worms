@@ -1,3 +1,4 @@
+using BattleStateMachineComponents.StatesData;
 using CameraFollow;
 using Configs;
 using Timers;
@@ -10,7 +11,7 @@ namespace BattleStateMachineComponents.States
     {
         private readonly IBattleStateSwitcher _battleStateSwitcher;
         private readonly BattleStateMachineData _data;
-        private readonly Worm _currentWorm;
+        private readonly ICurrentWorm _currentWorm;
         private readonly WindMediator _windMediator;
         private readonly Timer _timer;
         private readonly TimersConfig _timersConfig;
@@ -18,12 +19,13 @@ namespace BattleStateMachineComponents.States
         private readonly Water _water;
         private CycledList<Team> _aliveTeams;
 
-        public BetweenTurnsState(IBattleStateSwitcher battleStateSwitcher, BattleStateMachineData data, WindMediator windMediator, Timer timer)
+        public BetweenTurnsState(IBattleStateSwitcher battleStateSwitcher, BattleStateMachineData data, 
+            WindMediator windMediator, Timer timer, ICurrentWorm currentWorm)
         {
             _water = data.Water;
             _followingCamera = data.FollowingCamera;
             _timersConfig = data.TimersConfig;
-            _currentWorm = data.CurrentWorm;
+            _currentWorm = currentWorm;
             _battleStateSwitcher = battleStateSwitcher;
             _data = data;
             _windMediator = windMediator;
@@ -40,7 +42,7 @@ namespace BattleStateMachineComponents.States
             _windMediator.ChangeVelocity();
             _water.IncreaseLevelIfAllowed();
 
-            if (_currentWorm != null) _currentWorm.SetWormLayer();
+            if (_currentWorm.CurrentWorm != null) _currentWorm.CurrentWorm.SetWormLayer();
 
             if (_data.AliveTeams.Count <= 1) 
                 _battleStateSwitcher.SwitchState<BattleEndState>();
