@@ -60,7 +60,6 @@ namespace WormComponents
         
         public void RemoveInput()
         {
-            SetWormLayer();
             InputHandler.Disable();
             InputRemoved?.Invoke(this);
         }

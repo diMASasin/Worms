@@ -12,13 +12,13 @@ namespace Weapons
         
         public event Action<float> ShotPowerChanged;
 
-        private void OnEnable()
+        private void Awake()
         {
             _weapon.InputDelegated += OnInputDelegated;
             _weapon.InputRemoved += OnInputRemoved;
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             _weapon.InputDelegated -= OnInputDelegated;
             _weapon.InputRemoved -= OnInputRemoved;
