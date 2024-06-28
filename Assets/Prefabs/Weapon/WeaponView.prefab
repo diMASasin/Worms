@@ -178,10 +178,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapon: {fileID: 3269377044665145182}
-  _pointerRenderer: {fileID: 8882233892194111715}
+  _shotPowerIncreaser: {fileID: 0}
   _pointerLine: {fileID: 7948222189002402856}
-  _gunSprite: {fileID: 153271629685729904}
-  _aimSprite: {fileID: 7963244255714088304}
 --- !u!1 &3772905108119691147
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +252,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 200
   m_Sprite: {fileID: -402192597, guid: 3bb1fadd136a96f42b94902a40eace8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

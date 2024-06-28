@@ -22,7 +22,7 @@ Material:
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: 2999
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -128,7 +128,7 @@ Material:
     - _UseIntersectionHighlight: 1
     - _WaveFoam: 0
     - _WaveHeight: 1
-    - _WaveSize: 0.1
+    - _WaveSize: 5.86
     - _Wavefoam: 1
     - _Wavesspeed: 0.75
     - _Wavesstrength: 0.268
@@ -140,5 +140,5 @@ Material:
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _WaterColor: {r: 0.46570867, g: 1.3453807, b: 1.9766746, a: 0}
     - _WaterShallowColor: {r: 0.27058825, g: 1, b: 0.8798174, a: 1}
-    - _WaveDirection: {r: 1, g: 0, b: 0, a: 0}
+    - _WaveDirection: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
