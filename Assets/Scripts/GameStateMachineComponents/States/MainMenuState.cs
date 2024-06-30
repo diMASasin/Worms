@@ -1,5 +1,6 @@
 using Battle_;
 using UI;
+using static UnityEngine.Object;
 
 namespace GameStateMachineComponents.States
 {

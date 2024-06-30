@@ -18,10 +18,11 @@ namespace Pools
 
         private readonly ObjectPool<Explosion> _pool;
         private readonly IProjectileEvents _projectileEvents;
-        private readonly DiContainer _container;
-        private IShovel _shovel;
+        private readonly IShovel _shovel;
 
         public static int Count { get; private set; }
+
+        public event Action<Explosion> Exploded;
 
         public ExplosionPool(IShovel shovel, ExplosionConfig config, Transform explosionsParent, int capacity = 5)
         {
@@ -42,6 +43,7 @@ namespace Pools
             explosion.Init(_shovel);
             
             explosion.AnimationStopped += OnAnimationStopped;
+            explosion.Exploded += OnExploded;
 
             explosion.gameObject.SetActive(false);
             return explosion;
@@ -52,9 +54,15 @@ namespace Pools
             _pool.Release(explosion);
         }
 
+        private void OnExploded(Explosion explosion)
+        {
+            Exploded?.Invoke(explosion);
+        }
+
         private void OnExplosionDestroy(Explosion explosion)
         {
             explosion.AnimationStopped -= OnAnimationStopped;
+            explosion.Exploded -= OnExploded;
         }
 
         private void OnGet(Explosion explosion)

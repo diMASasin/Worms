@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using Infrastructure;
 using InputService;
 using UI;
@@ -29,6 +30,8 @@ namespace GameStateMachineComponents.States
         
         public override void Enter()
         {
+            _diContainer.BindInterfacesAndSelfTo<SettingsWindow>().FromInstance(_mainMenu.SettingsWindow).AsSingle().NonLazy();
+
             _mainMenu.gameObject.SetActive(false);
             _loadingScreen.Init(_sceneLoader);
             _sceneLoader.Load(_sceneLoader.SceneNames.MainMenu, OnLoaded);

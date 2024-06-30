@@ -5,12 +5,12 @@ using Zenject;
 namespace CameraFollow
 {
     [RequireComponent(typeof(Camera))]
-    public class FollowingCamera : MonoBehaviour
+    public class FollowingCamera : MonoBehaviour, IFollowingCamera
     {
         [SerializeField] private Camera _camera;
+        [SerializeField] public Transform _generalViewPosition;
         [field: SerializeField] public int MinPosition { get; private set; } = -65;
         [field: SerializeField]public int MaxPosition { get; set; } = -10;
-        [field: SerializeField] public Vector3 GeneralViewPosition { get; private set; }
         [field: SerializeField] public FollowingObject FollowingObject { get; private set; }
 
         private Transform _target;
@@ -36,15 +36,16 @@ namespace CameraFollow
             TryStopZoom();
         }
 
-        public void SetTarget(Transform target)
+        public void SetTarget(Transform target) => FollowingObject.Follow(target);
+        public void RemoveTarget(Transform target)
         {
-            FollowingObject.Follow(target);
         }
 
-        public void SetTarget(Vector3 positionTarget)
+        public void RemoveAllTargets() => FollowingObject.StopFollow();
+
+        public void MoveToGeneralView() => SetTarget(_generalViewPosition);
+        public void ResetZoom()
         {
-            FollowingObject.StopFollow();
-            FollowingObject.Follow(positionTarget);
         }
 
         public void TryZoom(float scrollDeltaY)

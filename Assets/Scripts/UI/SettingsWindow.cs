@@ -40,7 +40,6 @@ namespace UI
             _closeButton.onClick.RemoveListener(Hide);
         }
 
-
         public void Show()
         {
             gameObject.SetActive(true);

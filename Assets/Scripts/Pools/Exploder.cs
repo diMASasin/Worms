@@ -32,7 +32,7 @@ namespace Pools
             
             if(_poolsDictionary.ContainsKey(explosionConfig) == false)
                 return;
-                
+            
             Explosion explosion = _poolsDictionary[explosionConfig].Get();
             explosion.Explode(explosionConfig, projectile.transform.position, projectile.MaxDamage, projectile.Collider);
         }

@@ -1,9 +1,10 @@
+using CameraFollow;
 using Configs;
 using EventProviders;
+using Pools;
 using Projectiles;
 using Timers;
 using UltimateCC;
-using UnityEngine;
 using Weapons;
 using WormComponents;
 using Zenject;
@@ -20,7 +21,11 @@ namespace BattleStateMachineComponents.States
         private IProjectileEvents _allProjectileEvents;
         private IWeaponShotEvent _weaponShotEvent;
         private WeaponChanger _weaponChanger;
-        private TimersConfig TimersConfig => _data.TimersConfig;
+        private IFollowingCamera _followingCamera;
+        private IExplosionEvents _explosionEvents;
+        private readonly FollowingCameraEventsListener _followingCameraEventsListener;
+
+        private TimersConfig TimersConfig => _data.BattleConfig.TimersConfig;
         private Timer BattleTimer => _data.BattleTimer;
         private Timer TurnTimer => _data.TurnTimer;
 
@@ -35,8 +40,10 @@ namespace BattleStateMachineComponents.States
         [Inject]
         public void Construct(IBattleStateSwitcher battleStateSwitcher, BattleStateMachineData data, IMovementInput movementInput, 
             Arrow arrow, IWormEvents wormEvents, IProjectileEvents allProjectileEvents, IWeaponShotEvent weaponShotEvent,
-            WeaponChanger weaponChanger)
+            WeaponChanger weaponChanger, IFollowingCamera followingCamera, IExplosionEvents explosionEvents)
         {
+            _explosionEvents = explosionEvents;
+            _followingCamera = followingCamera;
             _weaponChanger = weaponChanger;
             _weaponShotEvent = weaponShotEvent;
             _allProjectileEvents = allProjectileEvents;
@@ -56,14 +63,15 @@ namespace BattleStateMachineComponents.States
             _data.WeaponSelector.AllowOpen();
 
             _arrow.StartMove(CurrentWorm.Transform);
-            _data.FollowingCamera.SetTarget(CurrentWorm.Transform);
+            _followingCamera.ResetZoom();
+            _followingCamera.RemoveAllTargets();
+            _followingCamera.SetTarget(CurrentWorm.Transform);
             
             BattleTimer.Resume();
             TurnTimer.Start(TimersConfig.TurnDuration, OnTimerElapsed);
             
             _wormEvents.WormDied += OnWormDied;
-            _allProjectileEvents.Launched += OnLaunched;
-            _weaponShotEvent .WeaponShot += OnWeaponShot;
+            _weaponShotEvent.WeaponShot += OnWeaponShot;
         }
 
         public void Exit()
@@ -76,9 +84,7 @@ namespace BattleStateMachineComponents.States
             _arrow.Disable();
             
             CurrentWorm.RemoveInput();
-            _weaponChanger.RemoveWeapon(_weaponChanger.CurrentWeapon);
             
-            _allProjectileEvents.Launched -= OnLaunched;
             _wormEvents.WormDied -= OnWormDied;
             _weaponShotEvent.WeaponShot -= OnWeaponShot;
         }
@@ -86,9 +92,6 @@ namespace BattleStateMachineComponents.States
         private void OnWormDied(Worm worm) => _battleStateSwitcher.SwitchState<ProjectilesWaiting>();
 
         private void OnWeaponShot(float velocity, Weapon weapon) => _battleStateSwitcher.SwitchState<RetreatState>();
-
-        private void OnLaunched(Projectile projectile, Vector2 velocity) => 
-            _data.FollowingCamera.SetTarget(projectile.transform);
 
         private void OnTimerElapsed() => _battleStateSwitcher.SwitchState<ProjectilesWaiting>();
     }

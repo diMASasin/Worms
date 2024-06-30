@@ -37,7 +37,7 @@ namespace Infrastructure.Installers
         {
             Container.BindInterfacesAndSelfTo<CoroutinePerformer>().FromInstance(_coroutinePerformer).AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<SceneLoader>().FromNew().AsSingle().NonLazy();
-            Container.BindInterfacesAndSelfTo<BattleSettings>().FromNew().AsSingle();
+            Container.BindInterfacesAndSelfTo<BattleSettings>().FromNew().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<MainMenu>().FromComponentInNewPrefab(_mainMenuPrefab).AsSingle();
             Container.BindInterfacesAndSelfTo<LoadingScreen>().FromComponentInNewPrefab(_loadingScreenPrefab).AsSingle();
         }

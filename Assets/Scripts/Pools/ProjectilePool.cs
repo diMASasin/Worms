@@ -28,8 +28,6 @@ namespace Pools
 
         public void Dispose()
         {
-            
-
             _pool?.Dispose();
         }
 

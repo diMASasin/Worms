@@ -10,14 +10,16 @@ namespace BattleStateMachineComponents.States
         private readonly BattleStateMachineData _data;
         private bool _timerElapsed;
         private readonly IMovementInput _movementInput;
-        private readonly WhenMoveCameraFollower _whenMoveCameraFollower;
+        private readonly IFollowingCamera _followingCamera;
+        private FollowingCameraEventsListener _followingCameraEventsListener;
 
-        private TimersConfig TimersConfig => _data.TimersConfig;
+        private TimersConfig TimersConfig => _data.BattleConfig.TimersConfig;
 
         public RetreatState(IBattleStateSwitcher battleStateSwitcher, BattleStateMachineData data, IMovementInput movementInput,
-            WhenMoveCameraFollower whenMoveCameraFollower)
+            IFollowingCamera followingCamera, FollowingCameraEventsListener followingCameraEventsListener)
         {
-            _whenMoveCameraFollower = whenMoveCameraFollower;
+            _followingCameraEventsListener = followingCameraEventsListener;
+            _followingCamera = followingCamera;
             _movementInput = movementInput;
             _battleStateSwitcher = battleStateSwitcher;
             _data = data;
@@ -27,7 +29,7 @@ namespace BattleStateMachineComponents.States
         {
             _data.BattleTimer.Resume();
             _data.CurrentWorm.DelegateInput(_movementInput);
-            _whenMoveCameraFollower.Enable();
+            _followingCameraEventsListener.FollowWormIfMove();
             
             _data.TurnTimer.Start(TimersConfig.RetreatDuration, () => 
                 _battleStateSwitcher.SwitchState<ProjectilesWaiting>());
@@ -37,9 +39,9 @@ namespace BattleStateMachineComponents.States
         {
             _data.BattleTimer.Pause();
             _data.TurnTimer.Stop();
+            _followingCameraEventsListener.StopListenMovement();
             
             _data.CurrentWorm.RemoveInput();
-            _whenMoveCameraFollower.Disable();
         }
     }
 }

@@ -16,18 +16,8 @@ namespace Infrastructure
             _stateMachine = stateMachine;
         }
         
-        private void Awake()
+        private void Start()
         {
-            if (_instance == null)
-            {
-                _instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-                return;
-            }
-            
             _stateMachine?.Init();
             _stateMachine?.SwitchState<BootstrapState>();
             

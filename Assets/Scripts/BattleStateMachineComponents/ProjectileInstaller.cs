@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Configs;
+using Explosion_;
 using Factories;
 using Pools;
 using Projectiles;
@@ -74,6 +75,7 @@ namespace BattleStateMachineComponents.States
                 _container.BindInterfacesAndSelfTo<ExplosionPool>().FromInstance(explosionPool);
             }
 
+            _container.BindInterfacesAndSelfTo<AllExplosionEvents>().FromNew().AsSingle().WithArguments(explosionPools);
             _container.BindInterfacesAndSelfTo<Exploder>().FromNew().AsSingle().WithArguments(explosionPools);
             _container.BindInterfacesAndSelfTo<FragmentsLauncher>().FromNew().AsSingle().WithArguments(_fragmentPools);
             _container.BindInterfacesAndSelfTo<FollowingTimerViewPool>().FromNew().AsSingle();

@@ -38,7 +38,6 @@ namespace Weapons
             
             _weaponInput.PowerIncreasingStarted += OnPowerIncreasingStarted;
             _wormEvents.WormDied += OnWormDied;
-            _weaponShotEvent.WeaponShot += OnWeaponShot;
             _weaponSelectedEvent.WeaponSelected += OnWeaponSelected;
             _weaponSelector.SelectorOpened += OnSelectorOpened;
             _weaponSelector.SelectorClosed += OnSelectorClosed;
@@ -46,13 +45,10 @@ namespace Weapons
 
         public void Dispose()
         {
-            
-
             _weaponInput.PowerIncreasingStarted -= OnPowerIncreasingStarted;
             _weaponSelector.SelectorOpened -= OnSelectorOpened;
             _weaponSelector.SelectorClosed -= OnSelectorClosed;
             _weaponSelectedEvent.WeaponSelected -= OnWeaponSelected;
-            _weaponShotEvent.WeaponShot -= OnWeaponShot;
             _wormEvents.WormDied -= OnWormDied;
         }
 
@@ -65,8 +61,6 @@ namespace Weapons
         private void OnSelectorOpened() => CurrentWeapon?.DisallowShoot();
 
         private void OnSelectorClosed() => CurrentWeapon?.AllowShoot();
-
-        private void OnWeaponShot(float shotPower, Weapon weapon) => RemoveWeapon(weapon);
 
         private void OnWeaponSelected(Weapon weapon)
         {

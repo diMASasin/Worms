@@ -1,6 +1,7 @@
 using System;
 using BattleStateMachineComponents.StatesData;
 using CameraFollow;
+using Cinemachine;
 using Configs;
 using DestructibleLand;
 using Timers;
@@ -14,7 +15,7 @@ namespace BattleStateMachineComponents
     [Serializable]
     public class BattleStateMachineData : ICurrentWorm
     {
-        [field: SerializeField] public FollowingCamera FollowingCamera { get; private set; }
+        [field: SerializeField] public CinemachineFollowingCamera CinemachineFollowingCamera { get; private set; }
         [field: SerializeField] public Water Water { get; private set; }
         [field: SerializeField] public WindView WindView { get; private set; }
         [field: SerializeField] public UIChanger UIChanger { get; private set; }
@@ -25,7 +26,6 @@ namespace BattleStateMachineComponents
         [field: SerializeField] public WeaponSelector WeaponSelector { get; private set; }
         [field: SerializeField] public EndScreen EndScreen { get; private set; }
 
-        public TimersConfig TimersConfig { get; private set; } = new();
         public CycledList<Team> AliveTeams { get; set; }
         
         public Worm CurrentWorm { get; set; }

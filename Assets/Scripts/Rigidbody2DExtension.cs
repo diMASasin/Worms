@@ -25,5 +25,6 @@ public static class Rigidbody2DExtension
         
         float newExplosionForce = Mathf.Lerp(minForce, explosionForce, interpolationValue);
         rigidbody.AddForce(newExplosionForce * explosionDirection, mode);
+        Debug.Log($"explosion force: {newExplosionForce * explosionDirection}");
     }
 }

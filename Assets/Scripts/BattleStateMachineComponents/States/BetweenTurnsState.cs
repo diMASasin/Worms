@@ -15,16 +15,16 @@ namespace BattleStateMachineComponents.States
         private readonly WindMediator _windMediator;
         private readonly Timer _timer;
         private readonly TimersConfig _timersConfig;
-        private readonly FollowingCamera _followingCamera;
+        private readonly IFollowingCamera _followingCamera;
         private readonly Water _water;
         private CycledList<Team> _aliveTeams;
 
         public BetweenTurnsState(IBattleStateSwitcher battleStateSwitcher, BattleStateMachineData data, 
-            WindMediator windMediator, Timer timer, ICurrentWorm currentWorm)
+            WindMediator windMediator, Timer timer, ICurrentWorm currentWorm, IFollowingCamera followingCamera)
         {
             _water = data.Water;
-            _followingCamera = data.FollowingCamera;
-            _timersConfig = data.TimersConfig;
+            _followingCamera = followingCamera;
+            _timersConfig = data.BattleConfig.TimersConfig;
             _currentWorm = currentWorm;
             _battleStateSwitcher = battleStateSwitcher;
             _data = data;
@@ -37,7 +37,7 @@ namespace BattleStateMachineComponents.States
         {
             _timer.Start(_timersConfig.BetweenTurnsDuration, () => _battleStateSwitcher.SwitchState<TurnState>());
 
-            _followingCamera.SetTarget(_followingCamera.GeneralViewPosition);
+            _followingCamera.MoveToGeneralView();
             
             _windMediator.ChangeVelocity();
             _water.IncreaseLevelIfAllowed();

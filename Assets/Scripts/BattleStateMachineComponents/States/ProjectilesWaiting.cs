@@ -13,15 +13,13 @@ namespace BattleStateMachineComponents.States
         private readonly IBattleStateSwitcher _battleStateSwitcher;
         private readonly Timer _timer;
         private readonly TimersConfig _timersConfig;
-        private IProjectileEvents _projectileEvents;
         private BattleStateMachineData _data;
+        private IFollowingCamera _followingCamera;
 
-        public ProjectilesWaiting(IBattleStateSwitcher battleStateSwitcher, Timer timer, 
-            IProjectileEvents projectileEvents, BattleStateMachineData data)
+        public ProjectilesWaiting(IBattleStateSwitcher battleStateSwitcher, Timer timer, BattleStateMachineData data)
         {
             _data = data;
-            _projectileEvents = projectileEvents;
-            _timersConfig = _data.TimersConfig;
+            _timersConfig = _data.BattleConfig.TimersConfig;
             _battleStateSwitcher = battleStateSwitcher;
             _timer = timer;
         }
@@ -31,18 +29,11 @@ namespace BattleStateMachineComponents.States
             OnCountChanged(ProjectilePool.Count);
             
             ProjectilePool.CountChanged += OnCountChanged;
-            _projectileEvents.Launched += OnLaunched;
         }
 
         public void Exit() 
         {
             ProjectilePool.CountChanged -= OnCountChanged;
-            _projectileEvents.Launched -= OnLaunched;
-        }
-
-        private void OnLaunched(Projectile projectile, Vector2 velocity)
-        {
-            _data.FollowingCamera.SetTarget(projectile.transform);
         }
 
         private void OnCountChanged(int count)

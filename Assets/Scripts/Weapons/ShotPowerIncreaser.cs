@@ -60,6 +60,7 @@ namespace Weapons
         {
             _weapon.Shoot(_currentShotPower);
             Reset();
+            gameObject.SetActive(false);
         }
 
         public void IncreaseShotPower()

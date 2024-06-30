@@ -35,8 +35,8 @@ namespace Infrastructure.Installers
             BindShovel();
             Container.Bind<Explosion>().FromComponentInNewPrefab(_battleConfig.ExplosionConfig.Prefab).AsSingle();
 
-            BindCamera();
             BindProjectile();
+            BindCamera();
             
             Container.Bind<WindMediator>().FromNew().AsSingle().WithArguments(_battleConfig.WindData, _data.WindView,
                 _projectileInstaller.ProjectileEvents);
@@ -45,7 +45,6 @@ namespace Infrastructure.Installers
             BindWorms();
             BindUI();
             BindStateMachine();
-            
         }
 
         private void BindShovel()
@@ -58,8 +57,10 @@ namespace Infrastructure.Installers
 
         private void BindCamera()
         {
-            Container.BindInterfacesAndSelfTo<FollowingCamera>().FromInstance(_data.FollowingCamera).AsSingle();
-            Container.BindInterfacesAndSelfTo<WhenMoveCameraFollower>().FromNew().AsSingle();
+            // Container.BindInterfacesAndSelfTo<FollowingCamera>().FromInstance(_data.FollowingCamera).AsSingle();
+            Container.BindInterfacesAndSelfTo<CinemachineFollowingCamera>()
+                .FromInstance(_data.CinemachineFollowingCamera).AsSingle();
+            Container.BindInterfacesAndSelfTo<FollowingCameraEventsListener>().FromNew().AsSingle();
         }
 
         private void BindProjectile()
@@ -67,7 +68,7 @@ namespace Infrastructure.Installers
             _projectileInstaller = new ProjectileInstaller(Container, _battleConfig, _shovelWrapper);
             Container.Bind<ProjectileInstaller>().FromInstance(_projectileInstaller).AsSingle();
             Container.BindInterfacesAndSelfTo<FollowingTimerView>()
-                .FromComponentInNewPrefab(_battleConfig.FollowingTimerViewPrefab).AsSingle();
+                .FromInstance(_battleConfig.FollowingTimerViewPrefab).AsSingle();
         }
 
         private void BindConfigs()
