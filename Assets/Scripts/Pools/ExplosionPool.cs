@@ -23,6 +23,7 @@ namespace Pools
         public static int Count { get; private set; }
 
         public event Action<Explosion> Exploded;
+        public event Action<Explosion> AnimationStopped;
 
         public ExplosionPool(IShovel shovel, ExplosionConfig config, Transform explosionsParent, int capacity = 5)
         {
@@ -52,6 +53,7 @@ namespace Pools
         private void OnAnimationStopped(Explosion explosion)
         {
             _pool.Release(explosion);
+            AnimationStopped.Invoke(explosion);
         }
 
         private void OnExploded(Explosion explosion)

@@ -63,8 +63,8 @@ namespace BattleStateMachineComponents.States
             _data.WeaponSelector.AllowOpen();
 
             _arrow.StartMove(CurrentWorm.Transform);
+            
             _followingCamera.ResetZoom();
-            _followingCamera.RemoveAllTargets();
             _followingCamera.SetTarget(CurrentWorm.Transform);
             
             BattleTimer.Resume();

@@ -9,6 +9,7 @@ using Projectiles;
 using UltimateCC;
 using UnityEngine;
 using Weapons;
+using WormComponents;
 
 namespace CameraFollow
 {
@@ -17,17 +18,20 @@ namespace CameraFollow
         private readonly IFollowingCamera _followingCamera;
         private readonly IProjectileEvents _projectileEvents;
         private readonly IExplosionEvents _explosionEvents;
-        private IMovementInput _movementInput;
-        private ICurrentWorm _currentWorm;
-        private IWeaponShotEvent _weaponShotEvent;
-        private ICoroutinePerformer _coroutinePerformer;
+        private readonly IMovementInput _movementInput;
+        private readonly ICurrentWorm _currentWorm;
+        private readonly IWeaponShotEvent _weaponShotEvent;
+        private readonly ICoroutinePerformer _coroutinePerformer;
         private float _direction;
         private Coroutine _coroutine;
+        private Coroutine _stopFollowWormCoroutine;
+        private IWormEvents _wormEvents;
 
-        public FollowingCameraEventsListener(IFollowingCamera followingCamera, IProjectileEvents projectileEvents, 
-            IExplosionEvents explosionEvents, IMovementInput movementInput, ICurrentWorm currentWorm, IWeaponShotEvent weaponShotEvent,
-            ICoroutinePerformer coroutinePerformer)
+        public FollowingCameraEventsListener(IFollowingCamera followingCamera, IProjectileEvents projectileEvents,
+            IExplosionEvents explosionEvents, IMovementInput movementInput, ICurrentWorm currentWorm,
+            IWeaponShotEvent weaponShotEvent, ICoroutinePerformer coroutinePerformer, IWormEvents wormEvents)
         {
+            _wormEvents = wormEvents;
             _coroutinePerformer = coroutinePerformer;
             _weaponShotEvent = weaponShotEvent;
             _currentWorm = currentWorm;
@@ -38,21 +42,51 @@ namespace CameraFollow
 
             _weaponShotEvent.WeaponShot += OnWeaponShot;
             _projectileEvents.Launched += OnLaunched;
+            _projectileEvents.Exploded += OnProjectileExploded;
             _explosionEvents.Exploded += OnExploded;
+            _explosionEvents.AnimationStopped += OnAnimationStopped;
             _movementInput.WalkPerformed += OnWalkPerformed;
+            _wormEvents.DamageTook += OnDamageTook;
         }
 
         public void Dispose()
         {
             _weaponShotEvent.WeaponShot -= OnWeaponShot;
             _projectileEvents.Launched -= OnLaunched;
+            _projectileEvents.Exploded -= OnProjectileExploded;
             _explosionEvents.Exploded -= OnExploded;
+            _explosionEvents.AnimationStopped -= OnAnimationStopped;
             _movementInput.WalkPerformed -= OnWalkPerformed;
+            _wormEvents.DamageTook -= OnDamageTook;
         }
 
-        public void FollowWormIfMove() => 
+        public void FollowWormIfMove()
+        {
+            if (_stopFollowWormCoroutine != null)
+                _coroutinePerformer.StopCoroutine(_stopFollowWormCoroutine);
+            
             _coroutine = _coroutinePerformer.StartCoroutine(StartListenMovementInRetreatState());
+        }
+
         public void StopListenMovement() => _coroutinePerformer.StopCoroutine(_coroutine);
+
+        private void OnDamageTook(Worm worm)
+        {
+            _coroutinePerformer.StartCoroutine(StopFollowWhenFar(_currentWorm.CurrentWorm.transform, worm.transform));
+            _followingCamera.SetTarget(worm.transform);
+        }
+
+        private void OnProjectileExploded(Projectile projectile)
+        {
+            // _followingCamera.RemoveTarget(projectile.transform);
+            if (_stopFollowWormCoroutine != null)
+                _coroutinePerformer.StopCoroutine(_stopFollowWormCoroutine);
+        }
+
+        private void OnAnimationStopped(Explosion explosion)
+        {
+            // _followingCamera.RemoveTarget(explosion.transform);
+        }
 
         private void OnWeaponShot(float velocity, Weapon weapon)
         {
@@ -61,7 +95,9 @@ namespace CameraFollow
 
         private void OnLaunched(Projectile projectile, Vector2 velocity)
         {
-            _coroutinePerformer.StartCoroutine(StopFollowWormWhenFar(projectile.transform));
+            _stopFollowWormCoroutine = _coroutinePerformer.StartCoroutine(
+                StopFollowWhenFar(_currentWorm.CurrentWorm.transform, projectile.transform));
+
             _followingCamera.SetTarget(projectile.transform);
         }
 
@@ -72,12 +108,14 @@ namespace CameraFollow
             _direction = direction;
         }
 
-        private IEnumerator StopFollowWormWhenFar(Transform projectile)
+        private IEnumerator StopFollowWhenFar(Transform target1, Transform target2)
         {
-            while (Vector3.Distance(_currentWorm.CurrentWorm.transform.position, projectile.position) < 10)
+            int projectileWormDistance = 10;
+            while (Vector3.Distance(_currentWorm.CurrentWorm.transform.position, target2.position) <
+                   projectileWormDistance)
                 yield return null;
 
-            _followingCamera.RemoveTarget(_currentWorm.CurrentWorm.transform);
+            _followingCamera.RemoveTarget(target1);
         }
 
         private IEnumerator StartListenMovementInRetreatState()
@@ -87,6 +125,7 @@ namespace CameraFollow
 
             Debug.Log($"shish");
             _followingCamera.RemoveAllTargets();
+            yield return null;
             _followingCamera.SetTarget(_currentWorm.CurrentWorm.transform);
         }
     }

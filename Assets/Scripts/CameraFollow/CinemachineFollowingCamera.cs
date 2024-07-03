@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Cinemachine;
 using UnityEngine;
 using Zenject;
@@ -15,6 +16,7 @@ namespace CameraFollow
         
         [SerializeField] private float _minPosition;
         [SerializeField] private float _maxPosition;
+        
         private ICameraInput _cameraInput;
 
         private float CameraZOffset
@@ -52,8 +54,20 @@ namespace CameraFollow
             CameraZOffset = newPositionZ;
         }
 
-        public void RemoveTarget(Transform target) => _targetGroup.RemoveMember(target);
-        public void RemoveAllTargets() => _targetGroup.m_Targets = Array.Empty<Target>();
+        public void RemoveTarget(Transform target)
+        {
+            if(_targetGroup.m_Targets.Count(t => t.target == target) == 0)
+                return;
+            
+            _targetGroup.RemoveMember(target);
+            Debug.Log($"REMOVE {target}");
+        }
+
+        public void RemoveAllTargets()
+        {
+            _targetGroup.m_Targets = Array.Empty<Target>();
+            Debug.Log($"{_targetGroup.m_Targets.Length}");
+        }
 
         public void MoveToGeneralView()
         {
@@ -63,8 +77,12 @@ namespace CameraFollow
 
         public void SetTarget(Transform target)
         {
-            _generalViewCamera.enabled = false;
+            if(_targetGroup.m_Targets.Count(t => t.target == target) > 0)
+                return;
+
+            Debug.Log($"{target}");
             _mainCamera.enabled = true;
+            _generalViewCamera.enabled = false;
             _targetGroup.AddMember(target, 10f, 1);
         }
     }

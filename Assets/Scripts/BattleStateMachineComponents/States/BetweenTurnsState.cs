@@ -37,8 +37,9 @@ namespace BattleStateMachineComponents.States
         {
             _timer.Start(_timersConfig.BetweenTurnsDuration, () => _battleStateSwitcher.SwitchState<TurnState>());
 
+            _followingCamera.RemoveAllTargets();
             _followingCamera.MoveToGeneralView();
-            
+
             _windMediator.ChangeVelocity();
             _water.IncreaseLevelIfAllowed();
 

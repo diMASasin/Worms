@@ -5,78 +5,668 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="200a9c5f-335a-44bb-b8dc-d5d4d6152652" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Cameras.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Cameras.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Explosions/SmallExplosion.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Explosions/SmallExplosion.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/CinemachineFollowingCamera.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/CinemachineFollowingCamera.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCameraEventsListener.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCameraEventsListener.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCameraScroller.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCameraScroller.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/IFollowingCamera.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/IFollowingCamera.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DefaultSceneLoader-master.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DefaultSceneLoader-master/DefaultSceneLoader.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DefaultSceneLoader-master/DefaultSceneLoader.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DefaultSceneLoader-master/DefaultScenePrefs.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DefaultSceneLoader-master/DefaultScenePrefs.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DefaultSceneLoader-master/DefaultSceneWindow.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DefaultSceneLoader-master/DefaultSceneWindow.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Explosion_.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Explosion_/AllExplosionEvents.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Explosion_/AllExplosionEvents.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/IExplosionEvents.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/IExplosionEvents.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Arrow.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Arrow.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Sheep/Sheep.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Sheep/Walk.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Show.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Show.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/WeaponSelector.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/WindLeft.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/WindLeft.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/WindLeft.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/WindLeft.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/WindRight.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/WindRight.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/WindRight.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/WindRight.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Window.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Window.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Window.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Window/Default.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Window/Default.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Window/Hide.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Window/Hide.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Window/Show.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Window/Show.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Weapon.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Weapon/Baseball bat/Atack.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Weapon/Baseball bat/Baseball bat.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Weapon/Baseball bat/Baseball bat.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Weapon/Baseball bat/Idle.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Worm/Idle.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Worm/Idle.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Worm/Jump.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Worm/Land.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Worm/Walk.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/Worm/Walk.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/WormSprite.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Animations/WormSprite.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Editor/CustomPlayButton.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Editor/CustomPlayButton/BookmarkSetting.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Documentation.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Documentation/documentation.md.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Documentation/documentation.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Documentation/documentation.pdf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Documentation/release-notes.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Documentation/release-notes.md.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Harmony.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Harmony/HarmonyLicense.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Harmony/net48.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Harmony/net48/0Harmony.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Harmony/net48/0Harmony.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Harmony/net48/0Harmony.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Harmony/net48/0Harmony.xml.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/ImmersiveVrToolsCommon.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/ImmersiveVrToolsCommon/ImmersiveVRTools.Common.Editor.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/ImmersiveVrToolsCommon/ImmersiveVRTools.Common.Editor.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/ImmersiveVrToolsCommon/ImmersiveVRTools.Common.Runtime.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/ImmersiveVrToolsCommon/ImmersiveVRTools.Common.Runtime.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/ImmersiveVrToolsCommon/ImmersiveVRToolsCommonLicense.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2019+/Microsoft.CodeAnalysis.CSharp.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2019+/Microsoft.CodeAnalysis.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2019+/Microsoft.CodeAnalysis.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2019+/RoslynLicense.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2019+/RoslynLicense.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2019+/System.Collections.Immutable.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2019+/System.Collections.Immutable.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2019+/System.Reflection.Metadata.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2019+/System.Reflection.Metadata.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2019+/System.Threading.Tasks.Extensions.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2021+.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2021+/Microsoft.CodeAnalysis.CSharp.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2021+/Microsoft.CodeAnalysis.CSharp.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2021+/Microsoft.CodeAnalysis.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2021+/RoslynLicense.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2021+/RoslynLicense.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2021+/System.Collections.Immutable.FSR.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2021+/System.Collections.Immutable.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2021+/System.Collections.Immutable.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2021+/System.Reflection.Metadata.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2021+/System.Reflection.Metadata.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2021+/System.Reflection.Metadata.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2021+/System.Reflection.Metadata.xml.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2021+/System.Runtime.CompilerServices.Unsafe.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2021+/System.Runtime.CompilerServices.Unsafe.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/2021+/System.Runtime.CompilerServices.Unsafe.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/Microsoft.CSharp.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/Microsoft.CSharp.dll.IMPORTANT.txt.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/Microsoft.CSharp.dll.IMPORTANT.txt.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Plugins/Roslyn/Microsoft.CSharp.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Samples.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Samples/Basic.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Samples/Basic/Point/Point Surface.shader" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Samples/Basic/Point/Point Surface.shader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Samples/Basic/Point/Point URP.shadergraph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Samples/Basic/Point/Point.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Samples/Basic/Point/Point.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Samples/Basic/Point/Point.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Samples/Basic/Point/Point.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Samples/Basic/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Samples/Basic/Scenes/ExampleScene.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Samples/Basic/Scenes/ExampleScene.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Samples/Basic/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Samples/Basic/Scripts/FunctionLibrary.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Samples/Basic/Scripts/Graph.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Samples/Basic/Scripts/Graph.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/AssemblyPostProcess.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/AssemblyPostProcess/AddInternalsVisibleToForAllUserAssembliesPostProcess.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/CodeRewriting.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/CodeRewriting/BuilderPatternFunctionsRewriter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/CodeRewriting/BuilderPatternFunctionsRewriter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/CodeRewriting/ConstructorRewriter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/CodeRewriting/ConstructorRewriter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/CodeRewriting/CreateNewFieldInitMethodRewriter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/CodeRewriting/CreateNewFieldInitMethodRewriter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/CodeRewriting/FastScriptReloadCodeRewriterBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/CodeRewriting/HotReloadCompliantRewriter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/CodeRewriting/HotReloadCompliantRewriter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/CodeRewriting/ManualUserDefinedScriptOverridesRewriter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/CodeRewriting/NewFieldDeclaration.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/CodeRewriting/NewFieldsRewriter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/CodeRewriting/NewFieldsRewriter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/CodeRewriting/RedundantTypeNameQualifierRewriter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/CodeRewriting/RoslynUtils.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/CodeRewriting/ThisAssignmentRewriter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/CodeRewriting/ThisAssignmentRewriter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/CodeRewriting/ThisCallRewriter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/CodeRewriting/ThisCallRewriter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/CodeRewriting/ThisRewriterBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/CodeRewriting/ThisRewriterBase.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/DotnetExeCompilator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/DotnetExeCompilator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/DynamicAssemblyCompiler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/DynamicCompilationBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/DynamicCompilationBase.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/PatchMcsArgsGeneration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/PatchMcsArgsGeneration.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/ScriptGenerationOverrides.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/ScriptGenerationOverrides/ScriptGenerationOverridesManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/Compilation/ScriptGenerationOverrides/ScriptGenerationOverridesManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/CustomFileWatcher.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/CustomFileWatcher.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/FastScriptReload.Editor.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/FastScriptReload.Editor.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/FastScriptReloadManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/FastScriptReloadWelcomeScreen.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/FileWatcherSetupEntry.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/FileWatcherSetupEntry.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/GUI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/GUI/ProjectWindowReloadStatusIndicatorDrawer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/GUI/ProjectWindowReloadStatusIndicatorDrawer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/NewFields.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/NewFields/NewFieldsRendererDefaultEditorPatch.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Editor/NewFields/NewFieldsRendererDefaultEditorPatch.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Runtime.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Runtime/AssemblyChangesLoader.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Runtime/AssemblyChangesLoaderResolver.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Runtime/DetourCrashHandler.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Runtime/FastScriptReload.Runtime.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Runtime/FastScriptReload.Runtime.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Runtime/LoggerScopedInitializer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Runtime/ProjectTypeCache.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Runtime/ProjectTypeCache.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Runtime/TemporaryNewFieldValues.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Scripts/Runtime/TemporaryNewFieldValues.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Editor/FastScriptReload.Tests.Editor.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Editor/FastScriptReload.Tests.Editor.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Editor/Integration.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Editor/Integration/CodePatterns.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Editor/Integration/CodePatterns/AccessingIdentifierNamedSameAsMethodTest.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Editor/Integration/CodePatterns/AccessingNewFieldsAddedAtRuntimeSameNameAsStaticClassFieldTest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Editor/Integration/CodePatterns/AccessingNewFieldsAddedAtRuntimeSameNameAsStaticClassFieldTest.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Editor/Integration/CodePatterns/CompileWithRedirectTestBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Editor/Integration/CodePatterns/CompileWithRedirectTestBase.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Editor/Integration/CodePatterns/NewFieldInitDictionariesWithLocalFunctionTest.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Runtime.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Runtime/FastScriptReload.Tests.Runtime.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Runtime/FastScriptReload.Tests.Runtime.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Runtime/Integration.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Runtime/Integration/CodePatterns.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Runtime/Integration/CodePatterns/AccessingIdentifierNamedSameAsMethod.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Runtime/Integration/CodePatterns/AccessingIdentifierNamedSameAsMethod.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Runtime/Integration/CodePatterns/AccessingNewFieldsAddedAtRuntimeSameNameAsStaticClassField.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Runtime/Integration/CodePatterns/AccessingNewFieldsAddedAtRuntimeSameNameAsStaticClassField.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Runtime/Integration/CodePatterns/MethodAccessingNestedEnum.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Runtime/Integration/CodePatterns/NewFieldInitDictionariesWithLocalFunction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Runtime/Integration/CodePatterns/NewFieldInitDictionariesWithLocalFunction.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/FastScriptReload/Tests/Runtime/Integration/CodePatterns/TestDetourConfirmation.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Documentation.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Documentation/Folder System - Gaskellgames - User guide v1.0.0.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Documentation/Folder System - Gaskellgames - User guide v1.0.0.pdf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/HierarchyFoldersEditor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/HierarchyFoldersEditor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/HierarchyIcon_Folders.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/IconDictionaryCreator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/IconDictionaryCreator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Icons.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Icons/Icon_FolderEmpty.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Icons/Icon_FolderEmpty.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Icons/Icon_FolderFull.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Icons/Icon_FolderFull.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Icons/Icon_HierarchyHighlight.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Icons/InspectorBanner_FolderSystem.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Icons/InspectorBanner_FolderSystem.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Icons/Logo_HierarchyFolderSystem.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Icons/Logo_HierarchyFolderSystem.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/ProjectFolderIcons.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/SOGenerators.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/SOGenerators/FolderIcon_SO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/SOGenerators/FolderIcon_SO.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Animations.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Animations.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Audio.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Audio.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Configs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Configs.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Content.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Data.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Data.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Documentation.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Editor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Editor.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Fonts.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Icons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/InputActions.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/InputActions.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Materials.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Materials.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Models.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Models.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Prefabs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Prefabs.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Resources.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Resources.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Scenes.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Scenes.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Scripts.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Terrain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Textures.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Textures.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Editor/Textures/Utilities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Resources/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Resources/Scripts/HierarchyFolders.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Resources/Scripts/HierarchyFolders.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Scenes/ExampleScene_FolderSystem.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Folder System/Scenes/ExampleScene_FolderSystem.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Comment.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Comment.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials (Transparant).meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials (Transparant)/Cyan_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials (Transparant)/DarkGrey_Transparant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials (Transparant)/DarkGrey_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials (Transparant)/Green_Transparant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials (Transparant)/Green_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials (Transparant)/Grey_Transparant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials (Transparant)/Orange_Transparant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials (Transparant)/Orange_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials (Transparant)/Pink_Transparant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials (Transparant)/Purple_Transparant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials (Transparant)/Purple_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials (Transparant)/Red_Transparant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials (Transparant)/Red_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials (Transparant)/White_Transparant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials (Transparant)/White_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials (Transparant)/Yellow_Transparant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials (Transparant)/Yellow_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials/Cyan.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials/Dark Grey.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials/Green.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials/Green.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials/Grey.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials/Orange.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials/Orange.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials/Purple.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials/Red.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials/Yellow.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Basic Materials/Yellow.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials (Transparant)/Cyan_Check_Transparant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials (Transparant)/Cyan_Check_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials (Transparant)/DarkGrey_Check_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials (Transparant)/Green_Check_Transparant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials (Transparant)/Green_Check_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials (Transparant)/Grey_Check_Transparant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials (Transparant)/Grey_Check_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials (Transparant)/Orange_Check_Transparant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials (Transparant)/Orange_Check_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials (Transparant)/Pink_Check_Transparant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials (Transparant)/Pink_Check_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials (Transparant)/Purple_Check_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials (Transparant)/Red_Check_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials (Transparant)/White_Check_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials (Transparant)/Yellow_Check_Transparant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials (Transparant)/Yellow_Check_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials/Cyan_Check.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials/DarkGrey_Check.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials/DarkGrey_Check.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials/Green_Check.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials/Orange_Check.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials/Pink_Check.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials/Purple_Check.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials/Purple_Check.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials/Red_Check.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Checker Materials/Red_Check.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Glowing Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Glowing Materials/Cyan.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Glowing Materials/Dark Grey.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Glowing Materials/Dark Grey.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Glowing Materials/Green.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Glowing Materials/Green.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Glowing Materials/Grey.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Glowing Materials/Orange.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Glowing Materials/Orange.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Glowing Materials/Pink.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Glowing Materials/Purple.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Glowing Materials/Purple.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Glowing Materials/Red.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Glowing Materials/White.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Glowing Materials/White.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Glowing Materials/Yellow.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Glowing Materials/Yellow.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials (Transparant).meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials (Transparant)/Cyan_Hex_Transparant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials (Transparant)/Cyan_Hex_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials (Transparant)/Green_Hex_Transparant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials (Transparant)/Green_Hex_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials (Transparant)/Grey_Hex_Transparant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials (Transparant)/Grey_Hex_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials (Transparant)/Orange_Hex_Transparant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials (Transparant)/Orange_Hex_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials (Transparant)/Pink_Hex.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials (Transparant)/Purple_Hex_Transparant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials (Transparant)/Purple_Hex_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials (Transparant)/Red_Hex_Transparant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials (Transparant)/Red_Hex_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials (Transparant)/White_Hex.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials (Transparant)/Yellow_Hex_Transparant.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials (Transparant)/Yellow_Hex_Transparant.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials/Cyan_Hex.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials/Cyan_Hex.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials/DarkGrey_Hex.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials/DarkGrey_Hex.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials/Green_Hex.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials/Green_Hex.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials/Grey_Hex.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials/Grey_Hex.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials/Orange_Hex.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials/Orange_Hex.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials/Pink_Hex.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials/Pink_Hex.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials/Purple_Hex.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials/Purple_Hex.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials/Red_Hex.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials/Red_Hex.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials/White_Hex.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials/White_Hex.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials/Yellow_Hex.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Hex Materials/Yellow_Hex.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Physic Materials.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Physic Materials/BounceHigh.physicMaterial" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Physic Materials/BounceLow.physicMaterial" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Physic Materials/BounceLow.physicMaterial.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Physic Materials/FrictionHalf.physicMaterial" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Physic Materials/FrictionHalf.physicMaterial.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Physic Materials/FrictionZero.physicMaterial" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Physic Materials/FrictionZero.physicMaterial.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Physic Materials/PhysicsDefault.physicMaterial" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Physic Materials/PhysicsDefault.physicMaterial.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Tile Materials/Mat_Tile_Blue.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Tile Materials/Mat_Tile_Green.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Tile Materials/Mat_Tile_Green.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Tile Materials/Mat_Tile_Grey.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Tile Materials/Mat_Tile_Grey.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Tile Materials/Mat_Tile_Red.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Materials/Tile Materials/Mat_Tile_Yellow.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Terrain.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Terrain/TerrainLayers.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Terrain/TerrainLayers/TLayer_Black.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Terrain/TerrainLayers/TLayer_Blue.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Terrain/TerrainLayers/TLayer_Green.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Terrain/TerrainLayers/TLayer_Grey.terrainlayer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Terrain/TerrainLayers/TLayer_Grey.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Terrain/TerrainLayers/TLayer_Red.terrainlayer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Terrain/TerrainLayers/TLayer_Red.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Terrain/TerrainLayers/TLayer_Yellow.terrainlayer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Terrain/TerrainLayers/TLayer_Yellow.terrainlayer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Misc.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Misc/MiniMapTexture.renderTexture" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Misc/MiniMapTexture.renderTexture.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Misc/Skybox_Mat_01.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Misc/Skybox_Mat_01.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Misc/Skybox_Mat_02.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Prototyping/Gaskellgames_Prototype_Black.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Prototyping/Gaskellgames_Prototype_Blue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Prototyping/Gaskellgames_Prototype_Blue.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Prototyping/Gaskellgames_Prototype_Green.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Prototyping/Gaskellgames_Prototype_Green.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Prototyping/Gaskellgames_Prototype_Grey.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Prototyping/Gaskellgames_Prototype_Red.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Prototyping/Gaskellgames_Prototype_Red.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Prototyping/Gaskellgames_Prototype_Yellow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Prototyping/Gaskellgames_Prototype_Yellow.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Tiles.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Tiles/Tile_Hexagons.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Tiles/Tile_Hexagons_Transparant.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Tiles/Tile_Hexagons_Transparant.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Tiles/Tile_Square.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Tiles/Tile_Square.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Tiles/Tile_Square_Transparant.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Textures/Tiles/Tile_Square_Transparant.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/EditorWindowUtility.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/EditorWindowUtility/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/EditorWindowUtility/Editor/Data/GaskellgamesHubSettings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/EditorWindowUtility/Editor/Data/GaskellgamesHubSettings.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/EditorWindowUtility/Editor/Data/MenuTree.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/EditorWindowUtility/Editor/Data/MenuTree.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/EditorWindowUtility/Editor/EditorWindowUtility.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/EditorWindowUtility/Editor/EditorWindowUtility.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/EditorWindowUtility/Editor/EditorWindow_SplitView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/EditorWindowUtility/Editor/EditorWindow_SplitView.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/EditorWindowUtility/Editor/GGEditorWindow.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/EditorWindowUtility/Editor/GGEditorWindow.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/EditorWindowUtility/Editor/GaskellgamesHub.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/EditorWindowUtility/Editor/GaskellgamesHub.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/EditorWindowUtility/Editor/Icons.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/EditorWindowUtility/Editor/Icons/InspectorBanner_SettingsHub.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/EditorWindowUtility/Editor/Icons/InspectorBanner_SettingsHub.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/EditorWindowUtility/Editor/SOGenerators.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/EditorWindowUtility/Editor/SOGenerators/GGSettings_SO.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/ExtensionUtility/AnimationCurveExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/ExtensionUtility/AnimationCurveExtensions.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/ExtensionUtility/AudioExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/ExtensionUtility/AudioExtensions.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/ExtensionUtility/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/ExtensionUtility/Editor/SerializedPropertyExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/ExtensionUtility/EditorExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/ExtensionUtility/EditorExtensions.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/ExtensionUtility/GizmosExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/ExtensionUtility/PlaneExtensions.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/ExtensionUtility/StringExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/ExtensionUtility/StringExtensions.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/ExtensionUtility/TaskExtensions.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/ExtensionUtility/VectorExtensions.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/HierarchyUtility.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/HierarchyUtility/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/HierarchyUtility/Editor/HierarchyUtility.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/HierarchyUtility/Editor/HierarchyUtility.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/HierarchyUtility/Editor/Icons.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/HierarchyUtility/Editor/Icons/Icon_Comment.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/HierarchyUtility/Editor/Icons/Icon_EditorHelperScript.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/HierarchyUtility/Editor/Icons/Icon_EditorHelperScript.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/HierarchyUtility/Editor/Icons/Icon_EditorScript.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/HierarchyUtility/Editor/Icons/Icon_EditorScript.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/CustomCurveAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/CustomCurveAttribute.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/DebugButtonAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/DebugButtonAttribute.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor/CustomCurveDrawer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor/CustomCurveDrawer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor/DebugButtonDrawer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor/GUIColorDrawer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor/GUIColorDrawer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor/HighlightDrawer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor/HighlightDrawer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor/LabelOverrideDrawer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor/MaxDrawer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor/MinDrawer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor/MinDrawer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor/MinMaxDrawer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor/RangeDrawer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor/RangeDrawer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor/RangeMinMaxDrawer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor/RangeMinMaxDrawer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor/ReadOnlyDrawer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor/RequiredFieldDrawer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor/StringDropdownDrawer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor/StringDropdownDrawer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor/TagDropdownDrawer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/Editor/TagDropdownDrawer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/GUIColorAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/GUIColorAttribute.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/HighlightAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/HighlightAttribute.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/LabelOverrideAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/LabelOverrideAttribute.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/LineSeparatorAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/LineSeparatorAttribute.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/MaxAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/MaxAttribute.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/MinAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/MinAttribute.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/MinMaxAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/MinMaxAttribute.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/ProgressBarAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/ProgressBarAttribute.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/RangeAttribute.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/RangeMinMaxAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/RangeMinMaxAttribute.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/ReadOnlyAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/RequiredFieldAttribute.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/StringDropdownAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/TagDropdownAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Attributes/TagDropdownAttribute.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/InspectorUtility.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Properties.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Properties/AudioSourceData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Properties/AudioSourceData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Properties/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Properties/Editor/AudioSourceDataDrawer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Properties/Editor/AudioSourceDataDrawer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Properties/Editor/LayerDropdownDrawer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Properties/Editor/PasswordDrawer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Properties/Editor/SceneDataDrawer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Properties/Editor/SceneDataDrawer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Properties/LayerDropdown.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Properties/Password.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Properties/Password.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Properties/SceneData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Properties/SubTransform.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/InspectorUtility/Properties/SubTransform.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/LogsUtility/VerboseLogs.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/MathUtility.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/MathUtility/MathUtility.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/MenuItemUtility/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/MenuItemUtility/Editor/MenuItemUtility.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/MenuItemUtility/Editor/MenuItemUtility.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/ProjectUtility.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/ProjectUtility/GGEditor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/ProjectUtility/GGEditor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/ProjectUtility/GGMonoBehaviour.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/ProjectUtility/GGScriptableObject.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/ProjectUtility/GGScriptableObject.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/TransformUtility.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/TransformUtility/TransformEditor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Gaskellgames/Shared Resources/Utilities/TransformUtility/TransformEditor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/WaterColor.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Materials/WaterColor.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Demo Scene.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Demo Scene/Better Hierarchy Demo Scene.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Demo Scene/Better Hierarchy Demo Scene.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Demo Scene/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Demo Scene/Scripts/BetterHierarchyDemoScripts.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Demo Scene/Scripts/BetterHierarchyDemoScripts.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Demo Scene/Scripts/UnityNamespaceScript.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Demo Scene/Scripts/UnityNamespaceScript.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Demo Scene/Scripts/UserScriptExample.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Demo Scene/Scripts/UserScriptExample.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Editor/BetterHierarchy.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Editor/BetterHierarchyIconDisplayer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Editor/MouseStatus.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Editor/Preferences Settings.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Editor/Preferences Settings/BetterHierarchyPreferences.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Editor/Preferences Settings/BoolPreference.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Editor/Preferences Settings/BoolPreference.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Editor/Preferences Settings/EnumPreference.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Editor/Preferences Settings/Preference.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Editor/Preferences Settings/Preference.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Editor/Preferences Settings/UIElementBuilder.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Editor/Preferences Settings/UIElementBuilder.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Editor/UnityEditorBackgroundColor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Better Hierarchy/Editor/UnityEditorBackgroundColor.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/WormSprite.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/WormSprite.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Configs/Explosion/FragmentExplosion.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Explosion/FragmentExplosion.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Land1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Land1.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Land1Edges.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Land1Edges.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/LandEdges.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/LandEdges.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/EssentialPhysics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/Essentials/EssentialPhysics.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/PlayerMain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/PlayerMain.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Arrow.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Arrow.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Arrow.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Arrow.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Sheep.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Sheep/Sheep.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Sheep/Sheep.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Sheep/Walk.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Sheep/Walk.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/Close.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/Close.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/Show.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/Show.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/WeaponSelector.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/WeaponSelector.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/WindLeft.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/WindLeft.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/WindLeft.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/WindLeft.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/WindRight.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/WindRight.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/WindRight.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/WindRight.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/Window.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/Window.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/Window.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/Window/Default.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/Window/Default.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/Window/Hide.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/Window/Hide.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/Window/Show.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/UI/Window/Show.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Weapon.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Weapon/Baseball bat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Weapon/Baseball bat/Atack.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Weapon/Baseball bat/Atack.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Weapon/Baseball bat/Baseball bat.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Weapon/Baseball bat/Baseball bat.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Weapon/Baseball bat/Idle.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Weapon/Baseball bat/Idle.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Worm.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Worm/Fly.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Worm/Fly.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Worm/Idle.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Worm/Idle.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Worm/Jump.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Worm/Jump.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Worm/Land.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Worm/Land.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Worm/Walk.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/Worm/Walk.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/WormSprite.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animation/WormSprite.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Water.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Water.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Explosions/Explosion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Explosions/Explosion.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Explosions/Small Explosion.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Explosions/Small Explosion.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Main Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Main Camera.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Map/Background.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Map/Background.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Water.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Water.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Baseball bat.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/Baseball bat.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/WeaponView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/WeaponView.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Explosions/SmallExplosion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Explosions/SmallExplosion.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/WindEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/WindEffect.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map4.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map5.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Resources/Materials/Soil1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Resources/Materials/Soil1.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Resources/Materials/Soil1Edges.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Resources/Materials/Soil1Edges.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Resources/Materials/Soil1Edges2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Resources/Materials/Soil1Edges2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Resources/Materials/Soil1_2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptBoy/Digable2DTerrain/Resources/Materials/Soil1_2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachineData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachineData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/ProjectileInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/ProjectileInstaller.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BetweenTurnsState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BetweenTurnsState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/ProjectilesWaiting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/ProjectilesWaiting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/RetreatState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/RetreatState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCamera.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/WhenMoveCameraFollower.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/WhenMoveCameraFollower.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Explosion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Explosion_/Explosion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Explosion.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Explosion_/Explosion.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/BootstrapState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/BootstrapState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/MainMenuState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateMachineComponents/States/MainMenuState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/GameBootstrapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/GameBootstrapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/GlobalInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/GlobalInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/SceneInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/SceneInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/Exploder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/Exploder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/CinemachineFollowingCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/CinemachineFollowingCamera.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCameraEventsListener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCameraEventsListener.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DefaultSceneLoader-master.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DefaultSceneLoader-master/DefaultSceneLoader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DefaultSceneLoader-master/DefaultSceneLoader.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DefaultSceneLoader-master/DefaultScenePrefs.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DefaultSceneLoader-master/DefaultScenePrefs.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DefaultSceneLoader-master/DefaultSceneWindow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DefaultSceneLoader-master/DefaultSceneWindow.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Explosion_/AllExplosionEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Explosion_/AllExplosionEvents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Explosion_/Explosion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Explosion_/Explosion.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/ExplosionPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/ExplosionPool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/ProjectilePool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/ProjectilePool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/IExplosionEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/IExplosionEvents.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rigidbody2DExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rigidbody2DExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/SettingsWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/SettingsWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/ShotPowerIncreaser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/ShotPowerIncreaser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponChanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponChanger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -181,6 +771,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/EventSystem/SelectableTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/InputField/GenericInputFieldTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/TextEditor/TextEditorTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Temp/ffad1ebaf21f474881a11c4ac898e933.SourceCodeCombined.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04145c683045449ca6ad9731c6c62f033c00/fe/c23416f6/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/27124aa0e30a41659b903b822b959bc746ac00/33/b9408ec0/Delegate.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/27124aa0e30a41659b903b822b959bc746ac00/9d/cf14307b/RuntimeMethodInfo.cs" root0="SKIP_HIGHLIGHTING" />
@@ -224,32 +815,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultPlantUmlFileTemplate": "UML Class",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "XThreadsFramesViewSplitterKey": "0.58862144",
-    "full.screen.before.presentation.mode": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "configurable.group.tools",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Class&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.58862144&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\Dmitriy\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Dmitriy\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
-      "C:\\Users\\Dmitriy\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\Dmitriy\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Dmitriy\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Dmitriy\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.22f1\Editor\Unity.exe" />
@@ -277,10 +868,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="31876">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="31876" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -379,7 +970,9 @@
       <workItem from="1719573412968" duration="680000" />
       <workItem from="1719579406548" duration="14189000" />
       <workItem from="1719672603047" duration="1284000" />
-      <workItem from="1719734243547" duration="19573000" />
+      <workItem from="1719734243547" duration="23730000" />
+      <workItem from="1719937043529" duration="9149000" />
+      <workItem from="1720002833124" duration="4822000" />
     </task>
     <servers />
   </component>
@@ -405,6 +998,23 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs</url>
+          <line>67</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\BattleStateMachineComponents\States\TurnState.cs" initialLine="70" containingFunctionPresentation="Method 'Enter'">
+            <startOffsets>
+              <option value="2460" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2510" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="UNITY_DEBUG_RUN_CONFIGURATION">
         <watch expression="AllServices.Container.Single&lt;BattleSettings&gt;()" language="C#" />

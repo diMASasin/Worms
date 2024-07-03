@@ -14,6 +14,7 @@ Material:
   m_ValidKeywords:
   - _LIGHTING_ON
   m_InvalidKeywords:
+  - _ENABLEDEPTHTEXTURE_ON
   - _SECONDARYFOAMALWAYSVISIBLE_ON
   - _SECONDARY_WAVES_ON
   - _WORLDSPACETILING_ON
@@ -56,7 +57,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normals:
-        m_Texture: {fileID: 2800000, guid: d09fcf08d6095024181cdc3c9f6b34bd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3a41e7c7976846a47a62be3520f418ed, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -68,7 +69,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Shadermap:
-        m_Texture: {fileID: 2800000, guid: bdce9e86246767d42b6d64349e5e76a3, type: 3}
+        m_Texture: {fileID: 2800000, guid: df8334959bbc0884ea6c07c537738afd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -80,39 +81,39 @@ Material:
     - _DstBlend: 0
     - _ENABLE_VC: 0
     - _EdgeFade: 0.2448298
-    - _EnableDepthTexture: 0
-    - _FoamOpacity: 0.1
+    - _EnableDepthTexture: 1
+    - _FoamOpacity: 0.196
     - _FoamSize: 0
     - _FoamSpeed: 0.1
     - _FoamTiling: 0.15
     - _GlossMapScale: 1
-    - _Glossiness: 0.941
+    - _Glossiness: 0.931
     - _GlossyReflections: 1
     - _LIGHTING: 1
     - _Metallic: 0
     - _Metallicness: 0.1
     - _Mode: 0
     - _NORMAL_MAP: 0
-    - _NormalStrength: 0.341
-    - _NormalTiling: 0.39999992
+    - _NormalStrength: 0.737
+    - _NormalTiling: 0.77
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RimSize: 1.6
-    - _Rimfalloff: 5.1
+    - _RimSize: 7.34
+    - _Rimfalloff: 11.8
     - _Rimtiling: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Transparency: 0.857
+    - _Transparency: 1
     - _USE_VC_INTERSECTION: 0
     - _UVSec: 0
     - _Unlit: 0
     - _UseIntersectionFoam: 0
-    - _WaveFoam: 0
-    - _WaveHeight: 0.43
-    - _WaveSize: 1
-    - _Wavesspeed: 0.1
-    - _Wavetint: -0.077
+    - _WaveFoam: 0.72
+    - _WaveHeight: 0.29
+    - _WaveSize: 10
+    - _Wavesspeed: 2.33
+    - _Wavetint: 0.374
     - _Worldspacetiling: 1
     - _ZWrite: 1
     - __dirty: 0
@@ -122,5 +123,5 @@ Material:
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _WaterColor: {r: 0.46570867, g: 1.3453807, b: 1.9766746, a: 0}
     - _WaterShallowColor: {r: 0.27058825, g: 1, b: 0.8798174, a: 1}
-    - _WaveDirection: {r: 1, g: 0, b: 0, a: 0}
+    - _WaveDirection: {r: 3.11, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

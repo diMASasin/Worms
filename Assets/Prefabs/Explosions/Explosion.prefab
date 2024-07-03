@@ -43587,6 +43587,7 @@ MonoBehaviour:
   _collider: {fileID: 4195435881664995285}
   _explosionEffect: {fileID: 5190400042671717409}
   _impulseSource: {fileID: 760743453532016342}
+  _cameraShakeFactor: 1
 --- !u!199 &6424279179174157449
 ParticleSystemRenderer:
   serializedVersion: 6

@@ -87,7 +87,7 @@ namespace UltimateCC
             if(CapsuleCollider2D == null || _showGroundCheck == false)
                 return;
             
-            Gizmos.DrawSphere(PlayerData.Physics.GroundCheckPosition + new Vector2(0, -0.05f),
+            Gizmos.DrawSphere(PlayerData.Physics.GroundCheckPosition + new Vector2(0, -0.1f),
                 CapsuleCollider2D.size.x / 1.9f * Mathf.Abs(transform.localScale.x));
         }
     }

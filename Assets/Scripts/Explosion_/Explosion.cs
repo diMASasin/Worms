@@ -5,12 +5,14 @@ using Configs;
 using UnityEngine;
 using WormComponents;
 using Zenject;
+using Random = UnityEngine.Random;
 
 public class Explosion : MonoBehaviour
 {
     [SerializeField] private CircleCollider2D _collider;
     [SerializeField] private ParticleSystem _explosionEffect;
     [SerializeField] private CinemachineImpulseSource _impulseSource;
+    [SerializeField] private float _cameraShakeFactor = 0.1f;
 
     private float _explosionForce;
     private float _explosionUpwardsModifier;
@@ -63,8 +65,8 @@ public class Explosion : MonoBehaviour
 
         transform.position= newPosition;
         _explosionEffect.Play();
-        Vector3 impulseVelocity = new Vector3(Mathf.PerlinNoise1D(newPosition.x), Mathf.PerlinNoise1D(newPosition.y), 0);
-        _impulseSource.GenerateImpulseAt(newPosition, impulseVelocity);
+        Vector3 impulseVelocity = new Vector3(Random.Range(0f, 1f), 0, Random.Range(0f, 1f));
+        _impulseSource.GenerateImpulseAt(newPosition, impulseVelocity * _cameraShakeFactor);
         _shovel.Dig(newPosition, config.LandDestroyRadius);
 
         Exploded?.Invoke(this);
