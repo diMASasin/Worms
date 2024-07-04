@@ -95,8 +95,9 @@ namespace CameraFollow
 
         private void OnLaunched(Projectile projectile, Vector2 velocity)
         {
-            _stopFollowWormCoroutine = _coroutinePerformer.StartCoroutine(
-                StopFollowWhenFar(_currentWorm.CurrentWorm.transform, projectile.transform));
+            if(_currentWorm.CurrentWorm != null)
+                _stopFollowWormCoroutine = _coroutinePerformer.StartCoroutine(
+                    StopFollowWhenFar(_currentWorm.CurrentWorm.transform, projectile.transform));
 
             _followingCamera.SetTarget(projectile.transform);
         }
@@ -111,8 +112,8 @@ namespace CameraFollow
         private IEnumerator StopFollowWhenFar(Transform target1, Transform target2)
         {
             int projectileWormDistance = 10;
-            while (Vector3.Distance(_currentWorm.CurrentWorm.transform.position, target2.position) <
-                   projectileWormDistance)
+            while (target1 != null && target2 != null && 
+                   Vector3.Distance(target1.transform.position, target2.position) < projectileWormDistance)
                 yield return null;
 
             _followingCamera.RemoveTarget(target1);

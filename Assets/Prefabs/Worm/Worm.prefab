@@ -862,7 +862,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
       xTurnBackTime: 10
-      physics2DGravityScale: 1.5
+      physics2DGravityScale: 2
     Dash:
       maxHeight: 0.3
       dashHeightCurve:

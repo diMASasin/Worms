@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Cinemachine;
 using Configs;
 using UnityEngine;
@@ -9,12 +10,10 @@ using Random = UnityEngine.Random;
 
 public class Explosion : MonoBehaviour
 {
-    [SerializeField] private CircleCollider2D _collider;
     [SerializeField] private ParticleSystem _explosionEffect;
     [SerializeField] private CinemachineImpulseSource _impulseSource;
     [SerializeField] private float _cameraShakeFactor = 0.1f;
 
-    private float _explosionForce;
     private float _explosionUpwardsModifier;
     private int _damage;
     private IShovel _shovel;
@@ -31,24 +30,41 @@ public class Explosion : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out Worm worm))
+        // ApplyExplosionToWorm(collision);
+    }
+
+    private void ApplyExplosionToWorm(IEnumerable<Collider2D> collisions)
+    {
+        foreach (var collision in collisions)
         {
-            worm.AddExplosionForce(_explosionForce, transform.position, _explosionUpwardsModifier, _config.ExplosionRadius);
-            worm.TakeDamage(CalculateDamage(_damage, worm));
+            if (collision.gameObject.TryGetComponent(out Worm worm))
+            {
+                float multiplier = CalculateMultiplier(worm);
+                Vector3 direction = worm.transform.position - transform.position;
+
+                worm.AddExplosionForce(direction, _config.ExplosionForce, multiplier, _explosionUpwardsModifier);
+                worm.TakeDamage(CalculateDamage(_damage, multiplier));
+            }
         }
     }
-    
-    private int CalculateDamage(int maxDamage, Worm worm)
-    {
-        float multiplier = 1 - (Vector2.Distance(_projectileCollider.ClosestPoint(worm.transform.position), 
-            worm.Collider2D.ClosestPoint(transform.position)));
-        
-        multiplier = Mathf.Clamp01(multiplier);
-        
-        if (multiplier >= 0.9f)
-            multiplier = 1;
 
+    private int CalculateDamage(int maxDamage, float multiplier)
+    {
+        // if (multiplier >= 0.8f)
+        //     multiplier = 1;
         return Convert.ToInt32(maxDamage * multiplier);
+    }
+
+    private float CalculateMultiplier(Worm worm)
+    {
+        Vector3 projectileClosestPoint = _projectileCollider.ClosestPoint(worm.transform.position);
+        Vector3 wormClosestPoint = worm.Collider2D.ClosestPoint(transform.position);
+        Vector3 direction = projectileClosestPoint - wormClosestPoint;
+        float distance = direction.magnitude;
+        float multiplier = (_config.ExplosionRadius - distance) / _config.ExplosionRadius;
+        
+        multiplier = Mathf.Abs(multiplier);
+        return multiplier;
     }
 
     public void Explode(ExplosionConfig config, Vector3 newPosition, int damage, CapsuleCollider2D projectileCollider)
@@ -56,31 +72,24 @@ public class Explosion : MonoBehaviour
         _projectileCollider = projectileCollider;
         _config = config;
         
-        _explosionForce = config.ExplosionForce;
         _explosionUpwardsModifier = config.ExplosionUpwardsModifier;
-        _collider.radius = config.ExplosionRadius;
         _damage = damage;
-
-        _collider.enabled = true;
 
         transform.position= newPosition;
         _explosionEffect.Play();
         Vector3 impulseVelocity = new Vector3(Random.Range(0f, 1f), 0, Random.Range(0f, 1f));
         _impulseSource.GenerateImpulseAt(newPosition, impulseVelocity * _cameraShakeFactor);
         _shovel.Dig(newPosition, config.LandDestroyRadius);
-
+        
+        var result = new List<Collider2D>();
+        var count = Physics2D.OverlapCircle(transform.position, _config.ExplosionRadius, _config.ContactFilter, result);
+        ApplyExplosionToWorm(result);
+        
         Exploded?.Invoke(this);
-        StartCoroutine(DelayedDisable());
     }
 
     private void OnParticleSystemStopped()
     {
         AnimationStopped?.Invoke(this);
-    }
-
-    private IEnumerator DelayedDisable()
-    {
-        yield return new WaitForSeconds(0.1f);
-        _collider.enabled = false;
     }
 }

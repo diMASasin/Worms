@@ -22,7 +22,7 @@ namespace UI
         {
             if (progress >= 0.89f) progress = 1;
             
-            _percents.text = $"{progress * 100} %";
+            _percents.text = string.Format("{0:F}", $"{progress * 100} %");
             _progressBar.value = progress;
         }
 

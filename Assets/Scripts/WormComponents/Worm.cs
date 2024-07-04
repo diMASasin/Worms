@@ -76,6 +76,12 @@ namespace WormComponents
             UnfreezePosition();
             _rigidbody.AddExplosionForce(explosionForce, explosionPosition, explosionRadius, upwardsModifier);
         }
+        
+        public void AddExplosionForce(Vector3 direction, float explosionForce, float forceMultiplier, float upwardsModifier)
+        {
+            UnfreezePosition();
+            _rigidbody.AddExplosionForce(direction, explosionForce, forceMultiplier, upwardsModifier);
+        }
 
         public void TakeDamage(int damage)
         {

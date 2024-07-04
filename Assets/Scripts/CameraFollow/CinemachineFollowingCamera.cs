@@ -60,13 +60,11 @@ namespace CameraFollow
                 return;
             
             _targetGroup.RemoveMember(target);
-            Debug.Log($"REMOVE {target}");
         }
 
         public void RemoveAllTargets()
         {
             _targetGroup.m_Targets = Array.Empty<Target>();
-            Debug.Log($"{_targetGroup.m_Targets.Length}");
         }
 
         public void MoveToGeneralView()
@@ -80,7 +78,6 @@ namespace CameraFollow
             if(_targetGroup.m_Targets.Count(t => t.target == target) > 0)
                 return;
 
-            Debug.Log($"{target}");
             _mainCamera.enabled = true;
             _generalViewCamera.enabled = false;
             _targetGroup.AddMember(target, 10f, 1);
