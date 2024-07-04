@@ -9,6 +9,7 @@ namespace Wind_
         public readonly float Step;
 
         public float Velocity { get; private set; }
+        public float NormalizedVelocity => Velocity / MaxVelocity;
         
         public event Action<float> VelocityChanged;
 
@@ -21,7 +22,7 @@ namespace Wind_
         public void ChangeVelocity()
         {
             Velocity = Random.Range(-MaxVelocity, MaxVelocity);
-            Velocity = Velocity - Velocity % Step;
+            Velocity -= Velocity % Step;
             VelocityChanged?.Invoke(Velocity);
         }
     }

@@ -2,6 +2,7 @@ using BattleStateMachineComponents.StatesData;
 using CameraFollow;
 using Configs;
 using Timers;
+using Water;
 using Wind_;
 using WormComponents;
 
@@ -16,13 +17,16 @@ namespace BattleStateMachineComponents.States
         private readonly Timer _timer;
         private readonly TimersConfig _timersConfig;
         private readonly IFollowingCamera _followingCamera;
-        private readonly Water _water;
+        private readonly WaterLevelIncreaser _waterLevelIncreaser;
         private CycledList<Team> _aliveTeams;
+        private WaterVelocityChanger _waterVelocityChanger;
 
         public BetweenTurnsState(IBattleStateSwitcher battleStateSwitcher, BattleStateMachineData data, 
-            WindMediator windMediator, Timer timer, ICurrentWorm currentWorm, IFollowingCamera followingCamera)
+            WindMediator windMediator, Timer timer, ICurrentWorm currentWorm, IFollowingCamera followingCamera,
+            WaterVelocityChanger waterVelocityChanger)
         {
-            _water = data.Water;
+            _waterVelocityChanger = waterVelocityChanger;
+            _waterLevelIncreaser = data.WaterLevelIncreaser;
             _followingCamera = followingCamera;
             _timersConfig = data.BattleConfig.TimersConfig;
             _currentWorm = currentWorm;
@@ -41,7 +45,8 @@ namespace BattleStateMachineComponents.States
             _followingCamera.MoveToGeneralView();
 
             _windMediator.ChangeVelocity();
-            _water.IncreaseLevelIfAllowed();
+            _waterVelocityChanger.ChangeVelocity(_windMediator.Wind.NormalizedVelocity);
+            _waterLevelIncreaser.IncreaseLevelIfAllowed();
 
             if (_currentWorm.CurrentWorm != null) _currentWorm.CurrentWorm.SetWormLayer();
 

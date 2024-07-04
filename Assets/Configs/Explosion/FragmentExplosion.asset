@@ -13,7 +13,21 @@ MonoBehaviour:
   m_Name: FragmentExplosion
   m_EditorClassIdentifier: 
   <ExplosionForce>k__BackingField: 10
-  <ExplosionUpwardsModifier>k__BackingField: 1.2
+  <ExplosionUpwardsModifier>k__BackingField: 3
   <ExplosionRadius>k__BackingField: 1
   <LandDestroyRadius>k__BackingField: 0.5
+  <ContactFilter>k__BackingField:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
   <Prefab>k__BackingField: {fileID: 1863750346852612020, guid: 498cfd434a8a91640ad97b4c7700abb4, type: 3}

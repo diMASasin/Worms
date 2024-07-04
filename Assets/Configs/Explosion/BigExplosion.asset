@@ -12,8 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 913285b314d4b0940bfa2e95a0e64b63, type: 3}
   m_Name: BigExplosion
   m_EditorClassIdentifier: 
-  <ExplosionForce>k__BackingField: 15
-  <ExplosionUpwardsModifier>k__BackingField: 2
+  <ExplosionForce>k__BackingField: 20
+  <ExplosionUpwardsModifier>k__BackingField: 6
   <ExplosionRadius>k__BackingField: 1.5
   <LandDestroyRadius>k__BackingField: 2
+  <ContactFilter>k__BackingField:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
   <Prefab>k__BackingField: {fileID: 248323110452647603, guid: 54d2942a759940e41b780e6877119525, type: 3}

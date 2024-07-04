@@ -8,8 +8,8 @@ namespace Wind_
 {
     public class WindMediator : IDisposable, IFixedTickable
     {
-        private readonly Wind _wind;
-        private IProjectileEvents _projectileEvents;
+        public readonly Wind Wind;
+        private readonly IProjectileEvents _projectileEvents;
 
         private readonly List<Projectile> _projectilesUnderInfluence = new();
 
@@ -17,9 +17,9 @@ namespace Wind_
         {
             _projectileEvents = projectileEvents;
 
-            _wind = new Wind(data.MaxVelocity, data.Step);
-            new WindEffect(_wind, data.Particles);
-            windView.Init(_wind);
+            Wind = new Wind(data.MaxVelocity, data.Step);
+            new WindEffect(Wind, data.Particles);
+            windView.Init(Wind);
             
             _projectileEvents.Launched += InfluenceOnProjectileIfNecessary;
             _projectileEvents.Exploded += RemoveProjectileFromInfluence;
@@ -34,10 +34,10 @@ namespace Wind_
         public void FixedTick()
         {
             for (int i = 0; i < _projectilesUnderInfluence.Count; i++)
-                _projectilesUnderInfluence[i].InfluenceOnVelocity(Vector2.right * (_wind.Velocity * Time.fixedDeltaTime));
+                _projectilesUnderInfluence[i].InfluenceOnVelocity(Vector2.right * (Wind.Velocity * Time.fixedDeltaTime));
         }
 
-        public void ChangeVelocity() => _wind.ChangeVelocity();
+        public void ChangeVelocity() => Wind.ChangeVelocity();
 
         private void InfluenceOnProjectileIfNecessary(Projectile projectile, Vector2 velocity)
         {

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ExplosionConfig
   m_EditorClassIdentifier: 
   <ExplosionForce>k__BackingField: 15
-  <ExplosionUpwardsModifier>k__BackingField: 1.5
+  <ExplosionUpwardsModifier>k__BackingField: 5
   <ExplosionRadius>k__BackingField: 1.5
   <LandDestroyRadius>k__BackingField: 1
   <ContactFilter>k__BackingField:

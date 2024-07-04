@@ -8,6 +8,7 @@ using Spawn;
 using Timers;
 using UI;
 using UnityEngine;
+using Water;
 using Weapons;
 using Wind_;
 using WormComponents;
@@ -40,7 +41,8 @@ namespace Infrastructure.Installers
             
             Container.Bind<WindMediator>().FromNew().AsSingle().WithArguments(_battleConfig.WindData, _data.WindView,
                 _projectileInstaller.ProjectileEvents);
-            
+            BindWater();
+
             BindWeapons();
             BindWorms();
             BindUI();
@@ -61,6 +63,14 @@ namespace Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<CinemachineFollowingCamera>()
                 .FromInstance(_data.CinemachineFollowingCamera).AsSingle();
             Container.BindInterfacesAndSelfTo<FollowingCameraEventsListener>().FromNew().AsSingle();
+        }
+
+        private void BindWater()
+        {
+            _data.WaterLevelIncreaser.Init(_battleConfig.WaterStep);
+            Container.Bind<StylizedWater.Scripts.StylizedWater>().FromInstance(_data.StylizedWater).AsSingle();
+            Container.Bind<WaterLevelIncreaser>().FromInstance(_data.WaterLevelIncreaser).AsSingle();
+            Container.Bind<WaterVelocityChanger>().FromNew().AsSingle();
         }
 
         private void BindProjectile()

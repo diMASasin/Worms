@@ -84,7 +84,7 @@ namespace BattleStateMachineComponents.States
         {
             float globalTime = BattleConfig.TimersConfig.BattleTime;
             
-            _battleTimer.Start(globalTime, () => _data.Water.AllowIncreaseWaterLevel());
+            _battleTimer.Start(globalTime, () => _data.WaterLevelIncreaser.AllowIncreaseWaterLevel());
             _battleTimer.Pause();
 
             _data.GlobalTimerView.Init(_battleTimer, TimerFormattingStyle.MinutesAndSeconds);

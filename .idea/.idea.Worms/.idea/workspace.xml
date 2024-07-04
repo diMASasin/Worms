@@ -5,59 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="200a9c5f-335a-44bb-b8dc-d5d4d6152652" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Image.controller" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Image.controller.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/WormSportik.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/WormSportik.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983000.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983000.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983001.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983001.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983002.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983002.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983003.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983003.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983004.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983004.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983005.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983005.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983006.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983006.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983007.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983007.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983008.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983008.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983009.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983009.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983010.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983010.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983011.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983011.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983012.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983012.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983013.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983013.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983014.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983014.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983015.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/WormSportik/static-assets-upload1210994367179992983015.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/worm.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/worm.gif.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Water.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Water/WaterVelocityChanger.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Water/WaterVelocityChanger.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/WaterLevelIncreaser.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Explosion/BigExplosion.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Explosion/BigExplosion.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Configs/Explosion/ExplosionConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Explosion/ExplosionConfig.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Map/Background.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Map/Background.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Screens/LoadingScreen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Screens/LoadingScreen.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Configs/Explosion/FragmentExplosion.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/Explosion/FragmentExplosion.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Water.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Water.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Water.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Water.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/WindEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/WindEffect.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Worm/Worm.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Worm/Worm.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map5.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/CinemachineFollowingCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/CinemachineFollowingCamera.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCameraEventsListener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCameraEventsListener.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Configs/ExplosionConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Configs/ExplosionConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Explosion_/Explosion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Explosion_/Explosion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Rigidbody2DExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Rigidbody2DExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/LoadingScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LoadingScreen.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachineData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachineData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BetweenTurnsState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BetweenTurnsState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BootstrapBattleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BootstrapBattleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/SceneInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/SceneInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Water.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WaterLevelIncreaser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Water.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Wind_/Wind.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Wind_/Wind.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Wind_/WindMediator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Wind_/WindMediator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StylizedWater/Prefabs/StylizedWater_Desktop.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StylizedWater/Prefabs/StylizedWater_Desktop.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +43,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/WaterLevelIncreaser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.0/Editor/ClipperLib/clipper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.0/Editor/SpriteSkin/BoneGizmoToggle.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.animation@9.1.0/IK/Editor/IKEditorManager.cs" root0="SKIP_HIGHLIGHTING" />
@@ -161,7 +130,6 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/EventSystem/SelectableTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/InputField/GenericInputFieldTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Tests/Runtime/TextEditor/TextEditorTests.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/AppData/Local/Temp/77f2544382c9420293671cd0f4373acd.SourceCodeCombined.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/04145c683045449ca6ad9731c6c62f033c00/fe/c23416f6/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/27124aa0e30a41659b903b822b959bc746ac00/33/b9408ec0/Delegate.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/27124aa0e30a41659b903b822b959bc746ac00/9d/cf14307b/RuntimeMethodInfo.cs" root0="SKIP_HIGHLIGHTING" />
@@ -259,10 +227,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="10580">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="10580" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -364,6 +332,7 @@
       <workItem from="1719734243547" duration="23730000" />
       <workItem from="1719937043529" duration="9149000" />
       <workItem from="1720002833124" duration="20026000" />
+      <workItem from="1720095924765" duration="5076000" />
     </task>
     <servers />
   </component>
@@ -392,17 +361,17 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Explosion_/Explosion.cs</url>
-          <line>66</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\Explosion_\Explosion.cs" initialLine="59" containingFunctionPresentation="Method 'CalculateMultiplier'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Water/WaterVelocityChanger.cs</url>
+          <line>19</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\Water\WaterVelocityChanger.cs" initialLine="17" containingFunctionPresentation="Method 'ChangeVelocity'">
             <startOffsets>
-              <option value="2201" />
+              <option value="688" />
             </startOffsets>
             <endOffsets>
-              <option value="2219" />
+              <option value="689" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="12" />
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

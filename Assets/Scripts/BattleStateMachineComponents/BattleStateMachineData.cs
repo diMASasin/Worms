@@ -16,7 +16,7 @@ namespace BattleStateMachineComponents
     public class BattleStateMachineData : ICurrentWorm
     {
         [field: SerializeField] public CinemachineFollowingCamera CinemachineFollowingCamera { get; private set; }
-        [field: SerializeField] public Water Water { get; private set; }
+        [field: SerializeField] public WaterLevelIncreaser WaterLevelIncreaser { get; private set; }
         [field: SerializeField] public WindView WindView { get; private set; }
         [field: SerializeField] public UIChanger UIChanger { get; private set; }
         [field: SerializeField] public TimerView TurnTimerView { get; private set; }
@@ -25,6 +25,7 @@ namespace BattleStateMachineComponents
         [field: SerializeField] public BattleConfig BattleConfig { get; private set; }
         [field: SerializeField] public WeaponSelector WeaponSelector { get; private set; }
         [field: SerializeField] public EndScreen EndScreen { get; private set; }
+        [field: SerializeField] public StylizedWater.Scripts.StylizedWater StylizedWater { get; private set; }
 
         public CycledList<Team> AliveTeams { get; set; }
         

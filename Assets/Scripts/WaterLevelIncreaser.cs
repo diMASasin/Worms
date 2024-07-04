@@ -1,11 +1,12 @@
 using DG.Tweening;
 using UnityEngine;
+using Zenject;
 
-public class Water : MonoBehaviour
+public class WaterLevelIncreaser : MonoBehaviour
 {
     private float _step;
     private bool _shouldIncreaseLevel;
-
+    
     public void Init(float step)
     {
         _step = step;

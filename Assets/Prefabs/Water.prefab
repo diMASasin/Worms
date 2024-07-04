@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 8756672125503559636}
   - component: {fileID: 8756672125503559639}
   - component: {fileID: 8756672125503559638}
-  - component: {fileID: 1195175584}
+  - component: {fileID: 2332951928977781227}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ed2d2454a3a3f468520e1d2c95a672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1195175584
+--- !u!114 &2332951928977781227
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -293,7 +293,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8756672125503559633}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e0724363eb21944b81fb3a85f841af5, type: 3}
+  m_Script: {fileID: 11500000, guid: c66c5c94a96f3fb4bb4ebb2d8f19433b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2902091147969682586
@@ -421,6 +421,10 @@ PrefabInstance:
       value: 2.33
       objectReference: {fileID: 0}
     - target: {fileID: 114000011924948938, guid: 4be443cc50afcd0478e5b4d4f2f6cb53, type: 3}
+      propertyPath: currentCam
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011924948938, guid: 4be443cc50afcd0478e5b4d4f2f6cb53, type: 3}
       propertyPath: foamSolver
       value: 0
       objectReference: {fileID: 0}
@@ -502,7 +506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114000011924948938, guid: 4be443cc50afcd0478e5b4d4f2f6cb53, type: 3}
       propertyPath: waveDirectionXZ.x
-      value: 3.11
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000011924948938, guid: 4be443cc50afcd0478e5b4d4f2f6cb53, type: 3}
       propertyPath: enableVertexColors
@@ -700,7 +704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114000011924948938, guid: 4be443cc50afcd0478e5b4d4f2f6cb53, type: 3}
       propertyPath: waveStrength
-      value: 0
+      value: 0.29
       objectReference: {fileID: 0}
     - target: {fileID: 114000011924948938, guid: 4be443cc50afcd0478e5b4d4f2f6cb53, type: 3}
       propertyPath: enableDepthTex
@@ -728,7 +732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114000011924948938, guid: 4be443cc50afcd0478e5b4d4f2f6cb53, type: 3}
       propertyPath: waveDirectionXZ.x
-      value: 3.11
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000011924948938, guid: 4be443cc50afcd0478e5b4d4f2f6cb53, type: 3}
       propertyPath: enableVertexColors
