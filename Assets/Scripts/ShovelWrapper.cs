@@ -1,6 +1,5 @@
 ﻿using ScriptBoy.Digable2DTerrain.Scripts;
 using UnityEngine;
-using Zenject;
 
 public class ShovelWrapper : IShovel
 {

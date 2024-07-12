@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2cc1a06e012493685db20d42c32599f, type: 3}
   m_Name: BattleConfig
   m_EditorClassIdentifier: 
-  <InstantlyFollowingObject>k__BackingField: {fileID: 1291682954175847481, guid: b1c3910bcfe0d1347aa1c1728385f220, type: 3}
-  <SmoothlyFollowingObject>k__BackingField: {fileID: 3383447088720452358, guid: 061c632ecdaf4b74b8f0d09d83929e92, type: 3}
   <WormPrefab>k__BackingField: {fileID: 7083743622210443357, guid: 8df91cb297f60c04c9706753ea914b78, type: 3}
   <WormInfoViewPrefab>k__BackingField: {fileID: 8106106455543795105, guid: a883e5f2399ed0f4ebdc24a80c48d0ba, type: 3}
   <ArrowPrefab>k__BackingField: {fileID: 4208428713464027836, guid: 62bd5ac0d7add0c45a3c28234ef7eb77, type: 3}
@@ -23,6 +21,7 @@ MonoBehaviour:
   <TeamHealthPrefab>k__BackingField: {fileID: 9099762162616485809, guid: dd99d4230622cf74baa5bec06150583f, type: 3}
   <TeamHealthFactoryPrefab>k__BackingField: {fileID: 4352401895906262629, guid: c4f9cc677daec9e449bbbed965714137, type: 3}
   <FollowingTimerViewPrefab>k__BackingField: {fileID: 7202543109251396895, guid: cec0a7a8bfb2395459f3765209f27b92, type: 3}
+  <EndScreen>k__BackingField: {fileID: 4796240217895197643, guid: 2b921b672e9577844ad7daf76c744047, type: 3}
   <WeaponConfigs>k__BackingField:
   - {fileID: 11400000, guid: bc372e3f785a57542ad108e0380b2235, type: 2}
   - {fileID: 11400000, guid: d5a229232cfc06247bcf2ceb5b3297e2, type: 2}
@@ -34,6 +33,7 @@ MonoBehaviour:
   <TimersConfig>k__BackingField:
     <TurnDuration>k__BackingField: 9000
     <RetreatDuration>k__BackingField: 5
+    <ProjectileWaitingDuration>k__BackingField: 2
     <BetweenTurnsDuration>k__BackingField: 3
     <BattleTime>k__BackingField: 900
   <WindData>k__BackingField:

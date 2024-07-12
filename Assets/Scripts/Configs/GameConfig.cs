@@ -21,6 +21,7 @@ namespace Configs
         [field: SerializeField] public TeamHealth TeamHealthPrefab { get; private set; }
         [field: SerializeField] public TeamHealthFactory TeamHealthFactoryPrefab { get; private set; }
         [field: SerializeField] public FollowingTimerView FollowingTimerViewPrefab { get; private set; }
+        [field: SerializeField] public EndScreen EndScreen { get; private set; }
 
         [field: Header("Configs")]
         [field: SerializeField] public WeaponConfig[] WeaponConfigs { get; private set; }

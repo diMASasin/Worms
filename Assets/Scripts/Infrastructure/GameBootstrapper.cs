@@ -10,7 +10,7 @@ namespace Infrastructure
         private GameStateMachine _stateMachine;
         private static GameBootstrapper _instance;
 
-        [Inject]
+        [Inject]    
         public void Construct(GameStateMachine stateMachine)
         {
             _stateMachine = stateMachine;

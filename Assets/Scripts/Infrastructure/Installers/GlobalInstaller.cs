@@ -1,9 +1,9 @@
 using Battle_;
-using Configs;
 using GameStateMachineComponents;
 using InputService;
 using UI;
 using UnityEngine;
+using Water;
 using Weapons;
 using Zenject;
 
@@ -11,16 +11,14 @@ namespace Infrastructure.Installers
 {
     public class GlobalInstaller : MonoInstaller
     {
+        [SerializeField] private CoroutinePerformer _coroutinePerformer;
+        
         [Header("Prefabs")]
         [SerializeField] private WeaponSelectorItem _weaponSelectorItemPrefab;
         [SerializeField] private FollowingTimerView _followingTimerViewPrefab;
         [SerializeField] private MainMenu _mainMenuPrefab;
         [SerializeField] private LoadingScreen _loadingScreenPrefab;
-        
-        [Header("Configs")]
-        [SerializeField] private WeaponConfig[] _weaponConfigs;
-        
-        [SerializeField] private CoroutinePerformer _coroutinePerformer;
+        [SerializeField] private Material _stylizedWaterMaterial;
         
         private GameStateMachine _gameStateMachine;
 
@@ -29,8 +27,8 @@ namespace Infrastructure.Installers
             BindInfrastructure();
             BindGameStateMachine();
             BindInput();
-            BindConfigs();
             BindPrefabs();
+            BindWaterMaterial();
         }
 
         private void BindInfrastructure()
@@ -42,10 +40,8 @@ namespace Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<LoadingScreen>().FromComponentInNewPrefab(_loadingScreenPrefab).AsSingle();
         }
 
-        private void BindGameStateMachine()
-        {
+        private void BindGameStateMachine() => 
             Container.BindInterfacesAndSelfTo<GameStateMachine>().FromNew().AsSingle().NonLazy();
-        }
 
         private void BindInput()
         {
@@ -56,16 +52,14 @@ namespace Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<WeaponInput>().AsSingle().WithArguments(mainInput.Weapon);
             Container.BindInterfacesAndSelfTo<MovementInput>().FromNew().AsSingle();
         }
-
-        private void BindConfigs()
-        {
-            Container.BindInstance(_weaponConfigs).AsSingle();
-        }
-
+        
         private void BindPrefabs()
         {
             Container.BindInstance(_weaponSelectorItemPrefab).AsSingle();
             Container.BindInstance(_followingTimerViewPrefab).AsSingle();
         }
+
+        private void BindWaterMaterial() => 
+            Container.Bind<WaterVelocityChanger>().FromNew().AsSingle().WithArguments(_stylizedWaterMaterial);
     }
 }

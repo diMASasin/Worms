@@ -36,12 +36,12 @@ namespace Infrastructure
 
         private IEnumerator LoadScene(string name, Action onLoaded = null)
         {
-            var activeScene = SceneManager.GetActiveScene();
-            if (activeScene.name == name)
-            {
-                onLoaded?.Invoke();
-                yield break;
-            }
+            // var activeScene = SceneManager.GetActiveScene();
+            // if (activeScene.name == name)
+            // {
+            //     onLoaded?.Invoke();
+            //     yield break;
+            // }
             
             AsyncOperation waitNextScene = SceneManager.LoadSceneAsync(name);
 

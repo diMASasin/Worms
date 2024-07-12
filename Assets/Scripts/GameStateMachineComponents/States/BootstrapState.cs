@@ -1,8 +1,6 @@
-using System.ComponentModel;
 using Infrastructure;
 using InputService;
 using UI;
-using UnityEngine;
 using Weapons;
 using Zenject;
 

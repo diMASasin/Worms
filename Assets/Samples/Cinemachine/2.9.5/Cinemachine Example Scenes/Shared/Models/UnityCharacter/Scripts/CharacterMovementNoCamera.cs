@@ -1,5 +1,4 @@
-﻿using Cinemachine.Examples;
-using UnityEngine;
+﻿using UnityEngine;
 
 // WASD to move, Space to sprint
 public class CharacterMovementNoCamera : MonoBehaviour

@@ -1,23 +1,30 @@
+using Infrastructure;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using Zenject;
 
 namespace UI
 {
     public class EndScreen : MonoBehaviour
     {
-        public void Show()
-        {
-            gameObject.SetActive(true);
-        }
+        [SerializeField] private Button _button;
+        private ISceneLoader _sceneLoader;
 
-        public void Hide()
+        [Inject]
+        private void Construct(ISceneLoader sceneLoader)
         {
-            gameObject.SetActive(false);
+            _sceneLoader = sceneLoader;
         }
-    
-        public void Restart()
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+        
+        private void OnEnable() => _button.onClick.AddListener(Restart);
+
+        private void OnDisable() => _button.onClick.RemoveListener(Restart);
+
+        public void Show() => gameObject.SetActive(true);
+
+        public void Hide() => gameObject.SetActive(false);
+
+        public void Restart() => _sceneLoader.LoadBattleMap(SceneManager.GetActiveScene().buildIndex);
     }
 }

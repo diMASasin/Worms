@@ -6,7 +6,6 @@ using Spawn;
 using Timers;
 using UI;
 using UnityEngine;
-using WormComponents;
 using Zenject;
 
 namespace BattleStateMachineComponents.States

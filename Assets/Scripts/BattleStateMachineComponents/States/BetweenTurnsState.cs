@@ -49,9 +49,6 @@ namespace BattleStateMachineComponents.States
             _waterLevelIncreaser.IncreaseLevelIfAllowed();
 
             if (_currentWorm.CurrentWorm != null) _currentWorm.CurrentWorm.SetWormLayer();
-
-            if (_data.AliveTeams.Count <= 1) 
-                _battleStateSwitcher.SwitchState<BattleEndState>();
         }
 
         public void Exit()

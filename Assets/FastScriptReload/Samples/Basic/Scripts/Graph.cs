@@ -1,6 +1,5 @@
 //Example comes from https://bitbucket.org/catlikecodingunitytutorials/basics-02-building-a-graph/src/master/
 
-using System.Collections;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 

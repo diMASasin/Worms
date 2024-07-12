@@ -1,9 +1,8 @@
-using BattleStateMachineComponents.StatesData;
+using System.Collections;
 using CameraFollow;
 using Configs;
+using Infrastructure;
 using Pools;
-using Projectiles;
-using Timers;
 using UnityEngine;
 
 namespace BattleStateMachineComponents.States
@@ -11,41 +10,33 @@ namespace BattleStateMachineComponents.States
     public class ProjectilesWaiting : IBattleState
     {
         private readonly IBattleStateSwitcher _battleStateSwitcher;
-        private readonly Timer _timer;
         private readonly TimersConfig _timersConfig;
-        private BattleStateMachineData _data;
+        private readonly ICoroutinePerformer _coroutinePerformer;
         private IFollowingCamera _followingCamera;
 
-        public ProjectilesWaiting(IBattleStateSwitcher battleStateSwitcher, Timer timer, BattleStateMachineData data)
+        public ProjectilesWaiting(IBattleStateSwitcher battleStateSwitcher, BattleStateMachineData data,
+            ICoroutinePerformer coroutinePerformer)
         {
-            _data = data;
-            _timersConfig = _data.BattleConfig.TimersConfig;
+            _coroutinePerformer = coroutinePerformer;
+            _timersConfig = data.BattleConfig.TimersConfig;
             _battleStateSwitcher = battleStateSwitcher;
-            _timer = timer;
         }
 
-        public void Enter()
-        {
-            OnCountChanged(ProjectilePool.Count);
-            
-            ProjectilePool.CountChanged += OnCountChanged;
-        }
+        public void Enter() => _coroutinePerformer.StartCoroutine(SwitchStateWhenNoProjectilesWithDelay());
 
-        public void Exit() 
-        {
-            ProjectilePool.CountChanged -= OnCountChanged;
-        }
+        public void Exit() => _coroutinePerformer.StopCoroutine(SwitchStateWhenNoProjectilesWithDelay());
 
-        private void OnCountChanged(int count)
+        private IEnumerator SwitchStateWhenNoProjectilesWithDelay()
         {
-            if(count == 0 && _timer.Started == false)
-            {
-                _timer.Start(_timersConfig.ProjectileWaitingDuration, () =>
-                {
-                    if(ProjectilePool.Count == 0)
-                        _battleStateSwitcher.SwitchState<BetweenTurnsState>();
-                });
-            }
+            while (ProjectilePool.Count > 0)
+                yield return null;
+
+            yield return new WaitForSeconds(_timersConfig.ProjectileWaitingDuration);
+
+            if (ProjectilePool.Count == 0)
+                _battleStateSwitcher.SwitchState<BetweenTurnsState>();
+            else
+                _coroutinePerformer.StartCoroutine(SwitchStateWhenNoProjectilesWithDelay());
         }
     }
 }

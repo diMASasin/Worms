@@ -25,6 +25,7 @@ namespace Timers
         {
             _interval = interval;
             Stop();
+            Reset();
             Started = true;
             TimerUpdated?.Invoke(_timeLeft);
             _coroutine = _coroutinePerformer.StartCoroutine(StartTimer(onElapsed));
@@ -34,8 +35,6 @@ namespace Timers
         {
             if(_coroutine != null)
                 _coroutinePerformer.StopCoroutine(_coroutine);
-            
-            Reset();
         }
 
         public void Resume()

@@ -9,7 +9,6 @@ using Spawn;
 using Timers;
 using UI;
 using UnityEngine;
-using Water;
 using Weapons;
 using Wind_;
 using WormComponents;
@@ -30,7 +29,7 @@ namespace Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<BattleStateMachineData>().FromInstance(_data).AsSingle();
 
             BindConfigs();
-
+            
             Container.BindInstance(_data.Terrain).AsSingle();
             Container.BindInterfacesAndSelfTo<Timer>().FromNew().AsTransient();
             Container.Bind<Arrow>().FromComponentInNewPrefab(_battleConfig.ArrowPrefab).AsSingle();
@@ -40,14 +39,14 @@ namespace Infrastructure.Installers
             BindProjectile();
             BindCamera();
             
-            Container.Bind<WindMediator>().FromNew().AsSingle().WithArguments(_battleConfig.WindData, _data.WindView,
-                _projectileInstaller.ProjectileEvents);
+            BindWind();
             BindWater();
 
             BindWeapons();
             BindWorms();
             BindUI();
             BindStateMachine();
+            BindBattleEndCondition();
         }
 
         private void BindShovel()
@@ -66,12 +65,16 @@ namespace Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<FollowingCameraEventsListener>().FromNew().AsSingle();
         }
 
+        private void BindWind()
+        {
+            Container.Bind<WindMediator>().FromNew().AsSingle().WithArguments(_battleConfig.WindData, _data.WindView,
+                _projectileInstaller.ProjectileEvents);
+        }
+
         private void BindWater()
         {
             _data.WaterLevelIncreaser.Init(_battleConfig.WaterStep);
-            Container.Bind<StylizedWater.Scripts.StylizedWater>().FromInstance(_data.StylizedWater).AsSingle();
             Container.Bind<WaterLevelIncreaser>().FromInstance(_data.WaterLevelIncreaser).AsSingle();
-            Container.Bind<WaterVelocityChanger>().FromNew().AsSingle();
         }
 
         private void BindProjectile()
@@ -126,12 +129,13 @@ namespace Infrastructure.Installers
             Container.Bind<IBattleState>().To<BattleEndState>().FromNew().AsSingle();
             Container.Bind<IBattleState>().To<ExitBattleState>().FromNew().AsSingle();
 
-            Container.BindInterfacesAndSelfTo<BattleStateMachine>().FromNew().AsSingle();
+            Container.BindInterfacesAndSelfTo<DebugBattleStateMachine>().FromNew().AsSingle();
         }
 
-        private void BindUI()
-        {
-            Container.Bind<EndScreen>().FromInstance(_data.EndScreen).AsSingle();
-        }
+        private void BindUI() =>
+            Container.Bind<EndScreen>().FromComponentInNewPrefab(_data.BattleConfig.EndScreen).AsSingle();
+        
+        private void BindBattleEndCondition() => 
+            Container.BindInterfacesAndSelfTo<BattleEndCondition>().FromNew().AsSingle();
     }
 }
