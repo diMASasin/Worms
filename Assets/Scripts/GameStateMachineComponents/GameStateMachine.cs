@@ -3,7 +3,7 @@ using System.Linq;
 using Battle_;
 using GameStateMachineComponents.States;
 using Infrastructure;
-using UI;
+using _UI;
 using Zenject;
 
 namespace GameStateMachineComponents

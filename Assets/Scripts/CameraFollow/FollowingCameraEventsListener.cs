@@ -20,49 +20,43 @@ namespace CameraFollow
         private readonly IExplosionEvents _explosionEvents;
         private readonly IMovementInput _movementInput;
         private readonly ICurrentWorm _currentWorm;
-        private readonly IWeaponShotEvent _weaponShotEvent;
         private readonly ICoroutinePerformer _coroutinePerformer;
-        private float _direction;
+        private readonly IWormEvents _wormEvents;
+        private float _wormDirection;
         private Coroutine _coroutine;
         private Coroutine _stopFollowWormCoroutine;
-        private IWormEvents _wormEvents;
 
         public FollowingCameraEventsListener(IFollowingCamera followingCamera, IProjectileEvents projectileEvents,
             IExplosionEvents explosionEvents, IMovementInput movementInput, ICurrentWorm currentWorm,
-            IWeaponShotEvent weaponShotEvent, ICoroutinePerformer coroutinePerformer, IWormEvents wormEvents)
+            ICoroutinePerformer coroutinePerformer, IWormEvents wormEvents)
         {
             _wormEvents = wormEvents;
             _coroutinePerformer = coroutinePerformer;
-            _weaponShotEvent = weaponShotEvent;
             _currentWorm = currentWorm;
             _movementInput = movementInput;
             _followingCamera = followingCamera;
             _projectileEvents = projectileEvents;
             _explosionEvents = explosionEvents;
 
-            _weaponShotEvent.WeaponShot += OnWeaponShot;
             _projectileEvents.Launched += OnLaunched;
             _projectileEvents.Exploded += OnProjectileExploded;
             _explosionEvents.Exploded += OnExploded;
-            _explosionEvents.AnimationStopped += OnAnimationStopped;
             _movementInput.WalkPerformed += OnWalkPerformed;
             _wormEvents.DamageTook += OnDamageTook;
         }
 
         public void Dispose()
         {
-            _weaponShotEvent.WeaponShot -= OnWeaponShot;
             _projectileEvents.Launched -= OnLaunched;
             _projectileEvents.Exploded -= OnProjectileExploded;
             _explosionEvents.Exploded -= OnExploded;
-            _explosionEvents.AnimationStopped -= OnAnimationStopped;
             _movementInput.WalkPerformed -= OnWalkPerformed;
             _wormEvents.DamageTook -= OnDamageTook;
         }
 
         public void FollowWormIfMove()
         {
-            if (_stopFollowWormCoroutine != null)
+            if (_stopFollowWormCoroutine != null && _wormDirection != 0)
                 _coroutinePerformer.StopCoroutine(_stopFollowWormCoroutine);
             
             _coroutine = _coroutinePerformer.StartCoroutine(StartListenMovementInRetreatState());
@@ -78,50 +72,48 @@ namespace CameraFollow
 
         private void OnProjectileExploded(Projectile projectile)
         {
-            // _followingCamera.RemoveTarget(projectile.transform);
             if (_stopFollowWormCoroutine != null)
                 _coroutinePerformer.StopCoroutine(_stopFollowWormCoroutine);
         }
 
-        private void OnAnimationStopped(Explosion explosion)
-        {
-            // _followingCamera.RemoveTarget(explosion.transform);
-        }
-
-        private void OnWeaponShot(float velocity, Weapon weapon)
-        {
-            // _followingCamera.RemoveAllTargets();
-        }
-
         private void OnLaunched(Projectile projectile, Vector2 velocity)
         {
-            if(_currentWorm.CurrentWorm != null)
-                _stopFollowWormCoroutine = _coroutinePerformer.StartCoroutine(
-                    StopFollowWhenFar(_currentWorm.CurrentWorm.transform, projectile.transform));
+               if(_currentWorm.CurrentWorm != null)
+               {
+                   Transform currentWormTransform = _currentWorm.CurrentWorm.transform;
+                   
+                   _stopFollowWormCoroutine = 
+                       _coroutinePerformer.StartCoroutine(StopFollowWhenFar(currentWormTransform, projectile.transform));
+               }
 
-            _followingCamera.SetTarget(projectile.transform);
+               _followingCamera.SetTarget(projectile.transform);
         }
 
         private void OnExploded(Explosion explosion) => _followingCamera.SetTarget(explosion.transform);
 
         private void OnWalkPerformed(float direction)
         {
-            _direction = direction;
+            _wormDirection = direction;
         }
 
         private IEnumerator StopFollowWhenFar(Transform target1, Transform target2)
         {
-            int projectileWormDistance = 10;
-            while (target1 != null && target2 != null && 
-                   Vector3.Distance(target1.transform.position, target2.position) < projectileWormDistance)
+            float projectileWormDistance = 10f;
+            float distance;
+            
+            do
+            {
+                distance = Vector3.Distance(target1.transform.position, target2.position);
                 yield return null;
+            }
+            while (target1 != null && target2 != null && distance < projectileWormDistance);
 
             _followingCamera.RemoveTarget(target1);
         }
 
         private IEnumerator StartListenMovementInRetreatState()
         {
-            while (_direction == 0)
+            while (_wormDirection == 0)
                 yield return null;
 
             Debug.Log($"shish");

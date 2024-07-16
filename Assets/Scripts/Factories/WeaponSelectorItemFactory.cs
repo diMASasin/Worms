@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using EventProviders;
-using UI;
+using _UI;
 using UnityEngine;
 using Weapons;
 using static UnityEngine.Object;

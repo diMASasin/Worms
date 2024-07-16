@@ -1,6 +1,6 @@
 using Infrastructure;
 using InputService;
-using UI;
+using _UI;
 using Weapons;
 using Zenject;
 

@@ -60,7 +60,7 @@ namespace BattleStateMachineComponents.States
             CurrentWorm = _data.CurrentTeam.Worms.Next();
             
             CurrentWorm.DelegateInput(_movementInput);
-            _data.WeaponSelector.AllowOpen();
+            _data.UI.WeaponSelector.AllowOpen();
 
             _arrow.StartMove(CurrentWorm.Transform);
             
@@ -79,8 +79,8 @@ namespace BattleStateMachineComponents.States
             TurnTimer.Stop();
             BattleTimer.Pause();
             
-            _data.WeaponSelector.DisallowOpen();
-            _data.WeaponSelector.CloseIfOpened();
+            _data.UI.WeaponSelector.DisallowOpen();
+            _data.UI.WeaponSelector.CloseIfOpened();
             _arrow.Disable();
             
             CurrentWorm.RemoveInput();

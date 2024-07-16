@@ -431,7 +431,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 84.16, y: -62}
+  m_AnchoredPosition: {x: 84.15991, y: -62}
   m_SizeDelta: {x: 83.54004, y: 65.377014}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7890893575103551886
@@ -723,11 +723,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585b17ca213b4d5c945142620508cf39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _config: {fileID: 11400000, guid: 7ad449a37fad0f2418f933c3dab936c9, type: 2}
-  _weaponSelectorImage: {fileID: 3189838324816993377}
-  _turnTimerImage: {fileID: 484738345078681874}
-  _globalTimerImage: {fileID: 347943929}
-  _windViewImage: {fileID: 2518413626881536538}
+  <WeaponSelector>k__BackingField: {fileID: 4979374645419107134}
+  <BattleTimerView>k__BackingField: {fileID: 1280309976191796596}
+  <TurnTimerView>k__BackingField: {fileID: 6701445921326478138}
+  <WindView>k__BackingField: {fileID: 2348711154579064942}
 --- !u!1 &2698392352142729773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1533,7 +1532,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.09561437}
   m_AnchorMax: {x: 0, y: 0.09561437}
-  m_AnchoredPosition: {x: 287.6952, y: -34.31598}
+  m_AnchoredPosition: {x: 287.69507, y: -34.31604}
   m_SizeDelta: {x: 240.593, y: 56.424}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2695356376020215378
@@ -1624,7 +1623,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.09561437}
   m_AnchorMax: {x: 0, y: 0.09561437}
-  m_AnchoredPosition: {x: 104.890015, y: -0.027954102}
+  m_AnchoredPosition: {x: 104.88989, y: -0.027954102}
   m_SizeDelta: {x: 125, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3168566748854220583
@@ -1989,6 +1988,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4979374645419107134 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2896658108936449276, guid: 08ddb906397a87840b11627179340625, type: 3}
+  m_PrefabInstance: {fileID: 7865736758802223042}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ba604a5049634e47a5a3ce0813cb3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &8100309700855796054 stripped

@@ -1,6 +1,6 @@
 using Factories;
 using ScriptBoy.Digable2DTerrain.Scripts;
-using UI;
+using _UI;
 using UnityEngine;
 using Weapons;
 using Wind_;

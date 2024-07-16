@@ -35,4 +35,4 @@ MonoBehaviour:
   <ExplodeOnCollision>k__BackingField: 0
   <FragmentsAmount>k__BackingField: 5
   <FragmentsDamage>k__BackingField: 10
-  <FragmentsConfig>k__BackingField: {fileID: 11400000, guid: 43822e07ea1144f4782473220d8b464b, type: 2}
+  <FragmentsConfig>k__BackingField: {fileID: 0}

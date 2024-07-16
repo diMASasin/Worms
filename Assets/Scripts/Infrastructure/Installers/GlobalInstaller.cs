@@ -1,7 +1,7 @@
 using Battle_;
 using GameStateMachineComponents;
 using InputService;
-using UI;
+using _UI;
 using UnityEngine;
 using Water;
 using Weapons;

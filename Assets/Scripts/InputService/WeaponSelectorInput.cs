@@ -2,7 +2,7 @@ using System;
 using UnityEngine.InputSystem;
 using Zenject;
 
-namespace UI
+namespace _UI
 {
     class WeaponSelectorInput : IWeaponSelectorInput, IInitializable, IDisposable
     {

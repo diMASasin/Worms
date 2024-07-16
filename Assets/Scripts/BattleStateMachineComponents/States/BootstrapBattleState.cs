@@ -4,7 +4,7 @@ using Factories;
 using ScriptBoy.Digable2DTerrain.Scripts;
 using Spawn;
 using Timers;
-using UI;
+using _UI;
 using UnityEngine;
 using Zenject;
 
@@ -70,7 +70,7 @@ namespace BattleStateMachineComponents.States
 
         private void CreateTeamHealth()
         {
-            Transform teamHealthParent = _data.UIChanger.transform;
+            Transform teamHealthParent = _data.UI.transform;
             TeamHealthFactory teamHealthPrefab = BattleConfig.TeamHealthFactoryPrefab;
             
             var factory = _container.InstantiatePrefabForComponent<TeamHealthFactory>(teamHealthPrefab, teamHealthParent);
@@ -86,8 +86,8 @@ namespace BattleStateMachineComponents.States
             _battleTimer.Start(globalTime, () => _data.WaterLevelIncreaser.AllowIncreaseWaterLevel());
             _battleTimer.Pause();
 
-            _data.GlobalTimerView.Init(_battleTimer, TimerFormattingStyle.MinutesAndSeconds);
-            _data.TurnTimerView.Init(_data.TurnTimer, TimerFormattingStyle.Seconds);
+            _data.UI.BattleTimerView.Init(_battleTimer, TimerFormattingStyle.MinutesAndSeconds);
+            _data.UI.TurnTimerView.Init(_data.TurnTimer, TimerFormattingStyle.Seconds);
         }
 
         public void Exit()

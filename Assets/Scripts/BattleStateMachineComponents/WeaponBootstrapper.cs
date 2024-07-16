@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Configs;
 using EventProviders;
 using Factories;
-using UI;
+using _UI;
 using UnityEngine;
 using Weapons;
 using Zenject;

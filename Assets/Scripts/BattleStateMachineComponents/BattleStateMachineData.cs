@@ -4,7 +4,7 @@ using CameraFollow;
 using Configs;
 using DestructibleLand;
 using Timers;
-using UI;
+using _UI;
 using UnityEngine;
 using Wind_;
 using WormComponents;
@@ -16,13 +16,9 @@ namespace BattleStateMachineComponents
     {
         [field: SerializeField] public CinemachineFollowingCamera CinemachineFollowingCamera { get; private set; }
         [field: SerializeField] public WaterLevelIncreaser WaterLevelIncreaser { get; private set; }
-        [field: SerializeField] public WindView WindView { get; private set; }
-        [field: SerializeField] public UIChanger UIChanger { get; private set; }
-        [field: SerializeField] public TimerView TurnTimerView { get; private set; }
-        [field: SerializeField] public TimerView GlobalTimerView { get; private set; }
+        [field: SerializeField] public UI UI { get; private set; }
         [field: SerializeField] public TerrainWrapper Terrain { get; private set; }
         [field: SerializeField] public BattleConfig BattleConfig { get; private set; }
-        [field: SerializeField] public WeaponSelector WeaponSelector { get; private set; }
 
         public CycledList<Team> AliveTeams { get; set; }
         

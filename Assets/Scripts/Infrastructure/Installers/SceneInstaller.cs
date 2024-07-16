@@ -7,7 +7,7 @@ using Factories;
 using ScriptBoy.Digable2DTerrain.Scripts;
 using Spawn;
 using Timers;
-using UI;
+using _UI;
 using UnityEngine;
 using Weapons;
 using Wind_;
@@ -67,7 +67,7 @@ namespace Infrastructure.Installers
 
         private void BindWind()
         {
-            Container.Bind<WindMediator>().FromNew().AsSingle().WithArguments(_battleConfig.WindData, _data.WindView,
+            Container.Bind<WindMediator>().FromNew().AsSingle().WithArguments(_battleConfig.WindData, _data.UI.WindView,
                 _projectileInstaller.ProjectileEvents);
         }
 
@@ -101,11 +101,11 @@ namespace Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<WeaponFactory>().FromNew().AsSingle()
                 .WithArguments(_projectileInstaller.ProjectilePools, weaponsParent, _battleConfig.WeaponConfigs);
             
-            Container.BindInterfacesAndSelfTo<WeaponSelector>().FromInstance(_data.WeaponSelector).AsSingle();
+            Container.BindInterfacesAndSelfTo<WeaponSelector>().FromInstance(_data.UI.WeaponSelector).AsSingle();
             Container.BindInterfacesAndSelfTo<WeaponChanger>().FromNew().AsSingle().WithArguments(weaponsParent);
             
             Container.BindInterfacesAndSelfTo<WeaponSelectorItemFactory>().FromNew().AsSingle()
-                .WithArguments(_battleConfig.ItemPrefab, _data.WeaponSelector.ItemParent);
+                .WithArguments(_battleConfig.ItemPrefab, _data.UI.WeaponSelector.ItemParent);
         }
 
         private void BindWorms()
@@ -129,7 +129,7 @@ namespace Infrastructure.Installers
             Container.Bind<IBattleState>().To<BattleEndState>().FromNew().AsSingle();
             Container.Bind<IBattleState>().To<ExitBattleState>().FromNew().AsSingle();
 
-            Container.BindInterfacesAndSelfTo<DebugBattleStateMachine>().FromNew().AsSingle();
+            Container.BindInterfacesAndSelfTo<BattleStateMachine>().FromNew().AsSingle();
         }
 
         private void BindUI() =>
