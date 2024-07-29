@@ -110,7 +110,7 @@ Material:
     - _Unlit: 0
     - _UseIntersectionFoam: 0
     - _WaveFoam: 0.72
-    - _WaveHeight: 0.8
+    - _WaveHeight: 0.4
     - _WaveSize: 10
     - _Wavesspeed: 5
     - _Wavetint: 0.374
@@ -123,5 +123,5 @@ Material:
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _WaterColor: {r: 0.46570867, g: 1.3453807, b: 1.9766746, a: 0}
     - _WaterShallowColor: {r: 0.27058825, g: 1, b: 0.8798174, a: 1}
-    - _WaveDirection: {r: 0.8, g: 0, b: 0, a: 0}
+    - _WaveDirection: {r: -0.4, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

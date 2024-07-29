@@ -25,7 +25,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilReadMask: 1
+    - _StencilWriteMask: 0
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!114 &11400000
