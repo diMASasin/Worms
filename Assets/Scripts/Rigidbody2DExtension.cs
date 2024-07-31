@@ -35,7 +35,7 @@ public static class Rigidbody2DExtension
         direction.y *= upwardsModifier;
         direction.Normalize();
 
-        float clampedMultiplier = Mathf.Clamp(forceMultiplier, 0.5f, 1);
+        float clampedMultiplier = Mathf.Clamp(forceMultiplier, 0.3f, 1);
         Vector3 newExplosionForce = direction * explosionForce * clampedMultiplier;
         
         Debug.Log($"clampedMultiplier: {clampedMultiplier}");

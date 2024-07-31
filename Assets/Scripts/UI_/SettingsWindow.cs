@@ -29,7 +29,7 @@ namespace _UI
             _sceneLoader = sceneLoader;
         }
 
-        private void Awake()
+        private void Start()
         {
             _itemFactory.Create();
         }

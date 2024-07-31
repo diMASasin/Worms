@@ -41,12 +41,7 @@ namespace Explosion_
             }
         }
 
-        private int CalculateDamage(int maxDamage, float multiplier)
-        {
-            // if (multiplier >= 0.8f)
-            //     multiplier = 1;
-            return Convert.ToInt32(maxDamage * multiplier);
-        }
+        private int CalculateDamage(int maxDamage, float multiplier) => Convert.ToInt32(maxDamage * multiplier);
 
         private float CalculateMultiplier(Worm worm)
         {
@@ -57,6 +52,8 @@ namespace Explosion_
             float multiplier = (_config.ExplosionRadius - distance) / _config.ExplosionRadius;
         
             multiplier = Mathf.Abs(multiplier);
+            multiplier = Mathf.Clamp01(multiplier);
+            
             return multiplier;
         }
 

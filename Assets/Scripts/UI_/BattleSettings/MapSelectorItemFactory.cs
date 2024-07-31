@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using _UI.BattleSettings;
 using UnityEngine;
 using UnityEngine.UI;
@@ -32,6 +33,8 @@ public class MapSelectorItemFactory : IDisposable
             
             itemView.LevelSelected += OnLevelSelected;
         } 
+        
+        OnLevelSelected(_mapSelectorConfig.MapSelectorItems.First());
     }
 
     private void OnLevelSelected(MapSelectorItem mapSelectorItem) => LevelSelected?.Invoke(mapSelectorItem);
