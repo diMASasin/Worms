@@ -102,7 +102,7 @@ namespace WormComponents
             _isDied = true;
             _playerMain.PlayerData.Physics.died = true;
             Died?.Invoke(this);
-            Destroy(gameObject, 1);
+            Destroy(gameObject);
         }
     }
 }

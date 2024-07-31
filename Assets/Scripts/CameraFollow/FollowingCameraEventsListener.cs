@@ -116,7 +116,6 @@ namespace CameraFollow
             while (_wormDirection == 0)
                 yield return null;
 
-            Debug.Log($"shish");
             _followingCamera.RemoveAllTargets();
             yield return null;
             _followingCamera.SetTarget(_currentWorm.CurrentWorm.transform);

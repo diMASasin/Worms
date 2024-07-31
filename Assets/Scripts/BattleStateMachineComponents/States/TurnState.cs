@@ -1,3 +1,4 @@
+using _UI.Message;
 using CameraFollow;
 using Configs;
 using EventProviders;
@@ -24,6 +25,7 @@ namespace BattleStateMachineComponents.States
         private IFollowingCamera _followingCamera;
         private IExplosionEvents _explosionEvents;
         private readonly FollowingCameraEventsListener _followingCameraEventsListener;
+        private IMessageShower _messageShower;
 
         private TimersConfig TimersConfig => _data.BattleConfig.TimersConfig;
         private Timer BattleTimer => _data.BattleTimer;
@@ -40,8 +42,9 @@ namespace BattleStateMachineComponents.States
         [Inject]
         public void Construct(IBattleStateSwitcher battleStateSwitcher, BattleStateMachineData data, IMovementInput movementInput, 
             Arrow arrow, IWormEvents wormEvents, IProjectileEvents allProjectileEvents, IWeaponShotEvent weaponShotEvent,
-            WeaponChanger weaponChanger, IFollowingCamera followingCamera, IExplosionEvents explosionEvents)
+            WeaponChanger weaponChanger, IFollowingCamera followingCamera, IExplosionEvents explosionEvents, IMessageShower messageShower)
         {
+            _messageShower = messageShower;
             _explosionEvents = explosionEvents;
             _followingCamera = followingCamera;
             _weaponChanger = weaponChanger;
@@ -69,6 +72,7 @@ namespace BattleStateMachineComponents.States
             
             BattleTimer.Resume();
             TurnTimer.Start(TimersConfig.TurnDuration, OnTimerElapsed);
+            _messageShower.AppearTurnStartedText();
             
             _wormEvents.WormDied += OnWormDied;
             _weaponShotEvent.WeaponShot += OnWeaponShot;

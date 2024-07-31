@@ -12,17 +12,22 @@ namespace BattleStateMachineComponents.States
         private readonly IBattleStateSwitcher _battleStateSwitcher;
         private readonly TimersConfig _timersConfig;
         private readonly ICoroutinePerformer _coroutinePerformer;
-        private IFollowingCamera _followingCamera;
+        private readonly IFollowingCamera _followingCamera;
 
         public ProjectilesWaiting(IBattleStateSwitcher battleStateSwitcher, BattleStateMachineData data,
-            ICoroutinePerformer coroutinePerformer)
+            ICoroutinePerformer coroutinePerformer, IFollowingCamera followingCamera)
         {
+            _followingCamera = followingCamera;
             _coroutinePerformer = coroutinePerformer;
             _timersConfig = data.BattleConfig.TimersConfig;
             _battleStateSwitcher = battleStateSwitcher;
         }
 
-        public void Enter() => _coroutinePerformer.StartCoroutine(SwitchStateWhenNoProjectilesWithDelay());
+        public void Enter()
+        {
+            _followingCamera.MoveToGeneralView();
+            _coroutinePerformer.StartCoroutine(SwitchStateWhenNoProjectilesWithDelay());
+        }
 
         public void Exit() => _coroutinePerformer.StopCoroutine(SwitchStateWhenNoProjectilesWithDelay());
 

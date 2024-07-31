@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6bf9f39f3404a02b23ec86748a8af80, type: 3}
+  m_Name: MessagesConfig
+  m_EditorClassIdentifier: 
+  <TurnStartedText>k__BackingField: Turn started!
+  <GetReadyText>k__BackingField: Get ready!
+  <WormDiedText>k__BackingField: Worm died

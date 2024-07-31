@@ -8,6 +8,7 @@ using ScriptBoy.Digable2DTerrain.Scripts;
 using Spawn;
 using Timers;
 using _UI;
+using _UI.Message;
 using UnityEngine;
 using Weapons;
 using Wind_;
@@ -132,9 +133,17 @@ namespace Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<BattleStateMachine>().FromNew().AsSingle();
         }
 
-        private void BindUI() =>
-            Container.Bind<EndScreen>().FromComponentInNewPrefab(_data.BattleConfig.EndScreen).AsSingle();
-        
+        private void BindUI()
+        {
+            MessageShower messageShower = _data.BattleConfig.MessageShower;
+            Transform uiTransform = _data.UI.transform;
+            EndScreen endScreen = _data.BattleConfig.EndScreen;
+
+            Container.Bind<EndScreen>().FromComponentInNewPrefab(endScreen).UnderTransform(uiTransform).AsSingle();
+            Container.BindInterfacesAndSelfTo<MessageShower>().FromComponentInNewPrefab(messageShower)
+                .UnderTransform(uiTransform).AsSingle().NonLazy();
+        }
+
         private void BindBattleEndCondition() => 
             Container.BindInterfacesAndSelfTo<BattleEndCondition>().FromNew().AsSingle();
     }

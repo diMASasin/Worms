@@ -1,6 +1,7 @@
 using Factories;
 using ScriptBoy.Digable2DTerrain.Scripts;
 using _UI;
+using _UI.Message;
 using UnityEngine;
 using Weapons;
 using Wind_;
@@ -22,6 +23,7 @@ namespace Configs
         [field: SerializeField] public TeamHealthFactory TeamHealthFactoryPrefab { get; private set; }
         [field: SerializeField] public FollowingTimerView FollowingTimerViewPrefab { get; private set; }
         [field: SerializeField] public EndScreen EndScreen { get; private set; }
+        [field: SerializeField] public MessageShower MessageShower { get; private set; }
 
         [field: Header("Configs")]
         [field: SerializeField] public WeaponConfig[] WeaponConfigs { get; private set; }
