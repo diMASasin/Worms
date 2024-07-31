@@ -41,4 +41,6 @@ MonoBehaviour:
     <MaxVelocity>k__BackingField: 2
     <Step>k__BackingField: 0.2
     <Particles>k__BackingField: {fileID: 8523291324952701285, guid: 382e462eac896a746a15c2defeec52bd, type: 3}
+  <WaterMaterial>k__BackingField: {fileID: 2100000, guid: d3ca6282b88e2f846918aab1de768c5c, type: 2}
   <WaterStep>k__BackingField: 1
+  <MaxWaveHeight>k__BackingField: 0.5

@@ -18,6 +18,7 @@ namespace BattleStateMachineComponents
         [field: SerializeField] public WaterLevelIncreaser WaterLevelIncreaser { get; private set; }
         [field: SerializeField] public UI UI { get; private set; }
         [field: SerializeField] public TerrainWrapper Terrain { get; private set; }
+        [field: SerializeField] public ParticleSystem WindEffect { get; private set; }
         [field: SerializeField] public BattleConfig BattleConfig { get; private set; }
 
         public CycledList<Team> AliveTeams { get; set; }

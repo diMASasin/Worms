@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 namespace Wind_
 {
-    public class WindEffect
+    public class WindEffect : IDisposable
     {
         private readonly Wind _wind;
         private readonly ParticleSystem _particleSystem;
@@ -15,15 +17,15 @@ namespace Wind_
             _wind.VelocityChanged += OnVelocityChanged;
         }
 
-        private void OnDestroy()
+        public void Dispose()
         {
             if (_wind != null) _wind.VelocityChanged -= OnVelocityChanged;
         }
 
         private void OnVelocityChanged(float velocity)
         {
-            var velocityOverLifetime = _particleSystem.velocityOverLifetime;
-            velocityOverLifetime.x = -velocity;
+            VelocityOverLifetimeModule velocityOverLifetime = _particleSystem.velocityOverLifetime;
+            velocityOverLifetime.xMultiplier = velocity;
         }
     }
 }

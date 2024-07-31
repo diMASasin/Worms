@@ -10,6 +10,7 @@ using Timers;
 using _UI;
 using _UI.Message;
 using UnityEngine;
+using Water;
 using Weapons;
 using Wind_;
 using WormComponents;
@@ -68,14 +69,16 @@ namespace Infrastructure.Installers
 
         private void BindWind()
         {
-            Container.Bind<WindMediator>().FromNew().AsSingle().WithArguments(_battleConfig.WindData, _data.UI.WindView,
-                _projectileInstaller.ProjectileEvents);
+            Container.Bind<WindMediator>().FromNew().AsSingle().WithArguments(_battleConfig.WindSettings, _data.UI.WindView,
+                _projectileInstaller.ProjectileEvents, _data.WindEffect);
         }
 
         private void BindWater()
         {
             _data.WaterLevelIncreaser.Init(_battleConfig.WaterStep);
             Container.Bind<WaterLevelIncreaser>().FromInstance(_data.WaterLevelIncreaser).AsSingle();
+            Container.Bind<WaterVelocityChanger>().FromNew().AsSingle()
+                .WithArguments(_battleConfig.WaterMaterial, _battleConfig.MaxWaveHeight);
         }
 
         private void BindProjectile()

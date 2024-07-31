@@ -34,9 +34,12 @@ namespace Configs
         [field: SerializeField] public TimersConfig TimersConfig { get; private set; } = new();
         
         [field: Header("Wind")]
-        [field: SerializeField] public WindData WindData { get; private set; }
+        [field: SerializeField] public WindSettings WindSettings { get; private set; }
         [field: Header("Water")]
+        [field: SerializeField] public Material WaterMaterial { get; private set; }
         [field: SerializeField] public float WaterStep { get; private set; } = 1;
+
+        [field: SerializeField, Range(0, 1)] public float MaxWaveHeight { get; private set; } = 0.5f;
 
     }
 }

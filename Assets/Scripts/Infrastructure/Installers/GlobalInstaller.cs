@@ -18,7 +18,6 @@ namespace Infrastructure.Installers
         [SerializeField] private FollowingTimerView _followingTimerViewPrefab;
         [SerializeField] private MainMenu _mainMenuPrefab;
         [SerializeField] private LoadingScreen _loadingScreenPrefab;
-        [SerializeField] private Material _stylizedWaterMaterial;
         
         private GameStateMachine _gameStateMachine;
 
@@ -28,7 +27,6 @@ namespace Infrastructure.Installers
             BindGameStateMachine();
             BindInput();
             BindPrefabs();
-            BindWaterMaterial();
         }
 
         private void BindInfrastructure()
@@ -58,8 +56,5 @@ namespace Infrastructure.Installers
             Container.BindInstance(_weaponSelectorItemPrefab).AsSingle();
             Container.BindInstance(_followingTimerViewPrefab).AsSingle();
         }
-
-        private void BindWaterMaterial() => 
-            Container.Bind<WaterVelocityChanger>().FromNew().AsSingle().WithArguments(_stylizedWaterMaterial);
     }
 }

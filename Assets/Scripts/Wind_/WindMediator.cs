@@ -13,12 +13,12 @@ namespace Wind_
 
         private readonly List<Projectile> _projectilesUnderInfluence = new();
 
-        public WindMediator(WindData data, WindView windView, IProjectileEvents projectileEvents)
+        public WindMediator(WindSettings settings, WindView windView, IProjectileEvents projectileEvents, ParticleSystem windEffect)
         {
             _projectileEvents = projectileEvents;
 
-            Wind = new Wind(data.MaxVelocity, data.Step);
-            new WindEffect(Wind, data.Particles);
+            Wind = new Wind(settings.MaxVelocity, settings.Step);
+            new WindEffect(Wind, windEffect);
             windView.Init(Wind);
             
             _projectileEvents.Launched += InfluenceOnProjectileIfNecessary;

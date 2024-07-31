@@ -5,63 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="200a9c5f-335a-44bb-b8dc-d5d4d6152652" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Gradient.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Gradient/Appear.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Gradient/Appear.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Gradient/Disappear.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Gradient/Disappear.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Gradient/Gradient.controller" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Gradient/Gradient.controller.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Gradient/Idle.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Gradient/Idle.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Message.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Message/Appear.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Message/Appear.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Message/Disappear.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Message/Disappear.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Message/Idle.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Message/Idle.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Message/Message.controller" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/UI/Message/Message.controller.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Configs/UI/MessagesConfig.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Configs/UI/MessagesConfig.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Message.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Message.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/MessageShower.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/MessageShower.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI_/Message.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI_/Message/IMessageShower.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI_/Message/IMessageShower.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI_/Message/MessageFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI_/Message/MessageFactory.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI_/Message/MessageShower.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI_/Message/MessageShower.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI_/Message/MessageView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI_/Message/MessageView.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI_/Message/MessagesConfig.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI_/Message/MessagesConfig.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/UI/Gradient.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/UI/Gradient.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/UI/Window/Default.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/UI/Window/Default.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/UI/Window/Hide.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/UI/Window/Hide.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/UI/Window/Show.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/UI/Window/Show.anim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Configs/BattleConfig.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Configs/BattleConfig.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/Water.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Water.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Canvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/TeamsHealthFactory.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/TeamsHealthFactory.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Water.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Water.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/WindEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/WindEffect.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BetweenTurnsState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BetweenTurnsState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/ProjectilesWaiting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/ProjectilesWaiting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCameraEventsListener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCameraEventsListener.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Configs/GameConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Configs/GameConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/TeamHealthFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/TeamHealthFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachineData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachineData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Configs/GameConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Configs/BattleConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Configs/GameConfig.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Configs/BattleConfig.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/GlobalInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/GlobalInstaller.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/SceneInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/Installers/SceneInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Water/WaterVelocityChanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Water/WaterVelocityChanger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Wind_/WindData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Wind_/WindSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Wind_/WindData.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Wind_/WindSettings.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Wind_/WindEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Wind_/WindEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Wind_/WindMediator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Wind_/WindMediator.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,10 +228,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="10912">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="10912" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -389,6 +348,7 @@
       <workItem from="1722165130092" duration="698000" />
       <workItem from="1722239253410" duration="14573000" />
       <workItem from="1722343082484" duration="5134000" />
+      <workItem from="1722416771382" duration="7688000" />
     </task>
     <servers />
   </component>
@@ -429,17 +389,17 @@
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCameraEventsListener.cs</url>
-          <line>59</line>
-          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\CameraFollow\FollowingCameraEventsListener.cs" initialLine="65" containingFunctionPresentation="Method 'FollowWormIfMove'">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Wind_/WindEffect.cs</url>
+          <line>30</line>
+          <properties documentPath="C:\Unity Projects\Worms\Assets\Scripts\Wind_\WindEffect.cs" initialLine="26" containingFunctionPresentation="Method 'OnVelocityChanged'">
             <startOffsets>
-              <option value="2277" />
+              <option value="854" />
             </startOffsets>
             <endOffsets>
-              <option value="2337" />
+              <option value="855" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="39" />
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
