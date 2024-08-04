@@ -1,5 +1,6 @@
 using System;
 using Configs;
+using InputService;
 using UnityEngine;
 
 namespace Weapons

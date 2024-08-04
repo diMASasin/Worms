@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Cinemachine.Examples
+namespace Samples.Cinemachine._2._9._5.Cinemachine_Example_Scenes.Shared.Scripts
 {
     /// <summary>
     /// Moves transform between minY and maxY with the specified speed.

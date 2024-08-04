@@ -1,4 +1,6 @@
 #if UNITY_EDITOR
+using Gaskellgames.Folder_System.Resources.Scripts;
+using Gaskellgames.Shared_Resources.Utilities.ProjectUtility;
 using UnityEditor;
 using UnityEngine;
 

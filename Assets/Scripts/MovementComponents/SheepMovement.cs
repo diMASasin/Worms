@@ -7,7 +7,7 @@ namespace MovementComponents
     {
         [SerializeField] private float _jumpInterval = 2;
 
-        private Timer _jumpTimer;
+        private ITimer _jumpTimer;
         
         private Vector3 _overlapPoint;
         private Vector3 _overlapBoxSize;

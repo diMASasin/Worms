@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Projectiles.Behaviours.LaunchBehaviour
+namespace Projectiles.Behaviours.Components
 {
     public class ProjectileRotator : MonoBehaviour
     {

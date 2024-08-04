@@ -1,8 +1,15 @@
 using System;
-using Infrastructure;
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Essentials.Custom_Attributes;
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Essentials.Extensions;
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Input_System.InputManager;
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System;
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.Base_States;
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.Child_States;
+using Infrastructure.Interfaces;
+using Timers;
 using UnityEngine;
 
-namespace UltimateCC
+namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts
 {
     public class PlayerMain : MonoBehaviour, ICoroutinePerformer
     {
@@ -36,7 +43,7 @@ namespace UltimateCC
             // In this section, we assign all states
             _stateMachine = new PlayerStateMachine();
             IdleState = new PlayerIdleState(this, _stateMachine, AnimName.Idle, PlayerData);
-            AttackedState = new PlayerAttackedState(this, _stateMachine, AnimName.Jump, PlayerData);
+            AttackedState = new PlayerAttackedState(this, _stateMachine, AnimName.Jump, PlayerData, new UniTaskTimer());
             WalkState = new PlayerWalkState(this, _stateMachine, AnimName.Walk, PlayerData);
             JumpState = new PlayerJumpState(this, _stateMachine, AnimName.Jump, PlayerData);
             LandState = new PlayerLandState(this, _stateMachine, AnimName.Land, PlayerData);
@@ -88,7 +95,7 @@ namespace UltimateCC
                 return;
             
             Gizmos.DrawSphere(PlayerData.Physics.GroundCheckPosition + new Vector2(0, -0.1f),
-                CapsuleCollider2D.size.x / 1.9f * Mathf.Abs(transform.localScale.x));
+                CapsuleCollider2D.size.x / 1.95f * Mathf.Abs(transform.localScale.x));
         }
     }
 }

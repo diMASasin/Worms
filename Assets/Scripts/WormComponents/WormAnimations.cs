@@ -1,4 +1,4 @@
-using UltimateCC;
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Input_System.InputManager;
 using UnityEngine;
 
 namespace WormComponents

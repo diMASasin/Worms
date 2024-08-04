@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _UI.Message
+namespace UI_.Message
 {
     [CreateAssetMenu(fileName = "MessagesConfig", menuName = "Config/Messages", order = 0)]
     public class MessagesConfig : ScriptableObject

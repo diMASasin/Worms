@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using static UnityEngine.Object;
 
-namespace _UI.Message
+namespace UI_.Message
 {
     [Serializable]
     public class MessageFactory

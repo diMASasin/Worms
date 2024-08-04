@@ -1,11 +1,12 @@
 using Battle_;
-using Infrastructure;
+using Infrastructure.Interfaces;
 using TMPro;
+using UI_.BattleSettings;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace _UI
+namespace UI_
 {
     public class SettingsWindow : MonoBehaviour
     {

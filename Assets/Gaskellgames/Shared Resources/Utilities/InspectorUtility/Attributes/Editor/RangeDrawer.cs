@@ -1,6 +1,7 @@
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
+using RangeAttribute = Gaskellgames.Shared_Resources.Utilities.InspectorUtility.Attributes.RangeAttribute;
 
 /// <summary>
 /// Code created by Gaskellgames

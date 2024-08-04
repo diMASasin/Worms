@@ -1,9 +1,7 @@
-using UnityEngine;
-#if UNITY_EDITOR
 using UnityEditor;
-#endif
+using UnityEngine;
 
-namespace UltimateCC
+namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Essentials.Custom_Attributes
 {
     public class InformAttribute : PropertyAttribute
     {

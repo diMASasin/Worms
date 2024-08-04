@@ -1,9 +1,12 @@
 using System;
 using UnityEngine;
 
-[Serializable]
-public class MapSelectorItem
+namespace UI_.BattleSettings
 {
-    [field: SerializeField] public string Name { get; private set; } = "Map";
-    [field: SerializeField] public Sprite Sprite { get; private set; }
+    [Serializable]
+    public class MapSelectorItem
+    {
+        [field: SerializeField] public string Name { get; private set; } = "Map";
+        [field: SerializeField] public Sprite Sprite { get; private set; }
+    }
 }

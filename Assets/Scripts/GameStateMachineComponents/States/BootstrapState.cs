@@ -1,7 +1,6 @@
-using Infrastructure;
+using Infrastructure.Interfaces;
 using InputService;
-using _UI;
-using Weapons;
+using UI_;
 using Zenject;
 
 namespace GameStateMachineComponents.States

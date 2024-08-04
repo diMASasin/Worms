@@ -1,7 +1,7 @@
 #if UNITY_EDITOR
 using UnityEngine;
 
-namespace Gaskellgames
+namespace Gaskellgames.Shared_Resources
 {
     public class Comment : MonoBehaviour
     {

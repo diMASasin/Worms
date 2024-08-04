@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Cinemachine.Examples
+namespace Samples.Cinemachine._2._9._5.Cinemachine_Example_Scenes.Scenes._3rdPersonWithAimMode
 {
     public class ActivateOnKeypress : MonoBehaviour
     {
@@ -8,12 +8,12 @@ namespace Cinemachine.Examples
         public int PriorityBoostAmount = 10;
         public GameObject Reticle;
 
-        Cinemachine.CinemachineVirtualCameraBase vcam;
+        global::Cinemachine.CinemachineVirtualCameraBase vcam;
         bool boosted = false;
 
         void Start()
         {
-            vcam = GetComponent<Cinemachine.CinemachineVirtualCameraBase>();
+            vcam = GetComponent<global::Cinemachine.CinemachineVirtualCameraBase>();
         }
 
         void Update()

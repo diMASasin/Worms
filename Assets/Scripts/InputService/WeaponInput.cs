@@ -2,7 +2,7 @@ using System;
 using Zenject;
 using static UnityEngine.InputSystem.InputAction;
 
-namespace Weapons
+namespace InputService
 {
     class WeaponInput : IWeaponInput, IDisposable, IInitializable
     {

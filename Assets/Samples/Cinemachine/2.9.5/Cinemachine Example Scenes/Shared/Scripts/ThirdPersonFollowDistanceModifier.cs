@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Cinemachine;
+using UnityEngine;
 
-namespace Cinemachine.Examples
+namespace Samples.Cinemachine._2._9._5.Cinemachine_Example_Scenes.Shared.Scripts
 {
     /// <summary>
     /// This is an add-on for Cinemachine virtual cameras containing the ThirdPersonFollow component.

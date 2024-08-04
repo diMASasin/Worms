@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Weapons;
 
-namespace _UI
+namespace UI_
 {
     public class WeaponSelectorItem : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gaskellgames
+namespace Gaskellgames.Shared_Resources.Utilities.InspectorUtility.Properties
 {
     // <summary>
     // Code created by Gaskellgames

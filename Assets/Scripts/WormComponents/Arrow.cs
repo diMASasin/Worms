@@ -1,20 +1,21 @@
-using Infrastructure;
 using Timers;
 using UnityEngine;
+using Zenject;
 
 namespace WormComponents
 {
-    public class Arrow : MonoBehaviour, ICoroutinePerformer
+    public class Arrow : MonoBehaviour
     {
         [SerializeField] private Animator _animator;
         [SerializeField] private int _lifeTime = 2;
-        [SerializeField] private FollowingObject _followingObject;
+        [SerializeField] private FollowingObject.FollowingObject _followingObject;
     
-        private readonly Timer _timer;
+        private ITimer _timer;
         
         private static readonly int Move = Animator.StringToHash("Move");
 
-        public Arrow() => _timer = new Timer(this);
+        [Inject]
+        public void Construct(ITimer timer) => _timer = timer;
 
         private void Awake()
         {

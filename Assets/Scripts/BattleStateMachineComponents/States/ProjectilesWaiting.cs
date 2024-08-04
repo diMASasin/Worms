@@ -1,47 +1,48 @@
-using System.Collections;
-using CameraFollow;
-using Configs;
-using Infrastructure;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using Pools;
-using UnityEngine;
+using static System.TimeSpan;
+using static Cysharp.Threading.Tasks.UniTask;
 
 namespace BattleStateMachineComponents.States
 {
     public class ProjectilesWaiting : IBattleState
     {
         private readonly IBattleStateSwitcher _battleStateSwitcher;
-        private readonly TimersConfig _timersConfig;
-        private readonly ICoroutinePerformer _coroutinePerformer;
-        private readonly IFollowingCamera _followingCamera;
+        private readonly float _waitingDuration;
+        private readonly IProjectilesCount _projectilesCount;
+        private CancellationTokenSource _cancellationTokenSource;
 
-        public ProjectilesWaiting(IBattleStateSwitcher battleStateSwitcher, BattleStateMachineData data,
-            ICoroutinePerformer coroutinePerformer, IFollowingCamera followingCamera)
+        public ProjectilesWaiting(IBattleStateSwitcher battleStateSwitcher, BattleStateMachineData data, 
+            IProjectilesCount projectilesCount)
         {
-            _followingCamera = followingCamera;
-            _coroutinePerformer = coroutinePerformer;
-            _timersConfig = data.BattleConfig.TimersConfig;
+            _projectilesCount = projectilesCount;
+            _waitingDuration = data.BattleConfig.TimersConfig.ProjectileWaitingDuration;
             _battleStateSwitcher = battleStateSwitcher;
         }
 
         public void Enter()
         {
-            _followingCamera.MoveToGeneralView();
-            _coroutinePerformer.StartCoroutine(SwitchStateWhenNoProjectilesWithDelay());
+            _cancellationTokenSource = new CancellationTokenSource();
+            SwitchStateWhenNoProjectilesWithDelay().Forget();
         }
 
-        public void Exit() => _coroutinePerformer.StopCoroutine(SwitchStateWhenNoProjectilesWithDelay());
-
-        private IEnumerator SwitchStateWhenNoProjectilesWithDelay()
+        public void Exit()
         {
-            while (ProjectilePool.Count > 0)
-                yield return null;
+            _cancellationTokenSource.Cancel();
+            _cancellationTokenSource.Dispose();
+        }
 
-            yield return new WaitForSeconds(_timersConfig.ProjectileWaitingDuration);
+        private async UniTaskVoid SwitchStateWhenNoProjectilesWithDelay()
+        {
+            await WaitUntil(() => _projectilesCount.Count <= 0, cancellationToken: _cancellationTokenSource.Token);
 
-            if (ProjectilePool.Count == 0)
+            await Delay(FromSeconds(_waitingDuration), cancellationToken: _cancellationTokenSource.Token);
+
+            if (_projectilesCount.Count == 0)
                 _battleStateSwitcher.SwitchState<BetweenTurnsState>();
             else
-                _coroutinePerformer.StartCoroutine(SwitchStateWhenNoProjectilesWithDelay());
+                SwitchStateWhenNoProjectilesWithDelay().Forget();
         }
     }
 }

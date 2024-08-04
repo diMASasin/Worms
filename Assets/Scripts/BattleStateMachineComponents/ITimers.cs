@@ -4,7 +4,7 @@ namespace BattleStateMachineComponents
 {
     public interface ITimers
     {
-        public Timer BattleTimer { get; set; }
-        public Timer TurnTimer { get; set; }
+        public ITimer BattleTimer { get; set; }
+        public ITimer TurnTimer { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-using _UI;
+using UI_;
 
 namespace BattleStateMachineComponents.States
 {
@@ -18,14 +18,6 @@ namespace BattleStateMachineComponents.States
         }
 
         public void Exit()
-        {
-        }
-
-        public void Tick()
-        {
-        }
-
-        public void FixedTick()
         {
         }
     }

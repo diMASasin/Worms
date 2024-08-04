@@ -5,7 +5,7 @@ using UnityEngine;
 /// Code created by Gaskellgames
 /// </summary>
 
-namespace Gaskellgames
+namespace Gaskellgames.Shared_Resources.Utilities.InspectorUtility.Attributes
 {
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = true)]
     public class DebugButtonAttribute : PropertyAttribute

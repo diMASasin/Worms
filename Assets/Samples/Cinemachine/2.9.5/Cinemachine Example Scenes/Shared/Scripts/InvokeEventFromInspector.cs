@@ -1,12 +1,9 @@
-﻿using UnityEngine;
+﻿using Cinemachine.Editor;
+using UnityEditor;
+using UnityEngine;
 using UnityEngine.Events;
 
-#if UNITY_EDITOR
-using UnityEditor;
-using Cinemachine.Editor;
-#endif
-
-namespace Cinemachine.Examples
+namespace Samples.Cinemachine._2._9._5.Cinemachine_Example_Scenes.Shared.Scripts
 {
     public class InvokeEventFromInspector : MonoBehaviour
     {

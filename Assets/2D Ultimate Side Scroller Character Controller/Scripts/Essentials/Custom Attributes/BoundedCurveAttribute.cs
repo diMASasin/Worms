@@ -1,9 +1,7 @@
-using UnityEngine;
-#if UNITY_EDITOR
 using UnityEditor;
-#endif
+using UnityEngine;
 
-namespace UltimateCC
+namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Essentials.Custom_Attributes
 {
     // A custom attribute used to specify the bounds for editing an AnimationCurve.
     // bounds: xMin to xMin + xLength on x axis, yMin to yMin + yLength on y axis

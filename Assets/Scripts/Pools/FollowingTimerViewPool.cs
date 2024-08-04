@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using Projectiles;
-using Projectiles.Behaviours.LaunchBehaviour;
+using Projectiles.Behaviours.Components;
 using Timers;
-using _UI;
+using UI_;
 using UnityEngine;
 using UnityEngine.Pool;
 using static UnityEngine.Object;

@@ -1,6 +1,7 @@
+using Gaskellgames.Shared_Resources.Utilities.LogsUtility;
 using UnityEngine;
 
-namespace Gaskellgames
+namespace Gaskellgames.Shared_Resources.Utilities.ProjectUtility
 {
     /// <summary>
     /// Code created by Gaskellgames

@@ -1,6 +1,7 @@
+using Cinemachine;
 using UnityEngine;
 
-namespace Cinemachine.Examples
+namespace Samples.Cinemachine._2._9._5.Cinemachine_Example_Scenes.Scenes.BossCamera
 {
     /// <summary>
     /// An add-on module for Cinemachine Virtual Camera that locks the camera's Y co-ordinate

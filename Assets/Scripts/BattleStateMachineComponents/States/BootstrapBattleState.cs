@@ -4,7 +4,7 @@ using Factories;
 using ScriptBoy.Digable2DTerrain.Scripts;
 using Spawn;
 using Timers;
-using _UI;
+using UI_;
 using UnityEngine;
 using Zenject;
 
@@ -20,7 +20,7 @@ namespace BattleStateMachineComponents.States
         private TeamHealthFactory _teamHealthFactoryPrefab;
         private readonly WormsSpawner _wormsSpawner;
         private readonly IBattleSettings _battleSettings;
-        private readonly Timer _battleTimer;
+        private readonly ITimer _battleTimer;
         private readonly WeaponSelectorItemFactory _itemFactory;
         private readonly WeaponFactory _weaponFactory;
         private readonly TeamHealthFactory _teamHealthFactory;
@@ -30,7 +30,7 @@ namespace BattleStateMachineComponents.States
         private BattleConfig BattleConfig => _data.BattleConfig;
 
         public BootstrapBattleState(BattleStateMachineData data, DiContainer container, IBattleStateSwitcher battleStateSwitcher,
-            WormsSpawner wormsSpawner, IBattleSettings battleSettings, Timer battleTimer, Timer turnBattle,
+            WormsSpawner wormsSpawner, IBattleSettings battleSettings, ITimer battleTimer, ITimer turnBattle,
             WeaponSelectorItemFactory itemFactory, WeaponFactory weaponFactory, LoadingScreen loadingScreen)
         {
             _loadingScreen = loadingScreen;

@@ -1,11 +1,13 @@
 ﻿#if UNITY_EDITOR
+using Gaskellgames.Shared_Resources.Utilities.InspectorUtility;
+using Gaskellgames.Shared_Resources.Utilities.ProjectUtility;
 using UnityEngine;
 
 /// <summary>
 /// Code updated by Gaskellgames
 /// </summary>
 
-namespace Gaskellgames.FolderSystem
+namespace Gaskellgames.Folder_System.Resources.Scripts
 {
     [ExecuteInEditMode]
     public class HierarchyFolders : GGMonoBehaviour

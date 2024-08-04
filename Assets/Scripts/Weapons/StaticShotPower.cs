@@ -1,3 +1,4 @@
+using InputService;
 using UnityEngine;
 
 namespace Weapons

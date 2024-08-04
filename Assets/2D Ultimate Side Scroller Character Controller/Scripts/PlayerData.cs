@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Essentials.Custom_Attributes;
 using UnityEngine;
 
-namespace UltimateCC
+namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts
 {
     [System.Serializable]
     public class PlayerData

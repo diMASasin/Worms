@@ -1,5 +1,7 @@
 #if UNITY_EDITOR
 using System.Linq;
+using Gaskellgames.Folder_System.Resources.Scripts;
+using Gaskellgames.Shared_Resources.Utilities.InspectorUtility;
 using UnityEditor;
 using UnityEngine;
 

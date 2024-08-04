@@ -1,7 +1,8 @@
-using Plugins._2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Essentials;
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Essentials;
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Input_System.InputManager;
 using UnityEngine;
 
-namespace UltimateCC
+namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.Base_States
 {
     public class MainState
     {

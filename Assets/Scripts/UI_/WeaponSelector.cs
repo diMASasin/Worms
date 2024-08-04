@@ -1,10 +1,11 @@
 using System;
 using EventProviders;
+using InputService;
 using UnityEngine;
 using Weapons;
 using Zenject;
 
-namespace _UI
+namespace UI_
 {
     public class WeaponSelector : MonoBehaviour, IWeaponSelectorEvents
     {

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Timers
 {
-    public class TickTimer : ITimerUpdateEvent
+    public class TickTimer : ITimer
     {
         private double _interval;
         private double _timeLeft = 0;

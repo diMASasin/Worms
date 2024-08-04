@@ -1,4 +1,4 @@
-namespace BattleStateMachineComponents.States
+namespace BattleStateMachineComponents
 {
     public class WormsBootstraper
     {

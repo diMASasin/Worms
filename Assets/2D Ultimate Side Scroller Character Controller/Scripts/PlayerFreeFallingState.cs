@@ -1,7 +1,9 @@
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System;
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.Base_States;
 using UnityEngine;
-using static UltimateCC.PlayerMain;
+using static _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.PlayerMain;
 
-namespace UltimateCC
+namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts
 {
     internal class PlayerFreeFallingState : MainState
     {

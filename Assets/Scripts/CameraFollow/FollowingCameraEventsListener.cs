@@ -1,14 +1,13 @@
 using System;
-using System.Collections;
+using System.Threading;
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Input_System;
 using BattleStateMachineComponents.StatesData;
+using Cysharp.Threading.Tasks;
 using EventProviders;
 using Explosion_;
-using Infrastructure;
 using Pools;
 using Projectiles;
-using UltimateCC;
 using UnityEngine;
-using Weapons;
 using WormComponents;
 
 namespace CameraFollow
@@ -20,18 +19,18 @@ namespace CameraFollow
         private readonly IExplosionEvents _explosionEvents;
         private readonly IMovementInput _movementInput;
         private readonly ICurrentWorm _currentWorm;
-        private readonly ICoroutinePerformer _coroutinePerformer;
         private readonly IWormEvents _wormEvents;
+        
+        private CancellationTokenSource _stopListenMovementSource;
+        private CancellationTokenSource _stopFollowWormSource;
+        
         private float _wormDirection;
-        private Coroutine _coroutine;
-        private Coroutine _stopFollowWormCoroutine;
 
         public FollowingCameraEventsListener(IFollowingCamera followingCamera, IProjectileEvents projectileEvents,
             IExplosionEvents explosionEvents, IMovementInput movementInput, ICurrentWorm currentWorm,
-            ICoroutinePerformer coroutinePerformer, IWormEvents wormEvents)
+            IWormEvents wormEvents)
         {
             _wormEvents = wormEvents;
-            _coroutinePerformer = coroutinePerformer;
             _currentWorm = currentWorm;
             _movementInput = movementInput;
             _followingCamera = followingCamera;
@@ -56,34 +55,30 @@ namespace CameraFollow
 
         public void FollowWormIfMove()
         {
-            if (_stopFollowWormCoroutine != null && _wormDirection != 0)
-                _coroutinePerformer.StopCoroutine(_stopFollowWormCoroutine);
-            
-            _coroutine = _coroutinePerformer.StartCoroutine(StartListenMovementInRetreatState());
+            if (_wormDirection != 0)
+                _stopFollowWormSource.Cancel();
+
+            _stopListenMovementSource = new CancellationTokenSource();
+            StartListenMovementInRetreatState().Forget();
         }
 
-        public void StopListenMovement() => _coroutinePerformer.StopCoroutine(_coroutine);
+        public void StopListenMovement() => _stopListenMovementSource.Cancel();
 
         private void OnDamageTook(Worm worm)
         {
-            _coroutinePerformer.StartCoroutine(StopFollowWhenFar(_currentWorm.CurrentWorm.transform, worm.transform));
+            StopFollowWhenFar(_currentWorm.CurrentWorm.transform, worm.transform).Forget();
             _followingCamera.SetTarget(worm.transform);
         }
 
-        private void OnProjectileExploded(Projectile projectile)
-        {
-            if (_stopFollowWormCoroutine != null)
-                _coroutinePerformer.StopCoroutine(_stopFollowWormCoroutine);
-        }
+        private void OnProjectileExploded(Projectile projectile) => _stopFollowWormSource.Cancel();
 
         private void OnLaunched(Projectile projectile, Vector2 velocity)
         {
-               if(_currentWorm.CurrentWorm != null)
+               if (_currentWorm.CurrentWorm != null)
                {
                    Transform currentWormTransform = _currentWorm.CurrentWorm.transform;
                    
-                   _stopFollowWormCoroutine = 
-                       _coroutinePerformer.StartCoroutine(StopFollowWhenFar(currentWormTransform, projectile.transform));
+                   StopFollowWhenFar(currentWormTransform, projectile.transform).Forget();
                }
 
                _followingCamera.SetTarget(projectile.transform);
@@ -96,7 +91,7 @@ namespace CameraFollow
             _wormDirection = direction;
         }
 
-        private IEnumerator StopFollowWhenFar(Transform target1, Transform target2)
+        private async UniTaskVoid StopFollowWhenFar(Transform target1, Transform target2)
         {
             float projectileWormDistance = 10f;
             float distance;
@@ -104,20 +99,21 @@ namespace CameraFollow
             do
             {
                 distance = Vector3.Distance(target1.transform.position, target2.position);
-                yield return null;
+                await UniTask.Yield();
             }
             while (target1 != null && target2 != null && distance < projectileWormDistance);
 
             _followingCamera.RemoveTarget(target1);
         }
 
-        private IEnumerator StartListenMovementInRetreatState()
+        private async UniTaskVoid StartListenMovementInRetreatState()
         {
-            while (_wormDirection == 0)
-                yield return null;
+            await UniTask.WaitUntil(() => _wormDirection != 0, cancellationToken: _stopListenMovementSource.Token);
 
             _followingCamera.RemoveAllTargets();
-            yield return null;
+            
+            await UniTask.WaitUntil(() => _followingCamera.HasTarget == false, cancellationToken: _stopListenMovementSource.Token);
+            
             _followingCamera.SetTarget(_currentWorm.CurrentWorm.transform);
         }
     }

@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace _UI.Message
+namespace UI_.Message
 {
     public class MessageView : MonoBehaviour
     {

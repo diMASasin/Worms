@@ -1,9 +1,7 @@
-using UnityEngine;
-#if UNITY_EDITOR
 using UnityEditor;
-#endif
+using UnityEngine;
 
-namespace UltimateCC
+namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Essentials.Custom_Attributes
 {
     // A custom attribute used to make variables non-editable but keep them visible in the inspector panel.
     public class NonEditableAttribute : PropertyAttribute

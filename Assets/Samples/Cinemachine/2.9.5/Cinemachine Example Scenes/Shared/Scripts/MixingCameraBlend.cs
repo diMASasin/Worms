@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Cinemachine;
+using UnityEngine;
 
-namespace Cinemachine.Examples
+namespace Samples.Cinemachine._2._9._5.Cinemachine_Example_Scenes.Shared.Scripts
 {
 
 [AddComponentMenu("")] // Don't display in add component menu

@@ -1,6 +1,9 @@
 using System;
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts;
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Input_System;
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Input_System.InputManager;
 using Configs;
-using UltimateCC;
+using Extensions;
 using Unity.Mathematics;
 using UnityEngine;
 using Weapons;
@@ -69,13 +72,6 @@ namespace WormComponents
         public void SetCurrentWormLayer() => gameObject.layer = (int)math.log2(Config.CurrentWormLayerMask.value);
 
         public void SetWormLayer() => gameObject.layer = (int)math.log2(Config.WormLayerMask.value);
-
-        public void AddExplosionForce(float explosionForce, Vector3 explosionPosition, float upwardsModifier,
-            float explosionRadius)
-        {
-            UnfreezePosition();
-            _rigidbody.AddExplosionForce(explosionForce, explosionPosition, explosionRadius, upwardsModifier);
-        }
         
         public void AddExplosionForce(Vector3 direction, float explosionForce, float forceMultiplier, float upwardsModifier)
         {

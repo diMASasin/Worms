@@ -1,8 +1,9 @@
 #if UNITY_EDITOR
-using UnityEngine;
+using Gaskellgames.Shared_Resources.Utilities.LogsUtility;
 using UnityEditor;
+using UnityEngine;
 
-namespace Gaskellgames
+namespace Gaskellgames.Shared_Resources.Utilities.TransformUtility
 {
     /// <summary>
     /// Code created by Gaskellgames: https://github.com/Gaskellgames/Unity_TransformUtilities
@@ -163,16 +164,16 @@ namespace Gaskellgames
             // button style 1
             iconButtonStyle.fontSize = 9;
             iconButtonStyle.alignment = TextAnchor.MiddleCenter;
-            iconButtonStyle.normal.textColor = InspectorUtility.textNormalColor;
-            iconButtonStyle.hover.textColor = InspectorUtility.textNormalColor;
-            iconButtonStyle.active.textColor = InspectorUtility.textNormalColor;
-            iconButtonStyle.normal.background = InspectorUtility.CreateTexture(20, 20, 1, true, InspectorUtility.blankColor, InspectorUtility.blankColor);
-            iconButtonStyle.hover.background = InspectorUtility.CreateTexture(20, 20, 1, true, InspectorUtility.buttonHoverColor, InspectorUtility.blankColor);
-            iconButtonStyle.active.background = InspectorUtility.CreateTexture(20, 20, 1, true, InspectorUtility.buttonActiveColor, InspectorUtility.buttonActiveBorderColor);
+            iconButtonStyle.normal.textColor = InspectorUtility.InspectorUtility.textNormalColor;
+            iconButtonStyle.hover.textColor = InspectorUtility.InspectorUtility.textNormalColor;
+            iconButtonStyle.active.textColor = InspectorUtility.InspectorUtility.textNormalColor;
+            iconButtonStyle.normal.background = InspectorUtility.InspectorUtility.CreateTexture(20, 20, 1, true, InspectorUtility.InspectorUtility.blankColor, InspectorUtility.InspectorUtility.blankColor);
+            iconButtonStyle.hover.background = InspectorUtility.InspectorUtility.CreateTexture(20, 20, 1, true, InspectorUtility.InspectorUtility.buttonHoverColor, InspectorUtility.InspectorUtility.blankColor);
+            iconButtonStyle.active.background = InspectorUtility.InspectorUtility.CreateTexture(20, 20, 1, true, InspectorUtility.InspectorUtility.buttonActiveColor, InspectorUtility.InspectorUtility.buttonActiveBorderColor);
             
             // button style 2
             buttonStyle2.fontSize = 10;
-            buttonStyle2.normal.textColor = InspectorUtility.textDisabledColor;
+            buttonStyle2.normal.textColor = InspectorUtility.InspectorUtility.textDisabledColor;
         }
         
         private void ScaleGUI(Transform transformTarget)

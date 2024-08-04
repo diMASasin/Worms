@@ -1,6 +1,8 @@
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.Base_States;
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.Child_States.Interfaces;
 using UnityEngine;
 
-namespace UltimateCC
+namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.Child_States
 {
     public class PlayerDashState : MainState, IMove2D
     {

@@ -14,9 +14,7 @@ namespace Pools
 
         public ProjectileConfig Config => _projectileFactory.Config;
         
-        public static int Count { get; private set; }
-
-        public static event Action<int> CountChanged;
+        public int Count { get; private set; }
 
         public ProjectilePool(ProjectileFactory factory, int amount)
         {
@@ -46,13 +44,11 @@ namespace Pools
             projectile.gameObject.SetActive(true);
             projectile.ResetProjectile();
             Count++;
-            CountChanged?.Invoke(Count);
         }
 
         private void OnRelease(Projectile projectile)
         {
             Count--;
-            CountChanged?.Invoke(Count);
         }
 
         private void OnExploded(Projectile projectile)

@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace Gaskellgames
+namespace Gaskellgames.Shared_Resources.Utilities.ExtensionUtility
 {
     /// <summary>
     /// Code created by Gaskellgames

@@ -1,7 +1,8 @@
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Essentials.Custom_Attributes;
 using UnityEngine;
-using static UltimateCC.PlayerMain;
+using static _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.PlayerMain;
 
-namespace UltimateCC
+namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Input_System.InputManager
 {
     public class InputHandler : MonoBehaviour
     {

@@ -1,18 +1,14 @@
 using Battle_;
 using GameStateMachineComponents;
 using InputService;
-using _UI;
+using UI_;
 using UnityEngine;
-using Water;
-using Weapons;
 using Zenject;
 
 namespace Infrastructure.Installers
 {
     public class GlobalInstaller : MonoInstaller
     {
-        [SerializeField] private CoroutinePerformer _coroutinePerformer;
-        
         [Header("Prefabs")]
         [SerializeField] private WeaponSelectorItem _weaponSelectorItemPrefab;
         [SerializeField] private FollowingTimerView _followingTimerViewPrefab;
@@ -31,7 +27,6 @@ namespace Infrastructure.Installers
 
         private void BindInfrastructure()
         {
-            Container.BindInterfacesAndSelfTo<CoroutinePerformer>().FromInstance(_coroutinePerformer).AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<SceneLoader>().FromNew().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<BattleSettings>().FromNew().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<MainMenu>().FromComponentInNewPrefab(_mainMenuPrefab).AsSingle();

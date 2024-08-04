@@ -4,7 +4,7 @@ using UnityEngine;
 /// Code created by Gaskellgames
 /// </summary>
 
-namespace Gaskellgames
+namespace Gaskellgames.Shared_Resources.Utilities.InspectorUtility.Attributes
 {
     public class RangeMinMaxAttribute : PropertyAttribute
     {
@@ -28,8 +28,8 @@ namespace Gaskellgames
             this.min = min;
             this.max = max;
             this.subLabels = subLabels;
-            minLabel = MathUtility.RoundFloat(min, 3).ToString();
-            maxLabel = MathUtility.RoundFloat(max, 3).ToString();
+            minLabel = MathUtility.MathUtility.RoundFloat(min, 3).ToString();
+            maxLabel = MathUtility.MathUtility.RoundFloat(max, 3).ToString();
         }
 
         public RangeMinMaxAttribute(float min, float max, string minLabel, string maxLabel)

@@ -1,4 +1,7 @@
-﻿public interface ITickable
+﻿namespace Infrastructure.Interfaces
 {
-    public void Tick();
+    public interface ITickable
+    {
+        public void Tick();
+    }
 }

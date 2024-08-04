@@ -1,4 +1,5 @@
 using System;
+using InputService;
 using UnityEngine;
 using Zenject;
 
@@ -11,10 +12,12 @@ namespace CameraFollow
         [SerializeField] public Transform _generalViewPosition;
         [field: SerializeField] public int MinPosition { get; private set; } = -65;
         [field: SerializeField]public int MaxPosition { get; set; } = -10;
-        [field: SerializeField] public FollowingObject FollowingObject { get; private set; }
+        [field: SerializeField] public FollowingObject.FollowingObject FollowingObject { get; private set; }
 
         private Transform _target;
         private ICameraInput _cameraInput;
+
+        public bool HasTarget => _target != null;
 
         private Vector3 CameraPosition
         {
@@ -37,6 +40,7 @@ namespace CameraFollow
         }
 
         public void SetTarget(Transform target) => FollowingObject.Follow(target);
+
         public void RemoveTarget(Transform target)
         {
         }
@@ -44,6 +48,7 @@ namespace CameraFollow
         public void RemoveAllTargets() => FollowingObject.StopFollow();
 
         public void MoveToGeneralView() => SetTarget(_generalViewPosition);
+
         public void ResetZoom()
         {
         }

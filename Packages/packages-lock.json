@@ -7,6 +7,13 @@
       "dependencies": {},
       "hash": "b6d122e7809c6529fb5a4b73d41a67ce1edac987"
     },
+    "com.cysharp.unitask": {
+      "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "f057abff0f4ea52e4c9699c2831808d6c0a27bcc"
+    },
     "com.marijnzwemmer.unity-toolbar-extender": {
       "version": "https://github.com/marijnz/unity-toolbar-extender.git",
       "depth": 0,

@@ -1,7 +1,8 @@
 using System;
+using Cinemachine;
 using UnityEngine;
 
-namespace Cinemachine.Examples
+namespace Samples.Cinemachine._2._9._5.Cinemachine_Example_Scenes.Scenes.FadeOutNearbyObjects
 {
     /// <summary>
     /// An example add-on module for Cinemachine Virtual Camera for controlling

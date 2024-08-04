@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
-using Infrastructure;
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts;
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Input_System;
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Input_System.InputManager;
+using Infrastructure.Interfaces;
 using Timers;
-using UltimateCC;
 using UnityEngine;
 
 namespace Projectiles.Behaviours.Components
@@ -16,8 +18,8 @@ namespace Projectiles.Behaviours.Components
         [SerializeField] private LayerMask _wallDetectorLayerMask;
 
         private IMovementInput _movementInput;
-        private Timer _jumpTimer;
-        private Timer _changeDirectionCooldownTimer;
+        private ITimer _jumpTimer;
+        private ITimer _changeDirectionCooldownTimer;
         private Vector3 _overlapPoint;
         private Vector3 _overlapBoxSize;
         private bool _shouldJump;
@@ -29,8 +31,8 @@ namespace Projectiles.Behaviours.Components
 
         private void Awake()
         {
-            _jumpTimer = new Timer(this);
-            _changeDirectionCooldownTimer = new Timer(this);
+            _jumpTimer = new UniTaskTimer();
+            _changeDirectionCooldownTimer = new UniTaskTimer();
         }
 
         private void OnEnable()
@@ -45,10 +47,6 @@ namespace Projectiles.Behaviours.Components
             _projectile.Exploded -= OnExploded;
         }
 
-        public void Init()
-        {
-        }
-        
         public void ResetSheep()
         {
             _shouldJump = false;

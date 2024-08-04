@@ -1,14 +1,11 @@
-using UnityEngine;
-
-#if UNITY_EDITOR
 using UnityEditor;
-#endif
+using UnityEngine;
 
 /// <summary>
 /// Code created by Gaskellgames
 /// </summary>
 
-namespace Gaskellgames
+namespace Gaskellgames.Shared_Resources.Utilities.InspectorUtility
 {
     public static class InspectorUtility
     {

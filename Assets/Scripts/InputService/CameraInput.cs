@@ -1,4 +1,3 @@
-using CameraFollow;
 using UnityEngine;
 
 namespace InputService

@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using Configs;
 using EventProviders;
 using Factories;
-using _UI;
+using UI_;
 using UnityEngine;
 using Weapons;
 using Zenject;
 
-namespace BattleStateMachineComponents.States
+namespace BattleStateMachineComponents
 {
     public class WeaponBootstrapper
     {

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Configs;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
 using WormComponents;
@@ -151,7 +152,7 @@ namespace MovementComponents
 
             _canJump = false;
             _inJump = true;
-            StartCoroutine(ReloadJump(JumpCooldown));
+            ReloadJump(JumpCooldown).Forget();
 
             return true;
         }
@@ -160,9 +161,11 @@ namespace MovementComponents
         {
             if (!TryJump())
                 return;
+            
             _jumpVelocityX += LongJumpForce.x * Armature.transform.right.x;
             _velocity.y = LongJumpForce.y;
             _maxVelocityX = Mathf.Abs(_jumpVelocityX);
+            
             StartCoroutine(StopJump());
         }
 
@@ -176,9 +179,9 @@ namespace MovementComponents
             StartCoroutine(StopJump());
         }
 
-        private IEnumerator ReloadJump(float duration)
+        private async UniTaskVoid ReloadJump(float duration)
         {
-            yield return new WaitForSeconds(duration);
+            await UniTask.Delay(TimeSpan.FromSeconds(duration));
             _canJump = true;
         }
 

@@ -1,4 +1,4 @@
-namespace _UI.Message
+namespace UI_.Message
 {
     public interface IMessageShower
     {

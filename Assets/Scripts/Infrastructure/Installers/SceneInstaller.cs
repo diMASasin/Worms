@@ -1,14 +1,16 @@
+using Battle_;
 using BattleStateMachineComponents;
 using BattleStateMachineComponents.States;
 using CameraFollow;
 using Configs;
+using DestructibleLand;
 using Explosion_;
 using Factories;
 using ScriptBoy.Digable2DTerrain.Scripts;
 using Spawn;
 using Timers;
-using _UI;
-using _UI.Message;
+using UI_;
+using UI_.Message;
 using UnityEngine;
 using Water;
 using Weapons;
@@ -33,7 +35,7 @@ namespace Infrastructure.Installers
             BindConfigs();
             
             Container.BindInstance(_data.Terrain).AsSingle();
-            Container.BindInterfacesAndSelfTo<Timer>().FromNew().AsTransient();
+            Container.BindInterfacesTo<UniTaskTimer>().FromNew().AsTransient();
             Container.Bind<Arrow>().FromComponentInNewPrefab(_battleConfig.ArrowPrefab).AsSingle();
             BindShovel();
             Container.Bind<Explosion>().FromComponentInNewPrefab(_battleConfig.ExplosionConfig.Prefab).AsSingle();

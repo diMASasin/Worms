@@ -1,6 +1,7 @@
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Essentials.Custom_Attributes;
 using UnityEngine;
 
-namespace UltimateCC
+namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Platform_Movement
 {
     public class SwingingPlatform : MonoBehaviour
     {

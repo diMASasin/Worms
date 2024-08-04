@@ -1,6 +1,6 @@
 using System;
 
-namespace _UI
+namespace UI_
 {
     public interface IWeaponSelectorEvents
     {

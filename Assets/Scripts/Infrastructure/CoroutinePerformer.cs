@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Infrastructure.Interfaces;
 using UnityEngine;
 
 namespace Infrastructure

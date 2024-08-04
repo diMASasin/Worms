@@ -1,28 +1,31 @@
-using System.Collections;
-using Infrastructure;
+using System;
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System;
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.Base_States;
+using Cysharp.Threading.Tasks;
+using Infrastructure.Interfaces;
 using Timers;
 using UnityEngine;
 
-namespace UltimateCC
+namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts
 {
     public class PlayerAttackedState : MainState
     {
-        private readonly Timer _timer;
+        private readonly ITimer _timer;
         private readonly ICoroutinePerformer _coroutinePerformer;
         private Coroutine _coroutine;
 
         public PlayerAttackedState(PlayerMain playerMain, PlayerStateMachine playerStateMachine,
-            PlayerMain.AnimName idle, PlayerData playerData) : base(playerMain, playerStateMachine, idle, playerData)
+            PlayerMain.AnimName idle, PlayerData playerData, ITimer timer) : base(playerMain, playerStateMachine, idle, playerData)
         {
             _coroutinePerformer = playerMain;
-            _timer = new Timer(_coroutinePerformer);
+            _timer = timer;
         }
 
         public override void Enter()
         {
             base.Enter();
-            
-            _timer.Start(0.05f, () => _coroutine = _coroutinePerformer.StartCoroutine(WaitForStop()));
+
+            WaitForStop().Forget();
         }
 
         public override void Exit()
@@ -45,11 +48,11 @@ namespace UltimateCC
             rigidbody2D.gravityScale = playerData.Land.Physics2DGravityScale;
         }
 
-        private IEnumerator WaitForStop()
+        private async UniTaskVoid WaitForStop()
         {
-            while (playerData.Physics.IsGrounded == false && rigidbody2D.velocity.magnitude > 0.2f)
-                yield return null;
-
+            await UniTask.Delay(TimeSpan.FromSeconds(0.05f));
+            await UniTask.WaitWhile(() => playerData.Physics.IsGrounded == false && rigidbody2D.velocity.magnitude > 0.2f);
+            
             rigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
             stateMachine.ChangeState(player.IdleState);
         }

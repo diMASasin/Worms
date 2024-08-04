@@ -1,7 +1,8 @@
 using System;
 using BattleStateMachineComponents.StatesData;
 using EventProviders;
-using _UI;
+using InputService;
+using UI_;
 using UnityEngine;
 using WormComponents;
 

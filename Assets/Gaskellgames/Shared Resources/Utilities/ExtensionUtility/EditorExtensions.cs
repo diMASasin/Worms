@@ -7,7 +7,7 @@ using UnityEngine;
 /// Code created by Gaskellgames
 /// </summary>
 
-namespace Gaskellgames
+namespace Gaskellgames.Shared_Resources.Utilities.ExtensionUtility
 {
     public static class EditorExtensions
     {

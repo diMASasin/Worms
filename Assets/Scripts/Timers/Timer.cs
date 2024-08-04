@@ -1,11 +1,11 @@
 using System;
 using System.Collections;
-using Infrastructure;
+using Infrastructure.Interfaces;
 using UnityEngine;
 
 namespace Timers
 {
-    public class Timer : ITimerUpdateEvent
+    public class Timer : ITimer
     {
         private double _interval;
         private double _timeLeft = 0;

@@ -1,11 +1,11 @@
-using _UI.Message;
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Input_System;
 using CameraFollow;
 using Configs;
 using EventProviders;
 using Pools;
 using Projectiles;
 using Timers;
-using UltimateCC;
+using UI_.Message;
 using Weapons;
 using WormComponents;
 using Zenject;
@@ -19,17 +19,14 @@ namespace BattleStateMachineComponents.States
         private IMovementInput _movementInput;
         private Arrow _arrow;
         private IWormEvents _wormEvents;
-        private IProjectileEvents _allProjectileEvents;
         private IWeaponShotEvent _weaponShotEvent;
-        private WeaponChanger _weaponChanger;
         private IFollowingCamera _followingCamera;
-        private IExplosionEvents _explosionEvents;
         private readonly FollowingCameraEventsListener _followingCameraEventsListener;
         private IMessageShower _messageShower;
 
         private TimersConfig TimersConfig => _data.BattleConfig.TimersConfig;
-        private Timer BattleTimer => _data.BattleTimer;
-        private Timer TurnTimer => _data.TurnTimer;
+        private ITimer BattleTimer => _data.BattleTimer;
+        private ITimer TurnTimer => _data.TurnTimer;
 
         private Team CurrentTeam { set => _data.CurrentTeam = value; }
 
@@ -45,11 +42,8 @@ namespace BattleStateMachineComponents.States
             WeaponChanger weaponChanger, IFollowingCamera followingCamera, IExplosionEvents explosionEvents, IMessageShower messageShower)
         {
             _messageShower = messageShower;
-            _explosionEvents = explosionEvents;
             _followingCamera = followingCamera;
-            _weaponChanger = weaponChanger;
             _weaponShotEvent = weaponShotEvent;
-            _allProjectileEvents = allProjectileEvents;
             _wormEvents = wormEvents;
             _arrow = arrow;
             _movementInput = movementInput;

@@ -1,5 +1,6 @@
 using System;
-using System.Collections;
+using Cysharp.Threading.Tasks;
+using Infrastructure.Interfaces;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,41 +16,26 @@ namespace Infrastructure
 
     public class SceneLoader : ISceneLoader
     {
-        private readonly ICoroutinePerformer _coroutinePerformer;
-
         public SceneNames SceneNames { get; } = new();
 
         public event Action<float> ProgressChanged;
 
-        public SceneLoader(CoroutinePerformer coroutinePerformer)
-        {
-            _coroutinePerformer = coroutinePerformer;
-        }
-    
         public void Load(string name, Action onLoaded = null) => 
-            _coroutinePerformer.StartCoroutine(LoadScene(name, onLoaded));
+            LoadScene(name, onLoaded).Forget();
         
-        public void LoadBattleMap(int index, Action onLoaded = null)
-        {
-            _coroutinePerformer.StartCoroutine(LoadScene($"{SceneNames.BattleScenePrefix}{index}", onLoaded));
-        }
+        public void LoadBattleMap(int index, Action onLoaded = null) => 
+            LoadScene($"{SceneNames.BattleScenePrefix}{index}", onLoaded).Forget();
 
-        private IEnumerator LoadScene(string name, Action onLoaded = null)
+        private async UniTaskVoid LoadScene(string name, Action onLoaded = null)
         {
-            // var activeScene = SceneManager.GetActiveScene();
-            // if (activeScene.name == name)
-            // {
-            //     onLoaded?.Invoke();
-            //     yield break;
-            // }
-            
             AsyncOperation waitNextScene = SceneManager.LoadSceneAsync(name);
 
             do
             {
                 ProgressChanged?.Invoke(waitNextScene.progress);
-                yield return null;
-            }while (waitNextScene.isDone == false);
+                await UniTask.Yield();
+            }
+            while (waitNextScene.isDone == false);
         
             onLoaded?.Invoke();
         }

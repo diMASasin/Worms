@@ -1,4 +1,4 @@
-namespace _UI
+namespace UI_
 {
     public interface IWeaponSelectorOpener
     {

@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _UI.BattleSettings
+namespace UI_.BattleSettings
 {
     public class MapSelectorItemView : MonoBehaviour
     {

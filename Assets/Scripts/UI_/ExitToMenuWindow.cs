@@ -1,12 +1,12 @@
 using BattleStateMachineComponents;
 using GameStateMachineComponents;
 using GameStateMachineComponents.States;
-using Infrastructure;
+using Infrastructure.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace _UI
+namespace UI_
 {
     public class ExitToMenuWindow : MonoBehaviour
     {

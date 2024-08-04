@@ -1,4 +1,6 @@
-namespace UltimateCC
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.Base_States;
+
+namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System
 {
     [System.Serializable]
     public class PlayerStateMachine

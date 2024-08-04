@@ -1,7 +1,7 @@
 ﻿using Cinemachine.Utility;
 using UnityEngine;
 
-namespace Cinemachine.Examples
+namespace Samples.Cinemachine._2._9._5.Cinemachine_Example_Scenes.Shared.Scripts
 {
     public class PlayerMoveOnSphere : MonoBehaviour
     {
@@ -24,7 +24,7 @@ namespace Cinemachine.Examples
                     transform.position += input * (speed * Time.deltaTime);
                     if (rotatePlayer)
                     {
-                        float t = Cinemachine.Utility.Damper.Damp(1, rotationDamping, Time.deltaTime);
+                        float t = global::Cinemachine.Utility.Damper.Damp(1, rotationDamping, Time.deltaTime);
                         Quaternion newRotation = Quaternion.LookRotation(input.normalized, transform.up);
                         transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, t);
                     }

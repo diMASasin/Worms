@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Cinemachine;
+using InputService;
 using UnityEngine;
 using Zenject;
 using static Cinemachine.CinemachineTargetGroup;
@@ -19,6 +20,8 @@ namespace CameraFollow
         
         private ICameraInput _cameraInput;
 
+        public bool HasTarget => _targetGroup.m_Targets.Length > 0;
+
         private float CameraZOffset
         {
             get => _cinemachineCameraOffset.m_Offset.z;
@@ -36,11 +39,12 @@ namespace CameraFollow
 
         private void Update() => TryZoom(_cameraInput.GetScrollDeltaY());
 
+
         public void ResetZoom()
         {
             _cinemachineCameraOffset.m_Offset = Vector3.zero;
         }
-        
+
         public void TryZoom(float scrollDeltaY)
         {
             float newPositionZ = CameraZOffset;

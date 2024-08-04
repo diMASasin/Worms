@@ -1,6 +1,7 @@
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
+using MinAttribute = Gaskellgames.Shared_Resources.Utilities.InspectorUtility.Attributes.MinAttribute;
 
 /// <summary>
 /// Code created by Gaskellgames

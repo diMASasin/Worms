@@ -1,10 +1,9 @@
 using EventProviders;
 using UnityEngine;
-using UnityEngine.UI;
 using WormComponents;
 using Zenject;
 
-namespace _UI.Message
+namespace UI_.Message
 {
     public class MessageShower : MonoBehaviour, IMessageShower
     {

@@ -4,9 +4,9 @@ using CameraFollow;
 using Configs;
 using DestructibleLand;
 using Timers;
-using _UI;
+using UI_;
 using UnityEngine;
-using Wind_;
+using Water;
 using WormComponents;
 
 namespace BattleStateMachineComponents
@@ -26,7 +26,7 @@ namespace BattleStateMachineComponents
         public Worm CurrentWorm { get; set; }
         public Team CurrentTeam { get; set; }
 
-        public Timer BattleTimer { get; set; }
-        public Timer TurnTimer { get; set; }
+        public ITimer BattleTimer { get; set; }
+        public ITimer TurnTimer { get; set; }
     }
 }

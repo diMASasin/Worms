@@ -1,6 +1,7 @@
+using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.Base_States;
 using UnityEngine;
 
-namespace UltimateCC
+namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.Child_States
 {
     public class PlayerCrouchIdleState : MainState
     {

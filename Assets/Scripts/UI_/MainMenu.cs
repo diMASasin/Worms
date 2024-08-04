@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _UI
+namespace UI_
 {
     public class MainMenu : MonoBehaviour
     {

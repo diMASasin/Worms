@@ -1,13 +1,10 @@
 using System;
 using System.IO;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
-
-namespace Gaskellgames.SceneManagement
+namespace Gaskellgames.Shared_Resources.Utilities.InspectorUtility.Properties
 {
     [System.Serializable]
     public class SceneData : ISerializationCallbackReceiver, IComparable<SceneData>

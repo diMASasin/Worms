@@ -1,9 +1,9 @@
 ﻿using System;
-using Infrastructure;
+using Infrastructure.Interfaces;
 using Timers;
 using UnityEngine;
 
-namespace Projectiles.Behaviours.LaunchBehaviour
+namespace Projectiles.Behaviours.Components
 {
     public class OnLaunchTimer : MonoBehaviour, ICoroutinePerformer
     {
@@ -11,28 +11,15 @@ namespace Projectiles.Behaviours.LaunchBehaviour
         [SerializeField] private float _interval;
         
         private Action _onElapsed;
-        public Timer Timer;
+        public UniTaskTimer Timer { get; private set; } = new();
 
-        public void Awake() => Timer = new Timer(this);
+        private void OnEnable() => _projectile.Launched += OnLaunched;
 
-        private void OnEnable()
-        {
-            _projectile.Launched += OnLaunched;
-        }
-
-        private void OnDisable()
-        {
-            _projectile.Launched -= OnLaunched;
-        }
+        private void OnDisable() => _projectile.Launched -= OnLaunched;
 
         private void OnLaunched(Projectile projectile, Vector2 vector2)
         {
-            Timer.Start(_interval, OnTimerElapsed);
-        }
-
-        private void OnTimerElapsed()
-        {
-            _projectile.Explode();
+            Timer.Start(_interval, () => _projectile.Explode());
         }
     }
 }

@@ -7,7 +7,7 @@ namespace WormComponents
     {
         [SerializeField] private TMP_Text _healthText;
         [SerializeField] private TMP_Text _nameText;
-        [SerializeField] private FollowingObject _followingObject;
+        [SerializeField] private FollowingObject.FollowingObject _followingObject;
     
         private Worm _worm;
 

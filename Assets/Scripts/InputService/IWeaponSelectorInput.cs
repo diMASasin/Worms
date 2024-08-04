@@ -1,6 +1,6 @@
 using System;
 
-namespace _UI
+namespace InputService
 {
     public interface IWeaponSelectorInput
     {

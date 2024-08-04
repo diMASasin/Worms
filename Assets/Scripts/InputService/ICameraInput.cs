@@ -1,4 +1,4 @@
-namespace CameraFollow
+namespace InputService
 {
     public interface ICameraInput
     {

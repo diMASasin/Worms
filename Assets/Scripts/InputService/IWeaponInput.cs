@@ -1,6 +1,6 @@
 using System;
 
-namespace Weapons
+namespace InputService
 {
     public interface IWeaponInput
     {

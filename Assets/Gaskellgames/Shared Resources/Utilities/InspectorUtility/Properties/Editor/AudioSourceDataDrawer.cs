@@ -1,4 +1,6 @@
 #if UNITY_EDITOR
+using Gaskellgames.Shared_Resources.Utilities.InspectorUtility;
+using Gaskellgames.Shared_Resources.Utilities.InspectorUtility.Properties;
 using UnityEditor;
 using UnityEngine;
 

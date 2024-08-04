@@ -1,5 +1,5 @@
-using Infrastructure;
-using _UI;
+using Infrastructure.Interfaces;
+using UI_;
 using Zenject;
 
 namespace GameStateMachineComponents.States

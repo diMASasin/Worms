@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Configs;
+using DestructibleLand;
 using Explosion_;
 using Factories;
 using Pools;
@@ -9,7 +10,7 @@ using Projectiles.Behaviours;
 using UnityEngine;
 using Zenject;
 
-namespace BattleStateMachineComponents.States
+namespace BattleStateMachineComponents
 {
     public class ProjectileInstaller
     {

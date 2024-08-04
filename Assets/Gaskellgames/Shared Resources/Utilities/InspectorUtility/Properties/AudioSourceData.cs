@@ -1,8 +1,11 @@
+using Gaskellgames.Shared_Resources.Utilities.ExtensionUtility;
+using Gaskellgames.Shared_Resources.Utilities.InspectorUtility.Attributes;
+using Gaskellgames.Shared_Resources.Utilities.LogsUtility;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Serialization;
 
-namespace Gaskellgames
+namespace Gaskellgames.Shared_Resources.Utilities.InspectorUtility.Properties
 {
     [System.Serializable]
     public class AudioSourceData
@@ -49,36 +52,36 @@ namespace Gaskellgames
         [Tooltip("Set the source to loop. If loop points are defined in the clip, these will be respected.")]
         public bool loop;
 
-        [SerializeField, Range(0, 256, "High", "Low")]
+        [SerializeField, Attributes.Range(0, 256, "High", "Low")]
         [Tooltip("Sets the priority of the source.Note that a sound with a larger priority value will more likely be stolen by sounds with smaller priority values.")]
         public int priority;
 
-        [SerializeField, Range(0, 1, "", "")]
+        [SerializeField, Attributes.Range(0, 1, "", "")]
         [Tooltip("Sets the overall volume of this sound.")]
         public float volume;
 
-        [SerializeField, Range(-3, 3, "", "")]
+        [SerializeField, Attributes.Range(-3, 3, "", "")]
         [Tooltip("Sets the frequency of the sound. Use this to slow down or speed up the sound.")]
         public float pitch;
 
         [FormerlySerializedAs("stereoPan")]
-        [SerializeField, Range(-1, 1, "Left", "Right")]
+        [SerializeField, Attributes.Range(-1, 1, "Left", "Right")]
         [Tooltip("Only valid for Mono and Stereo AudioClips. Mono sounds will be panned at constant power left and right. Stereo sounds will have each left/right value faded up and down according to the specified pan value.")]
         public float panStereo;
 
-        [SerializeField, Range(0, 1, "2D", "3D")]
+        [SerializeField, Attributes.Range(0, 1, "2D", "3D")]
         [Tooltip("Sets how much the AudioSource is treated as a 3D source. 3D sources are affected by spacial position and spread. If 3D Pan Level is 0, all spacial attenuation is ignored.")]
         public float spatialBlend;
 
-        [SerializeField, Range(0, 1.1f, "", "")]
+        [SerializeField, Attributes.Range(0, 1.1f, "", "")]
         [Tooltip("Sets how much of the signal this AudioSource is mixing into the global reverb associated with the zones. [0, 1] is a linear range (like volume) while [1, 1.1] lets you boost the reverb mix by 10dB.")]
         public float reverbZoneMix;
 
-        [SerializeField, Range(0, 5, false)]
+        [SerializeField, Attributes.Range(0, 5, false)]
         [Tooltip("Specifies how much the pitch is changed based on the relative velocity between AudioListener and AudioSource.")]
         public float dopplerLevel;
 
-        [SerializeField, Range(0, 360, false)]
+        [SerializeField, Attributes.Range(0, 360, false)]
         [Tooltip("Sets the spread of a 3D sound in speaker space.")]
         public float spread;
 

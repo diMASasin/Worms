@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Cinemachine.Examples
+namespace Samples.Cinemachine._2._9._5.Cinemachine_Example_Scenes.Shared.Scripts
 {
     public class PlayerMovePhysics : MonoBehaviour
     {
