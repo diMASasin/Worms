@@ -42,6 +42,7 @@ namespace CameraFollow
             _explosionEvents.Exploded += OnExploded;
             _movementInput.WalkPerformed += OnWalkPerformed;
             _wormEvents.DamageTook += OnDamageTook;
+            _wormEvents.WormDied += OnWormDied;
         }
 
         public void Dispose()
@@ -51,6 +52,7 @@ namespace CameraFollow
             _explosionEvents.Exploded -= OnExploded;
             _movementInput.WalkPerformed -= OnWalkPerformed;
             _wormEvents.DamageTook -= OnDamageTook;
+            _wormEvents.WormDied -= OnWormDied;
         }
 
         public void FollowWormIfMove()
@@ -93,11 +95,15 @@ namespace CameraFollow
 
         private async UniTaskVoid StopFollowWhenFar(Transform target1, Transform target2)
         {
+            _stopFollowWormSource = new CancellationTokenSource();
             float projectileWormDistance = 10f;
             float distance;
             
             do
             {
+                if(_stopFollowWormSource.IsCancellationRequested == true)
+                    return;
+                
                 distance = Vector3.Distance(target1.transform.position, target2.position);
                 await UniTask.Yield();
             }
@@ -115,6 +121,12 @@ namespace CameraFollow
             await UniTask.WaitUntil(() => _followingCamera.HasTarget == false, cancellationToken: _stopListenMovementSource.Token);
             
             _followingCamera.SetTarget(_currentWorm.CurrentWorm.transform);
+        }
+
+        private void OnWormDied(Worm worm)
+        {
+            _stopFollowWormSource.Cancel();        
+            _stopListenMovementSource.Cancel();
         }
     }
 }

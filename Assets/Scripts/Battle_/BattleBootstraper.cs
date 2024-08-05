@@ -13,8 +13,9 @@ namespace Battle_
         private void Construct(IBattleStateSwitcher battleStateSwitcher)
         {
             _battleStateSwitcher = battleStateSwitcher;
+            
         }
-
+        
         private void Start()
         {
             _battleStateSwitcher.SwitchState<BootstrapBattleState>();

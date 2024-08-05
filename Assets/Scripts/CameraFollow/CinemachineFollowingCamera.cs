@@ -37,7 +37,10 @@ namespace CameraFollow
             _generalViewCamera.enabled = true;
         }
 
-        private void Update() => TryZoom(_cameraInput.GetScrollDeltaY());
+        private void Update()
+        {
+            if (_cameraInput != null) TryZoom(_cameraInput.GetScrollDeltaY());
+        }
 
 
         public void ResetZoom()

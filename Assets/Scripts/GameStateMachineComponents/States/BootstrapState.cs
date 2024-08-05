@@ -5,27 +5,30 @@ using Zenject;
 
 namespace GameStateMachineComponents.States
 {
-    public class BootstrapState : GameState
+    public class BootstrapState : IGameState
     {
         private readonly ISceneLoader _sceneLoader;
+        private readonly LoadingScreen _loadingScreen;
+        private readonly DiContainer _diContainer;
+        private readonly MainMenu _mainMenu;
+        private readonly IGameStateSwitcher _stateSwitcher;
+        
         private MovementInput _movementInput;
         private CameraInput _cameraInput;
         private WeaponInput _weaponInput;
         private WeaponSelectorInput _weaponSelectorInput;
-        private readonly LoadingScreen _loadingScreen;
-        private DiContainer _diContainer;
-        private readonly MainMenu _mainMenu;
 
         public BootstrapState(DiContainer diContainer, IGameStateSwitcher stateSwitcher, ISceneLoader sceneLoader,
-            LoadingScreen loadingScreen, MainMenu mainMenu) : base(stateSwitcher)
+            LoadingScreen loadingScreen, MainMenu mainMenu)
         {
+            _stateSwitcher = stateSwitcher;
             _mainMenu = mainMenu;
             _diContainer = diContainer;
             _loadingScreen = loadingScreen;
             _sceneLoader = sceneLoader;
         }
         
-        public override void Enter()
+        public void Enter()
         {
             _diContainer.BindInterfacesAndSelfTo<SettingsWindow>().FromInstance(_mainMenu.SettingsWindow).AsSingle().NonLazy();
 
@@ -34,13 +37,13 @@ namespace GameStateMachineComponents.States
             _sceneLoader.Load(_sceneLoader.SceneNames.MainMenu, OnLoaded);
         }
 
-        private void OnLoaded()
+        public void Exit()
         {
-            StateSwitcher.SwitchState<MainMenuState>();
         }
 
-        public override void Exit()
+        private void OnLoaded()
         {
+            _stateSwitcher.SwitchState<MainMenuState>();
         }
     }
 }

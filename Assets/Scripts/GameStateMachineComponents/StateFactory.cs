@@ -10,7 +10,7 @@ namespace GameStateMachineComponents
         public StateFactory(DiContainer container) =>
             _container = container;
 
-        public T CreateState<T>() where T : GameState =>
+        public T CreateState<T>() where T : IGameState =>
             _container.Resolve<T>();
     }
 }

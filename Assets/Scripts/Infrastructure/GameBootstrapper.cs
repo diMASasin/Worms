@@ -18,7 +18,6 @@ namespace Infrastructure
         
         private void Start()
         {
-            _stateMachine.Init();
             _stateMachine.SwitchState<BootstrapState>();
             
             DontDestroyOnLoad(gameObject);

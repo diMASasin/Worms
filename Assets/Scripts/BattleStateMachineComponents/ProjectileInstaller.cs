@@ -4,6 +4,7 @@ using Configs;
 using DestructibleLand;
 using Explosion_;
 using Factories;
+using Infrastructure;
 using Pools;
 using Projectiles;
 using Projectiles.Behaviours;
@@ -80,6 +81,8 @@ namespace BattleStateMachineComponents
             _container.BindInterfacesAndSelfTo<Exploder>().FromNew().AsSingle().WithArguments(explosionPools);
             _container.BindInterfacesAndSelfTo<FragmentsLauncher>().FromNew().AsSingle().WithArguments(_fragmentPools);
             _container.BindInterfacesAndSelfTo<FollowingTimerViewPool>().FromNew().AsSingle();
+            _container.BindInterfacesAndSelfTo<ProjectileAndFragmentPools>().FromNew().AsSingle()
+                .WithArguments(ProjectilePools, _fragmentPools);
         }
 
         private void BindProjectilePools(IEnumerable<ProjectileConfig> projectileConfigs, Transform projectilesParent,

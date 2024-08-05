@@ -5,9 +5,11 @@ using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Input_System.Input
 using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System;
 using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.Base_States;
 using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.Child_States;
+using EventProviders;
 using Infrastructure.Interfaces;
 using Timers;
 using UnityEngine;
+using Zenject;
 
 namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts
 {
@@ -27,7 +29,8 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts
         [NonSerialized] public CapsuleCollider2D CapsuleCollider2D; // CapsuleCollider2D is used to handle slopes and define the ground check position in the base state class: "State.cs".
 
         public PlayerData PlayerData; // All player movement and action data is stored in the PlayerData object.
-
+        private DiContainer _container;
+        
         private void Awake()
         {
             // Declaration of necessary components:

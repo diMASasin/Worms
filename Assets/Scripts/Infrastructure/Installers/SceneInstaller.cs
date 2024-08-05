@@ -50,7 +50,7 @@ namespace Infrastructure.Installers
             BindWorms();
             BindUI();
             BindStateMachine();
-            BindBattleEndCondition();
+            BindBattle();
         }
 
         private void BindShovel()
@@ -149,7 +149,6 @@ namespace Infrastructure.Installers
                 .UnderTransform(uiTransform).AsSingle().NonLazy();
         }
 
-        private void BindBattleEndCondition() => 
-            Container.BindInterfacesAndSelfTo<BattleEndCondition>().FromNew().AsSingle();
+        private void BindBattle() => Container.BindInterfacesAndSelfTo<BattleEndCondition>().FromNew().AsSingle();
     }
 }

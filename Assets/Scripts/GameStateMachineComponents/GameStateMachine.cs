@@ -10,39 +10,26 @@ namespace GameStateMachineComponents
 {
     public class GameStateMachine : IGameStateSwitcher
     {
-        private List<GameState> _states;
-        private GameState _currentState;
         private readonly StateFactory _stateFactory;
         private readonly SceneLoader _sceneLoader;
         private readonly LoadingScreen _loadingScreen;
         private readonly IBattleSettings _battleSettings;
         private readonly DiContainer _container;
         private readonly MainMenu _mainMenu;
+        
+        private List<IGameState> _states;
+        private BattleBootstraper _battleBootstraper;
+        private IGameState _currentState;
 
-        public GameStateMachine(DiContainer container, SceneLoader sceneLoader, LoadingScreen loadingScreen, 
-            IBattleSettings battleSettings, MainMenu mainMenu)
+        [Inject]
+        public void Construct(List<IGameState> states)
         {
-            _mainMenu = mainMenu;
-            _container = container;
-            _battleSettings = battleSettings;
-            _loadingScreen = loadingScreen;
-            _sceneLoader = sceneLoader;
+            _states = states;
         }
 
-        public void Init()
+        public void SwitchState<T>() where T : IGameState
         {
-            _states = new List<GameState>()
-            {
-                new BootstrapState(_container, this, _sceneLoader, _loadingScreen, _mainMenu),
-                new MainMenuState(this, _battleSettings, _mainMenu),
-                new LevelLoadState(_container, this, _sceneLoader, _loadingScreen),
-                new GameLoopState(_container, this, _loadingScreen)
-            };
-        }
-
-        public void SwitchState<T>() where T : GameState
-        {
-            GameState state = _states.FirstOrDefault(state => state is T);
+            IGameState state = _states.FirstOrDefault(state => state is T);
 
             _currentState?.Exit();
             _currentState = state;

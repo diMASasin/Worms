@@ -4,26 +4,28 @@ using Zenject;
 
 namespace GameStateMachineComponents.States
 {
-    public class LevelLoadState : GameState
+    public class LevelLoadState : IGameState
     {
         private readonly ISceneLoader _sceneLoader;
         private readonly LoadingScreen _loadingScreen;
+        private IGameStateSwitcher _stateSwitcher;
 
         public LevelLoadState(DiContainer diContainer, IGameStateSwitcher stateSwitcher, ISceneLoader sceneLoader,
-            LoadingScreen loadingScreen) : base(stateSwitcher)
+            LoadingScreen loadingScreen)
         {
+            _stateSwitcher = stateSwitcher;
             _loadingScreen = loadingScreen;
             _sceneLoader = sceneLoader;
         }
 
-        public override void Enter()
+        public void Enter()
         {
             _loadingScreen.Enable();
             
-            _sceneLoader.Load(_sceneLoader.SceneNames.MainMenu, () => StateSwitcher.SwitchState<GameLoopState>());
+            _sceneLoader.Load(_sceneLoader.SceneNames.MainMenu, () => _stateSwitcher.SwitchState<GameLoopState>());
         }
 
-        public override void Exit()
+        public void Exit()
         {
         }
     }

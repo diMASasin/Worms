@@ -1,5 +1,6 @@
 using Battle_;
 using GameStateMachineComponents;
+using GameStateMachineComponents.States;
 using InputService;
 using UI_;
 using UnityEngine;
@@ -21,6 +22,7 @@ namespace Infrastructure.Installers
         {
             BindInfrastructure();
             BindGameStateMachine();
+            
             BindInput();
             BindPrefabs();
         }
@@ -33,8 +35,15 @@ namespace Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<LoadingScreen>().FromComponentInNewPrefab(_loadingScreenPrefab).AsSingle();
         }
 
-        private void BindGameStateMachine() => 
-            Container.BindInterfacesAndSelfTo<GameStateMachine>().FromNew().AsSingle().NonLazy();
+        private void BindGameStateMachine()
+        {
+            Container.BindInterfacesAndSelfTo<BootstrapState>().FromNew().AsSingle();
+            Container.BindInterfacesAndSelfTo<MainMenuState>().FromNew().AsSingle();
+            Container.BindInterfacesAndSelfTo<LevelLoadState>().FromNew().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameLoopState>().FromNew().AsSingle();
+            
+            Container.BindInterfacesAndSelfTo<GameStateMachine>().FromNew().AsSingle();
+        }
 
         private void BindInput()
         {
