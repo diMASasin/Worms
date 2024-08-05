@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="200a9c5f-335a-44bb-b8dc-d5d4d6152652" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/PlayerAttackedState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Ultimate Side Scroller Character Controller/Scripts/PlayerAttackedState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/packages.config" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -460,7 +461,7 @@
       <workItem from="1722701624730" duration="3641000" />
       <workItem from="1722754626049" duration="18268000" />
       <workItem from="1722793631205" duration="10000" />
-      <workItem from="1722840025609" duration="5270000" />
+      <workItem from="1722840025609" duration="5281000" />
     </task>
     <servers />
   </component>
@@ -505,10 +506,10 @@
           <line>62</line>
           <properties documentPath="C:\Unity Projects\Worms\Assets\2D Ultimate Side Scroller Character Controller\Scripts\PlayerAttackedState.cs" initialLine="56" containingFunctionPresentation="Method 'WaitForStop'">
             <startOffsets>
-              <option value="1991" />
+              <option value="2007" />
             </startOffsets>
             <endOffsets>
-              <option value="2034" />
+              <option value="2050" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="67" />
@@ -518,10 +519,10 @@
           <line>48</line>
           <properties documentPath="C:\Unity Projects\Worms\Assets\2D Ultimate Side Scroller Character Controller\Scripts\PlayerAttackedState.cs" initialLine="47" containingFunctionPresentation="Method 'WaitForStop'">
             <startOffsets>
-              <option value="1444" />
+              <option value="1460" />
             </startOffsets>
             <endOffsets>
-              <option value="1532" />
+              <option value="1548" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="68" />
@@ -531,10 +532,10 @@
           <line>52</line>
           <properties documentPath="C:\Unity Projects\Worms\Assets\2D Ultimate Side Scroller Character Controller\Scripts\PlayerAttackedState.cs" initialLine="49" containingFunctionPresentation="Method 'WaitForStop'">
             <startOffsets>
-              <option value="1580" />
+              <option value="1596" />
             </startOffsets>
             <endOffsets>
-              <option value="1771" />
+              <option value="1787" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="70" />

@@ -3,8 +3,8 @@ using System.Threading;
 using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System;
 using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.Base_States;
 using Cysharp.Threading.Tasks;
-using Timers;
 using UnityEngine;
+using ITimer = Timers.ITimer;
 
 namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts
 {
