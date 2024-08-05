@@ -2,6 +2,7 @@
   "dependencies": {
     "com.antonysze.custom-play-button": "https://github.com/antonysze/unity-custom-play-button.git",
     "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+    "com.github-glitchenzo.nugetforunity": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
     "com.marijnzwemmer.unity-toolbar-extender": "https://github.com/marijnz/unity-toolbar-extender.git",
     "com.unity.ai.navigation": "1.1.5",
     "com.unity.cinemachine": "2.9.5",
