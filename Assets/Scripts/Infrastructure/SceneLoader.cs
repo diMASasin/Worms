@@ -29,13 +29,12 @@ namespace Infrastructure
         private async UniTaskVoid LoadScene(string name, Action onLoaded = null)
         {
             AsyncOperation waitNextScene = SceneManager.LoadSceneAsync(name);
-
-            do
+        
+            await UniTask.WaitUntil(() =>
             {
                 ProgressChanged?.Invoke(waitNextScene.progress);
-                await UniTask.Yield();
-            }
-            while (waitNextScene.isDone == false);
+                return waitNextScene.isDone == true;
+            });
         
             onLoaded?.Invoke();
         }

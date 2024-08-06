@@ -5,77 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="200a9c5f-335a-44bb-b8dc-d5d4d6152652" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/ObservableCollections.2.1.3.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/ObservableCollections.2.1.3/.signature.p7s" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/ObservableCollections.2.1.3/Icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/ObservableCollections.2.1.3/Icon.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/ObservableCollections.2.1.3/ObservableCollections.nuspec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/ObservableCollections.2.1.3/ObservableCollections.nuspec.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/ObservableCollections.2.1.3/lib.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/ObservableCollections.2.1.3/lib/netstandard2.1.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/ObservableCollections.2.1.3/lib/netstandard2.1/ObservableCollections.dll.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/ObservableCollections.2.1.3/lib/netstandard2.1/ObservableCollections.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/ObservableCollections.2.1.3/lib/netstandard2.1/ObservableCollections.xml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/ObservableCollections.R3.2.1.3.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/ObservableCollections.R3.2.1.3/.signature.p7s" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/ObservableCollections.R3.2.1.3/Icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/ObservableCollections.R3.2.1.3/Icon.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/ObservableCollections.R3.2.1.3/ObservableCollections.R3.nuspec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/ObservableCollections.R3.2.1.3/ObservableCollections.R3.nuspec.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/ObservableCollections.R3.2.1.3/lib.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/ObservableCollections.R3.2.1.3/lib/netstandard2.1.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/ObservableCollections.R3.2.1.3/lib/netstandard2.1/ObservableCollections.R3.dll.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/ObservableCollections.R3.2.1.3/lib/netstandard2.1/ObservableCollections.R3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Packages/ObservableCollections.R3.2.1.3/lib/netstandard2.1/ObservableCollections.R3.xml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Timers/IReadOnlyTimer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Timers/ReactiveTimer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Timers/ReactiveTimer.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Timers/TimeFormatters.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Timers/TimeFormatters/ITimeFormatter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Timers/TimeFormatters/ITimeFormatter.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Timers/TimeFormatters/TimeSecondsAndMinutesFormatter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Timers/TimeFormatters/TimeSecondsAndMinutesFormatter.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Timers/TimeFormatters/TimeSecondsFormatter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Timers/TimeFormatters/TimeSecondsFormatter.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Worms/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Water.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Water.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/WaterColor.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/WaterColor.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Water.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Water.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Map1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Map1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachineData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/BattleStateMachineData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/ITimers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/ITimers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BootstrapBattleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/BootstrapBattleState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BattleStateMachineComponents/States/TurnState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCamera.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCameraEventsListener.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFollow/FollowingCameraEventsListener.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/TeamFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/TeamFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Factories/WormInfoFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Factories/WormInfoFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FollowingObject.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FollowingObject_.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FollowingObject/FollowingObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FollowingObject_/FollowingObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FollowingObject/FollowingObject.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FollowingObject_/FollowingObject.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FollowingObject/FollowingObjectConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FollowingObject_/FollowingObjectConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/FollowingObject/FollowingObjectConfig.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/FollowingObject_/FollowingObjectConfig.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pools/FollowingTimerViewPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pools/FollowingTimerViewPool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/OnLaunchTimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Behaviours/Components/OnLaunchTimer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Timers/ITimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Timers/ITimer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Timers/ITimerUpdateEvent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Timers/ITimerUpdateEvent.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Timers/IReadOnlyTimer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Timers/TickTimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Timers/TickTimer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Timers/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Timers/Timer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Timers/TimerView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Timers/TimerView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Timers/UniTaskTimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Timers/UniTaskTimer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI_/FollowingTimerView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI_/FollowingTimerView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI_/SettingsWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI_/SettingsWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Water/WaterVelocityChanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Water/WaterVelocityChanger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Arrow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Arrow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Team.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Team.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/TeamHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/TeamHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/Worm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WormComponents/WormInformationView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WormComponents/WormInformationView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/packages.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Infrastructure/SceneLoader.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
