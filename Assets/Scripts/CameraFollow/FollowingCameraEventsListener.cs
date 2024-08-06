@@ -125,8 +125,8 @@ namespace CameraFollow
 
         private void OnWormDied(Worm worm)
         {
-            _stopFollowWormSource.Cancel();        
-            _stopListenMovementSource.Cancel();
+            if (_stopFollowWormSource != null) _stopFollowWormSource.Cancel();
+            if (_stopListenMovementSource != null) _stopListenMovementSource.Cancel();
         }
     }
 }

@@ -1,3 +1,5 @@
+using FollowingObject_;
+using R3;
 using TMPro;
 using UnityEngine;
 
@@ -7,29 +9,25 @@ namespace WormComponents
     {
         [SerializeField] private TMP_Text _healthText;
         [SerializeField] private TMP_Text _nameText;
-        [SerializeField] private FollowingObject.FollowingObject _followingObject;
+        [SerializeField] private FollowingObject _followingObject;
     
         private Worm _worm;
 
         public void Init(Worm worm, Color color, string wormName)
         {
             _worm = worm;
-            _worm.DamageTook += OnHealthChanged;
         
             _healthText.color = color;
             _nameText.color = color;
             _nameText.text = wormName;
 
+            _worm.Health.Subscribe(OnHealthChanged);
             _followingObject.Follow(_worm.Transform);
-            
-            OnHealthChanged(_worm);
         }
-
-        private void OnDestroy() => _worm.DamageTook -= OnHealthChanged;
         
-        private void OnHealthChanged(Worm worm)
+        private void OnHealthChanged(int health)
         {
-            _healthText.text = worm.Health.ToString();
+            _healthText.text = health.ToString();
         }
     }
 }

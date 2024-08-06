@@ -4,9 +4,9 @@ using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Input_System;
 using _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Input_System.InputManager;
 using Configs;
 using Extensions;
+using R3;
 using Unity.Mathematics;
 using UnityEngine;
-using Weapons;
 
 namespace WormComponents
 {
@@ -19,11 +19,12 @@ namespace WormComponents
         [field: SerializeField] public Transform Armature { get; private set; }
         [field: SerializeField] public Transform WeaponPosition { get; private set; }
 
+        private readonly ReactiveProperty<int> _health = new();
         private bool _isDied;
-        public WormConfig Config { get; private set; }
-        public int Health { get; private set; }
-        public Weapon Weapon { get; private set; }
+        
+        private WormConfig Config { get; set; }
 
+        public ReadOnlyReactiveProperty<int> Health => _health;
         public Transform Transform => transform;
         public CapsuleCollider2D Collider2D => _collider;
         public Rigidbody2D Rigidbody2D => _rigidbody;
@@ -50,8 +51,10 @@ namespace WormComponents
             Config = config;
             WormsNumber++;
             gameObject.name = config.Name + " " + WormsNumber;
-            Health = Config.MaxHealth;
+            _health.Value = Config.MaxHealth;
         }
+
+        private void OnDestroy() => _health.Dispose();
 
         public void DelegateInput(IMovementInput movementInput)
         {
@@ -84,12 +87,12 @@ namespace WormComponents
             if (damage < 0)
                 throw new ArgumentOutOfRangeException("damage should be greater then 0. damage = " + damage);
 
-            Health -= damage;
+            _health.Value -= damage;
             _playerMain.PlayerData.Physics.Attacked = true;
             InputHandler.Disable();
             DamageTook?.Invoke(this);
 
-            if (Health <= 0)
+            if (_health.Value <= 0)
                 Die();
         }
 

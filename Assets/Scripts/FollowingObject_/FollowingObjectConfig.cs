@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace FollowingObject
+namespace FollowingObject_
 {
     [CreateAssetMenu(fileName = "FollowingObjectConfig", menuName = "Config/FollowingObject")]
     public class FollowingObjectConfig : ScriptableObject

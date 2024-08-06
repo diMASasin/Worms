@@ -12,7 +12,7 @@ using WormComponents;
 namespace BattleStateMachineComponents
 {
     [Serializable]
-    public class BattleStateMachineData : ICurrentWorm, IAliveTeams, ITimers
+    public class BattleStateMachineData : ICurrentWorm, IAliveTeams
     {
         [field: SerializeField] public CinemachineFollowingCamera CinemachineFollowingCamera { get; private set; }
         [field: SerializeField] public WaterLevelIncreaser WaterLevelIncreaser { get; private set; }
@@ -26,7 +26,7 @@ namespace BattleStateMachineComponents
         public Worm CurrentWorm { get; set; }
         public Team CurrentTeam { get; set; }
 
-        public ITimer BattleTimer { get; set; }
-        public ITimer TurnTimer { get; set; }
+        public ReactiveTimer BattleTimer { get; private set; } = new();
+        public ReactiveTimer TurnTimer { get; private set; } = new();
     }
 }

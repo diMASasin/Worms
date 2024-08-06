@@ -7,9 +7,10 @@ namespace Timers
     public class UniTaskTimer : ITimer
     {
         private double _interval;
-        private double _timeLeft = 0;
         private bool _paused;
         private bool _stopped;
+        
+        public double TimeLeft { get; private set; } = 0;
         public bool Started { get; private set; }
         
         public event Action<double> TimerUpdated;
@@ -20,7 +21,7 @@ namespace Timers
             Stop();
             Reset();
             Started = true;
-            TimerUpdated?.Invoke(_timeLeft);
+            TimerUpdated?.Invoke(TimeLeft);
             
             StartTimer(onElapsed).Forget();
         }
@@ -29,8 +30,8 @@ namespace Timers
 
         public void Resume()
         {
-            _timeLeft = (int)_timeLeft;
-            TimerUpdated?.Invoke(_timeLeft);
+            TimeLeft = (int)TimeLeft;
+            TimerUpdated?.Invoke(TimeLeft);
             _paused = false;
         }
 
@@ -38,15 +39,15 @@ namespace Timers
 
         private async UniTaskVoid StartTimer(Action onElapsed)
         {
-            while (_timeLeft > 0)
+            while (TimeLeft > 0)
             {
                 await UniTask.Yield();
                 
                 if (_paused == true) continue;
                 if(_stopped == true) return;
 
-                _timeLeft -= Time.deltaTime;
-                TimerUpdated?.Invoke(_timeLeft);
+                TimeLeft -= Time.deltaTime;
+                TimerUpdated?.Invoke(TimeLeft);
             }
             
             onElapsed?.Invoke();
@@ -54,7 +55,7 @@ namespace Timers
 
         private void Reset()
         {
-            _timeLeft = _interval;
+            TimeLeft = _interval;
             Started = false;
             _paused = false;
             _stopped = false;

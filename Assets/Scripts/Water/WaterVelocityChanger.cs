@@ -19,11 +19,8 @@ namespace Water
 
         public void ChangeVelocity(float normalizedVelocity)
         {
-            float directionChangeDuration = 100;
-            float waveHeightChangeDuration = 5;
-            
-            _stylizedWaterMaterial.DOVector(new Vector4(-normalizedVelocity, 0), WaveDirection, directionChangeDuration);
-            _stylizedWaterMaterial.DOFloat(Mathf.Abs(normalizedVelocity * _maxWaveHeight), WaveHeight, waveHeightChangeDuration);
+            _stylizedWaterMaterial.SetVector(WaveDirection, new Vector4(-normalizedVelocity, 0));
+            _stylizedWaterMaterial.SetFloat(WaveHeight, Mathf.Abs(normalizedVelocity * _maxWaveHeight));
         }
     }
 }

@@ -8,7 +8,7 @@ namespace WormComponents
     {
         [SerializeField] private Animator _animator;
         [SerializeField] private int _lifeTime = 2;
-        [SerializeField] private FollowingObject.FollowingObject _followingObject;
+        [SerializeField] private FollowingObject_.FollowingObject _followingObject;
     
         private ITimer _timer;
         

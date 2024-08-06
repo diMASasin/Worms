@@ -6,12 +6,12 @@ namespace Timers
     public class TickTimer : ITimer
     {
         private double _interval;
-        private double _timeLeft = 0;
         private Coroutine _coroutine;
         private bool _paused;
         private Action _onElapsed;
         
-        [field: SerializeField] public bool Started { get; private set; }
+        public double TimeLeft { get; private set; } = 0;
+        public bool Started { get; private set; }
 
         public event Action<double> TimerUpdated;
 
@@ -19,9 +19,9 @@ namespace Timers
         {
             _onElapsed = onElapsed;
             _interval = interval;
-            _timeLeft = _interval;
+            TimeLeft = _interval;
             Started = true;
-            TimerUpdated?.Invoke(_timeLeft);
+            TimerUpdated?.Invoke(TimeLeft);
             
         }
 
@@ -33,7 +33,7 @@ namespace Timers
 
         public void Resume()
         {
-            TimerUpdated?.Invoke(_timeLeft);
+            TimerUpdated?.Invoke(TimeLeft);
             _paused = false;
         }
 
@@ -43,11 +43,11 @@ namespace Timers
         {
             if (Started == false || _paused == true) return;
 
-            Debug.Log($"({_interval}) Time Left {_timeLeft}");
-            _timeLeft -= Time.deltaTime;
-            TimerUpdated?.Invoke(_timeLeft);
+            Debug.Log($"({_interval}) Time Left {TimeLeft}");
+            TimeLeft -= Time.deltaTime;
+            TimerUpdated?.Invoke(TimeLeft);
 
-            if (_timeLeft <= 0)
+            if (TimeLeft <= 0)
             {
                 Reset();
                 _onElapsed?.Invoke();
@@ -56,7 +56,7 @@ namespace Timers
 
         private void Reset()
         {
-            _timeLeft = _interval;
+            TimeLeft = _interval;
             Started = false;
         }
     }

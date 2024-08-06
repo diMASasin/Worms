@@ -20,7 +20,6 @@ namespace BattleStateMachineComponents.States
         private TeamHealthFactory _teamHealthFactoryPrefab;
         private readonly WormsSpawner _wormsSpawner;
         private readonly IBattleSettings _battleSettings;
-        private readonly ITimer _battleTimer;
         private readonly WeaponSelectorItemFactory _itemFactory;
         private readonly WeaponFactory _weaponFactory;
         private readonly TeamHealthFactory _teamHealthFactory;
@@ -37,14 +36,10 @@ namespace BattleStateMachineComponents.States
             _container = container;
             _weaponFactory = weaponFactory;
             _itemFactory = itemFactory;
-            _battleTimer = battleTimer;
             _data = data;
             _battleSettings = battleSettings;
             _wormsSpawner = wormsSpawner;
             _battleStateSwitcher = battleStateSwitcher;
-            
-            _data.BattleTimer = battleTimer;
-            _data.TurnTimer = turnBattle;
         }
 
         public void Enter()
@@ -83,11 +78,11 @@ namespace BattleStateMachineComponents.States
         {
             float globalTime = BattleConfig.TimersConfig.BattleTime;
             
-            _battleTimer.Start(globalTime, () => _data.WaterLevelIncreaser.AllowIncreaseWaterLevel());
-            _battleTimer.Pause();
+            _data.BattleTimer.Start(globalTime, () => _data.WaterLevelIncreaser.AllowIncreaseWaterLevel());
+            _data.BattleTimer.Pause();
 
-            _data.UI.BattleTimerView.Init(_battleTimer, TimerFormattingStyle.MinutesAndSeconds);
-            _data.UI.TurnTimerView.Init(_data.TurnTimer, TimerFormattingStyle.Seconds);
+            _data.UI.BattleTimerView.Init(_data.BattleTimer, new TimeSecondsAndMinutesFormatter());
+            _data.UI.TurnTimerView.Init(_data.TurnTimer, new TimeSecondsFormatter());
         }
 
         public void Exit()

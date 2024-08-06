@@ -10,8 +10,9 @@ namespace Projectiles.Behaviours.Components
         [SerializeField] private Projectile _projectile;
         [SerializeField] private float _interval;
         
+        public ReactiveTimer Timer { get; private set; } = new();
+        
         private Action _onElapsed;
-        public UniTaskTimer Timer { get; private set; } = new();
 
         private void OnEnable() => _projectile.Launched += OnLaunched;
 

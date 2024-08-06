@@ -32,6 +32,7 @@ namespace Factories
             var team = new Team(teamWorms, color, config);
             team.Died += OnDied;
             
+            
             return team;
         }
 

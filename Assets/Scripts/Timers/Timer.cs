@@ -8,10 +8,11 @@ namespace Timers
     public class Timer : ITimer
     {
         private double _interval;
-        private double _timeLeft = 0;
         private Coroutine _coroutine;
         private bool _paused;
         private readonly ICoroutinePerformer _coroutinePerformer;
+        
+        public double TimeLeft { get; private set; } = 0;
         public bool Started { get; private set; }
         
         public event Action<double> TimerUpdated;
@@ -27,7 +28,7 @@ namespace Timers
             Stop();
             Reset();
             Started = true;
-            TimerUpdated?.Invoke(_timeLeft);
+            TimerUpdated?.Invoke(TimeLeft);
             _coroutine = _coroutinePerformer.StartCoroutine(StartTimer(onElapsed));
         }
 
@@ -39,8 +40,8 @@ namespace Timers
 
         public void Resume()
         {
-            _timeLeft = (int)_timeLeft;
-            TimerUpdated?.Invoke(_timeLeft);
+            TimeLeft = (int)TimeLeft;
+            TimerUpdated?.Invoke(TimeLeft);
             _paused = false;
         }
 
@@ -48,14 +49,14 @@ namespace Timers
 
         private IEnumerator StartTimer(Action onElapsed)
         {
-            while (_timeLeft > 0)
+            while (TimeLeft > 0)
             {
                 yield return null;
                 
                 if (_paused == true) continue;
 
-                _timeLeft -= Time.deltaTime;
-                TimerUpdated?.Invoke(_timeLeft);
+                TimeLeft -= Time.deltaTime;
+                TimerUpdated?.Invoke(TimeLeft);
             }
 
             Stop();
@@ -64,7 +65,7 @@ namespace Timers
 
         private void Reset()
         {
-            _timeLeft = _interval;
+            TimeLeft = _interval;
             Started = false;
         }
     }

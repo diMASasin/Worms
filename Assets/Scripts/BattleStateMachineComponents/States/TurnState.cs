@@ -25,8 +25,8 @@ namespace BattleStateMachineComponents.States
         private IMessageShower _messageShower;
 
         private TimersConfig TimersConfig => _data.BattleConfig.TimersConfig;
-        private ITimer BattleTimer => _data.BattleTimer;
-        private ITimer TurnTimer => _data.TurnTimer;
+        private ReactiveTimer BattleTimer => _data.BattleTimer;
+        private ReactiveTimer TurnTimer => _data.TurnTimer;
 
         private Team CurrentTeam { set => _data.CurrentTeam = value; }
 

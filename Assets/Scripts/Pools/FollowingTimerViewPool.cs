@@ -51,7 +51,7 @@ namespace Pools
             
             FollowingTimerView timerView = Get();
             
-            timerView.TimerView.Init(timer.Timer, TimerFormattingStyle.Seconds);
+            timerView.TimerView.Init(timer.Timer, new TimeSecondsFormatter());
             timerView.FollowingObject.Follow(projectile.transform);
             _timersTargets.Add(projectile.transform, timerView);
         }

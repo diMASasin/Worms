@@ -12,7 +12,7 @@ namespace CameraFollow
         [SerializeField] public Transform _generalViewPosition;
         [field: SerializeField] public int MinPosition { get; private set; } = -65;
         [field: SerializeField]public int MaxPosition { get; set; } = -10;
-        [field: SerializeField] public FollowingObject.FollowingObject FollowingObject { get; private set; }
+        [field: SerializeField] public FollowingObject_.FollowingObject FollowingObject { get; private set; }
 
         private Transform _target;
         private ICameraInput _cameraInput;

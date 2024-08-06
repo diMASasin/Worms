@@ -1,3 +1,4 @@
+using R3;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,20 +18,13 @@ namespace WormComponents
             _fillImage.color = color;
             _teamName.text = team.Name;
             _maxHealth = team.MaxHealth;
-            
-            team.HealthChanged += OnHealthChanged;
-            team.Died += OnDied;
+
+            team.TeamHealth.Subscribe(OnHealthChanged);
         }
 
         private void OnHealthChanged(int health)
         {
             _healthSlider.value = (float)health / _maxHealth;
-        }
-
-        private void OnDied(Team team)
-        {
-            team.HealthChanged -= OnHealthChanged;
-            team.Died -= OnDied;
         }
     }
 }

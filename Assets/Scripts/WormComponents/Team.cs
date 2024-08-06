@@ -1,25 +1,27 @@
 using System;
 using System.Linq;
 using Configs;
+using R3;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace WormComponents
 {
     [Serializable]
-    public class Team
+    public class Team : IDisposable
     {
         [field: SerializeField] public string Name { get; private set; }
 
         private readonly CycledList<Worm> _worms;
+        private ReactiveProperty<int> _teamHealth = new();
 
         public int MaxHealth { get; private set; }
         public Color Color { get; private set; }
 
         public CycledList<Worm> Worms => _worms;
+        public ReadOnlyReactiveProperty<int> TeamHealth => _teamHealth;
 
         public event UnityAction<Team> Died;
-        public event UnityAction<int> HealthChanged;
 
         public Team(CycledList<Worm> worms, Color color, TeamConfig config)
         {
@@ -30,29 +32,23 @@ namespace WormComponents
 
             foreach (var worm in _worms)
             {
+                worm.Health.Subscribe(health => _teamHealth.Value = _worms.Sum(w => w.Health.CurrentValue));
+                
                 MaxHealth += worm.MaxHealth;
                 worm.Died += OnWormDied;
-                worm.DamageTook += OnDamageTook;
             }
         }
 
+        public void Dispose() => _teamHealth.Dispose();
+
         private void OnWormDied(Worm worm)
         {
-            worm.DamageTook -= OnDamageTook;
             worm.Died -= OnWormDied;
 
             _worms.Remove(worm);
 
-            OnDamageTook(worm);
-
             if(_worms.IsEmpty)
                 Died?.Invoke(this);
-        }
-
-        private void OnDamageTook(Worm arg0)
-        {
-            var sum = _worms.Sum(worm => worm.Health);
-            HealthChanged?.Invoke(sum);
         }
     }
 }

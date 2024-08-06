@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace FollowingObject
+namespace FollowingObject_
 {
     public class FollowingObject : MonoBehaviour
     {

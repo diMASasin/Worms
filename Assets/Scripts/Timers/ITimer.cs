@@ -2,9 +2,8 @@ using System;
 
 namespace Timers
 {
-    public interface ITimer : ITimerUpdateEvent
+    public interface ITimer : IReadOnlyTimer
     {
-        bool Started { get; }
         void Start(float interval, Action onElapsed);
         void Stop();
         void Resume();
