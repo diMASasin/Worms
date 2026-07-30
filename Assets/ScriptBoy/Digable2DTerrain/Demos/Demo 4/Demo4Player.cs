@@ -35,7 +35,7 @@ namespace ScriptBoy.Digable2DTerrain.Demos.Demo_4
 
             //Move the character based on the horizontal axis
             float move = Input.GetAxis("Horizontal") * moveSpeed;
-            m_Rigidbody2D.velocity = new Vector2(move , m_Rigidbody2D.velocity.y);
+            m_Rigidbody2D.linearVelocity = new Vector2(move , m_Rigidbody2D.linearVelocity.y);
         }
     }
 }

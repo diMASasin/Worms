@@ -51,7 +51,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
             playerData.Physics.CutJump = false;
             dataJump.NewJump = false;
             // rigidbody2D.gravityScale = playerData.Land.Physics2DGravityScale;
-            if (rigidbody2D.velocity.x != 0)
+            if (rigidbody2D.linearVelocity.x != 0)
             {
                 phase = InputHandler.Input_Walk != 0 ? Phase.SpeedUp : Phase.SlowDown;
             }
@@ -85,7 +85,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
             }
 
             // Move2D();
-            rigidbody2D.velocity += physics.Platform.DampedVelocity;
+            rigidbody2D.linearVelocity += physics.Platform.DampedVelocity;
             xCurveTime += Time.fixedDeltaTime;
             
             if(player.InputHandler.Input_Walk == 0)
@@ -94,9 +94,9 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
             Vector2 inputSpeed = new Vector2(player.InputHandler.Input_Walk * playerData.Jump.CurrentJump.jumpXImpulse * Time.fixedDeltaTime, 0);
             // inputSpeed.y += -9.8f * Time.fixedDeltaTime;
             float jumpXImpulse = jumpInfo.currentJumpType.jumpXImpulse;
-            inputSpeed += rigidbody2D.velocity;
+            inputSpeed += rigidbody2D.linearVelocity;
             inputSpeed.x = Mathf.Clamp(inputSpeed.x, -jumpXImpulse, jumpXImpulse);
-            rigidbody2D.velocity = inputSpeed;
+            rigidbody2D.linearVelocity = inputSpeed;
         }
 
         public override void Exit()
@@ -167,13 +167,13 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
                 _newVelocity.x = VelocityOnx() * playerData.Physics.Slope.CurrentSlopeAngle / 100;
             }
             
-            rigidbody2D.velocity = _newVelocity;
-            localXVelovity = rigidbody2D.velocity.x;
+            rigidbody2D.linearVelocity = _newVelocity;
+            localXVelovity = rigidbody2D.linearVelocity.x;
         }
 
         private float VelocityOnx()
         {
-            float XVelocity = rigidbody2D.velocity.x;
+            float XVelocity = rigidbody2D.linearVelocity.x;
             if (InputHandler.Input_Walk != 0 && (localXVelovity == 0 ||
                                                  Mathf.Sign(InputHandler.Input_Walk) == Mathf.Sign(localXVelovity))
                                              && (phase != Phase.TurnBack || xCurveTime > playerData.Walk.TurnBackTime))
@@ -181,7 +181,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
                 if (phase != Phase.SpeedUp && (phase != Phase.TurnBack || xCurveTime > playerData.Walk.TurnBackTime))
                 {
                     xCurveTime = EssentialPhysics.SetCurveTimeByValue(playerData.Jump.XSpeedUpCurve,
-                        Mathf.Abs(rigidbody2D.velocity.x) / playerData.Jump.CurrentJump.jumpXImpulse, 1, true);
+                        Mathf.Abs(rigidbody2D.linearVelocity.x) / playerData.Jump.CurrentJump.jumpXImpulse, 1, true);
                     xCurveTime *= playerData.Jump.XSpeedUpTime;
                     phase = Phase.SpeedUp;
                 }
@@ -226,7 +226,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
                 if (phase != Phase.SlowDown)
                 {
                     xCurveTime = EssentialPhysics.SetCurveTimeByValue(playerData.Jump.XSlowDownCurve,
-                        Mathf.Abs(rigidbody2D.velocity.x) / playerData.Jump.CurrentJump.jumpXImpulse, 1, false);
+                        Mathf.Abs(rigidbody2D.linearVelocity.x) / playerData.Jump.CurrentJump.jumpXImpulse, 1, false);
                     xCurveTime *= playerData.Jump.XSlowDownTime;
                     phase = Phase.SlowDown;
                 }
@@ -244,7 +244,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
             }
             else
             {
-                XVelocity = rigidbody2D.velocity.x;
+                XVelocity = rigidbody2D.linearVelocity.x;
                 phase = Phase.Null;
             }
 

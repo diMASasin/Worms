@@ -21,7 +21,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
             base.Enter();
             rigidbody2D.gravityScale = playerData.Walk.Physics2DGravityScale;
             localTime = 0f;
-            curveTime = EssentialPhysics.SetCurveTimeByValue(playerData.Walk.SpeedUpCurve, Mathf.Abs(rigidbody2D.velocity.x) / playerData.Walk.MaxSpeed, 1, true);
+            curveTime = EssentialPhysics.SetCurveTimeByValue(playerData.Walk.SpeedUpCurve, Mathf.Abs(rigidbody2D.linearVelocity.x) / playerData.Walk.MaxSpeed, 1, true);
             curveTime *= playerData.Walk.SpeedUpTime;
             localXVelovity = 0f;
             phase = Phase.SpeedUp;
@@ -36,7 +36,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
         {
             base.FixedUpdate();
             Move1D();
-            rigidbody2D.velocity += playerData.Physics.Platform.DampedVelocity;
+            rigidbody2D.linearVelocity += playerData.Physics.Platform.DampedVelocity;
             curveTime += Time.fixedDeltaTime;
             playerData.Walls.CurrentStamina = Mathf.Clamp(playerData.Walls.CurrentStamina + (Time.fixedDeltaTime * playerData.Walls.StaminaRegenPerSec), 0, playerData.Walls.MaxStamina);
         }
@@ -44,7 +44,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
         public override void Exit()
         {
             base.Exit();
-            rigidbody2D.velocity = Vector2.zero;
+            rigidbody2D.linearVelocity = Vector2.zero;
         }
 
         public override void PhysicsCheck()
@@ -92,14 +92,14 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
             else if (!playerData.Physics.IsOnNotWalkableSlope)
             {
                 newVelocity = VelocityOnX();
-                rigidbody2D.velocity = -1 * newVelocity * playerData.Physics.WalkSpeedDirection.normalized;
+                rigidbody2D.linearVelocity = -1 * newVelocity * playerData.Physics.WalkSpeedDirection.normalized;
             }
             else
             {
                 newVelocity = VelocityOnX();
-                rigidbody2D.velocity = new Vector2(newVelocity, rigidbody2D.velocity.y);
+                rigidbody2D.linearVelocity = new Vector2(newVelocity, rigidbody2D.linearVelocity.y);
             }
-            localXVelovity = rigidbody2D.velocity.x;
+            localXVelovity = rigidbody2D.linearVelocity.x;
         }
         private float VelocityOnX()
         {

@@ -20,7 +20,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
         public override void Enter()
         {
             base.Enter();
-            player.Rigidbody2D.velocity = new Vector2(player.Rigidbody2D.velocity.x, playerData.Walls.WallJump.MaxHeight);
+            player.Rigidbody2D.linearVelocity = new Vector2(player.Rigidbody2D.linearVelocity.x, playerData.Walls.WallJump.MaxHeight);
             playerData.Jump.JumpBufferTimer = 0;
             rigidbody2D.gravityScale = playerData.Walls.Physics2DGravityScale;
             xCurveTime = 0f;
@@ -103,7 +103,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
             if (localTime < playerData.Walls.WallJump.DampingTime)
             {
                 _newVelocity.x = Mathf.Sign(_newVelocity.x) != Mathf.Sign(xStartVelocity.x) ? _newVelocity.x * playerData.Walls.WallJump.OppositeSpeedMultiplierWhenDamping : _newVelocity.x;
-                rigidbody2D.velocity = _newVelocity + xStartVelocity;
+                rigidbody2D.linearVelocity = _newVelocity + xStartVelocity;
             }
 
         }
@@ -115,7 +115,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
             {
                 if (phase != Phase.SpeedUp)
                 {
-                    xCurveTime = EssentialPhysics.SetCurveTimeByValue(playerData.Walls.WallJump.XSpeedUpCurve, Mathf.Abs(rigidbody2D.velocity.x) / playerData.Walls.WallJump.XMaxSpeed, 1, true);
+                    xCurveTime = EssentialPhysics.SetCurveTimeByValue(playerData.Walls.WallJump.XSpeedUpCurve, Mathf.Abs(rigidbody2D.linearVelocity.x) / playerData.Walls.WallJump.XMaxSpeed, 1, true);
                     xCurveTime *= playerData.Walls.WallJump.XSpeedUpTime;
                     phase = Phase.SpeedUp;
                 }
@@ -133,7 +133,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
             {
                 if (phase != Phase.SlowDown)
                 {
-                    xCurveTime = EssentialPhysics.SetCurveTimeByValue(playerData.Walls.WallJump.XSlowDownCurve, Mathf.Abs(rigidbody2D.velocity.x) / playerData.Walls.WallJump.XMaxSpeed, 1, false);
+                    xCurveTime = EssentialPhysics.SetCurveTimeByValue(playerData.Walls.WallJump.XSlowDownCurve, Mathf.Abs(rigidbody2D.linearVelocity.x) / playerData.Walls.WallJump.XMaxSpeed, 1, false);
                     xCurveTime *= playerData.Walls.WallJump.XSlowDownTime;
                     phase = Phase.SlowDown;
                 }

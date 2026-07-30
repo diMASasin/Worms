@@ -70,7 +70,7 @@ namespace EffectCore.packs.WebDemoAssets.scripts
 
             if (LookRotation && timer >= 0.05f)
             {
-                transform.rotation = Quaternion.LookRotation(thisRigidbody.velocity);
+                transform.rotation = Quaternion.LookRotation(thisRigidbody.linearVelocity);
             }
 
             CheckCollision(previousPosition);
@@ -98,7 +98,7 @@ namespace EffectCore.packs.WebDemoAssets.scripts
                 {
                     thisCollider.enabled = false;
                     particleKillGroup.SetActive(false);
-                    thisRigidbody.velocity = Vector3.zero;
+                    thisRigidbody.linearVelocity = Vector3.zero;
                     Destroy(gameObject, 5);
                 }
 
@@ -126,7 +126,7 @@ namespace EffectCore.packs.WebDemoAssets.scripts
 
                     thisCollider.enabled = false;
                     particleKillGroup.SetActive(false);
-                    thisRigidbody.velocity = Vector3.zero;
+                    thisRigidbody.linearVelocity = Vector3.zero;
 
                     Destroy(gameObject, 5);
 

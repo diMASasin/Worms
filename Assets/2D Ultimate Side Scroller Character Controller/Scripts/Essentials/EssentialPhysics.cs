@@ -26,7 +26,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Essentials
             {
                 playerData.Physics.FacingDirection = playerData.Physics.IsNextToWall
                     ? -playerData.Physics.WallDirection
-                    : (int)Mathf.Sign(player.Rigidbody2D.velocity.x);
+                    : (int)Mathf.Sign(player.Rigidbody2D.linearVelocity.x);
             }
             else if (inputHandler.Input_Walk != 0 &&
                      Mathf.Sign(inputHandler.Input_Walk) != Mathf.Sign(playerData.Physics.FacingDirection))
@@ -338,7 +338,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Essentials
                 float _angularVelocity = platformRigidbody.angularVelocity * Mathf.Deg2Rad;
                 Vector2 _rotationalLinearVelocity = new(-_platformCenterToContact.y * _angularVelocity,
                     _platformCenterToContact.x * _angularVelocity);
-                Vector2 _movingLinearVelocity = platformRigidbody.velocity;
+                Vector2 _movingLinearVelocity = platformRigidbody.linearVelocity;
                 Vector2 _linearVelocity = _rotationalLinearVelocity + _movingLinearVelocity;
 
                 playerData.Physics.Platform.MaxPlatformVelocity = _linearVelocity;

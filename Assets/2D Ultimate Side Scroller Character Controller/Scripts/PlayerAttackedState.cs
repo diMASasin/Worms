@@ -51,7 +51,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts
             try
             {
                 await UniTask.WaitWhile(
-                    () => playerData.Physics.IsGrounded == false && rigidbody2D.velocity.magnitude > 0.2f,
+                    () => playerData.Physics.IsGrounded == false && rigidbody2D.linearVelocity.magnitude > 0.2f,
                     cancellationToken: _tokenSource.Token);
             }
             catch (MissingReferenceException exception)

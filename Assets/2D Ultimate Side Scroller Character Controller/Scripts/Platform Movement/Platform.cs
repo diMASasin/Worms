@@ -32,32 +32,32 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.Platform_Movem
             {
                 if (transform.position.x < startPoint.x)
                 {
-                    rb.velocity = new Vector2(direction * speed, 0);
+                    rb.linearVelocity = new Vector2(direction * speed, 0);
                 }
                 else if (transform.position.x < startPoint.x + rightBorderOffset.x)
                 {
-                    rb.velocity = new Vector2(direction * speed, 0);
+                    rb.linearVelocity = new Vector2(direction * speed, 0);
                 }
                 else if (transform.position.x >= startPoint.x + rightBorderOffset.x)
                 {
                     direction = -1;
-                    rb.velocity = new Vector2(direction * speed, 0);
+                    rb.linearVelocity = new Vector2(direction * speed, 0);
                 }
             }
             else if (direction == -1)
             {
                 if (transform.position.x > startPoint.x + startPoint.x)
                 {
-                    rb.velocity = new Vector2(direction * speed, 0);
+                    rb.linearVelocity = new Vector2(direction * speed, 0);
                 }
                 else if (transform.position.x > startPoint.x + leftBorderOffset.x)
                 {
-                    rb.velocity = new Vector2(direction * speed, 0);
+                    rb.linearVelocity = new Vector2(direction * speed, 0);
                 }
                 else if (transform.position.x <= startPoint.x + leftBorderOffset.x)
                 {
                     direction = 1;
-                    rb.velocity = new Vector2(direction * speed, 0);
+                    rb.linearVelocity = new Vector2(direction * speed, 0);
                 }
             }
         }

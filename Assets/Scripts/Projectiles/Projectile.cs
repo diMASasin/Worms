@@ -33,13 +33,13 @@ namespace Projectiles
         
         public void ResetProjectile()
         {
-            _rigidbody.velocity = Vector2.zero;
+            _rigidbody.linearVelocity = Vector2.zero;
             _dead = false;
         }
         
         public void InfluenceOnVelocity(Vector2 additionalVelocity)
         {
-            _rigidbody.velocity += additionalVelocity;
+            _rigidbody.linearVelocity += additionalVelocity;
         }
 
         public virtual void Launch(Vector2 velocity, int maxDamage)
@@ -64,7 +64,7 @@ namespace Projectiles
         private void FixedUpdate()
         {
             if (Config.LookInVelocityDirection)
-                _spriteObject.transform.up = _rigidbody.velocity;
+                _spriteObject.transform.up = _rigidbody.linearVelocity;
         }
 
         private void LateUpdate()

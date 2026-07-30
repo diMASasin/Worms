@@ -78,7 +78,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.B
                                             && (!playerData.Physics.IsOnNotWalkableSlope || playerData.Physics.IsMultipleContactWithNonWalkableSlope || playerData.Physics.Slope.StayStill);
             playerData.Physics.CanWallJump = playerData.Walls.WallJump.CoyoteTimeTimer > 0 && playerData.Walls.WallJump.JumpBufferTimer > 0;
             EssentialPhysics.GetPlatformVelocity(playerData.Physics.CollidedMovingRigidbody, playerData);
-            playerData.Physics.LocalVelocity = rigidbody2D.velocity - playerData.Physics.Platform.DampedVelocity;
+            playerData.Physics.LocalVelocity = rigidbody2D.linearVelocity - playerData.Physics.Platform.DampedVelocity;
             if (player.CurrentState == PlayerMain.AnimName.Jump
                 || player.CurrentState == PlayerMain.AnimName.Land
                 || player.CurrentState == PlayerMain.AnimName.Dash

@@ -24,9 +24,9 @@ namespace ScriptBoy.Digable2DTerrain.Demos.Demo_5
         public void Move(float move)
         {
             // Move the character by finding the target velocity
-            Vector3 targetVelocity = new Vector2(move, m_Rigidbody2D.velocity.y);
+            Vector3 targetVelocity = new Vector2(move, m_Rigidbody2D.linearVelocity.y);
             // And then smoothing it out and applying it to the character
-            m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, MovementSmoothing);
+            m_Rigidbody2D.linearVelocity = Vector3.SmoothDamp(m_Rigidbody2D.linearVelocity, targetVelocity, ref m_Velocity, MovementSmoothing);
 
 
             // If the input is moving the player right and the player is facing left...

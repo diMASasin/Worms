@@ -33,7 +33,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
             else if (playerData.Physics.Contacts.Count == 0 ||
                 (playerData.Physics.IsNextToWall && !playerData.Physics.Slope.StayStill))
             {
-                rigidbody2D.velocity += new Vector2(0f, -9.8f * Time.fixedDeltaTime);
+                rigidbody2D.linearVelocity += new Vector2(0f, -9.8f * Time.fixedDeltaTime);
             }
             // else if (playerData.Physics.IsMultipleContactWithNonWalkableSlope)
             // {
@@ -43,7 +43,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
             // {
             //     rigidbody2D.velocity = new(0f, -playerData.Physics.SlideSpeedOnCorner);
             // }
-            else if (rigidbody2D.velocity.magnitude < 0.3f && playerData.Physics.IsGrounded &&
+            else if (rigidbody2D.linearVelocity.magnitude < 0.3f && playerData.Physics.IsGrounded &&
                      rigidbody2D.gameObject.layer != 6)
             {
                 player.Rigidbody2D.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -53,7 +53,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
                 Mathf.Clamp(
                     playerData.Walls.CurrentStamina + (Time.fixedDeltaTime * playerData.Walls.StaminaRegenPerSec), 0,
                     playerData.Walls.MaxStamina);
-            rigidbody2D.velocity += playerData.Physics.Platform.DampedVelocity;
+            rigidbody2D.linearVelocity += playerData.Physics.Platform.DampedVelocity;
         }
 
         public override void Exit()

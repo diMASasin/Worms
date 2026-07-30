@@ -26,21 +26,21 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
 
             if (playerData.Physics.Contacts.Count == 0)
             {
-                rigidbody2D.velocity = new(0f, -1f);
+                rigidbody2D.linearVelocity = new(0f, -1f);
             }
             else if (playerData.Physics.IsMultipleContactWithNonWalkableSlope)
             {
-                rigidbody2D.velocity = new(0f, (playerData.Physics.Slope.CurrentSlopeAngle / 90) - 1);
+                rigidbody2D.linearVelocity = new(0f, (playerData.Physics.Slope.CurrentSlopeAngle / 90) - 1);
             }
             else if (playerData.Physics.CanSlideCorner)
             {
-                rigidbody2D.velocity = new(0f, -playerData.Physics.SlideSpeedOnCorner);
+                rigidbody2D.linearVelocity = new(0f, -playerData.Physics.SlideSpeedOnCorner);
             }
             else
             {
-                rigidbody2D.velocity = Vector2.zero;
+                rigidbody2D.linearVelocity = Vector2.zero;
             }
-            rigidbody2D.velocity += playerData.Physics.Platform.DampedVelocity;
+            rigidbody2D.linearVelocity += playerData.Physics.Platform.DampedVelocity;
             playerData.Walls.CurrentStamina = Mathf.Clamp(playerData.Walls.CurrentStamina + (Time.fixedDeltaTime * playerData.Walls.StaminaRegenPerSec), 0, playerData.Walls.MaxStamina);
         }
 

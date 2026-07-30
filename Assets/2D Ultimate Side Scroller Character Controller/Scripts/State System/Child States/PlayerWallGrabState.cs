@@ -16,7 +16,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
         {
             base.Enter();
             rigidbody2D.gravityScale = playerData.Walls.Physics2DGravityScale;
-            curveTime = EssentialPhysics.SetCurveTimeByValue(playerData.Walls.WallGrab.SlowDownCurve, Mathf.Abs(rigidbody2D.velocity.y) / playerData.Walls.WallClimb.MaxSpeed, 1f, false);
+            curveTime = EssentialPhysics.SetCurveTimeByValue(playerData.Walls.WallGrab.SlowDownCurve, Mathf.Abs(rigidbody2D.linearVelocity.y) / playerData.Walls.WallClimb.MaxSpeed, 1f, false);
             curveTime *= playerData.Walls.WallGrab.SlowDownTime;
         }
 
@@ -29,10 +29,10 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
         {
             base.FixedUpdate();
             Move1D();
-            rigidbody2D.velocity += playerData.Physics.Platform.DampedVelocity;
+            rigidbody2D.linearVelocity += playerData.Physics.Platform.DampedVelocity;
             if (playerData.Physics.Contacts.Count == 0)
             {
-                rigidbody2D.velocity += new Vector2(playerData.Physics.WallDirection, 0f);
+                rigidbody2D.linearVelocity += new Vector2(playerData.Physics.WallDirection, 0f);
             }
             TimeBasedStaminaDrain();
             curveTime += Time.fixedDeltaTime;
@@ -69,7 +69,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
         {
             float newVelocity;
             newVelocity = VelocityOnY();
-            rigidbody2D.velocity = newVelocity * Vector2.up;
+            rigidbody2D.linearVelocity = newVelocity * Vector2.up;
         }
         private float VelocityOnY()
         {
@@ -82,7 +82,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
             {
                 YVelocity = playerData.Walls.WallGrab.SlowDownCurve.Evaluate(1f);
             }
-            YVelocity *= playerData.Walls.WallClimb.MaxSpeed * Mathf.Sign(rigidbody2D.velocity.y);
+            YVelocity *= playerData.Walls.WallClimb.MaxSpeed * Mathf.Sign(rigidbody2D.linearVelocity.y);
             return YVelocity;
         }
 

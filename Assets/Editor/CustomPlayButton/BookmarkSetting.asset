@@ -11,5 +11,5 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4c2b9217a418d84a87be2b372b7048f, type: 3}
   m_Name: BookmarkSetting
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: CustomPlayButton.Editor::ASze.CustomPlayButton.SceneBookmark
   bookmarks: []

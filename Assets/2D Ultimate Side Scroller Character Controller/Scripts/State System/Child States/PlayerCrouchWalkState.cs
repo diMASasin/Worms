@@ -21,7 +21,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
             base.Enter();
             rigidbody2D.gravityScale = playerData.Walk.Physics2DGravityScale;
             localTime = 0f;
-            curveTime = EssentialPhysics.SetCurveTimeByValue(playerData.Crouch.SpeedUpCurve, rigidbody2D.velocity.x / playerData.Crouch.MaxSpeed, 1, true);
+            curveTime = EssentialPhysics.SetCurveTimeByValue(playerData.Crouch.SpeedUpCurve, rigidbody2D.linearVelocity.x / playerData.Crouch.MaxSpeed, 1, true);
             curveTime *= playerData.Crouch.SpeedUpTime;
             localXVelovity = 0;
             phase = Phase.SpeedUp;
@@ -36,7 +36,7 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
         {
             base.FixedUpdate();
             Move1D();
-            rigidbody2D.velocity += playerData.Physics.Platform.DampedVelocity;
+            rigidbody2D.linearVelocity += playerData.Physics.Platform.DampedVelocity;
             curveTime += Time.fixedDeltaTime;
             playerData.Walls.CurrentStamina = Mathf.Clamp(playerData.Walls.CurrentStamina + (Time.fixedDeltaTime * playerData.Walls.StaminaRegenPerSec), 0, playerData.Walls.MaxStamina);
         }
@@ -90,19 +90,19 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts.State_System.C
             if (playerData.Physics.IsOnNotWalkableSlope && Mathf.Sign(playerData.Physics.ContactPosition.x - player.transform.position.x) == Mathf.Sign(playerData.Physics.FacingDirection)
                 && playerData.Physics.Slope.CurrentSlopeAngle > playerData.Physics.Slope.MaxSlopeAngle)
             {
-                rigidbody2D.velocity = Vector2.zero;
+                rigidbody2D.linearVelocity = Vector2.zero;
             }
             else if (!playerData.Physics.IsOnNotWalkableSlope)
             {
                 newVelocity = VelocityOnX();
-                rigidbody2D.velocity = -1 * newVelocity * playerData.Physics.WalkSpeedDirection.normalized;
+                rigidbody2D.linearVelocity = -1 * newVelocity * playerData.Physics.WalkSpeedDirection.normalized;
             }
             else
             {
                 newVelocity = VelocityOnX();
-                rigidbody2D.velocity = new Vector2(newVelocity, rigidbody2D.velocity.y);
+                rigidbody2D.linearVelocity = new Vector2(newVelocity, rigidbody2D.linearVelocity.y);
             }
-            localXVelovity = rigidbody2D.velocity.x;
+            localXVelovity = rigidbody2D.linearVelocity.x;
         }
         private float VelocityOnX()
         {

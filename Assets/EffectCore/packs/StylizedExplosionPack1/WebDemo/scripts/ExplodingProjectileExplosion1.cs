@@ -52,7 +52,7 @@ namespace EffectCore.packs.StylizedExplosionPack1.WebDemo.scripts
             }
             if (LookRotation)
             { 
-                transform.rotation = Quaternion.LookRotation(thisRigidbody.velocity);
+                transform.rotation = Quaternion.LookRotation(thisRigidbody.linearVelocity);
             }
         }
 
@@ -87,7 +87,7 @@ namespace EffectCore.packs.StylizedExplosionPack1.WebDemo.scripts
 
                     thisCollider.enabled = false;
                     particleKillGroup.SetActive(false);
-                    thisRigidbody.velocity = Vector3.zero;
+                    thisRigidbody.linearVelocity = Vector3.zero;
 
                     Destroy(gameObject, 5);
 

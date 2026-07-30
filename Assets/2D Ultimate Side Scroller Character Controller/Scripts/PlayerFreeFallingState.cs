@@ -29,9 +29,9 @@ namespace _2D_Ultimate_Side_Scroller_Character_Controller.Scripts
         public override void Update()
         {
             base.Update();
-            _playerMain.Rigidbody2D.velocity += Vector2.down * (_speed * Time.deltaTime);
+            _playerMain.Rigidbody2D.linearVelocity += Vector2.down * (_speed * Time.deltaTime);
 
-            if (playerData.Physics.IsGrounded == true && _playerMain.Rigidbody2D.velocity.magnitude < 0.2f)
+            if (playerData.Physics.IsGrounded == true && _playerMain.Rigidbody2D.linearVelocity.magnitude < 0.2f)
             {
                 _playerMain.Rigidbody2D.constraints = _previousConstraints;
                 _stateMachine.ChangeState(_playerMain.IdleState);
